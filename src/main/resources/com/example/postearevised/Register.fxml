@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.RegisterController">
+   <children>
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Medias/Backgrounds/LoginRegister/Register%20with%20Details.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="510.0" layoutY="52.0" prefHeight="965.0" prefWidth="922.0">
+         <children>
+            <AnchorPane layoutX="190.0" layoutY="209.0" prefHeight="562.0" prefWidth="575.0">
+               <children>
+                  <TextField layoutY="50.0" prefHeight="64.0" prefWidth="575.0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutY="178.0" prefHeight="64.0" prefWidth="575.0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutY="309.0" prefHeight="64.0" prefWidth="575.0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                     </font>
+                  </TextField>
+                  <TextField layoutY="438.0" prefHeight="64.0" prefWidth="575.0">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="163.0" layoutY="750.0" prefHeight="170.0" prefWidth="620.0">
+               <children>
+                  <AnchorPane fx:id="anchorPaneTAC" layoutX="14.0" layoutY="85.0" prefHeight="49.0" prefWidth="255.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <ImageView fitHeight="76.0" fitWidth="389.0" layoutX="287.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Medias/Buttons/LoginRegister/Button%20Register.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Medias/Buttons/close.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

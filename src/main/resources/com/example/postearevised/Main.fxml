@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.MainController">
+    <children>
+      <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
+         <children>
+              <AnchorPane prefHeight="80.0" prefWidth="1920.0">
+                  <children>
+                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e07a5f" height="80.0" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
+                      <Label layoutX="818.0" layoutY="6.0" text="POS - Tea">
+                          <font>
+                              <Font name="SansSerif Bold" size="60.0" />
+                          </font>
+                      </Label>
+                  </children>
+              </AnchorPane>
+              <AnchorPane layoutY="79.0" prefHeight="972.0" prefWidth="85.0">
+                  <children>
+                      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#81b29a" height="1002.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+                      <AnchorPane fx:id="iconAnchorPaneMenu" layoutY="2.0" onMouseClicked="#anchorPaneMenuClicked" onTouchReleased="#anchorPaneMenuTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <Label layoutX="17.0" layoutY="83.0" text="MENU">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                              <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="15.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/menu.png" />
+                                  </image>
+                              </ImageView>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneDashboard" layoutX="1.0" layoutY="117.0" onMouseClicked="#anchorPaneDashBoardClicked" onTouchReleased="#anchorPaneDashboardTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/dashboard.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="11.0" layoutY="65.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneOrderList" layoutX="1.0" layoutY="232.0" onMouseClicked="#anchorPaneOrderListClicked" onTouchReleased="#anchorPaneOrderListTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/Order%20list.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="11.0" layoutY="65.0" text="ORDER&#10;LIST" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneOrderHistory" layoutX="-1.0" layoutY="347.0" onMouseClicked="#anchorPaneOrderHistoryClicked" onTouchReleased="#anchorPaneOrderHistoryTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/Order%20History.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="6.0" layoutY="65.0" text="ORDER&#10;HISTORY" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneAboutUs" layoutX="1.0" layoutY="645.0" onMouseClicked="#anchorPaneAboutUsClicked" onTouchReleased="#anchorPaneAboutUsTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/About%20us.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="13.0" layoutY="65.0" text="ABOUT&#10;US" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneSettings" layoutY="760.0" onMouseClicked="#anchorPaneSettingsClicked" onTouchReleased="#anchorPaneSettingsTouched" prefHeight="95.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/Settings.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="7.0" layoutY="64.0" text="SETTINGS" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="13.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneLogout" layoutX="-1.0" layoutY="855.0" onMouseClicked="#anchorPaneLogoutClicked" onTouchReleased="#anchorPaneLogoutTouched" prefHeight="105.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@Medias/Icons/Logout.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="14.0" layoutY="68.0" text="LOGOUT" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="13.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                  </children>
+              </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+      <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+      <AnchorPane fx:id="anchorPaneAboutUs" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" />
+    </children>
+</AnchorPane>

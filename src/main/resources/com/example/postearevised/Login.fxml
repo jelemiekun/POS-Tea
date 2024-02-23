@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginController">
+    <children>
+        <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@Medias/Backgrounds/LoginRegister/Login%20with%20Details.png" />
+            </image>
+        </ImageView>
+        <AnchorPane layoutX="949.0" layoutY="85.0" prefHeight="919.0" prefWidth="917.0">
+            <children>
+                <TextField fx:id="textFieldAccount" layoutX="324.0" layoutY="307.0" onKeyPressed="#textFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Username or email">
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="textFieldShowPassword" layoutX="324.0" layoutY="447.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Password" visible="false">
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                    </font>
+                </TextField>
+                <PasswordField fx:id="textFieldPassword" layoutX="324.0" layoutY="447.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Password">
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="33.0" />
+                    </font>
+                </PasswordField>
+                <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" layoutX="264.0" layoutY="616.0" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Medias/Buttons/LoginRegister/Button%20Login.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ImageView>
+                <AnchorPane fx:id="btnRegister" layoutX="515.0" layoutY="764.0" onMouseClicked="#btnRegisterClicked" onTouchReleased="#btnRegisterTouched" prefHeight="41.0" prefWidth="159.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </AnchorPane>
+                <ImageView fx:id="btnShowHidePassword" fitHeight="33.0" fitWidth="29.0" layoutX="793.0" layoutY="465.0" onMouseClicked="#btnShowHidePasswordClicked" onTouchReleased="#btnShowHidePasswordTouched" pickOnBounds="true" preserveRatio="true">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </ImageView>
+                <AnchorPane fx:id="btnForgotPassword" layoutX="357.0" layoutY="820.0" onMouseClicked="#btnForgotPasswordClicked" onTouchReleased="#btnForgotPasswordTouched" prefHeight="41.0" prefWidth="198.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </AnchorPane>
+                <Label fx:id="labelIncorrectCredentials" layoutX="282.0" layoutY="547.0" text="Incorrect account or password" textFill="#ff5a5a" visible="false">
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="26.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
