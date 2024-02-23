@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class LoginRegisterController implements Initializable {
     /**
-     * Login
+     * Main
      */
     public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
     public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));

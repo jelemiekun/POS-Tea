@@ -46,7 +46,7 @@ public class LoginRegisterModel {
     }
 
     /**
-     * Login
+     * Main
      */
 
     public void setImage() {

@@ -11,11 +11,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginRegisterController">
     <children>
-        <AnchorPane fx:id="anchorPaneLogin" prefHeight="1050.0" prefWidth="1920.0">
+        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Medias/Backgrounds/LoginRegister/Login%20with%20Details.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegister/Login%20with%20Details.png" />
                     </image>
                 </ImageView>
                 <AnchorPane layoutX="949.0" layoutY="82.0" prefHeight="919.0" prefWidth="917.0">
@@ -37,7 +37,7 @@
                         </PasswordField>
                         <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" layoutX="264.0" layoutY="616.0" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@Medias/Buttons/LoginRegister/Button%20Login.png" />
+                                <Image url="@../../Medias/Buttons/LoginRegister/Button%20Login.png" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
@@ -68,18 +68,18 @@
             </children>
         </AnchorPane>
 
+      
+              <!-- register -->
 
-        <!-- register -->
-
-
-      <AnchorPane fx:id="anchorPaneRegister" prefHeight="1050.0" prefWidth="1920.0">
+      
+            <AnchorPane fx:id="anchorPaneRegister" layoutY="-24.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
-             <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                  <image>
-                     <Image url="@Medias/Backgrounds/LoginRegister/Register%20with%20Details.png" />
+                     <Image url="@../../Medias/Backgrounds/LoginRegister/Register%20with%20Details.png" />
                  </image>
              </ImageView>
-             <AnchorPane layoutX="510.0" layoutY="52.0" prefHeight="965.0" prefWidth="922.0">
+             <AnchorPane layoutX="510.0" layoutY="53.0" prefHeight="965.0" prefWidth="922.0">
                  <children>
                      <AnchorPane layoutX="190.0" layoutY="214.0" prefHeight="562.0" prefWidth="575.0">
                          <children>
@@ -143,7 +143,7 @@
                          <children>
                              <ImageView fx:id="btnRegister1" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegister1Clicked" onTouchReleased="#btnRegister1Touched" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                     <Image url="@Medias/Buttons/LoginRegister/Button%20Register.png" />
+                                     <Image url="@../../Medias/Buttons/LoginRegister/Button%20Register.png" />
                                  </image>
                                  <cursor>
                                      <Cursor fx:constant="HAND" />
@@ -153,7 +153,7 @@
                      </AnchorPane>
                      <ImageView fx:id="btnClose" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
-                             <Image url="@Medias/Buttons/close.png" />
+                             <Image url="@../../Medias/Buttons/close.png" />
                          </image>
                          <cursor>
                              <Cursor fx:constant="HAND" />

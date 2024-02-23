@@ -9,4 +9,6 @@ module com.example.postearevised {
     opens com.example.postearevised.Controllers to javafx.fxml;
     exports com.example.postearevised.Models;
     opens com.example.postearevised.Models to javafx.fxml;
+    exports com.example.postearevised.Controllers.Additional;
+    opens com.example.postearevised.Controllers.Additional to javafx.fxml;
 }

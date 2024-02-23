@@ -3,9 +3,9 @@ package com.example.postearevised.Miscellaneous.Enums;
 import static com.example.postearevised.Miscellaneous.Enums.Pane.Menu;
 
 public enum Scenes {
-    Login("Login", "/com/example/postearevised/LoginRegister.fxml"),
-    Register("Register", "/com/example/postearevised/LoginRegister.fxml"),
-    Main(Menu.getName(), "/com/example/postearevised/Main.fxml"),;
+    Login("Main", "/com/example/postearevised/Scenes/Main/LoginRegister.fxml"),
+    Register("Register", "/com/example/postearevised/Scenes/Main/LoginRegister.fxml"),
+    Main(Menu.getName(), "/com/example/postearevised/Scenes/Main/Main.fxml"),;
 
     private final String TITLE;
     private final String URL;
