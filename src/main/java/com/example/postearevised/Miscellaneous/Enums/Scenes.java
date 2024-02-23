@@ -3,8 +3,8 @@ package com.example.postearevised.Miscellaneous.Enums;
 import static com.example.postearevised.Miscellaneous.Enums.Pane.Menu;
 
 public enum Scenes {
-    Login("Login", "/com/example/postearevised/Login.fxml"),
-    Register("Register", "/com/example/postearevised/Register.fxml"),
+    Login("Login", "/com/example/postearevised/LoginRegister.fxml"),
+    Register("Register", "/com/example/postearevised/LoginRegister.fxml"),
     Main(Menu.getName(), "/com/example/postearevised/Main.fxml"),;
 
     private final String TITLE;
