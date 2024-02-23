@@ -72,7 +72,7 @@
         <!-- register -->
 
 
-      <AnchorPane fx:id="anchorPaneRegister" prefHeight="1050.0" prefWidth="1920.0" visible="false">
+      <AnchorPane fx:id="anchorPaneRegister" prefHeight="1050.0" prefWidth="1920.0">
          <children>
              <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                  <image>
@@ -100,11 +100,16 @@
                                              <Font name="Microsoft Sans Serif" size="26.0" />
                                          </font>
                                      </Label>
-                                     <Label fx:id="labelConfirmPassword" layoutX="5.0" layoutY="396.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                     <Label fx:id="labelConfirmPassword" layoutY="396.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
                                          <font>
                                              <Font name="Microsoft Sans Serif" size="26.0" />
                                          </font>
                                      </Label>
+                              <Label fx:id="labelInvalidEmail" layoutX="103.0" layoutY="140.0" prefHeight="31.0" prefWidth="159.0" text="*invalid email" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                 <font>
+                                    <Font name="Microsoft Sans Serif" size="26.0" />
+                                 </font>
+                              </Label>
                                  </children>
                              </AnchorPane>
                              <TextField fx:id="textFieldUsername" layoutY="50.0" onKeyPressed="#textFieldPressedEnter" prefHeight="64.0" prefWidth="575.0">
@@ -127,16 +132,16 @@
                                      <Font name="Microsoft Sans Serif" size="33.0" />
                                  </font>
                              </PasswordField>
+                        <Label fx:id="labelPasswordNotMatch" layoutY="511.0" text="Password does not match." textFill="#ff5a5a" visible="false">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="26.0" />
+                           </font>
+                        </Label>
                          </children>
                      </AnchorPane>
                      <AnchorPane layoutX="163.0" layoutY="750.0" prefHeight="170.0" prefWidth="620.0">
                          <children>
-                             <AnchorPane fx:id="anchorPaneTAC" layoutX="14.0" layoutY="85.0" onMouseClicked="#anchorPaneTACClicked" onTouchReleased="#anchorPaneTACTouched" prefHeight="49.0" prefWidth="255.0">
-                                 <cursor>
-                                     <Cursor fx:constant="HAND" />
-                                 </cursor>
-                             </AnchorPane>
-                             <ImageView fx:id="btnRegister1" fitHeight="76.0" fitWidth="389.0" layoutX="287.0" layoutY="47.0" onMouseClicked="#btnRegister1Clicked" onTouchReleased="#btnRegister1Touched" pickOnBounds="true" preserveRatio="true">
+                             <ImageView fx:id="btnRegister1" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegister1Clicked" onTouchReleased="#btnRegister1Touched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                      <Image url="@Medias/Buttons/LoginRegister/Button%20Register.png" />
                                  </image>

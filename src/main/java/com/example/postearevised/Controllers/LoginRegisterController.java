@@ -56,69 +56,32 @@ public class LoginRegisterController implements Initializable {
     @FXML
     public AnchorPane anchorPaneLogin;
 
-    /**
-     * Register
-     */
-
-    @FXML
-    public Label labelUsername;
-    @FXML
-    public Label labelEmail;
-    @FXML
-    public Label labelPassword;
-    @FXML
-    public Label labelConfirmPassword;
-
-    @FXML
-    public AnchorPane anchorPaneTAC;
-
-    @FXML
-    public ImageView btnClose;
-
-    @FXML
-    public ImageView btnRegister1;
-
-    @FXML
-    public PasswordField textFieldConfirmPassword;
-
-    @FXML
-    public TextField textFieldEmail;
-
-    @FXML
-    public PasswordField textFieldPassword1;
-
-    @FXML
-    public TextField textFieldUsername;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginRegisterModel = new LoginRegisterModel();
         loginRegisterModel.setLoginRegisterController(this);
         loginRegisterModel.setAttributes();
+        loginRegisterModel.setPane();
         loginRegisterModel.setImage();
     }
 
-    /**
-     * Login
-     */
-
     @FXML
-    void btnForgotPasswordClicked(MouseEvent event) throws IOException {
+    void btnForgotPasswordClicked(MouseEvent event) {
 
     }
 
     @FXML
-    void btnForgotPasswordTouched(TouchEvent event) throws IOException {
+    void btnForgotPasswordTouched(TouchEvent event) {
 
     }
 
     @FXML
-    void btnShowHidePasswordClicked(MouseEvent event) throws IOException {
+    void btnShowHidePasswordClicked(MouseEvent event) {
         loginRegisterModel.togglePasswordField();
     }
 
     @FXML
-    void btnShowHidePasswordTouched(TouchEvent event) throws IOException {
+    void btnShowHidePasswordTouched(TouchEvent event) {
         loginRegisterModel.togglePasswordField();
     }
 
@@ -160,22 +123,43 @@ public class LoginRegisterController implements Initializable {
      */
 
     @FXML
-    void anchorPaneTACClicked(MouseEvent event) {
-
-    }
+    public Label labelPasswordNotMatch;
+    @FXML
+    public Label labelInvalidEmail;
+    @FXML
+    public Label labelUsername;
+    @FXML
+    public Label labelEmail;
+    @FXML
+    public Label labelPassword;
+    @FXML
+    public Label labelConfirmPassword;
 
     @FXML
-    void anchorPaneTACTouched(TouchEvent event) {
-
-    }
+    public ImageView btnClose;
 
     @FXML
-    void btnCloseClicked(MouseEvent event) throws IOException {
+    public ImageView btnRegister1;
+
+    @FXML
+    public PasswordField textFieldConfirmPassword;
+
+    @FXML
+    public TextField textFieldEmail;
+
+    @FXML
+    public PasswordField textFieldPassword1;
+
+    @FXML
+    public TextField textFieldUsername;
+
+    @FXML
+    void btnCloseClicked(MouseEvent event) {
         loginRegisterModel.close();
     }
 
     @FXML
-    void btnCloseTouched(TouchEvent event) throws IOException {
+    void btnCloseTouched(TouchEvent event) {
         loginRegisterModel.close();
     }
 

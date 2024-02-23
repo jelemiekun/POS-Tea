@@ -1,7 +1,6 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.LoginRegisterController;
-import com.example.postearevised.Miscellaneous.Enums.Scenes;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,6 +27,22 @@ public class LoginRegisterModel {
     public void togglePane() {
         loginRegisterController.anchorPaneLogin.setVisible(!loginRegisterController.anchorPaneLogin.isVisible());
         loginRegisterController.anchorPaneRegister.setVisible(!loginRegisterController.anchorPaneRegister.isVisible());
+        clearFields();
+        togglePaneTitle();
+    }
+
+    private void clearFields() {
+        loginRegisterController.textFieldAccount.setText("");
+        loginRegisterController.textFieldPassword.setText("");
+        loginRegisterController.textFieldShowPassword.setText("");
+        loginRegisterController.textFieldUsername.setText("");
+        loginRegisterController.textFieldEmail.setText("");
+        loginRegisterController.textFieldPassword1.setText("");
+        loginRegisterController.textFieldConfirmPassword.setText("");
+    }
+
+    private void togglePaneTitle() {
+        loginRegisterStage.setTitle(loginRegisterController.anchorPaneLogin.isVisible() ? Login.getTITLE() : Register.getTITLE());
     }
 
     /**
@@ -78,7 +93,7 @@ public class LoginRegisterModel {
 
     // If fields are not empty
     private boolean checkInputsIfBlank() {
-        return !loginRegisterController.textFieldAccount.getText().isEmpty() && !loginRegisterController.textFieldPassword.getText().isEmpty();
+        return !loginRegisterController.textFieldAccount.getText().isBlank() && !loginRegisterController.textFieldPassword.getText().isBlank();
     }
 
     // If account is found
@@ -115,32 +130,49 @@ public class LoginRegisterModel {
 
     public void checkTextFields() {
         setAttributes();
-        if (notEmptyTextFields()) {
-            System.out.println("not empty fields");
-        } else {
-            setAttributes();
-            System.out.println(username.isEmpty());
-            loginRegisterController.labelUsername.setVisible(username.isEmpty());
-            loginRegisterController.labelEmail.setVisible(email.isEmpty());
-            loginRegisterController.labelPassword.setVisible(password.isEmpty());
-            loginRegisterController.labelConfirmPassword.setVisible(confirmPassword.isEmpty());
+
+        boolean allFieldsNotEmpty = notEmptyTextFields();
+        boolean validEmail = isValidEmail();
+        boolean passwordsMatch = passwordMatched();
+
+        loginRegisterController.labelUsername.setVisible(username.isBlank());
+        loginRegisterController.labelEmail.setVisible(email.isBlank());
+        loginRegisterController.labelPassword.setVisible(password.isBlank());
+        loginRegisterController.labelConfirmPassword.setVisible(confirmPassword.isBlank());
+        loginRegisterController.labelInvalidEmail.setVisible(!email.isBlank() && !validEmail);
+        loginRegisterController.labelPasswordNotMatch.setVisible(!passwordsMatch);
+
+        if (allFieldsNotEmpty && validEmail && passwordsMatch) {
+            System.out.println("All fields are not empty, email is matched, and passwords are matched.");
         }
     }
 
-    private boolean notEmptyTextFields() {
-        return !username.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty();
+    private boolean isValidEmail() {
+        return email.matches(regexEmail);
     }
 
-    public void close() throws IOException {
+    private boolean notEmptyTextFields() {
+        return !username.isBlank() && !email.isBlank() && !password.isBlank() && !confirmPassword.isBlank();
+    }
+
+    private boolean exitAreFieldsEmpty() {
+        return !username.isBlank() || !email.isBlank() || !password.isBlank() || !confirmPassword.isBlank();
+    }
+
+    private boolean passwordMatched() {
+        return password.equals(confirmPassword);
+    }
+
+    public void close() {
         setAttributes();
-        if (notEmptyTextFields()) {
+        if (exitAreFieldsEmpty()) {
             System.out.println("meow");
         } else {
             goToLogin();
         }
     }
 
-    private void goToLogin() throws IOException {
+    private void goToLogin() {
         togglePane();
     }
 
