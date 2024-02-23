@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class LoginRegisterModel {
@@ -151,9 +152,26 @@ public class LoginRegisterModel {
 
         if (allFieldsNotEmpty && validEmail && passwordsMatch) {
             if (openTAC()) {
-                System.out.println("Success account");
+                promptRegisteredSuccess();
             }
         }
+    }
+
+    private void promptRegisteredSuccess() throws IOException {
+        setAccountCreatedConfirmation();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterController.labelUsername.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+
+        goToLogin();
     }
 
     private boolean openTAC() throws IOException {
@@ -172,7 +190,7 @@ public class LoginRegisterModel {
     }
 
     private boolean isValidEmail() {
-        return email.matches(regexEmail);
+        return email.matches(REGEX_EMAIL);
     }
 
     private boolean notEmptyTextFields() {
@@ -190,7 +208,7 @@ public class LoginRegisterModel {
     public void close() throws IOException {
         setAttributes();
         if (exitAreFieldsEmpty()) {
-            if (openExitConfirmation()) {
+            if (openPrompt()) {
                 goToLogin();
             }
         } else {
@@ -198,7 +216,8 @@ public class LoginRegisterModel {
         }
     }
 
-    private boolean openExitConfirmation() throws IOException {
+    private boolean openPrompt() throws IOException {
+        setGoBackConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();

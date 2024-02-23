@@ -94,6 +94,8 @@ public class MainModel {
         }
     }
 
+
+
     private void closeThisStage() {
         Stage stage = (Stage) mainController.iconAnchorPaneAboutUs.getScene().getWindow();
         stage.close();

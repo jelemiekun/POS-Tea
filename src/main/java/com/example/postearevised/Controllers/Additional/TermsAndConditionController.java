@@ -6,7 +6,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.stage.Stage;
 
-import static com.example.postearevised.Miscellaneous.Reference.isConfirmed;
+import static com.example.postearevised.Miscellaneous.Prompt.*;
 
 public class TermsAndConditionController {
 
