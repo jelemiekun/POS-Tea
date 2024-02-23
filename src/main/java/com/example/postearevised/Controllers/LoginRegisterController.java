@@ -113,26 +113,6 @@ public class LoginRegisterController implements Initializable {
     }
 
     @FXML
-    void btnLoginClicked(MouseEvent event) throws IOException {
-        loginRegisterModel.goToAnotherScene(true);
-    }
-
-    @FXML
-    void btnLoginTouched(TouchEvent event) throws IOException {
-        loginRegisterModel.goToAnotherScene(true);
-    }
-
-    @FXML
-    void btnRegisterClicked(MouseEvent event) throws IOException {
-        loginRegisterModel.goToAnotherScene(false);
-    }
-
-    @FXML
-    void btnRegisterTouched(TouchEvent event) throws IOException {
-        loginRegisterModel.goToAnotherScene(false);
-    }
-
-    @FXML
     void btnShowHidePasswordClicked(MouseEvent event) throws IOException {
         loginRegisterModel.togglePasswordField();
     }
@@ -140,6 +120,16 @@ public class LoginRegisterController implements Initializable {
     @FXML
     void btnShowHidePasswordTouched(TouchEvent event) throws IOException {
         loginRegisterModel.togglePasswordField();
+    }
+
+    @FXML
+    void btnLoginClicked(MouseEvent event) throws IOException {
+        loginRegisterModel.goToAnotherScene(true);
+    }
+
+    @FXML
+    void btnLoginTouched(TouchEvent event) throws IOException {
+        loginRegisterModel.goToAnotherScene(true);
     }
 
     @FXML
@@ -152,6 +142,16 @@ public class LoginRegisterController implements Initializable {
     void textFieldPasswordPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             loginRegisterModel.goToAnotherScene(true);
+    }
+
+    @FXML
+    void btnRegisterClicked(MouseEvent event) throws IOException {
+        loginRegisterModel.goToAnotherScene(false);
+    }
+
+    @FXML
+    void btnRegisterTouched(TouchEvent event) throws IOException {
+        loginRegisterModel.goToAnotherScene(false);
     }
 
 

@@ -55,14 +55,14 @@ public class LoginRegisterModel {
     }
 
     public void goToAnotherScene(boolean isLogin) throws IOException {
-        boolean proceed;
+        boolean proceed = false;
         String title = isLogin ? Main.getTITLE() : Register.getTITLE();
         String url = isLogin ? Main.getURL(): Register.getURL();
 
         if (isLogin) {
             proceed = checkInputsIfBlank() && checkCredentials();
         } else {
-            proceed = true;
+            togglePane();
         }
 
         if (proceed) {
@@ -141,13 +141,7 @@ public class LoginRegisterModel {
     }
 
     private void goToLogin() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(Scenes.Login.getURL()));
-        Parent root = loader.load();
-        mainStage = new Stage();
-        mainStage.setTitle(Scenes.Login.getTITLE());
-        mainStage.setScene(new Scene(root));
-        mainStage.show();
-        closeThisStage();
+        togglePane();
     }
 
     private void closeThisStage() {
