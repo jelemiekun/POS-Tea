@@ -10,14 +10,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Reference.mainStage;
+import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class LoginModel {
-    private String accountReference = "admin";
-    private String passwordReference = "admin";
-    /**
-     * Remove nasa taas pag may database na
-     */
+
     private LoginController loginController;
 
     public void setLoginController(LoginController loginController) {
@@ -68,7 +64,7 @@ public class LoginModel {
 
     // If fields are not empty
     private boolean checkInputsIfBlank() {
-        return !loginController.textFieldAccount.getText().isBlank() && !loginController.textFieldPassword.getText().isBlank();
+        return !loginController.textFieldAccount.getText().isEmpty() && !loginController.textFieldPassword.getText().isEmpty();
     }
 
     // If account is found
@@ -76,7 +72,7 @@ public class LoginModel {
         String account = loginController.textFieldAccount.getText();
         String password = loginController.showPassword ? loginController.textFieldShowPassword.getText() : loginController.textFieldPassword.getText();
 
-        if (account.equals(accountReference) && password.equals(passwordReference)) {
+        if (account.equals(accountReference) && password.equals(passwordReference)) { // CHECK HERE SA DATABASE
             return true;
         } else {
             showIncorrectCredentials();
