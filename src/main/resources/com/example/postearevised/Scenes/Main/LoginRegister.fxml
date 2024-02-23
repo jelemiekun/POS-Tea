@@ -37,13 +37,13 @@
                         </PasswordField>
                         <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" layoutX="264.0" layoutY="616.0" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Medias/Buttons/LoginRegister/Button%20Login.png" />
+                                <Image url="@../../Medias/Buttons/LoginRegister/Login.png" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <AnchorPane fx:id="btnRegister" layoutX="515.0" layoutY="764.0" onMouseClicked="#btnRegisterClicked" onTouchReleased="#btnRegisterTouched" prefHeight="41.0" prefWidth="159.0">
+                        <AnchorPane fx:id="btnRegister" layoutX="515.0" layoutY="764.0" onMouseClicked="#btnRegisterFromLoginClicked" onTouchReleased="#btnRegisterFromLoginTouched" prefHeight="41.0" prefWidth="159.0">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -141,9 +141,9 @@
                      </AnchorPane>
                      <AnchorPane layoutX="163.0" layoutY="750.0" prefHeight="170.0" prefWidth="620.0">
                          <children>
-                             <ImageView fx:id="btnRegister1" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegister1Clicked" onTouchReleased="#btnRegister1Touched" pickOnBounds="true" preserveRatio="true">
+                             <ImageView fx:id="btnRegister1" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegisterClicked" onTouchReleased="#btnRegisterTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                     <Image url="@../../Medias/Buttons/LoginRegister/Button%20Register.png" />
+                                     <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
                                  </image>
                                  <cursor>
                                      <Cursor fx:constant="HAND" />

@@ -108,12 +108,12 @@ public class LoginRegisterController implements Initializable {
     }
 
     @FXML
-    void btnRegisterClicked(MouseEvent event) throws IOException {
+    void btnRegisterFromLoginClicked(MouseEvent event) throws IOException {
         loginRegisterModel.goToAnotherScene(false);
     }
 
     @FXML
-    void btnRegisterTouched(TouchEvent event) throws IOException {
+    void btnRegisterFromLoginTouched(TouchEvent event) throws IOException {
         loginRegisterModel.goToAnotherScene(false);
     }
 
@@ -154,28 +154,28 @@ public class LoginRegisterController implements Initializable {
     public TextField textFieldUsername;
 
     @FXML
-    void btnCloseClicked(MouseEvent event) {
+    void btnCloseClicked(MouseEvent event) throws IOException {
         loginRegisterModel.close();
     }
 
     @FXML
-    void btnCloseTouched(TouchEvent event) {
+    void btnCloseTouched(TouchEvent event) throws IOException {
         loginRegisterModel.close();
     }
 
     @FXML
-    void btnRegister1Clicked(MouseEvent event) {
-        loginRegisterModel.checkTextFields();
+    void btnRegisterClicked(MouseEvent event) throws IOException {
+        loginRegisterModel.registerAction();
     }
 
     @FXML
-    void btnRegister1Touched(TouchEvent event) {
-        loginRegisterModel.checkTextFields();
+    void btnRegisterTouched(TouchEvent event) throws IOException {
+        loginRegisterModel.registerAction();
     }
 
     @FXML
-    void textFieldPressedEnter(KeyEvent event) {
+    void textFieldPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
-            loginRegisterModel.checkTextFields();
+            loginRegisterModel.registerAction();
     }
 }

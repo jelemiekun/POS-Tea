@@ -1,8 +1,5 @@
 package com.example.postearevised.Miscellaneous;
 
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 public class Reference {
@@ -14,5 +11,5 @@ public class Reference {
     public static Stage mainStage;
     public static Stage loginRegisterStage;
     public static String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
-    public static boolean goBack = false;
+    public static boolean isConfirmed = false;
 }

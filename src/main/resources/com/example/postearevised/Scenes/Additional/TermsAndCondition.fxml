@@ -1,10 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="748.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.TermsAndConditionController">
    <children>
-      <AnchorPane prefHeight="748.0" prefWidth="614.0" />
+      <AnchorPane prefHeight="748.0" prefWidth="614.0">
+         <children>
+            <Line endX="506.0" layoutX="108.0" layoutY="101.0" startX="-108.0" stroke="#868686" />
+            <AnchorPane layoutY="1.0" prefHeight="98.0" prefWidth="615.0">
+               <children>
+                  <Label layoutX="117.0" layoutY="18.0" text="Terms and Conditions">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="120.0" layoutY="62.0" text="Last updated February 23, 2024" textFill="#868686">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="75.0" fitWidth="60.0" layoutX="44.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Icons/TAC/terms-and-conditions.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="101.0" prefHeight="646.0" prefWidth="615.0">
+               <children>
+                  <ScrollPane layoutX="42.0" layoutY="23.0" prefHeight="514.0" prefWidth="532.0">
+                     <content>
+                        <AnchorPane prefHeight="2160.0" prefWidth="515.0">
+                           <children>
+                              <ImageView fitHeight="2160.0" fitWidth="515.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Backgrounds/Terms%20And%20Condition.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <AnchorPane layoutX="42.0" layoutY="548.0" prefHeight="82.0" prefWidth="532.0">
+                     <children>
+                        <ImageView fx:id="btnDecline" fitHeight="60.0" fitWidth="294.0" layoutY="11.0" onMouseClicked="#btnDeclineClicked" onTouchReleased="#btnDeclineTouched" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Buttons/TAC/decline.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="btnAccept" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Buttons/TAC/accept.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Label fx:id="labelTAC" prefHeight="687.0" prefWidth="468.0" text="1. Acceptance of Terms:&#10;&#10;By accessing or using the Software, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not access or use the Software.&#10;&#10;2.License Grant:&#10;Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to use the Software for your business operations.&#10;&#10;3. User Responsibilities:&#10;You are responsible for maintaining the security of your account and passwords associated with the Software. You agree to use the Software only for lawful purposes and in compliance with all applicable laws and regulations.&#10;&#10;4. Data Security:&#10;We implement reasonable security measures to protect your data stored within the Software. However, you acknowledge that no method of transmission over the internet or electronic storage is 100% secure, and we cannot guarantee absolute security of your data.&#10;&#10;5. Intellectual Property:&#10;The Software and all related intellectual property rights are and will remain the exclusive property of [Your Company Name]. You agree not to reproduce, modify, or distribute the Software without our prior written consent.&#10;&#10;6. Payment and Fees:&#10;You agree to pay all fees associated with your use of the Software as outlined in your subscription plan or agreement with us. Failure to pay fees may result in suspension or termination of your access to the Software.&#10;&#10;7. Termination:&#10;We reserve the right to terminate or suspend your access to the Software at any time, with or without cause, and without prior notice or liability. Upon termination, your right to use the Software will immediately cease.&#10;&#10;8. Limitation of Liability:&#10;In no event shall [Your Company Name] be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of the Software, including but not limited to loss of profits, data, use, or goodwill.&#10;&#10;9. Changes to Terms:&#10;We reserve the right to modify or update these Terms at any time. Any changes will be effective immediately upon posting the revised Terms on our website. Your continued use of the Software after the posting of the revised Terms constitutes your acceptance of the changes.&#10;&#10;10. Governing Law:&#10;These Terms shall be governed by and construed in accordance with the laws of [Your Jurisdiction], without regard to its conflict of law provisions.&#10;&#10;11. Contact Us:&#10;If you have any questions about these Terms and Conditions or need further assistance regarding the use of the POS System, please feel free to contact us at [Your Contact Information]. We are here to help and address any concerns you may have." visible="false" wrapText="true">
+               <font>
+                  <Font name="Microsoft Sans Serif" size="16.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
    </children>
 </AnchorPane>

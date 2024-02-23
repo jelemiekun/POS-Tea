@@ -4,6 +4,7 @@ import com.example.postearevised.Controllers.LoginRegisterController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,11 +28,11 @@ public class LoginRegisterModel {
     public void togglePane() {
         loginRegisterController.anchorPaneLogin.setVisible(!loginRegisterController.anchorPaneLogin.isVisible());
         loginRegisterController.anchorPaneRegister.setVisible(!loginRegisterController.anchorPaneRegister.isVisible());
-        clearFields();
+        clearFieldsAndHideLabels();
         togglePaneTitle();
     }
 
-    private void clearFields() {
+    private void clearFieldsAndHideLabels() {
         loginRegisterController.textFieldAccount.setText("");
         loginRegisterController.textFieldPassword.setText("");
         loginRegisterController.textFieldShowPassword.setText("");
@@ -39,6 +40,12 @@ public class LoginRegisterModel {
         loginRegisterController.textFieldEmail.setText("");
         loginRegisterController.textFieldPassword1.setText("");
         loginRegisterController.textFieldConfirmPassword.setText("");
+        loginRegisterController.labelUsername.setVisible(false);
+        loginRegisterController.labelEmail.setVisible(false);
+        loginRegisterController.labelPassword.setVisible(false);
+        loginRegisterController.labelConfirmPassword.setVisible(false);
+        loginRegisterController.labelInvalidEmail.setVisible(false);
+        loginRegisterController.labelPasswordNotMatch.setVisible(false);
     }
 
     private void togglePaneTitle() {
@@ -75,7 +82,7 @@ public class LoginRegisterModel {
         String url = isLogin ? Main.getURL(): Register.getURL();
 
         if (isLogin) {
-            proceed = checkInputsIfBlank() && checkCredentials();
+            proceed = checkCredentials();
         } else {
             togglePane();
         }
@@ -85,15 +92,11 @@ public class LoginRegisterModel {
             Parent root = loader.load();
             mainStage = new Stage();
             mainStage.setTitle(title);
+            mainStage.setResizable(false);
             mainStage.setScene(new Scene(root));
             mainStage.show();
             closeThisStage();
         }
-    }
-
-    // If fields are not empty
-    private boolean checkInputsIfBlank() {
-        return !loginRegisterController.textFieldAccount.getText().isBlank() && !loginRegisterController.textFieldPassword.getText().isBlank();
     }
 
     // If account is found
@@ -128,7 +131,11 @@ public class LoginRegisterModel {
         confirmPassword = loginRegisterController.textFieldConfirmPassword.getText();
     }
 
-    public void checkTextFields() {
+    public void registerAction() throws IOException {
+        checkTextFields();
+    }
+
+    private void checkTextFields() throws IOException {
         setAttributes();
 
         boolean allFieldsNotEmpty = notEmptyTextFields();
@@ -143,8 +150,25 @@ public class LoginRegisterModel {
         loginRegisterController.labelPasswordNotMatch.setVisible(!passwordsMatch);
 
         if (allFieldsNotEmpty && validEmail && passwordsMatch) {
-            System.out.println("All fields are not empty, email is matched, and passwords are matched.");
+            if (openTAC()) {
+                System.out.println("Success account");
+            }
         }
+    }
+
+    private boolean openTAC() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(TermsAndCondition.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterController.labelUsername.getScene().getWindow());
+
+        newStage.setTitle(TermsAndCondition.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
     }
 
     private boolean isValidEmail() {
@@ -163,13 +187,30 @@ public class LoginRegisterModel {
         return password.equals(confirmPassword);
     }
 
-    public void close() {
+    public void close() throws IOException {
         setAttributes();
         if (exitAreFieldsEmpty()) {
-            System.out.println("meow");
+            if (openExitConfirmation()) {
+                goToLogin();
+            }
         } else {
             goToLogin();
         }
+    }
+
+    private boolean openExitConfirmation() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterController.labelUsername.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
     }
 
     private void goToLogin() {
