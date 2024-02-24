@@ -61,12 +61,12 @@ public class ForgotPassModel {
     public void checkPane1Input() {
         hasStared();
 
-        String account = loginRegisterForgotPassController.textFieldForgotPass1.getText();
+        forgotPassAccount = loginRegisterForgotPassController.textFieldForgotPass1.getText();
 
-        if (account.isBlank()) {
+        if (forgotPassAccount.isBlank()) {
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Account cannot be empty!");
-        } else if (!account.matches(REGEX_EMAIL) && !account.matches(REGEX_PHONE_NUMBER)) {
+        } else if (!forgotPassAccount.matches(REGEX_EMAIL) && !forgotPassAccount.matches(REGEX_PHONE_NUMBER)) {
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Invalid email address or phone number!");
         } else {
@@ -78,7 +78,7 @@ public class ForgotPassModel {
     private void generateOTP() {
         Random random = new Random();
         int randomNumber = random.nextInt(9000) + 1000;
-        randomOTP = String.valueOf(randomNumber);
+        forgotPassOTP = String.valueOf(randomNumber);
         System.out.println(randomNumber);
     }
 
@@ -96,7 +96,7 @@ public class ForgotPassModel {
         if (inputOTP.isBlank()) {
             loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
             loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP cannot be empty!");
-        } else if (!inputOTP.equals(randomOTP)) {
+        } else if (!inputOTP.equals(forgotPassOTP)) {
             loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
             loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP does not match!");
         } else {
@@ -113,14 +113,14 @@ public class ForgotPassModel {
      */
 
     public void checkPane3Input() throws IOException {
-        String newPassword = loginRegisterForgotPassController.textFieldForgotPass31.getText();
-        String confirmNewPassword = loginRegisterForgotPassController.textFieldForgotPass32.getText();
+        forgotPassNewPassword = loginRegisterForgotPassController.textFieldForgotPass31.getText();
+        forgotPassConfirmNewPassword = loginRegisterForgotPassController.textFieldForgotPass32.getText();
 
-        boolean resetSuccess = !newPassword.isBlank() && !confirmNewPassword.isBlank() && newPassword.equals(confirmNewPassword);
-        boolean arePasswordsMatch = !newPassword.isBlank() && !confirmNewPassword.isBlank() && !newPassword.equals(confirmNewPassword);
+        boolean resetSuccess = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
+        boolean arePasswordsMatch = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && !forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
 
-        loginRegisterForgotPassController.labelNewPassword.setVisible(newPassword.isBlank());
-        loginRegisterForgotPassController.labelConfirmNewPassword.setVisible(confirmNewPassword.isBlank());
+        loginRegisterForgotPassController.labelNewPassword.setVisible(forgotPassNewPassword.isBlank());
+        loginRegisterForgotPassController.labelConfirmNewPassword.setVisible(forgotPassConfirmNewPassword.isBlank());
         loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(arePasswordsMatch);
 
         if (resetSuccess)

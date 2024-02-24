@@ -3,8 +3,10 @@ package com.example.postearevised.Controllers;
 import com.example.postearevised.Models.ForgotPassModel;
 import com.example.postearevised.Models.LoginModel;
 import com.example.postearevised.Models.RegisterModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -24,6 +26,8 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class LoginRegisterForgotPassController implements Initializable {
+    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
+    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
     public LoginModel loginModel;
     public RegisterModel registerModel;
     public ForgotPassModel forgotPassModel;
@@ -33,7 +37,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         loginModel = new LoginModel();
         loginModel.setLoginRegisterController(this);
         loginModel.setPane();
-        loginModel.setImage();
+        loginModel.setImageAndPasswordFieldAndCheckBox();
 
         registerModel = new RegisterModel();
         registerModel.setLoginRegisterController(this);
@@ -50,12 +54,15 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(true);
                 anchorPaneRegister.setVisible(false);
                 anchorPaneForgotPass.setVisible(false);
+                loginModel.setImageAndPasswordFieldAndCheckBox();
                 break;
             case 2: // Register
                 loginRegisterStage.setTitle(Register.getName());
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
+                registerModel.setImageAndPasswordFields();
+                registerModel.submittedOnce = false;
                 break;
             case 3: // Forgot Password
                 loginRegisterStage.setTitle(ForgotPassword.getName());
@@ -79,8 +86,10 @@ public class LoginRegisterForgotPassController implements Initializable {
         // Register
         textFieldUsername.setText("");
         textFieldEmail.setText("");
-        textFieldPassword1.setText("");
-        textFieldConfirmPassword.setText("");
+        textFieldNewPassword.setText("");
+        textFieldShowNewPassword.setText("");
+        textFieldConfirmNewPassword.setText("");
+        textFieldShowConfirmNewPassword.setText("");
         labelUsername.setVisible(false);
         labelEmail.setVisible(false);
         labelPassword.setVisible(false);
@@ -107,9 +116,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Login
      */
-    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
-    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
-    public boolean showPassword;
+    public CheckBox checkBoxRememberPassword;
+    public boolean loginShowPassword;
 
     @FXML
     public AnchorPane anchorPaneRegister;
@@ -124,7 +132,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public AnchorPane btnRegister;
 
     @FXML
-    public ImageView btnShowHidePassword;
+    public ImageView btnLoginShowHidePassword;
 
     @FXML
     public TextField textFieldAccount;
@@ -192,11 +200,25 @@ public class LoginRegisterForgotPassController implements Initializable {
         switchPane(Register.getPaneNumber());
     }
 
+    @FXML
+    void checkBoxRememberPasswordAction(ActionEvent event) {
+
+    }
+
 
     /**
      * Register
      */
-
+    public boolean registerShowNewPassword;
+    public boolean registerShowConfirmNewPassword;
+    @FXML
+    public TextField textFieldShowNewPassword;
+    @FXML
+    public TextField textFieldShowConfirmNewPassword;
+    @FXML
+    public ImageView btnRegisterShowHidePassword1;
+    @FXML
+    public ImageView btnRegisterShowHidePassword2;
     @FXML
     public Label labelPasswordNotMatch;
     @FXML
@@ -217,13 +239,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     public ImageView btnRegister1;
 
     @FXML
-    public PasswordField textFieldConfirmPassword;
+    public PasswordField textFieldConfirmNewPassword;
 
     @FXML
     public TextField textFieldEmail;
 
     @FXML
-    public PasswordField textFieldPassword1;
+    public PasswordField textFieldNewPassword;
 
     @FXML
     public TextField textFieldUsername;
@@ -252,7 +274,30 @@ public class LoginRegisterForgotPassController implements Initializable {
     void textFieldPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             registerModel.registerAction();
+        else
+            registerModel.typing();
     }
+
+    @FXML
+    void btnRegisterShowHidePassword1Clicked(MouseEvent event) {
+        registerModel.togglePasswordField1();
+    }
+
+    @FXML
+    void btnRegisterShowHidePassword1Touched(MouseEvent event) {
+        registerModel.togglePasswordField1();
+    }
+
+    @FXML
+    void btnRegisterShowHidePassword2Clicked(MouseEvent event) {
+        registerModel.togglePasswordField2();
+    }
+
+    @FXML
+    void btnRegisterShowHidePassword2Touched(MouseEvent event) {
+        registerModel.togglePasswordField2();
+    }
+
 
     /**
      * Forgot Password

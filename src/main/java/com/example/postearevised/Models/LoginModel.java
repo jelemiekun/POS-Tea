@@ -29,18 +29,21 @@ public class LoginModel {
      * Main
      */
 
-    public void setImage() {
-        loginRegisterForgotPassController.btnShowHidePassword.setImage(loginRegisterForgotPassController.showImage);
+    public void setImageAndPasswordFieldAndCheckBox() {
+        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.textFieldPassword.setVisible(true);
+        loginRegisterForgotPassController.textFieldShowPassword.setVisible(false);
+        loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
     }
 
     public void togglePasswordField() {
-        loginRegisterForgotPassController.showPassword = !loginRegisterForgotPassController.showPassword;
+        loginRegisterForgotPassController.loginShowPassword = !loginRegisterForgotPassController.loginShowPassword;
 
-        loginRegisterForgotPassController.btnShowHidePassword.setImage(loginRegisterForgotPassController.showPassword ? loginRegisterForgotPassController.hideImage : loginRegisterForgotPassController.showImage);
-        loginRegisterForgotPassController.textFieldShowPassword.setVisible(loginRegisterForgotPassController.showPassword);
-        loginRegisterForgotPassController.textFieldPassword.setVisible(!loginRegisterForgotPassController.showPassword);
+        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.hideImage : loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.textFieldShowPassword.setVisible(loginRegisterForgotPassController.loginShowPassword);
+        loginRegisterForgotPassController.textFieldPassword.setVisible(!loginRegisterForgotPassController.loginShowPassword);
 
-        if (loginRegisterForgotPassController.showPassword) {
+        if (loginRegisterForgotPassController.loginShowPassword) {
             loginRegisterForgotPassController.textFieldShowPassword.setText(loginRegisterForgotPassController.textFieldPassword.getText());
         } else {
             loginRegisterForgotPassController.textFieldPassword.setText(loginRegisterForgotPassController.textFieldShowPassword.getText());
@@ -66,10 +69,10 @@ public class LoginModel {
 
     // If account is found
     private boolean checkCredentials() {
-        String account = loginRegisterForgotPassController.textFieldAccount.getText();
-        String password = loginRegisterForgotPassController.showPassword ? loginRegisterForgotPassController.textFieldShowPassword.getText() : loginRegisterForgotPassController.textFieldPassword.getText();
+        loginAccount = loginRegisterForgotPassController.textFieldAccount.getText();
+        loginPassword = loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.textFieldShowPassword.getText() : loginRegisterForgotPassController.textFieldPassword.getText();
 
-        if (account.equals(accountReference) && password.equals(passwordReference)) { // CHECK HERE SA DATABASE
+        if (loginAccount.equals(accountReference) && loginPassword.equals(passwordReference)) { // CHECK HERE SA DATABASE
             return true;
         } else {
             showIncorrectCredentials();
