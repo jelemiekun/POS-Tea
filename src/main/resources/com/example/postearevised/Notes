@@ -1,5 +1,23 @@
 gawing red border ng confirm password if mali
 
-gawan ng methods and attributes yung forgot password
+countdown 3 minutes tapos resend/regenerate otp
 
-tapos gamitan ng switch statement sa pagpalit ng anchorPane sa login, register, forgot pass
+mag error ba if new password is same as old password or hindi
+
+login remember me
+
+scroll down sa pinakababa sa terms and condition
+
+username 3-20 only
+
+password minimum length 8 to 128. dapat may atleast 1 special character, 1 number, 1 capital letter
+
+alisin lahat ng focus sa fields para makita placeholder
+
+lagyan ng asterisk sa invalid email forgotpass1
+
+asterisk sa otp does not match
+
+progress bar if good or not sa new password
+
+show password sa new passwords and confirm new password

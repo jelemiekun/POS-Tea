@@ -113,7 +113,7 @@ public class RegisterModel {
     public void close() throws IOException {
         setAttributes();
         if (exitAreFieldsEmpty()) {
-            if (openPrompt()) {
+            if (openPromptConfirmGoBack()) {
                 goToLogin();
             }
         } else {
@@ -121,7 +121,7 @@ public class RegisterModel {
         }
     }
 
-    private boolean openPrompt() throws IOException {
+    private boolean openPromptConfirmGoBack() throws IOException {
         setGoBackConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
         Parent root = loader.load();

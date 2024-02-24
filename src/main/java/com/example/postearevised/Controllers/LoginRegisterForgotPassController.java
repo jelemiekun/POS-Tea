@@ -62,6 +62,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(false);
                 anchorPaneForgotPass.setVisible(true);
+                forgotPasswordInitialize();
                 break;
         }
 
@@ -69,9 +70,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     private void clearFieldsAndLabels() {
+        // Login
         textFieldAccount.setText("");
         textFieldPassword.setText("");
         textFieldShowPassword.setText("");
+        labelIncorrectCredentials.setVisible(false);
+
+        // Register
         textFieldUsername.setText("");
         textFieldEmail.setText("");
         textFieldPassword1.setText("");
@@ -82,7 +87,19 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelConfirmPassword.setVisible(false);
         labelInvalidEmail.setVisible(false);
         labelPasswordNotMatch.setVisible(false);
-        labelIncorrectCredentials.setVisible(false);
+
+        // Forgot Password
+        textFieldForgotPass1.setText("");
+        labelForgotPassInvalidAccount.setVisible(false);
+
+        textFieldForgotPass2.setText("");
+        labelIncorrectOTP.setVisible(false);
+
+        textFieldForgotPass31.setText("");
+        textFieldForgotPass32.setText("");
+        labelNewPassword.setVisible(false);
+        labelConfirmNewPassword.setVisible(false);
+        labelNewPasswordNotMatch.setVisible(false);
     }
 
 
@@ -260,88 +277,142 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public TextField textFieldForgotPass2;
     @FXML
-    public TextField textFieldForgotPass31;
+    public PasswordField textFieldForgotPass31;
     @FXML
-    public TextField textFieldForgotPass32;
+    public PasswordField textFieldForgotPass32;
+    @FXML
+    public Label labelIncorrectOTP;
+    @FXML
+    public Label labelForgotPassInvalidAccount;
+    @FXML
+    public Label labelNewPassword;
+    @FXML
+    public Label labelConfirmNewPassword;
+    @FXML
+    public Label labelNewPasswordNotMatch;
+    public boolean forgotPasswordStarted = false;
 
+    private void forgotPasswordInitialize() {
+        anchorPaneForgotPass1.setVisible(true);
+        anchorPaneForgotPass2.setVisible(false);
+        anchorPaneForgotPass3.setVisible(false);
+    }
+
+    public void forgotPasswordSwitchPane(int forgotPasswordPaneNumber) {
+        switch (forgotPasswordPaneNumber) {
+            case 4:
+                anchorPaneForgotPass1.setVisible(true);
+                anchorPaneForgotPass2.setVisible(false);
+                anchorPaneForgotPass3.setVisible(false);
+                break;
+            case 5:
+                anchorPaneForgotPass1.setVisible(false);
+                anchorPaneForgotPass2.setVisible(true);
+                anchorPaneForgotPass3.setVisible(false);
+                break;
+            case 6:
+                anchorPaneForgotPass1.setVisible(false);
+                anchorPaneForgotPass2.setVisible(false);
+                anchorPaneForgotPass3.setVisible(true);
+                break;
+        }
+    }
+
+    /**
+     * Forgot password - Pane 1
+     */
     @FXML
     void btnCloseForgotPass1Clicked(MouseEvent event) throws IOException {
-
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
     void btnCloseForgotPass1Touched(TouchEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void btnCloseForgotPass2Clicked(MouseEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void btnCloseForgotPass2Touched(TouchEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void btnCloseForgotPass3Clicked(MouseEvent event) throws IOException {
-
-    }
-
-    @FXML
-    void btnCloseForgotPass3Touched(TouchEvent event) throws IOException {
-
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
     void btnForgotPass1ProceedClicked(MouseEvent event) {
-
+        forgotPassModel.checkPane1Input();
     }
 
     @FXML
     void btnForgotPass1ProceedTouched(TouchEvent event) {
-
-    }
-
-    @FXML
-    void btnForgotPass2ProceedClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnForgotPass2ProceedTouched(TouchEvent event) {
-
-    }
-
-    @FXML
-    void btnForgotPass3ProceedClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnForgotPass3ProceedTouched(TouchEvent event) {
-
+        forgotPassModel.checkPane1Input();
     }
 
     @FXML
     void textFieldForgotPass1PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            forgotPassModel.checkPane1Input();
+    }
 
+
+    /**
+     * Forgot password - Pane 2
+     */
+
+    @FXML
+    void btnCloseForgotPass2Clicked(MouseEvent event) throws IOException {
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
+    }
+
+    @FXML
+    void btnCloseForgotPass2Touched(TouchEvent event) throws IOException {
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
+    }
+
+    @FXML
+    void btnForgotPass2ProceedClicked(MouseEvent event) {
+        forgotPassModel.checkPane2Input();
+    }
+
+    @FXML
+    void btnForgotPass2ProceedTouched(TouchEvent event) {
+        forgotPassModel.checkPane2Input();
     }
 
     @FXML
     void textFieldForgotPass2PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            forgotPassModel.checkPane2Input();
+    }
 
+
+    /**
+     * Forgot password - Pane 3
+     */
+
+    @FXML
+    void btnCloseForgotPass3Clicked(MouseEvent event) throws IOException {
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void textFieldForgotPass31PressedEnter(KeyEvent event) {
-
+    void btnCloseForgotPass3Touched(TouchEvent event) throws IOException {
+        forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void textFieldForgotPass32PressedEnter(KeyEvent event) {
+    void btnForgotPass3ProceedClicked(MouseEvent event) throws IOException {
+        forgotPassModel.checkPane3Input();
+    }
 
+    @FXML
+    void btnForgotPass3ProceedTouched(TouchEvent event) throws IOException {
+        forgotPassModel.checkPane3Input();
+    }
+
+    @FXML
+    void textFieldForgotPass31PressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER)
+            forgotPassModel.checkPane3Input();
+    }
+
+    @FXML
+    void textFieldForgotPass32PressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER)
+            forgotPassModel.checkPane3Input();
     }
 
 }

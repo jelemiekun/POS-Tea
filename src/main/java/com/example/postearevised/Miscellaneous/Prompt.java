@@ -21,11 +21,11 @@ public class Prompt {
         promptHeaderText = "Are you sure you want to go back?";
         promptContentText = "Any unsaved changes will be lost!";
         promptBtnLeftVisible = true;
-        promptBtnRightVisible = true;
         promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
         btnLeftImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png"));
-        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
         btnCenterImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
+        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
@@ -35,11 +35,11 @@ public class Prompt {
         promptHeaderText = "Account Successfully Registered!";
         promptContentText = "Please log-in to continue.";
         promptBtnLeftVisible = false;
-        promptBtnRightVisible = false;
         promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
         btnLeftImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
-        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
         btnCenterImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
+        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
@@ -49,13 +49,27 @@ public class Prompt {
         promptHeaderText = "Logout Confirmation";
         promptContentText = "Are you sure you want to log out? Click 'Yes' to proceed with logging out, or 'No' to cancel.";
         promptBtnLeftVisible = true;
-        promptBtnRightVisible = true;
         promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
         btnLeftImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png"));
-        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
         btnCenterImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
+        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
+    }
+
+    public static void setResetPasswordSuccessfully() {
+        promptHeaderText = "Password reset is successful!";
+        promptContentText = "Please log-in to continue.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
+        btnCenterImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
+        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png"));
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
     }
 }
