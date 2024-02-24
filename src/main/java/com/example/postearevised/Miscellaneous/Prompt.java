@@ -44,4 +44,18 @@ public class Prompt {
         btnCenterBoolean = true;
         btnRightBoolean = true;
     }
+
+    public static void setConfirmLogout() {
+        promptHeaderText = "Logout Confirmation";
+        promptContentText = "Are you sure you want to log out? Click 'Yes' to proceed with logging out, or 'No' to cancel.";
+        promptBtnLeftVisible = true;
+        promptBtnRightVisible = true;
+        promptBtnCenterVisible = false;
+        btnLeftImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png"));
+        btnRightImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
+        btnCenterImageReference = new Image(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png"));
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
 }

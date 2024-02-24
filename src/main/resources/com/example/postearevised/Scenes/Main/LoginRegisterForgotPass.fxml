@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginRegisterController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginRegisterForgotPassController">
     <children>
-        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegister/Login%20with%20Details.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Login%20with%20Details.png" />
                     </image>
                 </ImageView>
                 <AnchorPane layoutX="949.0" layoutY="82.0" prefHeight="919.0" prefWidth="917.0">
@@ -72,11 +72,11 @@
               <!-- register -->
 
       
-            <AnchorPane fx:id="anchorPaneRegister" layoutY="-24.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+            <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
-             <ImageView fitHeight="1080.0" fitWidth="1920.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                  <image>
-                     <Image url="@../../Medias/Backgrounds/LoginRegister/Register%20with%20Details.png" />
+                     <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Register%20with%20Details.png" />
                  </image>
              </ImageView>
              <AnchorPane layoutX="510.0" layoutY="53.0" prefHeight="965.0" prefWidth="922.0">
@@ -151,7 +151,7 @@
                              </ImageView>
                          </children>
                      </AnchorPane>
-                     <ImageView fx:id="btnClose" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -163,5 +163,118 @@
              </AnchorPane>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+         <children>
+            <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+               <children>
+                  <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%201.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btnCloseForgotPass1" fitHeight="45.0" fitWidth="45.0" layoutX="1260.0" layoutY="275.0" onMouseClicked="#btnCloseForgotPass1Clicked" onTouchReleased="#btnCloseForgotPass1Touched" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Buttons/close.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <AnchorPane layoutX="519.0" layoutY="237.0" prefHeight="538.0" prefWidth="829.0">
+                     <children>
+                        <TextField fx:id="textFieldForgotPass1" layoutX="142.0" layoutY="274.0" onKeyPressed="#textFieldForgotPass1PressedEnter" prefHeight="60.0" prefWidth="575.0" promptText="Email or Phone Number">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="33.0" />
+                           </font>
+                        </TextField>
+                        <AnchorPane layoutX="142.0" layoutY="336.0" prefHeight="200.0" prefWidth="575.0">
+                           <children>
+                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="187.0" layoutY="62.0" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/no.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+               <children>
+                  <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%202.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="btnCloseForgotPass2" fitHeight="45.0" fitWidth="45.0" layoutX="1260.0" layoutY="275.0" onMouseClicked="#btnCloseForgotPass2Clicked" onTouchReleased="#btnCloseForgotPass2Touched" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Buttons/close.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <AnchorPane layoutX="518.0" layoutY="239.0" prefHeight="538.0" prefWidth="829.0">
+                     <children>
+                        <TextField fx:id="textFieldForgotPass2" layoutX="142.0" layoutY="274.0" onKeyPressed="#textFieldForgotPass2PressedEnter" prefHeight="60.0" prefWidth="575.0" promptText="Verify OTP">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="33.0" />
+                           </font>
+                        </TextField>
+                        <AnchorPane layoutX="142.0" layoutY="336.0" prefHeight="200.0" prefWidth="575.0">
+                           <children>
+                              <ImageView fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="187.0" layoutY="62.0" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/no.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
+               <children>
+                  <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%203.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="534.0" layoutY="165.0" prefHeight="716.0" prefWidth="829.0">
+                     <children>
+                        <TextField fx:id="textFieldForgotPass31" layoutX="142.0" layoutY="266.0" onKeyPressed="#textFieldForgotPass31PressedEnter" prefHeight="60.0" prefWidth="575.0" promptText="New Password">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="33.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fx:id="btnCloseForgotPass3" fitHeight="45.0" fitWidth="45.0" layoutX="738.0" layoutY="42.0" onMouseClicked="#btnCloseForgotPass3Clicked" onTouchReleased="#btnCloseForgotPass3Touched" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Buttons/close.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <AnchorPane layoutX="142.0" layoutY="508.0" prefHeight="200.0" prefWidth="575.0">
+                           <children>
+                              <ImageView fx:id="btnForgotPass3Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="187.0" layoutY="62.0" onMouseClicked="#btnForgotPass3ProceedClicked" onTouchReleased="#btnForgotPass3ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/no.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="textFieldForgotPass32" layoutX="142.0" layoutY="433.0" onKeyPressed="#textFieldForgotPass32PressedEnter" prefHeight="60.0" prefWidth="575.0" promptText="Confirm New Password">
+                           <font>
+                              <Font name="Microsoft Sans Serif" size="33.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
     </children>
 </AnchorPane>

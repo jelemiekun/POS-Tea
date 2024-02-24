@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Enums.Pane.*;
+import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 
 public class MainController implements Initializable {
     public MainModel mainModel;

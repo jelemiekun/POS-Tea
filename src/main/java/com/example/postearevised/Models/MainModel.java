@@ -1,18 +1,18 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.MainController;
-import com.example.postearevised.Miscellaneous.Enums.Scenes;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.postearevised.Miscellaneous.Enums.Pane.*;
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.Login;
-import static com.example.postearevised.Miscellaneous.Reference.mainStage;
+import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Prompt.*;
+import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class MainModel {
     private MainController mainController;
@@ -84,16 +84,37 @@ public class MainModel {
         }
 
         if (logout) {
-            mainController.loader = new FXMLLoader(getClass().getResource(Login.getURL()));
-            mainController.root = mainController.loader.load();
-            mainController.newStage = new Stage();
-            mainController.newStage.setTitle(Login.getTITLE());
-            mainController.newStage.setScene(new Scene(mainController.root));
-            mainController.newStage.show();
-            closeThisStage();
+            if (confirmLogout())
+                logout();
         }
     }
 
+
+    private boolean confirmLogout() throws IOException {
+        setConfirmLogout();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneAboutUs.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
+    }
+
+    private void logout() throws IOException {
+        mainController.loader = new FXMLLoader(getClass().getResource(Login.getURL()));
+        mainController.root = mainController.loader.load();
+        mainController.newStage = new Stage();
+        mainController.newStage.setTitle(Login.getTITLE());
+        mainController.newStage.setScene(new Scene(mainController.root));
+        mainController.newStage.show();
+        closeThisStage();
+    }
 
 
     private void closeThisStage() {
