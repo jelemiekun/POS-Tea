@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -11,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginRegisterForgotPassController">
     <children>
-        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -25,11 +26,6 @@
             </Label>
                 <AnchorPane layoutX="949.0" layoutY="82.0" prefHeight="919.0" prefWidth="917.0">
                     <children>
-                  <Label layoutX="275.0" layoutY="91.0" text="Login Form" textAlignment="CENTER">
-                     <font>
-                        <Font name="Arial Black" size="60.0" />
-                     </font>
-                  </Label>
                         <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" layoutX="264.0" layoutY="616.0" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Medias/Buttons/LoginRegister/Login.png" />
@@ -38,11 +34,6 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </ImageView>
-                        <Label fx:id="labelIncorrectCredentials" layoutX="183.0" layoutY="212.0" text="The account or password you entered is incorrect." textFill="#ff5a5a" visible="false">
-                            <font>
-                                <Font name="Arial Bold" size="23.0" />
-                            </font>
-                        </Label>
                   <AnchorPane layoutX="248.0" layoutY="726.0" prefHeight="128.0" prefWidth="421.0">
                      <children>
                               <AnchorPane fx:id="btnForgotPassword" layoutX="112.0" layoutY="64.0" onMouseClicked="#btnForgotPasswordClicked" onTouchReleased="#btnForgotPasswordTouched" prefHeight="41.0" prefWidth="198.0">
@@ -76,7 +67,21 @@
                               </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="101.0" layoutY="307.0" prefHeight="209.0" prefWidth="716.0">
+                  <AnchorPane layoutY="76.0" prefHeight="209.0" prefWidth="917.0">
+                     <children>
+                        <Label layoutX="275.0" layoutY="14.0" text="Login Form" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="60.0" />
+                           </font>
+                        </Label>
+                              <Label fx:id="labelIncorrectCredentials" layoutX="182.0" layoutY="137.0" text="The account or password you entered is incorrect." textFill="#ff5a5a" visible="false">
+                                  <font>
+                                      <Font name="Arial Bold" size="23.0" />
+                                  </font>
+                              </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="102.0" layoutY="304.0" prefHeight="272.0" prefWidth="776.0">
                      <children>
                         <AnchorPane layoutX="206.0" layoutY="5.0" prefHeight="200.0" prefWidth="510.0">
                            <children>
@@ -111,16 +116,25 @@
                               </Label>
                            </children>
                         </AnchorPane>
+                              <ImageView fx:id="btnShowHidePassword" fitHeight="33.0" fitWidth="29.0" layoutX="727.0" layoutY="155.0" onMouseClicked="#btnShowHidePasswordClicked" onTouchReleased="#btnShowHidePasswordTouched" pickOnBounds="true" preserveRatio="true">
+                                  <cursor>
+                                      <Cursor fx:constant="HAND" />
+                                  </cursor>
+                           <image>
+                              <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
+                           </image>
+                              </ImageView>
+                        <AnchorPane layoutY="229.0" prefHeight="76.0" prefWidth="776.0">
+                           <children>
+                              <CheckBox layoutX="34.0" layoutY="22.0" mnemonicParsing="false" text="Remember Password">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </CheckBox>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
-                        <ImageView fx:id="btnShowHidePassword" fitHeight="33.0" fitWidth="29.0" layoutX="830.0" layoutY="466.0" onMouseClicked="#btnShowHidePasswordClicked" onTouchReleased="#btnShowHidePasswordTouched" pickOnBounds="true" preserveRatio="true">
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                     <image>
-                        <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
-                     </image>
-                        </ImageView>
                     </children>
                 </AnchorPane>
             </children>
@@ -130,7 +144,7 @@
               <!-- register -->
 
       
-            <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
              <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                  <image>
@@ -259,7 +273,7 @@
              </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -327,7 +341,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -403,7 +417,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
