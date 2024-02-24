@@ -26,7 +26,7 @@ public class ForgotPassModel {
         hasStared();
 
         boolean confirmGoBack = true;
-        if (loginRegisterForgotPassController.forgotPasswordStarted) {
+        if (loginRegisterForgotPassController.forgotPassStarted) {
             confirmGoBack = openPromptConfirmGoBack();
         }
 
@@ -51,7 +51,7 @@ public class ForgotPassModel {
     }
 
     private void hasStared() {
-        loginRegisterForgotPassController.forgotPasswordStarted = !loginRegisterForgotPassController.textFieldForgotPass1.getText().isBlank();
+        loginRegisterForgotPassController.forgotPassStarted = !loginRegisterForgotPassController.textFieldForgotPass1.getText().isBlank();
     }
 
     /**
@@ -61,7 +61,7 @@ public class ForgotPassModel {
     public void checkPane1Input() {
         hasStared();
 
-        forgotPassAccount = loginRegisterForgotPassController.textFieldForgotPass1.getText();
+        setAttributes(ForgotPassword1.getPaneNumber());
 
         if (forgotPassAccount.isBlank()) {
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
@@ -113,8 +113,7 @@ public class ForgotPassModel {
      */
 
     public void checkPane3Input() throws IOException {
-        forgotPassNewPassword = loginRegisterForgotPassController.textFieldForgotPass31.getText();
-        forgotPassConfirmNewPassword = loginRegisterForgotPassController.textFieldForgotPass32.getText();
+        setAttributes(ForgotPassword3.getPaneNumber());
 
         boolean resetSuccess = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
         boolean arePasswordsMatch = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && !forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
@@ -142,5 +141,57 @@ public class ForgotPassModel {
         newStage.showAndWait();
 
         loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
+    }
+
+    /**
+     * Main
+     */
+
+    public void setAttributes(int paneNumber) {
+        switch (paneNumber) {
+            case 4:
+                forgotPassAccount = loginRegisterForgotPassController.textFieldForgotPass1.getText();
+                break;
+            case 5:
+                break;
+            case 6:
+                forgotPassNewPassword = loginRegisterForgotPassController.forgotPassShowNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass31.getText() : loginRegisterForgotPassController.textFieldForgotPass31.getText();
+                forgotPassConfirmNewPassword = loginRegisterForgotPassController.forgotPassShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass32.getText() : loginRegisterForgotPassController.textFieldForgotPass32.getText();
+                break;
+        }
+    }
+
+    public void togglePasswordField1() {
+        loginRegisterForgotPassController.forgotPassShowNewPassword = !loginRegisterForgotPassController.forgotPassShowNewPassword;
+
+        loginRegisterForgotPassController.btnForgotPassShowHidePassword1.setImage(loginRegisterForgotPassController.forgotPassShowNewPassword ? loginRegisterForgotPassController.hideImage : loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.textFieldForgotPass31.setVisible(!loginRegisterForgotPassController.forgotPassShowNewPassword);
+        loginRegisterForgotPassController.textFieldShowForgotPass31.setVisible(loginRegisterForgotPassController.forgotPassShowNewPassword);
+
+        if (loginRegisterForgotPassController.forgotPassShowNewPassword) {
+            loginRegisterForgotPassController.textFieldShowForgotPass31.setText(loginRegisterForgotPassController.textFieldForgotPass31.getText());
+        } else {
+            loginRegisterForgotPassController.textFieldForgotPass31.setText(loginRegisterForgotPassController.textFieldShowForgotPass31.getText());
+        }
+
+        loginRegisterForgotPassController.btnForgotPass3Proceed.requestFocus();
+    }
+
+    public void togglePasswordField2() {
+        System.out.println(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
+        loginRegisterForgotPassController.forgotPassShowConfirmNewPassword = !loginRegisterForgotPassController.forgotPassShowConfirmNewPassword;
+        System.out.println(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
+
+        loginRegisterForgotPassController.btnForgotPassShowHidePassword2.setImage(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword ? loginRegisterForgotPassController.hideImage : loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.textFieldForgotPass32.setVisible(!loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
+        loginRegisterForgotPassController.textFieldShowForgotPass32.setVisible(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
+
+        if (loginRegisterForgotPassController.forgotPassShowConfirmNewPassword) {
+            loginRegisterForgotPassController.textFieldShowForgotPass32.setText(loginRegisterForgotPassController.textFieldForgotPass32.getText());
+        } else {
+            loginRegisterForgotPassController.textFieldForgotPass32.setText(loginRegisterForgotPassController.textFieldShowForgotPass32.getText());
+        }
+
+        loginRegisterForgotPassController.btnForgotPass3Proceed.requestFocus();
     }
 }

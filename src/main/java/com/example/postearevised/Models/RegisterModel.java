@@ -22,14 +22,6 @@ public class RegisterModel {
         this.loginRegisterForgotPassController = loginRegisterForgotPassController;
     }
 
-    public void setImageAndPasswordFields() {
-        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.showImage);
-        loginRegisterForgotPassController.textFieldNewPassword.setVisible(true);
-        loginRegisterForgotPassController.textFieldConfirmNewPassword.setVisible(true);
-        loginRegisterForgotPassController.textFieldShowNewPassword.setVisible(false);
-        loginRegisterForgotPassController.textFieldShowConfirmNewPassword.setVisible(false);
-    }
-
     /**
      * Register
      */
