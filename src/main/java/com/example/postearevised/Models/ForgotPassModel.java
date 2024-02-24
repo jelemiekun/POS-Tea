@@ -65,10 +65,10 @@ public class ForgotPassModel {
 
         if (account.isBlank()) {
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("Account cannot be empty!");
+            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Account cannot be empty!");
         } else if (!account.matches(REGEX_EMAIL) && !account.matches(REGEX_PHONE_NUMBER)) {
             loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("Invalid email address or phone number!");
+            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Invalid email address or phone number!");
         } else {
             generateOTP();
             proceedPane2();
@@ -95,10 +95,10 @@ public class ForgotPassModel {
 
         if (inputOTP.isBlank()) {
             loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
-            loginRegisterForgotPassController.labelIncorrectOTP.setText("OTP cannot be empty!");
+            loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP cannot be empty!");
         } else if (!inputOTP.equals(randomOTP)) {
             loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
-            loginRegisterForgotPassController.labelIncorrectOTP.setText("OTP does not match!");
+            loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP does not match!");
         } else {
             proceedPane3();
         }
