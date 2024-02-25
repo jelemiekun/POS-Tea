@@ -88,12 +88,12 @@
                      <children>
                         <AnchorPane layoutX="206.0" layoutY="5.0" prefHeight="200.0" prefWidth="510.0">
                            <children>
-                                    <TextField fx:id="textFieldAccount" onKeyPressed="#textFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Username or email">
+                                    <TextField fx:id="textFieldAccount" onKeyPressed="#textFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Email or Phone Number">
                                         <font>
                                             <Font name="Arial" size="33.0" />
                                         </font>
                                     </TextField>
-                                    <PasswordField fx:id="textFieldPassword" layoutY="136.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Password">
+                                    <PasswordField fx:id="textFieldPassword" layoutY="136.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Password">
                                         <font>
                                             <Font name="Microsoft Sans Serif" size="33.0" />
                                         </font>
@@ -147,7 +147,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -165,7 +165,7 @@
                                             <Font name="Microsoft Sans Serif" size="26.0" />
                                     </font>
                                 </Label>
-                                <Label layoutX="1.0" layoutY="5.0" text="Username">
+                                <Label layoutX="1.0" layoutY="5.0" text="Name">
                                     <font>
                                         <Font name="Arial Bold" size="34.0" />
                                     </font>
@@ -216,27 +216,27 @@
                               </Label>
                                  </children>
                              </AnchorPane>
-                             <TextField fx:id="textFieldUsername" layoutY="50.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0">
+                             <TextField fx:id="textFieldUsername" layoutY="50.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </TextField>
-                             <TextField fx:id="textFieldEmail" layoutY="186.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0">
+                             <TextField fx:id="textFieldEmail" layoutY="186.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter email">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </TextField>
-                             <PasswordField fx:id="textFieldNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0">
+                             <PasswordField fx:id="textFieldNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </PasswordField>
-                        <TextField fx:id="textFieldShowNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" visible="false">
+                        <TextField fx:id="textFieldShowNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password" visible="false">
                            <font>
                               <Font name="Arial" size="33.0" />
                            </font>
                         </TextField>
-                             <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="462.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0">
+                             <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="462.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
@@ -275,15 +275,20 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="20.0" fitWidth="20.0" layoutX="95.0" layoutY="4.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="85.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../Medias/Icons/About%20us.png" />
+                                          <Image url="@../../Medias/Icons/password%20tool%20tip.png" />
                                        </image>
                                     </ImageView>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
+                        <ImageView fx:id="registerNameToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="535.0" layoutY="120.0" onMouseClicked="#registerNameToolTipClicked" onMouseEntered="#registerNameToolTipEntered" onMouseExited="#registerNameToolTipExited" onTouchReleased="#registerNameToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Icons/password%20tool%20tip.png" />
+                           </image>
+                        </ImageView>
                          </children>
                      </AnchorPane>
                      <AnchorPane layoutX="163.0" layoutY="750.0" prefHeight="170.0" prefWidth="620.0">
@@ -396,7 +401,12 @@
              </AnchorPane>
             <ImageView fx:id="registerPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1270.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@../../Medias/ToolTip/passwordToolTip.png" />
+                  <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="registerNameToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1268.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../Medias/ToolTip/name%20tooltip.png" />
                </image>
             </ImageView>
          </children>
@@ -431,7 +441,7 @@
                                     <Font name="Microsoft Sans Serif" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="1.0" layoutY="31.0" text="Account">
+                              <Label layoutX="1.0" layoutY="25.0" text="Account">
                                  <font>
                                     <Font name="Arial Bold" size="34.0" />
                                  </font>

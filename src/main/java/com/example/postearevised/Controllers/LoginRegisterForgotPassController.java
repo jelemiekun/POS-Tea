@@ -56,12 +56,14 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(true);
                 anchorPaneRegister.setVisible(false);
                 anchorPaneForgotPass.setVisible(false);
+                btnLogin.requestFocus();
                 break;
             case 2: // Register
                 loginRegisterStage.setTitle(Register.getName());
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
+                btnRegister1.requestFocus();
                 break;
             case 3: // Forgot PasswordColors
                 loginRegisterStage.setTitle(ForgotPassword.getName());
@@ -69,6 +71,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneRegister.setVisible(false);
                 anchorPaneForgotPass.setVisible(true);
                 forgotPasswordInitialize();
+                btnForgotPass1Proceed.requestFocus();
                 break;
         }
 
@@ -252,10 +255,17 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
-    private boolean registerToolTipClicked = false;
+    private boolean registerNameToolTipClicked = false;
+    private boolean registerPasswordToolTipClicked = false;
     public boolean registerSubmittedOnce = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
+    @FXML
+    public ImageView registerNameToolTip;
+    @FXML
+    public ImageView registerNameToolTipImage;
+    @FXML
+    public ImageView registerPasswordToolTip;
     @FXML
     public ImageView registerPasswordToolTipImage;
     @FXML
@@ -268,8 +278,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     public Rectangle registerRectangle4;
     @FXML
     public Label registerIndicator;
-    @FXML
-    public ImageView registerPasswordToolTip;
     @FXML
     public TextField textFieldShowNewPassword;
     @FXML
@@ -370,26 +378,50 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void registerPasswordToolTipEntered(MouseEvent event) {
-        if (!registerToolTipClicked)
+        if (!registerPasswordToolTipClicked)
             registerPasswordToolTipImage.setVisible(true);
     }
 
     @FXML
     void registerPasswordToolTipExited(MouseEvent event) {
-        if (!registerToolTipClicked)
+        if (!registerPasswordToolTipClicked)
             registerPasswordToolTipImage.setVisible(false);
     }
 
     @FXML
     void registerPasswordToolTipClicked(MouseEvent event) {
-        registerToolTipClicked = !registerToolTipClicked;
-        registerPasswordToolTipImage.setVisible(registerToolTipClicked);
+        registerPasswordToolTipClicked = !registerPasswordToolTipClicked;
+        registerPasswordToolTipImage.setVisible(registerPasswordToolTipClicked);
     }
 
     @FXML
     void registerPasswordToolTipTouched(TouchEvent event) {
-        registerToolTipClicked = !registerToolTipClicked;
-        registerPasswordToolTipImage.setVisible(registerToolTipClicked);
+        registerPasswordToolTipClicked = !registerPasswordToolTipClicked;
+        registerPasswordToolTipImage.setVisible(registerPasswordToolTipClicked);
+    }
+
+    @FXML
+    void registerNameToolTipEntered(MouseEvent event) {
+        if (!registerNameToolTipClicked)
+            registerNameToolTipImage.setVisible(true);
+    }
+
+    @FXML
+    void registerNameToolTipExited(MouseEvent event) {
+        if (!registerNameToolTipClicked)
+            registerNameToolTipImage.setVisible(false);
+    }
+
+    @FXML
+    void registerNameToolTipClicked(MouseEvent event) {
+        registerNameToolTipClicked = !registerNameToolTipClicked;
+        registerNameToolTipImage.setVisible(registerNameToolTipClicked);
+    }
+
+    @FXML
+    void registerNameToolTipTouched(TouchEvent event) {
+        registerNameToolTipClicked = !registerNameToolTipClicked;
+        registerNameToolTipImage.setVisible(registerNameToolTipClicked);
     }
 
 
@@ -399,18 +431,21 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
     public boolean forgotPass3SubmittedOnce = false;
-
     public boolean forgotPassStarted = false;
     public boolean forgotPassShowNewPassword;
     public boolean forgotPassShowConfirmNewPassword;
+    @FXML
+    public ImageView btnForgotPass1Proceed;
+    @FXML
+    public ImageView btnForgotPass2Proceed;
+    @FXML
+    public ImageView btnForgotPass3Proceed;
     @FXML
     public Label btnResendOTP;
     @FXML
     public Label labelCountdown;
     @FXML
     public Label labelResendOTPTitle;
-    @FXML
-    public ImageView btnForgotPass3Proceed;
     @FXML
     public AnchorPane anchorPaneForgotPass;
     @FXML
@@ -469,11 +504,13 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneForgotPass1.setVisible(false);
                 anchorPaneForgotPass2.setVisible(true);
                 anchorPaneForgotPass3.setVisible(false);
+                btnForgotPass2Proceed.requestFocus();
                 break;
             case 6:
                 anchorPaneForgotPass1.setVisible(false);
                 anchorPaneForgotPass2.setVisible(false);
                 anchorPaneForgotPass3.setVisible(true);
+                btnForgotPass3Proceed.requestFocus();
                 break;
         }
     }
