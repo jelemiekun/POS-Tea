@@ -10,6 +10,7 @@ public class Others {
             InetAddress address = InetAddress.getByName("www.google.com");
             return !address.equals("");
         } catch (UnknownHostException e) {
+            System.out.println("meowssss");
             return false;
         }
     }

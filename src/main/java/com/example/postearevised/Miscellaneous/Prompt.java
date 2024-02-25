@@ -74,4 +74,18 @@ public class Prompt {
         btnCenterBoolean = true;
         btnRightBoolean = true;
     }
+
+    public static void setInternetRequired() {
+        promptHeaderText = "Internet Connection Required";
+        promptContentText = "It seems that you're currently offline.\nPlease connect to the internet to continue.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
 }

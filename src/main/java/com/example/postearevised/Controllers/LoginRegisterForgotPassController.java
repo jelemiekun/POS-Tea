@@ -5,7 +5,10 @@ import com.example.postearevised.Models.LoginModel;
 import com.example.postearevised.Models.RegisterModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -18,13 +21,18 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmation;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
+import static com.example.postearevised.Miscellaneous.Others.*;
+import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class LoginRegisterForgotPassController implements Initializable {
@@ -66,7 +74,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
-                btnRegister1.requestFocus();
+                btnRegisterOnRegisterPane.requestFocus();
                 break;
             case 3: // Forgot PasswordColors
                 loginRegisterStage.setTitle(ForgotPassword.getName());
@@ -87,9 +95,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
 
-    /**
-     * Pag hiwa-hiwalayin ko ba 'to? hahahahaha
-     */
+    //Pag hiwa-hiwalayin ko ba 'to? hahahahaha
+
     private void clearFieldsAndLabels() {
         // Login
         textFieldAccount.setText("");
@@ -164,7 +171,43 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPass3SubmittedOnce = false;
     }
 
+    public boolean checkConnectivity() throws IOException {
+        boolean proceed;
 
+        if (isInternetRequired) {
+            if (isInternetAvailable()) {
+                proceed = true;
+            } else {
+                noInternet();
+                proceed = false;
+            }
+        } else {
+            return true;
+        }
+
+        return proceed;
+    }
+
+    public void noInternet() throws IOException{
+        toggleRectangleModal();
+        openPromptInternetRequired();
+        toggleRectangleModal();
+    }
+
+    private void openPromptInternetRequired() throws IOException {
+        setInternetRequired();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(labelName.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+    }
 
     /**
      * Login
@@ -182,7 +225,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public ImageView btnLogin;
 
     @FXML
-    public AnchorPane btnRegister;
+    public AnchorPane btnRegisterFromLogin;
 
     @FXML
     public ImageView btnLoginShowHidePassword;
@@ -202,13 +245,15 @@ public class LoginRegisterForgotPassController implements Initializable {
     public AnchorPane anchorPaneLogin;
 
     @FXML
-    void btnForgotPasswordClicked(MouseEvent event) {
-        switchPane(ForgotPassword.getPaneNumber());
+    void btnForgotPasswordClicked(MouseEvent event) throws IOException {
+        if (checkConnectivity())
+            registerModel.goToLogin();
     }
 
     @FXML
-    void btnForgotPasswordTouched(TouchEvent event) {
-        switchPane(ForgotPassword.getPaneNumber());
+    void btnForgotPasswordTouched(TouchEvent event) throws IOException {
+        if (checkConnectivity())
+            registerModel.goToLogin();
     }
 
     @FXML
@@ -322,7 +367,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public ImageView btnCloseRegister;
 
     @FXML
-    public ImageView btnRegister1;
+    public ImageView btnRegisterOnRegisterPane;
 
     @FXML
     public PasswordField textFieldConfirmNewPassword;
@@ -347,12 +392,12 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnRegisterClicked(MouseEvent event) throws IOException {
+    void btnRegisterOnRegisterPaneClicked(MouseEvent event) throws IOException {
         registerModel.registerAction();
     }
 
     @FXML
-    void btnRegisterTouched(TouchEvent event) throws IOException {
+    void btnRegisterOnRegisterPaneTouched(TouchEvent event) throws IOException {
         registerModel.registerAction();
     }
 

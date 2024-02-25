@@ -278,7 +278,7 @@ public class RegisterModel {
             loginRegisterForgotPassController.textFieldNewPassword.setText(loginRegisterForgotPassController.textFieldShowNewPassword.getText());
         }
 
-        loginRegisterForgotPassController.btnRegister1.requestFocus();
+        loginRegisterForgotPassController.btnRegisterOnRegisterPane.requestFocus();
     }
 
     public void toggleConfirmNewPasswordField() {
@@ -294,7 +294,7 @@ public class RegisterModel {
             loginRegisterForgotPassController.textFieldConfirmNewPassword.setText(loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText());
         }
 
-        loginRegisterForgotPassController.btnRegister1.requestFocus();
+        loginRegisterForgotPassController.btnRegisterOnRegisterPane.requestFocus();
     }
 
     /**
@@ -397,7 +397,7 @@ public class RegisterModel {
         }
     }
 
-    private void goToLogin() {
+    public void goToLogin() {
         loginRegisterForgotPassController.switchPane(StartPane.Login.getPaneNumber());
     }
 }
