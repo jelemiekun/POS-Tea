@@ -30,7 +30,7 @@ public class LoginModel {
      */
 
     public void setImageAndPasswordFieldAndCheckBox() {
-        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.hideImage);
         loginRegisterForgotPassController.textFieldPassword.setVisible(true);
         loginRegisterForgotPassController.textFieldShowPassword.setVisible(false);
         loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
@@ -39,7 +39,7 @@ public class LoginModel {
     public void togglePasswordField() {
         loginRegisterForgotPassController.loginShowPassword = !loginRegisterForgotPassController.loginShowPassword;
 
-        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.hideImage : loginRegisterForgotPassController.showImage);
+        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
         loginRegisterForgotPassController.textFieldShowPassword.setVisible(loginRegisterForgotPassController.loginShowPassword);
         loginRegisterForgotPassController.textFieldPassword.setVisible(!loginRegisterForgotPassController.loginShowPassword);
 

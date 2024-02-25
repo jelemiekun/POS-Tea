@@ -36,7 +36,6 @@ public class TermsAndConditionController implements Initializable {
                 btnAccept.setImage(acceptEnabled);
 
             } else {
-                // Disable the "Accept" button
                 btnAccept.setCursor(Cursor.DEFAULT);
                 btnAccept.setDisable(true);
                 btnAccept.setPickOnBounds(false);

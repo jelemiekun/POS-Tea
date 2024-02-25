@@ -1,7 +1,5 @@
 ------------------TO DO------------------
 
-scroll down sa pinakababa sa terms and condition
-
 username 3-20 only
 
 password minimum length 8 to 128. dapat may atleast 1 special character, 1 number, 1 capital letter
@@ -23,6 +21,7 @@ mag error ba if new password is same as old password or hindi
 
 alisin lahat ng focus sa fields para makita placeholder
 
+03:00 ba o 3:00 sa countdown otp? haha
 
 
 
@@ -57,3 +56,5 @@ asterisk sa otp does not match
 show password sa new passwords and confirm new password
 
 countdown 3 minutes tapos resend/regenerate otp
+
+scroll down sa pinakababa sa terms and condition

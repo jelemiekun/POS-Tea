@@ -60,7 +60,7 @@
                         </ImageView>
                         <ImageView fx:id="btnAccept" disable="true" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Medias/Buttons/TAC/decline.png" />
+                              <Image url="@../../Medias/Buttons/TAC/accept%20disabled.png" />
                            </image>
                            <cursor>
                               <Cursor fx:constant="DEFAULT" />

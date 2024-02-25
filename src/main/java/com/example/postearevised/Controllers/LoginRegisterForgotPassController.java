@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,8 +27,8 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class LoginRegisterForgotPassController implements Initializable {
-    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
-    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
+    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
+    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
     public LoginModel loginModel;
     public RegisterModel registerModel;
     public ForgotPassModel forgotPassModel;
@@ -84,7 +85,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         textFieldShowPassword.setText("");
         labelIncorrectCredentials.setVisible(false);
 
-        btnLoginShowHidePassword.setImage(showImage);
+        btnLoginShowHidePassword.setImage(hideImage);
         textFieldPassword.setVisible(true);
         textFieldShowPassword.setVisible(false);
         checkBoxRememberPassword.setSelected(false);
@@ -105,7 +106,9 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelInvalidEmail.setVisible(false);
         labelPasswordNotMatch.setVisible(false);
 
-        btnLoginShowHidePassword.setImage(showImage);
+        btnRegisterShowHidePassword1.setImage(hideImage);
+        btnRegisterShowHidePassword2.setImage(hideImage);
+
         textFieldNewPassword.setVisible(true);
         textFieldConfirmNewPassword.setVisible(true);
         textFieldShowNewPassword.setVisible(false);
@@ -133,8 +136,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         textFieldForgotPass32.setVisible(true);
         textFieldShowForgotPass31.setVisible(false);
         textFieldShowForgotPass32.setVisible(false);
-        btnForgotPassShowHidePassword1.setImage(showImage);
-        btnForgotPassShowHidePassword2.setImage(showImage);
+        btnForgotPassShowHidePassword1.setImage(hideImage);
+        btnForgotPassShowHidePassword2.setImage(hideImage);
 
         forgotPassShowNewPassword = false;
         forgotPassShowConfirmNewPassword = false;
@@ -245,6 +248,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean registerSubmittedOnce = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
+    @FXML
+    public Rectangle registerRectangle1;
+    @FXML
+    public Rectangle registerRectangle2;
+    @FXML
+    public Rectangle registerRectangle3;
+    @FXML
+    public Rectangle registerRectangle4;
     @FXML
     public TextField textFieldShowNewPassword;
     @FXML
