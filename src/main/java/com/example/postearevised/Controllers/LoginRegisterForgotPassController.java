@@ -28,6 +28,9 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class LoginRegisterForgotPassController implements Initializable {
+    @FXML
+    public Rectangle rectangleModal;
+    public boolean rectangleModalVisible = false;
     public final Image showImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png")));
     public final Image hideImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png")));
     public LoginModel loginModel;
@@ -78,6 +81,11 @@ public class LoginRegisterForgotPassController implements Initializable {
         clearFieldsAndLabels();
     }
 
+    public void toggleRectangleModal() {
+        rectangleModalVisible = !rectangleModalVisible;
+        rectangleModal.setVisible(rectangleModalVisible);
+    }
+
 
     /**
      * Pag hiwa-hiwalayin ko ba 'to? hahahahaha
@@ -123,6 +131,9 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerSubmittedOnce = false;
 
         registerModel.emptyPassword();
+
+        registerNameToolTipImage.setVisible(false);
+        registerPasswordToolTipImage.setVisible(false);
 
         // Forgot PasswordColors
         textFieldForgotPass1.setText("");

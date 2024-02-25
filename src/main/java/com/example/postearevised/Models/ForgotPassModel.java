@@ -103,12 +103,15 @@ public class ForgotPassModel {
         hasStared();
 
         boolean confirmGoBack = true;
+        loginRegisterForgotPassController.toggleRectangleModal();
         if (loginRegisterForgotPassController.forgotPassStarted) {
             confirmGoBack = openPromptConfirmGoBack();
         }
 
         if (confirmGoBack)
             loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
+
+        loginRegisterForgotPassController.toggleRectangleModal();
     }
 
     private boolean openPromptConfirmGoBack() throws IOException {
@@ -253,9 +256,11 @@ public class ForgotPassModel {
         setAttributes(ForgotPassword3.getPaneNumber());
         setVisibilities(ForgotPassword3.getPaneNumber());
 
-
+        loginRegisterForgotPassController.toggleRectangleModal();
         if (arePane3InputsValid())
             openPromptGoBackToLogin();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
     }
 
     private boolean arePane3InputsValid() {

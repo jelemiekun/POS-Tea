@@ -62,7 +62,7 @@ public class Prompt {
     }
 
     public static void setResetPasswordSuccessfully() {
-        promptHeaderText = "PasswordColors reset is successful!";
+        promptHeaderText = "Password reset is successful!";
         promptContentText = "Please log-in to continue.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;

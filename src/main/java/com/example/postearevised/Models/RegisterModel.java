@@ -197,9 +197,11 @@ public class RegisterModel {
         setVisibilities(validEmail, passwordsMatch);
 
         if (allFieldsNotEmpty && validEmail && passwordsMatch && validUsername && usernameNotInPassword) {
+            loginRegisterForgotPassController.toggleRectangleModal();
             if (openTAC()) {
-                promptRegisteredSuccess();
+                openPromptRegisteredSuccess();
             }
+            loginRegisterForgotPassController.toggleRectangleModal();
         }
     }
 
@@ -290,7 +292,7 @@ public class RegisterModel {
         return isConfirmed;
     }
 
-    private void promptRegisteredSuccess() throws IOException {
+    private void openPromptRegisteredSuccess() throws IOException {
         setAccountCreatedConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
         Parent root = loader.load();
@@ -310,9 +312,11 @@ public class RegisterModel {
     public void close() throws IOException {
         setAttributes();
         if (exitAreFieldsEmpty()) {
+            loginRegisterForgotPassController.toggleRectangleModal();
             if (openPromptConfirmGoBack()) {
                 goToLogin();
             }
+            loginRegisterForgotPassController.toggleRectangleModal();
         } else {
             goToLogin();
         }
