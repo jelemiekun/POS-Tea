@@ -24,6 +24,10 @@ public class ForgotPassModel {
         this.loginRegisterForgotPassController = loginRegisterForgotPassController;
     }
 
+    /**
+     * Set things
+     */
+
     private void hasStared() {
         loginRegisterForgotPassController.forgotPassStarted = !loginRegisterForgotPassController.textFieldForgotPass1.getText().isBlank();
     }
@@ -97,37 +101,6 @@ public class ForgotPassModel {
                 loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(arePasswordsMatch);
                 break;
         }
-    }
-
-    public void checkIfProgressStartedBeforeGoBack() throws IOException {
-        hasStared();
-
-        boolean confirmGoBack = true;
-        loginRegisterForgotPassController.toggleRectangleModal();
-        if (loginRegisterForgotPassController.forgotPassStarted) {
-            confirmGoBack = openPromptConfirmGoBack();
-        }
-
-        if (confirmGoBack)
-            loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
-
-        loginRegisterForgotPassController.toggleRectangleModal();
-    }
-
-    private boolean openPromptConfirmGoBack() throws IOException {
-        setGoBackConfirmation();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
-        Parent root = loader.load();
-        Stage newStage = new Stage();
-
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
-
-        newStage.setTitle(ExitConfirmation.getTITLE());
-        newStage.setResizable(false);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
-        return isConfirmed;
     }
 
     /**
@@ -271,22 +244,9 @@ public class ForgotPassModel {
         loginRegisterForgotPassController.forgotPass3SubmittedOnce = true;
     }
 
-    private void openPromptGoBackToLogin() throws IOException {
-        setResetPasswordSuccessfully();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
-        Parent root = loader.load();
-        Stage newStage = new Stage();
-
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
-
-        newStage.setTitle(ExitConfirmation.getTITLE());
-        newStage.setResizable(false);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
-
-        loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
-    }
+    /**
+     * Show or Hide password
+     */
 
     public void togglePasswordField1() {
         loginRegisterForgotPassController.forgotPassShowNewPassword = !loginRegisterForgotPassController.forgotPassShowNewPassword;
@@ -320,5 +280,57 @@ public class ForgotPassModel {
         }
 
         loginRegisterForgotPassController.btnForgotPass3Proceed.requestFocus();
+    }
+
+    /**
+     * Redirecting to another scene
+     */
+
+    public void checkIfProgressStartedBeforeGoBack() throws IOException {
+        hasStared();
+
+        boolean confirmGoBack = true;
+        loginRegisterForgotPassController.toggleRectangleModal();
+        if (loginRegisterForgotPassController.forgotPassStarted) {
+            confirmGoBack = openPromptConfirmGoBack();
+        }
+
+        if (confirmGoBack)
+            loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+    }
+
+    private boolean openPromptConfirmGoBack() throws IOException {
+        setGoBackConfirmation();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
+    }
+
+    private void openPromptGoBackToLogin() throws IOException {
+        setResetPasswordSuccessfully();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+
+        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setResizable(false);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+
+        loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
     }
 }

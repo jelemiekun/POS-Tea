@@ -106,7 +106,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         // Register
         textFieldName.setText("");
-        textFieldEmail.setText("");
+        textFieldEmailOrPhoneNumber.setText("");
         textFieldNewPassword.setText("");
         textFieldShowNewPassword.setText("");
         textFieldConfirmNewPassword.setText("");
@@ -115,7 +115,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelEmail.setVisible(false);
         labelPassword.setVisible(false);
         labelConfirmPassword.setVisible(false);
-        labelInvalidEmail.setVisible(false);
+        labelInvalidEmailOrPhoneNumber.setVisible(false);
         labelPasswordNotMatch.setVisible(false);
 
         btnRegisterShowHidePassword1.setImage(hideImage);
@@ -308,7 +308,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public Label labelPasswordNotMatch;
     @FXML
-    public Label labelInvalidEmail;
+    public Label labelInvalidEmailOrPhoneNumber;
     @FXML
     public Label labelName;
     @FXML
@@ -328,7 +328,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public PasswordField textFieldConfirmNewPassword;
 
     @FXML
-    public TextField textFieldEmail;
+    public TextField textFieldEmailOrPhoneNumber;
 
     @FXML
     public PasswordField textFieldNewPassword;
@@ -377,22 +377,22 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void btnRegisterShowHidePassword1Clicked(MouseEvent event) {
-        registerModel.togglePasswordField1();
+        registerModel.toggleNewPasswordField();
     }
 
     @FXML
     void btnRegisterShowHidePassword1Touched(MouseEvent event) {
-        registerModel.togglePasswordField1();
+        registerModel.toggleNewPasswordField();
     }
 
     @FXML
     void btnRegisterShowHidePassword2Clicked(MouseEvent event) {
-        registerModel.togglePasswordField2();
+        registerModel.toggleConfirmNewPasswordField();
     }
 
     @FXML
     void btnRegisterShowHidePassword2Touched(MouseEvent event) {
-        registerModel.togglePasswordField2();
+        registerModel.toggleConfirmNewPasswordField();
     }
 
     @FXML
@@ -441,6 +441,46 @@ public class LoginRegisterForgotPassController implements Initializable {
     void registerNameToolTipTouched(TouchEvent event) {
         registerNameToolTipClicked = !registerNameToolTipClicked;
         registerNameToolTipImage.setVisible(registerNameToolTipClicked);
+    }
+
+    @FXML
+    void nameFieldIconClicked(MouseEvent event) {
+        registerModel.selectName();
+    }
+
+    @FXML
+    void nameFieldIconTouched(TouchEvent event) {
+        registerModel.selectName();
+    }
+
+    @FXML
+    void emailFieldIconClicked(MouseEvent event) {
+        registerModel.selectEmail();
+    }
+
+    @FXML
+    void emailFieldIconTouched(TouchEvent event) {
+        registerModel.selectEmail();
+    }
+
+    @FXML
+    void newPasswordFieldIconClicked(MouseEvent event) {
+        registerModel.selectNewPassword();
+    }
+
+    @FXML
+    void newPasswordFieldIconTouched(TouchEvent event) {
+        registerModel.selectNewPassword();
+    }
+
+    @FXML
+    void confirmNewPasswordFieldIconClicked(MouseEvent event) {
+        registerModel.selectConfirmNewPassword();
+    }
+
+    @FXML
+    void confirmNewPasswordFieldIconTouched(TouchEvent event) {
+        registerModel.selectConfirmNewPassword();
     }
 
 

@@ -33,26 +33,27 @@ public class RegisterModel {
     public void typing() {
         if (loginRegisterForgotPassController.registerSubmittedOnce) {
             setAttributes();
-            setVisibilities(isValidEmail(), passwordMatched());
+            setVisibilities(isValidEmailOrPhoneNumber(), passwordMatched());
         }
     }
 
     public void setAttributes() {
         registerName = loginRegisterForgotPassController.textFieldName.getText().trim();
-        registerEmail = loginRegisterForgotPassController.textFieldEmail.getText().trim();
+        registerEmailOrPhoneNumber = loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim();
         registerNewPassword = loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.textFieldShowNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldNewPassword.getText().trim();
         registerConfirmNewPassword = loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldConfirmNewPassword.getText().trim();
         System.out.println(registerName);
     }
 
-    private void setVisibilities(boolean validEmail, boolean passwordsMatch) {
+    private void setVisibilities(boolean validEmailOrPhoneNumber, boolean passwordsMatch) {
         loginRegisterForgotPassController.labelName.setVisible(registerName.isBlank());
         loginRegisterForgotPassController.labelName.setText("*please fill up this form");
-        loginRegisterForgotPassController.labelEmail.setVisible(registerEmail.isBlank());
+        loginRegisterForgotPassController.labelEmail.setVisible(registerEmailOrPhoneNumber.isBlank());
         loginRegisterForgotPassController.labelPassword.setVisible(registerNewPassword.isBlank());
         loginRegisterForgotPassController.labelPassword.setText("*please fill up this form");
         loginRegisterForgotPassController.labelConfirmPassword.setVisible(registerConfirmNewPassword.isBlank());
-        loginRegisterForgotPassController.labelInvalidEmail.setVisible(!registerEmail.isBlank() && !validEmail);
+        loginRegisterForgotPassController.labelInvalidEmailOrPhoneNumber.setVisible(!registerEmailOrPhoneNumber.isBlank() && !validEmailOrPhoneNumber);
+        loginRegisterForgotPassController.labelInvalidEmailOrPhoneNumber.setText(isAPhoneNumber() ? "*invalid number" : "*invalid email");
         loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(!registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank() && !passwordsMatch);
 
         if (!registerName.isBlank()) {
@@ -76,13 +77,21 @@ public class RegisterModel {
 
         if (!registerNewPassword.isBlank()) {
             if (isPasswordContainsName()) {
-                loginRegisterForgotPassController.labelPassword.setText("*password can't include name");
-                loginRegisterForgotPassController.labelPassword.setVisible(true);
+                if (!registerName.isBlank()) {
+                    loginRegisterForgotPassController.labelPassword.setText("*password can't include name");
+                    loginRegisterForgotPassController.labelPassword.setVisible(true);
+                } else {
+                    loginRegisterForgotPassController.labelPassword.setVisible(false);
+                }
             } else {
                 loginRegisterForgotPassController.labelPassword.setVisible(false);
             }
         }
     }
+
+    /**
+     * Password Indicator
+     */
 
     public void passwordIndicator() {
         setAttributes();
@@ -194,20 +203,24 @@ public class RegisterModel {
         loginRegisterForgotPassController.registerIndicator.setVisible(true);
     }
 
+    /**
+     * Check Validity
+     */
+
 
     private void checkTextFields() throws IOException {
         setAttributes();
 
         boolean allFieldsNotEmpty = notEmptyTextFields();
-        boolean validEmail = isValidEmail();
+        boolean validEmailOrPhoneNumber = isValidEmailOrPhoneNumber();
         boolean passwordsMatch = passwordMatched();
         boolean validName = isValidName();
         boolean nameNotInPassword = !isPasswordContainsName();
 
 
-        setVisibilities(validEmail, passwordsMatch);
+        setVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
-        if (allFieldsNotEmpty && validEmail && passwordsMatch && validName && nameNotInPassword) {
+        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword) {
             loginRegisterForgotPassController.toggleRectangleModal();
             if (openTAC()) {
                 openPromptRegisteredSuccess();
@@ -216,8 +229,12 @@ public class RegisterModel {
         }
     }
 
-    private boolean isValidEmail() {
-        return registerEmail.matches(REGEX_EMAIL);
+    private boolean isValidEmailOrPhoneNumber() {
+        return registerEmailOrPhoneNumber.matches(REGEX_EMAIL) || registerEmailOrPhoneNumber.matches(REGEX_PHONE_NUMBER);
+    }
+
+    private boolean isAPhoneNumber() {
+        return registerEmailOrPhoneNumber.matches(REGEX_FIRST_FIVE_ARE_NUMBERS);
     }
 
     private boolean isPasswordContainsName() {
@@ -233,18 +250,22 @@ public class RegisterModel {
     }
 
     private boolean notEmptyTextFields() {
-        return !registerName.isBlank() && !registerEmail.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
+        return !registerName.isBlank() && !registerEmailOrPhoneNumber.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
     }
 
     private boolean exitAreFieldsEmpty() {
-        return !registerName.isBlank() || !registerEmail.isBlank() || !registerNewPassword.isBlank() || !registerConfirmNewPassword.isBlank();
+        return !registerName.isBlank() || !registerEmailOrPhoneNumber.isBlank() || !registerNewPassword.isBlank() || !registerConfirmNewPassword.isBlank();
     }
 
     private boolean passwordMatched() {
         return registerNewPassword.equals(registerConfirmNewPassword);
     }
 
-    public void togglePasswordField1() {
+    /**
+     * Show or Hide Password
+     */
+
+    public void toggleNewPasswordField() {
         loginRegisterForgotPassController.registerShowNewPassword = !loginRegisterForgotPassController.registerShowNewPassword;
 
         loginRegisterForgotPassController.btnRegisterShowHidePassword1.setImage(loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
@@ -260,7 +281,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.btnRegister1.requestFocus();
     }
 
-    public void togglePasswordField2() {
+    public void toggleConfirmNewPasswordField() {
         loginRegisterForgotPassController.registerShowConfirmNewPassword = !loginRegisterForgotPassController.registerShowConfirmNewPassword;
 
         loginRegisterForgotPassController.btnRegisterShowHidePassword2.setImage(loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
@@ -275,6 +296,45 @@ public class RegisterModel {
 
         loginRegisterForgotPassController.btnRegister1.requestFocus();
     }
+
+    /**
+     * Click Field Icons
+     */
+
+    public void selectName() {
+        loginRegisterForgotPassController.textFieldName.requestFocus();
+        loginRegisterForgotPassController.textFieldName.positionCaret(loginRegisterForgotPassController.textFieldName.getText().length());
+    }
+
+    public void selectEmail() {
+        loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.requestFocus();
+        loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.positionCaret(loginRegisterForgotPassController.textFieldName.getText().length());
+    }
+
+    public void selectNewPassword() {
+        if (loginRegisterForgotPassController.registerShowNewPassword) {
+            loginRegisterForgotPassController.textFieldShowNewPassword.requestFocus();
+            loginRegisterForgotPassController.textFieldShowNewPassword.positionCaret(loginRegisterForgotPassController.textFieldShowNewPassword.getText().length());
+        } else {
+            loginRegisterForgotPassController.textFieldNewPassword.requestFocus();
+            loginRegisterForgotPassController.textFieldNewPassword.positionCaret(loginRegisterForgotPassController.textFieldNewPassword.getText().length());
+        }
+    }
+
+    public void selectConfirmNewPassword() {
+        if (loginRegisterForgotPassController.registerShowConfirmNewPassword) {
+            loginRegisterForgotPassController.textFieldShowConfirmNewPassword.requestFocus();
+            loginRegisterForgotPassController.textFieldShowConfirmNewPassword.positionCaret(loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText().length());
+        } else {
+            loginRegisterForgotPassController.textFieldConfirmNewPassword.requestFocus();
+            loginRegisterForgotPassController.textFieldConfirmNewPassword.positionCaret(loginRegisterForgotPassController.textFieldConfirmNewPassword.getText().length());
+        }
+    }
+
+    /**
+     * Redirecting to another scene
+     * Pop-up windows
+     */
 
     private boolean openPromptConfirmGoBack() throws IOException {
         setGoBackConfirmation();

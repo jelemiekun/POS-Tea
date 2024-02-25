@@ -36,36 +36,10 @@ public class LoginModel {
         loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
     }
 
-    public void togglePasswordField() {
-        loginRegisterForgotPassController.loginShowPassword = !loginRegisterForgotPassController.loginShowPassword;
+    /**
+     * Check Validity
+     */
 
-        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
-        loginRegisterForgotPassController.textFieldShowPassword.setVisible(loginRegisterForgotPassController.loginShowPassword);
-        loginRegisterForgotPassController.textFieldPassword.setVisible(!loginRegisterForgotPassController.loginShowPassword);
-
-        if (loginRegisterForgotPassController.loginShowPassword) {
-            loginRegisterForgotPassController.textFieldShowPassword.setText(loginRegisterForgotPassController.textFieldPassword.getText());
-        } else {
-            loginRegisterForgotPassController.textFieldPassword.setText(loginRegisterForgotPassController.textFieldShowPassword.getText());
-        }
-
-        loginRegisterForgotPassController.btnLogin.requestFocus();
-    }
-
-    public void checkInputsBeforeLogin() throws IOException {
-        boolean proceed = checkCredentials();
-
-        if (proceed) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.getURL()));
-            Parent root = loader.load();
-            mainStage = new Stage();
-            mainStage.setTitle(Main.getTITLE());
-            mainStage.setResizable(false);
-            mainStage.setScene(new Scene(root));
-            mainStage.show();
-            closeThisStage();
-        }
-    }
 
     // If account is found
     private boolean checkCredentials() {
@@ -86,6 +60,46 @@ public class LoginModel {
 
     public void hideIncorrectCredentials() {
         loginRegisterForgotPassController.labelIncorrectCredentials.setVisible(false);
+    }
+
+    /**
+     * Show or Hide password
+     */
+
+    public void togglePasswordField() {
+        loginRegisterForgotPassController.loginShowPassword = !loginRegisterForgotPassController.loginShowPassword;
+
+        loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
+        loginRegisterForgotPassController.textFieldShowPassword.setVisible(loginRegisterForgotPassController.loginShowPassword);
+        loginRegisterForgotPassController.textFieldPassword.setVisible(!loginRegisterForgotPassController.loginShowPassword);
+
+        if (loginRegisterForgotPassController.loginShowPassword) {
+            loginRegisterForgotPassController.textFieldShowPassword.setText(loginRegisterForgotPassController.textFieldPassword.getText());
+        } else {
+            loginRegisterForgotPassController.textFieldPassword.setText(loginRegisterForgotPassController.textFieldShowPassword.getText());
+        }
+
+        loginRegisterForgotPassController.btnLogin.requestFocus();
+    }
+
+    /**
+     * Redirecting to another scene
+     * Pop-up windows
+     */
+
+    public void checkInputsBeforeLogin() throws IOException {
+        boolean proceed = checkCredentials();
+
+        if (proceed) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.getURL()));
+            Parent root = loader.load();
+            mainStage = new Stage();
+            mainStage.setTitle(Main.getTITLE());
+            mainStage.setResizable(false);
+            mainStage.setScene(new Scene(root));
+            mainStage.show();
+            closeThisStage();
+        }
     }
 
     private void closeThisStage() {
