@@ -121,7 +121,7 @@ public class ForgotPassModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelUsername.getScene().getWindow());
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
         newStage.setTitle(ExitConfirmation.getTITLE());
         newStage.setResizable(false);
@@ -278,7 +278,7 @@ public class ForgotPassModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelUsername.getScene().getWindow());
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
         newStage.setTitle(ExitConfirmation.getTITLE());
         newStage.setResizable(false);

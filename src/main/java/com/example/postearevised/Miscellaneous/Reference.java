@@ -7,7 +7,7 @@ public class Reference {
     public static String passwordReference = "admin";
     public static String loginAccount = "";
     public static String loginPassword = "";
-    public static String registerUsername = "";
+    public static String registerName = "";
     public static String registerEmail = "";
     public static String registerNewPassword = "";
     public static String registerConfirmNewPassword = "";
@@ -23,6 +23,7 @@ public class Reference {
     public static Stage loginRegisterStage;
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net|edu|gov|mil|co\\.uk|ph)$";
     public static final String REGEX_PHONE_NUMBER = "^09\\d{9}$";
+    public static final String REGEX_NAME = "^[a-zA-Z ]+$";
     public static Thread countdown;
 
 }

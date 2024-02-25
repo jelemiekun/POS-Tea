@@ -189,7 +189,7 @@
                         </AnchorPane>
                              <AnchorPane layoutX="313.0" prefHeight="568.0" prefWidth="262.0">
                                  <children>
-                                     <Label fx:id="labelUsername" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*please fill up this form" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                     <Label fx:id="labelName" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*please fill up this form" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
                                          <font>
                                              <Font name="Arial" size="26.0" />
                                          </font>
@@ -216,7 +216,7 @@
                               </Label>
                                  </children>
                              </AnchorPane>
-                             <TextField fx:id="textFieldUsername" layoutY="50.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
+                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
@@ -317,7 +317,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="700.0" layoutY="250.0" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="nameFieldIcon" layoutX="700.0" layoutY="250.0" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -330,7 +330,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane layoutX="700.0" layoutY="386.0" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="emailFieldIcon" layoutX="700.0" layoutY="386.0" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -343,7 +343,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane layoutX="700.0" layoutY="525.0" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="newPasswordFieldIcon" layoutX="700.0" layoutY="525.0" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -356,7 +356,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane layoutX="700.0" layoutY="667.0" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="confirmNewPasswordFieldIcon" layoutX="700.0" layoutY="667.0" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -369,14 +369,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
-                         <image>
-                             <Image url="@../../Medias/Buttons/close.png" />
-                         </image>
-                         <cursor>
-                             <Cursor fx:constant="HAND" />
-                         </cursor>
-                     </ImageView>
                   <AnchorPane layoutX="765.0" layoutY="525.0" prefHeight="200.0" prefWidth="64.0">
                      <children>
                         <ImageView fx:id="btnRegisterShowHidePassword2" fitHeight="33.0" fitWidth="29.0" layoutX="18.0" layoutY="159.0" onMouseClicked="#btnRegisterShowHidePassword2Clicked" onTouchReleased="#btnRegisterShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
@@ -397,6 +389,14 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                         <image>
+                             <Image url="@../../Medias/Buttons/close.png" />
+                         </image>
+                         <cursor>
+                             <Cursor fx:constant="HAND" />
+                         </cursor>
+                     </ImageView>
                  </children>
              </AnchorPane>
             <ImageView fx:id="registerPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1270.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true" visible="false">

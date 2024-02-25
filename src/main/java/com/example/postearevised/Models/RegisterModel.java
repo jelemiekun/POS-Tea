@@ -38,15 +38,16 @@ public class RegisterModel {
     }
 
     public void setAttributes() {
-        registerUsername = loginRegisterForgotPassController.textFieldUsername.getText();
-        registerEmail = loginRegisterForgotPassController.textFieldEmail.getText();
-        registerNewPassword = loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.textFieldShowNewPassword.getText() : loginRegisterForgotPassController.textFieldNewPassword.getText();
-        registerConfirmNewPassword = loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText() : loginRegisterForgotPassController.textFieldConfirmNewPassword.getText();
+        registerName = loginRegisterForgotPassController.textFieldName.getText().trim();
+        registerEmail = loginRegisterForgotPassController.textFieldEmail.getText().trim();
+        registerNewPassword = loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.textFieldShowNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldNewPassword.getText().trim();
+        registerConfirmNewPassword = loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldConfirmNewPassword.getText().trim();
+        System.out.println(registerName);
     }
 
     private void setVisibilities(boolean validEmail, boolean passwordsMatch) {
-        loginRegisterForgotPassController.labelUsername.setVisible(registerUsername.isBlank());
-        loginRegisterForgotPassController.labelUsername.setText("*please fill up this form");
+        loginRegisterForgotPassController.labelName.setVisible(registerName.isBlank());
+        loginRegisterForgotPassController.labelName.setText("*please fill up this form");
         loginRegisterForgotPassController.labelEmail.setVisible(registerEmail.isBlank());
         loginRegisterForgotPassController.labelPassword.setVisible(registerNewPassword.isBlank());
         loginRegisterForgotPassController.labelPassword.setText("*please fill up this form");
@@ -54,18 +55,28 @@ public class RegisterModel {
         loginRegisterForgotPassController.labelInvalidEmail.setVisible(!registerEmail.isBlank() && !validEmail);
         loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(!registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank() && !passwordsMatch);
 
-        if (!registerUsername.isBlank()) {
-            if (registerUsername.length() < 3 || registerUsername.length() > 20) {
-                loginRegisterForgotPassController.labelUsername.setText("*should be 3-20 characters long");
-                loginRegisterForgotPassController.labelUsername.setVisible(true);
+        if (!registerName.isBlank()) {
+            if (registerName.length() < 3 || registerName.length() > 20) {
+                loginRegisterForgotPassController.labelName.setText("*should be 3-20 characters long");
+                loginRegisterForgotPassController.labelName.setVisible(true);
             } else {
-                loginRegisterForgotPassController.labelUsername.setVisible(false);
+                if (!registerName.matches(REGEX_NAME)) {
+                    loginRegisterForgotPassController.labelName.setText("*must contain only English letters");
+                    loginRegisterForgotPassController.labelName.setVisible(true);
+                } else {
+                    if (!nameFieldNotHaveSpaces()) {
+                        loginRegisterForgotPassController.labelName.setText("*spaces at start/end not allowed");
+                        loginRegisterForgotPassController.labelName.setVisible(true);
+                    } else {
+                        loginRegisterForgotPassController.labelName.setVisible(false);
+                    }
+                }
             }
         }
 
         if (!registerNewPassword.isBlank()) {
-            if (isPasswordContainsUsername()) {
-                loginRegisterForgotPassController.labelPassword.setText("*password can't include username");
+            if (isPasswordContainsName()) {
+                loginRegisterForgotPassController.labelPassword.setText("*password can't include name");
                 loginRegisterForgotPassController.labelPassword.setVisible(true);
             } else {
                 loginRegisterForgotPassController.labelPassword.setVisible(false);
@@ -190,13 +201,13 @@ public class RegisterModel {
         boolean allFieldsNotEmpty = notEmptyTextFields();
         boolean validEmail = isValidEmail();
         boolean passwordsMatch = passwordMatched();
-        boolean validUsername = isValidUsername();
-        boolean usernameNotInPassword = !isPasswordContainsUsername();
+        boolean validName = isValidName();
+        boolean nameNotInPassword = !isPasswordContainsName();
 
 
         setVisibilities(validEmail, passwordsMatch);
 
-        if (allFieldsNotEmpty && validEmail && passwordsMatch && validUsername && usernameNotInPassword) {
+        if (allFieldsNotEmpty && validEmail && passwordsMatch && validName && nameNotInPassword) {
             loginRegisterForgotPassController.toggleRectangleModal();
             if (openTAC()) {
                 openPromptRegisteredSuccess();
@@ -209,20 +220,24 @@ public class RegisterModel {
         return registerEmail.matches(REGEX_EMAIL);
     }
 
-    private boolean isPasswordContainsUsername() {
-        return registerNewPassword.contains(registerUsername);
+    private boolean isPasswordContainsName() {
+        return registerNewPassword.contains(registerName);
     }
 
-    private boolean isValidUsername() {
-        return registerUsername.length() >= 3 && registerUsername.length() <= 20;
+    private boolean isValidName() {
+        return registerName.length() >= 3 && registerName.length() <= 20 && registerName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
+    }
+
+    private boolean nameFieldNotHaveSpaces() {
+        return registerName.length() == loginRegisterForgotPassController.textFieldName.getText().length();
     }
 
     private boolean notEmptyTextFields() {
-        return !registerUsername.isBlank() && !registerEmail.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
+        return !registerName.isBlank() && !registerEmail.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
     }
 
     private boolean exitAreFieldsEmpty() {
-        return !registerUsername.isBlank() || !registerEmail.isBlank() || !registerNewPassword.isBlank() || !registerConfirmNewPassword.isBlank();
+        return !registerName.isBlank() || !registerEmail.isBlank() || !registerNewPassword.isBlank() || !registerConfirmNewPassword.isBlank();
     }
 
     private boolean passwordMatched() {
@@ -268,7 +283,7 @@ public class RegisterModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelUsername.getScene().getWindow());
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
         newStage.setTitle(ExitConfirmation.getTITLE());
         newStage.setResizable(false);
@@ -283,7 +298,7 @@ public class RegisterModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelUsername.getScene().getWindow());
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
         newStage.setTitle(TermsAndCondition.getTITLE());
         newStage.setResizable(false);
@@ -299,7 +314,7 @@ public class RegisterModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelUsername.getScene().getWindow());
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
         newStage.setTitle(ExitConfirmation.getTITLE());
         newStage.setResizable(false);

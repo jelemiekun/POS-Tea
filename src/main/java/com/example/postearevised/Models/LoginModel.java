@@ -89,7 +89,7 @@ public class LoginModel {
     }
 
     private void closeThisStage() {
-        Stage stage = (Stage) loginRegisterForgotPassController.labelUsername.getScene().getWindow();
+        Stage stage = (Stage) loginRegisterForgotPassController.labelName.getScene().getWindow();
         stage.close();
     }
 }

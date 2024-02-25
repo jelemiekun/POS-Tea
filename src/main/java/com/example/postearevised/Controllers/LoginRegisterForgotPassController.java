@@ -105,13 +105,13 @@ public class LoginRegisterForgotPassController implements Initializable {
         loginShowPassword = false;
 
         // Register
-        textFieldUsername.setText("");
+        textFieldName.setText("");
         textFieldEmail.setText("");
         textFieldNewPassword.setText("");
         textFieldShowNewPassword.setText("");
         textFieldConfirmNewPassword.setText("");
         textFieldShowConfirmNewPassword.setText("");
-        labelUsername.setVisible(false);
+        labelName.setVisible(false);
         labelEmail.setVisible(false);
         labelPassword.setVisible(false);
         labelConfirmPassword.setVisible(false);
@@ -272,6 +272,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
     @FXML
+    public AnchorPane nameFieldIcon;
+    @FXML
+    public AnchorPane emailFieldIcon;
+    @FXML
+    public AnchorPane newPasswordFieldIcon;
+    @FXML
+    public AnchorPane confirmNewPasswordFieldIcon;
+    @FXML
     public ImageView registerNameToolTip;
     @FXML
     public ImageView registerNameToolTipImage;
@@ -302,7 +310,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public Label labelInvalidEmail;
     @FXML
-    public Label labelUsername;
+    public Label labelName;
     @FXML
     public Label labelEmail;
     @FXML
@@ -326,7 +334,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public PasswordField textFieldNewPassword;
 
     @FXML
-    public TextField textFieldUsername;
+    public TextField textFieldName;
 
     @FXML
     void btnCloseClicked(MouseEvent event) throws IOException {
