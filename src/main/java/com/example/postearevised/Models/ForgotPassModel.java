@@ -207,9 +207,7 @@ public class ForgotPassModel {
                         int finalI = i;
                         int finalJ = j;
 
-                        Platform.runLater(() -> {
-                            loginRegisterForgotPassController.labelCountdown.setText(String.format("0%d:%02d", finalI, finalJ));
-                        });
+                        Platform.runLater(() -> loginRegisterForgotPassController.labelCountdown.setText(String.format("0%d:%02d", finalI, finalJ)));
 
                         try {
                             Thread.sleep(1000);
@@ -221,9 +219,7 @@ public class ForgotPassModel {
                     seconds = 59;
                 }
 
-                Platform.runLater(() -> {
-                    countDownDone();
-                });
+                Platform.runLater(() -> countDownDone());
             }
         });
 

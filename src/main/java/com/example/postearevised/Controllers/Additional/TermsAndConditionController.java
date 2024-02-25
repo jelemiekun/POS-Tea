@@ -11,12 +11,13 @@ import javafx.scene.input.TouchEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Prompt.*;
 
 public class TermsAndConditionController implements Initializable {
-    private Image acceptEnabled = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png"));
+    private final Image acceptEnabled = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png")));
     private boolean scrolledToTheBottom;
     @FXML
     public ScrollPane scrollPane;

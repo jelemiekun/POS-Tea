@@ -1,10 +1,8 @@
 package com.example.postearevised;
 
-import com.example.postearevised.Miscellaneous.Enums.Scenes;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.TouchEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
