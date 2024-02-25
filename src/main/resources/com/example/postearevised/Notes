@@ -2,8 +2,6 @@
 
 ayusin medias
 
-progress bar if good or not sa FORGOT PASSWORD
-
 
 
 
@@ -57,6 +55,8 @@ ilipat sa "accept" sa terms and condition yung pag check ng connectivity, then a
 
 hanapin saan mga end points/dulo ng mga operations
 
+cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
+
 
 
 
@@ -90,3 +90,5 @@ email or phone number sa register
 alisin focus sa fields para makita placeholders
 
 tingnan if may connectivity pag forgot password tapos prompt if wala haha
+
+progress bar if good or not sa FORGOT PASSWORD

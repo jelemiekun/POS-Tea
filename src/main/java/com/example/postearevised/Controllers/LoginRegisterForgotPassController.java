@@ -170,7 +170,9 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPass2SubmittedOnce = false;
         forgotPass3SubmittedOnce = false;
 
-        resetPasswordToolTipImage.setVisible(false);
+        forgotPassModel.emptyPassword();
+
+        forgotPasswordToolTipImage.setVisible(false);
     }
 
     public boolean checkConnectivity() throws IOException {
@@ -247,13 +249,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     public AnchorPane anchorPaneLogin;
 
     @FXML
-    void btnForgotPasswordClicked(MouseEvent event) throws IOException {
+    void loginBtnForgotPasswordClicked(MouseEvent event) throws IOException {
         if (checkConnectivity())
             switchPane(ForgotPassword.getPaneNumber());
     }
 
     @FXML
-    void btnForgotPasswordTouched(TouchEvent event) throws IOException {
+    void loginBtnForgotPasswordTouched(TouchEvent event) throws IOException {
         if (checkConnectivity())
             switchPane(ForgotPassword.getPaneNumber());
     }
@@ -279,7 +281,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldAccountPressedEnter(KeyEvent event) throws IOException {
+    void loginTextFieldAccountPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
         else
@@ -287,7 +289,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldPasswordPressedEnter(KeyEvent event) throws IOException {
+    void loginTextFieldPasswordPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
         else
@@ -307,7 +309,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void checkBoxRememberPasswordAction(ActionEvent event) {
+    void loginCheckBoxRememberPasswordAction(ActionEvent event) {
 
     }
 
@@ -386,7 +388,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public TextField textFieldName;
 
     @FXML
-    void btnCloseClicked(MouseEvent event) throws IOException {
+    void registerBtnCloseClicked(MouseEvent event) throws IOException {
         registerModel.close();
     }
 
@@ -408,7 +410,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldTyping(KeyEvent event) throws IOException {
+    void registerTextFieldTyping(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -417,7 +419,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldPasswordTyping(KeyEvent event) throws IOException{
+    void registerTextFieldPasswordTyping(KeyEvent event) throws IOException{
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -495,42 +497,42 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void nameFieldIconClicked(MouseEvent event) {
+    void registerNameFieldIconClicked(MouseEvent event) {
         registerModel.selectName();
     }
 
     @FXML
-    void nameFieldIconTouched(TouchEvent event) {
+    void registerNameFieldIconTouched(TouchEvent event) {
         registerModel.selectName();
     }
 
     @FXML
-    void emailFieldIconClicked(MouseEvent event) {
+    void registerEmailFieldIconClicked(MouseEvent event) {
         registerModel.selectEmail();
     }
 
     @FXML
-    void emailFieldIconTouched(TouchEvent event) {
+    void registerEmailFieldIconTouched(TouchEvent event) {
         registerModel.selectEmail();
     }
 
     @FXML
-    void newPasswordFieldIconClicked(MouseEvent event) {
+    void registerNewPasswordFieldIconClicked(MouseEvent event) {
         registerModel.selectNewPassword();
     }
 
     @FXML
-    void newPasswordFieldIconTouched(TouchEvent event) {
+    void registerNewPasswordFieldIconTouched(TouchEvent event) {
         registerModel.selectNewPassword();
     }
 
     @FXML
-    void confirmNewPasswordFieldIconClicked(MouseEvent event) {
+    void registerConfirmNewPasswordFieldIconClicked(MouseEvent event) {
         registerModel.selectConfirmNewPassword();
     }
 
     @FXML
-    void confirmNewPasswordFieldIconTouched(TouchEvent event) {
+    void registerConfirmNewPasswordFieldIconTouched(TouchEvent event) {
         registerModel.selectConfirmNewPassword();
     }
 
@@ -538,7 +540,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Forgot Password
      */
-    private boolean resetPasswordToolTipClicked = false;
+    private boolean forgotPasswordToolTipClicked = false;
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
     public boolean forgotPass3SubmittedOnce = false;
@@ -546,19 +548,19 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean forgotPassShowNewPassword;
     public boolean forgotPassShowConfirmNewPassword;
     @FXML
-    public ImageView resetPasswordToolTip;
+    public ImageView forgotPasswordToolTip;
     @FXML
-    public ImageView resetPasswordToolTipImage;
+    public ImageView forgotPasswordToolTipImage;
     @FXML
-    public Rectangle resetRectangle1;
+    public Rectangle forgotRectangle1;
     @FXML
-    public Rectangle resetRectangle2;
+    public Rectangle forgotRectangle2;
     @FXML
-    public Rectangle resetRectangle3;
+    public Rectangle forgotRectangle3;
     @FXML
-    public Rectangle resetRectangle4;
+    public Rectangle forgotRectangle4;
     @FXML
-    public Label resetIndicator;
+    public Label forgotIndicator;
     @FXML
     public ImageView btnForgotPass1Proceed;
     @FXML
@@ -709,7 +711,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnResendOTPClicked(MouseEvent event) {
+    void ForgotBtnResendOTPClicked(MouseEvent event) {
         forgotPassModel.countDownResendOTP();
     }
 
@@ -742,10 +744,12 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void textFieldForgotPass3PressedEnter(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ENTER)
+        if (event.getCode() == KeyCode.ENTER) {
             forgotPassModel.checkPane3Input();
-        else
+        } else {
             forgotPassModel.typing(ForgotPassword3.getPaneNumber());
+            forgotPassModel.passwordIndicator();
+        }
     }
 
     @FXML
@@ -769,26 +773,26 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void resetPasswordToolTipEntered(MouseEvent event) {
-        if (!resetPasswordToolTipClicked)
-            resetPasswordToolTipImage.setVisible(true);
+    void forgotPasswordToolTipEntered(MouseEvent event) {
+        if (!forgotPasswordToolTipClicked)
+            forgotPasswordToolTipImage.setVisible(true);
     }
 
     @FXML
-    void resetPasswordToolTipExited(MouseEvent event) {
-        if (!resetPasswordToolTipClicked)
-            resetPasswordToolTipImage.setVisible(false);
+    void forgotPasswordToolTipExited(MouseEvent event) {
+        if (!forgotPasswordToolTipClicked)
+            forgotPasswordToolTipImage.setVisible(false);
     }
 
     @FXML
-    void resetPasswordToolTipClicked(MouseEvent event) {
-        resetPasswordToolTipClicked = !resetPasswordToolTipClicked;
-        resetPasswordToolTipImage.setVisible(resetPasswordToolTipClicked);
+    void forgotPasswordToolTipClicked(MouseEvent event) {
+        forgotPasswordToolTipClicked = !forgotPasswordToolTipClicked;
+        forgotPasswordToolTipImage.setVisible(forgotPasswordToolTipClicked);
     }
 
     @FXML
-    void resetPasswordToolTipTouched(TouchEvent event) {
-        resetPasswordToolTipClicked = !resetPasswordToolTipClicked;
-        resetPasswordToolTipImage.setVisible(resetPasswordToolTipClicked);
+    void forgotPasswordToolTipTouched(TouchEvent event) {
+        forgotPasswordToolTipClicked = !forgotPasswordToolTipClicked;
+        forgotPasswordToolTipImage.setVisible(forgotPasswordToolTipClicked);
     }
 }

@@ -39,7 +39,7 @@
                         </ImageView>
                   <AnchorPane layoutX="248.0" layoutY="726.0" prefHeight="128.0" prefWidth="421.0">
                      <children>
-                              <AnchorPane fx:id="btnForgotPassword" layoutX="112.0" layoutY="64.0" onMouseClicked="#btnForgotPasswordClicked" onTouchReleased="#btnForgotPasswordTouched" prefHeight="41.0" prefWidth="198.0">
+                              <AnchorPane fx:id="btnForgotPassword" layoutX="112.0" layoutY="64.0" onMouseClicked="#loginBtnForgotPasswordClicked" onTouchReleased="#loginBtnForgotPasswordTouched" prefHeight="41.0" prefWidth="198.0">
                                   <cursor>
                                       <Cursor fx:constant="HAND" />
                                   </cursor>
@@ -88,17 +88,17 @@
                      <children>
                         <AnchorPane layoutX="206.0" layoutY="5.0" prefHeight="200.0" prefWidth="510.0">
                            <children>
-                                    <TextField fx:id="textFieldAccount" onKeyPressed="#textFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Email or Phone Number">
+                                    <TextField fx:id="textFieldAccount" onKeyPressed="#loginTextFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Email or Phone Number">
                                         <font>
                                             <Font name="Arial" size="33.0" />
                                         </font>
                                     </TextField>
-                                    <PasswordField fx:id="textFieldPassword" layoutY="136.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Password">
+                                    <PasswordField fx:id="textFieldPassword" layoutY="136.0" onKeyPressed="#loginTextFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Password">
                                         <font>
                                             <Font name="Microsoft Sans Serif" size="33.0" />
                                         </font>
                                     </PasswordField>
-                                    <TextField fx:id="textFieldShowPassword" layoutY="136.0" onKeyPressed="#textFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Password" visible="false">
+                                    <TextField fx:id="textFieldShowPassword" layoutY="136.0" onKeyPressed="#loginTextFieldPasswordPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Password" visible="false">
                                         <font>
                                             <Font name="Microsoft Sans Serif" size="33.0" />
                                         </font>
@@ -129,7 +129,7 @@
                               </ImageView>
                         <AnchorPane layoutY="229.0" prefHeight="76.0" prefWidth="776.0">
                            <children>
-                              <CheckBox fx:id="checkBoxRememberPassword" layoutX="34.0" layoutY="22.0" mnemonicParsing="false" onAction="#checkBoxRememberPasswordAction" text="Stay Logged in">
+                              <CheckBox fx:id="checkBoxRememberPassword" layoutX="34.0" layoutY="22.0" mnemonicParsing="false" onAction="#loginCheckBoxRememberPasswordAction" text="Stay Logged in">
                                  <font>
                                     <Font name="Arial Bold" size="24.0" />
                                  </font>
@@ -216,32 +216,32 @@
                               </Label>
                                  </children>
                              </AnchorPane>
-                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
+                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </TextField>
-                             <TextField fx:id="textFieldEmailOrPhoneNumber" layoutY="186.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter email or phone number">
+                             <TextField fx:id="textFieldEmailOrPhoneNumber" layoutY="186.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter email or phone number">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </TextField>
-                             <PasswordField fx:id="textFieldNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password">
+                             <PasswordField fx:id="textFieldNewPassword" layoutY="325.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </PasswordField>
-                        <TextField fx:id="textFieldShowNewPassword" layoutY="325.0" onKeyPressed="#textFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password" visible="false">
+                        <TextField fx:id="textFieldShowNewPassword" layoutY="325.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password" visible="false">
                            <font>
                               <Font name="Arial" size="33.0" />
                            </font>
                         </TextField>
-                             <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="467.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
+                             <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
                              </PasswordField>
-                        <TextField fx:id="textFieldShowConfirmNewPassword" layoutY="467.0" onKeyPressed="#textFieldTyping" prefHeight="64.0" prefWidth="575.0" visible="false">
+                        <TextField fx:id="textFieldShowConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" visible="false">
                            <font>
                               <Font name="Arial" size="33.0" />
                            </font>
@@ -317,7 +317,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="nameFieldIcon" layoutX="700.0" layoutY="250.0" onMouseClicked="#nameFieldIconClicked" onTouchReleased="#nameFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="nameFieldIcon" layoutX="700.0" layoutY="250.0" onMouseClicked="#registerNameFieldIconClicked" onTouchReleased="#registerNameFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -330,7 +330,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane fx:id="emailFieldIcon" layoutX="700.0" layoutY="386.0" onMouseClicked="#emailFieldIconClicked" onTouchReleased="#emailFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="emailFieldIcon" layoutX="700.0" layoutY="386.0" onMouseClicked="#registerEmailFieldIconClicked" onTouchReleased="#registerEmailFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -343,7 +343,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane fx:id="newPasswordFieldIcon" layoutX="700.0" layoutY="525.0" onMouseClicked="#newPasswordFieldIconClicked" onTouchReleased="#newPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="newPasswordFieldIcon" layoutX="700.0" layoutY="525.0" onMouseClicked="#registerNewPasswordFieldIconClicked" onTouchReleased="#registerNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -356,7 +356,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane fx:id="confirmNewPasswordFieldIcon" layoutX="700.0" layoutY="667.0" onMouseClicked="#confirmNewPasswordFieldIconClicked" onTouchReleased="#confirmNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                  <AnchorPane fx:id="confirmNewPasswordFieldIcon" layoutX="700.0" layoutY="667.0" onMouseClicked="#registerConfirmNewPasswordFieldIconClicked" onTouchReleased="#registerConfirmNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
                         <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
@@ -389,7 +389,7 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#btnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -548,7 +548,7 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="btnResendOTP" alignment="CENTER" disable="true" layoutX="410.0" layoutY="201.0" onMouseClicked="#btnResendOTPClicked" text="Resend OTP" textAlignment="CENTER" underline="true">
+                              <Label fx:id="btnResendOTP" alignment="CENTER" disable="true" layoutX="410.0" layoutY="201.0" onMouseClicked="#ForgotBtnResendOTPClicked" text="Resend OTP" textAlignment="CENTER" underline="true">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -688,32 +688,32 @@
                                  <children>
                                     <FlowPane prefHeight="8.0" prefWidth="620.0">
                                        <children>
-                                          <Rectangle fx:id="resetRectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
+                                          <Rectangle fx:id="forgotRectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
                                              <FlowPane.margin>
                                                 <Insets right="2.0" />
                                              </FlowPane.margin>
                                           </Rectangle>
-                                          <Rectangle fx:id="resetRectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
+                                          <Rectangle fx:id="forgotRectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
                                              <FlowPane.margin>
                                                 <Insets right="2.0" />
                                              </FlowPane.margin>
                                           </Rectangle>
-                                          <Rectangle fx:id="resetRectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
+                                          <Rectangle fx:id="forgotRectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0">
                                              <FlowPane.margin>
                                                 <Insets right="2.0" />
                                              </FlowPane.margin>
                                           </Rectangle>
-                                          <Rectangle fx:id="resetRectangle4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0" />
+                                          <Rectangle fx:id="forgotRectangle4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="153.0" />
                                        </children>
                                     </FlowPane>
                                     <AnchorPane layoutX="496.0" layoutY="10.0" prefHeight="30.0" prefWidth="120.0">
                                        <children>
-                                          <Label fx:id="resetIndicator" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="85.0">
+                                          <Label fx:id="forgotIndicator" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="85.0">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fx:id="resetPasswordToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="85.0" onMouseClicked="#resetPasswordToolTipClicked" onMouseEntered="#resetPasswordToolTipEntered" onMouseExited="#resetPasswordToolTipExited" onTouchReleased="#resetPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="forgotPasswordToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="85.0" onMouseClicked="#forgotPasswordToolTipClicked" onMouseEntered="#forgotPasswordToolTipEntered" onMouseExited="#forgotPasswordToolTipExited" onTouchReleased="#forgotPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../Medias/Icons/icon%20tooltip.png" />
                                              </image>
@@ -724,7 +724,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="resetPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="709.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fx:id="forgotPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="709.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
                            </image>
