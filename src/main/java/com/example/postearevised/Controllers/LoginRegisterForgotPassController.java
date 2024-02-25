@@ -359,7 +359,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
 
     /**
-     * Forgot PasswordColors
+     * Forgot Password
      */
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
