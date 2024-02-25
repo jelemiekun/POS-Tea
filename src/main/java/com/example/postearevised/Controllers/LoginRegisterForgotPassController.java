@@ -169,6 +169,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPass1SubmittedOnce = false;
         forgotPass2SubmittedOnce = false;
         forgotPass3SubmittedOnce = false;
+
+        resetPasswordToolTipImage.setVisible(false);
     }
 
     public boolean checkConnectivity() throws IOException {
@@ -536,12 +538,27 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Forgot Password
      */
+    private boolean resetPasswordToolTipClicked = false;
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
     public boolean forgotPass3SubmittedOnce = false;
     public boolean forgotPassStarted = false;
     public boolean forgotPassShowNewPassword;
     public boolean forgotPassShowConfirmNewPassword;
+    @FXML
+    public ImageView resetPasswordToolTip;
+    @FXML
+    public ImageView resetPasswordToolTipImage;
+    @FXML
+    public Rectangle resetRectangle1;
+    @FXML
+    public Rectangle resetRectangle2;
+    @FXML
+    public Rectangle resetRectangle3;
+    @FXML
+    public Rectangle resetRectangle4;
+    @FXML
+    public Label resetIndicator;
     @FXML
     public ImageView btnForgotPass1Proceed;
     @FXML
@@ -749,5 +766,29 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     void btnForgotPassShowHidePassword2Touched(TouchEvent event) {
         forgotPassModel.togglePasswordField2();
+    }
+
+    @FXML
+    void resetPasswordToolTipEntered(MouseEvent event) {
+        if (!resetPasswordToolTipClicked)
+            resetPasswordToolTipImage.setVisible(true);
+    }
+
+    @FXML
+    void resetPasswordToolTipExited(MouseEvent event) {
+        if (!resetPasswordToolTipClicked)
+            resetPasswordToolTipImage.setVisible(false);
+    }
+
+    @FXML
+    void resetPasswordToolTipClicked(MouseEvent event) {
+        resetPasswordToolTipClicked = !resetPasswordToolTipClicked;
+        resetPasswordToolTipImage.setVisible(resetPasswordToolTipClicked);
+    }
+
+    @FXML
+    void resetPasswordToolTipTouched(TouchEvent event) {
+        resetPasswordToolTipClicked = !resetPasswordToolTipClicked;
+        resetPasswordToolTipImage.setVisible(resetPasswordToolTipClicked);
     }
 }
