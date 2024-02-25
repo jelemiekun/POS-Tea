@@ -1,7 +1,9 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.LoginRegisterForgotPassController;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -137,8 +139,8 @@ public class ForgotPassModel {
         setVisibilities(ForgotPassword1.getPaneNumber());
 
         if (isPane1InputsValid()) {
-            generateOTP();
             proceedPane2();
+            countDownResendOTP();
             System.out.println(forgotPassAccount);
         }
     }
@@ -151,6 +153,13 @@ public class ForgotPassModel {
         return !forgotPassAccount.isBlank() && (forgotPassAccount.matches(REGEX_EMAIL) || forgotPassAccount.matches(REGEX_PHONE_NUMBER));
     }
 
+    private void proceedPane2() {
+        loginRegisterForgotPassController.forgotPasswordSwitchPane(ForgotPassword2.getPaneNumber());
+    }
+
+    /**
+     * Pane 2
+     */
     private void generateOTP() {
         Random random = new Random();
         int randomNumber = random.nextInt(9000) + 1000;
@@ -159,14 +168,6 @@ public class ForgotPassModel {
         System.out.println(randomNumber);
     }
 
-    private void proceedPane2() {
-        loginRegisterForgotPassController.forgotPasswordSwitchPane(ForgotPassword2.getPaneNumber());
-    }
-
-    /**
-     * Pane 2
-     */
-
     public void checkPane2Input() {
         pane2SubmittedOnce();
 
@@ -174,6 +175,7 @@ public class ForgotPassModel {
         setVisibilities(ForgotPassword2.getPaneNumber());
 
         if (isPane2InputsValid()) {
+            countdown.interrupt();
             proceedPane3();
         }
     }
@@ -190,6 +192,60 @@ public class ForgotPassModel {
     private void proceedPane3() {
         loginRegisterForgotPassController.forgotPasswordSwitchPane(ForgotPassword3.getPaneNumber());
     }
+
+    public void countDownResendOTP() {
+        generateOTP();
+        setLabelsForCountdown();
+        countdown = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int minutes = 3;
+                int seconds = 0;
+
+                for (int i = minutes; i >= 0; i--) {
+                    for (int j = seconds; j >= 0; j--) {
+                        int finalI = i;
+                        int finalJ = j;
+
+                        Platform.runLater(() -> {
+                            loginRegisterForgotPassController.labelCountdown.setText(String.format("0%d:%02d", finalI, finalJ));
+                        });
+
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+
+                    }
+                    seconds = 59;
+                }
+
+                Platform.runLater(() -> {
+                    countDownDone();
+                });
+            }
+        });
+
+        countdown.setDaemon(true);
+        countdown.start();
+    }
+
+    private void setLabelsForCountdown() {
+        loginRegisterForgotPassController.labelResendOTPTitle.setText("Time Remaining: ");
+        loginRegisterForgotPassController.labelCountdown.setVisible(true);
+        loginRegisterForgotPassController.btnResendOTP.setDisable(true);
+        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.NONE);
+
+    }
+
+    private void countDownDone() {
+        loginRegisterForgotPassController.labelResendOTPTitle.setText("Didn't receive code?");
+        loginRegisterForgotPassController.labelCountdown.setVisible(false);
+        loginRegisterForgotPassController.btnResendOTP.setDisable(false);
+        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.HAND);
+    }
+
 
     /**
      * Pane 3

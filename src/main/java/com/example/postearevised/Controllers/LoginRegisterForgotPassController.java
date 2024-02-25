@@ -26,8 +26,8 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class LoginRegisterForgotPassController implements Initializable {
-    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
-    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
+    public Image showImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png"));
+    public Image hideImage = new Image(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png"));
     public LoginModel loginModel;
     public RegisterModel registerModel;
     public ForgotPassModel forgotPassModel;
@@ -344,6 +344,12 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean forgotPassShowNewPassword;
     public boolean forgotPassShowConfirmNewPassword;
     @FXML
+    public Label btnResendOTP;
+    @FXML
+    public Label labelCountdown;
+    @FXML
+    public Label labelResendOTPTitle;
+    @FXML
     public ImageView btnForgotPass3Proceed;
     @FXML
     public AnchorPane anchorPaneForgotPass;
@@ -474,6 +480,11 @@ public class LoginRegisterForgotPassController implements Initializable {
             forgotPassModel.checkPane2Input();
         else
             forgotPassModel.typing(ForgotPassword2.getPaneNumber());
+    }
+
+    @FXML
+    void btnResendOTPClicked(MouseEvent event) {
+        forgotPassModel.countDownResendOTP();
     }
 
 
