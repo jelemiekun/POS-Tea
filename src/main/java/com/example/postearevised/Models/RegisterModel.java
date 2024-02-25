@@ -127,14 +127,10 @@ public class RegisterModel {
         int criteriaMet = 0;
         if (registerNewPassword.length() >= 8) {
             criteriaMet++;
-            if (registerNewPassword.matches(".*[A-Z].*")) criteriaMet++;
-            if (registerNewPassword.matches(".*\\d.*")) criteriaMet++;
-            if (registerNewPassword.matches(".*[^A-Za-z0-9].*")) criteriaMet++;
-        } else {
-            if (registerNewPassword.matches(".*[A-Z].*")) criteriaMet++;
-            if (registerNewPassword.matches(".*\\d.*")) criteriaMet++;
-            if (registerNewPassword.matches(".*[^A-Za-z0-9].*")) criteriaMet++;
         }
+        if (registerNewPassword.matches(".*[A-Z].*")) criteriaMet++;
+        if (registerNewPassword.matches(".*\\d.*")) criteriaMet++;
+        if (registerNewPassword.matches(".*[^A-Za-z0-9].*")) criteriaMet++;
         return criteriaMet;
     }
 
@@ -207,7 +203,11 @@ public class RegisterModel {
         }
     }
 
-    public boolean isPasswordContainsUsername() {
+    private boolean isValidEmail() {
+        return registerEmail.matches(REGEX_EMAIL);
+    }
+
+    private boolean isPasswordContainsUsername() {
         return registerNewPassword.contains(registerUsername);
     }
 
@@ -257,10 +257,6 @@ public class RegisterModel {
         }
 
         loginRegisterForgotPassController.btnRegister1.requestFocus();
-    }
-
-    private boolean isValidEmail() {
-        return registerEmail.matches(REGEX_EMAIL);
     }
 
     private boolean openPromptConfirmGoBack() throws IOException {

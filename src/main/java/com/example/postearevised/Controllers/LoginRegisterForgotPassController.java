@@ -220,12 +220,16 @@ public class LoginRegisterForgotPassController implements Initializable {
     void textFieldAccountPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
+        else
+            loginModel.hideIncorrectCredentials();
     }
 
     @FXML
     void textFieldPasswordPressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
+        else
+            loginModel.hideIncorrectCredentials();
     }
 
     @FXML
@@ -323,10 +327,11 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void textFieldTyping(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ENTER)
+        if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
-        else
+        } else {
             registerModel.typing();
+        }
     }
 
     @FXML

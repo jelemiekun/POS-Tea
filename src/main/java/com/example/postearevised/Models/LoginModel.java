@@ -84,6 +84,10 @@ public class LoginModel {
         loginRegisterForgotPassController.labelIncorrectCredentials.setVisible(true);
     }
 
+    public void hideIncorrectCredentials() {
+        loginRegisterForgotPassController.labelIncorrectCredentials.setVisible(false);
+    }
+
     private void closeThisStage() {
         Stage stage = (Stage) loginRegisterForgotPassController.labelUsername.getScene().getWindow();
         stage.close();
