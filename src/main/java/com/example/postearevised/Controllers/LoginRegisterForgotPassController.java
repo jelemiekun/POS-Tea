@@ -247,13 +247,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     void btnForgotPasswordClicked(MouseEvent event) throws IOException {
         if (checkConnectivity())
-            registerModel.goToLogin();
+            switchPane(ForgotPassword.getPaneNumber());
     }
 
     @FXML
     void btnForgotPasswordTouched(TouchEvent event) throws IOException {
         if (checkConnectivity())
-            registerModel.goToLogin();
+            switchPane(ForgotPassword.getPaneNumber());
     }
 
     @FXML
@@ -293,13 +293,15 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnRegisterFromLoginClicked(MouseEvent event) {
-        switchPane(Register.getPaneNumber());
+    void btnRegisterFromLoginClicked(MouseEvent event) throws IOException {
+        if (checkConnectivity())
+            switchPane(Register.getPaneNumber());
     }
 
     @FXML
-    void btnRegisterFromLoginTouched(TouchEvent event) {
-        switchPane(Register.getPaneNumber());
+    void btnRegisterFromLoginTouched(TouchEvent event) throws IOException {
+        if (checkConnectivity())
+            switchPane(Register.getPaneNumber());
     }
 
     @FXML
