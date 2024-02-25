@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
@@ -70,6 +71,96 @@ public class RegisterModel {
                 loginRegisterForgotPassController.labelPassword.setVisible(false);
             }
         }
+    }
+
+    public void passwordIndicator() {
+        if (registerNewPassword.isBlank() || isPasswordContainsUsername()) {
+            loginRegisterForgotPassController.registerRectangle1.setFill(White.getColor());
+            loginRegisterForgotPassController.registerRectangle2.setFill(White.getColor());
+            loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
+            loginRegisterForgotPassController.registerRectangle4.setFill(White.getColor());
+            loginRegisterForgotPassController.registerIndicator.setText(White.getText());
+            loginRegisterForgotPassController.registerIndicator.setVisible(false);
+            loginRegisterForgotPassController.registerPasswordToolTip.setVisible(true);
+        } else {
+
+            int result = checkWeak();
+            if (result == 1) {
+                // weak
+                loginRegisterForgotPassController.registerRectangle1.setFill(Weak.getColor());
+                loginRegisterForgotPassController.registerRectangle2.setFill(White.getColor());
+                loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
+                loginRegisterForgotPassController.registerRectangle4.setFill(White.getColor());
+                loginRegisterForgotPassController.registerIndicator.setText(Weak.getText());
+                loginRegisterForgotPassController.registerIndicator.setVisible(true);
+                loginRegisterForgotPassController.registerPasswordToolTip.setVisible(true);
+            } else {
+                result = checkFair();
+                if (result == 2) {
+                    // fair
+                    loginRegisterForgotPassController.registerRectangle1.setFill(Fair.getColor());
+                    loginRegisterForgotPassController.registerRectangle2.setFill(Fair.getColor());
+                    loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
+                    loginRegisterForgotPassController.registerRectangle4.setFill(White.getColor());
+                    loginRegisterForgotPassController.registerIndicator.setText(Fair.getText());
+                    loginRegisterForgotPassController.registerIndicator.setVisible(true);
+                    loginRegisterForgotPassController.registerPasswordToolTip.setVisible(true);
+                } else {
+                    result = checkGood();
+                    if (result == 3) {
+                        // good
+                        loginRegisterForgotPassController.registerRectangle1.setFill(Good.getColor());
+                        loginRegisterForgotPassController.registerRectangle2.setFill(Good.getColor());
+                        loginRegisterForgotPassController.registerRectangle3.setFill(Good.getColor());
+                        loginRegisterForgotPassController.registerRectangle4.setFill(White.getColor());
+                        loginRegisterForgotPassController.registerIndicator.setText(Good.getText());
+                        loginRegisterForgotPassController.registerIndicator.setVisible(true);
+                        loginRegisterForgotPassController.registerPasswordToolTip.setVisible(false);
+                    } else {
+                        result = checkStrong();
+                        if (result == 4) {
+                            // strong
+                            loginRegisterForgotPassController.registerRectangle1.setFill(Strong.getColor());
+                            loginRegisterForgotPassController.registerRectangle2.setFill(Strong.getColor());
+                            loginRegisterForgotPassController.registerRectangle3.setFill(Strong.getColor());
+                            loginRegisterForgotPassController.registerRectangle4.setFill(Strong.getColor());
+                            loginRegisterForgotPassController.registerIndicator.setText(Strong.getText());
+                            loginRegisterForgotPassController.registerIndicator.setVisible(true);
+                            loginRegisterForgotPassController.registerPasswordToolTip.setVisible(false);
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    public int checkWeak() {
+        return (registerNewPassword.length() < 8) ? 1 : -1;
+    }
+
+    public int checkFair() {
+        if (registerNewPassword.length() < 8) return -1; // Password length is less than 8 characters
+        if (!registerNewPassword.matches(".*[A-Z].*")) return 2; // No uppercase letters
+        if (!registerNewPassword.matches(".*\\d.*")) return 2; // No digits
+        if (!registerNewPassword.matches(".*[^A-Za-z0-9].*")) return 2; // No special characters
+        return -1; // Fair password criteria not met
+    }
+
+    public int checkGood() {
+        if (registerNewPassword.length() < 8) return -1; // Password length is less than 8 characters
+        if (!registerNewPassword.matches(".*[A-Z].*")) return -1; // No uppercase letters
+        if (!registerNewPassword.matches(".*\\d.*")) return -1; // No digits
+        if (!registerNewPassword.matches(".*[^A-Za-z0-9].*")) return -1; // No special characters
+        return 3; // Good password criteria met
+    }
+
+    public int checkStrong() {
+        if (registerNewPassword.length() < 8) return -1; // Password length is less than 8 characters
+        if (!registerNewPassword.matches(".*[A-Z].*")) return -1; // No uppercase letters
+        if (!registerNewPassword.matches(".*\\d.*")) return -1; // No digits
+        if (!registerNewPassword.matches(".*[^A-Za-z0-9].*")) return -1; // No special characters
+        return 4; // Strong password criteria met
     }
 
     private void checkTextFields() throws IOException {

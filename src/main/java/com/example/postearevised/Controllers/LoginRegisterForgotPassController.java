@@ -62,7 +62,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
                 break;
-            case 3: // Forgot Password
+            case 3: // Forgot PasswordColors
                 loginRegisterStage.setTitle(ForgotPassword.getName());
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(false);
@@ -118,7 +118,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerShowConfirmNewPassword = false;
         registerSubmittedOnce = false;
 
-        // Forgot Password
+        // Forgot PasswordColors
         textFieldForgotPass1.setText("");
         textFieldForgotPass2.setText("");
         textFieldForgotPass31.setText("");
@@ -257,6 +257,10 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public Rectangle registerRectangle4;
     @FXML
+    public Label registerIndicator;
+    @FXML
+    public ImageView registerPasswordToolTip;
+    @FXML
     public TextField textFieldShowNewPassword;
     @FXML
     public TextField textFieldShowConfirmNewPassword;
@@ -316,11 +320,21 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldPressedEnter(KeyEvent event) throws IOException {
+    void textFieldTyping(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             registerModel.registerAction();
         else
             registerModel.typing();
+    }
+
+    @FXML
+    void textFieldPasswordTyping(KeyEvent event) throws IOException{
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.registerAction();
+        } else {
+            registerModel.typing();
+            registerModel.passwordIndicator();
+        }
     }
 
     @FXML
@@ -345,7 +359,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
 
     /**
-     * Forgot Password
+     * Forgot PasswordColors
      */
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
