@@ -214,7 +214,7 @@
                               </Label>
                                  </children>
                              </AnchorPane>
-                             <TextField fx:id="textFieldUsername" layoutY="50.0" onKeyPressed="#textFieldPressedEnter" prefHeight="64.0" prefWidth="575.0">
+                             <TextField fx:id="textFieldUsername" layoutY="50.0" onInputMethodTextChanged="#textFieldPressedEnter" prefHeight="64.0" prefWidth="575.0">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
@@ -352,7 +352,7 @@
              </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>

@@ -15,7 +15,6 @@ import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class RegisterModel {
-    public boolean submittedOnce = false;
     private LoginRegisterForgotPassController loginRegisterForgotPassController;
 
     public void setLoginRegisterController(LoginRegisterForgotPassController loginRegisterForgotPassController) {
@@ -59,7 +58,7 @@ public class RegisterModel {
     }
 
     public void typing() {
-        if (submittedOnce) {
+        if (loginRegisterForgotPassController.registerSubmittedOnce) {
             setAttributes();
             setVisibilities(isValidEmail(), passwordMatched());
         }
@@ -73,7 +72,7 @@ public class RegisterModel {
     }
 
     public void registerAction() throws IOException {
-        submittedOnce = true;
+        loginRegisterForgotPassController.registerSubmittedOnce = true;
         checkTextFields();
     }
 

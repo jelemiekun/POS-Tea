@@ -60,7 +60,6 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
-                registerModel.submittedOnce = false;
                 break;
             case 3: // Forgot Password
                 loginRegisterStage.setTitle(ForgotPassword.getName());
@@ -114,6 +113,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         registerShowNewPassword = false;
         registerShowConfirmNewPassword = false;
+        registerSubmittedOnce = false;
 
         // Forgot Password
         textFieldForgotPass1.setText("");
@@ -138,6 +138,10 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         forgotPassShowNewPassword = false;
         forgotPassShowConfirmNewPassword = false;
+
+        forgotPass1SubmittedOnce = false;
+        forgotPass2SubmittedOnce = false;
+        forgotPass3SubmittedOnce = false;
     }
 
 
@@ -238,6 +242,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    public boolean registerSubmittedOnce = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
     @FXML
@@ -331,6 +336,9 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Forgot Password
      */
+    public boolean forgotPass1SubmittedOnce = false;
+    public boolean forgotPass2SubmittedOnce = false;
+    public boolean forgotPass3SubmittedOnce = false;
 
     public boolean forgotPassStarted = false;
     public boolean forgotPassShowNewPassword;
@@ -431,6 +439,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     void textFieldForgotPass1PressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             forgotPassModel.checkPane1Input();
+        else
+            forgotPassModel.typing(ForgotPassword1.getPaneNumber());
     }
 
 
@@ -462,6 +472,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     void textFieldForgotPass2PressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             forgotPassModel.checkPane2Input();
+        else
+            forgotPassModel.typing(ForgotPassword2.getPaneNumber());
     }
 
 
@@ -493,6 +505,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     void textFieldForgotPass3PressedEnter(KeyEvent event) throws IOException {
         if (event.getCode() == KeyCode.ENTER)
             forgotPassModel.checkPane3Input();
+        else
+            forgotPassModel.typing(ForgotPassword3.getPaneNumber());
     }
 
     @FXML

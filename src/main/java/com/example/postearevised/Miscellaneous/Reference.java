@@ -12,6 +12,7 @@ public class Reference {
     public static String registerNewPassword = "";
     public static String registerConfirmNewPassword = "";
     public static String forgotPassAccount = "";
+    public static String forgotPassGeneratedOTP = "";
     public static String forgotPassOTP = "";
     public static String forgotPassNewPassword = "";
     public static String forgotPassConfirmNewPassword = "";

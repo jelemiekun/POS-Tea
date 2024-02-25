@@ -22,6 +22,81 @@ public class ForgotPassModel {
         this.loginRegisterForgotPassController = loginRegisterForgotPassController;
     }
 
+    private void hasStared() {
+        loginRegisterForgotPassController.forgotPassStarted = !loginRegisterForgotPassController.textFieldForgotPass1.getText().isBlank();
+    }
+
+    public void typing(int paneNumber) {
+        switch (paneNumber) {
+            case 4:
+                if (loginRegisterForgotPassController.forgotPass1SubmittedOnce) {
+                    setAttributes(ForgotPassword1.getPaneNumber());
+                    setVisibilities(ForgotPassword1.getPaneNumber());
+                    System.out.println(forgotPassAccount);
+                }
+                break;
+            case 5:
+                if (loginRegisterForgotPassController.forgotPass2SubmittedOnce) {
+                    setAttributes(ForgotPassword2.getPaneNumber());
+                    setVisibilities(ForgotPassword2.getPaneNumber());
+                }
+                break;
+            case 6:
+                if (loginRegisterForgotPassController.forgotPass3SubmittedOnce) {
+                    setAttributes(ForgotPassword3.getPaneNumber());
+                    setVisibilities(ForgotPassword3.getPaneNumber());
+                }
+                break;
+        }
+    }
+
+    public void setAttributes(int paneNumber) {
+        switch (paneNumber) {
+            case 4:
+                forgotPassAccount = loginRegisterForgotPassController.textFieldForgotPass1.getText();
+                break;
+            case 5:
+                forgotPassOTP = String.valueOf(forgotPassGeneratedOTP);
+                break;
+            case 6:
+                forgotPassNewPassword = loginRegisterForgotPassController.forgotPassShowNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass31.getText() : loginRegisterForgotPassController.textFieldForgotPass31.getText();
+                forgotPassConfirmNewPassword = loginRegisterForgotPassController.forgotPassShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass32.getText() : loginRegisterForgotPassController.textFieldForgotPass32.getText();
+                break;
+        }
+    }
+
+    private void setVisibilities(int paneNumber) {
+        switch (paneNumber) {
+            case 4:
+                if (forgotPassAccount.isBlank()) {
+                    loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
+                    loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Account cannot be empty!");
+                } else if (!forgotPassAccount.matches(REGEX_EMAIL) && !forgotPassAccount.matches(REGEX_PHONE_NUMBER)) {
+                    loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
+                    loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Invalid email address or phone number!");
+                }
+                break;
+            case 5:
+                String inputOTP = loginRegisterForgotPassController.textFieldForgotPass2.getText();
+
+                if (inputOTP.isBlank()) {
+                    loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
+                    loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP cannot be empty!");
+                } else if (!inputOTP.equals(forgotPassOTP)) {
+                    loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
+                    loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP does not match!");
+                }
+                break;
+            case 6:
+                boolean arePasswordsMatch = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && !forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
+                
+                loginRegisterForgotPassController.labelNewPassword.setVisible(forgotPassNewPassword.isBlank());
+                loginRegisterForgotPassController.labelConfirmNewPassword.setVisible(forgotPassConfirmNewPassword.isBlank());
+                loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(arePasswordsMatch);
+                break;
+        }
+    }
+
     public void checkIfProgressStartedBeforeGoBack() throws IOException {
         hasStared();
 
@@ -50,35 +125,37 @@ public class ForgotPassModel {
         return isConfirmed;
     }
 
-    private void hasStared() {
-        loginRegisterForgotPassController.forgotPassStarted = !loginRegisterForgotPassController.textFieldForgotPass1.getText().isBlank();
-    }
-
     /**
      * Pane 1
      */
 
     public void checkPane1Input() {
         hasStared();
+        pane1SubmittedOnce();
 
         setAttributes(ForgotPassword1.getPaneNumber());
+        setVisibilities(ForgotPassword1.getPaneNumber());
 
-        if (forgotPassAccount.isBlank()) {
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Account cannot be empty!");
-        } else if (!forgotPassAccount.matches(REGEX_EMAIL) && !forgotPassAccount.matches(REGEX_PHONE_NUMBER)) {
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
-            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("*Invalid email address or phone number!");
-        } else {
+        if (isPane1InputsValid()) {
             generateOTP();
             proceedPane2();
+            System.out.println(forgotPassAccount);
         }
+    }
+
+    private void pane1SubmittedOnce() {
+        loginRegisterForgotPassController.forgotPass1SubmittedOnce = true;
+    }
+
+    private boolean isPane1InputsValid() {
+        return !forgotPassAccount.isBlank() && (forgotPassAccount.matches(REGEX_EMAIL) || forgotPassAccount.matches(REGEX_PHONE_NUMBER));
     }
 
     private void generateOTP() {
         Random random = new Random();
         int randomNumber = random.nextInt(9000) + 1000;
-        forgotPassOTP = String.valueOf(randomNumber);
+        forgotPassGeneratedOTP = String.valueOf(randomNumber);
+        setAttributes(ForgotPassword2.getPaneNumber());
         System.out.println(randomNumber);
     }
 
@@ -91,17 +168,23 @@ public class ForgotPassModel {
      */
 
     public void checkPane2Input() {
-        String inputOTP = loginRegisterForgotPassController.textFieldForgotPass2.getText();
+        pane2SubmittedOnce();
 
-        if (inputOTP.isBlank()) {
-            loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
-            loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP cannot be empty!");
-        } else if (!inputOTP.equals(forgotPassOTP)) {
-            loginRegisterForgotPassController.labelIncorrectOTP.setVisible(true);
-            loginRegisterForgotPassController.labelIncorrectOTP.setText("*OTP does not match!");
-        } else {
+        setAttributes(ForgotPassword2.getPaneNumber());
+        setVisibilities(ForgotPassword2.getPaneNumber());
+
+        if (isPane2InputsValid()) {
             proceedPane3();
         }
+    }
+
+    private void pane2SubmittedOnce() {
+        loginRegisterForgotPassController.forgotPass2SubmittedOnce = true;
+    }
+
+    private boolean isPane2InputsValid() {
+        String inputOTP = loginRegisterForgotPassController.textFieldForgotPass2.getText();
+        return !inputOTP.isBlank() && inputOTP.equals(forgotPassOTP);
     }
 
     private void proceedPane3() {
@@ -113,17 +196,22 @@ public class ForgotPassModel {
      */
 
     public void checkPane3Input() throws IOException {
+        pane3SubmittedOnce();
+
         setAttributes(ForgotPassword3.getPaneNumber());
+        setVisibilities(ForgotPassword3.getPaneNumber());
 
-        boolean resetSuccess = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
-        boolean arePasswordsMatch = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && !forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
 
-        loginRegisterForgotPassController.labelNewPassword.setVisible(forgotPassNewPassword.isBlank());
-        loginRegisterForgotPassController.labelConfirmNewPassword.setVisible(forgotPassConfirmNewPassword.isBlank());
-        loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(arePasswordsMatch);
-
-        if (resetSuccess)
+        if (arePane3InputsValid())
             openPromptGoBackToLogin();
+    }
+
+    private boolean arePane3InputsValid() {
+        return !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
+    }
+
+    private void pane3SubmittedOnce() {
+        loginRegisterForgotPassController.forgotPass3SubmittedOnce = true;
     }
 
     private void openPromptGoBackToLogin() throws IOException {
@@ -141,24 +229,6 @@ public class ForgotPassModel {
         newStage.showAndWait();
 
         loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
-    }
-
-    /**
-     * Main
-     */
-
-    public void setAttributes(int paneNumber) {
-        switch (paneNumber) {
-            case 4:
-                forgotPassAccount = loginRegisterForgotPassController.textFieldForgotPass1.getText();
-                break;
-            case 5:
-                break;
-            case 6:
-                forgotPassNewPassword = loginRegisterForgotPassController.forgotPassShowNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass31.getText() : loginRegisterForgotPassController.textFieldForgotPass31.getText();
-                forgotPassConfirmNewPassword = loginRegisterForgotPassController.forgotPassShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowForgotPass32.getText() : loginRegisterForgotPassController.textFieldForgotPass32.getText();
-                break;
-        }
     }
 
     public void togglePasswordField1() {
