@@ -118,6 +118,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerShowConfirmNewPassword = false;
         registerSubmittedOnce = false;
 
+        registerModel.emptyPassword();
+
         // Forgot PasswordColors
         textFieldForgotPass1.setText("");
         textFieldForgotPass2.setText("");

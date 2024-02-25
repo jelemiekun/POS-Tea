@@ -76,10 +76,10 @@ public class RegisterModel {
     public void passwordIndicator() {
         setAttributes();
 
-        if (registerNewPassword.isBlank() || registerUsername.isBlank() || isPasswordContainsUsername()) {
+        if (registerNewPassword.isBlank()) {
             emptyPassword();
-        } else {
 
+        } else {
             int result = checkWeak();
             if (result == 1) {
                 weakPassword();
@@ -138,7 +138,7 @@ public class RegisterModel {
         return criteriaMet;
     }
 
-    private void emptyPassword() {
+    public void emptyPassword() {
         loginRegisterForgotPassController.registerRectangle1.setFill(White.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(White.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
