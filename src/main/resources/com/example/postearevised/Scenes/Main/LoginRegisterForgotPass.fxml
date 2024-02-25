@@ -275,7 +275,7 @@
                                           <Font name="Arial Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="20.0" fitWidth="20.0" layoutX="95.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="20.0" fitWidth="20.0" layoutX="95.0" layoutY="4.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/About%20us.png" />
                                        </image>
@@ -394,6 +394,11 @@
                   </AnchorPane>
                  </children>
              </AnchorPane>
+            <ImageView fx:id="registerPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1270.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../Medias/ToolTip/passwordToolTip.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
 

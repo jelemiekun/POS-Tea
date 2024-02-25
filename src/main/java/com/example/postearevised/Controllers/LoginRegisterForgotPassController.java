@@ -251,9 +251,12 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    private boolean registerToolTipClicked = false;
     public boolean registerSubmittedOnce = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
+    @FXML
+    public ImageView registerPasswordToolTipImage;
     @FXML
     public Rectangle registerRectangle1;
     @FXML
@@ -362,6 +365,30 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     void btnRegisterShowHidePassword2Touched(MouseEvent event) {
         registerModel.togglePasswordField2();
+    }
+
+    @FXML
+    void registerPasswordToolTipEntered(MouseEvent event) {
+        if (!registerToolTipClicked)
+            registerPasswordToolTipImage.setVisible(true);
+    }
+
+    @FXML
+    void registerPasswordToolTipExited(MouseEvent event) {
+        if (!registerToolTipClicked)
+            registerPasswordToolTipImage.setVisible(false);
+    }
+
+    @FXML
+    void registerPasswordToolTipClicked(MouseEvent event) {
+        registerToolTipClicked = !registerToolTipClicked;
+        registerPasswordToolTipImage.setVisible(registerToolTipClicked);
+    }
+
+    @FXML
+    void registerPasswordToolTipTouched(TouchEvent event) {
+        registerToolTipClicked = !registerToolTipClicked;
+        registerPasswordToolTipImage.setVisible(registerToolTipClicked);
     }
 
 
