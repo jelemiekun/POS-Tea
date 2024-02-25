@@ -235,7 +235,7 @@ public class ForgotPassModel {
         loginRegisterForgotPassController.labelResendOTPTitle.setText("Time Remaining: ");
         loginRegisterForgotPassController.labelCountdown.setVisible(true);
         loginRegisterForgotPassController.btnResendOTP.setDisable(true);
-        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.NONE);
+        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.DEFAULT);
 
     }
 

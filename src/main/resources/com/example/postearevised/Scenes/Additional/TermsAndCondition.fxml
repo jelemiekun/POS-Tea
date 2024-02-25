@@ -35,7 +35,7 @@
             </AnchorPane>
             <AnchorPane layoutY="101.0" prefHeight="646.0" prefWidth="615.0">
                <children>
-                  <ScrollPane layoutX="42.0" layoutY="23.0" prefHeight="514.0" prefWidth="532.0">
+                  <ScrollPane fx:id="scrollPane" layoutX="42.0" layoutY="23.0" prefHeight="514.0" prefWidth="532.0">
                      <content>
                         <AnchorPane prefHeight="2160.0" prefWidth="515.0">
                            <children>
@@ -58,12 +58,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fx:id="btnAccept" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnAccept" disable="true" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Medias/Buttons/TAC/accept.png" />
+                              <Image url="@../../Medias/Buttons/TAC/decline.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                      </children>
