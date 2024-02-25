@@ -1,7 +1,5 @@
 ------------------TO DO------------------
 
-tingnan if may connectivity pag forgot password tapos prompt if wala haha
-
 progress bar if good or not sa FORGOT PASSWORD
 
 
@@ -9,6 +7,11 @@ progress bar if good or not sa FORGOT PASSWORD
 
 
 
+
+
+
+
+rectangleModal sa main(menu)
 
 
 ------------------OPTIONAL------------------
@@ -32,7 +35,7 @@ gawing red border ng confirm password if mali
 
 login remember me
 
-
+lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag clicked, don na mag ffunction
 
 
 
@@ -48,7 +51,9 @@ login remember me
 
 troubleshoot yung typing haha
 
+ilipat sa "accept" sa terms and condition yung pag check ng connectivity, then add second rectangle pang modal, gawan ng codes
 
+hanapin saan mga end points/dulo ng mga operations
 
 
 
@@ -81,3 +86,5 @@ clickable yung kanan ng fields sa register haha
 email or phone number sa register
 
 alisin focus sa fields para makita placeholders
+
+tingnan if may connectivity pag forgot password tapos prompt if wala haha

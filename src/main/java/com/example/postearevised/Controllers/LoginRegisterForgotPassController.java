@@ -395,12 +395,14 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void btnRegisterOnRegisterPaneClicked(MouseEvent event) throws IOException {
-        registerModel.registerAction();
+        if (checkConnectivity())
+            registerModel.registerAction();
     }
 
     @FXML
     void btnRegisterOnRegisterPaneTouched(TouchEvent event) throws IOException {
-        registerModel.registerAction();
+        if (checkConnectivity())
+            registerModel.registerAction();
     }
 
     @FXML
@@ -635,13 +637,15 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnForgotPass1ProceedClicked(MouseEvent event) {
-        forgotPassModel.checkPane1Input();
+    void btnForgotPass1ProceedClicked(MouseEvent event) throws IOException {
+        if (checkConnectivity())
+            forgotPassModel.checkPane1Input();
     }
 
     @FXML
-    void btnForgotPass1ProceedTouched(TouchEvent event) {
-        forgotPassModel.checkPane1Input();
+    void btnForgotPass1ProceedTouched(TouchEvent event) throws IOException {
+        if (checkConnectivity())
+            forgotPassModel.checkPane1Input();
     }
 
     @FXML
@@ -668,13 +672,15 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnForgotPass2ProceedClicked(MouseEvent event) {
-        forgotPassModel.checkPane2Input();
+    void btnForgotPass2ProceedClicked(MouseEvent event) throws IOException {
+        if (checkConnectivity())
+            forgotPassModel.checkPane2Input();
     }
 
     @FXML
-    void btnForgotPass2ProceedTouched(TouchEvent event) {
-        forgotPassModel.checkPane2Input();
+    void btnForgotPass2ProceedTouched(TouchEvent event) throws IOException {
+        if (checkConnectivity())
+            forgotPassModel.checkPane2Input();
     }
 
     @FXML
@@ -707,12 +713,14 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void btnForgotPass3ProceedClicked(MouseEvent event) throws IOException {
-        forgotPassModel.checkPane3Input();
+        if (checkConnectivity())
+            forgotPassModel.checkPane3Input();
     }
 
     @FXML
     void btnForgotPass3ProceedTouched(TouchEvent event) throws IOException {
-        forgotPassModel.checkPane3Input();
+        if (checkConnectivity())
+            forgotPassModel.checkPane3Input();
     }
 
     @FXML

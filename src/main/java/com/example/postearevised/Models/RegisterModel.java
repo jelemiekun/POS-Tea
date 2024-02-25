@@ -221,11 +221,16 @@ public class RegisterModel {
         setVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
         if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword) {
-            loginRegisterForgotPassController.toggleRectangleModal();
-            if (openTAC()) {
+            readTAC();
+        }
+    }
+
+    public void readTAC() throws IOException {
+        if (openTAC()) {
+            if (loginRegisterForgotPassController.checkConnectivity()) {
                 openPromptRegisteredSuccess();
+                goToLogin();
             }
-            loginRegisterForgotPassController.toggleRectangleModal();
         }
     }
 
@@ -353,6 +358,7 @@ public class RegisterModel {
     }
 
     private boolean openTAC() throws IOException {
+        loginRegisterForgotPassController.toggleRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(TermsAndCondition.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
@@ -364,6 +370,9 @@ public class RegisterModel {
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+
         return isConfirmed;
     }
 
@@ -380,8 +389,6 @@ public class RegisterModel {
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
-
-        goToLogin();
     }
 
     public void close() throws IOException {
