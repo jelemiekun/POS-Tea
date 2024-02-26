@@ -11,6 +11,7 @@ import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.*;
 import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
 
@@ -110,8 +111,10 @@ public class MainModel {
         mainController.loader = new FXMLLoader(getClass().getResource(Login.getURL()));
         mainController.root = mainController.loader.load();
         mainController.newStage = new Stage();
+        loginFromMainSceneStage = mainController.newStage;
         mainController.newStage.setTitle(Login.getTITLE());
         mainController.newStage.setScene(new Scene(mainController.root));
+        setScreenResolution(false, true);
         mainController.newStage.show();
         closeThisStage();
     }

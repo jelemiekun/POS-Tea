@@ -8,8 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.isTaskBarHidden;
-import static com.example.postearevised.Miscellaneous.Reference.screenResolution;
+import static com.example.postearevised.Miscellaneous.Others.*;
 import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
 
 public class Main extends Application {
@@ -24,17 +23,11 @@ public class Main extends Application {
         loginRegisterStage.setTitle(TITLE);
         loginRegisterStage.setResizable(false);
         loginRegisterStage.setScene(scene);
-        setScreenResolution();
-        System.out.println(screenResolution[0]);
-        System.out.println(screenResolution[1]);
+        setScreenResolution(false, false);
         loginRegisterStage.show();
     }
 
-    private void setScreenResolution() {
-        isTaskBarHidden();
-        loginRegisterStage.setWidth(screenResolution[0]);
-        loginRegisterStage.setHeight(screenResolution[1]);
-    }
+
 
     public static void main(String[] args) {
         launch();

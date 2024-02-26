@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class LoginModel {
@@ -97,6 +98,7 @@ public class LoginModel {
             mainStage.setTitle(Main.getTITLE());
             mainStage.setResizable(false);
             mainStage.setScene(new Scene(root));
+            setScreenResolution(true, false);
             mainStage.show();
             closeThisStage();
         }

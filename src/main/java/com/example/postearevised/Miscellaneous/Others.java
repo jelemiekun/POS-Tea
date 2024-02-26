@@ -7,7 +7,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
-import static com.example.postearevised.Miscellaneous.Reference.screenResolution;
+import static com.example.postearevised.Miscellaneous.Reference.*;
 
 
 public class Others {
@@ -21,7 +21,13 @@ public class Others {
         }
     }
 
-    public static void isTaskBarHidden() {
+    public static void setScreenResolution(boolean isMain, boolean isLogout) {
+        isTaskBarHidden();
+        (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
+        (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setHeight(screenResolution[1]);
+    }
+
+    private static void isTaskBarHidden() {
         // Get the screen size
         Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 
