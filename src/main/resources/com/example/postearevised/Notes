@@ -1,6 +1,5 @@
 ------------------TO DO------------------
 
-baguyin yes button sa pag logout, idk ano ipapalit
 
 
 
@@ -79,7 +78,7 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 
 
-------------------DONE------------------
+------------------DONE/FIXED------------------
 
 lagyan ng asterisk sa invalid email forgotpass1
 
@@ -116,3 +115,5 @@ if phone number, mag llimit sa 11 inputs mga fields
 digits and 4 digits only sa otp
 
 gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
+
+baguyin yes button sa pag logout, idk ano ipapalit
