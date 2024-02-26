@@ -16,7 +16,6 @@ import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.Strong;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmation;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
-import static com.example.postearevised.Miscellaneous.Others.*;
 import static com.example.postearevised.Miscellaneous.Prompt.*;
 import static com.example.postearevised.Miscellaneous.Reference.*;
 
@@ -110,6 +109,24 @@ public class ForgotPassModel {
      * Pane 1
      */
 
+    public void checkAccountInForgotIfPhoneNumber() {
+        String account = loginRegisterForgotPassController.textFieldForgotPass1.getText();
+
+        if (account.matches(REGEX_FIRST_SIX_ARE_NUMBERS)) {
+            enableLimitInput1();
+        } else {
+            disableLimitInput1();
+        }
+    }
+
+    private void enableLimitInput1() {
+        loginRegisterForgotPassController.textFieldForgotPass1.textProperty().addListener(loginRegisterForgotPassController.ForgotAccountInputLimitListener);
+    }
+
+    private void disableLimitInput1() {
+        loginRegisterForgotPassController.textFieldForgotPass1.textProperty().removeListener(loginRegisterForgotPassController.ForgotAccountInputLimitListener);
+    }
+
     public void checkPane1Input() {
         hasStared();
         pane1SubmittedOnce();
@@ -119,6 +136,7 @@ public class ForgotPassModel {
 
         if (isPane1InputsValid()) {
             proceedPane2();
+            enableOTPInputTo4DigitsOnly();
             countDownResendOTP();
             System.out.println(forgotPassAccount);
         }
@@ -139,6 +157,17 @@ public class ForgotPassModel {
     /**
      * Pane 2
      */
+
+    public void enableOTPInputTo4DigitsOnly() {
+        loginRegisterForgotPassController.textFieldForgotPass2.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                loginRegisterForgotPassController.textFieldForgotPass2.setText(oldValue);
+            } else if (newValue.length() > OTP_LENGTH) {
+                loginRegisterForgotPassController.textFieldForgotPass2.setText(oldValue);
+            }
+        });
+    }
+
     private void generateOTP() {
         Random random = new Random();
         int randomNumber = random.nextInt(9000) + 1000;

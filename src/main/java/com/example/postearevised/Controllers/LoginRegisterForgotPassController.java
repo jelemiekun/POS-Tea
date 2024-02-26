@@ -3,6 +3,7 @@ package com.example.postearevised.Controllers;
 import com.example.postearevised.Models.ForgotPassModel;
 import com.example.postearevised.Models.LoginModel;
 import com.example.postearevised.Models.RegisterModel;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmat
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.*;
 import static com.example.postearevised.Miscellaneous.Prompt.*;
-import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
+import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class LoginRegisterForgotPassController implements Initializable {
     @FXML
@@ -219,8 +220,10 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Login
      */
-    public CheckBox checkBoxRememberPassword;
     public boolean loginShowPassword;
+
+    @FXML
+    public CheckBox checkBoxRememberPassword;
 
     @FXML
     public AnchorPane anchorPaneRegister;
@@ -250,6 +253,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     public PasswordField textFieldPassword;
     @FXML
     public AnchorPane anchorPaneLogin;
+
+    public final ChangeListener<String> LoginAccountInputLimitListener = (observable, oldValue, newValue) -> {
+        if (newValue.length() > INPUT_LIMIT_TO_ELEVEN) {
+            textFieldAccount.setText(oldValue);
+        } else if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+            textFieldAccount.setText(oldValue);
+        }
+    };
 
     @FXML
     void loginBtnForgotPasswordClicked(MouseEvent event) throws IOException {
@@ -285,10 +296,12 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void loginTextFieldAccountPressedEnter(KeyEvent event) throws IOException {
-        if (event.getCode() == KeyCode.ENTER)
+        if (event.getCode() == KeyCode.ENTER) {
             loginModel.checkInputsBeforeLogin();
-        else
+        } else {
             loginModel.hideIncorrectCredentials();
+            loginModel.checkAccountInLoginIfPhoneNumber();
+        }
     }
 
     @FXML
@@ -389,6 +402,14 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     public TextField textFieldName;
+
+    public final ChangeListener<String> RegisterAccountInputLimitListener = (observable, oldValue, newValue) -> {
+        if (newValue.length() > INPUT_LIMIT_TO_ELEVEN) {
+            textFieldEmailOrPhoneNumber.setText(oldValue);
+        } else if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+            textFieldEmailOrPhoneNumber.setText(oldValue);
+        }
+    };
 
     @FXML
     void registerBtnCloseClicked(MouseEvent event) throws IOException {
@@ -539,6 +560,16 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerModel.selectConfirmNewPassword();
     }
 
+    @FXML
+    void textFieldEmailOrPhoneNumberTyping(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.registerAction();
+        } else {
+            registerModel.typing();
+            registerModel.checkAccountInRegisterIfPhoneNumber();
+        }
+    }
+
 
     /**
      * Forgot Password
@@ -617,6 +648,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public Label labelNewPasswordNotMatch;
 
+    public final ChangeListener<String> ForgotAccountInputLimitListener = (observable, oldValue, newValue) -> {
+        if (newValue.length() > INPUT_LIMIT_TO_ELEVEN) {
+            textFieldForgotPass1.setText(oldValue);
+        } else if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+            textFieldForgotPass1.setText(oldValue);
+        }
+    };
+
     private void forgotPasswordInitialize() {
         anchorPaneForgotPass1.setVisible(true);
         anchorPaneForgotPass2.setVisible(false);
@@ -672,10 +711,12 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void textFieldForgotPass1PressedEnter(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER)
+        if (event.getCode() == KeyCode.ENTER) {
             forgotPassModel.checkPane1Input();
-        else
+        } else {
             forgotPassModel.typing(ForgotPassword1.getPaneNumber());
+            forgotPassModel.checkAccountInForgotIfPhoneNumber();
+        }
     }
 
 

@@ -25,7 +25,10 @@ public class Reference {
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.(com|org|net|edu|gov|mil|co\\.uk|ph)$";
     public static final String REGEX_PHONE_NUMBER = "^09\\d{9}$";
     public static final String REGEX_NAME = "^[a-zA-Z ]+$";
-    public static final String REGEX_FIRST_FIVE_ARE_NUMBERS = "^\\d{5}.*";
+    public static final String REGEX_FIRST_SIX_ARE_NUMBERS = "^\\d{6}.*";
+    public static final int INPUT_LIMIT_TO_ELEVEN = 11;
+    public static final int OTP_LENGTH = 4;
+    public static final String REGEX_DIGITS_ONLY = "\\d*";
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
 

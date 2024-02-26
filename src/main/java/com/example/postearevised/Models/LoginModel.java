@@ -37,6 +37,25 @@ public class LoginModel {
         loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
     }
 
+    public void checkAccountInLoginIfPhoneNumber() {
+        String account = loginRegisterForgotPassController.textFieldAccount.getText();
+
+        if (account.matches(REGEX_FIRST_SIX_ARE_NUMBERS)) {
+            enableLimitInput();
+        } else {
+            disableLimitInput();
+        }
+    }
+
+    private void enableLimitInput() {
+        loginRegisterForgotPassController.textFieldAccount.textProperty().addListener(loginRegisterForgotPassController.LoginAccountInputLimitListener);
+    }
+
+    private void disableLimitInput() {
+        loginRegisterForgotPassController.textFieldAccount.textProperty().removeListener(loginRegisterForgotPassController.LoginAccountInputLimitListener);
+    }
+
+
     /**
      * Check Validity
      */
@@ -57,6 +76,17 @@ public class LoginModel {
 
     private void showIncorrectCredentials() {
         loginRegisterForgotPassController.labelIncorrectCredentials.setVisible(true);
+        clearFields();
+    }
+
+    private void clearFields() {
+        loginRegisterForgotPassController.textFieldAccount.setText("");
+        loginRegisterForgotPassController.textFieldPassword.setText("");
+        loginRegisterForgotPassController.textFieldShowPassword.setText("");
+        // Change ng textFieldAccount if carat is nasa text field account na
+        loginRegisterForgotPassController.btnLogin.requestFocus();
+        loginAccount = "";
+        loginPassword = "";
     }
 
     public void hideIncorrectCredentials() {

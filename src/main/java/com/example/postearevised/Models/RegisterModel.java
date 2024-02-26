@@ -89,6 +89,24 @@ public class RegisterModel {
         }
     }
 
+    public void checkAccountInRegisterIfPhoneNumber() {
+        String account = loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText();
+
+        if (account.matches(REGEX_FIRST_SIX_ARE_NUMBERS)) {
+            enableLimitInput();
+        } else {
+            disableLimitInput();
+        }
+    }
+
+    private void enableLimitInput() {
+        loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.textProperty().addListener(loginRegisterForgotPassController.RegisterAccountInputLimitListener);
+    }
+
+    private void disableLimitInput() {
+        loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.textProperty().removeListener(loginRegisterForgotPassController.RegisterAccountInputLimitListener);
+    }
+
     /**
      * Password Indicator
      */
@@ -239,7 +257,7 @@ public class RegisterModel {
     }
 
     private boolean isAPhoneNumber() {
-        return registerEmailOrPhoneNumber.matches(REGEX_FIRST_FIVE_ARE_NUMBERS);
+        return registerEmailOrPhoneNumber.matches(REGEX_FIRST_SIX_ARE_NUMBERS);
     }
 
     private boolean isPasswordContainsName() {

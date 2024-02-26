@@ -1,13 +1,5 @@
 ------------------TO DO------------------
 
-mawawla input sa login if mali/di makita yung account
-
-warning sa login either password incorrect or account not found
-
-if phone number, mag llimit sa 11 inputs mga fields
-
-digits and 4 digits only sa otp
-
 gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
 
 baguyin yes button sa pag logout, idk ano ipapalit
@@ -111,3 +103,9 @@ tingnan if may connectivity pag forgot password tapos prompt if wala haha
 progress bar if good or not sa FORGOT PASSWORD
 
 nag a-adjust stage resolution depende sa viweable screen width/height
+
+mawawla input sa login if mali/di makita yung account
+
+if phone number, mag llimit sa 11 inputs mga fields
+
+digits and 4 digits only sa otp
