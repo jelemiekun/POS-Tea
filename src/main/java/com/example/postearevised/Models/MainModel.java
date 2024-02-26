@@ -113,6 +113,7 @@ public class MainModel {
         mainController.newStage = new Stage();
         loginFromMainSceneStage = mainController.newStage;
         mainController.newStage.setTitle(Login.getTITLE());
+        mainController.newStage.setResizable(false);
         mainController.newStage.setScene(new Scene(mainController.root));
         setScreenResolution(false, true);
         mainController.newStage.show();
