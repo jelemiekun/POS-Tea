@@ -6,7 +6,7 @@ if phone number, mag llimit sa 11 inputs mga fields
 
 digits and 4 digits only sa otp
 
-gawing 1ms after ng otp para matapos agad countdown haha
+gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
 
 baguyin yes button sa pag logout, idk ano ipapalit
 
@@ -76,6 +76,9 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 
 
+// SA DULO NA TO
+
+ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
 ------------------DONE------------------
 

@@ -139,7 +139,9 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         registerModel.emptyPassword();
 
+        registerNameToolTipClicked = false;
         registerNameToolTipImage.setVisible(false);
+        registerPasswordToolTipClicked = false;
         registerPasswordToolTipImage.setVisible(false);
 
         // Forgot PasswordColors
@@ -172,6 +174,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         forgotPassModel.emptyPassword();
 
+        forgotPasswordToolTipClicked = false;
         forgotPasswordToolTipImage.setVisible(false);
     }
 

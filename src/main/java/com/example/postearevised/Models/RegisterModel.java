@@ -342,6 +342,8 @@ public class RegisterModel {
      */
 
     private boolean openPromptConfirmGoBack() throws IOException {
+        loginRegisterForgotPassController.toggleRectangleModal();
+
         setGoBackConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
         Parent root = loader.load();
@@ -354,6 +356,9 @@ public class RegisterModel {
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+
         return isConfirmed;
     }
 
@@ -377,6 +382,8 @@ public class RegisterModel {
     }
 
     private void openPromptRegisteredSuccess() throws IOException {
+        loginRegisterForgotPassController.toggleRectangleModal();
+
         setAccountCreatedConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
         Parent root = loader.load();
@@ -389,16 +396,16 @@ public class RegisterModel {
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
     }
 
     public void close() throws IOException {
         setAttributes();
         if (exitAreFieldsEmpty()) {
-            loginRegisterForgotPassController.toggleRectangleModal();
             if (openPromptConfirmGoBack()) {
                 goToLogin();
             }
-            loginRegisterForgotPassController.toggleRectangleModal();
         } else {
             goToLogin();
         }

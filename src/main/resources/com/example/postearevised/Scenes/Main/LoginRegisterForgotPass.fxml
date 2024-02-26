@@ -399,7 +399,7 @@
                      </ImageView>
                  </children>
              </AnchorPane>
-            <ImageView fx:id="registerPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1270.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="registerPasswordToolTipImage" fitHeight="220.0" fitWidth="330.0" layoutX="1267.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
                </image>
@@ -418,7 +418,7 @@
 
 
 
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -724,7 +724,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="forgotPasswordToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="709.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                        <ImageView fx:id="forgotPasswordToolTipImage" fitHeight="220.0" fitWidth="330.0" layoutX="708.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
                            </image>
