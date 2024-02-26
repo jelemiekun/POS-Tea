@@ -29,6 +29,7 @@ public class Reference {
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;
     public static final String REGEX_DIGITS_ONLY = "\\d*";
+    public static int countdownTimer; //ms
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
 

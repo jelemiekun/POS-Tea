@@ -1,23 +1,28 @@
 ------------------TO DO------------------
 
-gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
-
 baguyin yes button sa pag logout, idk ano ipapalit
 
-lagyan ng max attempts mga input
+
+
+
+
+
+
+
+
+
+
+// PAG SINIPAG
 
 ayusin medias
 
+// SA DULO NA TO
 
-
-
-
-
-
-
-
+ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
 rectangleModal sa main(menu)
+
+lagyan ng max attempts mga input
 
 
 ------------------OPTIONAL------------------
@@ -42,6 +47,8 @@ gawing red border ng confirm password if mali
 login remember me
 
 lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag clicked, don na mag ffunction
+
+pagkaclick ng button, mag lloading sya, ngayon yung button, dapat design nya parang clicked na habang nag lloading
 
 
 
@@ -70,9 +77,7 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 
 
-// SA DULO NA TO
 
-ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
 ------------------DONE------------------
 
@@ -109,3 +114,5 @@ mawawla input sa login if mali/di makita yung account
 if phone number, mag llimit sa 11 inputs mga fields
 
 digits and 4 digits only sa otp
+
+gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)

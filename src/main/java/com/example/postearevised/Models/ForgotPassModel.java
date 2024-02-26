@@ -183,8 +183,8 @@ public class ForgotPassModel {
         setVisibilities(ForgotPassword2.getPaneNumber());
 
         if (isPane2InputsValid()) {
-            countdown.interrupt();
             proceedPane3();
+            setCountdownTimerTo1();
         }
     }
 
@@ -204,6 +204,7 @@ public class ForgotPassModel {
     public void countDownResendOTP() {
         generateOTP();
         setLabelsForCountdown();
+        setCountdownTimerTo1000();
         countdown = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -218,9 +219,9 @@ public class ForgotPassModel {
                         Platform.runLater(() -> loginRegisterForgotPassController.labelCountdown.setText(String.format("0%d:%02d", finalI, finalJ)));
 
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(countdownTimer);
                         } catch (InterruptedException e) {
-                            Thread.currentThread().interrupt();
+                            System.out.println("Countdown interrupted");
                         }
 
                     }
@@ -233,6 +234,14 @@ public class ForgotPassModel {
 
         countdown.setDaemon(true);
         countdown.start();
+    }
+
+    private void setCountdownTimerTo1000() {
+        countdownTimer = 1000;
+    }
+
+    private void setCountdownTimerTo1() {
+        countdownTimer = 1;
     }
 
     private void setLabelsForCountdown() {
@@ -442,8 +451,10 @@ public class ForgotPassModel {
             confirmGoBack = openPromptConfirmGoBack();
         }
 
-        if (confirmGoBack)
+        if (confirmGoBack) {
             loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
+            setCountdownTimerTo1();
+        }
 
         loginRegisterForgotPassController.toggleRectangleModal();
     }
