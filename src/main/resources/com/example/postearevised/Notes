@@ -2,6 +2,8 @@
 
 mawawla input sa login if mali/di makita yung account
 
+warning sa login either password incorrect or account not found
+
 if phone number, mag llimit sa 11 inputs mga fields
 
 digits and 4 digits only sa otp
