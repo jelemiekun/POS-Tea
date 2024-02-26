@@ -17,6 +17,8 @@ ayusin medias
 
 // SA DULO NA TO
 
+if selected remember me tapos nag logout, naka select pa rin remember me
+
 ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
 rectangleModal sa main(menu)

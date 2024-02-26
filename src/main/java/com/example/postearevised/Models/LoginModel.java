@@ -34,7 +34,6 @@ public class LoginModel {
         loginRegisterForgotPassController.btnLoginShowHidePassword.setImage(loginRegisterForgotPassController.hideImage);
         loginRegisterForgotPassController.textFieldPassword.setVisible(true);
         loginRegisterForgotPassController.textFieldShowPassword.setVisible(false);
-        loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
     }
 
     public void checkAccountInLoginIfPhoneNumber() {
