@@ -48,14 +48,14 @@ public class Prompt {
     }
 
     public static void setConfirmLogout() {
-        promptHeaderText = "Logout Confirmation";
-        promptContentText = "Are you sure you want to log out? Click 'Yes' to proceed with logging out, or 'No' to cancel.";
+        promptHeaderText = "Are you sure you want to log out?";
+        promptContentText = "Press 'Logout' to log out, or press 'Stay' to remain logged in.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/logout.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/logout.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
