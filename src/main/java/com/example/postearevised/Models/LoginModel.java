@@ -51,7 +51,7 @@ public class LoginModel {
         loginRegisterForgotPassController.textFieldAccount.textProperty().addListener(loginRegisterForgotPassController.LoginAccountInputLimitListener);
     }
 
-    private void disableLimitInput() {
+    public void disableLimitInput() {
         loginRegisterForgotPassController.textFieldAccount.textProperty().removeListener(loginRegisterForgotPassController.LoginAccountInputLimitListener);
     }
 
@@ -119,6 +119,8 @@ public class LoginModel {
      */
 
     public void checkInputsBeforeLogin() throws IOException {
+        disableLimitInput();
+        
         boolean proceed = checkCredentials();
 
         if (proceed) {

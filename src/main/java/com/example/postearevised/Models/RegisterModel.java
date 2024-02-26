@@ -103,7 +103,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.textProperty().addListener(loginRegisterForgotPassController.RegisterAccountInputLimitListener);
     }
 
-    private void disableLimitInput() {
+    public void disableLimitInput() {
         loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.textProperty().removeListener(loginRegisterForgotPassController.RegisterAccountInputLimitListener);
     }
 

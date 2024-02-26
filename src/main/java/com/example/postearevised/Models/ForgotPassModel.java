@@ -123,7 +123,7 @@ public class ForgotPassModel {
         loginRegisterForgotPassController.textFieldForgotPass1.textProperty().addListener(loginRegisterForgotPassController.ForgotAccountInputLimitListener);
     }
 
-    private void disableLimitInput1() {
+    public void disableLimitInput1() {
         loginRegisterForgotPassController.textFieldForgotPass1.textProperty().removeListener(loginRegisterForgotPassController.ForgotAccountInputLimitListener);
     }
 

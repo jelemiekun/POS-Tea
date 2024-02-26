@@ -112,6 +112,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         loginShowPassword = false;
 
+        loginModel.disableLimitInput();
+
         // Register
         textFieldName.setText("");
         textFieldEmailOrPhoneNumber.setText("");
@@ -145,7 +147,9 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerPasswordToolTipClicked = false;
         registerPasswordToolTipImage.setVisible(false);
 
-        // Forgot PasswordColors
+        registerModel.disableLimitInput();
+
+        // Forgot Password
         textFieldForgotPass1.setText("");
         textFieldForgotPass2.setText("");
         textFieldForgotPass31.setText("");
@@ -177,6 +181,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         forgotPasswordToolTipClicked = false;
         forgotPasswordToolTipImage.setVisible(false);
+
+        forgotPassModel.disableLimitInput1();
     }
 
     public boolean checkConnectivity() throws IOException {
