@@ -25,6 +25,7 @@ public class Reference {
     public static final String REGEX_PHONE_NUMBER = "^09\\d{9}$";
     public static final String REGEX_NAME = "^[a-zA-Z ]+$";
     public static final String REGEX_FIRST_FIVE_ARE_NUMBERS = "^\\d{5}.*";
+    public static int[] screenResolution = new int[2];
     public static Thread countdown;
 
 }

@@ -3,6 +3,13 @@ package com.example.postearevised.Miscellaneous;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import java.awt.Dimension;
+import java.awt.GraphicsEnvironment;
+import java.awt.Rectangle;
+
+import static com.example.postearevised.Miscellaneous.Reference.screenResolution;
+
+
 public class Others {
     public static boolean isInternetRequired = false;
     public static boolean isInternetAvailable() {
@@ -14,4 +21,32 @@ public class Others {
         }
     }
 
+    public static void isTaskBarHidden() {
+        // Get the screen size
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+
+        // Get the bounds of the usable screen area
+        Rectangle bounds = GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds();
+
+        // Calculate the taskbar size
+        int taskbarWidth = screenSize.width - bounds.width;
+        int taskbarHeight = screenSize.height - bounds.height;
+
+        // Calculate the viewable screen size
+        int screenWidth = screenSize.width - taskbarWidth;
+        int screenHeight = screenSize.height - taskbarHeight;
+
+        // Check if taskbar is Hidden
+        boolean taskbarHidden = (screenSize.width != bounds.width || screenSize.height != bounds.height);
+
+        // Prints if taskbar is hidden
+        System.out.println(taskbarHidden);
+
+        setScreenResolution(screenWidth, screenHeight);
+    }
+
+    private static void setScreenResolution(int screenWidth, int screenHeight) {
+       screenResolution[0] = screenWidth;
+       screenResolution[1] = screenHeight;
+    }
 }

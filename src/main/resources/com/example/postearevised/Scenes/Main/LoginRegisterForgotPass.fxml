@@ -291,7 +291,7 @@
                         </ImageView>
                          </children>
                      </AnchorPane>
-                     <AnchorPane layoutX="163.0" layoutY="750.0" prefHeight="170.0" prefWidth="620.0">
+                     <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                          <children>
                              <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -303,7 +303,7 @@
                              </ImageView>
                          </children>
                      </AnchorPane>
-                  <AnchorPane layoutX="190.0" layoutY="14.0" prefHeight="200.0" prefWidth="579.0">
+                  <AnchorPane layoutX="190.0" layoutY="17.0" prefHeight="200.0" prefWidth="579.0">
                      <children>
                         <Label layoutX="58.0" layoutY="21.0" text="Register Form">
                            <font>
@@ -389,7 +389,7 @@
                         </ImageView>
                      </children>
                   </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="38.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="41.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -418,7 +418,7 @@
 
 
 
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
