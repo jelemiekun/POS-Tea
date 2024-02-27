@@ -4,8 +4,6 @@ walang spaces sa account
 
 bawal spaces sa passwords
 
-provided account reset password sa 2nd account
-
 limits name - 16
 email - walang limit
 password - 128
@@ -143,3 +141,5 @@ kapag pinindot sa iba, maddeselect yung textfield
 gawing traversible yung mga napipindot
 
 password nalang mawawala sa login
+
+provided account reset password sa 2nd forgotpass pane
