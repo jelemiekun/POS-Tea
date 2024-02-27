@@ -406,7 +406,7 @@
 
 
 
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -446,7 +446,7 @@
                         </ImageView>
                         <AnchorPane layoutX="177.0" layoutY="373.0" prefHeight="151.0" prefWidth="475.0">
                            <children>
-                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="112.0" layoutY="38.0" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="112.0" layoutY="38.0" onKeyPressed="#btnForgotPass1ProceedPressedEnter" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/ForgotPassword/send%20otp.png" />
                                  </image>
@@ -483,18 +483,6 @@
                   </ImageView>
                   <AnchorPane layoutX="518.0" layoutY="214.0" prefHeight="637.0" prefWidth="829.0">
                      <children>
-                        <AnchorPane layoutX="127.0" layoutY="486.0" prefHeight="102.0" prefWidth="575.0">
-                           <children>
-                              <ImageView fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="163.0" layoutY="13.0" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Buttons/ForgotPassword/continue.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
                         <AnchorPane layoutX="55.0" layoutY="40.0" prefHeight="200.0" prefWidth="749.0">
                            <children>
                               <Label layoutX="127.0" text="RESET PASSWORD">
@@ -546,6 +534,18 @@
                               </Label>
                            </children>
                         </AnchorPane>
+                        <AnchorPane layoutX="127.0" layoutY="486.0" prefHeight="102.0" prefWidth="575.0">
+                           <children>
+                              <ImageView fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="13.0" onKeyPressed="#btnForgotPass2ProceedPressedEnter" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/ForgotPassword/continue.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
                         <ImageView fx:id="btnCloseForgotPass2" fitHeight="45.0" fitWidth="45.0" layoutX="740.0" layoutY="40.0" onMouseClicked="#btnCloseForgotPass2Clicked" onTouchReleased="#btnCloseForgotPass2Touched" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Medias/Buttons/close.png" />
@@ -575,26 +575,14 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <AnchorPane layoutX="127.0" layoutY="561.0" prefHeight="95.0" prefWidth="575.0">
-                           <children>
-                              <ImageView fx:id="btnForgotPass3Proceed" fitHeight="76.0" fitWidth="389.0" layoutX="163.0" layoutY="10.0" onMouseClicked="#btnForgotPass3ProceedClicked" onTouchReleased="#btnForgotPass3ProceedTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Buttons/ForgotPassword/reset.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
                         <AnchorPane layoutX="127.0" layoutY="49.0" prefHeight="121.0" prefWidth="575.0">
                            <children>
-                              <Label layoutX="28.0" layoutY="-7.0" text="RESET PASSWORD">
+                              <Label focusTraversable="false" layoutX="28.0" layoutY="-7.0" text="RESET PASSWORD">
                                  <font>
                                     <Font name="Arial Black" size="50.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="58.0" layoutY="80.0" text="Kindly fill up this form to reset password" textAlignment="CENTER">
+                              <Label alignment="CENTER" focusTraversable="false" layoutX="58.0" layoutY="80.0" text="Kindly fill up this form to reset password" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -640,6 +628,14 @@
                                           <Font name="Arial" size="33.0" />
                                        </font>
                                     </TextField>
+                                    <ImageView fx:id="btnForgotPassShowHidePassword1" fitHeight="33.0" fitWidth="29.0" focusTraversable="true" layoutX="635.0" layoutY="90.0" onKeyPressed="#btnForgotPassShowHidePassword1PressedEnter" onMouseClicked="#btnForgotPassShowHidePassword1Clicked" onTouchReleased="#btnForgotPassShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <image>
+                                          <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
+                                       </image>
+                                    </ImageView>
                                     <PasswordField fx:id="textFieldForgotPass32" layoutY="257.0" onKeyPressed="#textFieldForgotPass3PressedEnter" prefHeight="60.0" prefWidth="620.0" promptText="Confirm New Password">
                                        <font>
                                           <Font name="Arial" size="33.0" />
@@ -650,19 +646,7 @@
                                           <Font name="Arial" size="33.0" />
                                        </font>
                                     </TextField>
-                                 </children>
-                              </AnchorPane>
-                              <AnchorPane layoutX="620.0" prefHeight="360.0" prefWidth="60.0">
-                                 <children>
-                                    <ImageView fx:id="btnForgotPassShowHidePassword1" fitHeight="33.0" fitWidth="29.0" layoutX="16.0" layoutY="88.0" onMouseClicked="#btnForgotPassShowHidePassword1Clicked" onTouchReleased="#btnForgotPassShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                       <image>
-                                          <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
-                                       </image>
-                                    </ImageView>
-                                    <ImageView fx:id="btnForgotPassShowHidePassword2" fitHeight="33.0" fitWidth="29.0" layoutX="16.0" layoutY="269.0" onMouseClicked="#btnForgotPassShowHidePassword2Clicked" onTouchReleased="#btnForgotPassShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="btnForgotPassShowHidePassword2" fitHeight="33.0" fitWidth="29.0" focusTraversable="true" layoutX="635.0" layoutY="270.0" onKeyPressed="#btnForgotPassShowHidePassword2PressedEnter" onMouseClicked="#btnForgotPassShowHidePassword2Clicked" onTouchReleased="#btnForgotPassShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
@@ -710,6 +694,18 @@
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="127.0" layoutY="561.0" prefHeight="95.0" prefWidth="575.0">
+                           <children>
+                              <ImageView fx:id="btnForgotPass3Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="10.0" onKeyPressed="#btnForgotPass3ProceedPressedEnter" onMouseClicked="#btnForgotPass3ProceedClicked" onTouchReleased="#btnForgotPass3ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/ForgotPassword/reset.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                         <ImageView fx:id="forgotPasswordToolTipImage" fitHeight="220.0" fitWidth="330.0" layoutX="708.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" visible="false">

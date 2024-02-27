@@ -754,18 +754,19 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneForgotPass1.setVisible(true);
                 anchorPaneForgotPass2.setVisible(false);
                 anchorPaneForgotPass3.setVisible(false);
+                anchorPaneForgotPass1.requestFocus();
                 break;
             case 5:
                 anchorPaneForgotPass1.setVisible(false);
                 anchorPaneForgotPass2.setVisible(true);
                 anchorPaneForgotPass3.setVisible(false);
-                btnForgotPass2Proceed.requestFocus();
+                anchorPaneForgotPass2.requestFocus();
                 break;
             case 6:
                 anchorPaneForgotPass1.setVisible(false);
                 anchorPaneForgotPass2.setVisible(false);
                 anchorPaneForgotPass3.setVisible(true);
-                btnForgotPass3Proceed.requestFocus();
+                anchorPaneForgotPass3.requestFocus();
                 break;
         }
     }
@@ -810,6 +811,14 @@ public class LoginRegisterForgotPassController implements Initializable {
         }
     }
 
+    @FXML
+    void btnForgotPass1ProceedPressedEnter(KeyEvent event) throws IOException{
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                forgotPassModel.checkPane1Input();
+        }
+    }
+
 
     /**
      * Forgot password - Pane 2
@@ -848,6 +857,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     void ForgotBtnResendOTPClicked(MouseEvent event) {
         forgotPassModel.countDownResendOTP();
+    }
+
+    @FXML
+    void btnForgotPass2ProceedPressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                forgotPassModel.checkPane2Input();
+        }
     }
 
 
@@ -929,5 +946,29 @@ public class LoginRegisterForgotPassController implements Initializable {
     void forgotPasswordToolTipTouched(TouchEvent event) {
         forgotPasswordToolTipClicked = !forgotPasswordToolTipClicked;
         forgotPasswordToolTipImage.setVisible(forgotPasswordToolTipClicked);
+    }
+
+    @FXML
+    void btnForgotPassShowHidePassword1PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            forgotPassModel.togglePasswordField1();
+            btnForgotPassShowHidePassword1.requestFocus();
+        }
+    }
+
+    @FXML
+    void btnForgotPassShowHidePassword2PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            forgotPassModel.togglePasswordField2();
+            btnForgotPassShowHidePassword2.requestFocus();
+        }
+    }
+
+    @FXML
+    void btnForgotPass3ProceedPressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                forgotPassModel.checkPane3Input();
+        }
     }
 }

@@ -81,11 +81,11 @@ public class LoginModel {
     }
 
     private void clearFields() {
-        loginRegisterForgotPassController.textFieldAccount.setText("");
+        //loginRegisterForgotPassController.textFieldAccount.setText("");
         loginRegisterForgotPassController.textFieldPassword.setText("");
         loginRegisterForgotPassController.textFieldShowPassword.setText("");
         // Change ng textFieldAccount if carat is nasa text field account na
-        loginRegisterForgotPassController.btnLogin.requestFocus();
+        loginRegisterForgotPassController.anchorPaneLogin.requestFocus();
         loginAccount = "";
         loginPassword = "";
     }
@@ -111,7 +111,7 @@ public class LoginModel {
             loginRegisterForgotPassController.textFieldPassword.setText(loginRegisterForgotPassController.textFieldShowPassword.getText());
         }
 
-        loginRegisterForgotPassController.btnLogin.requestFocus();
+        loginRegisterForgotPassController.anchorPaneLogin.requestFocus();
     }
 
     /**

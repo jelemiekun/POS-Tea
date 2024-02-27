@@ -1,26 +1,20 @@
 ------------------TO DO------------------
 
-gawing traversible yung mga napipindot
-
 walang spaces sa account
 
 bawal spaces sa passwords
 
+provided account reset password sa 2nd account
+
+limits name - 16
+email - walang limit
+password - 128
+
+lagyan pag count ng attempts sa mga pag submit
+
 Done
 darker green yung done
 account register successful
-
-provided account reset password sa 2nd account
-
-password nalang mawawala sa login
-
-new password cannot be the same as old password error
-
-limits - 16
-email - walang limit
-password - 50
-
-lagyan pag count ng attempts sa mga pag submit
 
 
 
@@ -36,6 +30,8 @@ lagyan pag count ng attempts sa mga pag submit
 ayusin medias
 
 // SA DULO NA TO
+
+new password cannot be the same as old password error
 
 if selected remember me tapos nag logout, naka select pa rin remember me
 
@@ -143,3 +139,7 @@ gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
 baguyin yes button sa pag logout, idk ano ipapalit
 
 kapag pinindot sa iba, maddeselect yung textfield
+
+gawing traversible yung mga napipindot
+
+password nalang mawawala sa login
