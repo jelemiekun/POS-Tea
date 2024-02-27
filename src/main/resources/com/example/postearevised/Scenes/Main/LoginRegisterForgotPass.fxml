@@ -139,7 +139,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -228,6 +228,14 @@
                               <Font name="Arial" size="33.0" />
                            </font>
                         </TextField>
+                        <ImageView fx:id="btnRegisterShowHidePassword1" fitHeight="33.0" fitWidth="29.0" focusTraversable="true" layoutX="590.0" layoutY="340.0" onKeyPressed="#btnRegisterShowHidePassword1PressedEnter" onMouseClicked="#btnRegisterShowHidePassword1Clicked" onTouchReleased="#btnRegisterShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                           </image>
+                        </ImageView>
                              <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
                                  <font>
                                      <Font name="Arial" size="33.0" />
@@ -238,6 +246,14 @@
                               <Font name="Arial" size="33.0" />
                            </font>
                         </TextField>
+                        <ImageView fx:id="btnRegisterShowHidePassword2" fitHeight="33.0" fitWidth="29.0" focusTraversable="true" layoutX="590.0" layoutY="482.0" onKeyPressed="#btnRegisterShowHidePassword2PressedEnter" onMouseClicked="#btnRegisterShowHidePassword2Clicked" onTouchReleased="#btnRegisterShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                           </image>
+                        </ImageView>
                         <AnchorPane layoutY="392.0" prefHeight="40.0" prefWidth="200.0">
                            <children>
                               <FlowPane prefHeight="8.0" prefWidth="575.0">
@@ -281,18 +297,6 @@
                               <Image url="@../../Medias/Icons/icon%20tooltip.png" />
                            </image>
                         </ImageView>
-                         </children>
-                     </AnchorPane>
-                     <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
-                         <children>
-                             <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" layoutX="151.0" layoutY="47.0" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                     <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
-                                 </image>
-                                 <cursor>
-                                     <Cursor fx:constant="HAND" />
-                                 </cursor>
-                             </ImageView>
                          </children>
                      </AnchorPane>
                   <AnchorPane layoutX="190.0" layoutY="17.0" prefHeight="200.0" prefWidth="579.0">
@@ -361,26 +365,18 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane layoutX="765.0" layoutY="525.0" prefHeight="200.0" prefWidth="64.0">
-                     <children>
-                        <ImageView fx:id="btnRegisterShowHidePassword2" fitHeight="33.0" fitWidth="29.0" layoutX="18.0" layoutY="159.0" onMouseClicked="#btnRegisterShowHidePassword2Clicked" onTouchReleased="#btnRegisterShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fx:id="btnRegisterShowHidePassword1" fitHeight="33.0" fitWidth="29.0" layoutX="18.0" layoutY="18.0" onMouseClicked="#btnRegisterShowHidePassword1Clicked" onTouchReleased="#btnRegisterShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </AnchorPane>
+                     <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
+                         <children>
+                             <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                     <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
+                                 </image>
+                                 <cursor>
+                                     <Cursor fx:constant="HAND" />
+                                 </cursor>
+                             </ImageView>
+                         </children>
+                     </AnchorPane>
                      <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="41.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />

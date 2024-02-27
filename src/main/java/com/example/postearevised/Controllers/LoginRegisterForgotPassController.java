@@ -632,6 +632,30 @@ public class LoginRegisterForgotPassController implements Initializable {
             anchorPaneRegister.requestFocus();
     }
 
+    @FXML
+    public void btnRegisterShowHidePassword1PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.toggleNewPasswordField();
+            btnRegisterShowHidePassword1.requestFocus();
+        }
+    }
+
+    @FXML
+    public void btnRegisterShowHidePassword2PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.toggleConfirmNewPasswordField();
+            btnRegisterShowHidePassword2.requestFocus();
+        }
+    }
+
+    @FXML
+    public void btnRegisterOnRegisterPanePressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                registerModel.registerAction();
+        }
+    }
+
 
     /**
      * Forgot Password
