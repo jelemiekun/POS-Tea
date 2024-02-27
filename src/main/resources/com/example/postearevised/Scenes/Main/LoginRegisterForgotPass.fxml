@@ -15,69 +15,28 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.LoginRegisterForgotPassController">
     <children>
-        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" onMouseClicked="#anchorPaneLoginClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Login.png" />
                     </image>
                 </ImageView>
-            <Label alignment="CENTER" layoutX="152.0" layoutY="685.0" text="A cup of Bru day a day, makes the&#10;bad day away" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" focusTraversable="false" layoutX="152.0" layoutY="685.0" text="A cup of Bru day a day, makes the&#10;bad day away" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Black" size="31.0" />
                </font>
             </Label>
                 <AnchorPane layoutX="949.0" layoutY="82.0" prefHeight="919.0" prefWidth="917.0">
                     <children>
-                        <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" layoutX="264.0" layoutY="616.0" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
-                            <image>
-                                <Image url="@../../Medias/Buttons/LoginRegister/Login.png" />
-                            </image>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </ImageView>
-                  <AnchorPane layoutX="248.0" layoutY="726.0" prefHeight="128.0" prefWidth="421.0">
-                     <children>
-                              <AnchorPane fx:id="btnForgotPassword" layoutX="112.0" layoutY="64.0" onMouseClicked="#loginBtnForgotPasswordClicked" onTouchReleased="#loginBtnForgotPasswordTouched" prefHeight="41.0" prefWidth="198.0">
-                                  <cursor>
-                                      <Cursor fx:constant="HAND" />
-                                  </cursor>
-                           <children>
-                              <Label fx:id="labelForgotPassword" alignment="CENTER" layoutX="3.0" layoutY="7.0" prefHeight="27.0" prefWidth="192.0" text="Forgot Password" textFill="#2f34b9" underline="true">
-                                 <font>
-                                    <Font name="Arial Bold" size="23.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                              </AnchorPane>
-                        <Label fx:id="labelIncorrectCredentials1" layoutY="28.0" text="Don't have an account?">
-                           <font>
-                              <Font name="Arial Bold" size="23.0" />
-                           </font>
-                        </Label>
-                              <AnchorPane fx:id="btnRegisterFromLogin" layoutX="259.0" layoutY="21.0" onMouseClicked="#btnRegisterFromLoginClicked" onTouchReleased="#btnRegisterFromLoginTouched" prefHeight="41.0" prefWidth="159.0">
-                                  <cursor>
-                                      <Cursor fx:constant="HAND" />
-                                  </cursor>
-                           <children>
-                              <Label fx:id="labelRegisterHere" layoutX="5.0" layoutY="7.0" text="Register Here" textFill="#2f34b9" underline="true">
-                                 <font>
-                                    <Font name="Arial Bold" size="23.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                              </AnchorPane>
-                     </children>
-                  </AnchorPane>
                   <AnchorPane layoutY="76.0" prefHeight="209.0" prefWidth="917.0">
                      <children>
-                        <Label layoutX="275.0" layoutY="14.0" text="Login Form" textAlignment="CENTER">
+                        <Label focusTraversable="false" layoutX="275.0" layoutY="14.0" text="Login Form" textAlignment="CENTER">
                            <font>
                               <Font name="Arial Black" size="60.0" />
                            </font>
                         </Label>
-                              <Label fx:id="labelIncorrectCredentials" alignment="CENTER" layoutX="144.0" layoutY="135.0" prefHeight="27.0" prefWidth="629.0" text="The account or password you entered is incorrect." textFill="#ff5a5a" visible="false">
+                              <Label fx:id="labelIncorrectCredentials" alignment="CENTER" focusTraversable="false" layoutX="144.0" layoutY="135.0" prefHeight="27.0" prefWidth="629.0" text="The account or password you entered is incorrect." textFill="#ff5a5a" visible="false">
                                   <font>
                                       <Font name="Arial Bold" size="23.0" />
                                   </font>
@@ -107,19 +66,19 @@
                         </AnchorPane>
                         <AnchorPane layoutY="5.0" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <Label alignment="CENTER_RIGHT" prefHeight="54.0" prefWidth="198.0" text="Account" textAlignment="RIGHT">
+                              <Label alignment="CENTER_RIGHT" focusTraversable="false" prefHeight="54.0" prefWidth="198.0" text="Account" textAlignment="RIGHT">
                                  <font>
                                     <Font name="Arial Black" size="36.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER_RIGHT" layoutX="4.0" layoutY="139.0" text="Password" textAlignment="CENTER">
+                              <Label alignment="CENTER_RIGHT" focusTraversable="false" layoutX="4.0" layoutY="139.0" text="Password" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial Black" size="36.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                              <ImageView fx:id="btnLoginShowHidePassword" fitHeight="33.0" fitWidth="29.0" layoutX="727.0" layoutY="155.0" onMouseClicked="#btnLoginShowHidePasswordClicked" onTouchReleased="#btnLoginShowHidePasswordTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnLoginShowHidePassword" fitHeight="33.0" fitWidth="29.0" focusTraversable="true" layoutX="727.0" layoutY="155.0" onKeyPressed="#btnLoginShowHidePasswordPressedEnter" onMouseClicked="#btnLoginShowHidePasswordClicked" onTouchReleased="#btnLoginShowHidePasswordTouched" pickOnBounds="true" preserveRatio="true">
                                   <cursor>
                                       <Cursor fx:constant="HAND" />
                                   </cursor>
@@ -138,6 +97,39 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                        <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="264.0" layoutY="624.0" onKeyPressed="#btnLoginPressedEnter" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Medias/Buttons/LoginRegister/Login.png" />
+                            </image>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                  <AnchorPane layoutX="248.0" layoutY="726.0" prefHeight="128.0" prefWidth="421.0">
+                     <children>
+                        <Label fx:id="labelIncorrectCredentials1" focusTraversable="false" layoutY="28.0" text="Don't have an account?">
+                           <font>
+                              <Font name="Arial Bold" size="23.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelRegisterHere" layoutX="268.0" layoutY="28.0" onKeyPressed="#labelRegisterHerePressedEnter" onMouseClicked="#btnRegisterFromLoginClicked" onTouchReleased="#btnRegisterFromLoginTouched" text="Register Here" textFill="#2f34b9" underline="true">
+                           <font>
+                              <Font name="Arial Bold" size="23.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="labelForgotPassword" alignment="CENTER" focusTraversable="false" layoutX="115.0" layoutY="74.0" onKeyPressed="#labelForgotPasswordPressedEnter" onMouseClicked="#loginBtnForgotPasswordClicked" onTouchReleased="#loginBtnForgotPasswordTouched" prefHeight="27.0" prefWidth="192.0" text="Forgot Password" textFill="#2f34b9" underline="true">
+                           <font>
+                              <Font name="Arial Bold" size="23.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                     </children>
                 </AnchorPane>
             </children>
@@ -147,7 +139,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -418,7 +410,7 @@
 
 
 
-      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+      <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>

@@ -1,6 +1,26 @@
 ------------------TO DO------------------
 
+gawing traversible yung mga napipindot
 
+walang spaces sa account
+
+bawal spaces sa passwords
+
+Done
+darker green yung done
+account register successful
+
+provided account reset password sa 2nd account
+
+password nalang mawawala sa login
+
+new password cannot be the same as old password error
+
+limits - 16
+email - walang limit
+password - 50
+
+lagyan pag count ng attempts sa mga pag submit
 
 
 
@@ -53,7 +73,7 @@ lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag c
 
 pagkaclick ng button, mag lloading sya, ngayon yung button, dapat design nya parang clicked na habang nag lloading
 
-
+lagyan design/indicator yung mata sa login if naka traversible haha
 
 
 
@@ -121,3 +141,5 @@ digits and 4 digits only sa otp
 gawing 1ms after ng otp para matapos agad countdown haha (NAG BBUG OTP)
 
 baguyin yes button sa pag logout, idk ano ipapalit
+
+kapag pinindot sa iba, maddeselect yung textfield

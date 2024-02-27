@@ -3,6 +3,7 @@ package com.example.postearevised.Controllers;
 import com.example.postearevised.Models.ForgotPassModel;
 import com.example.postearevised.Models.LoginModel;
 import com.example.postearevised.Models.RegisterModel;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -100,6 +102,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     private void clearFieldsAndLabels() {
         // Login
+        anchorPaneLogin.requestFocus();
         textFieldAccount.setText("");
         textFieldPassword.setText("");
         textFieldShowPassword.setText("");
@@ -115,6 +118,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         loginModel.disableLimitInput();
 
         // Register
+        anchorPaneRegister.requestFocus();
         textFieldName.setText("");
         textFieldEmailOrPhoneNumber.setText("");
         textFieldNewPassword.setText("");
@@ -150,6 +154,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerModel.disableLimitInput();
 
         // Forgot Password
+        anchorPaneForgotPass1.requestFocus();
         textFieldForgotPass1.setText("");
         textFieldForgotPass2.setText("");
         textFieldForgotPass31.setText("");
@@ -229,19 +234,19 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean loginShowPassword;
 
     @FXML
+    public Label labelRegisterHere;
+
+    @FXML
+    public Label labelForgotPassword;
+
+    @FXML
     public CheckBox checkBoxRememberPassword;
 
     @FXML
     public AnchorPane anchorPaneRegister;
 
     @FXML
-    public AnchorPane btnForgotPassword;
-
-    @FXML
     public ImageView btnLogin;
-
-    @FXML
-    public AnchorPane btnRegisterFromLogin;
 
     @FXML
     public ImageView btnLoginShowHidePassword;
@@ -331,6 +336,42 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
+    public void anchorPaneLoginClicked() {
+        anchorPaneLogin.requestFocus();
+    }
+
+    @FXML
+    public void btnLoginShowHidePasswordPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            loginModel.togglePasswordField();
+            btnLoginShowHidePassword.requestFocus();
+        }
+    }
+
+    @FXML
+    public void btnLoginPressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            loginModel.checkInputsBeforeLogin();
+        }
+    }
+
+    @FXML
+    public void labelRegisterHerePressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                switchPane(Register.getPaneNumber());
+        }
+    }
+
+    @FXML
+    public void labelForgotPasswordPressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (checkConnectivity())
+                switchPane(ForgotPassword.getPaneNumber());
+        }
+    }
+
+    @FXML
     void loginCheckBoxRememberPasswordAction(ActionEvent event) {
 
     }
@@ -339,6 +380,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    public boolean iconsClicked = false;
     private boolean registerNameToolTipClicked = false;
     private boolean registerPasswordToolTipClicked = false;
     public boolean registerSubmittedOnce = false;
@@ -529,41 +571,49 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     void registerNameFieldIconClicked(MouseEvent event) {
         registerModel.selectName();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerNameFieldIconTouched(TouchEvent event) {
         registerModel.selectName();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerEmailFieldIconClicked(MouseEvent event) {
         registerModel.selectEmail();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerEmailFieldIconTouched(TouchEvent event) {
         registerModel.selectEmail();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerNewPasswordFieldIconClicked(MouseEvent event) {
         registerModel.selectNewPassword();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerNewPasswordFieldIconTouched(TouchEvent event) {
         registerModel.selectNewPassword();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerConfirmNewPasswordFieldIconClicked(MouseEvent event) {
         registerModel.selectConfirmNewPassword();
+        registerModel.iconsClicked();
     }
 
     @FXML
     void registerConfirmNewPasswordFieldIconTouched(TouchEvent event) {
         registerModel.selectConfirmNewPassword();
+        registerModel.iconsClicked();
     }
 
     @FXML
@@ -574,6 +624,12 @@ public class LoginRegisterForgotPassController implements Initializable {
             registerModel.typing();
             registerModel.checkAccountInRegisterIfPhoneNumber();
         }
+    }
+
+    @FXML
+    public void anchorPaneRegisterClicked() {
+        if (!iconsClicked)
+            anchorPaneRegister.requestFocus();
     }
 
 
@@ -688,6 +744,11 @@ public class LoginRegisterForgotPassController implements Initializable {
                 btnForgotPass3Proceed.requestFocus();
                 break;
         }
+    }
+
+    @FXML
+    public void anchorPaneForgotClicked() {
+        anchorPaneForgotPass.requestFocus();
     }
 
     /**

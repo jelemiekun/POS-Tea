@@ -2,6 +2,7 @@ package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.LoginRegisterForgotPassController;
 import com.example.postearevised.Miscellaneous.Enums.StartPane;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,6 +26,22 @@ public class RegisterModel {
     /**
      * Register
      */
+
+
+    public void iconsClicked() {
+        loginRegisterForgotPassController.iconsClicked = true;
+        disableIconsClicked();
+    }
+
+    public void disableIconsClicked() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                loginRegisterForgotPassController.iconsClicked = false;
+            }
+        });
+    }
+
     public void registerAction() throws IOException {
         loginRegisterForgotPassController.registerSubmittedOnce = true;
         checkTextFields();
