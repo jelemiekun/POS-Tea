@@ -157,6 +157,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         registerModel.disableLimitInput();
 
+        labelName1.setVisible(false);
+
         labelRegisterPasswordLimitReached.setVisible(false);
 
         setRegisterAccountAndPasswordNoSpaceInputLimitListener();

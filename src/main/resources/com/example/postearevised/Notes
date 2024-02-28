@@ -1,5 +1,13 @@
 ------------------TO DO------------------
 
+natatab yung resend OTP, pero funtional lang cya kapg tpus n ung count down.
+
+pag exit confirmation, mawawala yung icon (gagawing same color ng background)
+
+sa register, at forgot kapag weak ang password hindi tatanggapin ni eden
+
+kapag pinindot ang ex sa register go back confirmation, dapat hindi babalik sa login
+
 lagyan pag count ng attempts sa mga pag submit
 
 Done

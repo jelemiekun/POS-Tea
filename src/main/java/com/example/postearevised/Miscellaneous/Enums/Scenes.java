@@ -6,7 +6,7 @@ public enum Scenes {
     Login("Login", "/com/example/postearevised/Scenes/Main/LoginRegisterForgotPass.fxml"),
     Register("Register", "/com/example/postearevised/Scenes/Main/LoginRegisterForgotPass.fxml"),
     Main(Menu.getName(), "/com/example/postearevised/Scenes/Main/Main.fxml"),
-    ExitConfirmation("Confirm", "/com/example/postearevised/Scenes/Additional/Prompt.fxml"),
+    ExitConfirmation("", "/com/example/postearevised/Scenes/Additional/Prompt.fxml"),
     TermsAndCondition("Terms And Condition", "/com/example/postearevised/Scenes/Additional/TermsAndCondition.fxml");
 
     private final String TITLE;
