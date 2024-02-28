@@ -1,9 +1,5 @@
 ------------------TO DO------------------
 
-walang spaces sa account
-
-bawal spaces sa passwords
-
 limits name - 16
 email - walang limit
 password - 128
@@ -143,3 +139,7 @@ gawing traversible yung mga napipindot
 password nalang mawawala sa login
 
 provided account reset password sa 2nd forgotpass pane
+
+walang spaces sa account
+
+bawal spaces sa passwords

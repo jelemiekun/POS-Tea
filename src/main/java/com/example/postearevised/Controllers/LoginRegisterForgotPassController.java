@@ -3,7 +3,6 @@ package com.example.postearevised.Controllers;
 import com.example.postearevised.Models.ForgotPassModel;
 import com.example.postearevised.Models.LoginModel;
 import com.example.postearevised.Models.RegisterModel;
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +27,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.Key;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -61,6 +59,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         forgotPassModel = new ForgotPassModel();
         forgotPassModel.setLoginRegisterController(this);
+
+        setLoginAccountAndPasswordNoSpaceInputLimitListener();
     }
 
     public void switchPane(int paneNumber) {
@@ -117,6 +117,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         loginModel.disableLimitInput();
 
+        setLoginAccountAndPasswordNoSpaceInputLimitListener();
+
         // Register
         anchorPaneRegister.requestFocus();
         textFieldName.setText("");
@@ -153,6 +155,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         registerModel.disableLimitInput();
 
+        setRegisterAccountAndPasswordNoSpaceInputLimitListener();
+
         // Forgot Password
         anchorPaneForgotPass1.requestFocus();
         textFieldForgotPass1.setText("");
@@ -188,6 +192,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPasswordToolTipImage.setVisible(false);
 
         forgotPassModel.disableLimitInput1();
+
+        setForgotPassAccountAndPasswordNoSpaceInputLimitListener();
     }
 
     public boolean checkConnectivity() throws IOException {
@@ -272,6 +278,24 @@ public class LoginRegisterForgotPassController implements Initializable {
             textFieldAccount.setText(oldValue);
         }
     };
+
+    void setLoginAccountAndPasswordNoSpaceInputLimitListener() {
+        textFieldAccount.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldAccount.setText(oldValue);
+            }
+        });
+        textFieldPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldPassword.setText(oldValue);
+            }
+        });
+        textFieldShowPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldShowPassword.setText(oldValue);
+            }
+        });
+    }
 
     @FXML
     void loginBtnForgotPasswordClicked(MouseEvent event) throws IOException {
@@ -656,6 +680,34 @@ public class LoginRegisterForgotPassController implements Initializable {
         }
     }
 
+    void setRegisterAccountAndPasswordNoSpaceInputLimitListener() {
+        textFieldEmailOrPhoneNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldEmailOrPhoneNumber.setText(oldValue);
+            }
+        });
+        textFieldNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldNewPassword.setText(oldValue);
+            }
+        });
+        textFieldConfirmNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldConfirmNewPassword.setText(oldValue);
+            }
+        });
+        textFieldShowNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldShowNewPassword.setText(oldValue);
+            }
+        });
+        textFieldShowConfirmNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldShowConfirmNewPassword.setText(oldValue);
+            }
+        });
+    }
+
 
     /**
      * Forgot Password
@@ -970,5 +1022,33 @@ public class LoginRegisterForgotPassController implements Initializable {
             if (checkConnectivity())
                 forgotPassModel.checkPane3Input();
         }
+    }
+
+    void setForgotPassAccountAndPasswordNoSpaceInputLimitListener() {
+        textFieldForgotPass1.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldForgotPass1.setText(oldValue);
+            }
+        });
+        textFieldForgotPass31.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldForgotPass31.setText(oldValue);
+            }
+        });
+        textFieldShowForgotPass31.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldShowForgotPass31.setText(oldValue);
+            }
+        });
+        textFieldForgotPass32.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldForgotPass32.setText(oldValue);
+            }
+        });
+        textFieldShowForgotPass32.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.contains(" ")) {
+                textFieldShowForgotPass32.setText(oldValue);
+            }
+        });
     }
 }
