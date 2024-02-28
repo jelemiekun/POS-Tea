@@ -47,6 +47,11 @@
                      <children>
                         <AnchorPane layoutX="206.0" layoutY="5.0" prefHeight="200.0" prefWidth="510.0">
                            <children>
+                              <Label fx:id="loginlabelPasswordLimitReached" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="12.0" layoutY="100.0" prefHeight="27.0" prefWidth="498.0" text="*Password characters limit exceeded (128)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                 <font>
+                                    <Font name="Arial Bold" size="23.0" />
+                                 </font>
+                              </Label>
                                     <TextField fx:id="textFieldAccount" onKeyPressed="#loginTextFieldAccountPressedEnter" prefHeight="64.0" prefWidth="510.0" promptText="Enter Email or Phone Number">
                                         <font>
                                             <Font name="Arial" size="33.0" />
@@ -139,7 +144,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -206,9 +211,19 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="labelRegisterPasswordLimitReached" alignment="CENTER_RIGHT" layoutX="-232.0" layoutY="295.0" prefHeight="31.0" prefWidth="504.0" text="*Password characters limit exceeded (128)." textFill="#ff5a5a" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="26.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelName1" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*name characters limit exceeded (16)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="26.0" />
+                                 </font>
+                              </Label>
                                  </children>
                              </AnchorPane>
-                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
+                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#textFieldNameTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
                                  <font>
                                      <Font name="Arial" size="33.0" />
                                  </font>
@@ -654,6 +669,11 @@
                                           <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
                                        </image>
                                     </ImageView>
+                                    <Label fx:id="forgotLabelPasswordLimitReached" alignment="CENTER_RIGHT" focusTraversable="false" layoutX="120.0" layoutY="37.0" prefHeight="27.0" prefWidth="498.0" text="*Password characters limit exceeded (128)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial Bold" size="23.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="1.0" layoutY="138.0" prefHeight="45.0" prefWidth="620.0">

@@ -90,8 +90,9 @@ public class LoginModel {
         loginPassword = "";
     }
 
-    public void hideIncorrectCredentials() {
+    public void hideIncorrectLabels() {
         loginRegisterForgotPassController.labelIncorrectCredentials.setVisible(false);
+        loginRegisterForgotPassController.loginlabelPasswordLimitReached.setVisible(false);
     }
 
     /**

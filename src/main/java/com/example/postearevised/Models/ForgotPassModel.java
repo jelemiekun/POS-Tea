@@ -50,12 +50,17 @@ public class ForgotPassModel {
                 }
                 break;
             case 6:
+                hideForgotLabelPasswordLimitReached();
                 if (loginRegisterForgotPassController.forgotPass3SubmittedOnce) {
                     setAttributes(ForgotPassword3.getPaneNumber());
                     setVisibilities(ForgotPassword3.getPaneNumber());
                 }
                 break;
         }
+    }
+
+    private void hideForgotLabelPasswordLimitReached() {
+        loginRegisterForgotPassController.forgotLabelPasswordLimitReached.setVisible(false);
     }
 
     public void setAttributes(int paneNumber) {

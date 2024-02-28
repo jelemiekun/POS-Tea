@@ -31,6 +31,8 @@ public class Reference {
     public static final String REGEX_DIGITS_ONLY = "\\d*";
     public static int countdownTimer; //ms
     public static int[] screenResolution = new int[2];
+    public static final int PASSWORD_LIMIT = 128;
+    public static final int NAME_LIMIT = 16;
     public static Thread countdown;
 
 }

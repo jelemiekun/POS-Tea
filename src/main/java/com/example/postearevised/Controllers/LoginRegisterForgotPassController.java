@@ -117,6 +117,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         loginModel.disableLimitInput();
 
+        loginlabelPasswordLimitReached.setVisible(false);
+
         setLoginAccountAndPasswordNoSpaceInputLimitListener();
 
         // Register
@@ -155,6 +157,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         registerModel.disableLimitInput();
 
+        labelRegisterPasswordLimitReached.setVisible(false);
+
         setRegisterAccountAndPasswordNoSpaceInputLimitListener();
 
         // Forgot Password
@@ -192,6 +196,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPasswordToolTipImage.setVisible(false);
 
         forgotPassModel.disableLimitInput1();
+
+        forgotLabelPasswordLimitReached.setVisible(false);
 
         setForgotPassAccountAndPasswordNoSpaceInputLimitListener();
     }
@@ -238,6 +244,9 @@ public class LoginRegisterForgotPassController implements Initializable {
      * Login
      */
     public boolean loginShowPassword;
+
+    @FXML
+    public Label loginlabelPasswordLimitReached;
 
     @FXML
     public Label labelRegisterHere;
@@ -295,6 +304,18 @@ public class LoginRegisterForgotPassController implements Initializable {
                 textFieldShowPassword.setText(oldValue);
             }
         });
+        textFieldPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldPassword.setText(oldValue);
+                loginlabelPasswordLimitReached.setVisible(true);
+            }
+        });
+        textFieldShowPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldShowPassword.setText(oldValue);
+                loginlabelPasswordLimitReached.setVisible(true);
+            }
+        });
     }
 
     @FXML
@@ -334,7 +355,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         if (event.getCode() == KeyCode.ENTER) {
             loginModel.checkInputsBeforeLogin();
         } else {
-            loginModel.hideIncorrectCredentials();
+            loginModel.hideIncorrectLabels();
             loginModel.checkAccountInLoginIfPhoneNumber();
         }
     }
@@ -344,7 +365,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
         else
-            loginModel.hideIncorrectCredentials();
+            loginModel.hideIncorrectLabels();
     }
 
     @FXML
@@ -410,6 +431,10 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean registerSubmittedOnce = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
+    @FXML
+    public Label labelName1;
+    @FXML
+    public Label labelRegisterPasswordLimitReached;
     @FXML
     public AnchorPane nameFieldIcon;
     @FXML
@@ -510,6 +535,16 @@ public class LoginRegisterForgotPassController implements Initializable {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
+            registerModel.typing();
+        }
+    }
+
+    @FXML
+    void textFieldNameTyping(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.registerAction();
+        } else {
+            labelName1.setVisible(false);
             registerModel.typing();
         }
     }
@@ -706,6 +741,34 @@ public class LoginRegisterForgotPassController implements Initializable {
                 textFieldShowConfirmNewPassword.setText(oldValue);
             }
         });
+        textFieldNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldNewPassword.setText(oldValue);
+                labelRegisterPasswordLimitReached.setVisible(true);
+            }
+        });
+        textFieldShowNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldShowNewPassword.setText(oldValue);
+                labelRegisterPasswordLimitReached.setVisible(true);
+            }
+        });
+        textFieldConfirmNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldConfirmNewPassword.setText(oldValue);
+            }
+        });
+        textFieldShowConfirmNewPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldShowConfirmNewPassword.setText(oldValue);
+            }
+        });
+        textFieldName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > NAME_LIMIT) {
+                textFieldName.setText(oldValue);
+                labelName1.setVisible(true);
+            }
+        });
     }
 
 
@@ -719,6 +782,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean forgotPassStarted = false;
     public boolean forgotPassShowNewPassword;
     public boolean forgotPassShowConfirmNewPassword;
+    @FXML
+    public Label forgotLabelPasswordLimitReached;
     @FXML
     public ImageView forgotPasswordToolTip;
     @FXML
@@ -1047,6 +1112,28 @@ public class LoginRegisterForgotPassController implements Initializable {
         });
         textFieldShowForgotPass32.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(" ")) {
+                textFieldShowForgotPass32.setText(oldValue);
+            }
+        });
+        textFieldForgotPass31.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldForgotPass31.setText(oldValue);
+                forgotLabelPasswordLimitReached.setVisible(true);
+            }
+        });
+        textFieldShowForgotPass31.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldShowForgotPass31.setText(oldValue);
+                forgotLabelPasswordLimitReached.setVisible(true);
+            }
+        });
+        textFieldForgotPass32.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
+                textFieldForgotPass32.setText(oldValue);
+            }
+        });
+        textFieldShowForgotPass32.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > PASSWORD_LIMIT) {
                 textFieldShowForgotPass32.setText(oldValue);
             }
         });

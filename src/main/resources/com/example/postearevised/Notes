@@ -1,10 +1,5 @@
 ------------------TO DO------------------
 
-(may listener na ako, doon ko nalang iadd, tapos kapag more than sa limit nalang, lalabas nalang error)
-limits name - 16
-email - walang limit
-password - 128
-
 lagyan pag count ng attempts sa mga pag submit
 
 Done
@@ -147,3 +142,8 @@ provided account reset password sa 2nd forgotpass pane
 walang spaces sa account
 
 bawal spaces sa passwords
+
+(may listener na ako, doon ko nalang iadd, tapos kapag more than sa limit nalang, lalabas nalang error)
+limits name - 16
+email - walang limit
+password - 128

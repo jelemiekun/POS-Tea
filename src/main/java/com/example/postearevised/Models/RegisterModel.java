@@ -48,10 +48,15 @@ public class RegisterModel {
     }
 
     public void typing() {
+        hideForgotPassVisibility();
         if (loginRegisterForgotPassController.registerSubmittedOnce) {
             setAttributes();
             setVisibilities(isValidEmailOrPhoneNumber(), passwordMatched());
         }
+    }
+
+    private void hideForgotPassVisibility() {
+        loginRegisterForgotPassController.labelRegisterPasswordLimitReached.setVisible(false);
     }
 
     public void setAttributes() {
@@ -63,6 +68,7 @@ public class RegisterModel {
     }
 
     private void setVisibilities(boolean validEmailOrPhoneNumber, boolean passwordsMatch) {
+        loginRegisterForgotPassController.labelName1.setVisible(registerName.length() > NAME_LIMIT);
         loginRegisterForgotPassController.labelName.setVisible(registerName.isBlank());
         loginRegisterForgotPassController.labelName.setText("*please fill up this form");
         loginRegisterForgotPassController.labelEmail.setVisible(registerEmailOrPhoneNumber.isBlank());
@@ -282,7 +288,7 @@ public class RegisterModel {
     }
 
     private boolean isValidName() {
-        return registerName.length() >= 3 && registerName.length() <= 20 && registerName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
+        return registerName.length() >= 3 && registerName.length() <= NAME_LIMIT && registerName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
     }
 
     private boolean nameFieldNotHaveSpaces() {
