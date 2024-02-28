@@ -1,5 +1,6 @@
 ------------------TO DO------------------
 
+(may listener na ako, doon ko nalang iadd, tapos kapag more than sa limit nalang, lalabas nalang error)
 limits name - 16
 email - walang limit
 password - 128
@@ -9,6 +10,9 @@ lagyan pag count ng attempts sa mga pag submit
 Done
 darker green yung done
 account register successful
+
+uupdate yung main page (gagawing slide nalang ns humburger)
+
 
 
 
