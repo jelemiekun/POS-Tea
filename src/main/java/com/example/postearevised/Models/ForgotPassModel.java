@@ -6,9 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.text.StyledEditorKit;
 import java.io.IOException;
 import java.util.Random;
 
@@ -209,7 +211,7 @@ public class ForgotPassModel {
     public void countDownResendOTP() {
         generateOTP();
         setLabelsForCountdown();
-        setCountdownTimerTo1000();
+        setCountdownTimer();
         countdown = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -241,26 +243,31 @@ public class ForgotPassModel {
         countdown.start();
     }
 
-    private void setCountdownTimerTo1000() {
-        countdownTimer = 1000;
+    private void setCountdownTimer() {
+        countdownTimer = ONE_SECOND;
     }
 
     private void setCountdownTimerTo1() {
-        countdownTimer = 1;
+        countdownTimer = FINISH_COUNTDOWN;
     }
 
     private void setLabelsForCountdown() {
+        loginRegisterForgotPassController.functionalOTP = false;
         loginRegisterForgotPassController.labelResendOTPTitle.setText("Time Remaining: ");
         loginRegisterForgotPassController.labelCountdown.setVisible(true);
-        loginRegisterForgotPassController.btnResendOTP.setDisable(true);
+        //loginRegisterForgotPassController.btnResendOTP.setDisable(false);
+        loginRegisterForgotPassController.btnResendOTP.setTextFill(Color.web("#c3c3c3"));
         loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.DEFAULT);
-
+        loginRegisterForgotPassController.btnResendOTP.setFocusTraversable(true);
+        loginRegisterForgotPassController.btnForgotPass2Proceed.setFocusTraversable(true);
     }
 
     private void countDownDone() {
+        loginRegisterForgotPassController.functionalOTP = true;
         loginRegisterForgotPassController.labelResendOTPTitle.setText("Didn't receive code?");
         loginRegisterForgotPassController.labelCountdown.setVisible(false);
-        loginRegisterForgotPassController.btnResendOTP.setDisable(false);
+        loginRegisterForgotPassController.btnResendOTP.setTextFill(Color.web("#000000"));
+        //loginRegisterForgotPassController.btnResendOTP.setDisable(false);
         loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.HAND);
     }
 

@@ -144,7 +144,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -421,7 +421,7 @@
 
             
             
-                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -489,7 +489,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -539,7 +539,7 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="btnResendOTP" alignment="CENTER" disable="true" layoutX="410.0" layoutY="201.0" onMouseClicked="#ForgotBtnResendOTPClicked" text="Resend OTP" textAlignment="CENTER" underline="true">
+                              <Label fx:id="btnResendOTP" alignment="CENTER" layoutX="410.0" layoutY="201.0" onKeyPressed="#ForgotBtnResendOTPPressedEnter" onMouseClicked="#ForgotBtnResendOTPClicked" onTouchReleased="#ForgotBtnResendOTPTouched" text="Resend OTP" textAlignment="CENTER" underline="true">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -573,7 +573,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>

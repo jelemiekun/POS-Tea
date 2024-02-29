@@ -777,6 +777,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Forgot Password
      */
+    public boolean functionalOTP = false;
     private boolean forgotPasswordToolTipClicked = false;
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;
@@ -974,8 +975,29 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void ForgotBtnResendOTPClicked(MouseEvent event) {
-        forgotPassModel.countDownResendOTP();
+    void ForgotBtnResendOTPClicked(MouseEvent event) throws IOException {
+        if (functionalOTP) {
+            if (checkConnectivity())
+                forgotPassModel.countDownResendOTP();
+        }
+    }
+
+    @FXML
+    void ForgotBtnResendOTPTouched(TouchEvent event) throws IOException {
+        if (functionalOTP) {
+            if (checkConnectivity())
+                forgotPassModel.countDownResendOTP();
+        }
+    }
+
+    @FXML
+    void ForgotBtnResendOTPPressedEnter(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (functionalOTP) {
+                if (checkConnectivity())
+                    forgotPassModel.countDownResendOTP();
+            }
+        }
     }
 
     @FXML
@@ -985,6 +1007,8 @@ public class LoginRegisterForgotPassController implements Initializable {
                 forgotPassModel.checkPane2Input();
         }
     }
+
+
 
 
     /**
