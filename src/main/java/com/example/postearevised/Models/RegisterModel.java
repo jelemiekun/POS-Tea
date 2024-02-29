@@ -77,7 +77,26 @@ public class RegisterModel {
         loginRegisterForgotPassController.labelConfirmPassword.setVisible(registerConfirmNewPassword.isBlank());
         loginRegisterForgotPassController.labelInvalidEmailOrPhoneNumber.setVisible(!registerEmailOrPhoneNumber.isBlank() && !validEmailOrPhoneNumber);
         loginRegisterForgotPassController.labelInvalidEmailOrPhoneNumber.setText(isAPhoneNumber() ? "*invalid number" : "*invalid email");
-        loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(!registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank() && !passwordsMatch);
+
+        boolean showPasswordNotMatch = true;
+        boolean newPasswordAndConfirmNewPasswordNotMatched = isNewPasswordAndConfirmNewPasswordNotMatched(passwordsMatch);
+
+        if (loginRegisterForgotPassController.registerIsWeakPassword) {
+            loginRegisterForgotPassController.labelPasswordNotMatch.setText("*Weak password. Require mixed characters.");
+            loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(true);
+            showPasswordNotMatch = false;
+        } else {
+            loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(false);
+        }
+
+        if (showPasswordNotMatch) {
+            if (newPasswordAndConfirmNewPasswordNotMatched) {
+                loginRegisterForgotPassController.labelPasswordNotMatch.setText("*Password does not match");
+                loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(true);
+            } else {
+                loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(false);
+            }
+        }
 
         if (!registerName.isBlank()) {
             if (registerName.length() < 3 || registerName.length() > 20) {
@@ -196,6 +215,7 @@ public class RegisterModel {
     }
 
     public void emptyPassword() {
+        loginRegisterForgotPassController.registerIsWeakPassword = true;
         loginRegisterForgotPassController.registerRectangle1.setFill(White.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(White.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
@@ -205,6 +225,7 @@ public class RegisterModel {
     }
 
     private void weakPassword() {
+        loginRegisterForgotPassController.registerIsWeakPassword = true;
         loginRegisterForgotPassController.registerRectangle1.setFill(Weak.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(White.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
@@ -215,6 +236,7 @@ public class RegisterModel {
     }
 
     private void fairPassword() {
+        loginRegisterForgotPassController.registerIsWeakPassword = false;
         loginRegisterForgotPassController.registerRectangle1.setFill(Fair.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(Fair.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(White.getColor());
@@ -225,6 +247,7 @@ public class RegisterModel {
     }
 
     private void goodPassword() {
+        loginRegisterForgotPassController.registerIsWeakPassword = false;
         loginRegisterForgotPassController.registerRectangle1.setFill(Good.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(Good.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(Good.getColor());
@@ -235,6 +258,7 @@ public class RegisterModel {
     }
 
     private void strongPassword() {
+        loginRegisterForgotPassController.registerIsWeakPassword = false;
         loginRegisterForgotPassController.registerRectangle1.setFill(Strong.getColor());
         loginRegisterForgotPassController.registerRectangle2.setFill(Strong.getColor());
         loginRegisterForgotPassController.registerRectangle3.setFill(Strong.getColor());
@@ -257,11 +281,12 @@ public class RegisterModel {
         boolean passwordsMatch = passwordMatched();
         boolean validName = isValidName();
         boolean nameNotInPassword = !isPasswordContainsName();
+        boolean notWeakPassword = !loginRegisterForgotPassController.registerIsWeakPassword;
 
 
         setVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
-        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword) {
+        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword && notWeakPassword) {
             readTAC();
         }
     }
@@ -273,6 +298,10 @@ public class RegisterModel {
                 goToLogin();
             }
         }
+    }
+
+    private boolean isNewPasswordAndConfirmNewPasswordNotMatched(boolean passwordsMatch) {
+        return !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank() && !passwordsMatch;
     }
 
     private boolean isValidEmailOrPhoneNumber() {

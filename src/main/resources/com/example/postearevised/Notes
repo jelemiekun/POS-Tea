@@ -1,16 +1,6 @@
 ------------------TO DO------------------
 
-sa register, at forgot kapag weak ang password hindi tatanggapin ni eden
-
-kapag pinindot ang ex sa register go back confirmation, dapat hindi babalik sa login
-
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
-
-pag exit confirmation, mawawala yung icon (gagawing same color ng background)
-
-Done
-darker green yung done
-account register successful
 
 uupdate yung main page (gagawing slide nalang ns humburger)
 
@@ -69,6 +59,12 @@ lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag c
 pagkaclick ng button, mag lloading sya, ngayon yung button, dapat design nya parang clicked na habang nag lloading
 
 lagyan design/indicator yung mata sa login if naka traversible haha
+
+pag exit confirmation, mawawala yung icon (gagawing same color ng background)
+
+Done
+darker green yung done
+account register successful
 
 
 
@@ -155,3 +151,7 @@ email - walang limit
 password - 128
 
 natatab yung resend OTP, pero funtional lang cya kapg tpus n ung count down.
+
+kapag pinindot ang ex sa register go back confirmation, dapat hindi babalik sa login
+
+sa register, at forgot kapag weak ang password hindi tatanggapin ni eden

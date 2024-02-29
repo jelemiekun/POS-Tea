@@ -25,6 +25,7 @@ public class Others {
         isTaskBarHidden();
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setHeight(screenResolution[1]);
+        System.out.println(screenResolution[0] + "x" + screenResolution[1]);
     }
 
     private static void isTaskBarHidden() {

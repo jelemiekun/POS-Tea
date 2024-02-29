@@ -427,6 +427,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    public boolean registerIsWeakPassword = false;
     public boolean iconsClicked = false;
     private boolean registerNameToolTipClicked = false;
     private boolean registerPasswordToolTipClicked = false;
@@ -777,6 +778,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Forgot Password
      */
+    public boolean forgotIsWeakPassword = false;
     public boolean functionalOTP = false;
     private boolean forgotPasswordToolTipClicked = false;
     public boolean forgotPass1SubmittedOnce = false;

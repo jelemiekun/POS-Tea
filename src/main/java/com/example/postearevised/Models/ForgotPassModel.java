@@ -103,13 +103,34 @@ public class ForgotPassModel {
                 }
                 break;
             case 6:
-                boolean arePasswordsMatch = !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && !forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
+                boolean passwordsMatch = arePasswordsMatch();
+                boolean showPasswordNotMatch = true;
                 
                 loginRegisterForgotPassController.labelNewPassword.setVisible(forgotPassNewPassword.isBlank());
                 loginRegisterForgotPassController.labelConfirmNewPassword.setVisible(forgotPassConfirmNewPassword.isBlank());
-                loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(arePasswordsMatch);
+
+                if (loginRegisterForgotPassController.forgotIsWeakPassword) {
+                    loginRegisterForgotPassController.labelNewPasswordNotMatch.setText("*Weak password. Require mixed characters.");
+                    loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(true);
+                    showPasswordNotMatch = false;
+                } else {
+                    loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(false);
+                }
+
+                if (showPasswordNotMatch) {
+                    if (!passwordsMatch) {
+                        loginRegisterForgotPassController.labelNewPasswordNotMatch.setText("*Password does not match.");
+                        loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(true);
+                    } else {
+                        loginRegisterForgotPassController.labelNewPasswordNotMatch.setVisible(false);
+                    }
+                }
                 break;
         }
+    }
+
+    private boolean arePasswordsMatch() {
+        return !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
     }
 
     /**
@@ -290,7 +311,7 @@ public class ForgotPassModel {
     }
 
     private boolean arePane3InputsValid() {
-        return !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword);
+        return !forgotPassNewPassword.isBlank() && !forgotPassConfirmNewPassword.isBlank() && forgotPassNewPassword.equals(forgotPassConfirmNewPassword) && !loginRegisterForgotPassController.forgotIsWeakPassword;
     }
 
     private void pane3SubmittedOnce() {
@@ -363,6 +384,7 @@ public class ForgotPassModel {
     }
 
     public void emptyPassword() {
+        loginRegisterForgotPassController.forgotIsWeakPassword = true;
         loginRegisterForgotPassController.forgotRectangle1.setFill(White.getColor());
         loginRegisterForgotPassController.forgotRectangle2.setFill(White.getColor());
         loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
@@ -372,6 +394,7 @@ public class ForgotPassModel {
     }
 
     private void weakPassword() {
+        loginRegisterForgotPassController.forgotIsWeakPassword = true;
         loginRegisterForgotPassController.forgotRectangle1.setFill(Weak.getColor());
         loginRegisterForgotPassController.forgotRectangle2.setFill(White.getColor());
         loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
@@ -382,6 +405,7 @@ public class ForgotPassModel {
     }
 
     private void fairPassword() {
+        loginRegisterForgotPassController.forgotIsWeakPassword = false;
         loginRegisterForgotPassController.forgotRectangle1.setFill(Fair.getColor());
         loginRegisterForgotPassController.forgotRectangle2.setFill(Fair.getColor());
         loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
@@ -392,6 +416,7 @@ public class ForgotPassModel {
     }
 
     private void goodPassword() {
+        loginRegisterForgotPassController.forgotIsWeakPassword = false;
         loginRegisterForgotPassController.forgotRectangle1.setFill(Good.getColor());
         loginRegisterForgotPassController.forgotRectangle2.setFill(Good.getColor());
         loginRegisterForgotPassController.forgotRectangle3.setFill(Good.getColor());
@@ -402,6 +427,7 @@ public class ForgotPassModel {
     }
 
     private void strongPassword() {
+        loginRegisterForgotPassController.forgotIsWeakPassword = false;
         loginRegisterForgotPassController.forgotRectangle1.setFill(Strong.getColor());
         loginRegisterForgotPassController.forgotRectangle2.setFill(Strong.getColor());
         loginRegisterForgotPassController.forgotRectangle3.setFill(Strong.getColor());

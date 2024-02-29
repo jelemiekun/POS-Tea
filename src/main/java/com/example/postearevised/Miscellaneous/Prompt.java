@@ -19,7 +19,13 @@ public class Prompt {
     public static boolean btnCenterBoolean;
     public static boolean btnRightBoolean;
 
+    public static void setIsConfirmedToFalse() {
+        isConfirmed = false;
+    }
+
     public static void setGoBackConfirmation() {
+        setIsConfirmedToFalse();
+
         promptHeaderText = "Are you sure you want to go back?";
         promptContentText = "Any unsaved changes will be lost!";
         promptBtnLeftVisible = true;
@@ -34,6 +40,8 @@ public class Prompt {
     }
 
     public static void setAccountCreatedConfirmation() {
+        setIsConfirmedToFalse();
+
         promptHeaderText = "Account Successfully Registered!";
         promptContentText = "Please log-in to continue.";
         promptBtnLeftVisible = false;
@@ -48,6 +56,8 @@ public class Prompt {
     }
 
     public static void setConfirmLogout() {
+        setIsConfirmedToFalse();
+
         promptHeaderText = "Are you sure you want to log out?";
         promptContentText = "Press 'Log out' to log out, or \npress 'Stay' to remain logged in.";
         promptBtnLeftVisible = true;
@@ -62,6 +72,8 @@ public class Prompt {
     }
 
     public static void setResetPasswordSuccessfully() {
+        setIsConfirmedToFalse();
+
         promptHeaderText = "Password reset is successful!";
         promptContentText = "Please log-in to continue.";
         promptBtnLeftVisible = false;
@@ -76,6 +88,8 @@ public class Prompt {
     }
 
     public static void setInternetRequired() {
+        setIsConfirmedToFalse();
+
         promptHeaderText = "Internet Connection Required";
         promptContentText = "It seems that you're currently offline.\nPlease connect to the internet to continue.";
         promptBtnLeftVisible = false;
