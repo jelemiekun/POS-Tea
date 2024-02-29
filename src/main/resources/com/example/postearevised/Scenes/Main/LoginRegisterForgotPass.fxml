@@ -144,7 +144,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -573,7 +573,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -618,7 +618,7 @@
                                           <Font name="Microsoft Sans Serif" size="26.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelNewPasswordNotMatch" layoutY="326.0" text="*Password does not match." textFill="#ff5a5a" visible="false">
+                                    <Label fx:id="labelNewPasswordNotMatch" layoutY="326.0" prefHeight="31.0" prefWidth="622.0" text="*Password does not match." textFill="#ff5a5a" visible="false">
                                        <font>
                                           <Font name="Microsoft Sans Serif" size="26.0" />
                                        </font>
