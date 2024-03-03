@@ -19,7 +19,7 @@
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Login.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Login.jpeg" />
                     </image>
                 </ImageView>
             <Label alignment="CENTER" focusTraversable="false" layoutX="152.0" layoutY="685.0" text="A cup of Bru day a day, makes the&#10;bad day away" textAlignment="CENTER" textFill="WHITE">
@@ -144,11 +144,11 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Register.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Register.jpeg" />
                     </image>
                 </ImageView>
                 <AnchorPane layoutX="510.0" layoutY="53.0" prefHeight="965.0" prefWidth="922.0">
@@ -421,13 +421,13 @@
 
             
             
-                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0">
+                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%201.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%201.jpeg" />
                      </image>
                   </ImageView>
                   <AnchorPane layoutX="519.0" layoutY="237.0" prefHeight="538.0" prefWidth="829.0">
@@ -493,7 +493,7 @@
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%202.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%202.jpeg" />
                      </image>
                   </ImageView>
                   <AnchorPane layoutX="518.0" layoutY="214.0" prefHeight="637.0" prefWidth="829.0">
@@ -577,7 +577,7 @@
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%203.png" />
+                        <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%203.jpeg" />
                      </image>
                   </ImageView>
                   <AnchorPane layoutX="534.0" layoutY="165.0" prefHeight="716.0" prefWidth="829.0">

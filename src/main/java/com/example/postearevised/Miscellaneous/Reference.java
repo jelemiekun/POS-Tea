@@ -33,7 +33,7 @@ public class Reference {
     public static int[] screenResolution = new int[2];
     public static final int PASSWORD_LIMIT = 128;
     public static final int NAME_LIMIT = 16;
-    public static final int ONE_SECOND = 50;
+    public static final int ONE_SECOND = 1000;
     public static final int FINISH_COUNTDOWN = 1;
     public static Thread countdown;
 
