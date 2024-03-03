@@ -15,7 +15,7 @@
               <AnchorPane prefHeight="80.0" prefWidth="1920.0">
                   <children>
                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e07a5f" height="80.0" stroke="BLACK" strokeType="INSIDE" width="1920.0" />
-                      <Label layoutX="818.0" layoutY="6.0" text="POS - Tea">
+                      <Label alignment="CENTER" layoutX="632.0" layoutY="6.0" prefHeight="69.0" prefWidth="656.0" text="EAT BRU DAY">
                           <font>
                               <Font name="SansSerif Bold" size="60.0" />
                           </font>
