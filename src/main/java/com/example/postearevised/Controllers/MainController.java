@@ -1,6 +1,6 @@
 package com.example.postearevised.Controllers;
 
-import com.example.postearevised.Models.MainModel;
+import com.example.postearevised.Models.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,7 +17,47 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 
 public class MainController implements Initializable {
+    /**
+     * Initialize
+     */
     public MainModel mainModel;
+    public MenuModel menuModel;
+    public DashboardModel dashboardModel;
+    public OrderListModel orderListModel;
+    public OrderHistoryModel orderHistoryModel;
+    public AboutUsModel aboutUsModel;
+    public SettingsModel settingsModel;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        mainModel = new MainModel();
+        mainModel.setMainController(this);
+        mainModel.setDropShadow();
+
+        menuModel = new MenuModel();
+        menuModel.setMainController(this);
+        menuModel.setDropShadow();
+
+        dashboardModel = new DashboardModel();
+        dashboardModel.setMainController(this);
+
+        orderListModel = new OrderListModel();
+        orderListModel.setMainController(this);
+
+        orderHistoryModel = new OrderHistoryModel();
+        orderHistoryModel.setMainController(this);
+
+        aboutUsModel = new AboutUsModel();
+        aboutUsModel.setMainController(this);
+
+        settingsModel = new SettingsModel();
+        settingsModel.setMainController(this);
+    }
+
+    /**
+     * Main
+     */
+
     public FXMLLoader loader;
     public Parent root;
     public Stage newStage;
@@ -59,12 +99,8 @@ public class MainController implements Initializable {
     @FXML
     public AnchorPane iconAnchorPaneSettings;
 
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainModel = new MainModel();
-        mainModel.setDashboardController(this);
-    }
+    @FXML
+    public AnchorPane anchorPaneLeftPanel;
 
     @FXML
     void anchorPaneMenuClicked(MouseEvent event) throws IOException {
@@ -136,4 +172,10 @@ public class MainController implements Initializable {
         mainModel.openSelectedPane(Logout.getPaneNumber());
     }
 
+    /**
+     * Menu
+     */
+
+    @FXML
+    public AnchorPane anchorPaneRightPanel;
 }

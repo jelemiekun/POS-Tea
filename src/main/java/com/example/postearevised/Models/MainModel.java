@@ -4,6 +4,7 @@ import com.example.postearevised.Controllers.MainController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.effect.DropShadow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -17,8 +18,18 @@ import static com.example.postearevised.Miscellaneous.Reference.*;
 
 public class MainModel {
     private MainController mainController;
-    public void setDashboardController(MainController mainController) {
+    public void setMainController(MainController mainController) {
         this.mainController = mainController;
+    }
+
+    public void setDropShadow() {
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setRadius(5);
+        dropShadow.setOffsetX(7);
+        dropShadow.setOffsetY(0);
+        dropShadow.setColor(dropShadowColor);
+
+        mainController.anchorPaneLeftPanel.setEffect(dropShadow);
     }
 
     public void openSelectedPane(int selectedPane) throws IOException {

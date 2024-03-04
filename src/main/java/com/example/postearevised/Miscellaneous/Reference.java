@@ -1,5 +1,6 @@
 package com.example.postearevised.Miscellaneous;
 
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Reference {
@@ -35,6 +36,7 @@ public class Reference {
     public static final int NAME_LIMIT = 16;
     public static final int ONE_SECOND = 1000;
     public static final int FINISH_COUNTDOWN = 1;
+    public static final Color dropShadowColor = Color.rgb(150,150,150);
     public static Thread countdown;
 
 }
