@@ -299,4 +299,14 @@ public class MainController implements Initializable {
     public TableColumn<Product, String> tableProductsColCategory;
     @FXML
     public TableColumn<Product, CheckBox> tableProductsColAvailable;
+
+    @FXML
+    public void settingsAddProductClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void settingsAddProductTouched(TouchEvent event) {
+
+    }
 }

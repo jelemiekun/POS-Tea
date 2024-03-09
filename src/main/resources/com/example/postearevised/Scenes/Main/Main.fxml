@@ -283,14 +283,31 @@
                         <TableView fx:id="tableProducts" layoutX="54.0" layoutY="140.0" prefHeight="693.0" prefWidth="838.0">
                           <columns>
                             <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="303.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
-                            <TableColumn fx:id="tableProductsColProductName" prefWidth="252.0" resizable="false" text="Product Name" />
-                              <TableColumn fx:id="tableProductsColCategory" prefWidth="156.0" resizable="false" text="Category" />
-                              <TableColumn fx:id="tableProductsColAvailable" prefWidth="126.0" resizable="false" text="Available" />
+                            <TableColumn fx:id="tableProductsColProductName" prefWidth="252.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />
+                              <TableColumn fx:id="tableProductsColCategory" prefWidth="156.0" resizable="false" style="-fx-padding: 5px 0 5px 15px;" text="Category" />
+                              <TableColumn fx:id="tableProductsColAvailable" prefWidth="126.0" resizable="false" style="fx-alignment: center; -fx-text-alignment: center;" text="Available" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
+                        <AnchorPane layoutX="683.0" layoutY="851.0" onMouseClicked="#settingsAddProductClicked" onTouchReleased="#settingsAddProductTouched" prefHeight="63.0" prefWidth="207.0">
+                           <children>
+                              <ImageView fitHeight="63.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Product%20Process/add%20product.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="17.0" layoutY="17.0" text="Add Product" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
                      </children></AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="945.0" visible="false">
                      <children>

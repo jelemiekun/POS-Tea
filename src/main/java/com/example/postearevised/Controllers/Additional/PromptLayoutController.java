@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 
-public class PromptLayout implements Initializable {
+public class PromptLayoutController implements Initializable {
 
     @FXML
     private ImageView btnRight;
