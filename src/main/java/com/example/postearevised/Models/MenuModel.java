@@ -3,7 +3,7 @@ package com.example.postearevised.Models;
 import com.example.postearevised.Controllers.MainController;
 import javafx.scene.effect.DropShadow;
 
-import static com.example.postearevised.Miscellaneous.Reference.dropShadowColor;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 
 public class MenuModel {
     private MainController mainController;

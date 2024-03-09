@@ -1,7 +1,11 @@
 package com.example.postearevised.Objects;
 
-import com.example.postearevised.Miscellaneous.Prompt;
+public class MilkTea extends Product {
+    public MilkTea(String category) {
+        super(category);
+    }
 
-public class MilkTea extends Prompt {
-
+    public MilkTea(String productName, String productDescription, String imagePath, String category) {
+        super(productName, productDescription, imagePath, category);
+    }
 }

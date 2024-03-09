@@ -13,9 +13,9 @@ import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.*;
-import static com.example.postearevised.Miscellaneous.Prompt.*;
-import static com.example.postearevised.Miscellaneous.Reference.*;
+import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class MainModel {
     private MainController mainController;
@@ -168,6 +168,7 @@ public class MainModel {
         mainController.newStage.setResizable(false);
         mainController.newStage.setScene(new Scene(mainController.root));
         setScreenResolution(false, true);
+        mainController.newStage.getIcons().add(SYSTEM_LOGO);
         mainController.newStage.show();
         closeThisStage();
     }

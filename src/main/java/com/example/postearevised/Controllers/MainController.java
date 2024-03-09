@@ -1,10 +1,14 @@
 package com.example.postearevised.Controllers;
 
 import com.example.postearevised.Models.*;
+import com.example.postearevised.Objects.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -14,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
@@ -117,62 +122,62 @@ public class MainController implements Initializable {
     public ImageView mainLogoutIcon;
 
     @FXML
-    void anchorPaneMenuClicked(MouseEvent event) throws IOException {
+    void anchorPaneMenuClicked() throws IOException {
         mainModel.openSelectedPane(Menu.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneMenuTouched(TouchEvent event) throws IOException {
+    void anchorPaneMenuTouched() throws IOException {
         mainModel.openSelectedPane(Menu.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneDashBoardClicked(MouseEvent event) throws IOException {
+    void anchorPaneDashBoardClicked() throws IOException {
         mainModel.openSelectedPane(Dashboard.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneDashboardTouched(TouchEvent event) throws IOException {
+    void anchorPaneDashboardTouched() throws IOException {
         mainModel.openSelectedPane(Dashboard.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderListClicked(MouseEvent event) throws IOException {
+    void anchorPaneOrderListClicked() throws IOException {
         mainModel.openSelectedPane(OrderList.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderListTouched(TouchEvent event) throws IOException {
+    void anchorPaneOrderListTouched() throws IOException {
         mainModel.openSelectedPane(OrderList.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderHistoryClicked(MouseEvent event) throws IOException {
+    void anchorPaneOrderHistoryClicked() throws IOException {
         mainModel.openSelectedPane(OrderHistory.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderHistoryTouched(TouchEvent event) throws IOException {
+    void anchorPaneOrderHistoryTouched() throws IOException {
         mainModel.openSelectedPane(OrderHistory.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsClicked(MouseEvent event) throws IOException {
+    void anchorPaneSettingsClicked() throws IOException {
         mainModel.openSelectedPane(Settings.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsTouched(TouchEvent event) throws IOException {
+    void anchorPaneSettingsTouched() throws IOException {
         mainModel.openSelectedPane(Settings.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneLogoutClicked(MouseEvent event) throws IOException {
+    void anchorPaneLogoutClicked() throws IOException {
         mainModel.openSelectedPane(Logout.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneLogoutTouched(TouchEvent event) throws IOException {
+    void anchorPaneLogoutTouched() throws IOException {
         mainModel.openSelectedPane(Logout.getPaneNumber());
     }
 
@@ -231,52 +236,67 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneSystemManualTopPanel;
 
     @FXML
-    void anchorPaneSettingsAccountClicked(MouseEvent event) {
+    void anchorPaneSettingsAccountClicked() {
         settingsModel.openSelectedPane(Account.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsAccountTouched(TouchEvent event) {
+    void anchorPaneSettingsAccountTouched() {
         settingsModel.openSelectedPane(Account.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsDisplayClicked(MouseEvent event) {
+    void anchorPaneSettingsDisplayClicked() {
         settingsModel.openSelectedPane(Display.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsDisplayTouched(TouchEvent event) {
+    void anchorPaneSettingsDisplayTouched() {
         settingsModel.openSelectedPane(Display.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsTACClicked(MouseEvent event) {
+    void anchorPaneSettingsTACClicked() {
         settingsModel.openSelectedPane(TAC.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsTACTouched(TouchEvent event) {
+    void anchorPaneSettingsTACTouched() {
         settingsModel.openSelectedPane(TAC.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsEditProductsClicked(MouseEvent event) {
+    void anchorPaneSettingsEditProductsClicked() {
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsEditProductsTouched(TouchEvent event) {
+    void anchorPaneSettingsEditProductsTouched() {
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsSystemManualClicked(MouseEvent event) {
+    void anchorPaneSettingsSystemManualClicked() {
         settingsModel.openSelectedPane(SystemManual.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsSystemManualTouched(TouchEvent event) {
+    void anchorPaneSettingsSystemManualTouched() {
         settingsModel.openSelectedPane(SystemManual.getPaneNumber());
     }
+
+    /**
+     * Settings - Products
+     */
+
+    @FXML
+    public TableView<Product> tableProducts;
+    @FXML
+    public TableColumn<Product, ImageView> tableProductsColImage;
+    @FXML
+    public TableColumn<Product, String> tableProductsColProductName;
+    @FXML
+    public TableColumn<Product, String> tableProductsColCategory;
+    @FXML
+    public TableColumn<Product, CheckBox> tableProductsColAvailable;
 }

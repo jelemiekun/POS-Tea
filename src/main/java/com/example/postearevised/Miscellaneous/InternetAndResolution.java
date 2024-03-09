@@ -7,10 +7,10 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
-import static com.example.postearevised.Miscellaneous.Reference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 
-public class Others {
+public class InternetAndResolution {
     public static boolean isInternetRequired = false;
     public static boolean isInternetAvailable() {
         try {

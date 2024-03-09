@@ -8,8 +8,9 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.*;
-import static com.example.postearevised.Miscellaneous.Reference.loginRegisterStage;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.loginRegisterStage;
 
 public class Main extends Application {
     @Override
@@ -24,6 +25,7 @@ public class Main extends Application {
         loginRegisterStage.setResizable(false);
         loginRegisterStage.setScene(scene);
         setScreenResolution(false, false);
+        loginRegisterStage.getIcons().add(SYSTEM_LOGO);
         loginRegisterStage.show();
     }
 

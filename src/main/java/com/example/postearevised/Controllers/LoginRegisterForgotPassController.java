@@ -32,9 +32,9 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmation;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
-import static com.example.postearevised.Miscellaneous.Others.*;
-import static com.example.postearevised.Miscellaneous.Prompt.*;
-import static com.example.postearevised.Miscellaneous.Reference.*;
+import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class LoginRegisterForgotPassController implements Initializable {
     @FXML

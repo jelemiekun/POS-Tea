@@ -11,9 +11,9 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Prompt.*;
+import static com.example.postearevised.Miscellaneous.PromptContents.*;
 
-public class Prompt implements Initializable {
+public class PromptLayout implements Initializable {
 
     @FXML
     private ImageView btnRight;

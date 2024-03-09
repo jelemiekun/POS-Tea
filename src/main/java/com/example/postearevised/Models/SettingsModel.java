@@ -1,13 +1,16 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.MainController;
+import com.example.postearevised.Objects.MilkTea;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
-import static com.example.postearevised.Miscellaneous.Reference.dropShadowColor;
+import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
+import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 
 public class SettingsModel {
     private MainController mainController;
@@ -87,6 +90,8 @@ public class SettingsModel {
                 mainController.rectangleSystemManual.setStroke(null);
                 break;
             case 3: // Edit Products
+                editProductsInitializeTable();
+
                 mainController.anchorPaneSettingsAccount.setVisible(false);
                 mainController.anchorPaneSettingsDisplay.setVisible(false);
                 mainController.anchorPaneSettingsEditProducts.setVisible(true);
@@ -141,5 +146,25 @@ public class SettingsModel {
                 mainController.rectangleTAC.setStroke(null);
                 break;
         }
+    }
+
+    /**
+     * Edit Products
+     */
+
+    private void editProductsInitializeTable() {
+        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory());
+        productObservableList.add(milkTea);
+
+        mainController.tableProductsColImage.setCellValueFactory(new PropertyValueFactory<>("imageViewSmall"));
+        mainController.tableProductsColProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        mainController.tableProductsColCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        mainController.tableProductsColAvailable.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
+
+        mainController.tableProducts.setItems(productObservableList);
+        mainController.tableProductsColImage.setReorderable(false);
+        mainController.tableProductsColProductName.setReorderable(false);
+        mainController.tableProductsColCategory.setReorderable(false);
+        mainController.tableProductsColAvailable.setReorderable(false);
     }
 }

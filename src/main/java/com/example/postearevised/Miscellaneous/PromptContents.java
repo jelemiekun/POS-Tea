@@ -1,10 +1,11 @@
 package com.example.postearevised.Miscellaneous;
 
+import com.example.postearevised.Miscellaneous.References.GeneralReference;
 import javafx.scene.image.Image;
 
 import java.util.Objects;
 
-public class Prompt {
+public class PromptContents {
     public static boolean isConfirmed = false;
 
     public static String promptHeaderText;
@@ -31,9 +32,9 @@ public class Prompt {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
@@ -47,9 +48,9 @@ public class Prompt {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
@@ -63,9 +64,9 @@ public class Prompt {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
@@ -79,9 +80,9 @@ public class Prompt {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
@@ -95,9 +96,9 @@ public class Prompt {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(Reference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;

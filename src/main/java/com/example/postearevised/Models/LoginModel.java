@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.*;
-import static com.example.postearevised.Miscellaneous.Reference.*;
+import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class LoginModel {
 
@@ -133,6 +133,7 @@ public class LoginModel {
             mainStage.setResizable(false);
             mainStage.setScene(new Scene(root));
             setScreenResolution(true, false);
+            mainStage.getIcons().add(SYSTEM_LOGO);
             mainStage.show();
             closeThisStage();
         }
