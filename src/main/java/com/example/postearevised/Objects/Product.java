@@ -3,7 +3,6 @@ package com.example.postearevised.Objects;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 
-import java.io.File;
 import java.util.Objects;
 
 public abstract class Product {
@@ -15,10 +14,18 @@ public abstract class Product {
     private CheckBox checkBox;
     private boolean isChecked;
 
-    public Product() {
-        this.productName = "N/A";
-        this.productDescription = "N/A";
-        this.imagePath = "/com/example/postearevised/Product Media/no photo";
+    public Product(String category) {
+        if (!category.isBlank() || !category.isEmpty()) {
+            this.productName = "N/A";
+            this.productDescription = "N/A";
+            this.category = category;
+            this.imagePath = "/com/example/postearevised/Product Media/no photo";
+            this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
+            this.checkBox = new CheckBox();
+            this.isChecked = true;
+        } else {
+            // prompt can't add product, no category
+        }
     }
 
     public Product(String productName, String productDescription, String imagePath, String category) {

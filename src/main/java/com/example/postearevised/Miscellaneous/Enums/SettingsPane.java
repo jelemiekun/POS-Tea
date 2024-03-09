@@ -7,7 +7,7 @@ public enum SettingsPane {
     TAC(4),
     SystemManual(5);
 
-    private int paneNumber;
+    private final int paneNumber;
 
     SettingsPane(int paneNumber) {
         this.paneNumber = paneNumber;
