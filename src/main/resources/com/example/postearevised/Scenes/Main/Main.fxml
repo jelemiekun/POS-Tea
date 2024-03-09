@@ -3,6 +3,8 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -278,8 +280,16 @@
                               </Label>
                            </children>
                         </AnchorPane>
+                        <TableView layoutX="54.0" layoutY="91.0" prefHeight="755.0" prefWidth="838.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                          </columns>
+                        </TableView>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="945.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" prefHeight="85.0" prefWidth="705.0">
                            <children>
@@ -293,7 +303,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                  <AnchorPane fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="945.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneSystemManualTopPanel" prefHeight="85.0" prefWidth="705.0">
                            <children>
