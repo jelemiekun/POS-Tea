@@ -24,7 +24,7 @@
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
                               </Label>
-                              <ImageView fitHeight="55.0" fitWidth="55.0" layoutX="15.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainMenuIcon" fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/Menu%20button.png" />
                                   </image>
@@ -36,9 +36,9 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneDashboard" layoutX="2.0" layoutY="211.0" onMouseClicked="#anchorPaneDashBoardClicked" onTouchReleased="#anchorPaneDashboardTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainDashboardIcon" fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/dashboard%20button.png" />
+                                      <Image url="@../../Medias/Icons/Left%20Panel/dashboard.png" />
                                   </image>
                               </ImageView>
                               <Label layoutX="11.0" layoutY="65.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
@@ -53,9 +53,9 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneOrderList" layoutX="2.0" layoutY="326.0" onMouseClicked="#anchorPaneOrderListClicked" onTouchReleased="#anchorPaneOrderListTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainOrderListIcon" fitHeight="40.0" fitWidth="40.0" layoutX="23.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/order%20queue%20button.png" />
+                                      <Image url="@../../Medias/Icons/Left%20Panel/order%20queue.png" />
                                   </image>
                               </ImageView>
                               <Label layoutX="11.0" layoutY="65.0" text="ORDER&#10;LIST" textAlignment="CENTER">
@@ -70,9 +70,9 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneOrderHistory" layoutY="441.0" onMouseClicked="#anchorPaneOrderHistoryClicked" onTouchReleased="#anchorPaneOrderHistoryTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainOrderHistoryIcon" fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/order%20history%20button.png" />
+                                      <Image url="@../../Medias/Icons/Left%20Panel/order%20history.png" />
                                   </image>
                               </ImageView>
                               <Label layoutX="6.0" layoutY="65.0" text="ORDER&#10;HISTORY" textAlignment="CENTER">
@@ -85,28 +85,11 @@
                               <Cursor fx:constant="HAND" />
                           </cursor>
                       </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneAboutUs" layoutX="1.0" layoutY="624.0" onMouseClicked="#anchorPaneAboutUsClicked" onTouchReleased="#anchorPaneAboutUsTouched" prefHeight="115.0" prefWidth="85.0">
+                      <AnchorPane fx:id="iconAnchorPaneSettings" layoutX="1.0" layoutY="794.0" onMouseClicked="#anchorPaneSettingsClicked" onTouchReleased="#anchorPaneSettingsTouched" prefHeight="95.0" prefWidth="85.0">
                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="22.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainSettingsIcon" fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/about%20us%20button.png" />
-                                  </image>
-                              </ImageView>
-                              <Label layoutX="13.0" layoutY="65.0" text="ABOUT&#10;US" textAlignment="CENTER">
-                                  <font>
-                                      <Font name="Rockwell Extra Bold" size="15.0" />
-                                  </font>
-                              </Label>
-                          </children>
-                          <cursor>
-                              <Cursor fx:constant="HAND" />
-                          </cursor>
-                      </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneSettings" layoutY="739.0" onMouseClicked="#anchorPaneSettingsClicked" onTouchReleased="#anchorPaneSettingsTouched" prefHeight="95.0" prefWidth="85.0">
-                          <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="24.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/settings%20button.png" />
+                                      <Image url="@../../Medias/Icons/Left%20Panel/settings.png" />
                                   </image>
                               </ImageView>
                               <Label layoutX="7.0" layoutY="64.0" text="SETTINGS" textAlignment="CENTER">
@@ -119,9 +102,9 @@
                               <Cursor fx:constant="HAND" />
                           </cursor>
                       </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneLogout" layoutX="-1.0" layoutY="834.0" onMouseClicked="#anchorPaneLogoutClicked" onTouchReleased="#anchorPaneLogoutTouched" prefHeight="105.0" prefWidth="85.0">
+                      <AnchorPane fx:id="iconAnchorPaneLogout" layoutY="889.0" onMouseClicked="#anchorPaneLogoutClicked" onTouchReleased="#anchorPaneLogoutTouched" prefHeight="105.0" prefWidth="85.0">
                           <children>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="mainLogoutIcon" fitHeight="40.0" fitWidth="40.0" layoutX="25.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/Logout%20button.png" />
                                   </image>
@@ -140,7 +123,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -250,7 +233,187 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneAboutUs" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+         <children>
+            <AnchorPane layoutX="267.0" layoutY="35.0" prefHeight="937.0" prefWidth="1300.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1300.0" />
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneAccountTopPanel" prefHeight="85.0" prefWidth="705.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="945.0" />
+                              <Label layoutX="416.0" layoutY="25.0" text="Account">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneDisplayTopPanel" prefHeight="85.0" prefWidth="705.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="945.0" />
+                              <Label layoutX="416.0" layoutY="25.0" text="Display">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneProductsTopPanel" prefHeight="85.0" prefWidth="705.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="945.0" />
+                              <Label layoutX="416.0" layoutY="25.0" text="Products">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneTACTopPanel" prefHeight="85.0" prefWidth="705.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="945.0" />
+                              <Label layoutX="324.0" layoutY="25.0" text="Terms And Conditions">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="945.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneSystemManualTopPanel" prefHeight="85.0" prefWidth="705.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="945.0" />
+                              <Label layoutX="369.0" layoutY="25.0" text="System Manual">
+                                 <font>
+                                    <Font name="Arial" size="30.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="anchorPaneSettingsDropShadow" prefHeight="937.0" prefWidth="344.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="935.0" layoutX="1.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                        <AnchorPane layoutY="159.0" prefHeight="556.0" prefWidth="350.0">
+                           <children>
+                              <AnchorPane fx:id="anchorPaneSettingsAccountLeftPanel" onMouseClicked="#anchorPaneSettingsAccountClicked" onTouchReleased="#anchorPaneSettingsAccountTouched" prefHeight="95.0" prefWidth="353.0">
+                                 <children>
+                                    <Rectangle fx:id="rectangleAccount" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Medias/Icons/Settings/Account.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="100.0" layoutY="27.0" text="Account">
+                                       <font>
+                                          <Font name="Arial" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSettingsDisplayLeftPanel" layoutY="115.0" onMouseClicked="#anchorPaneSettingsDisplayClicked" onTouchReleased="#anchorPaneSettingsDisplayTouched" prefHeight="95.0" prefWidth="353.0">
+                                 <children>
+                                    <Rectangle fx:id="rectangleDisplay" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Medias/Icons/Settings/Display.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="100.0" layoutY="27.0" text="Display">
+                                       <font>
+                                          <Font name="Arial" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSettingsEditProductsLeftPanel" layoutY="231.0" onMouseClicked="#anchorPaneSettingsEditProductsClicked" onTouchReleased="#anchorPaneSettingsEditProductsTouched" prefHeight="95.0" prefWidth="353.0">
+                                 <children>
+                                    <Rectangle fx:id="rectangleEditProducts" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Medias/Icons/Settings/Edit%20products.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="100.0" layoutY="27.0" text="Edit Products">
+                                       <font>
+                                          <Font name="Arial" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSettingsTACLeftPanel" layoutY="350.0" onMouseClicked="#anchorPaneSettingsTACClicked" onTouchReleased="#anchorPaneSettingsTACTouched" prefHeight="95.0" prefWidth="353.0">
+                                 <children>
+                                    <Rectangle fx:id="rectangleTAC" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Medias/Icons/Settings/Terms%20and%20conditions.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="100.0" layoutY="5.0" text="Terms and&#10;Conditions">
+                                       <font>
+                                          <Font name="Arial" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                              <AnchorPane fx:id="anchorPaneSettingsSystemManualLeftPanel" layoutY="461.0" onMouseClicked="#anchorPaneSettingsSystemManualClicked" onTouchReleased="#anchorPaneSettingsSystemManualTouched" prefHeight="95.0" prefWidth="353.0">
+                                 <children>
+                                    <Rectangle fx:id="rectangleSystemManual" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../Medias/Icons/Settings/System%20manual.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label layoutX="93.0" layoutY="27.0" text="System Manual">
+                                       <font>
+                                          <Font name="Arial" size="36.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="109.0" layoutY="32.0" text="Settings">
+                           <font>
+                              <Font name="Arial" size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

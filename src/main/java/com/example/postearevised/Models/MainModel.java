@@ -1,6 +1,7 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.MainController;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,6 +33,23 @@ public class MainModel {
         mainController.anchorPaneLeftPanel.setEffect(dropShadow);
     }
 
+    public void setMainMenuIconSelected() {
+        mainController.mainMenuIcon.setImage(mainMenuSelectedIcon);
+    }
+
+    public void setAnchorPane() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    openSelectedPane(Menu.getPaneNumber());
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+    }
+
     public void openSelectedPane(int selectedPane) throws IOException {
         boolean logout = false;
 
@@ -42,8 +60,14 @@ public class MainModel {
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
-                mainController.anchorPaneAboutUs.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+
+                mainController.mainMenuIcon.setImage(mainMenuSelectedIcon);
+                mainController.mainDashboardIcon.setImage(mainDashboardIcon);
+                mainController.mainOrderListIcon.setImage(mainOrderListIcon);
+                mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
+                mainController.mainSettingsIcon.setImage(mainSettingsIcon);
+                mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 2:
                 mainStage.setTitle(Dashboard.getName());
@@ -51,8 +75,14 @@ public class MainModel {
                 mainController.anchorPaneDashboard.setVisible(true);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
-                mainController.anchorPaneAboutUs.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+
+                mainController.mainMenuIcon.setImage(mainMenuIcon);
+                mainController.mainDashboardIcon.setImage(mainDashboardSelectedIcon);
+                mainController.mainOrderListIcon.setImage(mainOrderListIcon);
+                mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
+                mainController.mainSettingsIcon.setImage(mainSettingsIcon);
+                mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 3:
                 mainStage.setTitle(OrderList.getName());
@@ -60,8 +90,14 @@ public class MainModel {
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(true);
                 mainController.anchorPaneOrderHistory.setVisible(false);
-                mainController.anchorPaneAboutUs.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+
+                mainController.mainMenuIcon.setImage(mainMenuIcon);
+                mainController.mainDashboardIcon.setImage(mainDashboardIcon);
+                mainController.mainOrderListIcon.setImage(mainOrderListSelectedIcon);
+                mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
+                mainController.mainSettingsIcon.setImage(mainSettingsIcon);
+                mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 4:
                 mainStage.setTitle(OrderHistory.getName());
@@ -69,26 +105,31 @@ public class MainModel {
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(true);
-                mainController.anchorPaneAboutUs.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+
+                mainController.mainMenuIcon.setImage(mainMenuIcon);
+                mainController.mainDashboardIcon.setImage(mainDashboardIcon);
+                mainController.mainOrderListIcon.setImage(mainOrderListIcon);
+                mainController.mainOrderHistoryIcon.setImage(mainOrderHistorySelectedIcon);
+                mainController.mainSettingsIcon.setImage(mainSettingsIcon);
+                mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 5:
-                mainStage.setTitle(AboutUs.getName());
-                mainController.anchorPaneMenu.setVisible(false);
-                mainController.anchorPaneDashboard.setVisible(false);
-                mainController.anchorPaneOrderList.setVisible(false);
-                mainController.anchorPaneOrderHistory.setVisible(false);
-                mainController.anchorPaneAboutUs.setVisible(true);
-                mainController.anchorPaneSettings.setVisible(false);
-                break;
-            case 6:
                 mainStage.setTitle(Settings.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
-                mainController.anchorPaneAboutUs.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(true);
+                mainController.settingsModel.setDropShadow();
+                mainController.settingsModel.setPane();
+
+                mainController.mainMenuIcon.setImage(mainMenuIcon);
+                mainController.mainDashboardIcon.setImage(mainDashboardIcon);
+                mainController.mainOrderListIcon.setImage(mainOrderListIcon);
+                mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
+                mainController.mainSettingsIcon.setImage(mainSettingsSelectedIcon);
+                mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             default:
                 logout = true;
@@ -109,7 +150,7 @@ public class MainModel {
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneAboutUs.getScene().getWindow());
+        newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
 
         newStage.setTitle(ExitConfirmation.getTITLE());
         newStage.setResizable(false);
@@ -133,7 +174,7 @@ public class MainModel {
 
 
     private void closeThisStage() {
-        Stage stage = (Stage) mainController.iconAnchorPaneAboutUs.getScene().getWindow();
+        Stage stage = (Stage) mainController.anchorPaneMenu.getScene().getWindow();
         stage.close();
     }
 }

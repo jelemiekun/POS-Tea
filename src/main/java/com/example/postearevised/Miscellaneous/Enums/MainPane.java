@@ -7,9 +7,8 @@ public enum MainPane {
     Dashboard("Dashboard",2),
     OrderList("Order List",3),
     OrderHistory("Order History",4),
-    AboutUs("About Us",5),
-    Settings("Settings",6),
-    Logout(Login.getTITLE(),7);
+    Settings("Settings",5),
+    Logout(Login.getTITLE(),6);
 
     private final String name;
     private final int paneNumber;

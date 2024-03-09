@@ -5,9 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,6 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 
 public class MainController implements Initializable {
     /**
@@ -25,7 +28,6 @@ public class MainController implements Initializable {
     public DashboardModel dashboardModel;
     public OrderListModel orderListModel;
     public OrderHistoryModel orderHistoryModel;
-    public AboutUsModel aboutUsModel;
     public SettingsModel settingsModel;
 
     @Override
@@ -33,6 +35,8 @@ public class MainController implements Initializable {
         mainModel = new MainModel();
         mainModel.setMainController(this);
         mainModel.setDropShadow();
+        mainModel.setMainMenuIconSelected();
+        mainModel.setAnchorPane();
 
         menuModel = new MenuModel();
         menuModel.setMainController(this);
@@ -46,9 +50,6 @@ public class MainController implements Initializable {
 
         orderHistoryModel = new OrderHistoryModel();
         orderHistoryModel.setMainController(this);
-
-        aboutUsModel = new AboutUsModel();
-        aboutUsModel.setMainController(this);
 
         settingsModel = new SettingsModel();
         settingsModel.setMainController(this);
@@ -75,11 +76,6 @@ public class MainController implements Initializable {
 
     @FXML
     public AnchorPane anchorPaneSettings;
-    @FXML
-    public AnchorPane anchorPaneAboutUs;
-
-    @FXML
-    public AnchorPane iconAnchorPaneAboutUs;
 
     @FXML
     public AnchorPane iconAnchorPaneDashboard;
@@ -101,6 +97,24 @@ public class MainController implements Initializable {
 
     @FXML
     public AnchorPane anchorPaneLeftPanel;
+
+    @FXML
+    public ImageView mainMenuIcon;
+
+    @FXML
+    public ImageView mainDashboardIcon;
+
+    @FXML
+    public ImageView mainOrderListIcon;
+
+    @FXML
+    public ImageView mainOrderHistoryIcon;
+
+    @FXML
+    public ImageView mainSettingsIcon;
+
+    @FXML
+    public ImageView mainLogoutIcon;
 
     @FXML
     void anchorPaneMenuClicked(MouseEvent event) throws IOException {
@@ -143,16 +157,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void anchorPaneAboutUsClicked(MouseEvent event) throws IOException {
-        mainModel.openSelectedPane(AboutUs.getPaneNumber());
-    }
-
-    @FXML
-    void anchorPaneAboutUsTouched(TouchEvent event) throws IOException {
-        mainModel.openSelectedPane(AboutUs.getPaneNumber());
-    }
-
-    @FXML
     void anchorPaneSettingsClicked(MouseEvent event) throws IOException {
         mainModel.openSelectedPane(Settings.getPaneNumber());
     }
@@ -178,4 +182,101 @@ public class MainController implements Initializable {
 
     @FXML
     public AnchorPane anchorPaneRightPanel;
+
+    /**
+     * Settings
+     */
+
+    @FXML
+    public AnchorPane anchorPaneSettingsDropShadow;
+    @FXML
+    public AnchorPane anchorPaneSettingsAccount;
+    @FXML
+    public AnchorPane anchorPaneSettingsDisplay;
+    @FXML
+    public AnchorPane anchorPaneSettingsEditProducts;
+    @FXML
+    public AnchorPane anchorPaneSettingsTAC;
+    @FXML
+    public AnchorPane anchorPaneSettingsSystemManual;
+    @FXML
+    public AnchorPane anchorPaneSettingsAccountLeftPanel;
+    @FXML
+    public AnchorPane anchorPaneSettingsDisplayLeftPanel;
+    @FXML
+    public AnchorPane anchorPaneSettingsEditProductsLeftPanel;
+    @FXML
+    public AnchorPane anchorPaneSettingsTACLeftPanel;
+    @FXML
+    public AnchorPane anchorPaneSettingsSystemManualLeftPanel;
+    @FXML
+    public Rectangle rectangleAccount;
+    @FXML
+    public Rectangle rectangleDisplay;
+    @FXML
+    public Rectangle rectangleEditProducts;
+    @FXML
+    public Rectangle rectangleTAC;
+    @FXML
+    public Rectangle rectangleSystemManual;
+    @FXML
+    public AnchorPane anchorPaneAccountTopPanel;
+    @FXML
+    public AnchorPane anchorPaneDisplayTopPanel;
+    @FXML
+    public AnchorPane anchorPaneProductsTopPanel;
+    @FXML
+    public AnchorPane anchorPaneTACTopPanel;
+    @FXML
+    public AnchorPane anchorPaneSystemManualTopPanel;
+
+    @FXML
+    void anchorPaneSettingsAccountClicked(MouseEvent event) {
+        settingsModel.openSelectedPane(Account.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsAccountTouched(TouchEvent event) {
+        settingsModel.openSelectedPane(Account.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsDisplayClicked(MouseEvent event) {
+        settingsModel.openSelectedPane(Display.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsDisplayTouched(TouchEvent event) {
+        settingsModel.openSelectedPane(Display.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsTACClicked(MouseEvent event) {
+        settingsModel.openSelectedPane(TAC.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsTACTouched(TouchEvent event) {
+        settingsModel.openSelectedPane(TAC.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsEditProductsClicked(MouseEvent event) {
+        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsEditProductsTouched(TouchEvent event) {
+        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsSystemManualClicked(MouseEvent event) {
+        settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+    }
+
+    @FXML
+    void anchorPaneSettingsSystemManualTouched(TouchEvent event) {
+        settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+    }
 }
