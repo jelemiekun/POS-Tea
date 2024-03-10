@@ -1,6 +1,6 @@
-package com.example.postearevised.Models;
+package com.example.postearevised.Models.Main;
 
-import com.example.postearevised.Controllers.MainController;
+import com.example.postearevised.Controllers.Main.MainController;
 import javafx.scene.effect.DropShadow;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;

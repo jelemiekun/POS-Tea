@@ -1,8 +1,8 @@
-package com.example.postearevised.Controllers;
+package com.example.postearevised.Controllers.Main;
 
-import com.example.postearevised.Models.ForgotPassModel;
-import com.example.postearevised.Models.LoginModel;
-import com.example.postearevised.Models.RegisterModel;
+import com.example.postearevised.Models.Main.ForgotPassModel;
+import com.example.postearevised.Models.Main.LoginModel;
+import com.example.postearevised.Models.Main.RegisterModel;
 import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,6 +1,6 @@
-package com.example.postearevised.Models;
+package com.example.postearevised.Models.Main;
 
-import com.example.postearevised.Controllers.LoginRegisterForgotPassController;
+import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

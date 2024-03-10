@@ -1,7 +1,9 @@
 package com.example.postearevised.Controllers.Additional;
 
+import com.example.postearevised.Models.Additional.ProductModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -15,211 +17,164 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 
-public class ProductController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private AnchorPane anchorPaneAppetizer;
+public class ProductController implements Initializable {
+    public ProductModel productModel;
 
-    @FXML
-    private AnchorPane anchorPaneBtnDone;
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        productModel = new ProductModel();
+        productModel.setProductController(this);
+    }
 
     @FXML
-    private AnchorPane anchorPaneBtnEditPhoto;
-
+    public AnchorPane anchorPaneBottomHalf;
     @FXML
-    private AnchorPane anchorPaneCoffee;
-
+    public AnchorPane anchorPaneAppetizer;
     @FXML
-    private AnchorPane anchorPaneCoolers;
-
+    public AnchorPane anchorPaneBtnDone;
     @FXML
-    private AnchorPane anchorPaneEditPhoto;
-
+    public AnchorPane anchorPaneBtnEditPhoto;
     @FXML
-    private AnchorPane anchorPaneIceCandyCups;
-
+    public AnchorPane anchorPaneCoffee;
     @FXML
-    private AnchorPane anchorPaneMilkTea;
-
+    public AnchorPane anchorPaneCoolers;
     @FXML
-    private AnchorPane anchorPaneRemovePhoto;
-
+    public AnchorPane anchorPaneEditPhoto;
     @FXML
-    private AnchorPane anchorPaneRepositionPhoto;
-
+    public AnchorPane anchorPaneIceCandyCups;
     @FXML
-    private AnchorPane anchorPaneRepositionPhotoConfirmation;
-
+    public AnchorPane anchorPaneMilkTea;
     @FXML
-    private AnchorPane anchorPaneUploadPhoto;
-
+    public AnchorPane anchorPaneRemovePhoto;
     @FXML
-    private Label appetizerLabelPrice;
-
+    public AnchorPane anchorPaneRepositionPhoto;
     @FXML
-    private TextField appetizerTextFieldPrice;
-
+    public AnchorPane anchorPaneRepositionPhotoConfirmation;
     @FXML
-    private ImageView btnEditProductDescription;
+    public AnchorPane anchorPaneUploadPhoto;
 
     @FXML
-    private ImageView btnEditProductName;
-
+    public Label appetizerLabelPrice;
     @FXML
-    private Label coffeeLabelPrice;
-
+    public Label coffeeLabelPrice;
     @FXML
-    private RadioButton coffeeRadioBtnCold;
-
+    public Label coolersLabelLargePrice;
     @FXML
-    private RadioButton coffeeRadioBtnHot;
-
+    public Label coolersLabelMediumPrice;
     @FXML
-    private ToggleGroup coffeeTemperature;
-
+    public Label coolersLabelSmallPrice;
     @FXML
-    private TextField coffeeTextFieldPrice;
-
+    public Label iceCandyCupsLabelPrice;
     @FXML
-    private ComboBox<?> comboBoxCategories;
-
+    public Label labelAddEditDone;
     @FXML
-    private Label coolersLabelLargePrice;
-
+    public Label labelDescriptionWordCounter;
     @FXML
-    private Label coolersLabelMediumPrice;
-
+    public Label labelProductDescription;
     @FXML
-    private Label coolersLabelSmallPrice;
-
+    public Label labelProductName;
     @FXML
-    private ToggleGroup coolersLiquidBase;
-
+    public Label milkTeaLabelAddOnsPriceOne;
     @FXML
-    private RadioButton coolersRadioBtnLarge;
-
+    public Label milkTeaLabelAddOnsPriceTwo;
     @FXML
-    private RadioButton coolersRadioBtnMedium;
-
+    public Label milkTeaLabelLargePrice;
     @FXML
-    private RadioButton coolersRadioBtnSmall;
-
+    public Label milkTeaLabelMediumPrice;
     @FXML
-    private RadioButton coolersRadioBtnTeaBase;
+    public Label milkTeaLabelSmallPrice;
 
     @FXML
-    private RadioButton coolersRadioBtnWaterBase;
-
+    public TextField appetizerTextFieldPrice;
     @FXML
-    private ToggleGroup coolersSizes;
-
+    public TextField coffeeTextFieldPrice;
     @FXML
-    private TextField coolersTextFieldLargePrice;
-
+    public TextField coolersTextFieldLargePrice;
     @FXML
-    private TextField coolersTextFieldMeidunPrice;
-
+    public TextField coolersTextFieldMeidunPrice;
     @FXML
-    private TextField coolersTextFieldSmallPrice;
-
+    public TextField coolersTextFieldSmallPrice;
     @FXML
-    private Label iceCandyCupsLabelPrice;
-
+    public TextField iceCandyCupsTextFieldPrice;
     @FXML
-    private TextField iceCandyCupsTextFieldPrice;
-
+    public TextField milkTeaTextFieldAddOnsOneName;
     @FXML
-    private ImageView imgProduct;
-
+    public TextField milkTeaTextFieldAddOnsPriceOne;
     @FXML
-    private ImageView imgRepositionPhotoCancel;
-
+    public TextField milkTeaTextFieldAddOnsPriceTwo;
     @FXML
-    private ImageView imgRepositionPhotoConfirm;
-
+    public TextField milkTeaTextFieldAddOnsTwoName;
     @FXML
-    private Label labelAddEditDone;
-
+    public TextField milkTeaTextFieldLargePrice;
     @FXML
-    private Label labelDescriptionWordCounter;
-
+    public TextField milkTeaTextFieldMediumPrice;
     @FXML
-    private Label labelProductDescription;
-
+    public TextField milkTeaTextFieldSmallPrice;
     @FXML
-    private Label labelProductName;
+    public TextField textFieldProductName;
 
     @FXML
-    private ToggleGroup milkTeaAddOns;
-
+    public ImageView btnEditProductDescription;
     @FXML
-    private Label milkTeaLabelAddOnsPriceOne;
-
+    public ImageView btnEditProductName;
     @FXML
-    private Label milkTeaLabelAddOnsPriceTwo;
-
+    public ImageView imgProduct;
     @FXML
-    private Label milkTeaLabelLargePrice;
-
+    public ImageView imgRepositionPhotoCancel;
     @FXML
-    private Label milkTeaLabelMediumPrice;
+    public ImageView imgRepositionPhotoConfirm;
 
     @FXML
-    private Label milkTeaLabelSmallPrice;
+    public ComboBox<String> comboBoxCategories;
 
     @FXML
-    private ToggleGroup milkTeaLiquidBase;
-
+    public RadioButton coffeeRadioBtnCold;
     @FXML
-    private RadioButton milkTeaRadioBtnAddOnsOne;
-
+    public RadioButton coffeeRadioBtnHot;
     @FXML
-    private RadioButton milkTeaRadioBtnAddOnsTwo;
-
+    public RadioButton coolersRadioBtnLarge;
     @FXML
-    private RadioButton milkTeaRadioBtnLarge;
-
+    public RadioButton coolersRadioBtnMedium;
     @FXML
-    private RadioButton milkTeaRadioBtnMedium;
-
+    public RadioButton coolersRadioBtnSmall;
     @FXML
-    private RadioButton milkTeaRadioBtnSmall;
-
+    public RadioButton coolersRadioBtnTeaBase;
     @FXML
-    private RadioButton milkTeaRadioBtnTeaBase;
-
+    public RadioButton coolersRadioBtnWaterBase;
     @FXML
-    private RadioButton milkTeaRadioBtnWaterBase;
-
+    public RadioButton milkTeaRadioBtnAddOnsOne;
     @FXML
-    private ToggleGroup milkTeaSizes;
-
+    public RadioButton milkTeaRadioBtnAddOnsTwo;
     @FXML
-    private TextField milkTeaTextFieldAddOnsOneName;
-
+    public RadioButton milkTeaRadioBtnLarge;
     @FXML
-    private TextField milkTeaTextFieldAddOnsPriceOne;
-
+    public RadioButton milkTeaRadioBtnMedium;
     @FXML
-    private TextField milkTeaTextFieldAddOnsPriceTwo;
-
+    public RadioButton milkTeaRadioBtnSmall;
     @FXML
-    private TextField milkTeaTextFieldAddOnsTwoName;
-
+    public RadioButton milkTeaRadioBtnTeaBase;
     @FXML
-    private TextField milkTeaTextFieldLargePrice;
+    public RadioButton milkTeaRadioBtnWaterBase;
 
     @FXML
-    private TextField milkTeaTextFieldMediumPrice;
-
+    public ToggleGroup coffeeTemperature;
     @FXML
-    private TextField milkTeaTextFieldSmallPrice;
-
+    public ToggleGroup coolersLiquidBase;
     @FXML
-    private TextArea textFieldProductDescription;
+    public ToggleGroup coolersSizes;
+    @FXML
+    public ToggleGroup milkTeaAddOns;
+    @FXML
+    public ToggleGroup milkTeaLiquidBase;
+    @FXML
+    public ToggleGroup milkTeaSizes;
 
     @FXML
-    private TextField textFieldProductName;
+    public TextArea textFieldProductDescription;
+
 
     @FXML
     void anchorPaneBtnDoneClicked(MouseEvent event) {
@@ -323,7 +278,7 @@ public class ProductController {
 
     @FXML
     void comboBoxCategoriesOnAction(ActionEvent event) {
-
+        productModel.comboBoxValueSelected();
     }
 
     @FXML
@@ -465,5 +420,4 @@ public class ProductController {
     void textFieldProductDescriptionTyping(KeyEvent event) {
 
     }
-
 }

@@ -4,7 +4,7 @@ public enum ProductCategories {
     MilkTeaEnum("Milk Tea"),
     CoolersEnum("Coolers"),
     CoffeeEnum("Coffee"),
-    CandyCupsEnum("Candy Cups"),
+    IceCandyCupsEnum("Ice Candy Cups"),
     AppetizersEnum("Appetizers");
 
     private final String category;

@@ -1,6 +1,6 @@
-package com.example.postearevised.Controllers;
+package com.example.postearevised.Controllers.Main;
 
-import com.example.postearevised.Models.*;
+import com.example.postearevised.Models.Main.*;
 import com.example.postearevised.Objects.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;

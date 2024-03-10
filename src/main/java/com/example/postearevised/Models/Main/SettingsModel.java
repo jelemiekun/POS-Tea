@@ -1,10 +1,9 @@
-package com.example.postearevised.Models;
+package com.example.postearevised.Models.Main;
 
-import com.example.postearevised.Controllers.MainController;
+import com.example.postearevised.Controllers.Additional.ProductController;
+import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.Product;
-import com.example.postearevised.Objects.MilkTea;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -20,7 +19,6 @@ import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
-import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 
 public class SettingsModel {
     private MainController mainController;
@@ -190,5 +188,8 @@ public class SettingsModel {
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         newStage.show();
+
+        ProductController productController = loader.getController();
+        productController.productModel.setAddProduct();
     }
 }
