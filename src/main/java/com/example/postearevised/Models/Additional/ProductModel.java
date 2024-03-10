@@ -1,8 +1,16 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
+import com.example.postearevised.Main;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.stage.FileChooser;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productCategories;
 
@@ -37,11 +45,48 @@ public class ProductModel {
         double y = event.getTouchPoint().getY();
 
         if (!productController.anchorPaneEditPhoto.getBoundsInParent().contains(x, y))
-            productController.anchorPaneEditPhoto.setVisible(false);
+            hideAnchorPaneEditPhoto();
+    }
+
+    private void hideAnchorPaneEditPhoto() {
+        productController.anchorPaneEditPhoto.setVisible(false);
     }
 
     public void uploadPhoto() {
+        hideAnchorPaneEditPhoto();
 
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choose Image File");
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        // Show the file chooser dialog
+        File selectedFile = fileChooser.showOpenDialog(null);
+
+        if (selectedFile != null) {
+            // Get the path to your resources directory
+            String resourcesPath = Objects.requireNonNull(Main.class.getResource("/")).getPath();
+            File resourcesDirectory = new File(resourcesPath);
+
+            // Create a target directory within resources to store the image
+            File imagesDirectory = new File(resourcesDirectory, "com/example/postearevised/Medias/Product Media");
+            imagesDirectory.mkdirs(); // Create directories if they don't exist
+
+            // Define the target file path within the images directory
+            File targetFile = new File(imagesDirectory, selectedFile.getName());
+
+            try {
+                // Copy the selected image file to the target directory
+                Files.copy(selectedFile.toPath(), targetFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                System.out.println("Image copied to: " + targetFile.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // User canceled the operation
+            System.out.println("No file selected");
+        }
     }
 
     /**
