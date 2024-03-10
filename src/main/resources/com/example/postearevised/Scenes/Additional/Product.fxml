@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -10,16 +11,320 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Scenes.Additional.ProductController">
+<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
    <children>
-      <AnchorPane layoutY="360.0" prefHeight="390.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="360.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
+      <AnchorPane layoutY="360.0">
          <children>
-            <AnchorPane />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
-            <ComboBox layoutX="752.0" layoutY="23.0" prefHeight="47.0" prefWidth="207.0" promptText="Category" />
+            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
+                     <children>
+                        <Label text="Sizes">
+                           <font>
+                              <Font name="Arial" size="32.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Medium">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="29.0" layoutY="115.0" prefHeight="96.0" prefWidth="932.0">
+                     <children>
+                        <Label text="Liquid Base">
+                           <font>
+                              <Font name="Arial" size="32.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Tea Base">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Water Base">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="29.0" layoutY="202.0" prefHeight="96.0" prefWidth="932.0">
+                     <children>
+                        <Label text="Sizes">
+                           <font>
+                              <Font name="Arial" size="32.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Medium">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+               <children>
+                  <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
+                     <children>
+                        <Label text="Sizes">
+                           <font>
+                              <Font name="Arial" size="32.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Medium">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                              <Label layoutX="128.0" layoutY="13.0" text="₱">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </TextField>
+                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="29.0" layoutY="115.0" prefHeight="96.0" prefWidth="932.0">
+                     <children>
+                        <Label text="Liquid Base">
+                           <font>
+                              <Font name="Arial" size="32.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Tea Base">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
+                           <children>
+                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Water Base">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="360.0">
+      <ComboBox layoutX="779.0" layoutY="367.0" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
+      <AnchorPane prefHeight="360.0" visible="false">
          <children>
             <ImageView fitHeight="360.0" fitWidth="1000.0" pickOnBounds="true" smooth="false">
                <image>
@@ -39,7 +344,7 @@
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" layoutX="26.0" layoutY="24.0" prefHeight="79.0" prefWidth="748.0" wrapText="true">
+                  <Label alignment="TOP_LEFT" layoutX="26.0" layoutY="24.0" prefHeight="79.0" prefWidth="748.0" text="Product Description" wrapText="true">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -126,6 +431,20 @@
                   </ImageView>
                </children>
             </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="400.0" layoutY="675.0" prefHeight="60.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Medias/Add%20or%20Edit%20Product/Done.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="4.0" prefHeight="53.0" prefWidth="183.0" text="ADD" textFill="#f8f8f8">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

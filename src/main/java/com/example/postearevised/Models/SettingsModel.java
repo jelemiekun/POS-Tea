@@ -1,13 +1,23 @@
 package com.example.postearevised.Models;
 
 import com.example.postearevised.Controllers.MainController;
+import com.example.postearevised.Miscellaneous.Enums.Product;
 import com.example.postearevised.Objects.MilkTea;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
@@ -166,5 +176,19 @@ public class SettingsModel {
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
         mainController.tableProductsColAvailable.setReorderable(false);
+    }
+
+    public void openAddProductsFXML() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setTitle(Product.Product.getTitle());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        newStage.show();
     }
 }
