@@ -300,12 +300,12 @@ public class MainController implements Initializable {
     public TableColumn<Product, CheckBox> tableProductsColAvailable;
 
     @FXML
-    public void settingsAddProductClicked(MouseEvent event) throws IOException{
+    public void settingsAddProductClicked() throws IOException{
         settingsModel.openAddProductsFXML();
     }
 
     @FXML
-    public void settingsAddProductTouched(TouchEvent event) throws IOException {
+    public void settingsAddProductTouched() throws IOException {
         settingsModel.openAddProductsFXML();
     }
 }

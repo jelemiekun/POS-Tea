@@ -30,6 +30,8 @@ public class ProductController implements Initializable {
     }
 
     @FXML
+    public AnchorPane anchorPaneMain;
+    @FXML
     public AnchorPane anchorPaneBottomHalf;
     @FXML
     public AnchorPane anchorPaneAppetizer;
@@ -177,6 +179,16 @@ public class ProductController implements Initializable {
 
 
     @FXML
+    void anchorPaneMainClicked(MouseEvent event) {
+        productModel.deselect(event);
+    }
+
+    @FXML
+    void anchorPaneMainTouched(TouchEvent event) {
+        productModel.deselect(event);
+    }
+
+    @FXML
     void anchorPaneBtnDoneClicked(MouseEvent event) {
 
     }
@@ -188,12 +200,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneBtnEditPhotoClicked(MouseEvent event) {
-
+        productModel.editPhotoClickedTouched(event);
     }
 
     @FXML
     void anchorPaneBtnEditPhotoTouched(TouchEvent event) {
-
+        productModel.editPhotoClickedTouched(event);
     }
 
     @FXML
@@ -228,12 +240,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneUploadPhotoClicked(MouseEvent event) {
-
+        productModel.uploadPhoto();
     }
 
     @FXML
     void anchorPaneUploadPhotoTouched(TouchEvent event) {
-
+        productModel.uploadPhoto();
     }
 
     @FXML

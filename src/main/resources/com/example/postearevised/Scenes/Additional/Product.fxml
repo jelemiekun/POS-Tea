@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
+<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#anchorPaneMainClicked" onTouchReleased="#anchorPaneMainTouched" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="360.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
       <AnchorPane fx:id="anchorPaneBottomHalf" layoutY="360.0">

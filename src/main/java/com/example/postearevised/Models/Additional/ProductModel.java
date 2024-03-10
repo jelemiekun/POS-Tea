@@ -1,6 +1,8 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productCategories;
 
@@ -9,6 +11,37 @@ public class ProductModel {
 
     public void setProductController(ProductController productController) {
         this.productController = productController;
+    }
+
+    /**
+     * Edit Photo Actions
+     */
+
+    public void editPhotoClickedTouched(MouseEvent event) {
+        event.consume();
+        productController.anchorPaneEditPhoto.setVisible(!productController.anchorPaneEditPhoto.isVisible());
+    }
+
+    public void editPhotoClickedTouched(TouchEvent event) {
+        event.consume();
+        productController.anchorPaneEditPhoto.setVisible(!productController.anchorPaneEditPhoto.isVisible());
+    }
+
+    public void deselect(MouseEvent event) {
+        if (!productController.anchorPaneEditPhoto.getBoundsInParent().contains(event.getX(), event.getY()))
+            productController.anchorPaneEditPhoto.setVisible(false);
+    }
+
+    public void deselect(TouchEvent event) {
+        double x = event.getTouchPoint().getX();
+        double y = event.getTouchPoint().getY();
+
+        if (!productController.anchorPaneEditPhoto.getBoundsInParent().contains(x, y))
+            productController.anchorPaneEditPhoto.setVisible(false);
+    }
+
+    public void uploadPhoto() {
+
     }
 
     /**
