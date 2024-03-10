@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,9 +16,9 @@
 <AnchorPane prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="360.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
-      <AnchorPane layoutY="360.0" visible="false">
+      <AnchorPane layoutY="360.0">
          <children>
-            <AnchorPane prefHeight="390.0" prefWidth="1000.0">
+            <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -28,22 +29,25 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                              <RadioButton fx:id="milkTeaRadioBtnSmall" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnSmallClicked" text="Small">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="milkTeaSizes" />
+                                 </toggleGroup>
                               </RadioButton>
                               <Label layoutX="128.0" layoutY="13.0" text="₱">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="milkTeaTextFieldSmallPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#milkTeaTextFieldSmallPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="milkTeaLabelSmallPrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -52,7 +56,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Medium">
+                              <RadioButton fx:id="milkTeaRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnMeidumClicked" text="Medium" toggleGroup="$milkTeaSizes">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -62,12 +66,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="milkTeaTextFieldMediumPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#milkTeaTextFieldMediumPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="milkTeaLabelMediumPrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -76,7 +80,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
+                              <RadioButton fx:id="milkTeaRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnLargeClicked" text="Large" toggleGroup="$milkTeaSizes">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -86,12 +90,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="milkTeaTextFieldLargePrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#milkTeaTextFieldLargePriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="milkTeaLabelLargePrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -109,16 +113,19 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Tea Base">
+                              <RadioButton fx:id="milkTeaRadioBtnTeaBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnTeaBaseClicked" text="Tea Base">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="milkTeaLiquidBase" />
+                                 </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Water Base">
+                              <RadioButton fx:id="milkTeaRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$milkTeaLiquidBase">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -136,27 +143,30 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="283.0">
                            <children>
-                              <TextField layoutX="54.0" layoutY="9.0" prefHeight="43.0" prefWidth="127.0">
+                              <TextField fx:id="milkTeaTextFieldAddOnsOneName" layoutX="54.0" layoutY="9.0" onInputMethodTextChanged="#milkTeaTextFieldAddOnsOneNameTyping" prefHeight="43.0" prefWidth="127.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                              <RadioButton fx:id="milkTeaRadioBtnAddOnsOne" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnAddOnsOneClicked">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="milkTeaAddOns" />
+                                 </toggleGroup>
                               </RadioButton>
                               <Label layoutX="181.0" layoutY="12.0" text="₱">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="196.0" layoutY="8.0" prefHeight="43.0" prefWidth="87.0">
+                              <TextField fx:id="milkTeaTextFieldAddOnsPriceOne" layoutX="196.0" layoutY="8.0" onInputMethodTextChanged="#milkTeaTextFieldAddOnsPriceOneTyping" prefHeight="43.0" prefWidth="87.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="203.0" layoutY="17.0" text="00.00">
+                              <Label fx:id="milkTeaLabelAddOnsPriceOne" layoutX="203.0" layoutY="17.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -165,12 +175,12 @@
                         </AnchorPane>
                         <AnchorPane layoutX="283.0" layoutY="36.0" prefHeight="59.0" prefWidth="283.0">
                            <children>
-                              <TextField layoutX="54.0" layoutY="9.0" prefHeight="43.0" prefWidth="127.0">
+                              <TextField fx:id="milkTeaTextFieldAddOnsTwoName" layoutX="54.0" layoutY="9.0" onInputMethodTextChanged="#milkTeaTextFieldAddOnsTwoNameTyping" prefHeight="43.0" prefWidth="127.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                              <RadioButton fx:id="milkTeaRadioBtnAddOnsTwo" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnAddOnsTwoClicked" toggleGroup="$milkTeaAddOns">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -180,12 +190,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="196.0" layoutY="8.0" prefHeight="43.0" prefWidth="87.0">
+                              <TextField fx:id="milkTeaTextFieldAddOnsPriceTwo" layoutX="196.0" layoutY="8.0" onInputMethodTextChanged="#milkTeaTextFieldAddOnsPriceTwoTyping" prefHeight="43.0" prefWidth="87.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="203.0" layoutY="17.0" text="00.00">
+                              <Label fx:id="milkTeaLabelAddOnsPriceTwo" layoutX="203.0" layoutY="17.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -196,7 +206,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneCoolers" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -207,22 +217,25 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Small">
+                              <RadioButton fx:id="coolersRadioBtnSmall" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnSmallClicked" text="Small">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="coolersSizes" />
+                                 </toggleGroup>
                               </RadioButton>
                               <Label layoutX="128.0" layoutY="13.0" text="₱">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coolersTextFieldSmallPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldSmallPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="coolersLabelSmallPrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -231,7 +244,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Medium">
+                              <RadioButton fx:id="coolersRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnMediumClicked" text="Medium" toggleGroup="$coolersSizes">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -241,12 +254,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coolersTextFieldMeidunPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldMeidunPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="coolersLabelMediumPrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -255,7 +268,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
+                              <RadioButton fx:id="coolersRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnLargeClicked" text="Large" toggleGroup="$coolersSizes">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -265,12 +278,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coolersTextFieldLargePrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldLargePriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
+                              <Label fx:id="coolersLabelLargePrice" layoutX="150.0" layoutY="18.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -288,16 +301,19 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Tea Base">
+                              <RadioButton fx:id="coolersRadioBtnTeaBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnTeaBaseClicked" text="Tea Base">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="coolersLiquidBase" />
+                                 </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Water Base">
+                              <RadioButton fx:id="coolersRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$coolersLiquidBase">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -308,7 +324,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -319,44 +335,23 @@
                         </Label>
                         <AnchorPane layoutY="36.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Hot">
+                              <RadioButton fx:id="coffeeRadioBtnHot" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coffeeRadioBtnHotClicked" text="Hot">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="coffeeTemperature" />
+                                 </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Cold">
+                              <RadioButton fx:id="coffeeRadioBtnCold" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coffeeRadioBtnColdClicked" text="Cold" toggleGroup="$coffeeTemperature">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                               </RadioButton>
-                           </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
-                           <children>
-                              <RadioButton layoutX="27.0" layoutY="18.0" mnemonicParsing="false" text="Large">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                              </RadioButton>
-                              <Label layoutX="128.0" layoutY="13.0" text="₱">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Label>
-                              <TextField layoutX="143.0" layoutY="9.0" prefHeight="25.0" prefWidth="102.0">
-                                 <font>
-                                    <Font name="Arial" size="24.0" />
-                                 </font>
-                              </TextField>
-                              <Label layoutX="150.0" layoutY="18.0" text="00.00">
-                                 <font>
-                                    <Font name="Arial" size="24.0" />
-                                 </font>
-                              </Label>
                            </children>
                         </AnchorPane>
                      </children>
@@ -375,12 +370,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="41.0" layoutY="8.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coffeeTextFieldPrice" layoutX="41.0" layoutY="8.0" onInputMethodTextChanged="#coffeeTextFieldPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="48.0" layoutY="17.0" text="00.00">
+                              <Label fx:id="coffeeLabelPrice" layoutX="48.0" layoutY="17.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -391,7 +386,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneIceCandyCups" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -407,12 +402,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="41.0" layoutY="8.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="iceCandyCupsTextFieldPrice" layoutX="41.0" layoutY="8.0" onInputMethodTextChanged="#iceCandyCupsTextFieldPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="48.0" layoutY="17.0" text="00.00">
+                              <Label fx:id="iceCandyCupsLabelPrice" layoutX="48.0" layoutY="17.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -423,7 +418,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneAppetizer" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -439,12 +434,12 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField layoutX="41.0" layoutY="8.0" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="appetizerTextFieldPrice" layoutX="41.0" layoutY="8.0" onInputMethodTextChanged="#appetizerTextFieldPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <Label layoutX="48.0" layoutY="17.0" text="00.00">
+                              <Label fx:id="appetizerLabelPrice" layoutX="48.0" layoutY="17.0" text="00.00">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -457,20 +452,23 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <ComboBox layoutX="779.0" layoutY="367.0" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
-      <AnchorPane layoutX="400.0" layoutY="675.0" prefHeight="60.0" prefWidth="200.0">
+      <ComboBox fx:id="comboBoxCategories" layoutX="779.0" layoutY="367.0" onAction="#comboBoxCategoriesOnAction" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
+      <AnchorPane fx:id="anchorPaneBtnDone" layoutX="400.0" layoutY="675.0" onMouseClicked="#anchorPaneBtnDoneClicked" onTouchReleased="#anchorPaneBtnDoneTouched" prefHeight="60.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Medias/Add%20or%20Edit%20Product/Done.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="4.0" prefHeight="53.0" prefWidth="183.0" text="ADD" textFill="#f8f8f8">
+            <Label fx:id="labelAddEditDone" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="4.0" prefHeight="53.0" prefWidth="183.0" text="ADD" textFill="#f8f8f8">
                <font>
                   <Font size="28.0" />
                </font>
             </Label>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
       <AnchorPane prefHeight="360.0" prefWidth="1000.0">
          <children>
@@ -544,9 +542,29 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <AnchorPane fx:id="anchorPaneRepositionPhotoConfirmation" layoutX="813.0" layoutY="283.0" prefHeight="53.0" prefWidth="151.0">
+               <children>
+                  <ImageView fx:id="imgRepositionPhotoConfirm" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#imgRepositionPhotoConfirmClicked" onTouchReleased="#imgRepositionPhotoConfirmTouched" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Add%20or%20Edit%20Product/Reposition/Check.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="imgRepositionPhotoCancel" fitHeight="59.0" fitWidth="51.0" layoutX="100.0" onMouseClicked="#imgRepositionPhotoCancelClicked" onTouchReleased="#imgRepositionPhotoCancelTouched" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Add%20or%20Edit%20Product/Reposition/Cancel.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="325.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="139.0" prefWidth="237.0">
+      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="325.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="139.0" prefWidth="237.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="139.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
             <AnchorPane fx:id="anchorPaneUploadPhoto" onMouseClicked="#anchorPaneUploadPhotoClicked" onTouchReleased="#anchorPaneUploadPhotoTouched" prefHeight="47.0" prefWidth="237.0">
