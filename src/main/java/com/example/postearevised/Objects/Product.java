@@ -18,7 +18,7 @@ public abstract class Product {
     private ImageView imageViewSmall;
 
     public Product(String category) {
-        if (!category.isBlank() || !category.isEmpty()) {
+        if (!category.isBlank() && !category.isEmpty()) {
             this.productName = "N/A";
             this.productDescription = "N/A";
             this.category = category;
@@ -38,19 +38,23 @@ public abstract class Product {
     }
 
     public Product(String productName, String productDescription, String imagePath, String category) {
-        this.productName = (productName.isBlank() || productName.isEmpty()) ? "N/A" : productName;
-        this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "N/A" : productDescription;
-        this.category = category;
-        this.imagePath = (imagePath.isBlank() || imagePath.isEmpty()) ? "/com/example/postearevised/Product Media/no image.png": imagePath;
-        this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
-        this.imageView = new ImageView();
-        this.imageView.setImage(image);
-        this.imageViewSmall = new ImageView();
-        this.imageViewSmall.setImage(image);
-        this.imageViewSmall.setFitWidth(150);
-        this.imageViewSmall.setFitHeight(80);
-        this.checkBox = new CheckBox();
-        this.isChecked = true;
+        if (!category.isBlank() && !category.isEmpty()) {
+            this.productName = (productName.isBlank() || productName.isEmpty()) ? "N/A" : productName;
+            this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "N/A" : productDescription;
+            this.category = category;
+            this.imagePath = (imagePath.isBlank() || imagePath.isEmpty()) ? "/com/example/postearevised/Product Media/no image.png": imagePath;
+            this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
+            this.imageView = new ImageView();
+            this.imageView.setImage(image);
+            this.imageViewSmall = new ImageView();
+            this.imageViewSmall.setImage(image);
+            this.imageViewSmall.setFitWidth(150);
+            this.imageViewSmall.setFitHeight(80);
+            this.checkBox = new CheckBox();
+            this.isChecked = true;
+        } else {
+            // prommpt can't add product, no category
+        }
     }
 
     public ImageView getImageViewSmall() {

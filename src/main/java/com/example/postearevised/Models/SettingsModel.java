@@ -163,8 +163,8 @@ public class SettingsModel {
      */
 
     private void editProductsInitializeTable() {
-        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory());
-        productObservableList.add(milkTea);
+//        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory());
+//        productObservableList.add(milkTea);
 
         mainController.tableProductsColImage.setCellValueFactory(new PropertyValueFactory<>("imageViewSmall"));
         mainController.tableProductsColProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));
