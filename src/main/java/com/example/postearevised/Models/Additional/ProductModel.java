@@ -2,7 +2,6 @@ package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 
-import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productCategories;
 
 public class ProductModel {
@@ -17,14 +16,14 @@ public class ProductModel {
      */
 
     public void setAddProduct() {
-        setAddVisibilities();
-        setAddTexts();
-        setAddComboBoxValues();
-        setDisableRadioButtons();
-        setTextFieldsToNone();
+        setAddProductsVisibilities();
+        setAddProductsTexts();
+        setAddProductsComboBoxValues();
+        setAddProductsDisableRadioButtons();
+        setAddProductsTextFieldsToNone();
     }
 
-    private void setAddVisibilities() {
+    private void setAddProductsVisibilities() {
         productController.btnEditProductName.setVisible(true);
         productController.btnEditProductDescription.setVisible(true);
         productController.textFieldProductName.setVisible(true);
@@ -34,20 +33,33 @@ public class ProductModel {
         productController.comboBoxCategories.setVisible(true);
 
         productController.anchorPaneBottomHalf.setVisible(false);
+        productController.anchorPaneRepositionPhotoConfirmation.setVisible(false);
         productController.labelProductName.setVisible(false);
         productController.labelProductDescription.setVisible(false);
-        productController.anchorPaneRepositionPhotoConfirmation.setVisible(false);
+
+        productController.appetizerLabelPrice.setVisible(false);
+        productController.coffeeLabelPrice.setVisible(false);
+        productController.coolersLabelLargePrice.setVisible(false);
+        productController.coolersLabelMediumPrice.setVisible(false);
+        productController.coolersLabelSmallPrice.setVisible(false);
+        productController.iceCandyCupsLabelPrice.setVisible(false);
+        productController.milkTeaLabelAddOnsPriceOne.setVisible(false);
+        productController.milkTeaLabelAddOnsPriceTwo.setVisible(false);
+        productController.milkTeaLabelLargePrice.setVisible(false);
+        productController.milkTeaLabelMediumPrice.setVisible(false);
+        productController.milkTeaLabelSmallPrice.setVisible(false);
+
     }
 
-    private void setAddTexts() {
+    private void setAddProductsTexts() {
         productController.labelAddEditDone.setText("ADD");
     }
 
-    private void setAddComboBoxValues() {
+    private void setAddProductsComboBoxValues() {
         productController.comboBoxCategories.getItems().addAll(productCategories);
     }
 
-    private void setDisableRadioButtons() {
+    private void setAddProductsDisableRadioButtons() {
         productController.coffeeRadioBtnCold.setDisable(true);
         productController.coffeeRadioBtnHot.setDisable(true);
         productController.coolersRadioBtnLarge.setDisable(true);
@@ -65,7 +77,7 @@ public class ProductModel {
 
     }
 
-    private void setTextFieldsToNone() {
+    private void setAddProductsTextFieldsToNone() {
         productController.appetizerTextFieldPrice.setText("");
         productController.coffeeTextFieldPrice.setText("");
         productController.coolersTextFieldLargePrice.setText("");
@@ -88,18 +100,49 @@ public class ProductModel {
     }
 
     private void switchPane(String selected) {
+        setBottomHalfVisible();
+
         switch (selected) {
             case "Milk Tea":
-
+                productController.anchorPaneMilkTea.setVisible(true);
+                productController.anchorPaneCoolers.setVisible(false);
+                productController.anchorPaneCoffee.setVisible(false);
+                productController.anchorPaneIceCandyCups.setVisible(false);
+                productController.anchorPaneAppetizer.setVisible(false);
                 break;
             case "Coolers":
+                productController.anchorPaneMilkTea.setVisible(false);
+                productController.anchorPaneCoolers.setVisible(true);
+                productController.anchorPaneCoffee.setVisible(false);
+                productController.anchorPaneIceCandyCups.setVisible(false);
+                productController.anchorPaneAppetizer.setVisible(false);
                 break;
             case "Coffee":
+                productController.anchorPaneMilkTea.setVisible(false);
+                productController.anchorPaneCoolers.setVisible(false);
+                productController.anchorPaneCoffee.setVisible(true);
+                productController.anchorPaneIceCandyCups.setVisible(false);
+                productController.anchorPaneAppetizer.setVisible(false);
                 break;
             case "Ice Candy Cups":
+                productController.anchorPaneMilkTea.setVisible(false);
+                productController.anchorPaneCoolers.setVisible(false);
+                productController.anchorPaneCoffee.setVisible(false);
+                productController.anchorPaneIceCandyCups.setVisible(true);
+                productController.anchorPaneAppetizer.setVisible(false);
                 break;
-            case "Appetizer":
+            case "Appetizers":
+                productController.anchorPaneMilkTea.setVisible(false);
+                productController.anchorPaneCoolers.setVisible(false);
+                productController.anchorPaneCoffee.setVisible(false);
+                productController.anchorPaneIceCandyCups.setVisible(false);
+                productController.anchorPaneAppetizer.setVisible(true);
                 break;
         }
+        setAddProductsTextFieldsToNone();
+    }
+
+    private void setBottomHalfVisible() {
+        productController.anchorPaneBottomHalf.setVisible(true);
     }
 }

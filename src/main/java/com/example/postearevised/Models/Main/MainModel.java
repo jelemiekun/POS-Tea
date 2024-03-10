@@ -16,6 +16,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 
 public class MainModel {
     private MainController mainController;

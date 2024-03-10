@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 

@@ -18,4 +18,6 @@ public class ProductReference {
             CoffeeEnum.getCategory(),
             IceCandyCupsEnum.getCategory(),
             AppetizersEnum.getCategory()));
+
+
 }

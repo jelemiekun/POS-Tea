@@ -15,6 +15,7 @@ import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 
 public class RegisterModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;

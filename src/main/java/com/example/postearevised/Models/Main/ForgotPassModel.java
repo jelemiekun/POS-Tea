@@ -19,6 +19,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmat
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 
 public class ForgotPassModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;

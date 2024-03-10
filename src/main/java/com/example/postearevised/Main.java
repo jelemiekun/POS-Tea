@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.loginRegisterStage;
 
