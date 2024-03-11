@@ -6,8 +6,6 @@ import javafx.scene.Cursor;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -45,7 +43,7 @@ public class TermsAndConditionController implements Initializable {
     }
 
     @FXML
-    void btnAcceptClicked(MouseEvent event) {
+    void btnAcceptClicked() {
         if (scrolledToTheBottom) {
             isConfirmed = true;
             closeThisStage();
@@ -53,7 +51,7 @@ public class TermsAndConditionController implements Initializable {
     }
 
     @FXML
-    void btnAcceptTouched(TouchEvent event) {
+    void btnAcceptTouched() {
         if (scrolledToTheBottom) {
             isConfirmed = true;
             closeThisStage();
@@ -61,13 +59,13 @@ public class TermsAndConditionController implements Initializable {
     }
 
     @FXML
-    void btnDeclineClicked(MouseEvent event) {
+    void btnDeclineClicked( ) {
         isConfirmed = false;
         closeThisStage();
     }
 
     @FXML
-    void btnDeclineTouched(TouchEvent event) {
+    void btnDeclineTouched() {
         isConfirmed = false;
         closeThisStage();
     }

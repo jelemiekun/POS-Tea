@@ -4,8 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -45,37 +43,37 @@ public class PromptLayoutController implements Initializable {
     }
 
     @FXML
-    void btnRightClicked(MouseEvent event) {
+    void btnRightClicked() {
         isConfirmed = btnRightBoolean;
         closeThisStage();
     }
 
     @FXML
-    void btnRightTouched(TouchEvent event) {
+    void btnRightTouched() {
         isConfirmed = btnRightBoolean;
         closeThisStage();
     }
 
     @FXML
-    void btnCenterClicked(MouseEvent event) {
+    void btnCenterClicked() {
         isConfirmed = btnCenterBoolean;
         closeThisStage();
     }
 
     @FXML
-    void btnCenterTouched(TouchEvent event) {
+    void btnCenterTouched() {
         isConfirmed = btnCenterBoolean;
         closeThisStage();
     }
 
     @FXML
-    void btnLeftClicked(MouseEvent event) {
+    void btnLeftClicked() {
         isConfirmed = btnLeftBoolean;
         closeThisStage();
     }
 
     @FXML
-    void btnLeftTouched(TouchEvent event) {
+    void btnLeftTouched() {
         isConfirmed = btnLeftBoolean;
         closeThisStage();
     }
