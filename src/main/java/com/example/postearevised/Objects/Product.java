@@ -1,15 +1,10 @@
 package com.example.postearevised.Objects;
 
-import com.example.postearevised.Controllers.Main.MainController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.IOException;
-
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.deleteProductSelectedCounter;
+import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public abstract class Product {
     private String productName;
@@ -31,16 +26,17 @@ public abstract class Product {
             this.productName = (productName.isBlank() || productName.isEmpty()) ? "N/A" : productName;
             this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "N/A" : productDescription;
             this.category = category;
-            this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image.png": imagePath;
+            this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
             this.image = new Image(this.imagePath);
             this.imageView = new ImageView();
-            this.imageView.setImage(image);
+            this.imageView.setImage(this.image);
             this.imageViewSmall = new ImageView();
-            this.imageViewSmall.setImage(image);
-            this.imageViewSmall.setFitWidth(150);
-            this.imageViewSmall.setFitHeight(95);
+            this.imageViewSmall.setImage(this.image);
+            this.imageViewSmall.setFitWidth(IMAGE_VIEW_SMALL_WIDTH);
+            this.imageViewSmall.setFitHeight(IMAGE_VIEW_SMALL_HEIGHT);
             this.checkBox = new CheckBox();
             this.isChecked = true;
+            this.checkBox.setSelected(true);
             this.checkBoxDelete = new CheckBox();
             this.isCheckBoxDeleteSelected = false;
         } else {
@@ -93,11 +89,6 @@ public abstract class Product {
         return category;
     }
 
-//    public void setCategory(String category) {
-//        this.category = category;
-//    }
-
-
     public ImageView getImageView() {
         return imageView;
     }
@@ -110,16 +101,17 @@ public abstract class Product {
         return image;
     }
 
-//    public void setImage(Image image) {
-//        this.image = image;
-//    }
-//
     public String getImagePath() {
         return imagePath;
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+        this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
+        this.image = new Image(this.imagePath);
+        this.imageView.setImage(this.image);
+        this.imageViewSmall.setImage(this.image);
+        this.imageViewSmall.setFitWidth(IMAGE_VIEW_SMALL_WIDTH);
+        this.imageViewSmall.setFitHeight(IMAGE_VIEW_SMALL_HEIGHT);
     }
 
     public CheckBox getCheckBox() {

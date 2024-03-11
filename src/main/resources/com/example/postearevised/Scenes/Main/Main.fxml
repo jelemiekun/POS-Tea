@@ -302,7 +302,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="tableProducts" layoutX="37.0" layoutY="141.0" onMouseClicked="#tableProductsClicked" onTouchReleased="#tableProductsTouched" prefHeight="693.0" prefWidth="872.0">
+                        <TableView fx:id="tableProducts" layoutX="37.0" layoutY="154.0" onMouseClicked="#tableProductsClicked" onTouchReleased="#tableProductsTouched" prefHeight="680.0" prefWidth="872.0">
                           <columns>
                               <TableColumn fx:id="tableProductsColDelete" prefWidth="44.0" text="Delete" />
                             <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="294.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
@@ -331,6 +331,14 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </AnchorPane>
+                        <ImageView fx:id="btnProductTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="860.0" layoutY="106.0" onMouseClicked="#btnProductTableRefreshClicked" onTouchReleased="#btnProductTableRefreshTouched" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Buttons/refresh.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
                      </children></AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="945.0" visible="false">
                      <children>

@@ -18,7 +18,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="451.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
       <AnchorPane fx:id="anchorPaneBottomHalf" layoutY="451.0">
          <children>
-            <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0">
+            <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -324,7 +324,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -474,12 +474,12 @@
          <children>
             <ImageView fx:id="imgProduct" fitHeight="451.0" fitWidth="1000.0" pickOnBounds="true" smooth="false">
                <image>
-                  <Image url="@../../Product%20Media/no%20image.png" />
+                  <Image url="@../../Product%20Media/no%20image/no%20image.png" />
                </image>
             </ImageView>
             <AnchorPane fx:id="anchorPaneProductDescriptionWhole" layoutX="28.0" layoutY="324.0" prefHeight="113.0" prefWidth="784.0">
                <children>
-                  <TextArea fx:id="textFieldProductDescription" layoutX="26.0" layoutY="24.0" onKeyReleased="#textFieldProductDescriptionTyping" prefHeight="89.0" prefWidth="748.0" promptText="Product Description" wrapText="true">
+                  <TextArea fx:id="textFieldProductDescription" disable="true" layoutX="26.0" layoutY="24.0" onKeyReleased="#textFieldProductDescriptionTyping" prefHeight="89.0" prefWidth="748.0" promptText="Product Description" wrapText="true">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font></TextArea>
@@ -503,7 +503,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneBtnEditPhoto" layoutX="831.0" layoutY="361.0" onMouseClicked="#anchorPaneBtnEditPhotoClicked" onTouchReleased="#anchorPaneBtnEditPhotoTouched" prefHeight="43.0" prefWidth="127.0">
+            <AnchorPane fx:id="anchorPaneBtnEditPhoto" disable="true" layoutX="831.0" layoutY="361.0" onMouseClicked="#anchorPaneBtnEditPhotoClicked" onTouchReleased="#anchorPaneBtnEditPhotoTouched" prefHeight="43.0" prefWidth="127.0">
                <children>
                   <ImageView fitHeight="47.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -522,7 +522,7 @@
             </AnchorPane>
             <AnchorPane fx:id="anchorPaneProductNameWhole" layoutX="11.0" layoutY="21.0" prefHeight="59.0" prefWidth="969.0">
                <children>
-                  <TextField fx:id="textFieldProductName" layoutX="46.0" prefHeight="59.0" prefWidth="397.0">
+                  <TextField fx:id="textFieldProductName" disable="true" layoutX="46.0" prefHeight="59.0" prefWidth="397.0">
                      <font>
                         <Font name="Arial" size="32.0" />
                      </font>

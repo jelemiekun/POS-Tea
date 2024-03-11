@@ -27,6 +27,8 @@ public class ProductModel {
         this.productController = productController;
     }
 
+    public boolean isAdd = false;
+
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
     }
@@ -162,7 +164,7 @@ public class ProductModel {
                 Path resourcesDir = Path.of(currentDir, "src", "main", "resources");
 
                 // Get the destination directory within resources
-                Path destinationDir = Path.of(resourcesDir.toString(), "com", "example", "postearevised", "EnumProduct Media");
+                Path destinationDir = Path.of(resourcesDir.toString(), "com", "example", "postearevised", "Product Media", "uploaded media");
 
                 // Create directory if it doesn't exist
                 Files.createDirectories(destinationDir);
@@ -223,6 +225,7 @@ public class ProductModel {
      */
 
     public void setAddProduct() {
+        initializeTextFieldAddListener();
         setAddProductsVisibilities();
         setAddProductsTexts();
         setAddProductsComboBoxValues();
@@ -304,7 +307,15 @@ public class ProductModel {
         String selected = productController.comboBoxCategories.getValue();
         switchPane(selected);
         referenceCategory = selected;
+
+        enablePanesAfterComboBoxSelected();
+    }
+
+    private void enablePanesAfterComboBoxSelected() {
         productController.anchorPaneBtnDone.setDisable(false);
+        productController.anchorPaneBtnEditPhoto.setDisable(false);
+        productController.textFieldProductName.setDisable(false);
+        productController.textFieldProductDescription.setDisable(false);
     }
 
 
@@ -357,9 +368,14 @@ public class ProductModel {
         productController.anchorPaneBottomHalf.setVisible(true);
     }
 
-    public void addProduct() {
+    public void addEditProduct() {
         setAttributes();
-        instantiateProduct();
+
+        if (isAdd)
+            instantiateProduct();
+        else
+            setObjectAttributes();
+
         clearProductReferenceValues();
         closeThisStage();
     }
@@ -445,10 +461,12 @@ public class ProductModel {
      */
 
     public void setEditProduct() {
+        enablePanesAfterComboBoxSelected();
         setEditProductsVisibilities();
         setEditProductsTexts();
         setAddEditProductsDisableRadioButtons();
         setEditProductsTextFieldsValues();
+        initializeTextFieldAddListener();
     }
 
     private void setEditProductsVisibilities() {
@@ -513,25 +531,70 @@ public class ProductModel {
 
     private void setEditProductsTexts() {
         productController.labelAddEditDone.setText("EDIT");
+        productController.anchorPaneBtnDone.setDisable(false);
+
     }
 
     private void setEditProductsTextFieldsValues() {
-        if (editSelectedProduct instanceof MilkTea) {
-            MilkTea editSelectedMilkTea = (MilkTea) editSelectedProduct;
 
-            productController.textFieldProductName.setText(editSelectedMilkTea.getProductName());
-            productController.textFieldProductDescription.setText(editSelectedMilkTea.getProductDescription());
-            productController.imgProduct.setImage(editSelectedMilkTea.getImage());
+        productController.textFieldProductName.setText(editSelectedProduct.getProductName());
+        productController.textFieldProductDescription.setText(editSelectedProduct.getProductDescription());
+        productController.imgProduct.setImage(editSelectedProduct.getImage());
+        referenceImagePath = editSelectedProduct.getImagePath();
 
-            productController.milkTeaTextFieldSmallPrice.setText(String.valueOf(editSelectedMilkTea.getSmallPrice()));
-        } else if (editSelectedProduct instanceof Coolers) {
-        } else if (editSelectedProduct instanceof Coffee) {
+        productController.comboBoxCategories.setValue(editSelectedProduct.getCategory());
 
-        } else if (editSelectedProduct instanceof IceCandyCups) {
+        if (editSelectedProduct instanceof MilkTea editSelectedMilkTea) {
+            productController.milkTeaTextFieldSmallPrice.setText(String.valueOf((int) editSelectedMilkTea.getSmallPrice()));
+            productController.milkTeaTextFieldMediumPrice.setText(String.valueOf((int) editSelectedMilkTea.getMediumPrice()));
+            productController.milkTeaTextFieldLargePrice.setText(String.valueOf((int) editSelectedMilkTea.getLargePrice()));
 
-        } else if (editSelectedProduct instanceof Appetizer) {
-
+            productController.milkTeaTextFieldAddOnsOneName.setText(editSelectedMilkTea.getAddOnsOne());
+            productController.milkTeaTextFieldAddOnsPriceOne.setText(String.valueOf((int) editSelectedMilkTea.getAddOnsOnePrice()));
+            productController.milkTeaTextFieldAddOnsTwoName.setText(editSelectedMilkTea.getAddOnsTwo());
+            productController.milkTeaTextFieldAddOnsPriceTwo.setText(String.valueOf((int) editSelectedMilkTea.getAddOnsTwoPrice()));
+        } else if (editSelectedProduct instanceof Coolers editSelectedCoolers) {
+            productController.coolersTextFieldSmallPrice.setText(String.valueOf((int) editSelectedCoolers.getSmallPrice()));
+            productController.coolersTextFieldMediumPrice.setText(String.valueOf((int) editSelectedCoolers.getMediumPrice()));
+            productController.coolersTextFieldLargePrice.setText(String.valueOf((int) editSelectedCoolers.getLargePrice()));
+        } else if (editSelectedProduct instanceof Coffee editSelectedCoffee) {
+            productController.coffeeTextFieldPrice.setText(String.valueOf((int) editSelectedCoffee.getPrice()));
+        } else if (editSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
+            productController.iceCandyCupsTextFieldPrice.setText(String.valueOf((int) editSelectedIceCandyCups.getPrice()));
+        } else if (editSelectedProduct instanceof Appetizer editSelectedAppetizer) {
+            productController.appetizerTextFieldPrice.setText(String.valueOf((int) editSelectedAppetizer.getPrice()));
         }
+    }
+
+    private void setObjectAttributes() {
+        editSelectedProduct.setProductName(referenceProductName);
+        editSelectedProduct.setProductDescription(referenceProductDescription);
+        editSelectedProduct.setImagePath(referenceImagePath);
+
+        if (editSelectedProduct instanceof MilkTea editSelectedMilkTea) {
+            editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
+            editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
+            editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
+
+            editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOne);
+            editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
+            editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwo);
+            editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
+        } else if (editSelectedProduct instanceof Coolers editSelectedCoolers) {
+            editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
+            editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
+            editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
+        } else if (editSelectedProduct instanceof Coffee editSelectedCoffee) {
+            editSelectedCoffee.setPrice(referenceCoffeePrice);
+        } else if (editSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
+            editSelectedIceCandyCups.setPrice(referenceIceCandyCupsPrice);
+        } else if (editSelectedProduct instanceof Appetizer editSelectedAppetizer) {
+            editSelectedAppetizer.setPrice(referenceAppetizersPrice);
+        }
+    }
+
+    private void refreshTable() {
+
     }
 
     private void closeThisStage() {

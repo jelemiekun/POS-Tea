@@ -294,6 +294,8 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imageViewAddDeleteProductBtn;
     @FXML
+    public ImageView btnProductTableRefresh;
+    @FXML
     public TableView<Product> tableProducts;
     @FXML
     public TableColumn<Product, ImageView> tableProductsColImage;
@@ -334,5 +336,15 @@ public class MainController implements Initializable {
         if (event.getTouchCount() == 2) {
             settingsModel.editAProduct();
         }
+    }
+
+    @FXML
+    public void btnProductTableRefreshTouched(TouchEvent event) {
+        settingsModel.refreshProductTable();
+    }
+
+    @FXML
+    public void btnProductTableRefreshClicked(MouseEvent event) {
+        settingsModel.refreshProductTable();
     }
 }

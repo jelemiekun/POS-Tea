@@ -17,7 +17,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 
-import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -29,7 +28,6 @@ public class ProductController implements Initializable {
         productModel = new ProductModel();
         productModel.setProductController(this);
         productModel.initializedHideElements();
-        productModel.initializeTextFieldAddListener();
     }
 
     @FXML
@@ -191,12 +189,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneBtnDoneClicked(MouseEvent event) {
-        productModel.addProduct();
+        productModel.addEditProduct();
     }
 
     @FXML
     void anchorPaneBtnDoneTouched(TouchEvent event) {
-        productModel.addProduct();
+        productModel.addEditProduct();
     }
 
     @FXML

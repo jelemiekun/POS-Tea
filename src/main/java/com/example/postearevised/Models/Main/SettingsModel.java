@@ -200,6 +200,7 @@ public class SettingsModel {
 
         ProductController productController = loader.getController();
         productController.productModel.setAddProduct();
+        productController.productModel.isAdd = true;
 
         newStage.showAndWait();
 
@@ -250,10 +251,12 @@ public class SettingsModel {
 
         ProductController productController = loader.getController();
         productController.productModel.setEditProduct();
+        productController.productModel.isAdd = false;
 
         newStage.showAndWait();
 
         isAddingProductSuccess();
+        refreshProductTable();
     }
 
     private Product getSelectedProduct() {
@@ -297,6 +300,10 @@ public class SettingsModel {
 
         listProductsToDelete = getSelectedProductsInColumn();
         deleteSelectedProducts(listProductsToDelete);
+    }
+
+    public void refreshProductTable() {
+        mainController.tableProducts.refresh();
     }
 
     /**
