@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.Product;
+import com.example.postearevised.Objects.MilkTea;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.MilkTeaEnum;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
@@ -161,7 +163,7 @@ public class SettingsModel {
      */
 
     private void editProductsInitializeTable() {
-//        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory());
+//        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory(), 0,0,0,"",0,"",0);
 //        productObservableList.add(milkTea);
 
         mainController.tableProductsColImage.setCellValueFactory(new PropertyValueFactory<>("imageViewSmall"));
