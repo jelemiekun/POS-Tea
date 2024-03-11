@@ -2,11 +2,15 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.Enums.Product;
-import com.example.postearevised.Objects.MilkTea;
+import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
+import com.example.postearevised.Objects.Product;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -17,11 +21,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.MilkTeaEnum;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.referenceImagePath;
 
@@ -104,6 +109,7 @@ public class SettingsModel {
                 break;
             case 3: // Edit Products
                 editProductsInitializeTable();
+                addCheckboxListeners();
 
                 mainController.anchorPaneSettingsAccount.setVisible(false);
                 mainController.anchorPaneSettingsDisplay.setVisible(false);
@@ -166,26 +172,25 @@ public class SettingsModel {
      */
 
     private void editProductsInitializeTable() {
-//        MilkTea milkTea = new MilkTea(MilkTeaEnum.getCategory(), 0,0,0,"",0,"",0);
-//        productObservableList.add(milkTea);
-
         mainController.tableProductsColImage.setCellValueFactory(new PropertyValueFactory<>("imageViewSmall"));
         mainController.tableProductsColProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));
         mainController.tableProductsColCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         mainController.tableProductsColAvailable.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
+        mainController.tableProductsColDelete.setCellValueFactory(new PropertyValueFactory<>("checkBoxDelete"));
 
         mainController.tableProducts.setItems(productObservableList);
         mainController.tableProductsColImage.setReorderable(false);
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
         mainController.tableProductsColAvailable.setReorderable(false);
+        mainController.tableProductsColDelete.setReorderable(false);
     }
 
     public void openAddProductsFXML() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
-        newStage.setTitle(Product.Product.getTitle());
+        newStage.setTitle(EnumProduct.Product.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -218,6 +223,62 @@ public class SettingsModel {
             } catch (IOException e) {
                 System.out.println("Failed to delete the photo: " + e.getMessage());
             }
+        }
+    }
+
+    /**
+     * Delete Product
+     */
+    private void addCheckboxListeners() {
+        mainController.tableProductsColDelete.setCellValueFactory(cellData -> {
+            CheckBox checkBox = new CheckBox();
+            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                // Do something when the checkbox is checked or unchecked
+                if (newValue) {
+                    deleteProductSelectedCounter++;
+                } else {
+                    deleteProductSelectedCounter--;
+                }
+                updateAddDeleteProductUI();
+            });
+            return new SimpleObjectProperty<>(checkBox);
+        });
+    }
+
+    private void updateAddDeleteProductUI() {
+        mainController.labelAddDeleteProductBtn.setText(deleteProductSelectedCounter == 0 ? "Add Product  " : "Delete Product");
+        mainController.imageViewAddDeleteProductBtn.setImage(deleteProductSelectedCounter == 0 ? ADD_PRODUCT : DELETE_PRODUCT);
+        trueAddProductFalseDeleteProduct = deleteProductSelectedCounter != 0;
+    }
+
+    public void deleteSelectedProductsProcess() {
+        List<Product> listProductsToDelete;
+
+        listProductsToDelete = getSelectedProductsInColumn();
+        deleteSelectedProducts(listProductsToDelete);
+    }
+
+    /**
+     * ayaw gumana netong mga to haha
+     */
+    public List<Product> getSelectedProductsInColumn() {
+        TableColumn<Product, CheckBox> column = mainController.tableProductsColDelete;
+        List<Product> selectedProducts = new ArrayList<>();
+
+        for (Product product : mainController.tableProducts.getItems()) {
+            CheckBox checkBox = column.getCellObservableValue(product).getValue();
+            if (checkBox != null && checkBox.isSelected()) {
+                selectedProducts.add(product);
+            }
+            System.out.println(product.getProductName() + ", selected : " + (checkBox == null ? "null" : checkBox.isSelected()));
+        }
+
+        return selectedProducts;
+    }
+
+    private void deleteSelectedProducts(List<com.example.postearevised.Objects.Product> listProductsToDelete) {
+        for (com.example.postearevised.Objects.Product product : listProductsToDelete) {
+            System.out.println(product.getProductName());
         }
     }
 }

@@ -7,9 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -20,6 +23,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.trueAddProductFalseDeleteProduct;
 
 public class MainController implements Initializable {
     /**
@@ -285,7 +289,10 @@ public class MainController implements Initializable {
     /**
      * Settings - Products
      */
-
+    @FXML
+    public Label labelAddDeleteProductBtn;
+    @FXML
+    public ImageView imageViewAddDeleteProductBtn;
     @FXML
     public TableView<Product> tableProducts;
     @FXML
@@ -296,14 +303,36 @@ public class MainController implements Initializable {
     public TableColumn<Product, String> tableProductsColCategory;
     @FXML
     public TableColumn<Product, CheckBox> tableProductsColAvailable;
+    @FXML
+    public TableColumn<Product, CheckBox> tableProductsColDelete;
 
     @FXML
-    public void settingsAddProductClicked() throws IOException{
-        settingsModel.openAddProductsFXML();
+    public void settingsAddDeleteProductClicked() throws IOException{
+        if (!trueAddProductFalseDeleteProduct)
+            settingsModel.openAddProductsFXML();
+        else
+            settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML
-    public void settingsAddProductTouched() throws IOException {
-        settingsModel.openAddProductsFXML();
+    public void settingsAddDeleteProductTouched() throws IOException {
+        if (!trueAddProductFalseDeleteProduct)
+            settingsModel.openAddProductsFXML();
+        else
+            settingsModel.deleteSelectedProductsProcess();
+    }
+
+    @FXML
+    public void tableProductsClicked(MouseEvent event) {
+        if (event.getClickCount() == 1) {
+
+        }
+    }
+
+    @FXML
+    public void tableProductsTouched(TouchEvent event) {
+        if (event.getTouchCount() == 1) {
+
+        }
     }
 }

@@ -161,7 +161,7 @@ public class ProductModel {
                 Path resourcesDir = Path.of(currentDir, "src", "main", "resources");
 
                 // Get the destination directory within resources
-                Path destinationDir = Path.of(resourcesDir.toString(), "com", "example", "postearevised", "Product Media");
+                Path destinationDir = Path.of(resourcesDir.toString(), "com", "example", "postearevised", "EnumProduct Media");
 
                 // Create directory if it doesn't exist
                 Files.createDirectories(destinationDir);

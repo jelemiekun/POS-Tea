@@ -1,10 +1,15 @@
 package com.example.postearevised.Objects;
 
+import com.example.postearevised.Controllers.Main.MainController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.Objects;
+import java.io.IOException;
+
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.deleteProductSelectedCounter;
 
 public abstract class Product {
     private String productName;
@@ -18,6 +23,8 @@ public abstract class Product {
     private CheckBox checkBox;
     private boolean isChecked;
     private ImageView imageViewSmall;
+    private CheckBox checkBoxDelete;
+    private boolean isCheckBoxDeleteSelected;
 
     public Product(String productName, String productDescription, String imagePath, String category) {
         if (!category.isBlank() && !category.isEmpty()) {
@@ -34,6 +41,8 @@ public abstract class Product {
             this.imageViewSmall.setFitHeight(95);
             this.checkBox = new CheckBox();
             this.isChecked = true;
+            this.checkBoxDelete = new CheckBox();
+            this.isCheckBoxDeleteSelected = false;
         } else {
             // prommpt can't add product, no category
         }
@@ -130,5 +139,26 @@ public abstract class Product {
 
     public void setChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public CheckBox getCheckBoxDelete() {
+        this.isCheckBoxDeleteSelected = checkBoxDelete.isSelected();
+        checkBoxDelete.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            isCheckBoxDeleteSelected = newValue;
+        });
+
+        return checkBoxDelete;
+    }
+
+    public void setCheckBoxDelete(CheckBox checkBoxDelete) {
+        this.checkBoxDelete = checkBoxDelete;
+    }
+
+    public boolean isCheckBoxDeleteSelected() {
+        return isCheckBoxDeleteSelected;
+    }
+
+    public void setCheckBoxDeleteSelected(boolean checkBoxDeleteSelected) {
+        isCheckBoxDeleteSelected = checkBoxDeleteSelected;
     }
 }

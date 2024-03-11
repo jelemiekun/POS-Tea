@@ -3,6 +3,7 @@ package com.example.postearevised.Miscellaneous.References;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.Objects;
 
@@ -20,4 +21,6 @@ public class GeneralReference {
     public static int countdownTimer; //ms
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
+    public static int deleteProductSelectedCounter = 0;
+    public static boolean trueAddProductFalseDeleteProduct = false;
 }

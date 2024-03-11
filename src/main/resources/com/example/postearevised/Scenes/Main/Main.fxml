@@ -302,27 +302,28 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="tableProducts" layoutX="54.0" layoutY="140.0" prefHeight="693.0" prefWidth="838.0">
+                        <TableView fx:id="tableProducts" layoutX="37.0" layoutY="141.0" onMouseClicked="#tableProductsClicked" onTouchReleased="#tableProductsTouched" prefHeight="693.0" prefWidth="872.0">
                           <columns>
-                            <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="267.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
-                            <TableColumn fx:id="tableProductsColProductName" prefWidth="259.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />
-                              <TableColumn fx:id="tableProductsColCategory" prefWidth="166.0" resizable="false" style="-fx-padding: 5px 0 5px 15px;" text="Category" />
-                              <TableColumn fx:id="tableProductsColAvailable" prefWidth="136.0" resizable="false" style="fx-alignment: center; -fx-text-alignment: center;" text="Available" />
+                              <TableColumn fx:id="tableProductsColDelete" prefWidth="44.0" text="Delete" />
+                            <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="294.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
+                            <TableColumn fx:id="tableProductsColProductName" prefWidth="255.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />
+                              <TableColumn fx:id="tableProductsColCategory" prefWidth="152.0" resizable="false" style="-fx-padding: 5px 0 5px 15px;" text="Category" />
+                              <TableColumn fx:id="tableProductsColAvailable" prefWidth="125.0" resizable="false" style="fx-alignment: center; -fx-text-alignment: center;" text="Available" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <AnchorPane layoutX="683.0" layoutY="851.0" onMouseClicked="#settingsAddProductClicked" onTouchReleased="#settingsAddProductTouched" prefHeight="63.0" prefWidth="207.0">
+                        <AnchorPane layoutX="683.0" layoutY="851.0" onMouseClicked="#settingsAddDeleteProductClicked" onTouchReleased="#settingsAddDeleteProductTouched" prefHeight="63.0" prefWidth="207.0">
                            <children>
-                              <ImageView fitHeight="63.0" fitWidth="236.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewAddDeleteProductBtn" fitHeight="64.0" fitWidth="220.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/Product%20Process/add%20product.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="17.0" layoutY="17.0" text="Add Product" textFill="WHITE">
+                              <Label fx:id="labelAddDeleteProductBtn" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="17.0" prefHeight="27.0" prefWidth="150.0" text="Add Product  " textFill="WHITE">
                                  <font>
-                                    <Font name="Arial" size="24.0" />
+                                    <Font name="Arial" size="20.0" />
                                  </font>
                               </Label>
                            </children>
