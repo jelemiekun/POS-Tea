@@ -17,6 +17,7 @@ import java.nio.file.StandardCopyOption;
 
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.NO_IMAGE;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class ProductModel {
     private ProductController productController;
@@ -27,6 +28,80 @@ public class ProductModel {
 
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
+    }
+
+    public void initializeTextFieldAddListener() {
+        // Milk Tea Text Fields
+        productController.milkTeaTextFieldLargePrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.milkTeaTextFieldLargePrice.setText(oldValue);
+            }
+        });
+
+        productController.milkTeaTextFieldMediumPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.milkTeaTextFieldMediumPrice.setText(oldValue);
+            }
+        });
+
+        productController.milkTeaTextFieldSmallPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.milkTeaTextFieldSmallPrice.setText(oldValue);
+            }
+        });
+
+        productController.milkTeaTextFieldAddOnsPriceOne.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.milkTeaTextFieldAddOnsPriceOne.setText(oldValue);
+            }
+        });
+
+        productController.milkTeaTextFieldAddOnsPriceTwo.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.milkTeaTextFieldAddOnsPriceTwo.setText(oldValue);
+            }
+        });
+
+        // Coolers Text Fields
+        productController.coolersTextFieldLargePrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coolersTextFieldLargePrice.setText(oldValue);
+            }
+        });
+
+        productController.coolersTextFieldMediumPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coolersTextFieldMediumPrice.setText(oldValue);
+            }
+        });
+
+        productController.coolersTextFieldSmallPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coolersTextFieldSmallPrice.setText(oldValue);
+            }
+        });
+
+        // Coffee Text Field
+        productController.coffeeTextFieldPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coffeeTextFieldPrice.setText(oldValue);
+            }
+        });
+
+        // Ice Candy Cups Text Field
+        productController.iceCandyCupsTextFieldPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.iceCandyCupsTextFieldPrice.setText(oldValue);
+            }
+        });
+
+        // Appetizer Text Field
+        productController.appetizerTextFieldPrice.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.appetizerTextFieldPrice.setText(oldValue);
+            }
+        });
+
     }
 
     /**
@@ -305,18 +380,18 @@ public class ProductModel {
                 referenceMilkTeaAddOnsTwoPrice = productController.milkTeaTextFieldAddOnsPriceTwo.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceTwo.getText());
                 break;
             case "Coolers":
-                referenceCoolersSmallPrice = Double.parseDouble(productController.coolersTextFieldSmallPrice.getText());
-                referenceCoolersMediumPrice = Double.parseDouble(productController.coolersTextFieldMediumPrice.getText());
-                referenceCoolersLargePrice = Double.parseDouble(productController.coolersTextFieldLargePrice.getText());
+                referenceCoolersSmallPrice = productController.coolersTextFieldSmallPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldSmallPrice.getText());
+                referenceCoolersMediumPrice = productController.coolersTextFieldMediumPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldMediumPrice.getText());
+                referenceCoolersLargePrice = productController.coolersTextFieldLargePrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldLargePrice.getText());
                 break;
             case "Coffee":
-                referenceCoffeePrice = Double.parseDouble(productController.coffeeTextFieldPrice.getText());
+                referenceCoffeePrice = productController.coffeeTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coffeeTextFieldPrice.getText());
                 break;
             case "Ice Candy Cups":
-                referenceIceCandyCupsPrice = Double.parseDouble(productController.iceCandyCupsTextFieldPrice.getText());
+                referenceIceCandyCupsPrice = productController.iceCandyCupsTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.iceCandyCupsTextFieldPrice.getText());
                 break;
             case "Appetizers":
-                referenceAppetizersPrice = Double.parseDouble(productController.appetizerTextFieldPrice.getText());
+                referenceAppetizersPrice = productController.appetizerTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.appetizerTextFieldPrice.getText());
                 break;
         }
 

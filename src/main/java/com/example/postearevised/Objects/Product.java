@@ -31,7 +31,7 @@ public abstract class Product {
             this.imageViewSmall = new ImageView();
             this.imageViewSmall.setImage(image);
             this.imageViewSmall.setFitWidth(150);
-            this.imageViewSmall.setFitHeight(80);
+            this.imageViewSmall.setFitHeight(95);
             this.checkBox = new CheckBox();
             this.isChecked = true;
         } else {

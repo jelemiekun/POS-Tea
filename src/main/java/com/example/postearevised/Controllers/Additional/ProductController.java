@@ -28,6 +28,7 @@ public class ProductController implements Initializable {
         productModel = new ProductModel();
         productModel.setProductController(this);
         productModel.initializedHideElements();
+        productModel.initializeTextFieldAddListener();
     }
 
     @FXML
@@ -313,7 +314,7 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void coolersTextFieldMeidunPriceTyping(InputMethodEvent event) {
+    void coolersTextFieldMediumPriceTyping(InputMethodEvent event) {
 
     }
 

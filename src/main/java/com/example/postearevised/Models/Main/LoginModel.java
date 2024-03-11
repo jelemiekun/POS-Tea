@@ -13,6 +13,7 @@ import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class LoginModel {
 

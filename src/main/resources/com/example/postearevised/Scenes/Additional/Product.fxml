@@ -13,10 +13,10 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#anchorPaneMainClicked" onTouchReleased="#anchorPaneMainTouched" prefHeight="750.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
+<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#anchorPaneMainClicked" onTouchReleased="#anchorPaneMainTouched" prefHeight="841.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ProductController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="360.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
-      <AnchorPane fx:id="anchorPaneBottomHalf" layoutY="360.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="451.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
+      <AnchorPane fx:id="anchorPaneBottomHalf" layoutY="451.0">
          <children>
             <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
@@ -254,7 +254,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="coolersTextFieldMediumPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldMeidunPriceTyping" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coolersTextFieldMediumPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldMediumPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -452,8 +452,8 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <ComboBox fx:id="comboBoxCategories" layoutX="779.0" layoutY="367.0" onAction="#comboBoxCategoriesOnAction" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
-      <AnchorPane fx:id="anchorPaneBtnDone" disable="true" layoutX="400.0" layoutY="675.0" onMouseClicked="#anchorPaneBtnDoneClicked" onTouchReleased="#anchorPaneBtnDoneTouched" prefHeight="60.0" prefWidth="200.0">
+      <ComboBox fx:id="comboBoxCategories" layoutX="779.0" layoutY="458.0" onAction="#comboBoxCategoriesOnAction" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
+      <AnchorPane fx:id="anchorPaneBtnDone" disable="true" layoutX="400.0" layoutY="766.0" onMouseClicked="#anchorPaneBtnDoneClicked" onTouchReleased="#anchorPaneBtnDoneTouched" prefHeight="60.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -470,14 +470,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPanePhoto" prefHeight="360.0" prefWidth="1000.0">
+      <AnchorPane fx:id="anchorPanePhoto" prefHeight="451.0" prefWidth="1000.0">
          <children>
-            <ImageView fx:id="imgProduct" fitHeight="360.0" fitWidth="1000.0" pickOnBounds="true" smooth="false">
+            <ImageView fx:id="imgProduct" fitHeight="451.0" fitWidth="1000.0" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../../Product%20Media/no%20image.png" />
                </image>
             </ImageView>
-            <AnchorPane fx:id="anchorPaneProductDescriptionWhole" layoutX="29.0" layoutY="235.0" prefHeight="113.0" prefWidth="784.0">
+            <AnchorPane fx:id="anchorPaneProductDescriptionWhole" layoutX="28.0" layoutY="324.0" prefHeight="113.0" prefWidth="784.0">
                <children>
                   <TextArea fx:id="textFieldProductDescription" layoutX="26.0" layoutY="24.0" onKeyReleased="#textFieldProductDescriptionTyping" prefHeight="89.0" prefWidth="748.0" promptText="Product Description" wrapText="true">
                      <font>
@@ -503,7 +503,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneBtnEditPhoto" layoutX="832.0" layoutY="272.0" onMouseClicked="#anchorPaneBtnEditPhotoClicked" onTouchReleased="#anchorPaneBtnEditPhotoTouched" prefHeight="43.0" prefWidth="127.0">
+            <AnchorPane fx:id="anchorPaneBtnEditPhoto" layoutX="831.0" layoutY="361.0" onMouseClicked="#anchorPaneBtnEditPhotoClicked" onTouchReleased="#anchorPaneBtnEditPhotoTouched" prefHeight="43.0" prefWidth="127.0">
                <children>
                   <ImageView fitHeight="47.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -544,7 +544,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="325.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0">
+      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="410.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="96.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
             <AnchorPane fx:id="anchorPaneUploadPhoto" onMouseClicked="#anchorPaneUploadPhotoClicked" onTouchReleased="#anchorPaneUploadPhotoTouched" prefHeight="47.0" prefWidth="237.0">

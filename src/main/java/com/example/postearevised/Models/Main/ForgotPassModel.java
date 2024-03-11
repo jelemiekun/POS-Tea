@@ -20,6 +20,7 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class ForgotPassModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;

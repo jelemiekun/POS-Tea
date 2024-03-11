@@ -1,13 +1,5 @@
 ------------------TO DO------------------
 
-IBAHIN RES NG PHOTOS SA ADD PRODUCT KASE MAG SSTRETCH YON HAHA KAYA DAPAT MAAYOS
-
-LAGYAN NG ADD EVENT LISTENER LAHAT, DAPAT DIGITS LANG TINATANGGAP SA ADD PRODUCTS INPUTS
-
-alisin lahat ng system out print ln or icomment
-
-find candy cups then palitan lahat ng ice candy cups
-
 nawawala yung I sa tooltip
 
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
@@ -166,3 +158,7 @@ kapag pinindot ang ex sa register go back confirmation, dapat hindi babalik sa l
 sa register, at forgot kapag weak ang password hindi tatanggapin ni eden
 
 sa name (reg),password (log/reg/forgot),email (log/reg/forgot) input ba, ilan maximum characters??
+
+IBAHIN RES NG PHOTOS SA ADD PRODUCT KASE MAG SSTRETCH YON HAHA KAYA DAPAT MAAYOS
+
+LAGYAN NG ADD EVENT LISTENER LAHAT, DAPAT DIGITS LANG TINATANGGAP SA ADD PRODUCTS INPUTS
