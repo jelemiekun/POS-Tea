@@ -9,18 +9,6 @@ public class MilkTea extends Product {
     private String addOnsTwo;
     private double addOnsTwoPrice;
 
-
-    public MilkTea(String category, double smallPrice, double mediumPrice, double largePrice, String addOnsOne, double addOnsOnePrice, String addOnsTwo, double addOnsTwoPrice) {
-        super(category);
-        this.smallPrice = (String.valueOf(smallPrice).isBlank()) ? 0 : smallPrice;
-        this.mediumPrice = (String.valueOf(mediumPrice).isBlank()) ? 0 : mediumPrice;
-        this.largePrice = (String.valueOf(largePrice).isBlank()) ? 0 : largePrice;
-        this.addOnsOne = addOnsOne;
-        this.addOnsOnePrice = (String.valueOf(addOnsOnePrice).isBlank()) ? 0 : addOnsOnePrice;
-        this.addOnsTwo = addOnsTwo;
-        this.addOnsTwoPrice = (String.valueOf(addOnsTwoPrice).isBlank()) ? 0 :addOnsTwoPrice;
-    }
-
     public MilkTea(String productName, String productDescription, String imagePath, String category,
                    double smallPrice, double mediumPrice, double largePrice, String addOnsOne, double addOnsOnePrice, String addOnsTwo, double addOnsTwoPrice) {
         super(productName, productDescription, imagePath, category);

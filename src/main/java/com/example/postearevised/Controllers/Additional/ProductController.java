@@ -27,8 +27,15 @@ public class ProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productModel = new ProductModel();
         productModel.setProductController(this);
+        productModel.initializedHideElements();
     }
 
+    @FXML
+    public AnchorPane anchorPanePhoto;
+    @FXML
+    public AnchorPane anchorPaneProductNameWhole;
+    @FXML
+    public AnchorPane anchorPaneProductDescriptionWhole;
     @FXML
     public AnchorPane anchorPaneMain;
     @FXML
@@ -51,10 +58,6 @@ public class ProductController implements Initializable {
     public AnchorPane anchorPaneMilkTea;
     @FXML
     public AnchorPane anchorPaneRemovePhoto;
-    @FXML
-    public AnchorPane anchorPaneRepositionPhoto;
-    @FXML
-    public AnchorPane anchorPaneRepositionPhotoConfirmation;
     @FXML
     public AnchorPane anchorPaneUploadPhoto;
 
@@ -96,7 +99,7 @@ public class ProductController implements Initializable {
     @FXML
     public TextField coolersTextFieldLargePrice;
     @FXML
-    public TextField coolersTextFieldMeidunPrice;
+    public TextField coolersTextFieldMediumPrice;
     @FXML
     public TextField coolersTextFieldSmallPrice;
     @FXML
@@ -124,10 +127,6 @@ public class ProductController implements Initializable {
     public ImageView btnEditProductName;
     @FXML
     public ImageView imgProduct;
-    @FXML
-    public ImageView imgRepositionPhotoCancel;
-    @FXML
-    public ImageView imgRepositionPhotoConfirm;
 
     @FXML
     public ComboBox<String> comboBoxCategories;
@@ -190,12 +189,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneBtnDoneClicked(MouseEvent event) {
-
+        productModel.addProduct();
     }
 
     @FXML
     void anchorPaneBtnDoneTouched(TouchEvent event) {
-
+        productModel.addProduct();
     }
 
     @FXML
@@ -220,22 +219,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneRemovePhotoClicked(MouseEvent event) {
-
+        productModel.removePhoto();
     }
 
     @FXML
     void anchorPaneRemovePhotoTouched(TouchEvent event) {
-
-    }
-
-    @FXML
-    void anchorPaneRepositionPhotoClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void anchorPaneRepositionPhotoTouched(TouchEvent event) {
-
+        productModel.removePhoto();
     }
 
     @FXML

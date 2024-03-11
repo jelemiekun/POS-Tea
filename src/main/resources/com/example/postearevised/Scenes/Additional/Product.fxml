@@ -254,7 +254,7 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="coolersTextFieldMeidunPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldMeidunPriceTyping" prefHeight="25.0" prefWidth="102.0">
+                              <TextField fx:id="coolersTextFieldMediumPrice" layoutX="143.0" layoutY="9.0" onInputMethodTextChanged="#coolersTextFieldMeidunPriceTyping" prefHeight="25.0" prefWidth="102.0">
                                  <font>
                                     <Font name="Arial" size="24.0" />
                                  </font>
@@ -324,7 +324,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -418,7 +418,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneAppetizer" prefHeight="390.0" prefWidth="1000.0">
+            <AnchorPane fx:id="anchorPaneAppetizer" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -453,7 +453,7 @@
          </children>
       </AnchorPane>
       <ComboBox fx:id="comboBoxCategories" layoutX="779.0" layoutY="367.0" onAction="#comboBoxCategoriesOnAction" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
-      <AnchorPane fx:id="anchorPaneBtnDone" layoutX="400.0" layoutY="675.0" onMouseClicked="#anchorPaneBtnDoneClicked" onTouchReleased="#anchorPaneBtnDoneTouched" prefHeight="60.0" prefWidth="200.0">
+      <AnchorPane fx:id="anchorPaneBtnDone" disable="true" layoutX="400.0" layoutY="675.0" onMouseClicked="#anchorPaneBtnDoneClicked" onTouchReleased="#anchorPaneBtnDoneTouched" prefHeight="60.0" prefWidth="200.0">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -470,14 +470,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </AnchorPane>
-      <AnchorPane prefHeight="360.0" prefWidth="1000.0">
+      <AnchorPane fx:id="anchorPanePhoto" prefHeight="360.0" prefWidth="1000.0">
          <children>
             <ImageView fx:id="imgProduct" fitHeight="360.0" fitWidth="1000.0" pickOnBounds="true" smooth="false">
                <image>
                   <Image url="@../../Product%20Media/no%20image.png" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="29.0" layoutY="235.0" prefHeight="113.0" prefWidth="784.0">
+            <AnchorPane fx:id="anchorPaneProductDescriptionWhole" layoutX="29.0" layoutY="235.0" prefHeight="113.0" prefWidth="784.0">
                <children>
                   <TextArea fx:id="textFieldProductDescription" layoutX="26.0" layoutY="24.0" onKeyReleased="#textFieldProductDescriptionTyping" prefHeight="89.0" prefWidth="748.0" promptText="Product Description" wrapText="true">
                      <font>
@@ -520,7 +520,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane layoutX="11.0" layoutY="21.0" prefHeight="59.0" prefWidth="969.0">
+            <AnchorPane fx:id="anchorPaneProductNameWhole" layoutX="11.0" layoutY="21.0" prefHeight="59.0" prefWidth="969.0">
                <children>
                   <TextField fx:id="textFieldProductName" layoutX="46.0" prefHeight="59.0" prefWidth="397.0">
                      <font>
@@ -542,31 +542,11 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneRepositionPhotoConfirmation" layoutX="813.0" layoutY="283.0" prefHeight="53.0" prefWidth="151.0">
-               <children>
-                  <ImageView fx:id="imgRepositionPhotoConfirm" fitHeight="75.0" fitWidth="75.0" onMouseClicked="#imgRepositionPhotoConfirmClicked" onTouchReleased="#imgRepositionPhotoConfirmTouched" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Medias/Add%20or%20Edit%20Product/Reposition/Check.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-                  <ImageView fx:id="imgRepositionPhotoCancel" fitHeight="59.0" fitWidth="51.0" layoutX="100.0" onMouseClicked="#imgRepositionPhotoCancelClicked" onTouchReleased="#imgRepositionPhotoCancelTouched" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Medias/Add%20or%20Edit%20Product/Reposition/Cancel.png" />
-                     </image>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </ImageView>
-               </children>
-            </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="325.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="139.0" prefWidth="237.0" visible="false">
+      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="325.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="139.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="96.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
             <AnchorPane fx:id="anchorPaneUploadPhoto" onMouseClicked="#anchorPaneUploadPhotoClicked" onTouchReleased="#anchorPaneUploadPhotoTouched" prefHeight="47.0" prefWidth="237.0">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -584,24 +564,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneRepositionPhoto" layoutY="46.0" onMouseClicked="#anchorPaneRepositionPhotoClicked" onTouchReleased="#anchorPaneRepositionPhotoTouched" prefHeight="47.0" prefWidth="237.0">
-               <children>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Medias/Add%20or%20Edit%20Product/Edit%20Photo/Adjust%20image.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="49.0" layoutY="8.0" prefHeight="27.0" prefWidth="174.0" text="Reposition Photo">
-                     <font>
-                        <Font size="22.0" />
-                     </font>
-                  </Label>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </AnchorPane>
-            <AnchorPane fx:id="anchorPaneRemovePhoto" layoutY="93.0" onMouseClicked="#anchorPaneRemovePhotoClicked" onTouchReleased="#anchorPaneRemovePhotoTouched" prefHeight="47.0" prefWidth="237.0">
+            <AnchorPane fx:id="anchorPaneRemovePhoto" layoutY="46.0" onMouseClicked="#anchorPaneRemovePhotoClicked" onTouchReleased="#anchorPaneRemovePhotoTouched" prefHeight="47.0" prefWidth="237.0">
                <children>
                   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
                      <image>

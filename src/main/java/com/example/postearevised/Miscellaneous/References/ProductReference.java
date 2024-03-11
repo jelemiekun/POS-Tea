@@ -1,6 +1,6 @@
 package com.example.postearevised.Miscellaneous.References;
 
-import com.example.postearevised.Objects.Product;
+import com.example.postearevised.Objects.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -12,10 +12,84 @@ import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 
 public class ProductReference {
     public static ObservableList<Product> productObservableList = FXCollections.observableArrayList();
+    public static ObservableList<MilkTea> milkTeaObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coolers> coolersObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coffee> coffeeObservableList = FXCollections.observableArrayList();
+    public static ObservableList<IceCandyCups> iceCandyCupsObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Appetizer> appetizerObservableList = FXCollections.observableArrayList();
     public static final List<String> productCategories = new ArrayList<>(Arrays.asList(
             MilkTeaEnum.getCategory(),
             CoolersEnum.getCategory(),
             CoffeeEnum.getCategory(),
             IceCandyCupsEnum.getCategory(),
             AppetizersEnum.getCategory()));
+
+    public static boolean addedProductSuccess = false;
+    /**
+     * General
+     */
+    public static String referenceProductName = "";
+    public static String referenceProductDescription = "";
+    public static String referenceCategory = "";
+    public static String referenceImagePath = "";
+
+    /**
+     * MilkTea
+     */
+    public static double referenceMilkTeaSmallPrice = 0.0;
+    public static double referenceMilkTeaMediumPrice = 0.0;
+    public static double referenceMilkTeaLargePrice = 0.0;
+    public static String referenceMilkTeaAddOnsOne = "";
+    public static double referenceMilkTeaAddOnsOnePrice = 0.0;
+    public static String referenceMilkTeaAddOnsTwo = "";
+    public static double referenceMilkTeaAddOnsTwoPrice = 0.0;
+
+    /**
+     * Coolers
+     */
+    public static double referenceCoolersSmallPrice = 0.0;
+    public static double referenceCoolersMediumPrice = 0.0;
+    public static double referenceCoolersLargePrice = 0.0;
+
+    /**
+     * Coffee
+     */
+    public static double referenceCoffeePrice = 0.0;
+
+    /**
+     * Ice Candy Cups
+     */
+    public static double referenceIceCandyCupsPrice = 0.0;
+
+    /**
+     * Appetizers
+     */
+    public static double referenceAppetizersPrice = 0.0;
+
+    public static void clearProductReferenceValues() {
+        referenceProductName = "";
+        referenceProductDescription = "";
+        referenceCategory = "";
+        referenceImagePath = "";
+
+        referenceMilkTeaSmallPrice = 0.0;
+        referenceMilkTeaMediumPrice = 0.0;
+        referenceMilkTeaLargePrice = 0.0;
+        referenceMilkTeaAddOnsOne = "";
+        referenceMilkTeaAddOnsOnePrice = 0.0;
+        referenceMilkTeaAddOnsTwo = "";
+        referenceMilkTeaAddOnsTwoPrice = 0.0;
+
+        referenceCoolersSmallPrice = 0.0;
+        referenceCoolersMediumPrice = 0.0;
+        referenceCoolersLargePrice = 0.0;
+
+        referenceCoffeePrice = 0.0;
+
+        referenceIceCandyCupsPrice = 0.0;
+
+        referenceAppetizersPrice = 0.0;
+
+        addedProductSuccess = false;
+    }
 }

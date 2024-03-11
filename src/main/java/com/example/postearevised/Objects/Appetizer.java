@@ -2,11 +2,6 @@ package com.example.postearevised.Objects;
 
 public class Appetizer extends Product {
     private double price;
-    public Appetizer(String category, double price) {
-        super(category);
-        this.price = (String.valueOf(price).isBlank()) ? 0 : price;
-    }
-
     public Appetizer(String productName, String productDescription, String imagePath, String category,
                         double price) {
         super(productName, productDescription, imagePath, category);

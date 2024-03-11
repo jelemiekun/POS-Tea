@@ -15,12 +15,15 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.MilkTeaEnum;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.ProductReference.productObservableList;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
+import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductReference.referenceImagePath;
 
 public class SettingsModel {
     private MainController mainController;
@@ -185,13 +188,36 @@ public class SettingsModel {
         newStage.setTitle(Product.Product.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
-        newStage.show();
-
         ProductController productController = loader.getController();
         productController.productModel.setAddProduct();
+
+        newStage.showAndWait();
+
+        isAddingProductSuccess();
+    }
+
+    private void isAddingProductSuccess() {
+        if (!addedProductSuccess) {
+            removePhotoFromResources();
+            clearProductReferenceValues();
+        }
+    }
+
+    private void removePhotoFromResources() {
+        if (!referenceImagePath.isBlank() && !referenceImagePath.isEmpty()) {
+            Path photoPath = Path.of(referenceImagePath);
+            try {
+                // Attempt to delete the photo
+                Files.delete(photoPath);
+                System.out.println("Photo deleted successfully!");
+            } catch (IOException e) {
+                System.out.println("Failed to delete the photo: " + e.getMessage());
+            }
+        }
     }
 }

@@ -11,39 +11,21 @@ public abstract class Product {
     private String productDescription;
     private String category;
     private ImageView imageView;
+    private double imageViewPositionX;
+    private double imageViewPositionY;
     private Image image;
     private String imagePath;
     private CheckBox checkBox;
     private boolean isChecked;
     private ImageView imageViewSmall;
 
-    public Product(String category) {
-        if (!category.isBlank() && !category.isEmpty()) {
-            this.productName = "N/A";
-            this.productDescription = "N/A";
-            this.category = category;
-            this.imagePath = "/com/example/postearevised/Product Media/no image.png";
-            this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
-            this.imageView = new ImageView();
-            this.imageView.setImage(image);
-            this.imageViewSmall = new ImageView();
-            this.imageViewSmall.setImage(image);
-            this.imageViewSmall.setFitWidth(150);
-            this.imageViewSmall.setFitHeight(80);
-            this.checkBox = new CheckBox();
-            this.isChecked = true;
-        } else {
-            // prompt can't add product, no category
-        }
-    }
-
     public Product(String productName, String productDescription, String imagePath, String category) {
         if (!category.isBlank() && !category.isEmpty()) {
             this.productName = (productName.isBlank() || productName.isEmpty()) ? "N/A" : productName;
             this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "N/A" : productDescription;
             this.category = category;
-            this.imagePath = (imagePath.isBlank() || imagePath.isEmpty()) ? "/com/example/postearevised/Product Media/no image.png": imagePath;
-            this.image = new Image(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
+            this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image.png": imagePath;
+            this.image = new Image(this.imagePath);
             this.imageView = new ImageView();
             this.imageView.setImage(image);
             this.imageViewSmall = new ImageView();
@@ -55,6 +37,22 @@ public abstract class Product {
         } else {
             // prommpt can't add product, no category
         }
+    }
+
+    public double getImageViewPositionX() {
+        return imageViewPositionX;
+    }
+
+    public void setImageViewPositionX(double imageViewPositionX) {
+        this.imageViewPositionX = imageViewPositionX;
+    }
+
+    public double getImageViewPositionY() {
+        return imageViewPositionY;
+    }
+
+    public void setImageViewPositionY(double imageViewPositionY) {
+        this.imageViewPositionY = imageViewPositionY;
     }
 
     public ImageView getImageViewSmall() {
