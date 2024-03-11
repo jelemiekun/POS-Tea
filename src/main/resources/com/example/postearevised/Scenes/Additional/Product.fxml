@@ -18,7 +18,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="390.0" layoutY="451.0" stroke="WHITE" strokeType="INSIDE" width="1000.0" />
       <AnchorPane fx:id="anchorPaneBottomHalf" layoutY="451.0">
          <children>
-            <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0" visible="false">
+            <AnchorPane fx:id="anchorPaneMilkTea" prefHeight="390.0" prefWidth="1000.0">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -324,7 +324,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0">
+            <AnchorPane fx:id="anchorPaneCoffee" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>

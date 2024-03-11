@@ -15,7 +15,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
-import static com.example.postearevised.Miscellaneous.References.ImagesReference.NO_IMAGE;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
@@ -225,7 +226,7 @@ public class ProductModel {
         setAddProductsVisibilities();
         setAddProductsTexts();
         setAddProductsComboBoxValues();
-        setAddProductsDisableRadioButtons();
+        setAddEditProductsDisableRadioButtons();
         setAddProductsTextFieldsToNone();
     }
 
@@ -264,7 +265,7 @@ public class ProductModel {
         productController.comboBoxCategories.getItems().addAll(productCategories);
     }
 
-    private void setAddProductsDisableRadioButtons() {
+    private void setAddEditProductsDisableRadioButtons() {
         productController.coffeeRadioBtnCold.setDisable(true);
         productController.coffeeRadioBtnHot.setDisable(true);
         productController.coolersRadioBtnLarge.setDisable(true);
@@ -436,6 +437,100 @@ public class ProductModel {
                 productObservableList.add(appetizer);
                 appetizerObservableList.add(appetizer);
                 break;
+        }
+    }
+
+    /**
+     * Edit Product
+     */
+
+    public void setEditProduct() {
+        setEditProductsVisibilities();
+        setEditProductsTexts();
+        setAddEditProductsDisableRadioButtons();
+        setEditProductsTextFieldsValues();
+    }
+
+    private void setEditProductsVisibilities() {
+        productController.imgProduct.requestFocus();
+
+        productController.btnEditProductName.setVisible(true);
+        productController.btnEditProductDescription.setVisible(true);
+        productController.textFieldProductName.setVisible(true);
+        productController.textFieldProductDescription.setVisible(true);
+        productController.labelDescriptionWordCounter.setVisible(true);
+        productController.anchorPaneBtnEditPhoto.setVisible(true);
+        productController.comboBoxCategories.setVisible(false);
+
+        productController.anchorPaneBottomHalf.setVisible(true);
+        productController.labelProductName.setVisible(false);
+        productController.labelProductDescription.setVisible(false);
+
+        productController.appetizerLabelPrice.setVisible(false);
+        productController.coffeeLabelPrice.setVisible(false);
+        productController.coolersLabelLargePrice.setVisible(false);
+        productController.coolersLabelMediumPrice.setVisible(false);
+        productController.coolersLabelSmallPrice.setVisible(false);
+        productController.iceCandyCupsLabelPrice.setVisible(false);
+        productController.milkTeaLabelAddOnsPriceOne.setVisible(false);
+        productController.milkTeaLabelAddOnsPriceTwo.setVisible(false);
+        productController.milkTeaLabelLargePrice.setVisible(false);
+        productController.milkTeaLabelMediumPrice.setVisible(false);
+        productController.milkTeaLabelSmallPrice.setVisible(false);
+
+        if (editSelectedProduct instanceof MilkTea) {
+            productController.anchorPaneMilkTea.setVisible(true);
+            productController.anchorPaneCoolers.setVisible(false);
+            productController.anchorPaneCoffee.setVisible(false);
+            productController.anchorPaneIceCandyCups.setVisible(false);
+            productController.anchorPaneAppetizer.setVisible(false);
+        } else if (editSelectedProduct instanceof Coolers) {
+            productController.anchorPaneMilkTea.setVisible(false);
+            productController.anchorPaneCoolers.setVisible(true);
+            productController.anchorPaneCoffee.setVisible(false);
+            productController.anchorPaneIceCandyCups.setVisible(false);
+            productController.anchorPaneAppetizer.setVisible(false);
+        } else if (editSelectedProduct instanceof Coffee) {
+            productController.anchorPaneMilkTea.setVisible(false);
+            productController.anchorPaneCoolers.setVisible(false);
+            productController.anchorPaneCoffee.setVisible(true);
+            productController.anchorPaneIceCandyCups.setVisible(false);
+            productController.anchorPaneAppetizer.setVisible(false);
+        } else if (editSelectedProduct instanceof IceCandyCups) {
+            productController.anchorPaneMilkTea.setVisible(false);
+            productController.anchorPaneCoolers.setVisible(false);
+            productController.anchorPaneCoffee.setVisible(false);
+            productController.anchorPaneIceCandyCups.setVisible(true);
+            productController.anchorPaneAppetizer.setVisible(false);
+        } else if (editSelectedProduct instanceof Appetizer) {
+            productController.anchorPaneMilkTea.setVisible(false);
+            productController.anchorPaneCoolers.setVisible(false);
+            productController.anchorPaneCoffee.setVisible(false);
+            productController.anchorPaneIceCandyCups.setVisible(false);
+            productController.anchorPaneAppetizer.setVisible(true);
+        }
+    }
+
+    private void setEditProductsTexts() {
+        productController.labelAddEditDone.setText("EDIT");
+    }
+
+    private void setEditProductsTextFieldsValues() {
+        if (editSelectedProduct instanceof MilkTea) {
+            MilkTea editSelectedMilkTea = (MilkTea) editSelectedProduct;
+
+            productController.textFieldProductName.setText(editSelectedMilkTea.getProductName());
+            productController.textFieldProductDescription.setText(editSelectedMilkTea.getProductDescription());
+            productController.imgProduct.setImage(editSelectedMilkTea.getImage());
+
+            productController.milkTeaTextFieldSmallPrice.setText(String.valueOf(editSelectedMilkTea.getSmallPrice()));
+        } else if (editSelectedProduct instanceof Coolers) {
+        } else if (editSelectedProduct instanceof Coffee) {
+
+        } else if (editSelectedProduct instanceof IceCandyCups) {
+
+        } else if (editSelectedProduct instanceof Appetizer) {
+
         }
     }
 

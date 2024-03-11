@@ -168,7 +168,7 @@ public class SettingsModel {
     }
 
     /**
-     * Edit Products
+     * Add Products
      */
 
     private void editProductsInitializeTable() {
@@ -225,6 +225,47 @@ public class SettingsModel {
             }
         }
     }
+
+    /**
+     * Edit Product
+     */
+
+    public void editAProduct() throws IOException {
+        editSelectedProduct = getSelectedProduct();
+        openEditProductsFXML();
+        clearSelectedProduct();
+    }
+
+    private void openEditProductsFXML() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        ProductController productController = loader.getController();
+        productController.productModel.setEditProduct();
+
+        newStage.showAndWait();
+
+        isAddingProductSuccess();
+    }
+
+    private Product getSelectedProduct() {
+        return mainController.tableProducts.getSelectionModel().getSelectedItem();
+    }
+
+    private void clearSelectedProduct() {
+        editSelectedProduct = null;
+        mainController.tableProducts.getSelectionModel().clearSelection();
+    }
+
+
 
     /**
      * Delete Product

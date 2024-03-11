@@ -323,16 +323,16 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void tableProductsClicked(MouseEvent event) {
-        if (event.getClickCount() == 1) {
-
+    public void tableProductsClicked(MouseEvent event) throws IOException {
+        if (event.getClickCount() == 2) {
+            settingsModel.editAProduct();
         }
     }
 
     @FXML
-    public void tableProductsTouched(TouchEvent event) {
-        if (event.getTouchCount() == 1) {
-
+    public void tableProductsTouched(TouchEvent event) throws IOException {
+        if (event.getTouchCount() == 2) {
+            settingsModel.editAProduct();
         }
     }
 }
