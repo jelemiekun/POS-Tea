@@ -188,6 +188,19 @@ public class MainController implements Initializable {
 
     @FXML
     public AnchorPane anchorPaneRightPanel;
+    @FXML
+    public AnchorPane anchorPaneMenuIsEmpty;
+
+    @FXML
+    public void labelMenuIsEmptyClicked(MouseEvent event) throws IOException {
+        mainModel.openSelectedPane(Settings.getPaneNumber());
+        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+    }
+    @FXML
+    public void labelMenuIsEmptyTouched(TouchEvent event) throws IOException {
+        mainModel.openSelectedPane(Settings.getPaneNumber());
+        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+    }
 
     /**
      * Settings

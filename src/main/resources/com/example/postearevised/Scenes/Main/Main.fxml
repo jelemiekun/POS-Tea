@@ -147,7 +147,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -249,6 +249,28 @@
                               <FlowPane hgap="200.0" prefHeight="542.0" prefWidth="1097.0" vgap="100.0" />
                            </content>
                         </ScrollPane>
+                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
+                           <children>
+                              <Label layoutX="57.0" layoutY="4.0" text="Your Menu is Empty">
+                                 <font>
+                                    <Font name="Arial Bold" size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="34.0" text="Add Products to Get Started" textFill="#3a7cff" underline="true">
+                                 <font>
+                                    <Font name="Arial" size="25.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                              <AnchorPane layoutX="21.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClicked" onTouchReleased="#labelMenuIsEmptyTouched" prefHeight="42.0" prefWidth="313.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
@@ -257,7 +279,7 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="267.0" layoutY="35.0" prefHeight="937.0" prefWidth="1300.0">
                <children>

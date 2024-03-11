@@ -69,6 +69,7 @@ public class MainModel {
                 mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
                 mainController.mainSettingsIcon.setImage(mainSettingsIcon);
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
+                mainController.menuModel.checkIfIsMenuEmpty();
                 break;
             case 2:
                 mainStage.setTitle(Dashboard.getName());
