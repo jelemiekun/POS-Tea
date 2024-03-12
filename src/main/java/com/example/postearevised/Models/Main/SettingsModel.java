@@ -233,7 +233,6 @@ public class SettingsModel {
     public void editAProduct() throws IOException {
         editOrShowSelectedProduct = getSelectedProduct();
         openEditProductsFXML();
-        clearSelectedProduct();
     }
 
     private void openEditProductsFXML() throws IOException {
@@ -303,6 +302,7 @@ public class SettingsModel {
 
     public void refreshProductTable() {
         mainController.tableProducts.refresh();
+        mainController.tableProducts.getSelectionModel().clearSelection();
     }
 
     /**

@@ -419,6 +419,6 @@ public class ProductController implements Initializable {
 
     @FXML
     void textFieldProductDescriptionTyping(KeyEvent event) {
-
+        productModel.updateWordCounter();
     }
 }

@@ -105,6 +105,18 @@ public class ProductModel {
             }
         });
 
+        // Word Counter
+        productController.textFieldProductDescription.textProperty().addListener((observable, oldValue, newValue) -> {
+            updateWordCounter();
+
+            if (newValue.length() > 200) {
+                productController.textFieldProductDescription.setText(oldValue);
+            }
+        });
+    }
+
+    public void updateWordCounter() {
+        productController.labelDescriptionWordCounter.setText(productController.textFieldProductDescription.getText().length() + "/200");
     }
 
     /**
@@ -598,6 +610,10 @@ public class ProductModel {
      */
 
     public void setSelectedProduct() {
+        setSelectedProductPanes();
+    }
+
+    private void setSelectedProductPanes() {
 
     }
 

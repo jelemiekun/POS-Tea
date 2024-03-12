@@ -21,8 +21,8 @@ public abstract class Product {
 
     public Product(String productName, String productDescription, String imagePath, String category) {
         if (!category.isBlank() && !category.isEmpty()) {
-            this.productName = (productName.isBlank() || productName.isEmpty()) ? "N/A" : productName;
-            this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "N/A" : productDescription;
+            this.productName = (productName.isBlank() || productName.isEmpty()) ? "" : productName;
+            this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "" : productDescription;
             this.category = category;
             this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
             this.image = new Image(this.imagePath);

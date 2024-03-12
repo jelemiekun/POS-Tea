@@ -426,7 +426,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Display.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="27.0" text="Display">
+                                    <Label layoutX="100.0" layoutY="27.0" text="Accessibility">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
