@@ -5,6 +5,8 @@ import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Objects.Product;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -310,15 +312,13 @@ public class SettingsModel {
      * ayaw gumana netong mga to haha
      */
     public List<Product> getSelectedProductsInColumn() {
-        TableColumn<Product, CheckBox> column = mainController.tableProductsColDelete;
-        List<Product> selectedProducts = new ArrayList<>();
+        ObservableList<Product> selectedProducts = FXCollections.observableArrayList();
 
         for (Product product : mainController.tableProducts.getItems()) {
-            CheckBox checkBox = column.getCellObservableValue(product).getValue();
-            if (checkBox != null && checkBox.isSelected()) {
+            if (product.getCheckBox().isSelected()) {
                 selectedProducts.add(product);
+                System.out.println(product.getProductName() + ": " + product.getCheckBox());
             }
-            System.out.println(product.getProductName() + ", selected : " + (checkBox == null ? "null" : checkBox.isSelected()));
         }
 
         return selectedProducts;
@@ -326,7 +326,7 @@ public class SettingsModel {
 
     private void deleteSelectedProducts(List<com.example.postearevised.Objects.Product> listProductsToDelete) {
         for (com.example.postearevised.Objects.Product product : listProductsToDelete) {
-            System.out.println(product.getProductName());
+            System.out.println(product.getProductName() + ": " + product.getCheckBox());
         }
     }
 }

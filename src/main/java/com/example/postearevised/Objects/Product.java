@@ -16,10 +16,8 @@ public abstract class Product {
     private Image image;
     private String imagePath;
     private CheckBox checkBox;
-    private boolean isChecked;
     private ImageView imageViewSmall;
     private CheckBox checkBoxDelete;
-    private boolean isCheckBoxDeleteSelected;
 
     public Product(String productName, String productDescription, String imagePath, String category) {
         if (!category.isBlank() && !category.isEmpty()) {
@@ -35,10 +33,8 @@ public abstract class Product {
             this.imageViewSmall.setFitWidth(IMAGE_VIEW_SMALL_WIDTH);
             this.imageViewSmall.setFitHeight(IMAGE_VIEW_SMALL_HEIGHT);
             this.checkBox = new CheckBox();
-            this.isChecked = true;
             this.checkBox.setSelected(true);
             this.checkBoxDelete = new CheckBox();
-            this.isCheckBoxDeleteSelected = false;
         } else {
             // prommpt can't add product, no category
         }
@@ -120,37 +116,9 @@ public abstract class Product {
 
     public void setCheckBox(CheckBox checkBox) {
         this.checkBox = checkBox;
-
-        checkBox.setSelected(isChecked);
-        checkBox.setOnAction(event -> isChecked = checkBox.isSelected());
     }
-
-    public boolean isChecked() {
-        return isChecked;
-    }
-
-    public void setChecked(boolean checked) {
-        isChecked = checked;
-    }
-
-    public CheckBox getCheckBoxDelete() {
-        this.isCheckBoxDeleteSelected = checkBoxDelete.isSelected();
-        checkBoxDelete.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            isCheckBoxDeleteSelected = newValue;
-        });
-
-        return checkBoxDelete;
-    }
-
     public void setCheckBoxDelete(CheckBox checkBoxDelete) {
         this.checkBoxDelete = checkBoxDelete;
     }
 
-    public boolean isCheckBoxDeleteSelected() {
-        return isCheckBoxDeleteSelected;
-    }
-
-    public void setCheckBoxDeleteSelected(boolean checkBoxDeleteSelected) {
-        isCheckBoxDeleteSelected = checkBoxDeleteSelected;
-    }
 }
