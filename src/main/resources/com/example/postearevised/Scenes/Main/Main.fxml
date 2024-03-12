@@ -147,7 +147,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -185,7 +185,7 @@
                         </Label>
                         <FlowPane alignment="CENTER" hgap="53.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
                            <children>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/all.png" />
                                  </image>
@@ -193,7 +193,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuMilkTea" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuMilkTeaClicked" onTouchReleased="#imageViewMenuMilkTeaTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/milk%20tea.png" />
                                  </image>
@@ -201,7 +201,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuCoolers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoolersClicked" onTouchReleased="#imageViewMenuCoolersTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/coolers.png" />
                                  </image>
@@ -209,7 +209,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuCoffee" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoffeeClicked" onTouchReleased="#imageViewMenuCoffeeTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/coffee.png" />
                                  </image>
@@ -217,7 +217,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/candy%20cups.png" />
                                  </image>
@@ -225,7 +225,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/appetizers.png" />
                                  </image>
@@ -279,7 +279,7 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -312,7 +312,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -362,7 +362,7 @@
                            </cursor>
                         </ImageView>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>

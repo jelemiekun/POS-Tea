@@ -22,6 +22,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.trueAddProductFalseDeleteProduct;
 
@@ -185,6 +186,80 @@ public class MainController implements Initializable {
     /**
      * Menu
      */
+
+    @FXML
+    public ImageView imageViewMenuAll;
+    @FXML
+    public ImageView imageViewMenuMilkTea;
+    @FXML
+    public ImageView imageViewMenuCoolers;
+    @FXML
+    public ImageView imageViewMenuCoffee;
+    @FXML
+    public ImageView imageViewMenuIceCandyCups;
+    @FXML
+    public ImageView imageViewMenuAppetizers;
+
+    @FXML
+    public void imageViewMenuAllClicked(MouseEvent event) {
+        menuModel.switchCategory(AllProductCategoryEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuAllTouched(TouchEvent event) {
+        menuModel.switchCategory(AllProductCategoryEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuMilkTeaClicked(MouseEvent event) {
+        menuModel.switchCategory(MilkTeaEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuMilkTeaTouched(TouchEvent event) {
+        menuModel.switchCategory(MilkTeaEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuCoolersClicked(MouseEvent event) {
+        menuModel.switchCategory(CoolersEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuCoolersTouched(TouchEvent event) {
+        menuModel.switchCategory(CoolersEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuCoffeeClicked(MouseEvent event) {
+        menuModel.switchCategory(CoffeeEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuCoffeeTouched(TouchEvent event) {
+        menuModel.switchCategory(CoffeeEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuIceCandyCupsClicked(MouseEvent event) {
+        menuModel.switchCategory(IceCandyCupsEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuIceCandyCupsTouched(TouchEvent event) {
+        menuModel.switchCategory(IceCandyCupsEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuAppetizersClicked(MouseEvent event) {
+        menuModel.switchCategory(AppetizersEnum.getNumber());
+    }
+
+    @FXML
+    public void imageViewMenuAppetizersTouched(TouchEvent event) {
+        menuModel.switchCategory(AppetizersEnum.getNumber());
+    }
+
 
     @FXML
     public AnchorPane anchorPaneRightPanel;

@@ -422,36 +422,36 @@ public class ProductModel {
                         referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
                         referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
 
-                productObservableList.add(milkTea);
-                milkTeaObservableList.add(milkTea);
+                allProductObservableList.add(milkTea);
+                availableMilkTeaObservableList.add(milkTea);
                 break;
             case "Coolers":
                 Coolers coolers = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice);
 
-                productObservableList.add(coolers);
-                coolersObservableList.add(coolers);
+                allProductObservableList.add(coolers);
+                availableCoolersObservableList.add(coolers);
                 break;
             case "Coffee":
                 Coffee coffee = new Coffee(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoffeePrice);
 
-                productObservableList.add(coffee);
-                coffeeObservableList.add(coffee);
+                allProductObservableList.add(coffee);
+                availableCoffeeObservableList.add(coffee);
                 break;
             case "Ice Candy Cups":
                 IceCandyCups iceCandyCups = new IceCandyCups(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceIceCandyCupsPrice);
 
-                productObservableList.add(iceCandyCups);
-                iceCandyCupsObservableList.add(iceCandyCups);
+                allProductObservableList.add(iceCandyCups);
+                availableIceCandyCupsObservableList.add(iceCandyCups);
                 break;
             case "Appetizers":
                 Appetizer appetizer = new Appetizer(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceAppetizersPrice);
 
-                productObservableList.add(appetizer);
-                appetizerObservableList.add(appetizer);
+                allProductObservableList.add(appetizer);
+                availableAppetizerObservableList.add(appetizer);
                 break;
         }
     }

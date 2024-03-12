@@ -13,12 +13,13 @@ import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 public class ProductReference {
     public static final double IMAGE_VIEW_SMALL_WIDTH = 150;
     public static final double IMAGE_VIEW_SMALL_HEIGHT = 95;
-    public static ObservableList<Product> productObservableList = FXCollections.observableArrayList();
-    public static ObservableList<MilkTea> milkTeaObservableList = FXCollections.observableArrayList();
-    public static ObservableList<Coolers> coolersObservableList = FXCollections.observableArrayList();
-    public static ObservableList<Coffee> coffeeObservableList = FXCollections.observableArrayList();
-    public static ObservableList<IceCandyCups> iceCandyCupsObservableList = FXCollections.observableArrayList();
-    public static ObservableList<Appetizer> appetizerObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Product> allProductObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Product> availableAllProductObservableList = FXCollections.observableArrayList();
+    public static ObservableList<MilkTea> availableMilkTeaObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coolers> availableCoolersObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coffee> availableCoffeeObservableList = FXCollections.observableArrayList();
+    public static ObservableList<IceCandyCups> availableIceCandyCupsObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Appetizer> availableAppetizerObservableList = FXCollections.observableArrayList();
     public static final List<String> productCategories = new ArrayList<>(Arrays.asList(
             MilkTeaEnum.getCategory(),
             CoolersEnum.getCategory(),

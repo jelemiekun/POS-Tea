@@ -11,8 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -23,7 +21,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
@@ -180,7 +177,7 @@ public class SettingsModel {
         mainController.tableProductsColAvailable.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
         mainController.tableProductsColDelete.setCellValueFactory(new PropertyValueFactory<>("checkBoxDelete"));
 
-        mainController.tableProducts.setItems(productObservableList);
+        mainController.tableProducts.setItems(allProductObservableList);
         mainController.tableProductsColImage.setReorderable(false);
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
@@ -317,7 +314,7 @@ public class SettingsModel {
         for (Product product : mainController.tableProducts.getItems()) {
             if (product.getCheckBox().isSelected()) {
                 selectedProducts.add(product);
-                System.out.println(product.getProductName() + ": " + product.getCheckBox());
+                System.out.println(product.getProductName() + ": " + product.getCheckBox().isSelected());
             }
         }
 
@@ -326,7 +323,7 @@ public class SettingsModel {
 
     private void deleteSelectedProducts(List<com.example.postearevised.Objects.Product> listProductsToDelete) {
         for (com.example.postearevised.Objects.Product product : listProductsToDelete) {
-            System.out.println(product.getProductName() + ": " + product.getCheckBox());
+            System.out.println(product.getProductName() + ": " + product.getCheckBox().isSelected());
         }
     }
 }
