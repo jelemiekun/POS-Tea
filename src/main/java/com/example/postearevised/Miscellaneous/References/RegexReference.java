@@ -6,4 +6,5 @@ public class RegexReference {
     public static final String REGEX_NAME = "^[a-zA-Z ]+$";
     public static final String REGEX_FIRST_SIX_ARE_NUMBERS = "^\\d{6}.*";
     public static final String REGEX_DIGITS_ONLY = "\\d*";
+    public static final String REGEX_ENGLISH_ALPHABET_ONLY = "[A-Za-z]*";
 }

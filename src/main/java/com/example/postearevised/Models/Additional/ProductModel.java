@@ -2,6 +2,7 @@ package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.*;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -24,6 +25,12 @@ public class ProductModel {
     private ProductController productController;
 
     public void setProductController(ProductController productController) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                updateWordCounter();
+            }
+        });
         this.productController = productController;
     }
 
@@ -34,6 +41,12 @@ public class ProductModel {
     }
 
     public void initializeTextFieldAddListener() {
+        productController.textFieldProductName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                productController.textFieldProductName.setText(oldValue);
+            }
+        });
+
         // Milk Tea Text Fields
         productController.milkTeaTextFieldLargePrice.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches(REGEX_DIGITS_ONLY)) {
@@ -107,8 +120,6 @@ public class ProductModel {
 
         // Word Counter
         productController.textFieldProductDescription.textProperty().addListener((observable, oldValue, newValue) -> {
-            updateWordCounter();
-
             if (newValue.length() > 200) {
                 productController.textFieldProductDescription.setText(oldValue);
             }
