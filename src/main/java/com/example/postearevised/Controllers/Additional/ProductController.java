@@ -161,17 +161,17 @@ public class ProductController implements Initializable {
     public RadioButton milkTeaRadioBtnWaterBase;
 
     @FXML
-    public ToggleGroup coffeeTemperature;
+    public ToggleGroup coffeeTemperatureToggleGroup;
     @FXML
-    public ToggleGroup coolersLiquidBase;
+    public ToggleGroup coolersLiquidBaseToggleGroup;
     @FXML
-    public ToggleGroup coolersSizes;
+    public ToggleGroup coolersSizesToggleGroup;
     @FXML
-    public ToggleGroup milkTeaAddOns;
+    public ToggleGroup milkTeaAddOnsToggleGroup;
     @FXML
-    public ToggleGroup milkTeaLiquidBase;
+    public ToggleGroup milkTeaLiquidBaseToggleGroup;
     @FXML
-    public ToggleGroup milkTeaSizes;
+    public ToggleGroup milkTeaSizesToggleGroup;
 
     @FXML
     public TextArea textFieldProductDescription;
@@ -264,12 +264,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void coffeeRadioBtnColdClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void coffeeRadioBtnHotClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
@@ -284,27 +284,27 @@ public class ProductController implements Initializable {
 
     @FXML
     void coolersRadioBtnLargeClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void coolersRadioBtnMediumClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void coolersRadioBtnSmallClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void coolersRadioBtnTeaBaseClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void coolersRadioBtnWaterBaseClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
@@ -328,58 +328,38 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void imgRepositionPhotoCancelClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void imgRepositionPhotoCancelTouched(TouchEvent event) {
-
-    }
-
-    @FXML
-    void imgRepositionPhotoConfirmClicked(MouseEvent event) {
-
-    }
-
-    @FXML
-    void imgRepositionPhotoConfirmTouched(TouchEvent event) {
-
-    }
-
-    @FXML
     void milkTeaRadioBtnAddOnsOneClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void milkTeaRadioBtnAddOnsTwoClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void milkTeaRadioBtnLargeClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnMeidumClicked(ActionEvent event) {
-
+    void milkTeaRadioBtnMediumClicked(ActionEvent event) {
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void milkTeaRadioBtnSmallClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void milkTeaRadioBtnTeaBaseClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML
     void milkTeaRadioBtnWaterBaseClicked(ActionEvent event) {
-
+        productModel.updateToggleGroups();
     }
 
     @FXML

@@ -34,7 +34,7 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="milkTeaSizes" />
+                                    <ToggleGroup fx:id="milkTeaSizesToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                               <Label layoutX="128.0" layoutY="13.0" text="₱">
@@ -56,7 +56,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="milkTeaRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnMeidumClicked" text="Medium" toggleGroup="$milkTeaSizes">
+                              <RadioButton fx:id="milkTeaRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnMediumClicked" text="Medium" toggleGroup="$milkTeaSizesToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -80,7 +80,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="milkTeaRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnLargeClicked" text="Large" toggleGroup="$milkTeaSizes">
+                              <RadioButton fx:id="milkTeaRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnLargeClicked" text="Large" toggleGroup="$milkTeaSizesToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -118,14 +118,14 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="milkTeaLiquidBase" />
+                                    <ToggleGroup fx:id="milkTeaLiquidBaseToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="milkTeaRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$milkTeaLiquidBase">
+                              <RadioButton fx:id="milkTeaRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$milkTeaLiquidBaseToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -153,7 +153,7 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="milkTeaAddOns" />
+                                    <ToggleGroup fx:id="milkTeaAddOnsToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                               <Label layoutX="181.0" layoutY="12.0" text="₱">
@@ -180,7 +180,7 @@
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </TextField>
-                              <RadioButton fx:id="milkTeaRadioBtnAddOnsTwo" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnAddOnsTwoClicked" toggleGroup="$milkTeaAddOns">
+                              <RadioButton fx:id="milkTeaRadioBtnAddOnsTwo" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#milkTeaRadioBtnAddOnsTwoClicked" toggleGroup="$milkTeaAddOnsToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -222,7 +222,7 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="coolersSizes" />
+                                    <ToggleGroup fx:id="coolersSizesToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                               <Label layoutX="128.0" layoutY="13.0" text="₱">
@@ -244,7 +244,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="coolersRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnMediumClicked" text="Medium" toggleGroup="$coolersSizes">
+                              <RadioButton fx:id="coolersRadioBtnMedium" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnMediumClicked" text="Medium" toggleGroup="$coolersSizesToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -268,7 +268,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="534.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="coolersRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnLargeClicked" text="Large" toggleGroup="$coolersSizes">
+                              <RadioButton fx:id="coolersRadioBtnLarge" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnLargeClicked" text="Large" toggleGroup="$coolersSizesToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -306,14 +306,14 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="coolersLiquidBase" />
+                                    <ToggleGroup fx:id="coolersLiquidBaseToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="coolersRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$coolersLiquidBase">
+                              <RadioButton fx:id="coolersRadioBtnWaterBase" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coolersRadioBtnWaterBaseClicked" text="Water Base" toggleGroup="$coolersLiquidBaseToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -340,14 +340,14 @@
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <toggleGroup>
-                                    <ToggleGroup fx:id="coffeeTemperature" />
+                                    <ToggleGroup fx:id="coffeeTemperatureToggleGroup" />
                                  </toggleGroup>
                               </RadioButton>
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="267.0" layoutY="37.0" prefHeight="59.0" prefWidth="267.0">
                            <children>
-                              <RadioButton fx:id="coffeeRadioBtnCold" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coffeeRadioBtnColdClicked" text="Cold" toggleGroup="$coffeeTemperature">
+                              <RadioButton fx:id="coffeeRadioBtnCold" layoutX="27.0" layoutY="18.0" mnemonicParsing="false" onAction="#coffeeRadioBtnColdClicked" text="Cold" toggleGroup="$coffeeTemperatureToggleGroup">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -496,7 +496,7 @@
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelProductDescription" alignment="TOP_LEFT" layoutX="26.0" layoutY="24.0" prefHeight="89.0" prefWidth="748.0" text="Product Description" wrapText="true">
+                  <Label fx:id="labelProductDescription" alignment="TOP_LEFT" layoutX="26.0" layoutY="24.0" prefHeight="89.0" prefWidth="748.0" text="Product Description" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Arial" size="20.0" />
                      </font>
@@ -527,7 +527,7 @@
                         <Font name="Arial" size="32.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="labelProductName" layoutX="47.0" layoutY="6.0" prefHeight="47.0" prefWidth="914.0" text="Product Name">
+                  <Label fx:id="labelProductName" layoutX="47.0" layoutY="6.0" prefHeight="47.0" prefWidth="914.0" text="Product Name" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="40.0" />
                      </font>

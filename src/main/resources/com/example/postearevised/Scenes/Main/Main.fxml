@@ -284,7 +284,7 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -317,7 +317,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -367,7 +367,7 @@
                            </cursor>
                         </ImageView>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -379,6 +379,11 @@
                               </Label>
                            </children>
                         </AnchorPane>
+                        <ScrollPane layoutX="60.0" layoutY="139.0" prefHeight="741.0" prefWidth="1200.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="739.0" prefWidth="1196.0" />
+                          </content>
+                        </ScrollPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
