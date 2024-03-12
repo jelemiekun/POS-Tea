@@ -268,8 +268,6 @@ public class MenuModel {
 
         ProductController productController = loader.getController();
         productController.productModel.setSelectedProduct();
-        productController.productModel.isAdd = false;
-        productController.productModel.isSelected = true;
 
         newStage.showAndWait();
 

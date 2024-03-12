@@ -255,6 +255,9 @@ public class ProductModel {
         setAddProductsComboBoxValues();
         setAddEditProductsDisableRadioButtons();
         setAddProductsTextFieldsToNone();
+
+        isAdd = true;
+        isSelected = false;
     }
 
     private void setAddProductsVisibilities() {
@@ -392,12 +395,13 @@ public class ProductModel {
         productController.anchorPaneBottomHalf.setVisible(true);
     }
 
-    public void addEditProduct() {
-        setAttributes();
-
+    public void addEditProductAddOrder() {
         if (isSelected) {
+            System.out.println("meow");
             // methods para ma add order
         } else {
+            setAttributes();
+            
             if (isAdd)
                 instantiateProduct();
             else
@@ -495,6 +499,9 @@ public class ProductModel {
         setAddEditProductsDisableRadioButtons();
         setEditProductsTextFieldsValues();
         initializeTextFieldAddListener();
+
+        isAdd = false;
+        isSelected = false;
     }
 
     private void setEditProductsVisibilities() {
@@ -630,6 +637,9 @@ public class ProductModel {
         setSelectedProductButton();
         setSelectedProductAddProductToOrderEnable();
         setSelectedProductTexts();
+
+        isAdd = false;
+        isSelected = true;
     }
 
     private void setSelectedProductButton() {

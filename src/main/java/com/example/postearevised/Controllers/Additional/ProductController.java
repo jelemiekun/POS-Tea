@@ -189,12 +189,12 @@ public class ProductController implements Initializable {
 
     @FXML
     void anchorPaneBtnDoneClicked(MouseEvent event) {
-        productModel.addEditProduct();
+        productModel.addEditProductAddOrder();
     }
 
     @FXML
     void anchorPaneBtnDoneTouched(TouchEvent event) {
-        productModel.addEditProduct();
+        productModel.addEditProductAddOrder();
     }
 
     @FXML

@@ -199,8 +199,6 @@ public class SettingsModel {
 
         ProductController productController = loader.getController();
         productController.productModel.setAddProduct();
-        productController.productModel.isAdd = true;
-        productController.productModel.isSelected = false;
 
         newStage.showAndWait();
 
@@ -250,8 +248,6 @@ public class SettingsModel {
 
         ProductController productController = loader.getController();
         productController.productModel.setEditProduct();
-        productController.productModel.isAdd = false;
-        productController.productModel.isSelected = false;
 
         newStage.showAndWait();
 
