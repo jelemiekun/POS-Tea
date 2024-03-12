@@ -34,10 +34,10 @@ public class ImagesReference {
      */
     public static final Image allCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/all.png")));
     public static final Image allCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/all selected.png")));
-    public static final Image appetizersCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/appetizers.png")));
-    public static final Image appetizersCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/appetizers selected.png")));
-    public static final Image iceCandyCupsCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/candy cups.png")));
-    public static final Image iceCandyCupsCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/candy cups selected.png")));
+    public static final Image appetizersCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/appetizer.png")));
+    public static final Image appetizersCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/appetizer selected.png")));
+    public static final Image iceCandyCupsCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/ice candy cups.png")));
+    public static final Image iceCandyCupsCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/ice candy cups selected.png")));
     public static final Image coffeeCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/coffee.png")));
     public static final Image coffeeCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/coffee selected.png")));
     public static final Image coolersCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/coolers.png")));

@@ -189,6 +189,10 @@ public class MainController implements Initializable {
      */
 
     @FXML
+    public Label labelMenuCategorySelected;
+    @FXML
+    public Label labelMenuCategoryResultCounter;
+    @FXML
     public FlowPane flowPaneMenu;
     @FXML
     public ImageView imageViewMenuAll;

@@ -58,24 +58,7 @@
                               <Cursor fx:constant="HAND" />
                           </cursor>
                       </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneDashboard" layoutY="267.0" onMouseClicked="#anchorPaneDashBoardClicked" onTouchReleased="#anchorPaneDashboardTouched" prefHeight="115.0" prefWidth="85.0">
-                          <children>
-                              <ImageView fx:id="mainDashboardIcon" fitHeight="70.0" fitWidth="70.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                                  <image>
-                                      <Image url="@../../Medias/Icons/Left%20Panel/dashboard.png" />
-                                  </image>
-                              </ImageView>
-                              <Label layoutX="11.0" layoutY="84.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
-                                  <font>
-                                      <Font name="Rockwell Extra Bold" size="15.0" />
-                                  </font>
-                              </Label>
-                          </children>
-                          <cursor>
-                              <Cursor fx:constant="HAND" />
-                          </cursor>
-                      </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneOrderList" layoutY="394.0" onMouseClicked="#anchorPaneOrderListClicked" onTouchReleased="#anchorPaneOrderListTouched" prefHeight="115.0" prefWidth="85.0">
+                      <AnchorPane fx:id="iconAnchorPaneOrderList" layoutY="272.0" onMouseClicked="#anchorPaneOrderListClicked" onTouchReleased="#anchorPaneOrderListTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
                               <ImageView fx:id="mainOrderListIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
@@ -92,7 +75,7 @@
                               <Cursor fx:constant="HAND" />
                           </cursor>
                       </AnchorPane>
-                      <AnchorPane fx:id="iconAnchorPaneOrderHistory" layoutY="514.0" onMouseClicked="#anchorPaneOrderHistoryClicked" onTouchReleased="#anchorPaneOrderHistoryTouched" prefHeight="115.0" prefWidth="85.0">
+                      <AnchorPane fx:id="iconAnchorPaneOrderHistory" layoutX="1.0" layoutY="387.0" onMouseClicked="#anchorPaneOrderHistoryClicked" onTouchReleased="#anchorPaneOrderHistoryTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
                               <ImageView fx:id="mainOrderHistoryIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
@@ -100,6 +83,23 @@
                                   </image>
                               </ImageView>
                               <Label layoutX="4.0" layoutY="76.0" text="ORDER&#10;HISTORY" textAlignment="CENTER">
+                                  <font>
+                                      <Font name="Rockwell Extra Bold" size="15.0" />
+                                  </font>
+                              </Label>
+                          </children>
+                          <cursor>
+                              <Cursor fx:constant="HAND" />
+                          </cursor>
+                      </AnchorPane>
+                      <AnchorPane fx:id="iconAnchorPaneDashboard" layoutY="507.0" onMouseClicked="#anchorPaneDashBoardClicked" onTouchReleased="#anchorPaneDashboardTouched" prefHeight="115.0" prefWidth="85.0">
+                          <children>
+                              <ImageView fx:id="mainDashboardIcon" fitHeight="70.0" fitWidth="70.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                      <Image url="@../../Medias/Icons/Left%20Panel/dashboard.png" />
+                                  </image>
+                              </ImageView>
+                              <Label layoutX="11.0" layoutY="84.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
@@ -183,7 +183,7 @@
                               <Font name="Arial Bold" size="36.0" />
                            </font>
                         </Label>
-                        <FlowPane alignment="CENTER" hgap="53.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
+                        <FlowPane alignment="CENTER" hgap="50.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
                            <children>
                               <ImageView fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -219,7 +219,7 @@
                               </ImageView>
                               <ImageView fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/candy%20cups.png" />
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/ice%20candy%20cups.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -227,7 +227,7 @@
                               </ImageView>
                               <ImageView fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/appetizers.png" />
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/appetizer.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
@@ -239,7 +239,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="58.0" layoutY="346.0" prefHeight="680.0" prefWidth="1190.0">
                      <children>
-                        <Label text="Menu">
+                        <Label fx:id="labelMenuCategorySelected" prefHeight="42.0" prefWidth="436.0" text="Menu">
                            <font>
                               <Font name="Arial Bold" size="36.0" />
                            </font>
@@ -249,7 +249,7 @@
                               <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="545.0" prefWidth="1100.0" vgap="50.0" />
                            </content>
                         </ScrollPane>
-                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0" visible="false">
+                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
                            <children>
                               <Label layoutX="57.0" layoutY="4.0" text="Your Menu is Empty">
                                  <font>
@@ -271,6 +271,11 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
+                        <Label fx:id="labelMenuCategoryResultCounter" alignment="CENTER_RIGHT" layoutX="745.0" prefHeight="42.0" prefWidth="412.0" textFill="#8a8a8a">
+                           <font>
+                              <Font name="Arial" size="30.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>

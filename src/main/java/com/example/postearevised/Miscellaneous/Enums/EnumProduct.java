@@ -1,7 +1,7 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum EnumProduct {
-    Product("EnumProduct");
+    Product("Product");
 
     private final String title;
 

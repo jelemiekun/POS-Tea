@@ -44,7 +44,9 @@ public class MenuModel {
     }
 
     public void checkIfIsMenuEmpty() {
-        if (allProductObservableList.isEmpty()) {
+        removeFlowPaneChildren();
+
+        if (allProductObservableList.isEmpty()) { //availableAllProductObservableList dapat to
             updateElementsIfEmpty();
         } else {
             updateElementsIfNotEmpty();
@@ -52,11 +54,13 @@ public class MenuModel {
     }
 
     private void removeFlowPaneChildren() {
-        mainController.flowPaneMenu.getChildren().removeAll();
+        mainController.flowPaneMenu.getChildren().clear();
     }
 
     private void updateElementsIfEmpty() {
         mainController.anchorPaneMenuIsEmpty.setVisible(true);
+        mainController.labelMenuCategorySelected.setText("Menu");
+        mainController.labelMenuCategoryResultCounter.setText("");
 
         mainController.imageViewMenuAll.setImage(allCategory);
         mainController.imageViewMenuMilkTea.setImage(milkTeaCategory);
@@ -74,11 +78,12 @@ public class MenuModel {
 
     public void switchCategory(int categoryNumber) {
         switchCategorySetVisibilities(categoryNumber);
+        switchCategorySetTexts(categoryNumber);
         switchCategorySetFlowPaneChildren(categoryNumber);
     }
 
     private void switchCategorySetVisibilities(int categoryNumber) {
-        if (!allProductObservableList.isEmpty()) {
+        if (!allProductObservableList.isEmpty()) {//availableAllProductObservableList dapat to
             switch (categoryNumber) {
                 case 1:
                     mainController.imageViewMenuMilkTea.setImage(milkTeasCategorySelected);
@@ -132,27 +137,74 @@ public class MenuModel {
         }
     }
 
+    private void switchCategorySetTexts(int categoryNumber) {
+        if (!allProductObservableList.isEmpty()) {//availableAllProductObservableList dapat to
+            switch (categoryNumber) {
+                case 1:
+                    mainController.labelMenuCategorySelected.setText("Milk Tea Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(availableMilkTeaObservableList.size() + " Milk Teas Result");
+                    break;
+                case 2:
+                    mainController.labelMenuCategorySelected.setText("Coolers Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(availableCoolersObservableList.size() + " Coolers Result");
+                    break;
+                case 3:
+                    mainController.labelMenuCategorySelected.setText("Coffee Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(availableCoffeeObservableList.size() + " Coffees Result");
+                    break;
+                case 4:
+                    mainController.labelMenuCategorySelected.setText("Ice Candy Cups Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(availableIceCandyCupsObservableList.size() + " Ice Candy Cups Result");
+                    break;
+                case 5:
+                    mainController.labelMenuCategorySelected.setText("Appetizers Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(availableAppetizerObservableList.size() + " Appetizers Result");
+                    break;
+                case 6:
+                    mainController.labelMenuCategorySelected.setText("Menu");
+                    mainController.labelMenuCategoryResultCounter.setText(allProductObservableList.size() + " Result");//availableAllProductObservableList dapat to
+                    break;
+            }
+        }
+    }
+
     private void switchCategorySetFlowPaneChildren(int categoryNumber) {
+        removeFlowPaneChildren();
         switch (categoryNumber) {
             case 1:
+                for (Product product : availableMilkTeaObservableList) {
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
                 break;
             case 2:
+                for (Product product : availableCoolersObservableList) {
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
                 break;
             case 3:
+                for (Product product : availableCoffeeObservableList) {
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
                 break;
             case 4:
+                for (Product product : availableIceCandyCupsObservableList) {
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
                 break;
             case 5:
+                for (Product product : availableAppetizerObservableList) {
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
                 break;
             case 6:
                 for (Product product : allProductObservableList) {
-                    addProductToFlowPane(product.getProductName(), product.getImage());
+                    addProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
                 break;
         }
     }
 
-    private void addProductToFlowPane(String productName, Image imageProduct) {
+    private void addProductToFlowPane(Product product, String productName, Image imageProduct) {
         double width = 320;
         double height = 200;
 
@@ -181,21 +233,21 @@ public class MenuModel {
         AnchorPane.setLeftAnchor(label, 10.0);
 
         anchorPane.setOnMouseClicked(event -> {
-            openProductSelectedFXML();
+            openProductSelectedFXML(product);
             event.consume();
         });
 
         anchorPane.setOnTouchPressed(event -> {
-            openProductSelectedFXML();
+            openProductSelectedFXML(product);
             event.consume();
         });
-
-
 
         mainController.flowPaneMenu.getChildren().add(anchorPane);
     }
 
-    private void openProductSelectedFXML() {
+    private void openProductSelectedFXML(Product product) {
+        editOrShowSelectedProduct = product;
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
 
         Parent root = null;
@@ -215,12 +267,16 @@ public class MenuModel {
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
-        productController.productModel.setEditProduct();
+        productController.productModel.setSelectedProduct();
         productController.productModel.isAdd = false;
 
         newStage.showAndWait();
 
+        clearSelectedProductReference();
 //        isAddingProductSuccess();
-//        refreshProductTable();
+    }
+
+    private void clearSelectedProductReference() {
+        editOrShowSelectedProduct = null;
     }
 }

@@ -231,7 +231,7 @@ public class SettingsModel {
      */
 
     public void editAProduct() throws IOException {
-        editSelectedProduct = getSelectedProduct();
+        editOrShowSelectedProduct = getSelectedProduct();
         openEditProductsFXML();
         clearSelectedProduct();
     }
@@ -263,7 +263,7 @@ public class SettingsModel {
     }
 
     private void clearSelectedProduct() {
-        editSelectedProduct = null;
+        editOrShowSelectedProduct = null;
         mainController.tableProducts.getSelectionModel().clearSelection();
     }
 
