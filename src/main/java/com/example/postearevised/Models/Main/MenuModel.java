@@ -212,7 +212,7 @@ public class MenuModel {
         anchorPane.setCursor(Cursor.HAND);
 
         Label label = new Label(productName);
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
         label.setTextFill(Color.WHITE);
 
         ImageView imageView = new ImageView();
@@ -229,8 +229,8 @@ public class MenuModel {
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
 
-        AnchorPane.setBottomAnchor(label, 10.0);
-        AnchorPane.setLeftAnchor(label, 10.0);
+        AnchorPane.setBottomAnchor(label, 15.0);
+        AnchorPane.setLeftAnchor(label, 20.0);
 
         anchorPane.setOnMouseClicked(event -> {
             openProductSelectedFXML(product);
