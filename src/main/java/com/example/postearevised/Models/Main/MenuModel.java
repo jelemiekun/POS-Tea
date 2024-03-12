@@ -1,7 +1,26 @@
 package com.example.postearevised.Models.Main;
 
+import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
+import com.example.postearevised.Objects.Product;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -32,6 +51,10 @@ public class MenuModel {
         }
     }
 
+    private void removeFlowPaneChildren() {
+        mainController.flowPaneMenu.getChildren().removeAll();
+    }
+
     private void updateElementsIfEmpty() {
         mainController.anchorPaneMenuIsEmpty.setVisible(true);
 
@@ -50,6 +73,11 @@ public class MenuModel {
     }
 
     public void switchCategory(int categoryNumber) {
+        switchCategorySetVisibilities(categoryNumber);
+        switchCategorySetFlowPaneChildren(categoryNumber);
+    }
+
+    private void switchCategorySetVisibilities(int categoryNumber) {
         if (!allProductObservableList.isEmpty()) {
             switch (categoryNumber) {
                 case 1:
@@ -102,5 +130,97 @@ public class MenuModel {
                     break;
             }
         }
+    }
+
+    private void switchCategorySetFlowPaneChildren(int categoryNumber) {
+        switch (categoryNumber) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                for (Product product : allProductObservableList) {
+                    addProductToFlowPane(product.getProductName(), product.getImage());
+                }
+                break;
+        }
+    }
+
+    private void addProductToFlowPane(String productName, Image imageProduct) {
+        double width = 320;
+        double height = 200;
+
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setCursor(Cursor.HAND);
+
+        Label label = new Label(productName);
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        label.setTextFill(Color.WHITE);
+
+        ImageView imageView = new ImageView();
+        imageView.setImage(imageProduct);
+
+        Rectangle shadow = new Rectangle(width, height);
+        shadow.setFill(Color.BLACK);
+        shadow.setOpacity(0.35);
+
+        anchorPane.getChildren().addAll(imageView, shadow, label);
+
+        anchorPane.setPrefWidth(width);
+        anchorPane.setPrefHeight(height);
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+
+        AnchorPane.setBottomAnchor(label, 10.0);
+        AnchorPane.setLeftAnchor(label, 10.0);
+
+        anchorPane.setOnMouseClicked(event -> {
+            openProductSelectedFXML();
+            event.consume();
+        });
+
+        anchorPane.setOnTouchPressed(event -> {
+            openProductSelectedFXML();
+            event.consume();
+        });
+
+
+
+        mainController.flowPaneMenu.getChildren().add(anchorPane);
+    }
+
+    private void openProductSelectedFXML() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage newStage = new Stage();
+        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        ProductController productController = loader.getController();
+        productController.productModel.setEditProduct();
+        productController.productModel.isAdd = false;
+
+        newStage.showAndWait();
+
+//        isAddingProductSuccess();
+//        refreshProductTable();
     }
 }

@@ -244,12 +244,12 @@
                               <Font name="Arial Bold" size="36.0" />
                            </font>
                         </Label>
-                        <ScrollPane layoutX="37.0" layoutY="63.0" prefHeight="547.0" prefWidth="1116.0">
+                        <ScrollPane layoutX="37.0" layoutY="63.0" prefHeight="547.0" prefWidth="1120.0">
                            <content>
-                              <FlowPane hgap="200.0" prefHeight="542.0" prefWidth="1097.0" vgap="100.0" />
+                              <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="545.0" prefWidth="1100.0" vgap="50.0" />
                            </content>
                         </ScrollPane>
-                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
+                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0" visible="false">
                            <children>
                               <Label layoutX="57.0" layoutY="4.0" text="Your Menu is Empty">
                                  <font>

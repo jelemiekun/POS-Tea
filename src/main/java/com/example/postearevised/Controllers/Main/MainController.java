@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -187,6 +188,8 @@ public class MainController implements Initializable {
      * Menu
      */
 
+    @FXML
+    public FlowPane flowPaneMenu;
     @FXML
     public ImageView imageViewMenuAll;
     @FXML
