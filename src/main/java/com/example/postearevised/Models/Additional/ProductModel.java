@@ -435,21 +435,7 @@ public class ProductModel {
     }
 
     private void addOrder() {
-        isProductOrderAdded = true;
-        if (currentOrderDone) {
-            orderReference = new Order();
-            ProductOrder productOrder = addProductToOrder();
-            System.out.println("Product Order: " + productOrder); // Debug print
-            orderReference.getProductOrderObservableList().add(productOrder);
-            currentOrderDone = false;
-            System.out.println("Current order done : " + currentOrderDone);
-        } else {
-            ProductOrder productOrder = addProductToOrder();
-            System.out.println("Product Order: " + productOrder); // Debug print
-            orderReference.getProductOrderObservableList().add(productOrder);
-            System.out.println("Current order done : " + currentOrderDone);
-        }
-        System.out.println(orderReference.getProductOrderObservableList().size());
+
     }
 
 
@@ -533,11 +519,7 @@ public class ProductModel {
                 break;
         }
 
-        ProductOrder productOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, totalAmount);
-
-        productOrderReference = productOrder;
-
-        return productOrder;
+        return new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, totalAmount);
     }
 
     private void setAttributes() {

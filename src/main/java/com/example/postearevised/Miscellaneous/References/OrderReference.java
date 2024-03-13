@@ -7,10 +7,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 
+import java.time.LocalDateTime;
+
 public class OrderReference {
     public static Order orderReference;
     public static ProductOrder productOrderReference;
     public static boolean isProductOrderAdded = false;
     public static ObservableList<Order> orderObservableList = FXCollections.observableArrayList();
-    public static int totalPrice = 0;
+
+
+    public static ObservableList<ProductOrder> referenceProductOrderObservableList;
+    public static String referenceCustomerName;
+    public static int referenceOrderNumber;
+    public static ObservableList<Integer> referenceProductQuantity;
+    public static double referenceTotalPrice;
+    public static double referenceAmountPaid;
+    public static double referenceChange;
+    public static String referenceModeOfPayment;
+    public static LocalDateTime referenceDateAndTime;
 }

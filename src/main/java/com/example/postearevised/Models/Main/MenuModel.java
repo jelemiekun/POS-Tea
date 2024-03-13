@@ -284,11 +284,13 @@ public class MenuModel {
     private void checkIfAddingProductToOrderSuccess(Product product) {
         if (orderReference != null) {
             if (isProductOrderAdded) {
-                setPanesAfterAddingOrder();
-                createAnchorPane(product);
-
-                isProductOrderAdded = false;
+//                setPanesAfterAddingOrder();
+//                createAnchorPane(product);
+//
+//                isProductOrderAdded = false;
             }
+        } else {
+
         }
     }
 
@@ -421,8 +423,8 @@ public class MenuModel {
         deleteImageView.setLayoutY(44.0);
         deleteImageView.setFitWidth(25.0);
         deleteImageView.setFitHeight(25.0);
-        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(productOrder));
-        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(productOrder));
+        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction());
+        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction());
         deleteImageView.setPickOnBounds(true);
         deleteImageView.setPreserveRatio(true);
         deleteImageView.setImage(CLOSE);
@@ -464,20 +466,11 @@ public class MenuModel {
         updateOrderTotalAmount();
     }
 
-    private void deleteProductInOrderOnAction(ProductOrder productOrder) {
-        System.out.println("Delete this product from orders clicked");
-        orderReference.getProductOrderObservableList().remove(productOrder);
+    private void deleteProductInOrderOnAction() {
+
     }
     private void updateOrderTotalAmount() {
-        totalPrice = 0;
 
-        for (ProductOrder productOrder : orderReference.getProductOrderObservableList()) {
-            totalPrice += (int) productOrder.getTotalAmount();
-        }
-
-        mainController.labelMenuTotalPrice.setText("₱" + totalPrice + ".00");
-
-        orderReference.setTotalPrice(totalPrice);
     }
 
     private void clearSelectedProductReference() {

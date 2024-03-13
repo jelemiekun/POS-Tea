@@ -18,11 +18,7 @@ public class Order {
     private LocalDateTime dateAndTime;
 
     public Order() {
-        productOrderObservableList = FXCollections.observableArrayList();
-        productQuantity = FXCollections.observableArrayList();
-        for (ProductOrder productOrder : productOrderObservableList) {
-            productQuantity.add(1);
-        }
+        // lagyan ba dito haha
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {
