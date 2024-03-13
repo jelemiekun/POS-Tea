@@ -1,5 +1,6 @@
 package com.example.postearevised.Miscellaneous.References;
 
+import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.Product;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -21,4 +22,5 @@ public class GeneralReference {
     public static int deleteProductSelectedCounter = 0;
     public static boolean trueAddProductFalseDeleteProduct = false;
     public static Product editOrShowSelectedProduct;
+    public static Order orderReference;
 }

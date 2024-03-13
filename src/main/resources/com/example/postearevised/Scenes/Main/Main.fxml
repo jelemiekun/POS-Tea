@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -178,38 +179,75 @@
                   </AnchorPane>
                   <AnchorPane layoutX="40.0" layoutY="188.0" prefHeight="452.0" prefWidth="478.0">
                      <children>
-                        <Label layoutX="27.0" layoutY="20.0" text="Bills">
+                        <Label layoutX="27.0" layoutY="10.0" text="Bills">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <ScrollPane layoutX="21.0" layoutY="65.0" prefHeight="368.0" prefWidth="436.0">
+                        <AnchorPane layoutX="22.0" layoutY="49.0" prefHeight="35.0" prefWidth="420.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
+                              <Label layoutX="98.0" layoutY="9.0" text="Label" />
+                              <Label layoutX="351.0" layoutY="9.0" text="Label" />
+                              <Label layoutX="247.0" layoutY="9.0" text="Label" />
+                              <Line endX="-40.0" endY="47.0" layoutX="344.0" layoutY="-12.0" startX="-40.0" startY="12.0" />
+                              <Line endX="-40.0" endY="47.0" layoutX="261.0" layoutY="-12.0" startX="-40.0" startY="12.0" />
+                           </children>
+                        </AnchorPane>
+                        <ScrollPane layoutX="21.0" layoutY="82.0" prefHeight="368.0" prefWidth="436.0">
                           <content>
                               <FlowPane>
                                  <children>
                                     <AnchorPane prefHeight="115.0" prefWidth="420.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="115.0" prefWidth="420.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="115.0" prefWidth="420.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="115.0" prefWidth="420.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutX="10.0" layoutY="355.0" prefHeight="115.0" prefWidth="420.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="115.0" stroke="BLACK" strokeType="INSIDE" width="420.0" />
+                                          <ImageView fitHeight="85.0" fitWidth="99.0" layoutX="11.0" layoutY="15.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../../../../../../../../../../Downloads/Orange%20Juice%20Promo%20Flyer.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label layoutX="124.0" layoutY="15.0" text="Label...">
+                                             <font>
+                                                <Font name="Arial" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="125.0" layoutY="48.0" text="first attribute" />
+                                          <Label layoutX="125.0" layoutY="74.0" text="second attribute" />
+                                          <Label alignment="CENTER_RIGHT" layoutX="312.0" layoutY="43.0" prefHeight="27.0" prefWidth="99.0" text="₱100.00">
+                                             <font>
+                                                <Font name="Arial" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" layoutX="249.0" layoutY="45.0" prefHeight="22.0" prefWidth="28.0" text="1">
+                                             <font>
+                                                <Font name="Arial" size="19.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="-40.0" endY="86.0" layoutX="261.0" layoutY="29.0" startX="-40.0" startY="-29.0" />
+                                          <Line endX="-40.0" endY="86.0" layoutX="344.0" layoutY="29.0" startX="-40.0" startY="-29.0" />
+                                          <AnchorPane layoutX="230.0" layoutY="39.0" prefHeight="35.0" prefWidth="22.0">
+                                             <children>
+                                                <Label layoutX="5.0" layoutY="-6.0" text="-">
+                                                   <font>
+                                                      <Font name="Arial" size="34.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></AnchorPane>
+                                          <AnchorPane layoutX="273.0" layoutY="38.0" prefHeight="35.0" prefWidth="22.0">
+                                             <children>
+                                                <Label layoutX="3.0" text="+">
+                                                   <font>
+                                                      <Font name="Arial" size="30.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </AnchorPane>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -229,17 +267,17 @@
                   </Label>
                   <AnchorPane layoutX="40.0" layoutY="657.0" prefHeight="301.0" prefWidth="470.0">
                      <children>
-                        <Label layoutX="41.0" layoutY="14.0" text="Total">
+                        <Label layoutX="41.0" layoutY="4.0" text="Total">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label alignment="CENTER_RIGHT" layoutX="288.0" layoutY="14.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
+                        <Label alignment="CENTER_RIGHT" layoutX="288.0" layoutY="4.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane layoutX="-1.0" layoutY="62.0" prefHeight="240.0" prefWidth="470.0">
+                        <AnchorPane layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0">
                            <children>
                               <Label layoutX="41.0" layoutY="4.0" text="Total">
                                  <font>
@@ -261,6 +299,38 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Payments/cash.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="256.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Payments/gcash.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Payments/cash.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="256.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Payments/gcash.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                      </children>
@@ -344,16 +414,18 @@
                         </Label>
                         <ScrollPane layoutX="37.0" layoutY="63.0" prefHeight="547.0" prefWidth="1120.0">
                            <content>
-                              <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="545.0" prefWidth="1100.0" vgap="50.0" />
+                              <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="545.0" prefWidth="1100.0" vgap="50.0">
+                                 <children>
+                                    <Label text="Your Menu is Empty">
+                                       <font>
+                                          <Font name="Arial Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children></FlowPane>
                            </content>
                         </ScrollPane>
                         <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
                            <children>
-                              <Label layoutX="57.0" layoutY="4.0" text="Your Menu is Empty">
-                                 <font>
-                                    <Font name="Arial Bold" size="25.0" />
-                                 </font>
-                              </Label>
                               <Label layoutX="21.0" layoutY="34.0" text="Add Products to Get Started" textFill="#3a7cff" underline="true">
                                  <font>
                                     <Font name="Arial" size="25.0" />

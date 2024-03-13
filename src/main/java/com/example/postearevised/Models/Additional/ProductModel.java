@@ -36,6 +36,7 @@ public class ProductModel {
 
     public boolean isAdd = false;
     public boolean isSelected = false;
+    public boolean currentOrderDone = true;
 
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
@@ -397,8 +398,7 @@ public class ProductModel {
 
     public void addEditProductAddOrder() {
         if (isSelected) {
-            System.out.println("meow");
-            // methods para ma add order
+            addOrder();
         } else {
             setAttributes();
             
@@ -410,6 +410,16 @@ public class ProductModel {
 
         clearProductReferenceValues();
         closeThisStage();
+    }
+
+    private void addOrder() {
+        if (currentOrderDone) {
+            orderReference = new Order();
+            orderReference.getProductObservableList().add(editOrShowSelectedProduct);
+            currentOrderDone = false;
+        } else {
+            orderReference.getProductObservableList().add(editOrShowSelectedProduct);
+        }
     }
 
     private void setAttributes() {
