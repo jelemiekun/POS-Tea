@@ -72,6 +72,10 @@ public class ProductController implements Initializable {
     @FXML
     public Label coolersLabelSmallPrice;
     @FXML
+    public Label coolersLabelAddOnsPriceOne;
+    @FXML
+    public Label coolersLabelAddOnsPriceTwo;
+    @FXML
     public Label iceCandyCupsLabelPrice;
     @FXML
     public Label labelAddEditDone;
@@ -102,6 +106,14 @@ public class ProductController implements Initializable {
     public TextField coolersTextFieldMediumPrice;
     @FXML
     public TextField coolersTextFieldSmallPrice;
+    @FXML
+    public TextField coolersTextFieldAddOnsOneName;
+    @FXML
+    public TextField coolersTextFieldAddOnsPriceOne;
+    @FXML
+    public TextField coolersTextFieldAddOnsTwoName;
+    @FXML
+    public TextField coolersTextFieldAddOnsPriceTwo;
     @FXML
     public TextField iceCandyCupsTextFieldPrice;
     @FXML

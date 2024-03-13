@@ -99,6 +99,18 @@ public class ProductModel {
             }
         });
 
+        productController.coolersTextFieldAddOnsPriceOne.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coolersTextFieldAddOnsPriceOne.setText(oldValue);
+            }
+        });
+
+        productController.coolersTextFieldAddOnsPriceTwo.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                productController.coolersTextFieldAddOnsPriceTwo.setText(oldValue);
+            }
+        });
+
         // Coffee Text Field
         productController.coffeeTextFieldPrice.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches(REGEX_DIGITS_ONLY)) {
@@ -279,6 +291,8 @@ public class ProductModel {
         productController.coolersLabelLargePrice.setVisible(false);
         productController.coolersLabelMediumPrice.setVisible(false);
         productController.coolersLabelSmallPrice.setVisible(false);
+        productController.coolersLabelAddOnsPriceOne.setVisible(false);
+        productController.coolersLabelAddOnsPriceTwo.setVisible(false);
         productController.iceCandyCupsLabelPrice.setVisible(false);
         productController.milkTeaLabelAddOnsPriceOne.setVisible(false);
         productController.milkTeaLabelAddOnsPriceTwo.setVisible(false);
@@ -320,6 +334,10 @@ public class ProductModel {
         productController.coolersTextFieldLargePrice.setText("");
         productController.coolersTextFieldMediumPrice.setText("");
         productController.coolersTextFieldSmallPrice.setText("");
+        productController.coolersTextFieldAddOnsOneName.setText("");
+        productController.coolersTextFieldAddOnsPriceOne.setText("");
+        productController.coolersTextFieldAddOnsTwoName.setText("");
+        productController.coolersTextFieldAddOnsPriceTwo.setText("");
         productController.iceCandyCupsTextFieldPrice.setText("");
         productController.milkTeaTextFieldAddOnsOneName.setText("");
         productController.milkTeaTextFieldAddOnsPriceOne.setText("");
@@ -442,6 +460,10 @@ public class ProductModel {
                 referenceCoolersSmallPrice = productController.coolersTextFieldSmallPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldSmallPrice.getText());
                 referenceCoolersMediumPrice = productController.coolersTextFieldMediumPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldMediumPrice.getText());
                 referenceCoolersLargePrice = productController.coolersTextFieldLargePrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldLargePrice.getText());
+                referenceCoolersAddOnsOneName = productController.coolersTextFieldAddOnsOneName.getText();
+                referenceCoolersAddOnsOnePrice = productController.coolersTextFieldAddOnsPriceOne.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceOne.getText());
+                referenceCoolersAddOnsTwoName = productController.coolersTextFieldAddOnsTwoName.getText();
+                referenceCoolersAddOnsTwoPrice = productController.coolersTextFieldAddOnsPriceTwo.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceTwo.getText());
                 break;
             case "Coffee":
                 referenceCoffeePrice = productController.coffeeTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coffeeTextFieldPrice.getText());
@@ -469,7 +491,8 @@ public class ProductModel {
                 break;
             case "Coolers":
                 Coolers coolers = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
-                        referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice);
+                        referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice,
+                        referenceCoolersAddOnsOneName, referenceCoolersAddOnsOnePrice, referenceCoolersAddOnsTwoName, referenceCoolersAddOnsTwoPrice);
 
                 allProductObservableList.add(coolers);
                 availableCoolersObservableList.add(coolers);
@@ -534,6 +557,8 @@ public class ProductModel {
         productController.coolersLabelLargePrice.setVisible(false);
         productController.coolersLabelMediumPrice.setVisible(false);
         productController.coolersLabelSmallPrice.setVisible(false);
+        productController.coolersLabelAddOnsPriceOne.setVisible(false);
+        productController.coolersLabelAddOnsPriceTwo.setVisible(false);
         productController.iceCandyCupsLabelPrice.setVisible(false);
         productController.milkTeaLabelAddOnsPriceOne.setVisible(false);
         productController.milkTeaLabelAddOnsPriceTwo.setVisible(false);
@@ -602,6 +627,10 @@ public class ProductModel {
             productController.coolersTextFieldSmallPrice.setText(String.valueOf((int) editSelectedCoolers.getSmallPrice()));
             productController.coolersTextFieldMediumPrice.setText(String.valueOf((int) editSelectedCoolers.getMediumPrice()));
             productController.coolersTextFieldLargePrice.setText(String.valueOf((int) editSelectedCoolers.getLargePrice()));
+            productController.coolersTextFieldAddOnsOneName.setText(editSelectedCoolers.getAddOnsOne());
+            productController.coolersTextFieldAddOnsPriceOne.setText(String.valueOf((int) editSelectedCoolers.getAddOnsOnePrice()));
+            productController.coolersTextFieldAddOnsTwoName.setText(editSelectedCoolers.getAddOnsTwo());
+            productController.coolersTextFieldAddOnsPriceTwo.setText(String.valueOf((int) editSelectedCoolers.getAddOnsTwoPrice()));
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
             productController.coffeeTextFieldPrice.setText(String.valueOf((int) editSelectedCoffee.getPrice()));
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
@@ -695,6 +724,10 @@ public class ProductModel {
             productController.coolersTextFieldSmallPrice.setVisible(false);
             productController.coolersTextFieldMediumPrice.setVisible(false);
             productController.coolersTextFieldLargePrice.setVisible(false);
+            productController.coolersTextFieldAddOnsOneName.setVisible(false);
+            productController.coolersTextFieldAddOnsPriceOne.setVisible(false);
+            productController.coolersTextFieldAddOnsTwoName.setVisible(false);
+            productController.coolersTextFieldAddOnsPriceTwo.setVisible(false);
         } else if (editOrShowSelectedProduct instanceof Coffee) {
             productController.anchorPaneMilkTea.setVisible(false);
             productController.anchorPaneCoolers.setVisible(false);

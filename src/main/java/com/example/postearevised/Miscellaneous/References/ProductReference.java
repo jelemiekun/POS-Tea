@@ -53,6 +53,10 @@ public class ProductReference {
     public static double referenceCoolersSmallPrice = 0.0;
     public static double referenceCoolersMediumPrice = 0.0;
     public static double referenceCoolersLargePrice = 0.0;
+    public static String referenceCoolersAddOnsOneName = "";
+    public static double referenceCoolersAddOnsOnePrice = 0.0;
+    public static String referenceCoolersAddOnsTwoName = "";
+    public static double referenceCoolersAddOnsTwoPrice = 0.0;
 
     /**
      * Coffee
@@ -86,6 +90,10 @@ public class ProductReference {
         referenceCoolersSmallPrice = 0.0;
         referenceCoolersMediumPrice = 0.0;
         referenceCoolersLargePrice = 0.0;
+        referenceCoolersAddOnsOneName = "";
+        referenceCoolersAddOnsOnePrice = 0.0;
+        referenceCoolersAddOnsTwoName = "";
+        referenceCoolersAddOnsTwoPrice = 0.0;
 
         referenceCoffeePrice = 0.0;
 
