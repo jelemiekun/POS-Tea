@@ -318,6 +318,8 @@ public class ProductModel {
         productController.coolersRadioBtnSmall.setDisable(true);
         productController.coolersRadioBtnTeaBase.setDisable(true);
         productController.coolersRadioBtnWaterBase.setDisable(true);
+        productController.coolersRadioBtnAddOnsOne.setDisable(true);
+        productController.coolersRadioBtnAddOnsTwo.setDisable(true);
         productController.milkTeaRadioBtnAddOnsOne.setDisable(true);
         productController.milkTeaRadioBtnAddOnsTwo.setDisable(true);
         productController.milkTeaRadioBtnLarge.setDisable(true);
@@ -658,6 +660,10 @@ public class ProductModel {
             editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
             editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
             editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
+            editSelectedCoolers.setAddOnsOne(referenceCoolersAddOnsOneName);
+            editSelectedCoolers.setAddOnsOnePrice(referenceCoolersAddOnsOnePrice);
+            editSelectedCoolers.setAddOnsTwo(referenceCoolersAddOnsTwoName);
+            editSelectedCoolers.setAddOnsTwoPrice(referenceCoolersAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
             editSelectedCoffee.setPrice(referenceCoffeePrice);
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
@@ -800,6 +806,10 @@ public class ProductModel {
             productController.coolersLabelSmallPrice.setText(String.valueOf((int) editSelectedCoolers.getSmallPrice()));
             productController.coolersLabelMediumPrice.setText(String.valueOf((int) editSelectedCoolers.getMediumPrice()));
             productController.coolersLabelLargePrice.setText(String.valueOf((int) editSelectedCoolers.getLargePrice()));
+            productController.coolersRadioBtnAddOnsOne.setText(editSelectedCoolers.getAddOnsOne());
+            productController.coolersRadioBtnAddOnsTwo.setText(editSelectedCoolers.getAddOnsTwo());
+            productController.coolersLabelAddOnsPriceOne.setText(String.valueOf(editSelectedCoolers.getAddOnsOnePrice()));
+            productController.coolersLabelAddOnsPriceTwo.setText(String.valueOf(editSelectedCoolers.getAddOnsTwoPrice()));
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
             productController.coffeeLabelPrice.setText(String.valueOf((int) editSelectedCoffee.getPrice()));
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {

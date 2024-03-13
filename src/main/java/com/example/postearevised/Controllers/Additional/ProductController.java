@@ -158,6 +158,10 @@ public class ProductController implements Initializable {
     @FXML
     public RadioButton coolersRadioBtnWaterBase;
     @FXML
+    public RadioButton coolersRadioBtnAddOnsOne;
+    @FXML
+    public RadioButton coolersRadioBtnAddOnsTwo;
+    @FXML
     public RadioButton milkTeaRadioBtnAddOnsOne;
     @FXML
     public RadioButton milkTeaRadioBtnAddOnsTwo;
@@ -178,6 +182,8 @@ public class ProductController implements Initializable {
     public ToggleGroup coolersLiquidBaseToggleGroup;
     @FXML
     public ToggleGroup coolersSizesToggleGroup;
+    @FXML
+    public ToggleGroup coolersAddOnsToggleGroup;
     @FXML
     public ToggleGroup milkTeaAddOnsToggleGroup;
     @FXML
@@ -318,6 +324,12 @@ public class ProductController implements Initializable {
     void coolersRadioBtnWaterBaseClicked(ActionEvent event) {
         productModel.updateToggleGroups();
     }
+
+    @FXML
+    void coolersRadioBtnAddOnsOneClicked(ActionEvent event) { productModel.updateToggleGroups(); }
+
+    @FXML
+    void coolersRadioBtnAddOnsTwoClicked(ActionEvent event) { productModel.updateToggleGroups(); }
 
     @FXML
     void coolersTextFieldLargePriceTyping(InputMethodEvent event) {
