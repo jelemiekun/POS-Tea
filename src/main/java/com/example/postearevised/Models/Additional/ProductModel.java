@@ -438,12 +438,20 @@ public class ProductModel {
         isProductOrderAdded = true;
         if (currentOrderDone) {
             orderReference = new Order();
-            orderReference.getProductOrderObservableList().add(addProductToOrder());
+            ProductOrder productOrder = addProductToOrder();
+            System.out.println("Product Order: " + productOrder); // Debug print
+            orderReference.getProductOrderObservableList().add(productOrder);
             currentOrderDone = false;
+            System.out.println("Current order done : " + currentOrderDone);
         } else {
-            orderReference.getProductOrderObservableList().add(addProductToOrder());
+            ProductOrder productOrder = addProductToOrder();
+            System.out.println("Product Order: " + productOrder); // Debug print
+            orderReference.getProductOrderObservableList().add(productOrder);
+            System.out.println("Current order done : " + currentOrderDone);
         }
+        System.out.println(orderReference.getProductOrderObservableList().size());
     }
+
 
     private ProductOrder addProductToOrder() {
         String orderTitle = editOrShowSelectedProduct.getProductName();

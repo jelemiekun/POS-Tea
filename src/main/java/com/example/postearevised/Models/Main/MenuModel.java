@@ -406,7 +406,7 @@ public class MenuModel {
         addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
         addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
 
-        updateOrderTotalAmount(productOrder, totalAmount, true);
+        updateOrderTotalAmount();
 
         Label addLabel = new Label("+");
         addLabel.setLayoutX(3.0);
@@ -445,7 +445,9 @@ public class MenuModel {
             int totalAmountForThisOrder = quantity * price;
             labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
 
-            updateOrderTotalAmount(productOrder, totalAmountForThisOrder, false);
+            productOrder.setTotalAmount(totalAmountForThisOrder);
+
+            updateOrderTotalAmount();
         }
     }
 
@@ -457,23 +459,25 @@ public class MenuModel {
         int totalAmountForThisOrder = quantity * price;
         labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
 
-        updateOrderTotalAmount(productOrder, totalAmountForThisOrder, true);
+        productOrder.setTotalAmount(totalAmountForThisOrder);
+
+        updateOrderTotalAmount();
     }
 
     private void deleteProductInOrderOnAction(ProductOrder productOrder) {
         System.out.println("Delete this product from orders clicked");
         orderReference.getProductOrderObservableList().remove(productOrder);
     }
-    private void updateOrderTotalAmount(ProductOrder productOrder, int price, boolean isAdd) {
-        if (isAdd) {
-            totalPrice += price;
-        } else {
-            totalPrice -= price;
+    private void updateOrderTotalAmount() {
+        totalPrice = 0;
+
+        for (ProductOrder productOrder : orderReference.getProductOrderObservableList()) {
+            totalPrice += (int) productOrder.getTotalAmount();
         }
 
         mainController.labelMenuTotalPrice.setText("₱" + totalPrice + ".00");
 
-        productOrder.setTotalAmount(totalPrice);
+        orderReference.setTotalPrice(totalPrice);
     }
 
     private void clearSelectedProductReference() {
