@@ -6,11 +6,11 @@ import javafx.collections.ObservableList;
 import java.time.LocalDateTime;
 
 public class Order {
-    private ObservableList<Product> productObservableList = FXCollections.observableArrayList();
+    private ObservableList<ProductOrder> productOrderObservableList = FXCollections.observableArrayList();
 
     private String customerName;
     private int orderNumber;
-    private int productQuantity;
+    private ObservableList<Integer> productQuantity = FXCollections.observableArrayList();
     private double totalPrice;
     private double amountPaid;
     private double change;
@@ -18,16 +18,13 @@ public class Order {
     private LocalDateTime dateAndTime;
 
     public Order() {
-        this.productObservableList = FXCollections.observableArrayList();
-        this.productQuantity = 1;
+        for (ProductOrder productOrder : productOrderObservableList) {
+            productQuantity.add(1);
+        }
     }
 
-    public ObservableList<Product> getProductObservableList() {
-        return productObservableList;
-    }
-
-    public void setProductObservableList(ObservableList<Product> productObservableList) {
-        this.productObservableList = productObservableList;
+    public ObservableList<ProductOrder> getProductOrderObservableList() {
+        return productOrderObservableList;
     }
 
     public String getCustomerName() {
@@ -46,12 +43,8 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public int getProductQuantity() {
+    public ObservableList<Integer> getProductQuantity() {
         return productQuantity;
-    }
-
-    public void setProductQuantity(int productQuantity) {
-        this.productQuantity = productQuantity;
     }
 
     public double getTotalPrice() {

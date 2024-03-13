@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Additional;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.*;
 import javafx.application.Platform;
+import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -20,6 +21,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 
 public class ProductModel {
     private ProductController productController;
@@ -142,6 +144,22 @@ public class ProductModel {
 
     public void updateWordCounter() {
         productController.labelDescriptionWordCounter.setText(productController.textFieldProductDescription.getText().length() + "/200");
+    }
+
+    public void addEditProductAddOrder() {
+        if (isSelected) {
+            addOrder();
+        } else {
+            setAttributes();
+
+            if (isAdd)
+                instantiateProduct();
+            else
+                setObjectAttributes();
+        }
+
+        clearProductReferenceValues();
+        closeThisStage();
     }
 
     /**
@@ -416,30 +434,102 @@ public class ProductModel {
         productController.anchorPaneBottomHalf.setVisible(true);
     }
 
-    public void addEditProductAddOrder() {
-        if (isSelected) {
-            addOrder();
-        } else {
-            setAttributes();
-            
-            if (isAdd)
-                instantiateProduct();
-            else
-                setObjectAttributes();
-        }
-
-        clearProductReferenceValues();
-        closeThisStage();
-    }
-
     private void addOrder() {
+        isProductOrderAdded = true;
         if (currentOrderDone) {
             orderReference = new Order();
-            orderReference.getProductObservableList().add(editOrShowSelectedProduct);
+            orderReference.getProductOrderObservableList().add(addProductToOrder());
             currentOrderDone = false;
         } else {
-            orderReference.getProductObservableList().add(editOrShowSelectedProduct);
+            orderReference.getProductOrderObservableList().add(addProductToOrder());
         }
+    }
+
+    private ProductOrder addProductToOrder() {
+        String orderTitle = editOrShowSelectedProduct.getProductName();
+        Image orderImage = editOrShowSelectedProduct.getImage();
+        String firstAttribute = "";
+        String secondAttribute = "";
+        double totalAmount = 0;
+
+        RadioButton radioButton1;
+        RadioButton radioButton2;
+
+        switch(editOrShowSelectedProduct.getCategory()) {
+            case "Milk Tea":
+                radioButton1 = (RadioButton) productController.milkTeaLiquidBaseToggleGroup.getSelectedToggle();
+                radioButton2 = (RadioButton) productController.milkTeaAddOnsToggleGroup.getSelectedToggle();
+
+                firstAttribute = radioButton1.getText();
+
+                if (radioButton2 != null)
+                    secondAttribute = radioButton2.getText();
+
+                if (productController.milkTeaRadioBtnSmall.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.milkTeaLabelSmallPrice.getText());
+                } else if (productController.milkTeaRadioBtnMedium.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.milkTeaLabelMediumPrice.getText());
+                } else if (productController.milkTeaRadioBtnLarge.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.milkTeaLabelLargePrice.getText());
+                } else {
+                    totalAmount += 0;
+                }
+
+                if (productController.milkTeaRadioBtnAddOnsOne.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.milkTeaLabelAddOnsPriceOne.getText());
+                } else if (productController.milkTeaRadioBtnAddOnsTwo.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.milkTeaLabelAddOnsPriceTwo.getText());
+                } else {
+                    totalAmount += 0;
+                }
+                break;
+            case "Coolers":
+                radioButton1 = (RadioButton) productController.coolersLiquidBaseToggleGroup.getSelectedToggle();
+                radioButton2 = (RadioButton) productController.coolersAddOnsToggleGroup.getSelectedToggle();
+
+                firstAttribute = radioButton1.getText();
+
+                if (radioButton2 != null)
+                    secondAttribute = radioButton2.getText();
+
+                if (productController.coolersRadioBtnSmall.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.coolersLabelSmallPrice.getText());
+                } else if (productController.coolersRadioBtnMedium.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.coolersLabelMediumPrice.getText());
+                } else if (productController.coolersRadioBtnLarge.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.coolersLabelLargePrice.getText());
+                } else {
+                    totalAmount += 0;
+                }
+
+                if (productController.coolersRadioBtnAddOnsOne.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.coolersLabelAddOnsPriceOne.getText());
+                } else if (productController.coolersRadioBtnAddOnsTwo.isSelected()) {
+                    totalAmount += Integer.parseInt(productController.coolersLabelAddOnsPriceTwo.getText());
+                } else {
+                    totalAmount += 0;
+                }
+                break;
+            case "Coffee":
+                radioButton1 = (RadioButton) productController.coffeeTemperatureToggleGroup.getSelectedToggle();
+
+                firstAttribute = radioButton1.getText();
+
+                totalAmount += Integer.parseInt(productController.coffeeLabelPrice.getText());
+                break;
+            case "Ice Candy Cups":
+                totalAmount += Integer.parseInt(productController.iceCandyCupsLabelPrice.getText());
+                break;
+            case "Appetizers":
+                totalAmount += Integer.parseInt(productController.appetizerLabelPrice.getText());
+                break;
+        }
+
+        ProductOrder productOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, totalAmount);
+
+        productOrderReference = productOrder;
+
+        return productOrder;
     }
 
     private void setAttributes() {
@@ -808,8 +898,8 @@ public class ProductModel {
             productController.coolersLabelLargePrice.setText(String.valueOf((int) editSelectedCoolers.getLargePrice()));
             productController.coolersRadioBtnAddOnsOne.setText(editSelectedCoolers.getAddOnsOne());
             productController.coolersRadioBtnAddOnsTwo.setText(editSelectedCoolers.getAddOnsTwo());
-            productController.coolersLabelAddOnsPriceOne.setText(String.valueOf(editSelectedCoolers.getAddOnsOnePrice()));
-            productController.coolersLabelAddOnsPriceTwo.setText(String.valueOf(editSelectedCoolers.getAddOnsTwoPrice()));
+            productController.coolersLabelAddOnsPriceOne.setText(String.valueOf( (int) editSelectedCoolers.getAddOnsOnePrice()));
+            productController.coolersLabelAddOnsPriceTwo.setText(String.valueOf( (int) editSelectedCoolers.getAddOnsTwoPrice()));
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
             productController.coffeeLabelPrice.setText(String.valueOf((int) editSelectedCoffee.getPrice()));
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {

@@ -3,7 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
-import com.example.postearevised.Objects.Product;
+import com.example.postearevised.Objects.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -14,6 +14,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class MenuModel {
@@ -68,6 +70,9 @@ public class MenuModel {
         mainController.imageViewMenuCoffee.setImage(coffeeCategory);
         mainController.imageViewMenuIceCandyCups.setImage(iceCandyCupsCategory);
         mainController.imageViewMenuAppetizers.setImage(appetizersCategory);
+
+        mainController.labelNoOrdersSelected.setVisible(true);
+        mainController.anchorPaneHideHalfRightPanel.setVisible(false);
     }
 
     private void updateElementsIfNotEmpty() {
@@ -271,8 +276,204 @@ public class MenuModel {
 
         newStage.showAndWait();
 
+        checkIfAddingProductToOrderSuccess(product);
         clearSelectedProductReference();
 //        isAddingProductSuccess();
+    }
+
+    private void checkIfAddingProductToOrderSuccess(Product product) {
+        if (orderReference != null) {
+            if (isProductOrderAdded) {
+                setPanesAfterAddingOrder();
+                createAnchorPane(product);
+
+                isProductOrderAdded = false;
+            }
+        }
+    }
+
+    private void setPanesAfterAddingOrder() {
+        mainController.labelNoOrdersSelected.setVisible(false);
+        mainController.anchorPaneHideHalfRightPanel.setVisible(true);
+    }
+    public void createAnchorPane(Product product) {
+        ProductOrder productOrder = productOrderReference;
+
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setLayoutX(10.0);
+        anchorPane.setPrefWidth(435.0);
+        anchorPane.setPrefHeight(116.0);
+
+        Rectangle rectangle = new Rectangle();
+        rectangle.setWidth(436.0);
+        rectangle.setHeight(115.0);
+        rectangle.setFill(Color.WHITE);
+        rectangle.setStroke(Color.BLACK);
+        rectangle.setArcWidth(5.0);
+        rectangle.setArcHeight(5.0);
+        anchorPane.getChildren().add(rectangle);
+
+        AnchorPane innerAnchorPane = new AnchorPane();
+        innerAnchorPane.setCursor(Cursor.HAND);
+        innerAnchorPane.setLayoutX(47.0);
+        innerAnchorPane.setLayoutY(15.0);
+        innerAnchorPane.setPrefWidth(200.0);
+        innerAnchorPane.setPrefHeight(84.0);
+        innerAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderOnAction(product));
+        innerAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderOnAction(product));
+
+        ImageView imageView = new ImageView();
+        imageView.setFitWidth(99.0);
+        imageView.setFitHeight(85.0);
+        imageView.setPickOnBounds(true);
+        imageView.setImage(productOrder.getProductImage());
+        AnchorPane.setLeftAnchor(imageView, 0.0);
+        AnchorPane.setTopAnchor(imageView, 0.0);
+        innerAnchorPane.getChildren().add(imageView);
+
+        Label label1 = new Label(productOrder.getProductName());
+        label1.setLayoutX(104.0);
+        label1.setLayoutY(1.0);
+        label1.setFont(new javafx.scene.text.Font("Arial", 24.0));
+        innerAnchorPane.getChildren().add(label1);
+
+        Label label2 = new Label(productOrder.getFirstAttribute());
+        label2.setLayoutX(105.0);
+        label2.setLayoutY(34.0);
+        innerAnchorPane.getChildren().add(label2);
+
+        Label label3 = new Label(productOrder.getSecondAttribute());
+        label3.setLayoutX(105.0);
+        label3.setLayoutY(51.0);
+        innerAnchorPane.getChildren().add(label3);
+
+        anchorPane.getChildren().add(innerAnchorPane);
+
+        int totalAmount = (int) productOrder.getTotalAmount();
+        Label label4 = new Label("₱" + ((int) productOrder.getTotalAmount()) + ".00");
+        label4.setLayoutX(355.0);
+        label4.setLayoutY(43.0);
+        label4.setFont(new javafx.scene.text.Font("Arial", 18.0));
+        anchorPane.getChildren().add(label4);
+
+        Label label5 = new Label("1");
+        label5.setLayoutX(290.0);
+        label5.setLayoutY(45.0);
+        label5.setFont(new javafx.scene.text.Font("Arial", 19.0));
+        anchorPane.getChildren().add(label5);
+
+        Line line1 = new Line();
+        line1.setStartX(-40.0);
+        line1.setStartY(-29.0);
+        line1.setEndX(-40.0);
+        line1.setEndY(86.0);
+        line1.setLayoutX(292.0);
+        line1.setLayoutY(29.0);
+        anchorPane.getChildren().add(line1);
+
+        Line line2 = new Line();
+        line2.setStartX(-40.0);
+        line2.setStartY(-29.0);
+        line2.setEndX(-40.0);
+        line2.setEndY(86.0);
+        line2.setLayoutX(374.0);
+        line2.setLayoutY(29.0);
+        anchorPane.getChildren().add(line2);
+
+        AnchorPane minusQuantityAnchorPane = new AnchorPane();
+        minusQuantityAnchorPane.setCursor(Cursor.HAND);
+        minusQuantityAnchorPane.setLayoutX(261.0);
+        minusQuantityAnchorPane.setLayoutY(39.0);
+        minusQuantityAnchorPane.setPrefWidth(22.0);
+        minusQuantityAnchorPane.setPrefHeight(35.0);
+        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, totalAmount));
+        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, totalAmount));
+
+        Label minusLabel = new Label("-");
+        minusLabel.setLayoutX(5.0);
+        minusLabel.setLayoutY(-6.0);
+        minusLabel.setFont(new javafx.scene.text.Font("Arial", 34.0));
+        minusQuantityAnchorPane.getChildren().add(minusLabel);
+
+        anchorPane.getChildren().add(minusQuantityAnchorPane);
+
+        AnchorPane addQuantityAnchorPane = new AnchorPane();
+        addQuantityAnchorPane.setCursor(Cursor.HAND);
+        addQuantityAnchorPane.setLayoutX(304.0);
+        addQuantityAnchorPane.setLayoutY(38.0);
+        addQuantityAnchorPane.setPrefWidth(22.0);
+        addQuantityAnchorPane.setPrefHeight(35.0);
+        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
+        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
+
+        updateOrderTotalAmount(productOrder, totalAmount, true);
+
+        Label addLabel = new Label("+");
+        addLabel.setLayoutX(3.0);
+        addLabel.setFont(new javafx.scene.text.Font("Arial", 30.0));
+        addQuantityAnchorPane.getChildren().add(addLabel);
+
+        anchorPane.getChildren().add(addQuantityAnchorPane);
+
+        ImageView deleteImageView = new ImageView();
+        deleteImageView.setCursor(Cursor.HAND);
+        deleteImageView.setLayoutX(8.0);
+        deleteImageView.setLayoutY(44.0);
+        deleteImageView.setFitWidth(25.0);
+        deleteImageView.setFitHeight(25.0);
+        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(productOrder));
+        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(productOrder));
+        deleteImageView.setPickOnBounds(true);
+        deleteImageView.setPreserveRatio(true);
+        deleteImageView.setImage(CLOSE);
+        anchorPane.getChildren().add(deleteImageView);
+
+        mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
+    }
+
+    // Event handlers
+    private void anchorPaneProductsInOrderOnAction(Product product) {
+        System.out.println("About order clicked");
+    }
+
+    private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label label, Label labelPrice, int price) {
+        int quantity = Integer.parseInt(label.getText());
+        if (quantity > 1) {
+            quantity--;
+            label.setText(Integer.toString(quantity));
+
+            int totalAmountForThisOrder = quantity * price;
+            labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
+
+            updateOrderTotalAmount(productOrder, totalAmountForThisOrder, false);
+        }
+    }
+
+    private void anchorPaneProductsInOrderAddQuantityOnAction(ProductOrder productOrder, Label label, Label labelPrice, int price) {
+        int quantity = Integer.parseInt(label.getText());
+        quantity++;
+        label.setText(Integer.toString(quantity));
+
+        int totalAmountForThisOrder = quantity * price;
+        labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
+
+        updateOrderTotalAmount(productOrder, totalAmountForThisOrder, true);
+    }
+
+    private void deleteProductInOrderOnAction(ProductOrder productOrder) {
+        System.out.println("Delete this product from orders clicked");
+        orderReference.getProductOrderObservableList().remove(productOrder);
+    }
+    private void updateOrderTotalAmount(ProductOrder productOrder, int price, boolean isAdd) {
+        if (isAdd) {
+            totalPrice += price;
+        } else {
+            totalPrice -= price;
+        }
+
+        mainController.labelMenuTotalPrice.setText("₱" + totalPrice + ".00");
+
+        productOrder.setTotalAmount(totalPrice);
     }
 
     private void clearSelectedProductReference() {

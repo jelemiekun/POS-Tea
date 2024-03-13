@@ -206,7 +206,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneCoolers" prefHeight="390.0" prefWidth="1000.0">
+            <AnchorPane fx:id="anchorPaneCoolers" prefHeight="390.0" prefWidth="1000.0" visible="false">
                <children>
                   <AnchorPane layoutX="29.0" layoutY="26.0" prefHeight="96.0" prefWidth="932.0">
                      <children>
@@ -614,7 +614,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="410.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0">
+      <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="410.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="96.0" stroke="BLACK" strokeType="INSIDE" width="237.0" />
             <AnchorPane fx:id="anchorPaneUploadPhoto" onMouseClicked="#anchorPaneUploadPhotoClicked" onTouchReleased="#anchorPaneUploadPhotoTouched" prefHeight="47.0" prefWidth="237.0">

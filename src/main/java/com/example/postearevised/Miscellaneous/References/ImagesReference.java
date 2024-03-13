@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 import java.util.Objects;
 
 public class ImagesReference {
+    public static final Image CLOSE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/close.png")));
     public static final Image NO_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
 
 

@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -18,6 +15,7 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import javax.imageio.stream.MemoryCacheImageOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -189,6 +187,21 @@ public class MainController implements Initializable {
      */
 
     @FXML
+    public TextField textFieldMenuCustomerName;
+    @FXML
+    public FlowPane flowPaneOrdersSelected;
+    @FXML
+    public Label labelNoOrdersSelected;
+    @FXML
+    public AnchorPane anchorPaneHideHalfRightPanel;
+    @FXML
+    public TextField textFieldMenuEnterAmount;
+    @FXML
+    public Label labelMenuTotalPrice;
+    @FXML
+    public Label labelCustomerNumber;
+
+    @FXML
     public Label labelMenuCategorySelected;
     @FXML
     public Label labelMenuCategoryResultCounter;
@@ -265,6 +278,46 @@ public class MainController implements Initializable {
     @FXML
     public void imageViewMenuAppetizersTouched(TouchEvent event) {
         menuModel.switchCategory(AppetizersEnum.getNumber());
+    }
+
+    @FXML
+    public void menuPaymentCashClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentCashTouched(TouchEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentGCashClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentGCashTouched(TouchEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentCancelClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentCancelTouched(TouchEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentPayClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    public void menuPaymentPayTouched(TouchEvent event) {
+
     }
 
 

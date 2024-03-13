@@ -22,5 +22,4 @@ public class GeneralReference {
     public static int deleteProductSelectedCounter = 0;
     public static boolean trueAddProductFalseDeleteProduct = false;
     public static Product editOrShowSelectedProduct;
-    public static Order orderReference;
 }
