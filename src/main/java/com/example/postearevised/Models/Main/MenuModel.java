@@ -299,10 +299,32 @@ public class MenuModel {
         mainController.labelNoOrdersSelected.setVisible(true);
         mainController.anchorPaneHideHalfRightPanel.setVisible(false);
     }
-    public void createAnchorPane(Product product) {
 
+    public void createAnchorPane(Product product) {
         ProductOrder productOrder = productOrderReference;
         final int productPrice = productOrder.getTotalAmount();
+
+        ProductOrder existingOrder = null;
+        for (ProductOrder order : referenceProductOrderObservableList) {
+            if (order.getProductName().equals(productOrder.getProductName()) &&
+                    order.getProductImage().equals(productOrder.getProductImage()) &&
+                    order.getFirstAttribute().equals(productOrder.getFirstAttribute()) &&
+                    order.getSecondAttribute().equals(productOrder.getSecondAttribute())) {
+                existingOrder = order;
+                break;
+            }
+        }
+
+
+        // If the product exists, increase its quantity
+        if (existingOrder != null) {
+            anchorPaneProductsInOrderAddQuantityOnAction(existingOrder, existingOrder.getLabelQuantity(), existingOrder.getLabelPrice(), productPrice);
+            updateTotalAmountOfProduct(existingOrder, existingOrder.getLabelPrice(), productPrice);
+            updateTotalAmountOfOrder();
+            return; // Exit the method since no new pane needs to be created
+        }
+
+        referenceProductOrderObservableList.add(productOrderReference);
 
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setLayoutX(10.0);
@@ -352,13 +374,15 @@ public class MenuModel {
 
         anchorPane.getChildren().add(innerAnchorPane);
 
-        Label label4 = new Label("₱" + ((int) productOrder.getTotalAmount()) + ".00");
+        Label label4 = productOrder.getLabelPrice();
+        label4.setText("₱" + ((int) productOrder.getTotalAmount()) + ".00");
         label4.setLayoutX(355.0);
         label4.setLayoutY(43.0);
         label4.setFont(new javafx.scene.text.Font("Arial", 18.0));
         anchorPane.getChildren().add(label4);
 
-        Label label5 = new Label(String.valueOf(productOrder.getQuantity()));
+        Label label5 = productOrder.getLabelQuantity();
+        label5.setText(String.valueOf(productOrder.getQuantity()));
         label5.setLayoutX(290.0);
         label5.setLayoutY(45.0);
         label5.setFont(new javafx.scene.text.Font("Arial", 19.0));
@@ -388,8 +412,8 @@ public class MenuModel {
         minusQuantityAnchorPane.setLayoutY(39.0);
         minusQuantityAnchorPane.setPrefWidth(22.0);
         minusQuantityAnchorPane.setPrefHeight(35.0);
-        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(product, productOrder, label5, label4, productPrice));
-        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(product, productOrder, label5, label4, productPrice));
+        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, productPrice));
+        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, productPrice));
 
         Label minusLabel = new Label("-");
         minusLabel.setLayoutX(5.0);
@@ -405,8 +429,8 @@ public class MenuModel {
         addQuantityAnchorPane.setLayoutY(38.0);
         addQuantityAnchorPane.setPrefWidth(22.0);
         addQuantityAnchorPane.setPrefHeight(35.0);
-        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(product, productOrder, label5, label4, productPrice));
-        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(product, productOrder, label5, label4, productPrice));
+        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, productPrice));
+        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, productPrice));
 
         Label addLabel = new Label("+");
         addLabel.setLayoutX(3.0);
@@ -434,7 +458,7 @@ public class MenuModel {
     }
 
     // Event handlers
-    private void anchorPaneProductsInOrderMinusQuantityOnAction(Product product, ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
+    private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
         if (productOrder.getQuantity() > 1) {
             int newQuantity = productOrder.getQuantity();
             newQuantity--;
@@ -448,7 +472,7 @@ public class MenuModel {
         }
     }
 
-    private void anchorPaneProductsInOrderAddQuantityOnAction(Product product, ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
+    private void anchorPaneProductsInOrderAddQuantityOnAction(ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
         int newQuantity = productOrder.getQuantity();
         newQuantity++;
 

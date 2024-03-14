@@ -435,17 +435,13 @@ public class ProductModel {
     }
 
     private void addOrder() {
-        if (orderReference == null) {
-            isProductOrderAdded = true;
-
-            referenceProductOrderObservableList.add(addProductToOrder());
-        } else {
-            referenceProductOrderObservableList.add(addProductToOrder());
-        }
+        isProductOrderAdded = orderReference == null;
+        addProductToOrder();
+        //referenceProductOrderObservableList.add(addProductToOrder());
     }
 
 
-    private ProductOrder addProductToOrder() {
+    private void addProductToOrder() {
         String orderTitle = editOrShowSelectedProduct.getProductName();
         Image orderImage = editOrShowSelectedProduct.getImage();
         String firstAttribute = "";
@@ -525,11 +521,7 @@ public class ProductModel {
                 break;
         }
 
-        ProductOrder productOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, (int) totalAmount, 1);
-
-        productOrderReference = productOrder;
-
-        return productOrder;
+        productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, (int) totalAmount, 1);
     }
 
     private void setAttributes() {
