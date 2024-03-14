@@ -324,7 +324,7 @@ public class MenuModel {
             return; // Exit the method since no new pane needs to be created
         }
 
-        referenceProductOrderObservableList.add(productOrderReference);
+        referenceProductOrderObservableList.add(productOrder);
 
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setLayoutX(10.0);
@@ -501,10 +501,10 @@ public class MenuModel {
 
     private void updateTotalAmountOfOrder() {
         referenceTotalPrice = 0;
-        System.out.println(referenceProductOrderObservableList.isEmpty());
+        System.out.println("Is reference product order empty? " + referenceProductOrderObservableList.isEmpty());
         for (ProductOrder productOrder : referenceProductOrderObservableList) {
-            System.out.println(productOrder.getProductName());
-            System.out.println(referenceTotalPrice);
+            System.out.println("Product name in order: " + productOrder.getProductName());
+            System.out.println("Total price reference: " + referenceTotalPrice);
             referenceTotalPrice += productOrder.getTotalAmount();
         }
 

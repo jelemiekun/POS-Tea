@@ -1,7 +1,10 @@
 module com.example.postearevised {
     requires javafx.controls;
+    requires javafx.graphics;
     requires javafx.fxml;
     requires java.desktop;
+    requires javafx.base;
+    requires javafx.swing;
 
 
     opens com.example.postearevised to javafx.fxml;

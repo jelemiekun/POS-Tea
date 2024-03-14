@@ -23,6 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -111,6 +112,8 @@ public class SettingsModel {
                 editProductsInitializeTable();
                 addCheckboxListeners();
                 editProductsCheckIfOrderIsOngoing();
+                populateComboBoxImportExport();
+                refreshProductTable();
 
                 mainController.anchorPaneSettingsAccount.setVisible(false);
                 mainController.anchorPaneSettingsDisplay.setVisible(false);
@@ -165,6 +168,23 @@ public class SettingsModel {
                 mainController.rectangleEditProducts.setStroke(null);
                 mainController.rectangleTAC.setStroke(null);
                 break;
+        }
+    }
+
+    private void populateComboBoxImportExport() {
+        mainController.importExportComboBox.getItems().clear();
+        mainController.importExportComboBox.getItems().addAll("Import CSV", "Export CSV");
+    }
+
+    public void comboBoxValueSelected() {
+        String selected = mainController.importExportComboBox.getValue();
+
+        if (selected.equals(Import.getImportOperation())) {
+            System.out.println("Import CSV");
+//            importProductsFromCSV();
+        } else if (selected.equals(Export.getImportOperation())){
+            System.out.println("Export CSV");
+//            exportProductsToCSV();
         }
     }
 

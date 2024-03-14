@@ -2,6 +2,7 @@ package com.example.postearevised.Controllers.Main;
 
 import com.example.postearevised.Models.Main.*;
 import com.example.postearevised.Objects.Product;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -439,6 +440,8 @@ public class MainController implements Initializable {
      */
     public boolean orderIsOngoing = false;
     @FXML
+    public ComboBox<String> importExportComboBox;
+    @FXML
     public Label labelSettingsEditProductsUnavailable;
     @FXML
     public Label labelAddDeleteProductBtn;
@@ -502,5 +505,10 @@ public class MainController implements Initializable {
     @FXML
     public void btnProductTableRefreshClicked(MouseEvent event) {
         settingsModel.refreshProductTable();
+    }
+
+    @FXML
+    void importExportOnAction(ActionEvent event) {
+        settingsModel.comboBoxValueSelected();
     }
 }
