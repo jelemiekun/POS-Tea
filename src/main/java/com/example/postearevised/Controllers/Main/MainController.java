@@ -1,6 +1,7 @@
 package com.example.postearevised.Controllers.Main;
 
 import com.example.postearevised.Models.Main.*;
+import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
@@ -18,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
@@ -359,6 +362,36 @@ public class MainController implements Initializable {
     public Label labelOrderQueueTotalOrder;
     @FXML
     public AnchorPane anchorPaneOrderListNoOrders;
+
+    /**
+     *  Order History
+     */
+
+    @FXML
+    public TextField textFieldOrderHistorySearch;
+    @FXML
+    public ComboBox<String> comboBoxOrderHistory;
+    @FXML
+    public TableView<Order> tableViewOrderHistory;
+    @FXML
+    public TableColumn<Order, String> tableViewOrderHistoryColCustomerName;
+    public TableColumn<Order, String> tableViewOrderHistoryColProductName;
+    public TableColumn<Order, Integer> tableViewOrderHistoryColQuantity;
+    public TableColumn<Order, Integer> tableViewOrderHistoryColPrice;
+    public TableColumn<Order, Integer> tableViewOrderHistoryColTotalPrice;
+    public TableColumn<Order, Integer> tableViewOrderHistoryColAmountPaid;
+    public TableColumn<Order, String> tableViewOrderHistoryColChange;
+    public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColModeOfPayment;
+
+    @FXML
+    void textFieldOrderHistorySearchTyping(KeyEvent event) {
+
+    }
+
+    @FXML
+    void comboBoxOrderHistoryOnAction(ActionEvent event) {
+
+    }
 
     /**
      * Settings

@@ -150,7 +150,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -520,7 +520,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
@@ -536,12 +536,12 @@
                               <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="171.0" layoutY="26.0">
+                        <TextField fx:id="textFieldOrderHistorySearch" layoutX="171.0" layoutY="26.0" onKeyTyped="#textFieldOrderHistorySearchTyping">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </TextField>
-                        <ComboBox layoutX="171.0" layoutY="93.0" prefHeight="51.0" prefWidth="298.0" />
+                        <ComboBox fx:id="comboBoxOrderHistory" layoutX="171.0" layoutY="93.0" onAction="#comboBoxOrderHistoryOnAction" prefHeight="51.0" prefWidth="298.0" />
                         <Label layoutX="22.0" layoutY="100.0" text="Sort Date">
                            <font>
                               <Font name="Arial" size="30.0" />
@@ -551,7 +551,22 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="174.0" prefHeight="876.0" prefWidth="1833.0" />
+            <AnchorPane layoutY="174.0" prefHeight="876.0" prefWidth="1833.0">
+               <children>
+                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" prefHeight="759.0" prefWidth="1739.0">
+                    <columns>
+                      <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="229.0" resizable="false" text="Customer Name" />
+                      <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="249.0" resizable="false" text="Product Name" />
+                        <TableColumn fx:id="tableViewOrderHistoryColQuantity" prefWidth="93.0" resizable="false" text="Quantity" />
+                        <TableColumn fx:id="tableViewOrderHistoryColPrice" prefWidth="138.0" resizable="false" text="Price" />
+                        <TableColumn fx:id="tableViewOrderHistoryColTotalPrice" prefWidth="205.0" resizable="false" text="Total Price" />
+                        <TableColumn fx:id="tableViewOrderHistoryColAmountPaid" prefWidth="198.0" resizable="false" text="Amount Paid" />
+                        <TableColumn fx:id="tableViewOrderHistoryColChange" prefWidth="136.0" resizable="false" text="Change" />
+                        <TableColumn fx:id="tableViewOrderHistoryColModeOfPayment" prefWidth="216.0" resizable="false" text="Mode of Payment" />
+                        <TableColumn prefWidth="273.0" text="Date and Time" />
+                    </columns>
+                  </TableView>
+               </children></AnchorPane>
          </children></AnchorPane>
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">

@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 
 public class Order {
     private final ObservableList<ProductOrder> productOrderObservableList;
-
     private final String customerName;
     private final int orderNumber;
     private final int totalPrice;
