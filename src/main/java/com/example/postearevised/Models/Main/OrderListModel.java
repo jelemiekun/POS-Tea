@@ -19,6 +19,7 @@ import java.time.format.DateTimeFormatter;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.ONE_SECOND;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.ORDER_QUEUE_DONE_BUTTON;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
 import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 
 public class OrderListModel {
@@ -129,7 +130,7 @@ public class OrderListModel {
 
     private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderNumberReference - 1));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
 
         mainController.anchorPaneOrderListNoOrders.setVisible(orderObservableList.isEmpty());
     }
