@@ -8,20 +8,30 @@ public class ProductOrder {
     private Image productImage;
     private String firstAttribute;
     private String secondAttribute;
+    private String thirdAttribute;
     private int totalAmount;
     private int quantity;
     private Label labelPrice;
     private Label labelQuantity;
 
-    public ProductOrder(String productName, Image productImage, String firstAttribute, String secondAttribute, int totalAmount, int quantity) {
+    public ProductOrder(String productName, Image productImage, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
         this.productName = productName;
         this.productImage = productImage;
         this.firstAttribute = firstAttribute;
         this.secondAttribute = secondAttribute;
+        this.thirdAttribute = thirdAttribute;
         this.totalAmount = totalAmount;
         this.quantity = quantity;
         this.labelPrice = new Label();
         this.labelQuantity = new Label();
+    }
+
+    public String getThirdAttribute() {
+        return thirdAttribute;
+    }
+
+    public void setThirdAttribute(String thirdAttribute) {
+        this.thirdAttribute = thirdAttribute;
     }
 
     public Label getLabelQuantity() {

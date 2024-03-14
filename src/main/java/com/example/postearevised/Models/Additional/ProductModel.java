@@ -446,19 +446,23 @@ public class ProductModel {
         Image orderImage = editOrShowSelectedProduct.getImage();
         String firstAttribute = "";
         String secondAttribute = "";
+        String thirdAttribute = "";
         double totalAmount = 0;
 
         RadioButton radioButton1;
         RadioButton radioButton2;
+        RadioButton radioButton3;
 
         switch(editOrShowSelectedProduct.getCategory()) {
             case "Milk Tea":
                 radioButton1 = (RadioButton) productController.milkTeaLiquidBaseToggleGroup.getSelectedToggle();
                 radioButton2 = (RadioButton) productController.milkTeaAddOnsToggleGroup.getSelectedToggle();
+                radioButton3 = (RadioButton) productController.milkTeaSizesToggleGroup.getSelectedToggle();
 
-                firstAttribute = radioButton1.getText();
+                firstAttribute = radioButton1.getText(); // liquid base or tea base
+                thirdAttribute = radioButton3.getText(); // sizes ng milk tea
 
-                if (radioButton2 != null)
+                if (radioButton2 != null) // add-ons
                     secondAttribute = radioButton2.getText();
 
                 if (productController.milkTeaRadioBtnSmall.isSelected()) {
@@ -482,10 +486,12 @@ public class ProductModel {
             case "Coolers":
                 radioButton1 = (RadioButton) productController.coolersLiquidBaseToggleGroup.getSelectedToggle();
                 radioButton2 = (RadioButton) productController.coolersAddOnsToggleGroup.getSelectedToggle();
+                radioButton3 = (RadioButton) productController.coolersSizesToggleGroup.getSelectedToggle();
 
-                firstAttribute = radioButton1.getText();
+                firstAttribute = radioButton1.getText(); // liquid base or tea base ng cooler
+                thirdAttribute = radioButton3.getText(); // sizes ng coolers
 
-                if (radioButton2 != null)
+                if (radioButton2 != null) // add-ons
                     secondAttribute = radioButton2.getText();
 
                 if (productController.coolersRadioBtnSmall.isSelected()) {
@@ -510,18 +516,23 @@ public class ProductModel {
                 radioButton1 = (RadioButton) productController.coffeeTemperatureToggleGroup.getSelectedToggle();
 
                 firstAttribute = radioButton1.getText();
+                secondAttribute = productController.coffeeLabelPrice.getText();
 
                 totalAmount += Integer.parseInt(productController.coffeeLabelPrice.getText());
                 break;
             case "Ice Candy Cups":
+                firstAttribute = productController.iceCandyCupsLabelPrice.getText();
+
                 totalAmount += Integer.parseInt(productController.iceCandyCupsLabelPrice.getText());
                 break;
             case "Appetizers":
+                firstAttribute = productController.appetizerLabelPrice.getText();
+
                 totalAmount += Integer.parseInt(productController.appetizerLabelPrice.getText());
                 break;
         }
 
-        productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, (int) totalAmount, 1);
+        productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
     }
 
     private void setAttributes() {

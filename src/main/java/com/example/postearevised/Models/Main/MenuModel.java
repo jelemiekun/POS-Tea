@@ -309,7 +309,8 @@ public class MenuModel {
             if (order.getProductName().equals(productOrder.getProductName()) &&
                     order.getProductImage().equals(productOrder.getProductImage()) &&
                     order.getFirstAttribute().equals(productOrder.getFirstAttribute()) &&
-                    order.getSecondAttribute().equals(productOrder.getSecondAttribute())) {
+                    order.getSecondAttribute().equals(productOrder.getSecondAttribute()) &&
+                    order.getThirdAttribute().equals(productOrder.getThirdAttribute())) {
                 existingOrder = order;
                 break;
             }
@@ -362,14 +363,19 @@ public class MenuModel {
         label1.setFont(new javafx.scene.text.Font("Arial", 24.0));
         innerAnchorPane.getChildren().add(label1);
 
+        Label label6 = new Label(productOrder.getThirdAttribute());
+        label6.setLayoutX(105.0);
+        label6.setLayoutY(30);
+        innerAnchorPane.getChildren().add(label6);
+
         Label label2 = new Label(productOrder.getFirstAttribute());
         label2.setLayoutX(105.0);
-        label2.setLayoutY(34.0);
+        label2.setLayoutY(47.0);
         innerAnchorPane.getChildren().add(label2);
 
         Label label3 = new Label(productOrder.getSecondAttribute());
         label3.setLayoutX(105.0);
-        label3.setLayoutY(51.0);
+        label3.setLayoutY(64.0);
         innerAnchorPane.getChildren().add(label3);
 
         anchorPane.getChildren().add(innerAnchorPane);
