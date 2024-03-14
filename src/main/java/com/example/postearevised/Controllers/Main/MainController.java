@@ -57,6 +57,7 @@ public class MainController implements Initializable {
 
         orderHistoryModel = new OrderHistoryModel();
         orderHistoryModel.setMainController(this);
+        orderHistoryModel.setOrderHistoryTable();
 
         dashboardModel = new DashboardModel();
         dashboardModel.setMainController(this);
@@ -375,13 +376,22 @@ public class MainController implements Initializable {
     public TableView<Order> tableViewOrderHistory;
     @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColCustomerName;
+    @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColProductName;
+    @FXML
     public TableColumn<Order, Integer> tableViewOrderHistoryColQuantity;
+    @FXML
     public TableColumn<Order, Integer> tableViewOrderHistoryColPrice;
+    @FXML
     public TableColumn<Order, Integer> tableViewOrderHistoryColTotalPrice;
+    @FXML
     public TableColumn<Order, Integer> tableViewOrderHistoryColAmountPaid;
-    public TableColumn<Order, String> tableViewOrderHistoryColChange;
-    public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColModeOfPayment;
+    @FXML
+    public TableColumn<Order, Integer> tableViewOrderHistoryColChange;
+    @FXML
+    public TableColumn<Order, String> tableViewOrderHistoryColModeOfPayment;
+    @FXML
+    public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColDateAndTime;
 
     @FXML
     void textFieldOrderHistorySearchTyping(KeyEvent event) {

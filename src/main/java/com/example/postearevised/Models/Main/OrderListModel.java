@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Miscellaneous.References.OrderQueueReference;
 import com.example.postearevised.Objects.Order;
 import javafx.application.Platform;
 import javafx.scene.Cursor;
@@ -20,7 +21,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.ORDER_QUEUE_DONE_BUTTON;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
-import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class OrderListModel {
     private MainController mainController;
@@ -108,8 +109,8 @@ public class OrderListModel {
         imageView.setFitWidth(167);
         imageView.setFitHeight(55);
         imageView.setPreserveRatio(true);
-        imageView.setOnMouseClicked(event -> orderDoneClickedTouched());
-        imageView.setOnTouchReleased(event -> orderDoneClickedTouched());
+        imageView.setOnMouseClicked(event -> orderDoneClickedTouched(order, anchorPane));
+        imageView.setOnTouchReleased(event -> orderDoneClickedTouched(order, anchorPane));
         imageView.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(imageView, 431.0);
         AnchorPane.setLeftAnchor(imageView, 95.0);
@@ -124,14 +125,31 @@ public class OrderListModel {
         System.out.println("Inner AnchorPane clicked");
     }
 
-    private void orderDoneClickedTouched() {
-        System.out.println("ImageView clicked");
+    private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        orderDoneGetDateAndTime(order);
+        addOrderToOrderHistory(order);
+        removeOrderToOrderQueue(order, anchorPaneToDelete);
+
+        System.out.println("Done clicked");
+    }
+
+    private void orderDoneGetDateAndTime(Order order) {
+        order.setDateAndTime(LocalDateTime.now());
+    }
+
+    private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {
+        orderQueueObservableList.remove(order);
+        mainController.flowPaneOrderQueue.getChildren().remove(anchorPaneToDelete);
+    }
+
+    private void addOrderToOrderHistory(Order order) {
+        orderHistoryObservableList.add(order);
     }
 
     private void updateOrderQueueLabelsAndPane() {
-        mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderObservableList.size()));
+        mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
         mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
 
-        mainController.anchorPaneOrderListNoOrders.setVisible(orderObservableList.isEmpty());
+        mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
     }
 }

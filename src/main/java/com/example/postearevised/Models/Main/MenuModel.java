@@ -27,7 +27,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -646,7 +646,7 @@ public class MenuModel {
     private void addToOrderQueue() {
         Order order = new Order(referenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
                                 referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
-        orderObservableList.add(order);
+        orderQueueObservableList.add(order);
 
         setOrderReference(order);
         invokeOrderListStartsHereMethod();

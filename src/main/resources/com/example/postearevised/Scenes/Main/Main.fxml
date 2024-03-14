@@ -150,7 +150,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -212,7 +212,7 @@
                         <Font name="Arial" size="30.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="40.0" layoutY="657.0" prefHeight="301.0" prefWidth="470.0" visible="false">
+                  <AnchorPane layoutX="40.0" layoutY="657.0" prefHeight="301.0" prefWidth="470.0">
                      <children>
                         <Label layoutX="41.0" layoutY="-4.0" text="Total">
                            <font>
@@ -224,7 +224,7 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0">
+                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0" visible="false">
                            <children>
                               <Label layoutX="41.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
@@ -520,7 +520,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
@@ -563,7 +563,7 @@
                         <TableColumn fx:id="tableViewOrderHistoryColAmountPaid" prefWidth="198.0" resizable="false" text="Amount Paid" />
                         <TableColumn fx:id="tableViewOrderHistoryColChange" prefWidth="136.0" resizable="false" text="Change" />
                         <TableColumn fx:id="tableViewOrderHistoryColModeOfPayment" prefWidth="216.0" resizable="false" text="Mode of Payment" />
-                        <TableColumn prefWidth="273.0" text="Date and Time" />
+                        <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="273.0" text="Date and Time" />
                     </columns>
                   </TableView>
                </children></AnchorPane>
