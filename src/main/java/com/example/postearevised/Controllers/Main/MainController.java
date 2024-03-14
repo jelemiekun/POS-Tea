@@ -437,6 +437,9 @@ public class MainController implements Initializable {
     /**
      * Settings - Products
      */
+    public boolean orderIsOngoing = false;
+    @FXML
+    public Label labelSettingsEditProductsUnavailable;
     @FXML
     public Label labelAddDeleteProductBtn;
     @FXML
@@ -460,29 +463,34 @@ public class MainController implements Initializable {
     public void settingsAddDeleteProductClicked() throws IOException{
         if (!trueAddProductFalseDeleteProduct)
             settingsModel.openAddProductsFXML();
-        else
-            settingsModel.deleteSelectedProductsProcess();
+        else {
+            if (!orderIsOngoing)
+                settingsModel.deleteSelectedProductsProcess();
+        }
     }
-
     @FXML
     public void settingsAddDeleteProductTouched() throws IOException {
         if (!trueAddProductFalseDeleteProduct)
             settingsModel.openAddProductsFXML();
-        else
-            settingsModel.deleteSelectedProductsProcess();
+        else {
+            if (!orderIsOngoing)
+                settingsModel.deleteSelectedProductsProcess();
+        }
     }
 
     @FXML
     public void tableProductsClicked(MouseEvent event) throws IOException {
         if (event.getClickCount() == 2) {
-            settingsModel.editAProduct();
+            if (!orderIsOngoing)
+                settingsModel.editAProduct();
         }
     }
 
     @FXML
     public void tableProductsTouched(TouchEvent event) throws IOException {
         if (event.getTouchCount() == 2) {
-            settingsModel.editAProduct();
+            if (!orderIsOngoing)
+                settingsModel.editAProduct();
         }
     }
 

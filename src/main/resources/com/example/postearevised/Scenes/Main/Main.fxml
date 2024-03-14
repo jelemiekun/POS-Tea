@@ -149,7 +149,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -166,7 +166,7 @@
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="36.0" prefHeight="31.0" prefWidth="168.0" text="0000">
+                        <Label fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="36.0" prefHeight="31.0" prefWidth="168.0" text="1">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
@@ -458,7 +458,7 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -477,7 +477,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -491,7 +491,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -540,8 +540,13 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
+                        <Label fx:id="labelSettingsEditProductsUnavailable" layoutX="193.0" layoutY="111.0" text="Product editing is currently unavailable due to ongoing orders in the menu." textFill="#ff3333" visible="false">
+                           <font>
+                              <Font name="Arial" size="28.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>

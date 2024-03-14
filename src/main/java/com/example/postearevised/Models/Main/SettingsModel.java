@@ -26,6 +26,7 @@ import java.util.List;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.referenceProductOrderObservableList;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.referenceImagePath;
 
@@ -109,6 +110,7 @@ public class SettingsModel {
             case 3: // Edit Products
                 editProductsInitializeTable();
                 addCheckboxListeners();
+                editProductsCheckIfOrderIsOngoing();
 
                 mainController.anchorPaneSettingsAccount.setVisible(false);
                 mainController.anchorPaneSettingsDisplay.setVisible(false);
@@ -169,6 +171,15 @@ public class SettingsModel {
     /**
      * Add Products
      */
+
+    private void editProductsCheckIfOrderIsOngoing() {
+        mainController.orderIsOngoing = !referenceProductOrderObservableList.isEmpty();
+        cantEditProductsLabelVisibility();
+    }
+
+    private void cantEditProductsLabelVisibility() {
+        mainController.labelSettingsEditProductsUnavailable.setVisible(mainController.orderIsOngoing);
+    }
 
     private void editProductsInitializeTable() {
         mainController.tableProductsColImage.setCellValueFactory(new PropertyValueFactory<>("imageViewSmall"));

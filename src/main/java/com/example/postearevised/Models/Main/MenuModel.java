@@ -26,7 +26,7 @@ import java.io.IOException;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class MenuModel {
@@ -285,6 +285,8 @@ public class MenuModel {
         if (isProductOrderAdded) {
             setPanesAfterAddingOrder();
             createAnchorPane(product);
+
+            isProductOrderAdded = false;
         }
     }
 
@@ -292,7 +294,13 @@ public class MenuModel {
         mainController.labelNoOrdersSelected.setVisible(false);
         mainController.anchorPaneHideHalfRightPanel.setVisible(true);
     }
+
+    private void noOrderSelected() {
+        mainController.labelNoOrdersSelected.setVisible(true);
+        mainController.anchorPaneHideHalfRightPanel.setVisible(false);
+    }
     public void createAnchorPane(Product product) {
+
         ProductOrder productOrder = productOrderReference;
         final int productPrice = productOrder.getTotalAmount();
 
@@ -413,8 +421,8 @@ public class MenuModel {
         deleteImageView.setLayoutY(44.0);
         deleteImageView.setFitWidth(25.0);
         deleteImageView.setFitHeight(25.0);
-        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction());
-        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction());
+        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
+        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
         deleteImageView.setPickOnBounds(true);
         deleteImageView.setPreserveRatio(true);
         deleteImageView.setImage(CLOSE);
@@ -451,8 +459,14 @@ public class MenuModel {
         updateTotalAmountOfOrder();
     }
 
-    private void deleteProductInOrderOnAction() {
+    private void deleteProductInOrderOnAction(AnchorPane anchorPaneToDelete, ProductOrder productOrder) {
+        referenceProductOrderObservableList.remove(productOrder);
+        mainController.flowPaneOrdersSelected.getChildren().remove(anchorPaneToDelete);
 
+        if (referenceProductOrderObservableList.isEmpty())
+            noOrderSelected();
+
+        updateTotalAmountOfOrder();
     }
     private void updateTotalAmountOfProduct(ProductOrder productOrder, Label label, int price) {
         int totalAmount = productOrder.getQuantity() * price;
@@ -462,15 +476,15 @@ public class MenuModel {
     }
 
     private void updateTotalAmountOfOrder() {
-        int totalAmount = 0;
+        referenceTotalPrice = 0;
         System.out.println(referenceProductOrderObservableList.isEmpty());
         for (ProductOrder productOrder : referenceProductOrderObservableList) {
             System.out.println(productOrder.getProductName());
-            System.out.println(totalAmount);
-            totalAmount += productOrder.getTotalAmount();
+            System.out.println(referenceTotalPrice);
+            referenceTotalPrice += productOrder.getTotalAmount();
         }
 
-        mainController.labelMenuTotalPrice.setText("₱" + totalAmount + ".00");
+        mainController.labelMenuTotalPrice.setText("₱" + referenceTotalPrice + ".00");
     }
 
     private void clearSelectedProductReference() {

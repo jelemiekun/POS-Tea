@@ -3,7 +3,6 @@ package com.example.postearevised.Models.Additional;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.*;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -22,7 +21,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 
 public class ProductModel {
     private ProductController productController;
