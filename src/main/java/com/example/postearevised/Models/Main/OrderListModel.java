@@ -2,12 +2,10 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order;
-import com.example.postearevised.Objects.Product;
 import javafx.application.Platform;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -19,6 +17,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.ONE_SECOND;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.ORDER_QUEUE_DONE_BUTTON;
 import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 
@@ -62,7 +61,7 @@ public class OrderListModel {
 
     public void orderListOperationStartsHere() {
         addOrderToList(orderReference);
-        updateOrderQueueLabels();
+        updateOrderQueueLabelsAndPane();
     }
 
     private void addOrderToList(Order order) {
@@ -79,6 +78,7 @@ public class OrderListModel {
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(5);
         dropShadow.setOffsetY(5);
+        dropShadow.setColor(dropShadowColor);
         anchorPane.setEffect(dropShadow);
 
         // Create Labels
@@ -95,8 +95,8 @@ public class OrderListModel {
         // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
         innerAnchorPane.setPrefSize(297, 321);
-        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched());
-        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched());
+        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order));
+        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order));
         innerAnchorPane.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(innerAnchorPane, 99.0);
         AnchorPane.setLeftAnchor(innerAnchorPane, 28.0);
@@ -119,7 +119,7 @@ public class OrderListModel {
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
     }
 
-    private void orderContentClickedTouched() {
+    private void orderContentClickedTouched(Order order) {
         System.out.println("Inner AnchorPane clicked");
     }
 
@@ -127,8 +127,10 @@ public class OrderListModel {
         System.out.println("ImageView clicked");
     }
 
-    private void updateOrderQueueLabels() {
+    private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderObservableList.size()));
         mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderNumberReference - 1));
+
+        mainController.anchorPaneOrderListNoOrders.setVisible(orderObservableList.isEmpty());
     }
 }

@@ -150,7 +150,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -456,7 +456,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="115.0" prefWidth="1833.0">
                <children>
@@ -498,6 +498,30 @@
                         <FlowPane fx:id="flowPaneOrderQueue" hgap="85.0" prefHeight="811.0" prefWidth="1655.0" />
                      </content>
                   </ScrollPane>
+                  <AnchorPane fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" layoutY="26.0" prefHeight="815.0" prefWidth="1676.0">
+                     <children>
+                        <AnchorPane fx:id="anchorPaneOrderQueueAddOrder1" prefHeight="500.0" prefWidth="350.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                              <AnchorPane layoutX="28.0" layoutY="99.0" prefHeight="321.0" prefWidth="297.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <children>
+                                    <Label alignment="CENTER" layoutX="42.0" layoutY="43.0" text="NO&#10;ORDERS" textAlignment="CENTER">
+                                       <font>
+                                          <Font name="Arial" size="50.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children></AnchorPane>

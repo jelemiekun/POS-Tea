@@ -357,6 +357,8 @@ public class MainController implements Initializable {
     public Label labelOrderQueueOrderInQueue;
     @FXML
     public Label labelOrderQueueTotalOrder;
+    @FXML
+    public AnchorPane anchorPaneOrderListNoOrders;
 
     /**
      * Settings
