@@ -22,6 +22,7 @@ import static com.example.postearevised.Miscellaneous.References.ImagesReference
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 
 public class ProductModel {
     private ProductController productController;

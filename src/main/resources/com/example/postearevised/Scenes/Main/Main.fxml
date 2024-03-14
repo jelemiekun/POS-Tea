@@ -150,7 +150,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -224,7 +224,7 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0" visible="false">
+                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0">
                            <children>
                               <Label layoutX="41.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
@@ -243,7 +243,7 @@
                               </TextField>
                               <AnchorPane layoutX="14.0" layoutY="109.0" onMouseClicked="#menuPaymentCashClicked" onTouchReleased="#menuPaymentCashTouched">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageCash" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Buttons/Payments/cash.png" />
                                        </image>
@@ -251,7 +251,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </ImageView>
-                                    <Label layoutX="34.0" layoutY="17.0" text="Cash">
+                                    <Label fx:id="labelCash" layoutX="34.0" layoutY="17.0" text="Cash">
                                        <font>
                                           <Font name="Arial" size="28.0" />
                                        </font>
@@ -266,7 +266,7 @@
                               </AnchorPane>
                               <AnchorPane layoutX="256.0" layoutY="109.0" onMouseClicked="#menuPaymentGCashClicked" onTouchReleased="#menuPaymentGCashTouched">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="imageGCash" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Buttons/Payments/gcash.png" />
                                        </image>
@@ -274,7 +274,7 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </ImageView>
-                                    <Label layoutX="30.0" layoutY="17.0" text="GCash">
+                                    <Label fx:id="labelGCash" layoutX="30.0" layoutY="17.0" text="GCash">
                                        <font>
                                           <Font name="Arial" size="28.0" />
                                        </font>
@@ -459,7 +459,7 @@
       <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>

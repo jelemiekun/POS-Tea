@@ -16,7 +16,6 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-import javax.imageio.stream.MemoryCacheImageOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -186,7 +185,14 @@ public class MainController implements Initializable {
     /**
      * Menu
      */
-
+    @FXML
+    public ImageView imageCash;
+    @FXML
+    public ImageView imageGCash;
+    @FXML
+    public Label labelCash;
+    @FXML
+    public Label labelGCash;
     @FXML
     public TextField textFieldMenuCustomerName;
     @FXML
@@ -283,42 +289,42 @@ public class MainController implements Initializable {
 
     @FXML
     public void menuPaymentCashClicked(MouseEvent event) {
-
+        menuModel.updateModeOfPayment(true);
     }
 
     @FXML
     public void menuPaymentCashTouched(TouchEvent event) {
-
+        menuModel.updateModeOfPayment(true);
     }
 
     @FXML
     public void menuPaymentGCashClicked(MouseEvent event) {
-
+        menuModel.updateModeOfPayment(false);
     }
 
     @FXML
     public void menuPaymentGCashTouched(TouchEvent event) {
-
+        menuModel.updateModeOfPayment(false);
     }
 
     @FXML
     public void menuPaymentCancelClicked(MouseEvent event) {
-
+        menuModel.orderCancelledOrAddedToQueue();
     }
 
     @FXML
     public void menuPaymentCancelTouched(TouchEvent event) {
-
+        menuModel.orderCancelledOrAddedToQueue();
     }
 
     @FXML
     public void menuPaymentPayClicked(MouseEvent event) {
-
+        menuModel.payClicked();
     }
 
     @FXML
     public void menuPaymentPayTouched(TouchEvent event) {
-
+        menuModel.payClicked();
     }
 
 

@@ -9,6 +9,12 @@ public class ImagesReference {
     public static final Image NO_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
 
 
+    public static final Image CASH = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/cash.png")));
+    public static final Image CASH_SELECTED = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/cash selected.png")));
+    public static final Image GCASH = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/gcash.png")));
+    public static final Image GCASH_SELECTED = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/gcash selected.png")));
+
+
     public static final Image SYSTEM_LOGO = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/logo.png")));
 
 

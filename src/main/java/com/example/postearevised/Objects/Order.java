@@ -6,20 +6,25 @@ import javafx.collections.ObservableList;
 import java.time.LocalDateTime;
 
 public class Order {
-    private ObservableList<ProductOrder> productOrderObservableList;
+    private final ObservableList<ProductOrder> productOrderObservableList;
 
-    private String customerName;
-    private int orderNumber;
-    private ObservableList<Integer> productQuantity;
-    private double totalPrice;
-    private double amountPaid;
-    private double change;
-    private String modeOfPayment;
+    private final String customerName;
+    private final int orderNumber;
+    private final int totalPrice;
+    private final int amountPaid;
+    private final int change;
+    private final String modeOfPayment;
     private LocalDateTime dateAndTime;
 
-    public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber, ObservableList<Integer> productQuantity,
-                 double totalPrice, double amountPaid, double change, String modeOfPayment) {
-
+    public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
+                 int totalPrice, int amountPaid, int change, String modeOfPayment) {
+        this.productOrderObservableList = productOrderObservableList;
+        this.customerName = customerName;
+        this.orderNumber = orderNumber;
+        this.totalPrice = totalPrice;
+        this.amountPaid = amountPaid;
+        this.change = change;
+        this.modeOfPayment = modeOfPayment;
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {
@@ -30,52 +35,24 @@ public class Order {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
     public int getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(int orderNumber) {
-        this.orderNumber = orderNumber;
-    }
-
-    public ObservableList<Integer> getProductQuantity() {
-        return productQuantity;
-    }
-
-    public double getTotalPrice() {
+    public int getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public double getAmountPaid() {
+    public int getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(double amountPaid) {
-        this.amountPaid = amountPaid;
-    }
-
-    public double getChange() {
+    public int getChange() {
         return change;
-    }
-
-    public void setChange(double change) {
-        this.change = change;
     }
 
     public String getModeOfPayment() {
         return modeOfPayment;
-    }
-
-    public void setModeOfPayment(String modeOfPayment) {
-        this.modeOfPayment = modeOfPayment;
     }
 
     public LocalDateTime getDateAndTime() {

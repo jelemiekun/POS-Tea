@@ -23,11 +23,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.Cash;
+import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.GCash;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_DIGITS_ONLY;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_ENGLISH_ALPHABET_ONLY;
 
 public class MenuModel {
     private MainController mainController;
@@ -284,6 +288,7 @@ public class MenuModel {
     private void checkIfAddingProductToOrderSuccess(Product product) {
         if (isProductOrderAdded) {
             setPanesAfterAddingOrder();
+            setTextFieldListeners();
             createAnchorPane(product);
 
             isProductOrderAdded = false;
@@ -293,11 +298,31 @@ public class MenuModel {
     private void setPanesAfterAddingOrder() {
         mainController.labelNoOrdersSelected.setVisible(false);
         mainController.anchorPaneHideHalfRightPanel.setVisible(true);
+
+        mainController.imageGCash.setImage(GCASH);
+        mainController.labelGCash.setTextFill(Color.BLACK);
+        mainController.imageCash.setImage(CASH);
+        mainController.labelCash.setTextFill(Color.BLACK);
+    }
+
+    private void setTextFieldListeners() {
+        mainController.textFieldMenuCustomerName.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                mainController.textFieldMenuCustomerName.setText(oldValue);
+            }
+        }));
+
+        mainController.textFieldMenuEnterAmount.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+                mainController.textFieldMenuEnterAmount.setText(oldValue);
+            }
+        }));
     }
 
     private void noOrderSelected() {
         mainController.labelNoOrdersSelected.setVisible(true);
         mainController.anchorPaneHideHalfRightPanel.setVisible(false);
+        mainController.flowPaneOrdersSelected.getChildren().clear();
     }
 
     public void createAnchorPane(Product product) {
@@ -520,4 +545,93 @@ public class MenuModel {
     private void clearSelectedProductReference() {
         editOrShowSelectedProduct = null;
     }
+
+    public void updateModeOfPayment(boolean isCash) {
+        if (isCash)
+            cashSelected();
+        else
+            gCashSelected();
+    }
+
+    private void cashSelected() {
+        mainController.imageCash.setImage(CASH_SELECTED);
+        mainController.labelCash.setTextFill(Color.WHITE);
+        referenceModeOfPayment = Cash.getModeOfPayment();
+
+        mainController.imageGCash.setImage(GCASH);
+        mainController.labelGCash.setTextFill(Color.BLACK);
+    }
+
+    private void gCashSelected() {
+        mainController.imageGCash.setImage(GCASH_SELECTED);
+        mainController.labelGCash.setTextFill(Color.WHITE);
+        referenceModeOfPayment = GCash.getModeOfPayment();
+
+        mainController.imageCash.setImage(CASH);
+        mainController.labelCash.setTextFill(Color.BLACK);
+    }
+
+    public void orderCancelledOrAddedToQueue() {
+        clearProductOrderReferences();
+        noOrderSelected();
+        updateTotalAmountOfOrder();
+    }
+
+    public void payClicked() {
+        boolean proceed = checkCustomerName() && checkAmountPaid() && checkModeOfPayment();
+
+        if (proceed) {
+            addToOrderQueue();
+            orderCancelledOrAddedToQueue();
+        }
+    }
+
+    private boolean checkCustomerName() {
+        if (!referenceCustomerName.isBlank()) {
+            return true;
+        } else {
+            // blank yung name, anong prompt/error
+            return false;
+        }
+    }
+
+    private boolean checkAmountPaid() {
+        if (!mainController.textFieldMenuEnterAmount.getText().isBlank()) {
+            referenceAmountPaid = (int) Double.parseDouble(mainController.textFieldMenuEnterAmount.getText());
+
+            if (referenceAmountPaid > referenceTotalPrice) {
+                return true;
+            } else {
+                // insufficient amount, anong prompt/error
+            }
+        } else {
+            // blank yung amount, anong prompt/error
+        }
+        return false;
+    }
+
+    private boolean checkModeOfPayment() {
+        if (!referenceModeOfPayment.isBlank()) {
+            return true;
+        } else {
+            // blank yung payment, anong prompt/error
+            return false;
+        }
+    }
+
+    private void addToOrderQueue() {
+        Order order = new Order(referenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
+                                referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
+    }
+
+//    orderReference = null;
+//    productOrderReference = null;
+//    isProductOrderAdded = false;
+//        referenceProductOrderObservableList.clear();
+//    referenceCustomerName = "";
+//    referenceTotalPrice = 0;
+//    referenceAmountPaid = 0;
+//    referenceChange = 0;
+//    referenceModeOfPayment = "";
+//    referenceDateAndTime = null;
 }
