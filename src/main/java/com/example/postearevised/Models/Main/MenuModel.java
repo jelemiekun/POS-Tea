@@ -23,15 +23,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.Cash;
-import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.GCash;
+import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
-import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_DIGITS_ONLY;
-import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_ENGLISH_ALPHABET_ONLY;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class MenuModel {
     private MainController mainController;
@@ -575,21 +574,43 @@ public class MenuModel {
         clearProductOrderReferences();
         noOrderSelected();
         updateTotalAmountOfOrder();
+        clearFields();
+    }
+
+    private void clearFields() {
+        mainController.anchorPaneMenu.requestFocus();
+        mainController.textFieldMenuCustomerName.setText("");
+        mainController.textFieldMenuEnterAmount.setText("");
     }
 
     public void payClicked() {
         boolean proceed = checkCustomerName() && checkAmountPaid() && checkModeOfPayment();
 
         if (proceed) {
+            setAttributes();
             addToOrderQueue();
             orderCancelledOrAddedToQueue();
+            clearFields();
+            incrementCustomerNumber();
         }
     }
 
+    private void incrementCustomerNumber() {
+        orderNumberReference++;
+        mainController.labelCustomerNumber.setText(String.valueOf(orderNumberReference));
+    }
+
+    private void setAttributes() {
+        referenceOrderNumber = orderNumberReference;
+    }
+
     private boolean checkCustomerName() {
+        referenceCustomerName = mainController.textFieldMenuCustomerName.getText();
+
         if (!referenceCustomerName.isBlank()) {
             return true;
         } else {
+            System.out.println("Blank name");
             // blank yung name, anong prompt/error
             return false;
         }
@@ -599,12 +620,14 @@ public class MenuModel {
         if (!mainController.textFieldMenuEnterAmount.getText().isBlank()) {
             referenceAmountPaid = (int) Double.parseDouble(mainController.textFieldMenuEnterAmount.getText());
 
-            if (referenceAmountPaid > referenceTotalPrice) {
+            if (referenceAmountPaid >= referenceTotalPrice) {
                 return true;
             } else {
+                System.out.println("Insufficient amount");
                 // insufficient amount, anong prompt/error
             }
         } else {
+            System.out.println("Blank amount");
             // blank yung amount, anong prompt/error
         }
         return false;
@@ -614,6 +637,7 @@ public class MenuModel {
         if (!referenceModeOfPayment.isBlank()) {
             return true;
         } else {
+            System.out.println("No payment selected");
             // blank yung payment, anong prompt/error
             return false;
         }
@@ -622,6 +646,12 @@ public class MenuModel {
     private void addToOrderQueue() {
         Order order = new Order(referenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
                                 referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
+        orderObservableList.add(order);
+        orderReference = order;
+
+        //invoke ng method tapos ipasa yung order
+        //or after mainvoke yung method na may parameter order doon, i clear na rin doon yung order reference
+        orderReference = null;
     }
 
 //    orderReference = null;

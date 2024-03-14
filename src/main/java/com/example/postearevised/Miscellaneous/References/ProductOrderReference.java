@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 public class ProductOrderReference {
     public static ProductOrder productOrderReference;
-    public static boolean isProductOrderAdded = false;
+    public static boolean isProductOrderAdded = true;
 
 
     public static ObservableList<ProductOrder> referenceProductOrderObservableList = FXCollections.observableArrayList();

@@ -436,7 +436,7 @@ public class ProductModel {
     }
 
     private void addOrder() {
-        isProductOrderAdded = orderReference == null;
+        isProductOrderAdded = orderReference == null; // HINDI KO ALAM PARA SAAN TO PERO WAG TANGGALIN
         addProductToOrder();
         //referenceProductOrderObservableList.add(addProductToOrder());
     }

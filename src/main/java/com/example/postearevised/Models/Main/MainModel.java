@@ -62,6 +62,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+                mainController.anchorPaneMenu.requestFocus();
 
                 mainController.mainMenuIcon.setImage(mainMenuSelectedIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);

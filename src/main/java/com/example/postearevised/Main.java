@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.References.DateAndTime.createAndStartDaemonThreadForDateAndTime;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.loginRegisterStage;
@@ -15,6 +16,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
+        createAndStartDaemonThreadForDateAndTime();
         String URL = Login.getURL();
         String TITLE = Login.getTITLE();
 
