@@ -456,9 +456,53 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" />
-      <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
+      <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+         <children>
+            <AnchorPane prefHeight="115.0" prefWidth="1833.0">
+               <children>
+                  <Label fx:id="labelOrderQueueDateAndTIme" layoutX="77.0" layoutY="37.0" prefHeight="41.0" prefWidth="848.0" text="Label">
+                     <font>
+                        <Font name="Arial" size="35.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane layoutX="1479.0" prefHeight="115.0" prefWidth="354.0">
+                     <children>
+                        <Label layoutY="17.0" prefHeight="41.0" prefWidth="268.0" text="Order in Queue:">
+                           <font>
+                              <Font name="Arial" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelOrderQueueOrderInQueue" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="17.0" prefHeight="41.0" prefWidth="66.0" text="0">
+                           <font>
+                              <Font name="Arial" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="62.0" layoutY="60.0" prefHeight="41.0" prefWidth="190.0" text="Total Order:">
+                           <font>
+                              <Font name="Arial" size="35.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelOrderQueueTotalOrder" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="60.0" prefHeight="41.0" prefWidth="66.0" text="0">
+                           <font>
+                              <Font name="Arial" size="35.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="115.0" prefHeight="935.0" prefWidth="1833.0">
+               <children>
+                  <ScrollPane layoutX="79.0" layoutY="26.0" prefHeight="815.0" prefWidth="1676.0">
+                     <content>
+                        <FlowPane fx:id="flowPaneOrderQueue" hgap="85.0" prefHeight="811.0" prefWidth="1655.0" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
       <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" layoutY="80.0" prefHeight="970.0" prefWidth="1833.0" visible="false" />
+      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false" />
       <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">

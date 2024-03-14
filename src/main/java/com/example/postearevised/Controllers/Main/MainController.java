@@ -48,14 +48,15 @@ public class MainController implements Initializable {
         menuModel.setMainController(this);
         menuModel.setDropShadow();
 
-        dashboardModel = new DashboardModel();
-        dashboardModel.setMainController(this);
-
         orderListModel = new OrderListModel();
         orderListModel.setMainController(this);
+        orderListModel.createAndStartDaemonThreadForDateAndTime();
 
         orderHistoryModel = new OrderHistoryModel();
         orderHistoryModel.setMainController(this);
+
+        dashboardModel = new DashboardModel();
+        dashboardModel.setMainController(this);
 
         settingsModel = new SettingsModel();
         settingsModel.setMainController(this);
@@ -343,6 +344,19 @@ public class MainController implements Initializable {
         mainModel.openSelectedPane(Settings.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
+
+    /**
+     * Order queue
+     */
+
+    @FXML
+    public FlowPane flowPaneOrderQueue;
+    @FXML
+    public Label labelOrderQueueDateAndTIme;
+    @FXML
+    public Label labelOrderQueueOrderInQueue;
+    @FXML
+    public Label labelOrderQueueTotalOrder;
 
     /**
      * Settings

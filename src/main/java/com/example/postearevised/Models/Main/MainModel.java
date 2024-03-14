@@ -55,7 +55,7 @@ public class MainModel {
         boolean logout = false;
 
         switch (selectedPane) {
-            case 1:
+            case 1: // Menu
                 mainStage.setTitle(Menu.getName());
                 mainController.anchorPaneMenu.setVisible(true);
                 mainController.anchorPaneDashboard.setVisible(false);
@@ -72,7 +72,7 @@ public class MainModel {
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 mainController.menuModel.checkIfIsMenuEmpty();
                 break;
-            case 2:
+            case 2: // Dashboard
                 mainStage.setTitle(Dashboard.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(true);
@@ -87,7 +87,7 @@ public class MainModel {
                 mainController.mainSettingsIcon.setImage(mainSettingsIcon);
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
-            case 3:
+            case 3: // Order List
                 mainStage.setTitle(OrderList.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
@@ -102,7 +102,7 @@ public class MainModel {
                 mainController.mainSettingsIcon.setImage(mainSettingsIcon);
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
-            case 4:
+            case 4: // Order History
                 mainStage.setTitle(OrderHistory.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
@@ -117,7 +117,7 @@ public class MainModel {
                 mainController.mainSettingsIcon.setImage(mainSettingsIcon);
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
-            case 5:
+            case 5: // Settings
                 mainStage.setTitle(Settings.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);

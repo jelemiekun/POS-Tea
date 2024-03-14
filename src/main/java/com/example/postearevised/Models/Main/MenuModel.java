@@ -647,10 +647,21 @@ public class MenuModel {
         Order order = new Order(referenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
                                 referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
         orderObservableList.add(order);
-        orderReference = order;
 
-        //invoke ng method tapos ipasa yung order
-        //or after mainvoke yung method na may parameter order doon, i clear na rin doon yung order reference
+        setOrderReference(order);
+        invokeOrderListStartsHereMethod();
+        clearOrderReference();
+    }
+
+    private void setOrderReference(Order order) {
+        orderReference = order;
+    }
+
+    private void invokeOrderListStartsHereMethod() {
+        mainController.orderListModel.orderListOperationStartsHere();
+    }
+
+    private void clearOrderReference() {
         orderReference = null;
     }
 
