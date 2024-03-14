@@ -282,15 +282,9 @@ public class MenuModel {
     }
 
     private void checkIfAddingProductToOrderSuccess(Product product) {
-        if (orderReference != null) {
-            if (isProductOrderAdded) {
-//                setPanesAfterAddingOrder();
-//                createAnchorPane(product);
-//
-//                isProductOrderAdded = false;
-            }
-        } else {
-
+        if (isProductOrderAdded) {
+            setPanesAfterAddingOrder();
+            createAnchorPane(product);
         }
     }
 
@@ -300,6 +294,7 @@ public class MenuModel {
     }
     public void createAnchorPane(Product product) {
         ProductOrder productOrder = productOrderReference;
+        final int productPrice = productOrder.getTotalAmount();
 
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setLayoutX(10.0);
@@ -321,8 +316,6 @@ public class MenuModel {
         innerAnchorPane.setLayoutY(15.0);
         innerAnchorPane.setPrefWidth(200.0);
         innerAnchorPane.setPrefHeight(84.0);
-        innerAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderOnAction(product));
-        innerAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderOnAction(product));
 
         ImageView imageView = new ImageView();
         imageView.setFitWidth(99.0);
@@ -351,14 +344,13 @@ public class MenuModel {
 
         anchorPane.getChildren().add(innerAnchorPane);
 
-        int totalAmount = (int) productOrder.getTotalAmount();
         Label label4 = new Label("₱" + ((int) productOrder.getTotalAmount()) + ".00");
         label4.setLayoutX(355.0);
         label4.setLayoutY(43.0);
         label4.setFont(new javafx.scene.text.Font("Arial", 18.0));
         anchorPane.getChildren().add(label4);
 
-        Label label5 = new Label("1");
+        Label label5 = new Label(String.valueOf(productOrder.getQuantity()));
         label5.setLayoutX(290.0);
         label5.setLayoutY(45.0);
         label5.setFont(new javafx.scene.text.Font("Arial", 19.0));
@@ -388,8 +380,8 @@ public class MenuModel {
         minusQuantityAnchorPane.setLayoutY(39.0);
         minusQuantityAnchorPane.setPrefWidth(22.0);
         minusQuantityAnchorPane.setPrefHeight(35.0);
-        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, totalAmount));
-        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, totalAmount));
+        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(product, productOrder, label5, label4, productPrice));
+        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(product, productOrder, label5, label4, productPrice));
 
         Label minusLabel = new Label("-");
         minusLabel.setLayoutX(5.0);
@@ -405,10 +397,8 @@ public class MenuModel {
         addQuantityAnchorPane.setLayoutY(38.0);
         addQuantityAnchorPane.setPrefWidth(22.0);
         addQuantityAnchorPane.setPrefHeight(35.0);
-        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
-        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, totalAmount));
-
-        updateOrderTotalAmount();
+        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(product, productOrder, label5, label4, productPrice));
+        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(product, productOrder, label5, label4, productPrice));
 
         Label addLabel = new Label("+");
         addLabel.setLayoutX(3.0);
@@ -430,47 +420,57 @@ public class MenuModel {
         deleteImageView.setImage(CLOSE);
         anchorPane.getChildren().add(deleteImageView);
 
+        updateTotalAmountOfOrder();
+
         mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
     }
 
     // Event handlers
-    private void anchorPaneProductsInOrderOnAction(Product product) {
-        System.out.println("About order clicked");
-    }
+    private void anchorPaneProductsInOrderMinusQuantityOnAction(Product product, ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
+        if (productOrder.getQuantity() > 1) {
+            int newQuantity = productOrder.getQuantity();
+            newQuantity--;
 
-    private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label label, Label labelPrice, int price) {
-        int quantity = Integer.parseInt(label.getText());
-        if (quantity > 1) {
-            quantity--;
-            label.setText(Integer.toString(quantity));
+            productOrder.setQuantity(newQuantity);
+            labelPrice.setText(String.valueOf(newQuantity));
 
-            int totalAmountForThisOrder = quantity * price;
-            labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
+            updateTotalAmountOfProduct(productOrder, labelAmount, price);
 
-            productOrder.setTotalAmount(totalAmountForThisOrder);
-
-            updateOrderTotalAmount();
+            updateTotalAmountOfOrder();
         }
     }
 
-    private void anchorPaneProductsInOrderAddQuantityOnAction(ProductOrder productOrder, Label label, Label labelPrice, int price) {
-        int quantity = Integer.parseInt(label.getText());
-        quantity++;
-        label.setText(Integer.toString(quantity));
+    private void anchorPaneProductsInOrderAddQuantityOnAction(Product product, ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
+        int newQuantity = productOrder.getQuantity();
+        newQuantity++;
 
-        int totalAmountForThisOrder = quantity * price;
-        labelPrice.setText("₱" + (totalAmountForThisOrder) + ".00");
+        productOrder.setQuantity(newQuantity);
+        labelPrice.setText(String.valueOf(newQuantity));
 
-        productOrder.setTotalAmount(totalAmountForThisOrder);
-
-        updateOrderTotalAmount();
+        updateTotalAmountOfProduct(productOrder, labelAmount, price);
+        updateTotalAmountOfOrder();
     }
 
     private void deleteProductInOrderOnAction() {
 
     }
-    private void updateOrderTotalAmount() {
+    private void updateTotalAmountOfProduct(ProductOrder productOrder, Label label, int price) {
+        int totalAmount = productOrder.getQuantity() * price;
 
+        productOrder.setTotalAmount(totalAmount);
+        label.setText("₱" + ((int) productOrder.getTotalAmount()) + ".00");
+    }
+
+    private void updateTotalAmountOfOrder() {
+        int totalAmount = 0;
+        System.out.println(referenceProductOrderObservableList.isEmpty());
+        for (ProductOrder productOrder : referenceProductOrderObservableList) {
+            System.out.println(productOrder.getProductName());
+            System.out.println(totalAmount);
+            totalAmount += productOrder.getTotalAmount();
+        }
+
+        mainController.labelMenuTotalPrice.setText("₱" + totalAmount + ".00");
     }
 
     private void clearSelectedProductReference() {

@@ -17,8 +17,9 @@ public class Order {
     private String modeOfPayment;
     private LocalDateTime dateAndTime;
 
-    public Order() {
-        // lagyan ba dito haha
+    public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber, ObservableList<Integer> productQuantity,
+                 double totalPrice, double amountPaid, double change, String modeOfPayment) {
+
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {

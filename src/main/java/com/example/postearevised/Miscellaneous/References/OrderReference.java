@@ -13,13 +13,12 @@ public class OrderReference {
     public static Order orderReference;
     public static ProductOrder productOrderReference;
     public static boolean isProductOrderAdded = false;
-    public static ObservableList<Order> orderObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Order> orderObservableList;
 
 
-    public static ObservableList<ProductOrder> referenceProductOrderObservableList;
+    public static ObservableList<ProductOrder> referenceProductOrderObservableList = FXCollections.observableArrayList();
     public static String referenceCustomerName;
     public static int referenceOrderNumber;
-    public static ObservableList<Integer> referenceProductQuantity;
     public static double referenceTotalPrice;
     public static double referenceAmountPaid;
     public static double referenceChange;

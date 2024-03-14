@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Additional;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.*;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
@@ -435,7 +436,13 @@ public class ProductModel {
     }
 
     private void addOrder() {
+        if (orderReference == null) {
+            isProductOrderAdded = true;
 
+            referenceProductOrderObservableList.add(addProductToOrder());
+        } else {
+            referenceProductOrderObservableList.add(addProductToOrder());
+        }
     }
 
 
@@ -519,7 +526,11 @@ public class ProductModel {
                 break;
         }
 
-        return new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, totalAmount);
+        ProductOrder productOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, (int) totalAmount, 1);
+
+        productOrderReference = productOrder;
+
+        return productOrder;
     }
 
     private void setAttributes() {

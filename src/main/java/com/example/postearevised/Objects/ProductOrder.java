@@ -7,14 +7,24 @@ public class ProductOrder {
     private Image productImage;
     private String firstAttribute;
     private String secondAttribute;
-    private double totalAmount;
+    private int totalAmount;
+    private int quantity;
 
-    public ProductOrder(String productName, Image productImage, String firstAttribute, String secondAttribute, double totalAmount) {
+    public ProductOrder(String productName, Image productImage, String firstAttribute, String secondAttribute, int totalAmount, int quantity) {
         this.productName = productName;
         this.productImage = productImage;
         this.firstAttribute = firstAttribute;
         this.secondAttribute = secondAttribute;
         this.totalAmount = totalAmount;
+        this.quantity = quantity;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getProductName() {
@@ -49,11 +59,11 @@ public class ProductOrder {
         this.secondAttribute = secondAttribute;
     }
 
-    public double getTotalAmount() {
+    public int getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(double totalAmount) {
+    public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
     }
 }
