@@ -39,7 +39,7 @@ public class ProductModel {
 
     public boolean isAdd = false;
     public boolean isSelected = false;
-    public boolean currentOrderDone = true;
+    public boolean isEdit = false;
 
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
@@ -173,15 +173,19 @@ public class ProductModel {
     }
 
     public void addEditProductAddOrder() {
-        if (isSelected) {
-            addOrder();
-        } else {
-            setAttributes();
+        if (isEdit) {
 
-            if (isAdd)
-                instantiateProduct();
-            else
-                setObjectAttributes();
+        } else {
+            if (isSelected) {
+                addOrder();
+            } else {
+                setAttributes();
+
+                if (isAdd)
+                    instantiateProduct();
+                else
+                    setObjectAttributes();
+            }
         }
 
         clearProductReferenceValues();
@@ -315,6 +319,7 @@ public class ProductModel {
 
         isAdd = true;
         isSelected = false;
+        isEdit = false;
     }
 
     private void setAddProductsVisibilities() {
@@ -656,6 +661,7 @@ public class ProductModel {
 
         isAdd = false;
         isSelected = false;
+        isEdit = false;
     }
 
     private void setEditProductsVisibilities() {
@@ -804,6 +810,7 @@ public class ProductModel {
 
         isAdd = false;
         isSelected = true;
+        isEdit = false;
     }
 
     private void setSelectedProductButton() {
@@ -943,6 +950,10 @@ public class ProductModel {
         setSelectedEditOrderProductButton();
         setSelectedProductTexts();
         setSelectedOrderProductValues(productOrder);
+
+        isAdd = false;
+        isSelected = false;
+        isEdit = true;
     }
 
     private void setSelectedEditOrderProductButton() {

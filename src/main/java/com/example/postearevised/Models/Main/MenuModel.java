@@ -676,6 +676,8 @@ public class MenuModel {
     }
 
     private void addToOrderQueue() {
+        referenceChange = getChange();
+
         Order order = new Order(referenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
                                 referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
         orderQueueObservableList.add(order);
@@ -683,6 +685,10 @@ public class MenuModel {
         setOrderReference(order);
         invokeOrderListStartsHereMethod();
         clearOrderReference();
+    }
+
+    private int getChange() {
+        return referenceAmountPaid - referenceTotalPrice;
     }
 
     private void setOrderReference(Order order) {

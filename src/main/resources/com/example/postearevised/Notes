@@ -1,7 +1,5 @@
 ------------------TO DO------------------
 
-gawing selected na yung remember me sa login
-
 if diniselect, confirmation if continue, kase need nya ulit ng internet connectivity to login
 
 import/export csv - @Lance
@@ -14,8 +12,6 @@ mysql database for accounts - @Lance
 yung orders sa products na ioorder is clickable para maedit yung attributes.
 
 laggyan ng size yung coffee ng 16 oz lang
-
-tatlo list ko, unang list is para sa nilalaman ng product order sa isang customer order.
 
 NAWAWALA/HANAPIN YUNG I SA TOOLTIPS
 
@@ -187,3 +183,7 @@ LAGYAN REFRESH BUTTON SA TABLEPRODUCTS
 may addons yung coolers
 
 english alphabet lang sa addons sa pag add/edit ng product
+
+gawing selected na yung remember me sa login
+
+tatlo list ko, unang list is para sa nilalaman ng product order sa isang customer order.
