@@ -938,6 +938,83 @@ public class ProductModel {
         }
     }
 
+    public void setEditOrderProduct(ProductOrder productOrder) {
+        setSelectedProductPanesVisibilities();
+        setSelectedEditOrderProductButton();
+        setSelectedProductTexts();
+        setSelectedOrderProductValues(productOrder);
+    }
+
+    private void setSelectedEditOrderProductButton() {
+        productController.anchorPaneBtnDone.setDisable(false);
+        productController.labelAddEditDone.setText("Edit Order");
+    }
+
+    private void setSelectedOrderProductValues(ProductOrder productOrder) {
+        // BALI-BALIKTAD / NAURONG TALAGA HAHA
+        String firstAttribute = productOrder.getThirdAttribute();
+        String secondAttribute = productOrder.getFirstAttribute();
+        String thirdAttribute = productOrder.getSecondAttribute();
+
+        switch (editOrShowSelectedProduct.getCategory()) {
+            case "Milk Tea":
+                if (firstAttribute.equals(productController.milkTeaRadioBtnSmall.getText())) {
+                    productController.milkTeaRadioBtnSmall.setSelected(true);
+                } else if (firstAttribute.equals(productController.milkTeaRadioBtnMedium.getText())) {
+                    productController.milkTeaRadioBtnMedium.setSelected(true);
+                } else if (firstAttribute.equals(productController.milkTeaRadioBtnLarge.getText())) {
+                    productController.milkTeaRadioBtnLarge.setSelected(true);
+                }
+
+                if (secondAttribute.equals(productController.milkTeaRadioBtnTeaBase.getText())) {
+                    productController.milkTeaRadioBtnTeaBase.setSelected(true);
+                } else if (secondAttribute.equals(productController.milkTeaRadioBtnWaterBase.getText())) {
+                    productController.milkTeaRadioBtnWaterBase.setSelected(true);
+                }
+
+                if (thirdAttribute.equals(productController.milkTeaRadioBtnAddOnsOne.getText())) {
+                    productController.milkTeaRadioBtnAddOnsOne.setSelected(true);
+                } else if (thirdAttribute.equals(productController.milkTeaRadioBtnAddOnsTwo.getText())) {
+                    productController.milkTeaRadioBtnAddOnsTwo.setSelected(true);
+                }
+                break;
+            case "Coolers":
+                if (firstAttribute.equals(productController.coolersRadioBtnSmall.getText())) {
+                    productController.coolersRadioBtnSmall.setSelected(true);
+                } else if (firstAttribute.equals(productController.coolersRadioBtnMedium.getText())) {
+                    productController.coolersRadioBtnMedium.setSelected(true);
+                } else if (firstAttribute.equals(productController.coolersRadioBtnLarge.getText())) {
+                    productController.coolersRadioBtnLarge.setSelected(true);
+                }
+
+                if (secondAttribute.equals(productController.coolersRadioBtnTeaBase.getText())) {
+                    productController.coolersRadioBtnTeaBase.setSelected(true);
+                } else if (secondAttribute.equals(productController.coolersRadioBtnWaterBase.getText())) {
+                    productController.coolersRadioBtnWaterBase.setSelected(true);
+                }
+
+                if (thirdAttribute.equals(productController.coolersRadioBtnAddOnsOne.getText())) {
+                    productController.coolersRadioBtnAddOnsOne.setSelected(true);
+                } else if (thirdAttribute.equals(productController.coolersRadioBtnAddOnsTwo.getText())) {
+                    productController.coolersRadioBtnAddOnsTwo.setSelected(true);
+                }
+                break;
+            case "Coffee":
+                if (secondAttribute.equals(productController.coffeeRadioBtnHot.getText())) {
+                    productController.coffeeRadioBtnHot.setSelected(true);
+                } else if (secondAttribute.equals(productController.coffeeRadioBtnCold.getText())) {
+                    productController.coffeeRadioBtnCold.setSelected(true);
+                }
+                break;
+            case "Ice Candy Cups":
+                // walang attributes / radio buttons
+                break;
+            case "Appetizers":
+                // walang attributes / radio buttons
+                break;
+        }
+    }
+
     private void closeThisStage() {
         Stage stage = (Stage) productController.imgProduct.getScene().getWindow();
         stage.close();

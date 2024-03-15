@@ -371,6 +371,8 @@ public class MenuModel {
         innerAnchorPane.setLayoutY(15.0);
         innerAnchorPane.setPrefWidth(200.0);
         innerAnchorPane.setPrefHeight(84.0);
+        innerAnchorPane.setOnMouseClicked(event -> anchorPaneEditSelectedOrderProduct(productOrder, product));
+        innerAnchorPane.setOnTouchReleased(event -> anchorPaneEditSelectedOrderProduct(productOrder, product));
 
         ImageView imageView = new ImageView();
         imageView.setFitWidth(99.0);
@@ -485,6 +487,36 @@ public class MenuModel {
         updateTotalAmountOfOrder();
 
         mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
+    }
+
+    private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product) {
+        editOrShowSelectedProduct = product;
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage newStage = new Stage();
+        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        ProductController productController = loader.getController();
+        productController.productModel.setEditOrderProduct(productOrder);
+
+        newStage.showAndWait();
+
+        checkIfAddingProductToOrderSuccess(product);
+        clearSelectedProductReference();
     }
 
     // Event handlers
