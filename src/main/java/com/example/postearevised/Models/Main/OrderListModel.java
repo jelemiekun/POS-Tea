@@ -131,6 +131,8 @@ public class OrderListModel {
         removeOrderToOrderQueue(order, anchorPaneToDelete);
 
         System.out.println("Done clicked");
+
+        updateOrderQueueLabelsAndPane();
     }
 
     private void orderDoneGetDateAndTime(Order order) {

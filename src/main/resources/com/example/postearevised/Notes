@@ -1,5 +1,9 @@
 ------------------TO DO------------------
 
+design ng no customer name, no payment, insufficient payment, at no payment method selected
+
+if ieedit yung product sa orders, mag uupdate din yung price, then mag uupdate din sa right panel
+
 if diniselect, confirmation if continue, kase need nya ulit ng internet connectivity to login
 
 import/export csv - @Lance
