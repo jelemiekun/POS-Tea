@@ -39,6 +39,8 @@ public class LoginModel {
         loginRegisterForgotPassController.textFieldShowPassword.setVisible(false);
         loginRegisterForgotPassController.labelRegisterHere.setFocusTraversable(true);
         loginRegisterForgotPassController.labelForgotPassword.setFocusTraversable(true);
+
+        loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
     }
 
     public void checkAccountInLoginIfPhoneNumber() {

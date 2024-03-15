@@ -27,9 +27,8 @@ import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.referenceProductOrderObservableList;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
-import static com.example.postearevised.Miscellaneous.References.ProductReference.referenceImagePath;
 
 public class SettingsModel {
     private MainController mainController;

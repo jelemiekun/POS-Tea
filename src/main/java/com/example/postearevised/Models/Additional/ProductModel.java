@@ -83,6 +83,19 @@ public class ProductModel {
             }
         });
 
+        productController.milkTeaTextFieldAddOnsOneName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                productController.milkTeaTextFieldAddOnsOneName.setText(oldValue);
+            }
+        });
+
+        productController.milkTeaTextFieldAddOnsTwoName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                productController.milkTeaTextFieldAddOnsTwoName.setText(oldValue);
+            }
+        });
+
+
         // Coolers Text Fields
         productController.coolersTextFieldLargePrice.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches(REGEX_DIGITS_ONLY)) {
@@ -111,6 +124,18 @@ public class ProductModel {
         productController.coolersTextFieldAddOnsPriceTwo.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches(REGEX_DIGITS_ONLY)) {
                 productController.coolersTextFieldAddOnsPriceTwo.setText(oldValue);
+            }
+        });
+
+        productController.coolersTextFieldAddOnsOneName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                productController.coolersTextFieldAddOnsOneName.setText(oldValue);
+            }
+        });
+
+        productController.coolersTextFieldAddOnsTwoName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+                productController.coolersTextFieldAddOnsTwoName.setText(oldValue);
             }
         });
 
