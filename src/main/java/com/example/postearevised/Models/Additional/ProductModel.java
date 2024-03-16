@@ -174,12 +174,14 @@ public class ProductModel {
 
     public void addEditProductAddOrder() {
         if (isEdit) {
+            setAttributes(true);
 
+            addProductToOrderOrEditProductOrder(false);
         } else {
             if (isSelected) {
                 addOrder();
             } else {
-                setAttributes();
+                setAttributes(false);
 
                 if (isAdd)
                     instantiateProduct();
@@ -467,12 +469,12 @@ public class ProductModel {
 
     private void addOrder() {
         isProductOrderAdded = orderReference == null; // HINDI KO ALAM PARA SAAN TO PERO WAG TANGGALIN
-        addProductToOrder();
+        addProductToOrderOrEditProductOrder(true);
         //referenceProductOrderObservableList.add(addProductToOrder());
     }
 
 
-    private void addProductToOrder() {
+    private void addProductToOrderOrEditProductOrder(boolean isAddOrder) {
         String orderTitle = editOrShowSelectedProduct.getProductName();
         Image orderImage = editOrShowSelectedProduct.getImage();
         String firstAttribute = "";
@@ -563,14 +565,20 @@ public class ProductModel {
                 break;
         }
 
-        productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
+        if (isAddOrder) {
+            productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
+        } else {
+
+        }
     }
 
-    private void setAttributes() {
-        referenceProductName = productController.textFieldProductName.getText();
-        referenceProductDescription = productController.textFieldProductDescription.getText();
-        referenceCategory = productController.comboBoxCategories.getValue();
-        // referenceImagePath, na set na sa setImagePathValue();
+    private void setAttributes(boolean isSomeReferenceExisted) {
+        if (!isSomeReferenceExisted) {
+            referenceProductName = productController.textFieldProductName.getText();
+            referenceProductDescription = productController.textFieldProductDescription.getText();
+            referenceCategory = productController.comboBoxCategories.getValue();
+            // referenceImagePath, na set na sa setImagePathValue();
+        }
 
         switch (referenceCategory) {
             case "Milk Tea":
@@ -946,10 +954,11 @@ public class ProductModel {
     }
 
     public void setEditOrderProduct(ProductOrder productOrder) {
+        productOrderReference = productOrder;
         setSelectedProductPanesVisibilities();
         setSelectedEditOrderProductButton();
         setSelectedProductTexts();
-        setSelectedOrderProductValues(productOrder);
+        setSelectedOrderProductValues();
 
         isAdd = false;
         isSelected = false;
@@ -961,11 +970,11 @@ public class ProductModel {
         productController.labelAddEditDone.setText("Edit Order");
     }
 
-    private void setSelectedOrderProductValues(ProductOrder productOrder) {
+    private void setSelectedOrderProductValues() {
         // BALI-BALIKTAD / NAURONG TALAGA HAHA
-        String firstAttribute = productOrder.getThirdAttribute();
-        String secondAttribute = productOrder.getFirstAttribute();
-        String thirdAttribute = productOrder.getSecondAttribute();
+        String firstAttribute = productOrderReference.getThirdAttribute();
+        String secondAttribute = productOrderReference.getFirstAttribute();
+        String thirdAttribute = productOrderReference.getSecondAttribute();
 
         switch (editOrShowSelectedProduct.getCategory()) {
             case "Milk Tea":

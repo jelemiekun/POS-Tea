@@ -324,172 +324,185 @@ public class MenuModel {
         mainController.flowPaneOrdersSelected.getChildren().clear();
     }
 
-    public void createAnchorPane(Product product) {
-        ProductOrder productOrder = productOrderReference;
-        final int productPrice = productOrder.getTotalAmount();
+    private boolean productNotExisted(ProductOrder productOrder, int productPrice) {
+        ProductOrder existingOrder = isExistingOrder(productOrder);
 
-        ProductOrder existingOrder = null;
+        // If the product exists, increase its quantity
+        if (existingOrder != null) {
+            productExists(existingOrder, productPrice);
+            return false; // Exit the method since no new pane needs to be created
+        } else {
+            return true;
+        }
+    }
+
+    private ProductOrder isExistingOrder(ProductOrder productOrder) {
         for (ProductOrder order : referenceProductOrderObservableList) {
             if (order.getProductName().equals(productOrder.getProductName()) &&
                     order.getProductImage().equals(productOrder.getProductImage()) &&
                     order.getFirstAttribute().equals(productOrder.getFirstAttribute()) &&
                     order.getSecondAttribute().equals(productOrder.getSecondAttribute()) &&
                     order.getThirdAttribute().equals(productOrder.getThirdAttribute())) {
-                existingOrder = order;
-                break;
+                return order;
             }
         }
-
-
-        // If the product exists, increase its quantity
-        if (existingOrder != null) {
-            anchorPaneProductsInOrderAddQuantityOnAction(existingOrder, existingOrder.getLabelQuantity(), existingOrder.getLabelPrice(), productPrice);
-            updateTotalAmountOfProduct(existingOrder, existingOrder.getLabelPrice(), productPrice);
-            updateTotalAmountOfOrder();
-            return; // Exit the method since no new pane needs to be created
-        }
-
-        referenceProductOrderObservableList.add(productOrder);
-
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane.setLayoutX(10.0);
-        anchorPane.setPrefWidth(435.0);
-        anchorPane.setPrefHeight(116.0);
-
-        Rectangle rectangle = new Rectangle();
-        rectangle.setWidth(436.0);
-        rectangle.setHeight(115.0);
-        rectangle.setFill(Color.WHITE);
-        rectangle.setStroke(Color.BLACK);
-        rectangle.setArcWidth(5.0);
-        rectangle.setArcHeight(5.0);
-        anchorPane.getChildren().add(rectangle);
-
-        AnchorPane innerAnchorPane = new AnchorPane();
-        innerAnchorPane.setCursor(Cursor.HAND);
-        innerAnchorPane.setLayoutX(47.0);
-        innerAnchorPane.setLayoutY(15.0);
-        innerAnchorPane.setPrefWidth(200.0);
-        innerAnchorPane.setPrefHeight(84.0);
-        innerAnchorPane.setOnMouseClicked(event -> anchorPaneEditSelectedOrderProduct(productOrder, product));
-        innerAnchorPane.setOnTouchReleased(event -> anchorPaneEditSelectedOrderProduct(productOrder, product));
-
-        ImageView imageView = new ImageView();
-        imageView.setFitWidth(99.0);
-        imageView.setFitHeight(85.0);
-        imageView.setPickOnBounds(true);
-        imageView.setImage(productOrder.getProductImage());
-        AnchorPane.setLeftAnchor(imageView, 0.0);
-        AnchorPane.setTopAnchor(imageView, 0.0);
-        innerAnchorPane.getChildren().add(imageView);
-
-        Label label1 = new Label(productOrder.getProductName());
-        label1.setLayoutX(104.0);
-        label1.setLayoutY(1.0);
-        label1.setFont(new javafx.scene.text.Font("Arial", 24.0));
-        innerAnchorPane.getChildren().add(label1);
-
-        Label label6 = new Label(productOrder.getThirdAttribute());
-        label6.setLayoutX(105.0);
-        label6.setLayoutY(30);
-        innerAnchorPane.getChildren().add(label6);
-
-        Label label2 = new Label(productOrder.getFirstAttribute());
-        label2.setLayoutX(105.0);
-        label2.setLayoutY(47.0);
-        innerAnchorPane.getChildren().add(label2);
-
-        Label label3 = new Label(productOrder.getSecondAttribute());
-        label3.setLayoutX(105.0);
-        label3.setLayoutY(64.0);
-        innerAnchorPane.getChildren().add(label3);
-
-        anchorPane.getChildren().add(innerAnchorPane);
-
-        Label label4 = productOrder.getLabelPrice();
-        label4.setText("₱" + ((int) productOrder.getTotalAmount()) + ".00");
-        label4.setLayoutX(355.0);
-        label4.setLayoutY(43.0);
-        label4.setFont(new javafx.scene.text.Font("Arial", 18.0));
-        anchorPane.getChildren().add(label4);
-
-        Label label5 = productOrder.getLabelQuantity();
-        label5.setText(String.valueOf(productOrder.getQuantity()));
-        label5.setLayoutX(290.0);
-        label5.setLayoutY(45.0);
-        label5.setFont(new javafx.scene.text.Font("Arial", 19.0));
-        anchorPane.getChildren().add(label5);
-
-        Line line1 = new Line();
-        line1.setStartX(-40.0);
-        line1.setStartY(-29.0);
-        line1.setEndX(-40.0);
-        line1.setEndY(86.0);
-        line1.setLayoutX(292.0);
-        line1.setLayoutY(29.0);
-        anchorPane.getChildren().add(line1);
-
-        Line line2 = new Line();
-        line2.setStartX(-40.0);
-        line2.setStartY(-29.0);
-        line2.setEndX(-40.0);
-        line2.setEndY(86.0);
-        line2.setLayoutX(374.0);
-        line2.setLayoutY(29.0);
-        anchorPane.getChildren().add(line2);
-
-        AnchorPane minusQuantityAnchorPane = new AnchorPane();
-        minusQuantityAnchorPane.setCursor(Cursor.HAND);
-        minusQuantityAnchorPane.setLayoutX(261.0);
-        minusQuantityAnchorPane.setLayoutY(39.0);
-        minusQuantityAnchorPane.setPrefWidth(22.0);
-        minusQuantityAnchorPane.setPrefHeight(35.0);
-        minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, productPrice));
-        minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, label5, label4, productPrice));
-
-        Label minusLabel = new Label("-");
-        minusLabel.setLayoutX(5.0);
-        minusLabel.setLayoutY(-6.0);
-        minusLabel.setFont(new javafx.scene.text.Font("Arial", 34.0));
-        minusQuantityAnchorPane.getChildren().add(minusLabel);
-
-        anchorPane.getChildren().add(minusQuantityAnchorPane);
-
-        AnchorPane addQuantityAnchorPane = new AnchorPane();
-        addQuantityAnchorPane.setCursor(Cursor.HAND);
-        addQuantityAnchorPane.setLayoutX(304.0);
-        addQuantityAnchorPane.setLayoutY(38.0);
-        addQuantityAnchorPane.setPrefWidth(22.0);
-        addQuantityAnchorPane.setPrefHeight(35.0);
-        addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, productPrice));
-        addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, label5, label4, productPrice));
-
-        Label addLabel = new Label("+");
-        addLabel.setLayoutX(3.0);
-        addLabel.setFont(new javafx.scene.text.Font("Arial", 30.0));
-        addQuantityAnchorPane.getChildren().add(addLabel);
-
-        anchorPane.getChildren().add(addQuantityAnchorPane);
-
-        ImageView deleteImageView = new ImageView();
-        deleteImageView.setCursor(Cursor.HAND);
-        deleteImageView.setLayoutX(8.0);
-        deleteImageView.setLayoutY(44.0);
-        deleteImageView.setFitWidth(25.0);
-        deleteImageView.setFitHeight(25.0);
-        deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
-        deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
-        deleteImageView.setPickOnBounds(true);
-        deleteImageView.setPreserveRatio(true);
-        deleteImageView.setImage(CLOSE);
-        anchorPane.getChildren().add(deleteImageView);
-
-        updateTotalAmountOfOrder();
-
-        mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
+        return  null;
     }
 
-    private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product) {
+    private void productExists(ProductOrder existingOrder, int productPrice) {
+        anchorPaneProductsInOrderAddQuantityOnAction(existingOrder, existingOrder.getLabelQuantity(), existingOrder.getLabelPrice(), productPrice);
+        updateTotalAmountOfProduct(existingOrder, existingOrder.getLabelPrice(), productPrice);
+        updateTotalAmountOfOrder();
+    }
+
+    public void createAnchorPane(Product product) {
+        ProductOrder productOrder = productOrderReference;
+        final int productPrice = productOrder.getTotalAmount();
+
+        if (productNotExisted(productOrder, productPrice)) {
+            referenceProductOrderObservableList.add(productOrder);
+
+            AnchorPane anchorPane = new AnchorPane();
+            anchorPane.setLayoutX(10.0);
+            anchorPane.setPrefWidth(435.0);
+            anchorPane.setPrefHeight(116.0);
+
+            Rectangle rectangle = new Rectangle();
+            rectangle.setWidth(436.0);
+            rectangle.setHeight(115.0);
+            rectangle.setFill(Color.WHITE);
+            rectangle.setStroke(Color.BLACK);
+            rectangle.setArcWidth(5.0);
+            rectangle.setArcHeight(5.0);
+            anchorPane.getChildren().add(rectangle);
+
+            AnchorPane innerAnchorPane = new AnchorPane();
+            innerAnchorPane.setCursor(Cursor.HAND);
+            innerAnchorPane.setLayoutX(47.0);
+            innerAnchorPane.setLayoutY(15.0);
+            innerAnchorPane.setPrefWidth(200.0);
+            innerAnchorPane.setPrefHeight(84.0);
+
+            ImageView imageView = new ImageView();
+            imageView.setFitWidth(99.0);
+            imageView.setFitHeight(85.0);
+            imageView.setPickOnBounds(true);
+            imageView.setImage(productOrder.getProductImage());
+            AnchorPane.setLeftAnchor(imageView, 0.0);
+            AnchorPane.setTopAnchor(imageView, 0.0);
+            innerAnchorPane.getChildren().add(imageView);
+
+            Label labelProductName = new Label(productOrder.getProductName());
+            labelProductName.setLayoutX(104.0);
+            labelProductName.setLayoutY(1.0);
+            labelProductName.setFont(new javafx.scene.text.Font("Arial", 24.0));
+            innerAnchorPane.getChildren().add(labelProductName);
+
+            Label labelFirstAttribute = new Label(productOrder.getThirdAttribute());
+            labelFirstAttribute.setLayoutX(105.0);
+            labelFirstAttribute.setLayoutY(30);
+            innerAnchorPane.getChildren().add(labelFirstAttribute);
+
+            Label labelSecondAttribute = new Label(productOrder.getFirstAttribute());
+            labelSecondAttribute.setLayoutX(105.0);
+            labelSecondAttribute.setLayoutY(47.0);
+            innerAnchorPane.getChildren().add(labelSecondAttribute);
+
+            Label labelThirdAttribute = new Label(productOrder.getSecondAttribute());
+            labelThirdAttribute.setLayoutX(105.0);
+            labelThirdAttribute.setLayoutY(64.0);
+            innerAnchorPane.getChildren().add(labelThirdAttribute);
+
+            anchorPane.getChildren().add(innerAnchorPane);
+
+            Label labelProductPrice = productOrder.getLabelPrice();
+            labelProductPrice.setText("₱" + (productOrder.getTotalAmount()) + ".00");
+            labelProductPrice.setLayoutX(355.0);
+            labelProductPrice.setLayoutY(43.0);
+            labelProductPrice.setFont(new javafx.scene.text.Font("Arial", 18.0));
+            anchorPane.getChildren().add(labelProductPrice);
+
+            Label labelQuantity = productOrder.getLabelQuantity();
+            labelQuantity.setText(String.valueOf(productOrder.getQuantity()));
+            labelQuantity.setLayoutX(290.0);
+            labelQuantity.setLayoutY(45.0);
+            labelQuantity.setFont(new javafx.scene.text.Font("Arial", 19.0));
+            anchorPane.getChildren().add(labelQuantity);
+
+            innerAnchorPane.setOnMouseClicked(event -> anchorPaneEditSelectedOrderProduct(productOrder, product, labelFirstAttribute, labelSecondAttribute, labelThirdAttribute, labelProductPrice, labelQuantity));
+            innerAnchorPane.setOnTouchReleased(event -> anchorPaneEditSelectedOrderProduct(productOrder, product, labelFirstAttribute, labelSecondAttribute, labelThirdAttribute, labelProductPrice, labelQuantity));
+
+            Line line1 = new Line();
+            line1.setStartX(-40.0);
+            line1.setStartY(-29.0);
+            line1.setEndX(-40.0);
+            line1.setEndY(86.0);
+            line1.setLayoutX(292.0);
+            line1.setLayoutY(29.0);
+            anchorPane.getChildren().add(line1);
+
+            Line line2 = new Line();
+            line2.setStartX(-40.0);
+            line2.setStartY(-29.0);
+            line2.setEndX(-40.0);
+            line2.setEndY(86.0);
+            line2.setLayoutX(374.0);
+            line2.setLayoutY(29.0);
+            anchorPane.getChildren().add(line2);
+
+            AnchorPane minusQuantityAnchorPane = new AnchorPane();
+            minusQuantityAnchorPane.setCursor(Cursor.HAND);
+            minusQuantityAnchorPane.setLayoutX(261.0);
+            minusQuantityAnchorPane.setLayoutY(39.0);
+            minusQuantityAnchorPane.setPrefWidth(22.0);
+            minusQuantityAnchorPane.setPrefHeight(35.0);
+            minusQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, labelQuantity, labelProductPrice, productPrice));
+            minusQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderMinusQuantityOnAction(productOrder, labelQuantity, labelProductPrice, productPrice));
+
+            Label minusLabel = new Label("-");
+            minusLabel.setLayoutX(5.0);
+            minusLabel.setLayoutY(-6.0);
+            minusLabel.setFont(new javafx.scene.text.Font("Arial", 34.0));
+            minusQuantityAnchorPane.getChildren().add(minusLabel);
+
+            anchorPane.getChildren().add(minusQuantityAnchorPane);
+
+            AnchorPane addQuantityAnchorPane = new AnchorPane();
+            addQuantityAnchorPane.setCursor(Cursor.HAND);
+            addQuantityAnchorPane.setLayoutX(304.0);
+            addQuantityAnchorPane.setLayoutY(38.0);
+            addQuantityAnchorPane.setPrefWidth(22.0);
+            addQuantityAnchorPane.setPrefHeight(35.0);
+            addQuantityAnchorPane.setOnMouseClicked(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, labelQuantity, labelProductPrice, productPrice));
+            addQuantityAnchorPane.setOnTouchReleased(event -> anchorPaneProductsInOrderAddQuantityOnAction(productOrder, labelQuantity, labelProductPrice, productPrice));
+
+            Label addLabel = new Label("+");
+            addLabel.setLayoutX(3.0);
+            addLabel.setFont(new javafx.scene.text.Font("Arial", 30.0));
+            addQuantityAnchorPane.getChildren().add(addLabel);
+
+            anchorPane.getChildren().add(addQuantityAnchorPane);
+
+            ImageView deleteImageView = new ImageView();
+            deleteImageView.setCursor(Cursor.HAND);
+            deleteImageView.setLayoutX(8.0);
+            deleteImageView.setLayoutY(44.0);
+            deleteImageView.setFitWidth(25.0);
+            deleteImageView.setFitHeight(25.0);
+            deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
+            deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
+            deleteImageView.setPickOnBounds(true);
+            deleteImageView.setPreserveRatio(true);
+            deleteImageView.setImage(CLOSE);
+            anchorPane.getChildren().add(deleteImageView);
+
+            updateTotalAmountOfOrder();
+
+            mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
+        }
+    }
+
+    private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product, Label firstAttribute, Label secondAttribute, Label thirdAttribute, Label productPrice, Label quantity) {
         editOrShowSelectedProduct = product;
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
@@ -520,15 +533,15 @@ public class MenuModel {
     }
 
     // Event handlers
-    private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label labelPrice, Label labelAmount, int price) {
+    private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label labelQuantity, Label labelProductPrice, int price) {
         if (productOrder.getQuantity() > 1) {
             int newQuantity = productOrder.getQuantity();
             newQuantity--;
 
             productOrder.setQuantity(newQuantity);
-            labelPrice.setText(String.valueOf(newQuantity));
+            labelQuantity.setText(String.valueOf(newQuantity));
 
-            updateTotalAmountOfProduct(productOrder, labelAmount, price);
+            updateTotalAmountOfProduct(productOrder, labelProductPrice, price);
 
             updateTotalAmountOfOrder();
         }

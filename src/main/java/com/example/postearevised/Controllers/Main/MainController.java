@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
@@ -402,6 +403,29 @@ public class MainController implements Initializable {
     void comboBoxOrderHistoryOnAction(ActionEvent event) {
 
     }
+
+    @FXML
+    void btnOrderHistoryDeleteClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void btnOrderHistoryDeleteTouched(TouchEvent event) {
+
+    }
+
+    /**
+     * Dashboard
+     */
+
+    @FXML
+    public Label labelDashboardTotalRevenue;
+    @FXML
+    public Label labelDashboardTotalCustomer;
+    @FXML
+    public Label labelDashboardTotalOrder;
+    @FXML
+    private PieChart pieChartDashboard;
 
     /**
      * Settings
