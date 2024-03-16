@@ -95,6 +95,26 @@ public class ProductController implements Initializable {
     public Label milkTeaLabelMediumPrice;
     @FXML
     public Label milkTeaLabelSmallPrice;
+    @FXML
+    public Label milkTeaLabel1;
+    @FXML
+    public Label milkTeaLabel2;
+    @FXML
+    public Label milkTeaLabel3;
+    @FXML
+    public Label coolersLabel1;
+    @FXML
+    public Label coolersLabel2;
+    @FXML
+    public Label coolersLabel3;
+    @FXML
+    public Label coffeeLabel1;
+    @FXML
+    public Label coffeeLabel2;
+    @FXML
+    public Label iceCandyCupsLabel1;
+    @FXML
+    public Label appetizerLabel1;
 
     @FXML
     public TextField appetizerTextFieldPrice;

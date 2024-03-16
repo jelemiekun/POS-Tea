@@ -812,6 +812,7 @@ public class ProductModel {
 
     public void setSelectedProduct() {
         setSelectedProductPanesVisibilities();
+        setSelectedProductRequiredOptionalLabelsVisibilities();
         setSelectedProductButton();
         setSelectedProductAddProductToOrderEnable();
         setSelectedProductTexts();
@@ -823,7 +824,25 @@ public class ProductModel {
 
     private void setSelectedProductButton() {
         productController.labelAddEditDone.setText("Add Order");
+    }
 
+    private void setSelectedProductRequiredOptionalLabelsVisibilities() {
+        if (editOrShowSelectedProduct instanceof MilkTea) {
+            productController.milkTeaLabel1.setVisible(true);
+            productController.milkTeaLabel2.setVisible(true);
+            productController.milkTeaLabel3.setVisible(true);
+        } else if (editOrShowSelectedProduct instanceof Coolers) {
+            productController.coolersLabel1.setVisible(true);
+            productController.coolersLabel2.setVisible(true);
+            productController.coolersLabel3.setVisible(true);
+        } else if (editOrShowSelectedProduct instanceof Coffee) {
+            productController.coffeeLabel1.setVisible(true);
+            productController.coffeeLabel2.setVisible(true);
+        } else if (editOrShowSelectedProduct instanceof IceCandyCups) {
+            productController.iceCandyCupsLabel1.setVisible(true);
+        } else if (editOrShowSelectedProduct instanceof Appetizer) {
+            productController.appetizerLabel1.setVisible(true);
+        }
     }
 
     private void setSelectedProductPanesVisibilities() {
@@ -965,6 +984,11 @@ public class ProductModel {
         isEdit = true;
     }
 
+    private void setSelectedEditOrderProductButton() {
+        productController.anchorPaneBtnDone.setDisable(false);
+        productController.labelAddEditDone.setText("OK");
+    }
+
     private void setDisableRadioButtons() {
         if (editOrShowSelectedProduct instanceof MilkTea) {
             productController.milkTeaRadioBtnSmall.setDisable(true);
@@ -990,11 +1014,6 @@ public class ProductModel {
         } else if (editOrShowSelectedProduct instanceof Appetizer) {
             // wlaang radio buttons sa appetizer
         }
-    }
-
-    private void setSelectedEditOrderProductButton() {
-        productController.anchorPaneBtnDone.setDisable(false);
-        productController.labelAddEditDone.setText("Edit Order");
     }
 
     private void setSelectedOrderProductValues() {
