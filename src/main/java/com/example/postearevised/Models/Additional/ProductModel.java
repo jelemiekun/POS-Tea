@@ -566,7 +566,7 @@ public class ProductModel {
         }
 
         if (isAddOrder) {
-            productOrderReference = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
+            referenceProductOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
         } else {
 
         }
@@ -953,8 +953,7 @@ public class ProductModel {
         }
     }
 
-    public void setEditOrderProduct(ProductOrder productOrder) {
-        productOrderReference = productOrder;
+    public void setEditOrderProduct() {
         setSelectedProductPanesVisibilities();
         setSelectedEditOrderProductButton();
         setSelectedProductTexts();
@@ -972,9 +971,9 @@ public class ProductModel {
 
     private void setSelectedOrderProductValues() {
         // BALI-BALIKTAD / NAURONG TALAGA HAHA
-        String firstAttribute = productOrderReference.getThirdAttribute();
-        String secondAttribute = productOrderReference.getFirstAttribute();
-        String thirdAttribute = productOrderReference.getSecondAttribute();
+        String firstAttribute = referenceProductOrder.getThirdAttribute();
+        String secondAttribute = referenceProductOrder.getFirstAttribute();
+        String thirdAttribute = referenceProductOrder.getSecondAttribute();
 
         switch (editOrShowSelectedProduct.getCategory()) {
             case "Milk Tea":

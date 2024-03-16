@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 import java.time.LocalDateTime;
 
 public class ProductOrderReference {
-    public static ProductOrder productOrderReference;
+    public static ProductOrder referenceProductOrder;
     public static boolean isProductOrderAdded = false;
 
     public static ObservableList<ProductOrder> referenceProductOrderObservableList = FXCollections.observableArrayList();
@@ -20,7 +20,7 @@ public class ProductOrderReference {
     public static LocalDateTime referenceDateAndTime;
 
     public static void clearProductOrderReferences() {
-        productOrderReference = null;
+        referenceProductOrder = null;
         isProductOrderAdded = false;
         referenceProductOrderObservableList.clear();
         referenceCustomerName = "";

@@ -356,7 +356,7 @@ public class MenuModel {
     }
 
     public void createAnchorPane(Product product) {
-        ProductOrder productOrder = productOrderReference;
+        ProductOrder productOrder = referenceProductOrder;
         final int productPrice = productOrder.getTotalAmount();
 
         if (productNotExisted(productOrder, productPrice)) {
@@ -524,7 +524,7 @@ public class MenuModel {
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
-        productController.productModel.setEditOrderProduct(productOrder);
+        productController.productModel.setEditOrderProduct();
 
         newStage.showAndWait();
 
