@@ -527,9 +527,6 @@ public class MenuModel {
         productController.productModel.setEditOrderProduct();
 
         newStage.showAndWait();
-
-        checkIfAddingProductToOrderSuccess(product);
-        clearSelectedProductReference();
     }
 
     // Event handlers

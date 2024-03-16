@@ -958,10 +958,38 @@ public class ProductModel {
         setSelectedEditOrderProductButton();
         setSelectedProductTexts();
         setSelectedOrderProductValues();
+        setDisableRadioButtons();
 
         isAdd = false;
         isSelected = false;
         isEdit = true;
+    }
+
+    private void setDisableRadioButtons() {
+        if (editOrShowSelectedProduct instanceof MilkTea) {
+            productController.milkTeaRadioBtnSmall.setDisable(true);
+            productController.milkTeaRadioBtnMedium.setDisable(true);
+            productController.milkTeaRadioBtnLarge.setDisable(true);
+            productController.milkTeaRadioBtnWaterBase.setDisable(true);
+            productController.milkTeaRadioBtnTeaBase.setDisable(true);
+            productController.milkTeaRadioBtnAddOnsOne.setDisable(true);
+            productController.milkTeaRadioBtnAddOnsTwo.setDisable(true);
+        } else if (editOrShowSelectedProduct instanceof Coolers) {
+            productController.coolersRadioBtnSmall.setDisable(true);
+            productController.coolersRadioBtnMedium.setDisable(true);
+            productController.coolersRadioBtnLarge.setDisable(true);
+            productController.coolersRadioBtnWaterBase.setDisable(true);
+            productController.coolersRadioBtnTeaBase.setDisable(true);
+            productController.coolersRadioBtnAddOnsOne.setDisable(true);
+            productController.coolersRadioBtnAddOnsTwo.setDisable(true);
+        } else if (editOrShowSelectedProduct instanceof Coffee) {
+            productController.coffeeRadioBtnHot.setDisable(true);
+            productController.coffeeRadioBtnCold.setDisable(true);
+        } else if (editOrShowSelectedProduct instanceof IceCandyCups) {
+            // walang raido buttons sa ice candy cups
+        } else if (editOrShowSelectedProduct instanceof Appetizer) {
+            // wlaang radio buttons sa appetizer
+        }
     }
 
     private void setSelectedEditOrderProductButton() {
