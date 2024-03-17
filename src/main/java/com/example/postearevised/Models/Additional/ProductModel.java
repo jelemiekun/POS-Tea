@@ -476,6 +476,7 @@ public class ProductModel {
 
     private void addProductToOrderOrEditProductOrder(boolean isAddOrder) {
         String orderTitle = editOrShowSelectedProduct.getProductName();
+        String orderCategory = editOrShowSelectedProduct.getCategory();
         Image orderImage = editOrShowSelectedProduct.getImage();
         String firstAttribute = "";
         String secondAttribute = "";
@@ -486,7 +487,7 @@ public class ProductModel {
         RadioButton radioButton2;
         RadioButton radioButton3;
 
-        switch(editOrShowSelectedProduct.getCategory()) {
+        switch(orderCategory) {
             case "Milk Tea":
                 radioButton1 = (RadioButton) productController.milkTeaLiquidBaseToggleGroup.getSelectedToggle();
                 radioButton2 = (RadioButton) productController.milkTeaAddOnsToggleGroup.getSelectedToggle();
@@ -566,7 +567,7 @@ public class ProductModel {
         }
 
         if (isAddOrder) {
-            referenceProductOrder = new ProductOrder(orderTitle, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
+            referenceProductOrder = new ProductOrder(orderTitle, orderCategory, orderImage, firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
         } else {
 
         }

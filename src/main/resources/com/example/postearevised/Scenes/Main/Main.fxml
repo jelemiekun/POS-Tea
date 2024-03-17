@@ -521,7 +521,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
@@ -556,15 +556,16 @@
                <children>
                   <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" prefHeight="759.0" prefWidth="1739.0">
                     <columns>
-                      <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="229.0" resizable="false" text="Customer Name" />
-                      <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="249.0" resizable="false" text="Product Name" />
-                        <TableColumn fx:id="tableViewOrderHistoryColQuantity" prefWidth="93.0" resizable="false" text="Quantity" />
-                        <TableColumn fx:id="tableViewOrderHistoryColPrice" prefWidth="138.0" resizable="false" text="Price" />
-                        <TableColumn fx:id="tableViewOrderHistoryColTotalPrice" prefWidth="205.0" resizable="false" text="Total Price" />
-                        <TableColumn fx:id="tableViewOrderHistoryColAmountPaid" prefWidth="198.0" resizable="false" text="Amount Paid" />
-                        <TableColumn fx:id="tableViewOrderHistoryColChange" prefWidth="136.0" resizable="false" text="Change" />
-                        <TableColumn fx:id="tableViewOrderHistoryColModeOfPayment" prefWidth="216.0" resizable="false" text="Mode of Payment" />
-                        <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="273.0" text="Date and Time" />
+                      <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="218.0" resizable="false" text="Customer Name" />
+                        <TableColumn fx:id="tableViewOrderHistoryColProductCategory" prefWidth="131.0" text="Category" />
+                      <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="185.0" resizable="false" text="Product Name" />
+                        <TableColumn fx:id="tableViewOrderHistoryColQuantity" resizable="false" text="Quantity" />
+                        <TableColumn fx:id="tableViewOrderHistoryColPrice" prefWidth="139.0" resizable="false" text="Price" />
+                        <TableColumn fx:id="tableViewOrderHistoryColTotalPrice" prefWidth="184.0" resizable="false" text="Total Price" />
+                        <TableColumn fx:id="tableViewOrderHistoryColAmountPaid" prefWidth="178.0" resizable="false" text="Amount Paid" />
+                        <TableColumn fx:id="tableViewOrderHistoryColChange" prefWidth="179.0" resizable="false" text="Change" />
+                        <TableColumn fx:id="tableViewOrderHistoryColModeOfPayment" prefWidth="220.0" resizable="false" text="Mode of Payment" />
+                        <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="224.0" text="Date and Time" />
                     </columns>
                   </TableView>
                   <ImageView fitHeight="85.0" fitWidth="74.0" layoutX="1686.0" layoutY="676.0" onMouseClicked="#btnOrderHistoryDeleteClicked" onTouchReleased="#btnOrderHistoryDeleteTouched" pickOnBounds="true" preserveRatio="true">
@@ -733,7 +734,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>

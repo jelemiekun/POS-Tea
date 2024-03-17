@@ -79,6 +79,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+                mainController.dashboardModel.updateContents();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardSelectedIcon);
@@ -94,6 +95,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(true);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);

@@ -5,6 +5,7 @@ import javafx.scene.image.Image;
 
 public class ProductOrder {
     private String productName;
+    private String productCategory;
     private Image productImage;
     private String firstAttribute;
     private String secondAttribute;
@@ -14,8 +15,9 @@ public class ProductOrder {
     private Label labelPrice;
     private Label labelQuantity;
 
-    public ProductOrder(String productName, Image productImage, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
+    public ProductOrder(String productName, String productCategory, Image productImage, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
         this.productName = productName;
+        this.productCategory = productCategory;
         this.productImage = productImage;
         this.firstAttribute = firstAttribute;
         this.secondAttribute = secondAttribute;
@@ -24,6 +26,14 @@ public class ProductOrder {
         this.quantity = quantity;
         this.labelPrice = new Label();
         this.labelQuantity = new Label();
+    }
+
+    public String getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
     }
 
     public String getThirdAttribute() {

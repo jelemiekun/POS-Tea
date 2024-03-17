@@ -13,9 +13,10 @@ public class OrderHistoryModel {
 
     public void setOrderHistoryTable() {
         mainController.tableViewOrderHistoryColCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
+        mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
         mainController.tableViewOrderHistoryColProductName.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
-        //mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(new PropertyValueFactory<>(""));
-        //mainController.tableViewOrderHistoryColPrice.setCellValueFactory(new PropertyValueFactory<>(""));
+        mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
+        mainController.tableViewOrderHistoryColPrice.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
         mainController.tableViewOrderHistoryColTotalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         mainController.tableViewOrderHistoryColAmountPaid.setCellValueFactory(new PropertyValueFactory<>("amountPaid"));
         mainController.tableViewOrderHistoryColChange.setCellValueFactory(new PropertyValueFactory<>("change"));
