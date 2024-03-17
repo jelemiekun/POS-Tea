@@ -3,7 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;

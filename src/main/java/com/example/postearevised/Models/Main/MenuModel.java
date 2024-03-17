@@ -573,7 +573,7 @@ public class MenuModel {
 
     private void updateTotalAmountOfOrder() {
         referenceTotalPrice = 0;
-        System.out.println("Is reference product order empty? " + referenceProductOrderObservableList.isEmpty());
+        System.out.println("Is reference product order empty? (updateTotalAmountOfOrder) " + referenceProductOrderObservableList.isEmpty());
         for (ProductOrder productOrder : referenceProductOrderObservableList) {
             System.out.println("Product name in order: " + productOrder.getProductName());
             System.out.println("Total price reference: " + referenceTotalPrice);

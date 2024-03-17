@@ -1,9 +1,10 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.References.OrderQueueReference;
 import com.example.postearevised.Objects.Order;
+import com.example.postearevised.Objects.ProductOrder;
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
@@ -17,10 +18,9 @@ import javafx.scene.text.Font;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.ONE_SECOND;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
-import static com.example.postearevised.Miscellaneous.References.ImagesReference.ORDER_QUEUE_DONE_BUTTON;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class OrderListModel {
@@ -102,6 +102,54 @@ public class OrderListModel {
         innerAnchorPane.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(innerAnchorPane, 99.0);
         AnchorPane.setLeftAnchor(innerAnchorPane, 28.0);
+
+        ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
+        double labelTop = 0.0;
+        for (ProductOrder productOrder : productOrders) {
+            // Label for productName and quantity
+            Label productNameLabel = new Label(productOrder.getProductName());
+            productNameLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+            AnchorPane.setTopAnchor(productNameLabel, labelTop);
+            AnchorPane.setLeftAnchor(productNameLabel, 16.0);
+            innerAnchorPane.getChildren().add(productNameLabel);
+
+            Label quantityLabel = new Label("x" + productOrder.getQuantity());
+            quantityLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+            AnchorPane.setTopAnchor(quantityLabel, labelTop);
+            AnchorPane.setRightAnchor(quantityLabel, 16.0);
+            quantityLabel.setStyle("-fx-font-weight: bold;"); // Setting the font weight to bold
+            innerAnchorPane.getChildren().add(quantityLabel);
+
+            labelTop += 30.0;
+
+            // Add attributes below productName
+            if (!productOrder.getFirstAttribute().isEmpty()) {
+                Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
+                firstAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
+                AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
+                innerAnchorPane.getChildren().add(firstAttributeLabel);
+                labelTop += 30.0;
+            }
+
+            if (!productOrder.getSecondAttribute().isEmpty()) {
+                Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
+                secondAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
+                AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
+                innerAnchorPane.getChildren().add(secondAttributeLabel);
+                labelTop += 30.0;
+            }
+
+            if (!productOrder.getThirdAttribute().isEmpty()) {
+                Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
+                thirdAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
+                AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
+                innerAnchorPane.getChildren().add(thirdAttributeLabel);
+                labelTop += 30.0;
+            }
+        }
 
         // Create ImageView
         ImageView imageView = new ImageView();

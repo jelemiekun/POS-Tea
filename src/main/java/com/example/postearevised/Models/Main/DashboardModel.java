@@ -3,9 +3,10 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
+import javafx.collections.ObservableList;
 
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class DashboardModel {
     private MainController mainController;
@@ -24,11 +25,14 @@ public class DashboardModel {
 
     private void updateRevenue() {
         referenceTotalRevenue = 0;
-        int i = 0;
 
         for (Order order : orderHistoryObservableList) {
-            referenceTotalRevenue += order.getProductOrderObservableList().get(i).getTotalAmount();
-            i++;
+            ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
+            if (!productOrders.isEmpty()) {
+                for (ProductOrder productOrder : productOrders) {
+                    referenceTotalRevenue += productOrder.getTotalAmount();
+                }
+            }
         }
     }
 
