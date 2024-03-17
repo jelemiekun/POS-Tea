@@ -22,6 +22,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 
 public class OrderListModel {
     private MainController mainController;
@@ -179,8 +180,10 @@ public class OrderListModel {
         imageView.setFitWidth(167);
         imageView.setFitHeight(55);
         imageView.setPreserveRatio(true);
+        System.out.println("Bago ko ipasa: " + order.getProductOrderObservableList().isEmpty());
         imageView.setOnMouseClicked(event -> orderDoneClickedTouched(order, anchorPane));
         imageView.setOnTouchReleased(event -> orderDoneClickedTouched(order, anchorPane));
+        System.out.println("After ko ipasa: " + order.getProductOrderObservableList().isEmpty());
         imageView.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(imageView, 431.0);
         AnchorPane.setLeftAnchor(imageView, 95.0);
@@ -196,6 +199,7 @@ public class OrderListModel {
     }
 
     private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        System.out.println("Napasa na: " + order.getProductOrderObservableList().isEmpty());
         orderDoneGetDateAndTime(order);
         addOrderToOrderHistory(order);
         removeOrderToOrderQueue(order, anchorPaneToDelete);
@@ -215,12 +219,15 @@ public class OrderListModel {
     }
 
     private void addOrderToOrderHistory(Order order) {
-        orderHistoryObservableList.add(order);
+        synchronized (synchronizedOrderHistoryObservableList) {
+            synchronizedOrderHistoryObservableList.add(order);
+        }
     }
+
 
     private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(synchronizedOrderHistoryObservableList.size()));
 
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
     }

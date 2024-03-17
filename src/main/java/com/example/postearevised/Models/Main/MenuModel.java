@@ -337,7 +337,7 @@ public class MenuModel {
     }
 
     private synchronized ProductOrder isExistingOrder(ProductOrder productOrder) {
-        for (ProductOrder order : synchronizedReferenceProductORderObservableList) {
+        for (ProductOrder order : synchronizedReferenceProductOrderObservableList) {
             if (order.getProductName().equals(productOrder.getProductName()) &&
                     order.getProductImage().equals(productOrder.getProductImage()) &&
                     order.getFirstAttribute().equals(productOrder.getFirstAttribute()) &&
@@ -360,8 +360,8 @@ public class MenuModel {
         final int productPrice = productOrder.getTotalAmount();
 
         if (productNotExisted(productOrder, productPrice)) {
-            synchronized (synchronizedReferenceProductORderObservableList) {
-                synchronizedReferenceProductORderObservableList.add(productOrder);
+            synchronized (synchronizedReferenceProductOrderObservableList) {
+                synchronizedReferenceProductOrderObservableList.add(productOrder);
             }
 
             AnchorPane anchorPane = new AnchorPane();
@@ -558,15 +558,15 @@ public class MenuModel {
     }
 
     private void deleteProductInOrderOnAction(AnchorPane anchorPaneToDelete, ProductOrder productOrder) {
-        synchronized (synchronizedReferenceProductORderObservableList) {
-            synchronizedReferenceProductORderObservableList.remove(productOrder);
+        synchronized (synchronizedReferenceProductOrderObservableList) {
+            synchronizedReferenceProductOrderObservableList.remove(productOrder);
         }
 
         synchronized (mainController.flowPaneOrdersSelected.getChildren()) {
             mainController.flowPaneOrdersSelected.getChildren().remove(anchorPaneToDelete);
         }
 
-        if (synchronizedReferenceProductORderObservableList.isEmpty())
+        if (synchronizedReferenceProductOrderObservableList.isEmpty())
             noOrderSelected();
 
         updateTotalAmountOfOrder();
@@ -580,10 +580,10 @@ public class MenuModel {
     }
 
     private void updateTotalAmountOfOrder() {
-        synchronized (synchronizedReferenceProductORderObservableList) {
+        synchronized (synchronizedReferenceProductOrderObservableList) {
             referenceTotalPrice = 0;
-            System.out.println("Is reference product order empty? (updateTotalAmountOfOrder) " + synchronizedReferenceProductORderObservableList.isEmpty());
-            for (ProductOrder productOrder : synchronizedReferenceProductORderObservableList) {
+            System.out.println("Is reference product order empty? (updateTotalAmountOfOrder) " + synchronizedReferenceProductOrderObservableList.isEmpty());
+            for (ProductOrder productOrder : synchronizedReferenceProductOrderObservableList) {
                 System.out.println("Product name in order: " + productOrder.getProductName());
                 System.out.println("Total price reference: " + referenceTotalPrice);
                 referenceTotalPrice += productOrder.getTotalAmount();
@@ -702,10 +702,13 @@ public class MenuModel {
         synchronized (lock) {
             referenceChange = getChange();
 
-            System.out.println("addToOrderQueue is synchronizedList empty? " + synchronizedReferenceProductORderObservableList.isEmpty());
-            Order order = new Order(synchronizedReferenceProductORderObservableList, referenceCustomerName, referenceOrderNumber,
+            System.out.println("addToOrderQueue is synchronizedList empty? " + synchronizedReferenceProductOrderObservableList.isEmpty());
+            Order order = new Order(synchronizedReferenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
                     referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
             orderQueueObservableList.add(order);
+            for (Order order1 : orderQueueObservableList) {
+                System.out.println("addToOrderQueue isOrderListEmpty: " + order1.getProductOrderObservableList().isEmpty());
+            }
 
             setOrderReference(order);
             invokeOrderListStartsHereMethod();

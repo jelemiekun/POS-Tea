@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import java.time.LocalDateTime;
 
 public class Order {
-    private final ObservableList<ProductOrder> productOrderObservableList;
+    private ObservableList<ProductOrder> productOrderObservableList;
     private final String customerName;
     private final int orderNumber;
     private final int totalPrice;
@@ -24,10 +24,16 @@ public class Order {
         this.amountPaid = amountPaid;
         this.change = change;
         this.modeOfPayment = modeOfPayment;
+
+        System.out.println("Order this.list.isEmpty? " + this.productOrderObservableList.isEmpty());
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {
         return productOrderObservableList;
+    }
+
+    public void setProductOrderObservableList(ObservableList<ProductOrder> productOrderObservableList) {
+        this.productOrderObservableList = productOrderObservableList;
     }
 
     public String getCustomerName() {

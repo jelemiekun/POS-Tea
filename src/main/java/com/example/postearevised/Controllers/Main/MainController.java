@@ -426,7 +426,7 @@ public class MainController implements Initializable {
     @FXML
     public Label labelDashboardTotalOrder;
     @FXML
-    private PieChart pieChartDashboard;
+    public PieChart pieChartDashboard;
 
     /**
      * Settings

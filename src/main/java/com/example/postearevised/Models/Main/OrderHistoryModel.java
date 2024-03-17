@@ -49,7 +49,9 @@ public class OrderHistoryModel {
             };
         });
 
-        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+        synchronized (synchronizedOrderHistoryObservableList) {
+            mainController.tableViewOrderHistory.setItems(synchronizedOrderHistoryObservableList);
+        }
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);
         mainController.tableViewOrderHistoryColQuantity.setReorderable(false);

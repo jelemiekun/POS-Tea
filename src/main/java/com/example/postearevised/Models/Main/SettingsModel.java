@@ -4,13 +4,10 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Objects.Product;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
@@ -22,7 +19,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
@@ -192,7 +188,7 @@ public class SettingsModel {
      */
 
     private void editProductsCheckIfOrderIsOngoing() {
-        mainController.orderIsOngoing = !synchronizedReferenceProductORderObservableList.isEmpty();
+        mainController.orderIsOngoing = !synchronizedReferenceProductOrderObservableList.isEmpty();
         cantEditProductsLabelVisibility();
     }
 
