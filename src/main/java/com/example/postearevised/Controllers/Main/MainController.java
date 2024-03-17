@@ -27,7 +27,6 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.trueAddProductFalseDeleteProduct;
 
 public class MainController implements Initializable {
     /**
@@ -533,10 +532,6 @@ public class MainController implements Initializable {
     @FXML
     public Label labelSettingsEditProductsUnavailable;
     @FXML
-    public Label labelAddDeleteProductBtn;
-    @FXML
-    public ImageView imageViewAddDeleteProductBtn;
-    @FXML
     public ImageView btnProductTableRefresh;
     @FXML
     public TableView<Product> tableProducts;
@@ -548,26 +543,26 @@ public class MainController implements Initializable {
     public TableColumn<Product, String> tableProductsColCategory;
     @FXML
     public TableColumn<Product, CheckBox> tableProductsColAvailable;
-    @FXML
-    public TableColumn<Product, CheckBox> tableProductsColDelete;
 
     @FXML
-    public void settingsAddDeleteProductClicked() throws IOException{
-        if (!trueAddProductFalseDeleteProduct)
-            settingsModel.openAddProductsFXML();
-        else {
-            if (!orderIsOngoing)
-                settingsModel.deleteSelectedProductsProcess();
-        }
+    public void settingsAddProductClicked() throws IOException{
+        settingsModel.openAddProductsFXML();
     }
     @FXML
-    public void settingsAddDeleteProductTouched() throws IOException {
-        if (!trueAddProductFalseDeleteProduct)
-            settingsModel.openAddProductsFXML();
-        else {
-            if (!orderIsOngoing)
-                settingsModel.deleteSelectedProductsProcess();
-        }
+    public void settingsAddProductTouched() throws IOException {
+        settingsModel.openAddProductsFXML();
+    }
+
+    @FXML
+    public void settingsDeleteProductClicked(MouseEvent event) {
+        if (!orderIsOngoing)
+            settingsModel.deleteSelectedProductsProcess();
+    }
+
+    @FXML
+    public void settingsDeleteProductTouched(TouchEvent event) {
+        if (!orderIsOngoing)
+            settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML

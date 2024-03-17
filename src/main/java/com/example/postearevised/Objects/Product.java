@@ -17,7 +17,6 @@ public abstract class Product {
     private String imagePath;
     private CheckBox checkBox;
     private ImageView imageViewSmall;
-    private CheckBox checkBoxDelete;
 
     public Product(String productName, String productDescription, String imagePath, String category) {
         if (!category.isBlank() && !category.isEmpty()) {
@@ -34,7 +33,6 @@ public abstract class Product {
             this.imageViewSmall.setFitHeight(IMAGE_VIEW_SMALL_HEIGHT);
             this.checkBox = new CheckBox();
             this.checkBox.setSelected(true);
-            this.checkBoxDelete = new CheckBox();
         } else {
             // prommpt can't add product, no category
         }
@@ -120,9 +118,6 @@ public abstract class Product {
 
     public void setCheckBox(CheckBox checkBox) {
         this.checkBox = checkBox;
-    }
-    public void setCheckBoxDelete(CheckBox checkBoxDelete) {
-        this.checkBoxDelete = checkBoxDelete;
     }
 
 }

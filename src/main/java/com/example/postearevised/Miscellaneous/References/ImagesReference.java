@@ -20,10 +20,6 @@ public class ImagesReference {
     public static final Image SYSTEM_LOGO = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/logo.png")));
 
 
-    public static final Image ADD_PRODUCT = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Product Process/add product.png")));
-    public static final Image DELETE_PRODUCT = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Product Process/delete product.png")));
-
-
     public static final Image mainMenuIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/Menu button.png")));
     public static final Image mainMenuSelectedIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/Menu button selected.png")));
     public static final Image mainDashboardIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/dashboard.png")));

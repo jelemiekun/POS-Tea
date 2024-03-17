@@ -19,6 +19,5 @@ public class GeneralReference {
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
     public static int deleteProductSelectedCounter = 0;
-    public static boolean trueAddProductFalseDeleteProduct = false;
     public static Product editOrShowSelectedProduct;
 }

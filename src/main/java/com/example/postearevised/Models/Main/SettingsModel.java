@@ -109,7 +109,6 @@ public class SettingsModel {
                 break;
             case 3: // Edit Products
                 editProductsInitializeTable();
-                addCheckboxListeners();
                 editProductsCheckIfOrderIsOngoing();
                 populateComboBoxImportExport();
                 refreshProductTable();
@@ -205,14 +204,12 @@ public class SettingsModel {
         mainController.tableProductsColProductName.setCellValueFactory(new PropertyValueFactory<>("productName"));
         mainController.tableProductsColCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
         mainController.tableProductsColAvailable.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
-        mainController.tableProductsColDelete.setCellValueFactory(new PropertyValueFactory<>("checkBoxDelete"));
 
         mainController.tableProducts.setItems(allProductObservableList);
         mainController.tableProductsColImage.setReorderable(false);
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
         mainController.tableProductsColAvailable.setReorderable(false);
-        mainController.tableProductsColDelete.setReorderable(false);
     }
 
     public void openAddProductsFXML() throws IOException {
@@ -292,33 +289,6 @@ public class SettingsModel {
     private void clearSelectedProduct() {
         editOrShowSelectedProduct = null;
         mainController.tableProducts.getSelectionModel().clearSelection();
-    }
-
-
-
-    /**
-     * Delete Product
-     */
-    private void addCheckboxListeners() {
-        mainController.tableProductsColDelete.setCellValueFactory(cellData -> {
-            CheckBox checkBox = new CheckBox();
-            checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                // Do something when the checkbox is checked or unchecked
-                if (newValue) {
-                    deleteProductSelectedCounter++;
-                } else {
-                    deleteProductSelectedCounter--;
-                }
-                updateAddDeleteProductUI();
-            });
-            return new SimpleObjectProperty<>(checkBox);
-        });
-    }
-
-    private void updateAddDeleteProductUI() {
-        mainController.labelAddDeleteProductBtn.setText(deleteProductSelectedCounter == 0 ? "Add Product  " : "Delete Product");
-        mainController.imageViewAddDeleteProductBtn.setImage(deleteProductSelectedCounter == 0 ? ADD_PRODUCT : DELETE_PRODUCT);
-        trueAddProductFalseDeleteProduct = deleteProductSelectedCounter != 0;
     }
 
     public void deleteSelectedProductsProcess() {
