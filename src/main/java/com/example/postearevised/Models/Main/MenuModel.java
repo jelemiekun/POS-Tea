@@ -712,7 +712,7 @@ public class MenuModel {
 
             setOrderReference(order);
             invokeOrderListStartsHereMethod();
-            clearOrderReference();
+            //clearOrderReference();
         }
     }
 

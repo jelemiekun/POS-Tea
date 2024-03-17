@@ -12,6 +12,7 @@ public class ProductOrderReference {
 
     public static ObservableList<ProductOrder> referenceProductOrderObservableList = FXCollections.observableArrayList();
     public static ObservableList<ProductOrder> synchronizedReferenceProductOrderObservableList = FXCollections.synchronizedObservableList(referenceProductOrderObservableList);
+    public static ObservableList<ProductOrder> referenceSecondProductOrderObservableList = FXCollections.observableArrayList();
 
     public static String referenceCustomerName = "";
     public static int referenceOrderNumber;

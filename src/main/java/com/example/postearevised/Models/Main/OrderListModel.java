@@ -138,6 +138,8 @@ public class OrderListModel {
                 innerAnchorPane.getChildren().add(quantityLabel);
 
                 labelTop += 25.0;
+            } else {
+                break;
             }
 
             // Add attributes below productName
@@ -148,6 +150,8 @@ public class OrderListModel {
                 AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(firstAttributeLabel);
                 labelTop += 20.0;
+            } else {
+                break;
             }
 
             if (!productOrder.getSecondAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
@@ -157,6 +161,8 @@ public class OrderListModel {
                 AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(secondAttributeLabel);
                 labelTop += 20.0;
+            } else {
+                break;
             }
 
             if (!productOrder.getThirdAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
@@ -166,6 +172,8 @@ public class OrderListModel {
                 AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(thirdAttributeLabel);
                 labelTop += 20.0;
+            } else {
+                break;
             }
 
             // Add extra spacing between product entries
@@ -199,6 +207,7 @@ public class OrderListModel {
     }
 
     private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        order.setProductOrderObservableList(orderReference.getProductOrderObservableList());
         System.out.println("Napasa na: " + order.getProductOrderObservableList().isEmpty());
         orderDoneGetDateAndTime(order);
         addOrderToOrderHistory(order);

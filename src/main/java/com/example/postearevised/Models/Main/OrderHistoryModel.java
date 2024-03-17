@@ -2,8 +2,12 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order;
+import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -20,10 +24,42 @@ public class OrderHistoryModel {
 
     public void setOrderHistoryTable() {
         mainController.tableViewOrderHistoryColCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
-        mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
-        mainController.tableViewOrderHistoryColProductName.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
-        mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
-        mainController.tableViewOrderHistoryColPrice.setCellValueFactory(new PropertyValueFactory<>("productOrderObservableList"));
+        mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(cellData -> {
+            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
+            StringBuilder categories = new StringBuilder();
+            for (ProductOrder productOrder : productOrders) {
+                categories.append(productOrder.getProductCategory()).append(", ");
+            }
+            return new SimpleStringProperty(categories.toString());
+        });
+
+        mainController.tableViewOrderHistoryColProductName.setCellValueFactory(cellData -> {
+            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
+            StringBuilder names = new StringBuilder();
+            for (ProductOrder productOrder : productOrders) {
+                names.append(productOrder.getProductName()).append(", ");
+            }
+            return new SimpleStringProperty(names.toString());
+        });
+
+        mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(cellData -> {
+            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
+            int totalQuantity = 0;
+            for (ProductOrder productOrder : productOrders) {
+                totalQuantity += productOrder.getQuantity();
+            }
+            return new SimpleIntegerProperty(totalQuantity).asObject();
+        });
+
+        mainController.tableViewOrderHistoryColPrice.setCellValueFactory(cellData -> {
+            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
+            int totalPrice = 0;
+            for (ProductOrder productOrder : productOrders) {
+                totalPrice += productOrder.getTotalAmount();
+            }
+            return new SimpleIntegerProperty(totalPrice).asObject();
+        });
+
         mainController.tableViewOrderHistoryColTotalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         mainController.tableViewOrderHistoryColAmountPaid.setCellValueFactory(new PropertyValueFactory<>("amountPaid"));
         mainController.tableViewOrderHistoryColChange.setCellValueFactory(new PropertyValueFactory<>("change"));

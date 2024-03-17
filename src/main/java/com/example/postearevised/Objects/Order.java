@@ -34,6 +34,7 @@ public class Order {
 
     public void setProductOrderObservableList(ObservableList<ProductOrder> productOrderObservableList) {
         this.productOrderObservableList = productOrderObservableList;
+        System.out.println("Bagong pinasang productOrderObsableList: " + productOrderObservableList.size());
     }
 
     public String getCustomerName() {
