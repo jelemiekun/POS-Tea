@@ -66,6 +66,20 @@ public class OrderListModel {
         updateOrderQueueLabelsAndPane();
     }
 
+    private boolean notExceedLabelTop(AnchorPane innerAnchorPane, double labelTop) {
+        if (labelTop >= 260) {
+            labelTop += 25;
+            Label moreLabel = new Label("More...");
+            moreLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+            AnchorPane.setTopAnchor(moreLabel, labelTop);
+            AnchorPane.setLeftAnchor(moreLabel, 16.0);
+            innerAnchorPane.getChildren().add(moreLabel);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     private void addOrderToList(Order order) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefSize(350, 500);
@@ -107,23 +121,25 @@ public class OrderListModel {
         double labelTop = 0.0;
         for (ProductOrder productOrder : productOrders) {
             // Label for productName and quantity
-            Label productNameLabel = new Label(productOrder.getProductName());
-            productNameLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
-            AnchorPane.setTopAnchor(productNameLabel, labelTop);
-            AnchorPane.setLeftAnchor(productNameLabel, 16.0);
-            innerAnchorPane.getChildren().add(productNameLabel);
+            if (notExceedLabelTop(innerAnchorPane, labelTop)) {
+                Label productNameLabel = new Label(productOrder.getProductName());
+                productNameLabel.setFont(Font.font("Arial", 22)); // Set font to Arial with size 18px
+                AnchorPane.setTopAnchor(productNameLabel, labelTop);
+                AnchorPane.setLeftAnchor(productNameLabel, 16.0);
+                innerAnchorPane.getChildren().add(productNameLabel);
 
-            Label quantityLabel = new Label("x" + productOrder.getQuantity());
-            quantityLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
-            AnchorPane.setTopAnchor(quantityLabel, labelTop);
-            AnchorPane.setRightAnchor(quantityLabel, 16.0);
-            quantityLabel.setStyle("-fx-font-weight: bold;"); // Setting the font weight to bold
-            innerAnchorPane.getChildren().add(quantityLabel);
+                Label quantityLabel = new Label("x" + productOrder.getQuantity());
+                quantityLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                AnchorPane.setTopAnchor(quantityLabel, labelTop);
+                AnchorPane.setRightAnchor(quantityLabel, 16.0);
+                quantityLabel.setStyle("-fx-font-weight: bold;"); // Setting the font weight to bold
+                innerAnchorPane.getChildren().add(quantityLabel);
 
-            labelTop += 20.0;
+                labelTop += 25.0;
+            }
 
             // Add attributes below productName
-            if (!productOrder.getFirstAttribute().isEmpty()) {
+            if (!productOrder.getFirstAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
                 firstAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
                 AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
@@ -132,7 +148,7 @@ public class OrderListModel {
                 labelTop += 20.0;
             }
 
-            if (!productOrder.getSecondAttribute().isEmpty()) {
+            if (!productOrder.getSecondAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
                 secondAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
                 AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
@@ -141,7 +157,7 @@ public class OrderListModel {
                 labelTop += 20.0;
             }
 
-            if (!productOrder.getThirdAttribute().isEmpty()) {
+            if (!productOrder.getThirdAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
                 thirdAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
                 AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
@@ -151,8 +167,10 @@ public class OrderListModel {
             }
 
             // Add extra spacing between product entries
-            labelTop += 10.0;
+            labelTop += 20.0;
         }
+
+        System.out.println(labelTop);
 
         // Create ImageView
         ImageView imageView = new ImageView();
