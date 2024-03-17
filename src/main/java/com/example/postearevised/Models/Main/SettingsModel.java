@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -206,6 +207,7 @@ public class SettingsModel {
         mainController.tableProductsColAvailable.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
 
         mainController.tableProducts.setItems(allProductObservableList);
+        mainController.tableProducts.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         mainController.tableProductsColImage.setReorderable(false);
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
@@ -230,6 +232,7 @@ public class SettingsModel {
         newStage.showAndWait();
 
         isAddingProductSuccess();
+        refreshProductTable();
     }
 
     private void isAddingProductSuccess() {
@@ -292,36 +295,13 @@ public class SettingsModel {
     }
 
     public void deleteSelectedProductsProcess() {
-        List<Product> listProductsToDelete;
-
-        listProductsToDelete = getSelectedProductsInColumn();
-        deleteSelectedProducts(listProductsToDelete);
+            ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
+            mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
+            refreshProductTable();
     }
 
     public void refreshProductTable() {
         mainController.tableProducts.refresh();
         mainController.tableProducts.getSelectionModel().clearSelection();
-    }
-
-    /**
-     * ayaw gumana netong mga to haha
-     */
-    public List<Product> getSelectedProductsInColumn() {
-        ObservableList<Product> selectedProducts = FXCollections.observableArrayList();
-
-        for (Product product : mainController.tableProducts.getItems()) {
-            if (product.getCheckBox().isSelected()) {
-                selectedProducts.add(product);
-                System.out.println(product.getProductName() + ": " + product.getCheckBox().isSelected());
-            }
-        }
-
-        return selectedProducts;
-    }
-
-    private void deleteSelectedProducts(List<com.example.postearevised.Objects.Product> listProductsToDelete) {
-        for (com.example.postearevised.Objects.Product product : listProductsToDelete) {
-            System.out.println(product.getProductName() + ": " + product.getCheckBox().isSelected());
-        }
     }
 }
