@@ -40,24 +40,12 @@ public class ProductOrder {
         return thirdAttribute;
     }
 
-    public void setThirdAttribute(String thirdAttribute) {
-        this.thirdAttribute = thirdAttribute;
-    }
-
     public Label getLabelQuantity() {
         return labelQuantity;
     }
 
-    public void setLabelQuantity(Label labelQuantity) {
-        this.labelQuantity = labelQuantity;
-    }
-
     public Label getLabelPrice() {
         return labelPrice;
-    }
-
-    public void setLabelPrice(Label labelPrice) {
-        this.labelPrice = labelPrice;
     }
 
     public int getQuantity() {

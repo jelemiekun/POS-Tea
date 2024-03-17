@@ -192,7 +192,7 @@ public class SettingsModel {
      */
 
     private void editProductsCheckIfOrderIsOngoing() {
-        mainController.orderIsOngoing = !referenceProductOrderObservableList.isEmpty();
+        mainController.orderIsOngoing = !synchronizedReferenceProductORderObservableList.isEmpty();
         cantEditProductsLabelVisibility();
     }
 

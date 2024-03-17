@@ -5,12 +5,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Collections;
 
 public class ProductOrderReference {
     public static ProductOrder referenceProductOrder;
     public static boolean isProductOrderAdded = false;
 
     public static ObservableList<ProductOrder> referenceProductOrderObservableList = FXCollections.observableArrayList();
+    public static ObservableList<ProductOrder> synchronizedReferenceProductORderObservableList = FXCollections.synchronizedObservableList(referenceProductOrderObservableList);
+
     public static String referenceCustomerName = "";
     public static int referenceOrderNumber;
     public static int referenceTotalPrice;
@@ -23,6 +27,7 @@ public class ProductOrderReference {
         referenceProductOrder = null;
         isProductOrderAdded = false;
         referenceProductOrderObservableList.clear();
+        synchronizedReferenceProductORderObservableList.clear();
         referenceCustomerName = "";
         referenceTotalPrice = 0;
         referenceAmountPaid = 0;

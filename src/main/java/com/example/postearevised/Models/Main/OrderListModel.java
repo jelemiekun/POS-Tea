@@ -62,6 +62,7 @@ public class OrderListModel {
     }
 
     public void orderListOperationStartsHere() {
+        System.out.println("orderListOperationStartsHere is orderReference list empty? " + orderReference.getProductOrderObservableList().isEmpty());
         addOrderToList(orderReference);
         updateOrderQueueLabelsAndPane();
     }

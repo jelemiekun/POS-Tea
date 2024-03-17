@@ -27,12 +27,7 @@ public class DashboardModel {
         referenceTotalRevenue = 0;
 
         for (Order order : orderHistoryObservableList) {
-            ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
-            if (!productOrders.isEmpty()) {
-                for (ProductOrder productOrder : productOrders) {
-                    referenceTotalRevenue += productOrder.getTotalAmount();
-                }
-            }
+            referenceTotalRevenue += order.getTotalPrice();
         }
     }
 
@@ -42,10 +37,14 @@ public class DashboardModel {
 
     private void updateOrder() {
         referenceTotalOrder = 0;
-        int i = 0;
 
         for (Order order : orderHistoryObservableList) {
-            referenceTotalOrder += order.getProductOrderObservableList().size();
+            System.out.println("Customer name: " + order.getCustomerName());
+            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                System.out.println("Product name: " + productOrder.getProductName());
+                referenceTotalOrder += productOrder.getQuantity();
+            }
+            System.out.println("ProductOrder productORder order.getList.isEmpty? : " + order.getProductOrderObservableList().isEmpty());
         }
     }
 
@@ -54,6 +53,10 @@ public class DashboardModel {
     }
 
     private void updateUIs() {
+        mainController.labelDashboardTotalRevenue.setText(String.valueOf(referenceTotalRevenue));
+        mainController.labelDashboardTotalCustomer.setText(String.valueOf(referenceTotalCustomer));
+        mainController.labelDashboardTotalOrder.setText(String.valueOf(referenceTotalOrder));
+
         System.out.println("Total Revenue: " + referenceTotalRevenue);
         System.out.println("Total Customer: " + referenceTotalCustomer);
         System.out.println("Total Order: " + referenceTotalOrder);
