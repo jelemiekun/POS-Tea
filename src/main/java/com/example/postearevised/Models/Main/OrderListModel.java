@@ -120,7 +120,7 @@ public class OrderListModel {
             quantityLabel.setStyle("-fx-font-weight: bold;"); // Setting the font weight to bold
             innerAnchorPane.getChildren().add(quantityLabel);
 
-            labelTop += 30.0;
+            labelTop += 20.0;
 
             // Add attributes below productName
             if (!productOrder.getFirstAttribute().isEmpty()) {
@@ -129,7 +129,7 @@ public class OrderListModel {
                 AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(firstAttributeLabel);
-                labelTop += 30.0;
+                labelTop += 20.0;
             }
 
             if (!productOrder.getSecondAttribute().isEmpty()) {
@@ -138,7 +138,7 @@ public class OrderListModel {
                 AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(secondAttributeLabel);
-                labelTop += 30.0;
+                labelTop += 20.0;
             }
 
             if (!productOrder.getThirdAttribute().isEmpty()) {
@@ -147,8 +147,11 @@ public class OrderListModel {
                 AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(thirdAttributeLabel);
-                labelTop += 30.0;
+                labelTop += 20.0;
             }
+
+            // Add extra spacing between product entries
+            labelTop += 10.0;
         }
 
         // Create ImageView

@@ -550,17 +550,16 @@ public class ProductModel {
                 radioButton1 = (RadioButton) productController.coffeeTemperatureToggleGroup.getSelectedToggle();
 
                 firstAttribute = radioButton1.getText();
-                secondAttribute = productController.coffeeLabelPrice.getText();
 
                 totalAmount += Integer.parseInt(productController.coffeeLabelPrice.getText());
                 break;
             case "Ice Candy Cups":
-                firstAttribute = productController.iceCandyCupsLabelPrice.getText();
+                // No Attributes for Ice Candy Cups
 
                 totalAmount += Integer.parseInt(productController.iceCandyCupsLabelPrice.getText());
                 break;
             case "Appetizers":
-                firstAttribute = productController.appetizerLabelPrice.getText();
+                // No Attributes for Appetizers
 
                 totalAmount += Integer.parseInt(productController.appetizerLabelPrice.getText());
                 break;
