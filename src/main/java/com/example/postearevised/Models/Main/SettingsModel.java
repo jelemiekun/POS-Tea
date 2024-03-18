@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
+import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Product;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +25,6 @@ import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class SettingsModel {
@@ -188,7 +188,7 @@ public class SettingsModel {
      */
 
     private void editProductsCheckIfOrderIsOngoing() {
-        mainController.orderIsOngoing = !synchronizedReferenceProductOrderObservableList.isEmpty();
+        mainController.orderIsOngoing = !ProductOrderReference.referenceProductOrderObservableList.isEmpty();
         cantEditProductsLabelVisibility();
     }
 

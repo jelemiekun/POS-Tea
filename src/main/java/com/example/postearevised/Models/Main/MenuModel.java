@@ -3,7 +3,11 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
+import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.*;
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
@@ -22,6 +26,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
@@ -337,7 +343,7 @@ public class MenuModel {
     }
 
     private synchronized ProductOrder isExistingOrder(ProductOrder productOrder) {
-        for (ProductOrder order : synchronizedReferenceProductOrderObservableList) {
+        for (ProductOrder order : referenceProductOrderObservableList) {
             if (order.getProductName().equals(productOrder.getProductName()) &&
                     order.getProductImage().equals(productOrder.getProductImage()) &&
                     order.getFirstAttribute().equals(productOrder.getFirstAttribute()) &&
@@ -360,9 +366,7 @@ public class MenuModel {
         final int productPrice = productOrder.getTotalAmount();
 
         if (productNotExisted(productOrder, productPrice)) {
-            synchronized (synchronizedReferenceProductOrderObservableList) {
-                synchronizedReferenceProductOrderObservableList.add(productOrder);
-            }
+            referenceProductOrderObservableList.add(productOrder);
 
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setLayoutX(10.0);
@@ -491,8 +495,8 @@ public class MenuModel {
             deleteImageView.setLayoutY(44.0);
             deleteImageView.setFitWidth(25.0);
             deleteImageView.setFitHeight(25.0);
-            deleteImageView.setOnMouseClicked(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
-            deleteImageView.setOnTouchReleased(event -> deleteProductInOrderOnAction(anchorPane, productOrder));
+            deleteImageView.setOnMouseClicked(event -> deleteProductOrderInOrderOnAction(anchorPane, productOrder));
+            deleteImageView.setOnTouchReleased(event -> deleteProductOrderInOrderOnAction(anchorPane, productOrder));
             deleteImageView.setPickOnBounds(true);
             deleteImageView.setPreserveRatio(true);
             deleteImageView.setImage(CLOSE);
@@ -557,16 +561,14 @@ public class MenuModel {
         updateTotalAmountOfOrder();
     }
 
-    private void deleteProductInOrderOnAction(AnchorPane anchorPaneToDelete, ProductOrder productOrder) {
-        synchronized (synchronizedReferenceProductOrderObservableList) {
-            synchronizedReferenceProductOrderObservableList.remove(productOrder);
-        }
+    private void deleteProductOrderInOrderOnAction(AnchorPane anchorPaneToDelete, ProductOrder productOrder) {
+        referenceProductOrderObservableList.remove(productOrder);
 
         synchronized (mainController.flowPaneOrdersSelected.getChildren()) {
             mainController.flowPaneOrdersSelected.getChildren().remove(anchorPaneToDelete);
         }
 
-        if (synchronizedReferenceProductOrderObservableList.isEmpty())
+        if (referenceProductOrderObservableList.isEmpty())
             noOrderSelected();
 
         updateTotalAmountOfOrder();
@@ -580,14 +582,12 @@ public class MenuModel {
     }
 
     private void updateTotalAmountOfOrder() {
-        synchronized (synchronizedReferenceProductOrderObservableList) {
-            referenceTotalPrice = 0;
-            System.out.println("Is reference product order empty? (updateTotalAmountOfOrder) " + synchronizedReferenceProductOrderObservableList.isEmpty());
-            for (ProductOrder productOrder : synchronizedReferenceProductOrderObservableList) {
-                System.out.println("Product name in order: " + productOrder.getProductName());
-                System.out.println("Total price reference: " + referenceTotalPrice);
-                referenceTotalPrice += productOrder.getTotalAmount();
-            }
+        referenceTotalPrice = 0;
+        System.out.println("Is reference product order empty? (updateTotalAmountOfOrder) " + referenceProductOrderObservableList.isEmpty());
+        for (ProductOrder productOrder : referenceProductOrderObservableList) {
+            System.out.println("Product name in order: " + productOrder.getProductName());
+            System.out.println("Total price reference: " + referenceTotalPrice);
+            referenceTotalPrice += productOrder.getTotalAmount();
         }
 
         mainController.labelMenuTotalPrice.setText("₱" + referenceTotalPrice + ".00");
@@ -641,7 +641,21 @@ public class MenuModel {
 
         if (proceed) {
             setAttributes();
-            addToOrderQueue();
+            getChange();
+            Thread t1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    addToOrderQueue();
+                }
+            });
+
+            t1.start();
+
+            try {
+                t1.join();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             orderCancelledOrAddedToQueue();
             clearFields();
             incrementCustomerNumber();
@@ -700,25 +714,25 @@ public class MenuModel {
 
     private void addToOrderQueue() {
         synchronized (lock) {
-            referenceChange = getChange();
-
-            System.out.println("addToOrderQueue is synchronizedList empty? " + synchronizedReferenceProductOrderObservableList.isEmpty());
-            Order order = new Order(synchronizedReferenceProductOrderObservableList, referenceCustomerName, referenceOrderNumber,
+            ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
+            Order order = new Order(copyList, referenceCustomerName, referenceOrderNumber,
                     referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
+            System.out.println("line 702: " + order.getProductOrderObservableList().isEmpty());
             orderQueueObservableList.add(order);
-            for (Order order1 : orderQueueObservableList) {
-                System.out.println("addToOrderQueue isOrderListEmpty: " + order1.getProductOrderObservableList().isEmpty());
-            }
-
             setOrderReference(order);
-            invokeOrderListStartsHereMethod();
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    invokeOrderListStartsHereMethod();
+                }
+            });
             //clearOrderReference();
         }
     }
 
 
-    private int getChange() {
-        return referenceAmountPaid - referenceTotalPrice;
+    private void getChange() {
+        referenceChange = referenceAmountPaid - referenceTotalPrice;
     }
 
     private void setOrderReference(Order order) {

@@ -64,7 +64,7 @@ public class OrderListModel {
 
     public void orderListOperationStartsHere() {
         System.out.println("orderListOperationStartsHere is orderReference list empty? " + orderReference.getProductOrderObservableList().isEmpty());
-        addOrderToList(orderReference);
+        addOrderToList();
         updateOrderQueueLabelsAndPane();
     }
 
@@ -82,9 +82,10 @@ public class OrderListModel {
         }
     }
 
-    private void addOrderToList(Order order) {
+    private void addOrderToList() {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefSize(350, 500);
+        System.out.println("line 88: " + orderReference.getProductOrderObservableList().isEmpty());
 
         // Create Rectangle
         Rectangle rectangle = new Rectangle(350, 500);
@@ -100,12 +101,12 @@ public class OrderListModel {
         anchorPane.setEffect(dropShadow);
 
         // Create Labels
-        Label orderNumberLabel = new Label("Order Number: " + order.getOrderNumber());
+        Label orderNumberLabel = new Label("Order Number: " + orderReference.getOrderNumber());
         orderNumberLabel.setFont(Font.font("Arial", 24));
         AnchorPane.setTopAnchor(orderNumberLabel, 16.0);
         AnchorPane.setLeftAnchor(orderNumberLabel, 16.0);
 
-        Label customerNameLabel = new Label("Customer Name: " + order.getCustomerName());
+        Label customerNameLabel = new Label("Customer Name: " + orderReference.getCustomerName());
         customerNameLabel.setFont(Font.font("Arial", 24));
         AnchorPane.setTopAnchor(customerNameLabel, 54.0);
         AnchorPane.setLeftAnchor(customerNameLabel, 16.0);
@@ -113,28 +114,27 @@ public class OrderListModel {
         // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
         innerAnchorPane.setPrefSize(297, 321);
-        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order));
-        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order));
+        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched());
+        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched());
         innerAnchorPane.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(innerAnchorPane, 99.0);
         AnchorPane.setLeftAnchor(innerAnchorPane, 28.0);
 
-        ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
+        ObservableList<ProductOrder> productOrders = orderReference.getProductOrderObservableList();
         double labelTop = 0.0;
         for (ProductOrder productOrder : productOrders) {
-            // Label for productName and quantity
             if (notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label productNameLabel = new Label(productOrder.getProductName());
-                productNameLabel.setFont(Font.font("Arial", 22)); // Set font to Arial with size 18px
+                productNameLabel.setFont(Font.font("Arial", 22));
                 AnchorPane.setTopAnchor(productNameLabel, labelTop);
                 AnchorPane.setLeftAnchor(productNameLabel, 16.0);
                 innerAnchorPane.getChildren().add(productNameLabel);
 
                 Label quantityLabel = new Label("x" + productOrder.getQuantity());
-                quantityLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                quantityLabel.setFont(Font.font("Arial", 18));
                 AnchorPane.setTopAnchor(quantityLabel, labelTop);
                 AnchorPane.setRightAnchor(quantityLabel, 16.0);
-                quantityLabel.setStyle("-fx-font-weight: bold;"); // Setting the font weight to bold
+                quantityLabel.setStyle("-fx-font-weight: bold;");
                 innerAnchorPane.getChildren().add(quantityLabel);
 
                 labelTop += 25.0;
@@ -142,10 +142,9 @@ public class OrderListModel {
                 break;
             }
 
-            // Add attributes below productName
             if (!productOrder.getFirstAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
-                firstAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                firstAttributeLabel.setFont(Font.font("Arial", 18));
                 AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(firstAttributeLabel);
@@ -156,7 +155,7 @@ public class OrderListModel {
 
             if (!productOrder.getSecondAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
-                secondAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                secondAttributeLabel.setFont(Font.font("Arial", 18));
                 AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(secondAttributeLabel);
@@ -167,7 +166,7 @@ public class OrderListModel {
 
             if (!productOrder.getThirdAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
                 Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
-                thirdAttributeLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+                thirdAttributeLabel.setFont(Font.font("Arial", 18));
                 AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
                 AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
                 innerAnchorPane.getChildren().add(thirdAttributeLabel);
@@ -176,60 +175,58 @@ public class OrderListModel {
                 break;
             }
 
-            // Add extra spacing between product entries
             labelTop += 20.0;
         }
 
         System.out.println(labelTop);
 
-        // Create ImageView
         ImageView imageView = new ImageView();
         imageView.setImage(ORDER_QUEUE_DONE_BUTTON);
         imageView.setFitWidth(167);
         imageView.setFitHeight(55);
         imageView.setPreserveRatio(true);
-        System.out.println("Bago ko ipasa: " + order.getProductOrderObservableList().isEmpty());
-        imageView.setOnMouseClicked(event -> orderDoneClickedTouched(order, anchorPane));
-        imageView.setOnTouchReleased(event -> orderDoneClickedTouched(order, anchorPane));
-        System.out.println("After ko ipasa: " + order.getProductOrderObservableList().isEmpty());
+        System.out.println("Bago ko ipasa: " + orderReference.getProductOrderObservableList().isEmpty());
+        imageView.setOnMouseClicked(event -> orderDoneClickedTouched(anchorPane));
+        imageView.setOnTouchReleased(event -> orderDoneClickedTouched(anchorPane));
+        System.out.println("After ko ipasa: " + orderReference.getProductOrderObservableList().isEmpty());
         imageView.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(imageView, 431.0);
         AnchorPane.setLeftAnchor(imageView, 95.0);
 
-        // Add components to AnchorPane
         anchorPane.getChildren().addAll(rectangle, orderNumberLabel, customerNameLabel, innerAnchorPane, imageView);
 
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
     }
 
-    private void orderContentClickedTouched(Order order) {
+    private void orderContentClickedTouched() {
+        System.out.println("line 207: " + orderReference.getProductOrderObservableList().isEmpty());
         System.out.println("Inner AnchorPane clicked");
     }
 
-    private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        order.setProductOrderObservableList(orderReference.getProductOrderObservableList());
-        System.out.println("Napasa na: " + order.getProductOrderObservableList().isEmpty());
-        orderDoneGetDateAndTime(order);
-        addOrderToOrderHistory(order);
-        removeOrderToOrderQueue(order, anchorPaneToDelete);
+    private void orderDoneClickedTouched(AnchorPane anchorPaneToDelete) {
+        System.out.println("line 212: " + orderReference.getProductOrderObservableList().isEmpty());
+        orderDoneGetDateAndTime();
+        addOrderToOrderHistory();
+        removeOrderToOrderQueue(anchorPaneToDelete);
 
         System.out.println("Done clicked");
 
         updateOrderQueueLabelsAndPane();
     }
 
-    private void orderDoneGetDateAndTime(Order order) {
-        order.setDateAndTime(LocalDateTime.now());
+    private void orderDoneGetDateAndTime() {
+        orderReference.setDateAndTime(LocalDateTime.now());
     }
 
-    private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {
-        orderQueueObservableList.remove(order);
+    private void removeOrderToOrderQueue(AnchorPane anchorPaneToDelete) {
+        System.out.println("line 227: " + orderReference.getProductOrderObservableList());
+        orderQueueObservableList.remove(orderReference);
         mainController.flowPaneOrderQueue.getChildren().remove(anchorPaneToDelete);
     }
 
-    private void addOrderToOrderHistory(Order order) {
+    private void addOrderToOrderHistory() {
         synchronized (synchronizedOrderHistoryObservableList) {
-            synchronizedOrderHistoryObservableList.add(order);
+            synchronizedOrderHistoryObservableList.add(orderReference);
         }
     }
 
