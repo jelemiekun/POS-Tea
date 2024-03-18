@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.property.ObjectProperty;
@@ -13,8 +14,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -85,8 +84,8 @@ public class OrderHistoryModel {
             };
         });
 
-        synchronized (synchronizedOrderHistoryObservableList) {
-            mainController.tableViewOrderHistory.setItems(synchronizedOrderHistoryObservableList);
+        synchronized (OrderHistoryReference.orderHistoryObservableList) {
+            mainController.tableViewOrderHistory.setItems(OrderHistoryReference.orderHistoryObservableList);
         }
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);

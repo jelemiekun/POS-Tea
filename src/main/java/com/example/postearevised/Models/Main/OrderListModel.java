@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.application.Platform;
@@ -20,7 +21,6 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class OrderListModel {
@@ -126,7 +126,7 @@ public class OrderListModel {
 
         ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
         double labelTop = 0.0;
-        final double maxHeight = innerAnchorPane.getPrefHeight();
+        final double maxHeight = 260;
         for (ProductOrder productOrder : productOrders) {
             if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                 Label productNameLabel = new Label(productOrder.getProductName());
@@ -210,17 +210,13 @@ public class OrderListModel {
     }
 
     private void orderContentClickedTouched(Order order) {
-        System.out.println("line 207: " + order.getProductOrderObservableList().isEmpty());
         System.out.println("Inner AnchorPane clicked");
     }
 
     private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        System.out.println("line 212: " + order.getProductOrderObservableList().isEmpty());
         orderDoneGetDateAndTime(order);
         addOrderToOrderHistory(order);
         removeOrderToOrderQueue(order, anchorPaneToDelete);
-
-        System.out.println("Done clicked");
 
         updateOrderQueueLabelsAndPane();
     }
@@ -230,27 +226,21 @@ public class OrderListModel {
     }
 
     private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {
-        System.out.println("line 227: " + order.getProductOrderObservableList());
         orderQueueObservableList.remove(order);
         mainController.flowPaneOrderQueue.getChildren().remove(anchorPaneToDelete);
     }
 
     private void addOrderToOrderHistory(Order order) {
-        synchronized (synchronizedOrderHistoryObservableList) {
-            synchronizedOrderHistoryObservableList.add(order);
+        synchronized (OrderHistoryReference.orderHistoryObservableList) {
+            OrderHistoryReference.orderHistoryObservableList.add(order);
         }
     }
 
 
     private void updateOrderQueueLabelsAndPane() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-                mainController.labelOrderQueueTotalOrder.setText(String.valueOf(synchronizedOrderHistoryObservableList.size()));
-                mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
-            }
-        });
+        mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(OrderHistoryReference.orderHistoryObservableList.size()));
+        mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
     }
 
     private void clearOrderReference() {

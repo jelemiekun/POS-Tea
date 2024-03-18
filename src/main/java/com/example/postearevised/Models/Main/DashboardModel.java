@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.binding.Bindings;
@@ -33,70 +34,58 @@ public class DashboardModel {
 
     private void updateRevenue() {
         referenceTotalRevenue = 0;
-        synchronized (synchronizedOrderHistoryObservableList) {
-
-            for (Order order : synchronizedOrderHistoryObservableList) {
-                referenceTotalRevenue += order.getTotalPrice();
-                for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                    System.out.println(productOrder.getProductName());
-                }
+        for (Order order : orderHistoryObservableList) {
+            referenceTotalRevenue += order.getTotalPrice();
+            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                System.out.println(productOrder.getProductName());
             }
-
         }
     }
-
 
     private void updateCustomer() {
-        synchronized (synchronizedOrderHistoryObservableList) {
-            referenceTotalCustomer = synchronizedOrderHistoryObservableList.size();
-        }
+        referenceTotalCustomer = orderHistoryObservableList.size();
     }
-
 
     private void updateOrder() {
-        synchronized (synchronizedOrderHistoryObservableList) {
-            referenceTotalOrder = 0;
+        referenceTotalOrder = 0;
 
-            for (Order order : synchronizedOrderHistoryObservableList) {
-                referenceTotalOrder = order.getProductOrderObservableList().size();
-            }
-
+        for (Order order : orderHistoryObservableList) {
+            referenceTotalOrder += order.getProductOrderObservableList().size();
         }
     }
+
 
 
     private void updateCategories() {
-        synchronized (synchronizedOrderHistoryObservableList) {
-            referenceMilkTeaCounter = 0;
-            referenceCoolersCounter = 0;
-            referenceCoffeeCounter = 0;
-            referenceIceCandyCupsCounter = 0;
-            referenceAppetizerCounter = 0;
+        referenceMilkTeaCounter = 0;
+        referenceCoolersCounter = 0;
+        referenceCoffeeCounter = 0;
+        referenceIceCandyCupsCounter = 0;
+        referenceAppetizerCounter = 0;
 
-            for (Order order : synchronizedOrderHistoryObservableList) {
+        for (Order order : orderHistoryObservableList) {
 
-                synchronized (order.getProductOrderObservableList()) {
-                    for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                        String category = productOrder.getProductCategory();
-                        switch (category) {
-                            case "Milk Tea":
-                                referenceMilkTeaCounter++;
-                                break;
-                            case "Coolers":
-                                referenceCoolersCounter++;
-                                break;
-                            case "Coffee":
-                                referenceCoffeeCounter++;
-                                break;
-                            case "Ice Candy Cups":
-                                referenceIceCandyCupsCounter++;
-                                break;
-                            case "Appetizers":
-                                referenceAppetizerCounter++;
-                                break;
-                            default:
-                                break;
-                        }
+            synchronized (order.getProductOrderObservableList()) {
+                for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                    String category = productOrder.getProductCategory();
+                    switch (category) {
+                        case "Milk Tea":
+                            referenceMilkTeaCounter++;
+                            break;
+                        case "Coolers":
+                            referenceCoolersCounter++;
+                            break;
+                        case "Coffee":
+                            referenceCoffeeCounter++;
+                            break;
+                        case "Ice Candy Cups":
+                            referenceIceCandyCupsCounter++;
+                            break;
+                        case "Appetizers":
+                            referenceAppetizerCounter++;
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
