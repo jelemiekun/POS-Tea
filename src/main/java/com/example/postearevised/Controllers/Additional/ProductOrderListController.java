@@ -8,13 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -48,7 +45,7 @@ public class ProductOrderListController implements Initializable {
     }
 
     private void setHeader() {
-        labelCustomerName.setText("Order no. " + order.getOrderNumber());
+        labelCustomerNumber.setText("Order no. " + order.getOrderNumber());
         labelCustomerName.setText("Customer Name: " + order.getCustomerName());
     }
 
