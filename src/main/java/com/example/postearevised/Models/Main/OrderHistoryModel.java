@@ -161,35 +161,29 @@ public class OrderHistoryModel {
                     setReverseItem();
                 else
                     searchTheText(newValue);
-
-                System.out.println(newValue);
             }
         });
     }
 
     private void searchTheText(String stringToSearch) {
-        // Filter the order history based on the search string
         ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
         for (Order order : orderHistoryObservableList) {
-            // Check if the customer name or any product name contains the search string
             if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
                 filteredOrders.add(order);
             } else {
                 for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                     if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
                         filteredOrders.add(order);
-                        break; // Add the order only once
+                        break;
                     }
                 }
             }
         }
 
-        // Update the table view with the filtered data
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 if (filteredOrders.isEmpty()) {
-                    // If no results found, set a placeholder message
                     mainController.tableViewOrderHistory.getItems().clear();
                     Label placeholderLabel = new Label("No matching records found.");
                     placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
@@ -198,7 +192,6 @@ public class OrderHistoryModel {
                     placeholderLabel.setTextAlignment(TextAlignment.CENTER);
                     mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
                 } else {
-                    // Set the filtered data
                     mainController.tableViewOrderHistory.setItems(filteredOrders);
                     mainController.tableViewOrderHistory.refresh();
                     System.out.println(filteredOrders);
