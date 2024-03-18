@@ -115,19 +115,19 @@ public class DashboardModel {
             isNoSalesLabelsVisible(false);
 
             if (referenceMilkTeaCounter > 0) {
-                pieChartData.add(new PieChart.Data(MilkTeaEnum.getCategory(), referenceMilkTeaCounter));
+                pieChartData.add(new PieChart.Data(MILK_TEA_ENUM.getCategory(), referenceMilkTeaCounter));
             }
             if (referenceCoolersCounter > 0) {
-                pieChartData.add(new PieChart.Data(CoolersEnum.getCategory(), referenceCoolersCounter));
+                pieChartData.add(new PieChart.Data(COOLERS_ENUM.getCategory(), referenceCoolersCounter));
             }
             if (referenceCoffeeCounter > 0) {
-                pieChartData.add(new PieChart.Data(CoffeeEnum.getCategory(), referenceCoffeeCounter));
+                pieChartData.add(new PieChart.Data(COFFEE_ENUM.getCategory(), referenceCoffeeCounter));
             }
             if (referenceIceCandyCupsCounter > 0) {
-                pieChartData.add(new PieChart.Data(IceCandyCupsEnum.getCategory(), referenceIceCandyCupsCounter));
+                pieChartData.add(new PieChart.Data(ICE_CANDY_CUPS_ENUM.getCategory(), referenceIceCandyCupsCounter));
             }
             if (referenceAppetizerCounter > 0) {
-                pieChartData.add(new PieChart.Data(AppetizersEnum.getCategory(), referenceAppetizerCounter));
+                pieChartData.add(new PieChart.Data(APPETIZERS_ENUM.getCategory(), referenceAppetizerCounter));
             }
 
             for (int i = 0; i < pieChartData.size(); i++) {

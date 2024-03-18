@@ -1,7 +1,7 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum OrderEnum {
-    OrderEnum("Order Summary");
+    ORDER_ENUM("Order Summary");
 
     private final String title;
 

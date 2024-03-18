@@ -29,7 +29,8 @@ import java.io.IOException;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
-import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.SystemManual;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
@@ -54,7 +55,7 @@ public class MenuModel {
     }
 
     public void goToSystemManual() throws IOException {
-        mainController.mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
     }
 
@@ -91,7 +92,7 @@ public class MenuModel {
     private void updateElementsIfNotEmpty() {
         mainController.anchorPaneMenuIsEmpty.setVisible(false);
 
-        switchCategory(AllProductCategoryEnum.getNumber());
+        switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
     }
 
     public void switchCategory(int categoryNumber) {
@@ -266,7 +267,7 @@ public class MenuModel {
     private void openProductSelectedFXML(Product product) {
         editOrShowSelectedProduct = product;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
 
         Parent root = null;
         try {
@@ -276,7 +277,7 @@ public class MenuModel {
         }
 
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
+        newStage.setTitle(PRODUCT_ENUM.getTITLE());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -519,7 +520,7 @@ public class MenuModel {
     private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product, Label firstAttribute, Label secondAttribute, Label thirdAttribute, Label productPrice, Label quantity) {
         editOrShowSelectedProduct = product;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
 
         Parent root = null;
         try {
@@ -529,7 +530,7 @@ public class MenuModel {
         }
 
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
+        newStage.setTitle(PRODUCT_ENUM.getTITLE());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -626,7 +627,7 @@ public class MenuModel {
     private void cashSelected() {
         mainController.imageCash.setImage(CASH_SELECTED);
         mainController.labelCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = CashEnum.getModeOfPayment();
+        referenceModeOfPayment = CASH_ENUM.getModeOfPayment();
 
         mainController.imageGCash.setImage(GCASH);
         mainController.labelGCash.setTextFill(Color.BLACK);
@@ -635,7 +636,7 @@ public class MenuModel {
     private void gCashSelected() {
         mainController.imageGCash.setImage(GCASH_SELECTED);
         mainController.labelGCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = GCashEnum.getModeOfPayment();
+        referenceModeOfPayment = G_CASH_ENUM.getModeOfPayment();
 
         mainController.imageCash.setImage(CASH);
         mainController.labelCash.setTextFill(Color.BLACK);

@@ -15,8 +15,8 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        String URL = Login.getURL();
-        String TITLE = Login.getTITLE();
+        String URL = LOGIN_ENUM.getURL();
+        String TITLE = LOGIN_ENUM.getTITLE();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(URL));
         Scene scene = new Scene(fxmlLoader.load());

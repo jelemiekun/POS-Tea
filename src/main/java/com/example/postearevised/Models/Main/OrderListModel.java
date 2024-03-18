@@ -2,7 +2,6 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductOrderListController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.application.Platform;
@@ -27,6 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.Enums.OrderEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -214,7 +214,7 @@ public class OrderListModel {
     }
 
     private void orderContentClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/ProductOrderList.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ORDER_LIST.getURL()));
 
         Parent root = null;
         try {
@@ -224,7 +224,7 @@ public class OrderListModel {
         }
 
         Stage newStage = new Stage();
-        newStage.setTitle(OrderEnum.getTitle());
+        newStage.setTitle(PRODUCT_ORDER_LIST.getTITLE());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);

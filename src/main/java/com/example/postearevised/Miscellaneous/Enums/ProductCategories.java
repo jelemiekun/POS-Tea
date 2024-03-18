@@ -1,12 +1,12 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum ProductCategories {
-    MilkTeaEnum("Milk Tea", 1),
-    CoolersEnum("Coolers", 2),
-    CoffeeEnum("Coffee", 3),
-    IceCandyCupsEnum("Ice Candy Cups", 4),
-    AppetizersEnum("Appetizers", 5),
-    AllProductCategoryEnum("All", 6);
+    MILK_TEA_ENUM("Milk Tea", 1),
+    COOLERS_ENUM("Coolers", 2),
+    COFFEE_ENUM("Coffee", 3),
+    ICE_CANDY_CUPS_ENUM("Ice Candy Cups", 4),
+    APPETIZERS_ENUM("Appetizers", 5),
+    ALL_PRODUCT_CATEGORY_ENUM("All", 6);
 
     private final String category;
     private final int number;

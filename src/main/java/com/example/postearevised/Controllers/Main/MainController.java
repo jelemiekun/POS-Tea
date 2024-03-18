@@ -130,62 +130,62 @@ public class MainController implements Initializable {
 
     @FXML
     void anchorPaneMenuClicked() throws IOException {
-        mainModel.openSelectedPane(Menu.getPaneNumber());
+        mainModel.openSelectedPane(MENU_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneMenuTouched() throws IOException {
-        mainModel.openSelectedPane(Menu.getPaneNumber());
+        mainModel.openSelectedPane(MENU_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneDashBoardClicked() throws IOException {
-        mainModel.openSelectedPane(Dashboard.getPaneNumber());
+        mainModel.openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneDashboardTouched() throws IOException {
-        mainModel.openSelectedPane(Dashboard.getPaneNumber());
+        mainModel.openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneOrderListClicked() throws IOException {
-        mainModel.openSelectedPane(OrderList.getPaneNumber());
+        mainModel.openSelectedPane(ORDER_LIST_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneOrderListTouched() throws IOException {
-        mainModel.openSelectedPane(OrderList.getPaneNumber());
+        mainModel.openSelectedPane(ORDER_LIST_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneOrderHistoryClicked() throws IOException {
-        mainModel.openSelectedPane(OrderHistory.getPaneNumber());
+        mainModel.openSelectedPane(ORDER_HISTORY_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneOrderHistoryTouched() throws IOException {
-        mainModel.openSelectedPane(OrderHistory.getPaneNumber());
+        mainModel.openSelectedPane(ORDER_HISTORY_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsClicked() throws IOException {
-        mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsTouched() throws IOException {
-        mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneLogoutClicked() throws IOException {
-        mainModel.openSelectedPane(Logout.getPaneNumber());
+        mainModel.openSelectedPane(LOGOUT_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneLogoutTouched() throws IOException {
-        mainModel.openSelectedPane(Logout.getPaneNumber());
+        mainModel.openSelectedPane(LOGOUT_ENUM.getPaneNumber());
     }
 
     /**
@@ -272,62 +272,62 @@ public class MainController implements Initializable {
     }
     @FXML
     public void imageViewMenuAllClicked(MouseEvent event) {
-        menuModel.switchCategory(AllProductCategoryEnum.getNumber());
+        menuModel.switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuAllTouched(TouchEvent event) {
-        menuModel.switchCategory(AllProductCategoryEnum.getNumber());
+        menuModel.switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuMilkTeaClicked(MouseEvent event) {
-        menuModel.switchCategory(MilkTeaEnum.getNumber());
+        menuModel.switchCategory(MILK_TEA_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuMilkTeaTouched(TouchEvent event) {
-        menuModel.switchCategory(MilkTeaEnum.getNumber());
+        menuModel.switchCategory(MILK_TEA_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuCoolersClicked(MouseEvent event) {
-        menuModel.switchCategory(CoolersEnum.getNumber());
+        menuModel.switchCategory(COOLERS_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuCoolersTouched(TouchEvent event) {
-        menuModel.switchCategory(CoolersEnum.getNumber());
+        menuModel.switchCategory(COOLERS_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuCoffeeClicked(MouseEvent event) {
-        menuModel.switchCategory(CoffeeEnum.getNumber());
+        menuModel.switchCategory(COFFEE_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuCoffeeTouched(TouchEvent event) {
-        menuModel.switchCategory(CoffeeEnum.getNumber());
+        menuModel.switchCategory(COFFEE_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuIceCandyCupsClicked(MouseEvent event) {
-        menuModel.switchCategory(IceCandyCupsEnum.getNumber());
+        menuModel.switchCategory(ICE_CANDY_CUPS_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuIceCandyCupsTouched(TouchEvent event) {
-        menuModel.switchCategory(IceCandyCupsEnum.getNumber());
+        menuModel.switchCategory(ICE_CANDY_CUPS_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuAppetizersClicked(MouseEvent event) {
-        menuModel.switchCategory(AppetizersEnum.getNumber());
+        menuModel.switchCategory(APPETIZERS_ENUM.getNumber());
     }
 
     @FXML
     public void imageViewMenuAppetizersTouched(TouchEvent event) {
-        menuModel.switchCategory(AppetizersEnum.getNumber());
+        menuModel.switchCategory(APPETIZERS_ENUM.getNumber());
     }
 
     @FXML
@@ -372,12 +372,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void labelMenuIsEmptyClicked(MouseEvent event) throws IOException {
-        mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
     @FXML
     public void labelMenuIsEmptyTouched(TouchEvent event) throws IOException {
-        mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
 
@@ -439,12 +439,12 @@ public class MainController implements Initializable {
 
     @FXML
     void btnOrderHistoryDeleteClicked(MouseEvent event) {
-
+        orderHistoryModel.orderHistoryDeleteBin();
     }
 
     @FXML
     void btnOrderHistoryDeleteTouched(TouchEvent event) {
-
+        orderHistoryModel.orderHistoryDeleteBin();
     }
 
     /**

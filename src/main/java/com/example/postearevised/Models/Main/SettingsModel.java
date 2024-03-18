@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -211,10 +212,10 @@ public class SettingsModel {
     }
 
     public void openAddProductsFXML() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
+        newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -261,10 +262,10 @@ public class SettingsModel {
     }
 
     private void openEditProductsFXML() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
+        newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);

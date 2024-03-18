@@ -131,10 +131,10 @@ public class LoginModel {
         boolean proceed = checkCredentials();
 
         if (proceed) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(Main.getURL()));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
             Parent root = loader.load();
             mainStage = new Stage();
-            mainStage.setTitle(Main.getTITLE());
+            mainStage.setTitle(MAIN_ENUM.getTITLE());
             mainStage.setResizable(false);
             mainStage.setScene(new Scene(root));
             setScreenResolution(true, false);

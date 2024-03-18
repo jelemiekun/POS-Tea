@@ -1,14 +1,14 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.Login;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.LOGIN_ENUM;
 
 public enum MainPane {
-    Menu("Menu",1),
-    Dashboard("Dashboard",2),
-    OrderList("Order List",3),
-    OrderHistory("Order History",4),
-    Settings("Settings",5),
-    Logout(Login.getTITLE(),6);
+    MENU_ENUM("Menu",1),
+    DASHBOARD_ENUM("Dashboard",2),
+    ORDER_LIST_ENUM("Order List",3),
+    ORDER_HISTORY_ENUM("Order History",4),
+    SETTINGS_ENUM("Settings",5),
+    LOGOUT_ENUM(LOGIN_ENUM.getTITLE(),6);
 
     private final String name;
     private final int paneNumber;

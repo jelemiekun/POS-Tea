@@ -21,11 +21,11 @@ public class ProductReference {
     public static ObservableList<IceCandyCups> availableIceCandyCupsObservableList = FXCollections.observableArrayList();
     public static ObservableList<Appetizer> availableAppetizerObservableList = FXCollections.observableArrayList();
     public static final List<String> productCategories = new ArrayList<>(Arrays.asList(
-            MilkTeaEnum.getCategory(),
-            CoolersEnum.getCategory(),
-            CoffeeEnum.getCategory(),
-            IceCandyCupsEnum.getCategory(),
-            AppetizersEnum.getCategory()));
+            MILK_TEA_ENUM.getCategory(),
+            COOLERS_ENUM.getCategory(),
+            COFFEE_ENUM.getCategory(),
+            ICE_CANDY_CUPS_ENUM.getCategory(),
+            APPETIZERS_ENUM.getCategory()));
 
     public static boolean addedProductSuccess = false;
     /**

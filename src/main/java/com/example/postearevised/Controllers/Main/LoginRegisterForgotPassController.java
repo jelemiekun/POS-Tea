@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmation;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
@@ -227,14 +227,14 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     private void openPromptInternetRequired() throws IOException {
         setInternetRequired();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(labelName.getScene().getWindow());
 
-        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();

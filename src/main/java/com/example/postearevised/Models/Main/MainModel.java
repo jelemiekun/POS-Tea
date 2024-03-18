@@ -43,7 +43,7 @@ public class MainModel {
             @Override
             public void run() {
                 try {
-                    openSelectedPane(Menu.getPaneNumber());
+                    openSelectedPane(MENU_ENUM.getPaneNumber());
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -56,7 +56,7 @@ public class MainModel {
 
         switch (selectedPane) {
             case 1: // Menu
-                mainStage.setTitle(Menu.getName());
+                mainStage.setTitle(MENU_ENUM.getName());
                 mainController.anchorPaneMenu.setVisible(true);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
@@ -73,7 +73,7 @@ public class MainModel {
                 mainController.menuModel.checkIfIsMenuEmpty();
                 break;
             case 2: // Dashboard
-                mainStage.setTitle(Dashboard.getName());
+                mainStage.setTitle(DASHBOARD_ENUM.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(true);
                 mainController.anchorPaneOrderList.setVisible(false);
@@ -89,7 +89,7 @@ public class MainModel {
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 3: // Order List
-                mainStage.setTitle(OrderList.getName());
+                mainStage.setTitle(ORDER_LIST_ENUM.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(true);
@@ -105,7 +105,7 @@ public class MainModel {
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 4: // Order History
-                mainStage.setTitle(OrderHistory.getName());
+                mainStage.setTitle(ORDER_HISTORY_ENUM.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
@@ -121,7 +121,7 @@ public class MainModel {
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
                 break;
             case 5: // Settings
-                mainStage.setTitle(Settings.getName());
+                mainStage.setTitle(SETTINGS_ENUM.getName());
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
@@ -151,14 +151,14 @@ public class MainModel {
 
     private boolean confirmLogout() throws IOException {
         setConfirmLogout();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
 
-        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
@@ -166,11 +166,11 @@ public class MainModel {
     }
 
     private void logout() throws IOException {
-        mainController.loader = new FXMLLoader(getClass().getResource(Login.getURL()));
+        mainController.loader = new FXMLLoader(getClass().getResource(LOGIN_ENUM.getURL()));
         mainController.root = mainController.loader.load();
         mainController.newStage = new Stage();
         loginFromMainSceneStage = mainController.newStage;
-        mainController.newStage.setTitle(Login.getTITLE());
+        mainController.newStage.setTitle(LOGIN_ENUM.getTITLE());
         mainController.newStage.setResizable(false);
         mainController.newStage.setScene(new Scene(mainController.root));
         setScreenResolution(false, true);

@@ -6,9 +6,11 @@ import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -16,12 +18,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Collection;
 import java.util.Collections;
 
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryModel {
@@ -140,5 +146,32 @@ public class OrderHistoryModel {
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
         }
+    }
+
+    public void orderHistoryDeleteBin() {
+        openDeleteHistoryFXML();
+    }
+
+    private void openDeleteHistoryFXML() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(DELETE_HISTORY.getURL()));
+
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage newStage = new Stage();
+        newStage.setTitle(DELETE_HISTORY.getTITLE());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        newStage.showAndWait();
+
     }
 }

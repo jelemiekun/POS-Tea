@@ -14,8 +14,8 @@ import java.io.IOException;
 import java.util.Random;
 
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
-import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.Strong;
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.ExitConfirmation;
+import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.STRONG_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -386,55 +386,55 @@ public class ForgotPassModel {
 
     public void emptyPassword() {
         loginRegisterForgotPassController.forgotIsWeakPassword = true;
-        loginRegisterForgotPassController.forgotRectangle1.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle2.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle4.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotIndicator.setText(White.getText());
+        loginRegisterForgotPassController.forgotRectangle1.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle2.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle3.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle4.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotIndicator.setText(WHITE_ENUM.getText());
         loginRegisterForgotPassController.forgotIndicator.setVisible(false);
     }
 
     private void weakPassword() {
         loginRegisterForgotPassController.forgotIsWeakPassword = true;
-        loginRegisterForgotPassController.forgotRectangle1.setFill(Weak.getColor());
-        loginRegisterForgotPassController.forgotRectangle2.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle4.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotIndicator.setText(Weak.getText());
-        loginRegisterForgotPassController.forgotIndicator.setTextFill(Weak.getColor());
+        loginRegisterForgotPassController.forgotRectangle1.setFill(WEAK_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle2.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle3.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle4.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotIndicator.setText(WEAK_ENUM.getText());
+        loginRegisterForgotPassController.forgotIndicator.setTextFill(WEAK_ENUM.getColor());
         loginRegisterForgotPassController.forgotIndicator.setVisible(true);
     }
 
     private void fairPassword() {
         loginRegisterForgotPassController.forgotIsWeakPassword = false;
-        loginRegisterForgotPassController.forgotRectangle1.setFill(Fair.getColor());
-        loginRegisterForgotPassController.forgotRectangle2.setFill(Fair.getColor());
-        loginRegisterForgotPassController.forgotRectangle3.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotRectangle4.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotIndicator.setText(Fair.getText());
-        loginRegisterForgotPassController.forgotIndicator.setTextFill(Fair.getColor());
+        loginRegisterForgotPassController.forgotRectangle1.setFill(FAIR_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle2.setFill(FAIR_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle3.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle4.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotIndicator.setText(FAIR_ENUM.getText());
+        loginRegisterForgotPassController.forgotIndicator.setTextFill(FAIR_ENUM.getColor());
         loginRegisterForgotPassController.forgotIndicator.setVisible(true);
     }
 
     private void goodPassword() {
         loginRegisterForgotPassController.forgotIsWeakPassword = false;
-        loginRegisterForgotPassController.forgotRectangle1.setFill(Good.getColor());
-        loginRegisterForgotPassController.forgotRectangle2.setFill(Good.getColor());
-        loginRegisterForgotPassController.forgotRectangle3.setFill(Good.getColor());
-        loginRegisterForgotPassController.forgotRectangle4.setFill(White.getColor());
-        loginRegisterForgotPassController.forgotIndicator.setText(Good.getText());
-        loginRegisterForgotPassController.forgotIndicator.setTextFill(Good.getColor());
+        loginRegisterForgotPassController.forgotRectangle1.setFill(GOOD_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle2.setFill(GOOD_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle3.setFill(GOOD_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle4.setFill(WHITE_ENUM.getColor());
+        loginRegisterForgotPassController.forgotIndicator.setText(GOOD_ENUM.getText());
+        loginRegisterForgotPassController.forgotIndicator.setTextFill(GOOD_ENUM.getColor());
         loginRegisterForgotPassController.forgotIndicator.setVisible(true);
     }
 
     private void strongPassword() {
         loginRegisterForgotPassController.forgotIsWeakPassword = false;
-        loginRegisterForgotPassController.forgotRectangle1.setFill(Strong.getColor());
-        loginRegisterForgotPassController.forgotRectangle2.setFill(Strong.getColor());
-        loginRegisterForgotPassController.forgotRectangle3.setFill(Strong.getColor());
-        loginRegisterForgotPassController.forgotRectangle4.setFill(Strong.getColor());
-        loginRegisterForgotPassController.forgotIndicator.setText(Strong.getText());
-        loginRegisterForgotPassController.forgotIndicator.setTextFill(Strong.getColor());
+        loginRegisterForgotPassController.forgotRectangle1.setFill(STRONG_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle2.setFill(STRONG_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle3.setFill(STRONG_ENUM.getColor());
+        loginRegisterForgotPassController.forgotRectangle4.setFill(STRONG_ENUM.getColor());
+        loginRegisterForgotPassController.forgotIndicator.setText(STRONG_ENUM.getText());
+        loginRegisterForgotPassController.forgotIndicator.setTextFill(STRONG_ENUM.getColor());
         loginRegisterForgotPassController.forgotIndicator.setVisible(true);
     }
 
@@ -500,14 +500,14 @@ public class ForgotPassModel {
 
     private boolean openPromptConfirmGoBack() throws IOException {
         setGoBackConfirmation();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
@@ -516,14 +516,14 @@ public class ForgotPassModel {
 
     private void openPromptGoBackToLogin() throws IOException {
         setResetPasswordSuccessfully();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ExitConfirmation.getURL()));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(ExitConfirmation.getTITLE());
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
