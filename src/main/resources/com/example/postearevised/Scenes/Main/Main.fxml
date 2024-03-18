@@ -568,7 +568,7 @@
                               <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldOrderHistorySearch" layoutX="171.0" layoutY="26.0" onKeyTyped="#textFieldOrderHistorySearchTyping">
+                        <TextField fx:id="textFieldOrderHistorySearch" layoutX="171.0" layoutY="26.0" onKeyTyped="#textFieldOrderHistorySearchTyping" promptText="Customer Name or Product Name">
                            <font>
                               <Font size="24.0" />
                            </font>

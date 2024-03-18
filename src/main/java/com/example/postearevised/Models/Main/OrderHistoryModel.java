@@ -3,9 +3,11 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -37,6 +39,18 @@ public class OrderHistoryModel {
     }
 
     public void setOrderHistoryTable() {
+        setCellValueFactories();
+        setReorderToFalse();
+        setReverseItem();
+    }
+
+    public void setOrderHistory() {
+        mainController.anchorPaneOrderHistory.requestFocus();
+        refreshOrderHistoryTable();
+        setTextFieldSearch();
+    }
+
+    private void setCellValueFactories() {
         mainController.tableViewOrderHistoryColCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
@@ -119,10 +133,9 @@ public class OrderHistoryModel {
                 }
             };
         });
+    }
 
-        Collections.reverse(orderHistoryObservableList);
-        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
-
+    private void setReorderToFalse() {
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);
         mainController.tableViewOrderHistoryColQuantity.setReorderable(false);
@@ -134,7 +147,68 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColDateAndTime.setReorderable(false);
     }
 
-    public void refreshOrderHistoryTable() {
+    private void setReverseItem() {
+        Collections.reverse(orderHistoryObservableList);
+        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+    }
+
+    private void setTextFieldSearch() {
+        mainController.textFieldOrderHistorySearch.setText("");
+
+        mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty())
+                setReverseItem();
+            else
+                searchTheText(newValue);
+
+            System.out.println(newValue);
+        });
+    }
+
+    private void searchTheText(String stringToSearch) {
+        // Filter the order history based on the search string
+        ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
+        for (Order order : orderHistoryObservableList) {
+            // Check if the customer name or any product name contains the search string
+            if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                filteredOrders.add(order);
+            } else {
+                for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                    if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                        filteredOrders.add(order);
+                        break; // Add the order only once
+                    }
+                }
+            }
+        }
+
+        // Update the table view with the filtered data
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                if (filteredOrders.isEmpty()) {
+                    // If no results found, set a placeholder message
+                    mainController.tableViewOrderHistory.getItems().clear();
+                    Label placeholderLabel = new Label("No matching records found.");
+                    placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
+                    placeholderLabel.setAlignment(Pos.CENTER);
+                    placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
+                    placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+                    mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+                } else {
+                    // Set the filtered data
+                    mainController.tableViewOrderHistory.setItems(filteredOrders);
+                    mainController.tableViewOrderHistory.refresh();
+                    System.out.println(filteredOrders);
+                }
+            }
+        });
+    }
+
+
+
+
+    private void refreshOrderHistoryTable() {
         Collections.reverse(orderHistoryObservableList);
         mainController.tableViewOrderHistory.refresh();
 
