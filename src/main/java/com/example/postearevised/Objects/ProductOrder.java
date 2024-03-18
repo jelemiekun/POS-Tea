@@ -4,16 +4,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 public class ProductOrder {
-    private String productName;
-    private String productCategory;
-    private Image productImage;
-    private String firstAttribute;
-    private String secondAttribute;
-    private String thirdAttribute;
+    private final String productName;
+    private final String productCategory;
+    private final Image productImage;
+    private final String firstAttribute;
+    private final String secondAttribute;
+    private final String thirdAttribute;
     private int totalAmount;
     private int quantity;
-    private Label labelPrice;
-    private Label labelQuantity;
+    private final Label labelPrice;
+    private final Label labelQuantity;
 
     public ProductOrder(String productName, String productCategory, Image productImage, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
         this.productName = productName;
@@ -30,10 +30,6 @@ public class ProductOrder {
 
     public String getProductCategory() {
         return productCategory;
-    }
-
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
     }
 
     public String getThirdAttribute() {
@@ -60,32 +56,16 @@ public class ProductOrder {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
     public Image getProductImage() {
         return productImage;
-    }
-
-    public void setProductImage(Image productImage) {
-        this.productImage = productImage;
     }
 
     public String getFirstAttribute() {
         return firstAttribute;
     }
 
-    public void setFirstAttribute(String firstAttribute) {
-        this.firstAttribute = firstAttribute;
-    }
-
     public String getSecondAttribute() {
         return secondAttribute;
-    }
-
-    public void setSecondAttribute(String secondAttribute) {
-        this.secondAttribute = secondAttribute;
     }
 
     public int getTotalAmount() {

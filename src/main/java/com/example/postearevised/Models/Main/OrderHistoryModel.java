@@ -43,21 +43,23 @@ public class OrderHistoryModel {
 
         mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
-            int totalQuantity = 0;
+            StringBuilder quantities = new StringBuilder();
             for (ProductOrder productOrder : productOrders) {
-                totalQuantity += productOrder.getQuantity();
+                quantities.append("x").append(productOrder.getQuantity()).append(", ");
             }
-            return new SimpleIntegerProperty(totalQuantity).asObject();
+            return new SimpleStringProperty(quantities.toString());
         });
 
         mainController.tableViewOrderHistoryColPrice.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
-            int totalPrice = 0;
+            StringBuilder prices = new StringBuilder();
             for (ProductOrder productOrder : productOrders) {
-                totalPrice += productOrder.getTotalAmount();
+                prices.append(productOrder.getTotalAmount()).append(", ");
             }
-            return new SimpleIntegerProperty(totalPrice).asObject();
+            return new SimpleStringProperty(prices.toString());
         });
+
+
 
         mainController.tableViewOrderHistoryColTotalPrice.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         mainController.tableViewOrderHistoryColAmountPaid.setCellValueFactory(new PropertyValueFactory<>("amountPaid"));

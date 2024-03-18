@@ -737,15 +737,4 @@ public class MenuModel {
     private void clearOrderReference() {
         orderReference = null;
     }
-
-//    orderReference = null;
-//    productOrderReference = null;
-//    isProductOrderAdded = false;
-//        referenceProductOrderObservableList.clear();
-//    referenceCustomerName = "";
-//    referenceTotalPrice = 0;
-//    referenceAmountPaid = 0;
-//    referenceChange = 0;
-//    referenceModeOfPayment = "";
-//    referenceDateAndTime = null;
 }

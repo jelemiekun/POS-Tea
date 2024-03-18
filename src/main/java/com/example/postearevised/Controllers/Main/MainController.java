@@ -381,9 +381,9 @@ public class MainController implements Initializable {
     @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColProductName;
     @FXML
-    public TableColumn<Order, Integer> tableViewOrderHistoryColQuantity;
+    public TableColumn<Order, String> tableViewOrderHistoryColQuantity;
     @FXML
-    public TableColumn<Order, Integer> tableViewOrderHistoryColPrice;
+    public TableColumn<Order, String> tableViewOrderHistoryColPrice;
     @FXML
     public TableColumn<Order, Integer> tableViewOrderHistoryColTotalPrice;
     @FXML
