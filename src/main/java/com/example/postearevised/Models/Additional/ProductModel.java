@@ -468,7 +468,7 @@ public class ProductModel {
     }
 
     private void addOrder() {
-        isProductOrderAdded = referenceProductOrderObservableList.isEmpty(); // HINDI KO ALAM PARA SAAN TO PERO WAG TANGGALIN
+        isProductOrderAdded = orderReference == null; // HINDI KO ALAM PARA SAAN TO PERO WAG TANGGALIN
         addProductToOrderOrEditProductOrder(true);
         //referenceProductOrderObservableList.add(addProductToOrder());
     }
