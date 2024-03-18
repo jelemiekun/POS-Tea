@@ -8,12 +8,15 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -105,9 +108,9 @@ public class OrderHistoryModel {
             };
         });
 
-        synchronized (OrderHistoryReference.orderHistoryObservableList) {
-            mainController.tableViewOrderHistory.setItems(OrderHistoryReference.orderHistoryObservableList);
-        }
+        ObservableList<Order> observableListOrderHistoryDeque = FXCollections.observableArrayList(orderHistoryDeque);
+        mainController.tableViewOrderHistory.setItems(observableListOrderHistoryDeque);
+
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);
         mainController.tableViewOrderHistoryColQuantity.setReorderable(false);
@@ -117,5 +120,11 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColChange.setReorderable(false);
         mainController.tableViewOrderHistoryColModeOfPayment.setReorderable(false);
         mainController.tableViewOrderHistoryColDateAndTime.setReorderable(false);
+
+        refreshOrderHistoryTable();
+    }
+
+    private void refreshOrderHistoryTable() {
+        mainController.tableViewOrderHistory.refresh();
     }
 }

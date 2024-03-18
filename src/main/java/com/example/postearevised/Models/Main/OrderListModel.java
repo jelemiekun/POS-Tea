@@ -21,7 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class OrderListModel {
@@ -224,13 +224,13 @@ public class OrderListModel {
     }
 
     private void addOrderToOrderHistory(Order order) {
-        orderHistoryObservableList.add(order);
+        orderHistoryDeque.push(order);
     }
 
 
     private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryDeque.size()));
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
     }
 }

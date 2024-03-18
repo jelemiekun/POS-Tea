@@ -34,7 +34,7 @@ public class DashboardModel {
 
     private void updateRevenue() {
         referenceTotalRevenue = 0;
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : orderHistoryDeque) {
             referenceTotalRevenue += order.getTotalPrice();
             for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                 System.out.println(productOrder.getProductName());
@@ -43,13 +43,13 @@ public class DashboardModel {
     }
 
     private void updateCustomer() {
-        referenceTotalCustomer = orderHistoryObservableList.size();
+        referenceTotalCustomer = orderHistoryDeque.size();
     }
 
     private void updateOrder() {
         referenceTotalOrder = 0;
 
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : orderHistoryDeque) {
             referenceTotalOrder += order.getProductOrderObservableList().size();
         }
     }
@@ -63,7 +63,7 @@ public class DashboardModel {
         referenceIceCandyCupsCounter = 0;
         referenceAppetizerCounter = 0;
 
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : orderHistoryDeque) {
 
             synchronized (order.getProductOrderObservableList()) {
                 for (ProductOrder productOrder : order.getProductOrderObservableList()) {
