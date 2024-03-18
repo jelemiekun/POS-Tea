@@ -3,7 +3,6 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
-import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -26,11 +25,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.SystemManual;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
@@ -52,6 +51,11 @@ public class MenuModel {
         dropShadow.setColor(dropShadowColor);
 
         mainController.anchorPaneRightPanel.setEffect(dropShadow);
+    }
+
+    public void goToSystemManual() throws IOException {
+        mainController.mainModel.openSelectedPane(Settings.getPaneNumber());
+        mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
     }
 
     public void checkIfIsMenuEmpty() {

@@ -465,6 +465,23 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <AnchorPane layoutX="1021.0" layoutY="17.0" onMouseClicked="#menuNeedHelpClicked" onTouchReleased="#menuNeedHelpTouched" prefHeight="67.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Medias/Buttons/Menu/need%20help.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Need help &#10;getting stared?">
+                           <font>
+                              <Font name="Arial" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
                </children>
             </AnchorPane>
          </children></AnchorPane>

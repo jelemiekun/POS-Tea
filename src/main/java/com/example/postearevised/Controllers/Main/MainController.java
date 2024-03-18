@@ -245,6 +245,16 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneMenuIsEmpty;
 
     @FXML
+    public void menuNeedHelpClicked(MouseEvent event) throws IOException {
+        menuModel.goToSystemManual();
+    }
+
+    @FXML
+    public void menuNeedHelpTouched(TouchEvent event) throws IOException {
+        menuModel.goToSystemManual();
+    }
+
+    @FXML
     public void textFieldCustomerNameTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             menuModel.payClicked();
