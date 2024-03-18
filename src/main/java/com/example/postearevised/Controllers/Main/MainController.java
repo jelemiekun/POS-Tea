@@ -22,7 +22,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -452,6 +451,10 @@ public class MainController implements Initializable {
      * Dashboard
      */
 
+    @FXML
+    public Label labelDashBoardNoSalesPieChart;
+    @FXML
+    public Label labelDashBoardNoSalesBestSeller;
     @FXML
     public Label labelDashboardTotalRevenue;
     @FXML

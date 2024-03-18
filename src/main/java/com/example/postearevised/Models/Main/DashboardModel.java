@@ -109,7 +109,11 @@ public class DashboardModel {
                 }
             });
             pieChartData.add(emptyData);
+
+            isNoSalesLabelsVisible(true);
         } else {
+            isNoSalesLabelsVisible(false);
+
             if (referenceMilkTeaCounter > 0) {
                 pieChartData.add(new PieChart.Data(MilkTeaEnum.getCategory(), referenceMilkTeaCounter));
             }
@@ -153,6 +157,11 @@ public class DashboardModel {
                 ((Label) legend).setFont(Font.font("Arial", FontWeight.NORMAL, 18));
             }
         }
+    }
+
+    private void isNoSalesLabelsVisible(boolean isVisible) {
+        mainController.labelDashBoardNoSalesPieChart.setVisible(isVisible);
+        mainController.labelDashBoardNoSalesBestSeller.setVisible(isVisible);
     }
 
 

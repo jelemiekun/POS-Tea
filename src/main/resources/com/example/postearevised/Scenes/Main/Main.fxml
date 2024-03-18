@@ -32,9 +32,6 @@
                            </image>
                         </ImageView>
                      </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
                   </AnchorPane>
                   <AnchorPane layoutX="1.0" layoutY="131.0">
                      <children>
@@ -146,7 +143,7 @@
                             </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <Line endX="33.5" layoutX="42.0" layoutY="105.0" startX="-30.5" />
+                  <Line endX="22.0" layoutX="48.0" layoutY="109.0" startX="-30.5" />
                   </children>
               </AnchorPane>
          </children>
@@ -447,22 +444,24 @@
                         </ScrollPane>
                         <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
                            <children>
-                              <Label layoutX="21.0" layoutY="34.0" text="Add Products to Get Started" textFill="#3a7cff" underline="true">
-                                 <font>
-                                    <Font name="Arial" size="25.0" />
-                                 </font>
+                              <AnchorPane layoutX="2.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClicked" onTouchReleased="#labelMenuIsEmptyTouched" prefHeight="42.0" prefWidth="313.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
-                              </Label>
-                              <AnchorPane layoutX="21.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClicked" onTouchReleased="#labelMenuIsEmptyTouched" prefHeight="42.0" prefWidth="313.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
+                                 <children>
+                                    <Label text="Add Products to Get Started" textFill="#3a7cff" underline="true">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
                               </AnchorPane>
-                              <Label layoutX="57.0" layoutY="-1.0" text="Your Menu is Empty">
+                              <Label layoutX="51.0" layoutY="-2.0" text="Your Menu is Empty" textAlignment="CENTER">
                                  <font>
-                                    <Font name="Arial Bold" size="25.0" />
+                                    <Font name="Arial" size="28.0" />
                                  </font>
                               </Label>
                            </children>
@@ -643,7 +642,7 @@
                                        <children>
                                           <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="REVENUE HERE" textAlignment="CENTER">
                                              <font>
-                                                <Font name="Arial" size="24.0" />
+                                                <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
                                           <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -669,7 +668,7 @@
                                        <children>
                                           <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="CUSTOMER HERE" textAlignment="CENTER">
                                              <font>
-                                                <Font name="Arial" size="24.0" />
+                                                <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
                                           <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -697,7 +696,7 @@
                                        <children>
                                           <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="ORDER HERE" textAlignment="CENTER">
                                              <font>
-                                                <Font name="Arial" size="24.0" />
+                                                <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
                                           <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
@@ -714,7 +713,12 @@
                         <AnchorPane layoutY="315.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-                              <PieChart fx:id="pieChartDashboard" layoutX="333.0" layoutY="14.0" prefHeight="419.0" prefWidth="535.0" />
+                              <PieChart fx:id="pieChartDashboard" layoutX="333.0" layoutY="45.0" prefHeight="419.0" prefWidth="535.0" />
+                              <Label fx:id="labelDashBoardNoSalesPieChart" layoutX="453.0" layoutY="20.0" text="No Sales Recorded" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="34.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
@@ -761,6 +765,11 @@
                               </FlowPane>
                            </content>
                         </ScrollPane>
+                        <Label fx:id="labelDashBoardNoSalesBestSeller" layoutX="120.0" layoutY="410.0" text="No Sales Recorded" visible="false">
+                           <font>
+                              <Font name="Arial" size="28.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>
