@@ -72,8 +72,8 @@ public class OrderListModel {
         return new Order(orderReference.getProductOrderObservableList(), orderReference.getCustomerName(), orderReference.getOrderNumber(), orderReference.getTotalPrice(), orderReference.getAmountPaid(), orderReference.getChange(), orderReference.getModeOfPayment());
     }
 
-    private boolean notExceedLabelTop(AnchorPane innerAnchorPane, double labelTop) {
-        if (labelTop >= 260) {
+    private boolean notExceedLabelTop(AnchorPane innerAnchorPane, double labelTop, double maxHeight) {
+        if (labelTop >= maxHeight) {
             labelTop += 25;
             Label moreLabel = new Label("More...");
             moreLabel.setFont(Font.font("Arial", 18));
@@ -126,8 +126,9 @@ public class OrderListModel {
 
         ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
         double labelTop = 0.0;
+        final double maxHeight = innerAnchorPane.getPrefHeight();
         for (ProductOrder productOrder : productOrders) {
-            if (notExceedLabelTop(innerAnchorPane, labelTop)) {
+            if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                 Label productNameLabel = new Label(productOrder.getProductName());
                 productNameLabel.setFont(Font.font("Arial", 22));
                 AnchorPane.setTopAnchor(productNameLabel, labelTop);
@@ -146,37 +147,43 @@ public class OrderListModel {
                 break;
             }
 
-            if (!productOrder.getFirstAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
-                Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
-                firstAttributeLabel.setFont(Font.font("Arial", 18));
-                AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
-                AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
-                innerAnchorPane.getChildren().add(firstAttributeLabel);
-                labelTop += 20.0;
-            } else {
-                break;
+            if (!productOrder.getFirstAttribute().isEmpty()) {
+                if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
+                    Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
+                    firstAttributeLabel.setFont(Font.font("Arial", 18));
+                    AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
+                    AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
+                    innerAnchorPane.getChildren().add(firstAttributeLabel);
+                    labelTop += 20.0;
+                } else {
+                    break;
+                }
             }
 
-            if (!productOrder.getSecondAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
-                Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
-                secondAttributeLabel.setFont(Font.font("Arial", 18));
-                AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
-                AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
-                innerAnchorPane.getChildren().add(secondAttributeLabel);
-                labelTop += 20.0;
-            } else {
-                break;
+            if (!productOrder.getSecondAttribute().isEmpty()) {
+                if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
+                    Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
+                    secondAttributeLabel.setFont(Font.font("Arial", 18));
+                    AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
+                    AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
+                    innerAnchorPane.getChildren().add(secondAttributeLabel);
+                    labelTop += 20.0;
+                } else {
+                    break;
+                }
             }
 
-            if (!productOrder.getThirdAttribute().isEmpty() && notExceedLabelTop(innerAnchorPane, labelTop)) {
-                Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
-                thirdAttributeLabel.setFont(Font.font("Arial", 18));
-                AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
-                AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
-                innerAnchorPane.getChildren().add(thirdAttributeLabel);
-                labelTop += 20.0;
-            } else {
-                break;
+            if (!productOrder.getThirdAttribute().isEmpty()) {
+                if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
+                    Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
+                    thirdAttributeLabel.setFont(Font.font("Arial", 18));
+                    AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
+                    AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);
+                    innerAnchorPane.getChildren().add(thirdAttributeLabel);
+                    labelTop += 20.0;
+                } else {
+                    break;
+                }
             }
 
             labelTop += 20.0;
