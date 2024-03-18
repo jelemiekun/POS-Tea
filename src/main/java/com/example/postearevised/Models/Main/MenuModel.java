@@ -328,6 +328,10 @@ public class MenuModel {
         mainController.labelNoOrdersSelected.setVisible(true);
         mainController.anchorPaneHideHalfRightPanel.setVisible(false);
         mainController.flowPaneOrdersSelected.getChildren().clear();
+
+        mainController.labelMenuNoName.setVisible(false);
+        mainController.labelMenuNoAmount.setVisible(false);
+        mainController.labelMenuNoModeOfPayment.setVisible(false);
     }
 
     private boolean productNotExisted(ProductOrder productOrder, int productPrice) {
@@ -593,6 +597,14 @@ public class MenuModel {
         mainController.labelMenuTotalPrice.setText("₱" + referenceTotalPrice + ".00");
     }
 
+    public void customerNameTyping() {
+        mainController.labelMenuNoName.setVisible(false);
+    }
+
+    public void amountTyping() {
+        mainController.labelMenuNoAmount.setVisible(false);
+    }
+
 
     private void clearSelectedProductReference() {
         editOrShowSelectedProduct = null;
@@ -603,6 +615,8 @@ public class MenuModel {
             cashSelected();
         else
             gCashSelected();
+
+        mainController.labelMenuNoModeOfPayment.setVisible(false);
     }
 
     private void cashSelected() {
@@ -637,9 +651,11 @@ public class MenuModel {
     }
 
     public void payClicked() {
-        boolean proceed = checkCustomerName() && checkAmountPaid() && checkModeOfPayment();
+        boolean checkedCustomerName = checkCustomerName();
+        boolean checkedAmountPaid = checkAmountPaid();
+        boolean checkedModeOfPayment = checkModeOfPayment();
 
-        if (proceed) {
+        if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
             setAttributes();
             getChange();
             Thread t1 = new Thread(new Runnable() {
@@ -678,8 +694,7 @@ public class MenuModel {
         if (!referenceCustomerName.isBlank()) {
             return true;
         } else {
-            System.out.println("Blank name");
-            // blank yung name, anong prompt/error
+            mainController.labelMenuNoName.setVisible(true);
             return false;
         }
     }
@@ -691,12 +706,12 @@ public class MenuModel {
             if (referenceAmountPaid >= referenceTotalPrice) {
                 return true;
             } else {
-                System.out.println("Insufficient amount");
-                // insufficient amount, anong prompt/error
+                mainController.labelMenuNoAmount.setText("*insufficient amount");
+                mainController.labelMenuNoAmount.setVisible(true);
             }
         } else {
-            System.out.println("Blank amount");
-            // blank yung amount, anong prompt/error
+            mainController.labelMenuNoAmount.setText("*please input amount");
+            mainController.labelMenuNoAmount.setVisible(true);
         }
         return false;
     }
@@ -705,8 +720,7 @@ public class MenuModel {
         if (!referenceModeOfPayment.isBlank()) {
             return true;
         } else {
-            System.out.println("No payment selected");
-            // blank yung payment, anong prompt/error
+            mainController.labelMenuNoModeOfPayment.setVisible(true);
             return false;
         }
     }

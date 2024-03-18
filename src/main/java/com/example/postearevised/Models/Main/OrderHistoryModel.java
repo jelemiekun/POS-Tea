@@ -26,32 +26,48 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
             StringBuilder categories = new StringBuilder();
-            for (ProductOrder productOrder : productOrders) {
-                categories.append(productOrder.getProductCategory()).append(", ");
+            for (int i = 0; i < productOrders.size(); i++) {
+                ProductOrder productOrder = productOrders.get(i);
+                categories.append(productOrder.getProductCategory());
+                if (i < productOrders.size() - 1) {
+                    categories.append(", ");
+                }
             }
             return new SimpleStringProperty(categories.toString());
         });
         mainController.tableViewOrderHistoryColProductName.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
             StringBuilder names = new StringBuilder();
-            for (ProductOrder productOrder : productOrders) {
-                names.append(productOrder.getProductName()).append(", ");
+            for (int i = 0; i < productOrders.size(); i++) {
+                ProductOrder productOrder = productOrders.get(i);
+                names.append(productOrder.getProductName());
+                if (i < productOrders.size() - 1) {
+                    names.append(", ");
+                }
             }
             return new SimpleStringProperty(names.toString());
         });
         mainController.tableViewOrderHistoryColQuantity.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
             StringBuilder quantities = new StringBuilder();
-            for (ProductOrder productOrder : productOrders) {
-                quantities.append("x").append(productOrder.getQuantity()).append(", ");
+            for (int i = 0; i < productOrders.size(); i++) {
+                ProductOrder productOrder = productOrders.get(i);
+                quantities.append("x").append(productOrder.getQuantity());
+                if (i < productOrders.size() - 1) {
+                    quantities.append(", ");
+                }
             }
             return new SimpleStringProperty(quantities.toString());
         });
         mainController.tableViewOrderHistoryColPrice.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
             StringBuilder prices = new StringBuilder();
-            for (ProductOrder productOrder : productOrders) {
-                prices.append("₱ ").append(productOrder.getTotalAmount()).append(", ");
+            for (int i = 0; i < productOrders.size(); i++) {
+                ProductOrder productOrder = productOrders.get(i);
+                prices.append("₱ ").append(productOrder.getTotalAmount());
+                if (i < productOrders.size() - 1) {
+                    prices.append(", ");
+                }
             }
             return new SimpleStringProperty(prices.toString());
         });

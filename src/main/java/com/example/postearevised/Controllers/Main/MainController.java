@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -191,6 +193,12 @@ public class MainController implements Initializable {
      * Menu
      */
     @FXML
+    public Label labelMenuNoName;
+    @FXML
+    public Label labelMenuNoModeOfPayment;
+    @FXML
+    public Label labelMenuNoAmount;
+    @FXML
     public ImageView imageCash;
     @FXML
     public ImageView imageGCash;
@@ -231,7 +239,28 @@ public class MainController implements Initializable {
     public ImageView imageViewMenuIceCandyCups;
     @FXML
     public ImageView imageViewMenuAppetizers;
+    @FXML
+    public AnchorPane anchorPaneRightPanel;
+    @FXML
+    public AnchorPane anchorPaneMenuIsEmpty;
 
+    @FXML
+    public void textFieldCustomerNameTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            menuModel.payClicked();
+        } else {
+            menuModel.customerNameTyping();
+        }
+    }
+
+    @FXML
+    public void textFieldAmountTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            menuModel.payClicked();
+        } else {
+            menuModel.amountTyping();
+        }
+    }
     @FXML
     public void imageViewMenuAllClicked(MouseEvent event) {
         menuModel.switchCategory(AllProductCategoryEnum.getNumber());
@@ -331,12 +360,6 @@ public class MainController implements Initializable {
     public void menuPaymentPayTouched(TouchEvent event) {
         menuModel.payClicked();
     }
-
-
-    @FXML
-    public AnchorPane anchorPaneRightPanel;
-    @FXML
-    public AnchorPane anchorPaneMenuIsEmpty;
 
     @FXML
     public void labelMenuIsEmptyClicked(MouseEvent event) throws IOException {

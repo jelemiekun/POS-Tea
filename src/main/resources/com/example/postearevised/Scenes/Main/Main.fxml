@@ -142,7 +142,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -154,7 +154,7 @@
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="27.0" layoutY="105.0" text="Customer Name:">
+                        <Label layoutX="27.0" layoutY="88.0" text="Customer Name:">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
@@ -164,14 +164,19 @@
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldMenuCustomerName" alignment="CENTER_RIGHT" layoutX="256.0" layoutY="85.0" prefHeight="40.0" prefWidth="200.0">
+                        <TextField fx:id="textFieldMenuCustomerName" alignment="CENTER_RIGHT" layoutX="256.0" layoutY="85.0" onKeyPressed="#textFieldCustomerNameTyping" prefHeight="40.0" prefWidth="200.0">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </TextField>
+                        <Label fx:id="labelMenuNoName" layoutX="284.0" layoutY="125.0" text="*please input name" textFill="#ff2020" visible="false">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="40.0" layoutY="172.0" prefHeight="452.0" prefWidth="478.0">
+                  <AnchorPane layoutX="40.0" layoutY="156.0" prefHeight="452.0" prefWidth="478.0">
                      <children>
                         <Label layoutX="27.0" layoutY="10.0" text="Bills">
                            <font>
@@ -199,24 +204,24 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                  <Label layoutX="44.0" layoutY="617.0" text="-----------------------------------------------">
+                  <Label layoutX="44.0" layoutY="600.0" text="-----------------------------------------------">
                      <font>
                         <Font name="Arial" size="30.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="40.0" layoutY="657.0" prefHeight="301.0" prefWidth="470.0">
+                  <AnchorPane layoutX="40.0" layoutY="632.0" prefHeight="329.0" prefWidth="472.0">
                      <children>
-                        <Label layoutX="41.0" layoutY="-4.0" text="Total">
+                        <Label layoutX="43.0" layoutY="-1.0" text="Total">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="-4.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
+                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="290.0" layoutY="-1.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutX="-1.0" layoutY="45.0" prefHeight="257.0" prefWidth="470.0" visible="false">
+                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="272.0" prefWidth="473.0" visible="false">
                            <children>
                               <Label layoutX="41.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
@@ -228,7 +233,7 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textFieldMenuEnterAmount" alignment="CENTER_RIGHT" layoutX="374.0" layoutY="-10.0" prefHeight="37.0" prefWidth="85.0">
+                              <TextField fx:id="textFieldMenuEnterAmount" alignment="CENTER_RIGHT" layoutX="374.0" layoutY="-6.0" onKeyPressed="#textFieldAmountTyping" prefHeight="37.0" prefWidth="85.0">
                                  <font>
                                     <Font name="Arial" size="20.0" />
                                  </font>
@@ -330,13 +335,23 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="355.0" layoutY="-7.0" text="₱">
+                              <Label layoutX="355.0" layoutY="-3.0" text="₱">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="labelMenuNoModeOfPayment" layoutX="235.0" layoutY="63.0" text="*select mode of payment" textFill="#ff2020" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="20.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
+                        <Label fx:id="labelMenuNoAmount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="27.0" prefHeight="23.0" prefWidth="325.0" text="*select mode of payment" textAlignment="RIGHT" textFill="#ff2020" visible="false">
+                           <font>
+                              <Font name="Arial" size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                </children>
@@ -725,7 +740,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
