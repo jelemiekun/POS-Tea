@@ -13,6 +13,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -56,47 +58,60 @@ public class ProductOrderListController implements Initializable {
             productOrderAnchorPane.setPrefSize(826, 46);
 
             Label productNameLabel = new Label(productOrder.getProductName());
-            productNameLabel.setFont(new Font("Arial", 18));
-            AnchorPane.setLeftAnchor(productNameLabel, 71.0);
+            productNameLabel.setFont(new Font("Arial", 20));
+            productNameLabel.setAlignment(Pos.CENTER_LEFT);
+            AnchorPane.setLeftAnchor(productNameLabel, 90.0);
             AnchorPane.setTopAnchor(productNameLabel, 13.0);
 
+            Label quantityLabel = new Label(String.valueOf(productOrder.getQuantity()) + "x");
+            quantityLabel.setFont(new Font("Arial", 20));
+            quantityLabel.setAlignment(Pos.CENTER_RIGHT);
+            quantityLabel.setContentDisplay(ContentDisplay.RIGHT);
+            AnchorPane.setRightAnchor(quantityLabel, 85.0);
+            AnchorPane.setTopAnchor(quantityLabel, 13.0);
+
+            productOrderAnchorPane.getChildren().addAll(productNameLabel, quantityLabel);
+
+            int attributeCount = 0;
+
             if (!productOrder.getFirstAttribute().isEmpty()) {
-                Label firstAttributeLabel = new Label(productOrder.getFirstAttribute());
+                Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
                 firstAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(firstAttributeLabel, 200.0);
-                AnchorPane.setTopAnchor(firstAttributeLabel, 13.0);
+                AnchorPane.setLeftAnchor(firstAttributeLabel, 230.0);
+                AnchorPane.setTopAnchor(firstAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(firstAttributeLabel);
+                attributeCount++;
             }
 
             if (!productOrder.getSecondAttribute().isEmpty()) {
-                Label secondAttributeLabel = new Label(productOrder.getSecondAttribute());
+                Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
                 secondAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(secondAttributeLabel, 400.0);
-                AnchorPane.setTopAnchor(secondAttributeLabel, 13.0);
+                AnchorPane.setLeftAnchor(secondAttributeLabel, 230.0);
+                AnchorPane.setTopAnchor(secondAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(secondAttributeLabel);
+                attributeCount++;
             }
 
             if (!productOrder.getThirdAttribute().isEmpty()) {
-                Label thirdAttributeLabel = new Label(productOrder.getThirdAttribute());
+                Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
                 thirdAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(thirdAttributeLabel, 600.0);
-                AnchorPane.setTopAnchor(thirdAttributeLabel, 13.0);
+                AnchorPane.setLeftAnchor(thirdAttributeLabel, 230.0);
+                AnchorPane.setTopAnchor(thirdAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(thirdAttributeLabel);
+                attributeCount++;
             }
 
-            Label quantityLabel = new Label(String.valueOf(productOrder.getQuantity()));
-            quantityLabel.setFont(new Font("Arial", 18));
-            quantityLabel.setAlignment(Pos.CENTER_RIGHT);
-            quantityLabel.setContentDisplay(ContentDisplay.RIGHT);
-            AnchorPane.setRightAnchor(quantityLabel, 13.0);
-            AnchorPane.setTopAnchor(quantityLabel, 13.0);
-
-            productOrderAnchorPane.getChildren().add(quantityLabel);
+            // Adjust AnchorPane height based on the number of attributes
+            productOrderAnchorPane.setPrefHeight(46 + (attributeCount * 30));
 
             // Add the product order AnchorPane to the FlowPane
             flowPaneProductOrders.getChildren().add(productOrderAnchorPane);
         }
     }
+
+
+
+
 
     public void setOrderAndAnchorPane(Order order) {
         this.order = order;
