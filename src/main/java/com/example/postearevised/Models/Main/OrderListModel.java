@@ -22,7 +22,6 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
-import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 
 public class OrderListModel {
     private MainController mainController;
@@ -63,16 +62,21 @@ public class OrderListModel {
     }
 
     public void orderListOperationStartsHere() {
-        System.out.println("orderListOperationStartsHere is orderReference list empty? " + orderReference.getProductOrderObservableList().isEmpty());
-        addOrderToList();
+        Order order = getOrderReference();
+        System.out.println("orderListOperationStartsHere is orderReference list empty? " + order.getProductOrderObservableList().isEmpty());
+        addOrderToList(order);
         updateOrderQueueLabelsAndPane();
+    }
+
+    private Order getOrderReference() {
+        return new Order(orderReference.getProductOrderObservableList(), orderReference.getCustomerName(), orderReference.getOrderNumber(), orderReference.getTotalPrice(), orderReference.getAmountPaid(), orderReference.getChange(), orderReference.getModeOfPayment());
     }
 
     private boolean notExceedLabelTop(AnchorPane innerAnchorPane, double labelTop) {
         if (labelTop >= 260) {
             labelTop += 25;
             Label moreLabel = new Label("More...");
-            moreLabel.setFont(Font.font("Arial", 18)); // Set font to Arial with size 18px
+            moreLabel.setFont(Font.font("Arial", 18));
             AnchorPane.setTopAnchor(moreLabel, labelTop);
             AnchorPane.setLeftAnchor(moreLabel, 16.0);
             innerAnchorPane.getChildren().add(moreLabel);
@@ -82,10 +86,10 @@ public class OrderListModel {
         }
     }
 
-    private void addOrderToList() {
+    private void addOrderToList(Order order) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefSize(350, 500);
-        System.out.println("line 88: " + orderReference.getProductOrderObservableList().isEmpty());
+        System.out.println("line 88: " + order.getProductOrderObservableList().isEmpty());
 
         // Create Rectangle
         Rectangle rectangle = new Rectangle(350, 500);
@@ -101,12 +105,12 @@ public class OrderListModel {
         anchorPane.setEffect(dropShadow);
 
         // Create Labels
-        Label orderNumberLabel = new Label("Order Number: " + orderReference.getOrderNumber());
+        Label orderNumberLabel = new Label("Order Number: " + order.getOrderNumber());
         orderNumberLabel.setFont(Font.font("Arial", 24));
         AnchorPane.setTopAnchor(orderNumberLabel, 16.0);
         AnchorPane.setLeftAnchor(orderNumberLabel, 16.0);
 
-        Label customerNameLabel = new Label("Customer Name: " + orderReference.getCustomerName());
+        Label customerNameLabel = new Label("Customer Name: " + order.getCustomerName());
         customerNameLabel.setFont(Font.font("Arial", 24));
         AnchorPane.setTopAnchor(customerNameLabel, 54.0);
         AnchorPane.setLeftAnchor(customerNameLabel, 16.0);
@@ -114,13 +118,13 @@ public class OrderListModel {
         // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
         innerAnchorPane.setPrefSize(297, 321);
-        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched());
-        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched());
+        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order));
+        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order));
         innerAnchorPane.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(innerAnchorPane, 99.0);
         AnchorPane.setLeftAnchor(innerAnchorPane, 28.0);
 
-        ObservableList<ProductOrder> productOrders = orderReference.getProductOrderObservableList();
+        ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
         double labelTop = 0.0;
         for (ProductOrder productOrder : productOrders) {
             if (notExceedLabelTop(innerAnchorPane, labelTop)) {
@@ -185,10 +189,8 @@ public class OrderListModel {
         imageView.setFitWidth(167);
         imageView.setFitHeight(55);
         imageView.setPreserveRatio(true);
-        System.out.println("Bago ko ipasa: " + orderReference.getProductOrderObservableList().isEmpty());
-        imageView.setOnMouseClicked(event -> orderDoneClickedTouched(anchorPane));
-        imageView.setOnTouchReleased(event -> orderDoneClickedTouched(anchorPane));
-        System.out.println("After ko ipasa: " + orderReference.getProductOrderObservableList().isEmpty());
+        imageView.setOnMouseClicked(event -> orderDoneClickedTouched(order, anchorPane));
+        imageView.setOnTouchReleased(event -> orderDoneClickedTouched(order, anchorPane));
         imageView.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(imageView, 431.0);
         AnchorPane.setLeftAnchor(imageView, 95.0);
@@ -196,45 +198,55 @@ public class OrderListModel {
         anchorPane.getChildren().addAll(rectangle, orderNumberLabel, customerNameLabel, innerAnchorPane, imageView);
 
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
+
+        clearOrderReference();
     }
 
-    private void orderContentClickedTouched() {
-        System.out.println("line 207: " + orderReference.getProductOrderObservableList().isEmpty());
+    private void orderContentClickedTouched(Order order) {
+        System.out.println("line 207: " + order.getProductOrderObservableList().isEmpty());
         System.out.println("Inner AnchorPane clicked");
     }
 
-    private void orderDoneClickedTouched(AnchorPane anchorPaneToDelete) {
-        System.out.println("line 212: " + orderReference.getProductOrderObservableList().isEmpty());
-        orderDoneGetDateAndTime();
-        addOrderToOrderHistory();
-        removeOrderToOrderQueue(anchorPaneToDelete);
+    private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        System.out.println("line 212: " + order.getProductOrderObservableList().isEmpty());
+        orderDoneGetDateAndTime(order);
+        addOrderToOrderHistory(order);
+        removeOrderToOrderQueue(order, anchorPaneToDelete);
 
         System.out.println("Done clicked");
 
         updateOrderQueueLabelsAndPane();
     }
 
-    private void orderDoneGetDateAndTime() {
-        orderReference.setDateAndTime(LocalDateTime.now());
+    private void orderDoneGetDateAndTime(Order order) {
+        order.setDateAndTime(LocalDateTime.now());
     }
 
-    private void removeOrderToOrderQueue(AnchorPane anchorPaneToDelete) {
-        System.out.println("line 227: " + orderReference.getProductOrderObservableList());
-        orderQueueObservableList.remove(orderReference);
+    private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {
+        System.out.println("line 227: " + order.getProductOrderObservableList());
+        orderQueueObservableList.remove(order);
         mainController.flowPaneOrderQueue.getChildren().remove(anchorPaneToDelete);
     }
 
-    private void addOrderToOrderHistory() {
+    private void addOrderToOrderHistory(Order order) {
         synchronized (synchronizedOrderHistoryObservableList) {
-            synchronizedOrderHistoryObservableList.add(orderReference);
+            synchronizedOrderHistoryObservableList.add(order);
         }
     }
 
 
     private void updateOrderQueueLabelsAndPane() {
-        mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(synchronizedOrderHistoryObservableList.size()));
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
+                mainController.labelOrderQueueTotalOrder.setText(String.valueOf(synchronizedOrderHistoryObservableList.size()));
+                mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
+            }
+        });
+    }
 
-        mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
+    private void clearOrderReference() {
+        orderReference = null;
     }
 }

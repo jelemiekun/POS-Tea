@@ -6,7 +6,11 @@ import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
@@ -30,13 +34,14 @@ public class DashboardModel {
     private void updateRevenue() {
         referenceTotalRevenue = 0;
         synchronized (synchronizedOrderHistoryObservableList) {
+
             for (Order order : synchronizedOrderHistoryObservableList) {
                 referenceTotalRevenue += order.getTotalPrice();
                 for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                     System.out.println(productOrder.getProductName());
                 }
-                System.out.println("updateRevenue order.getList.isEmpty? " + order.getProductOrderObservableList().isEmpty());
             }
+
         }
     }
 
@@ -53,17 +58,9 @@ public class DashboardModel {
             referenceTotalOrder = 0;
 
             for (Order order : synchronizedOrderHistoryObservableList) {
-                System.out.println("Customer name: " + order.getCustomerName());
-
-                synchronized (order.getProductOrderObservableList()) {
-                    for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                        System.out.println("Product name: " + productOrder.getProductName());
-                        referenceTotalOrder += productOrder.getQuantity();
-                    }
-                }
-
-                System.out.println("updateOrder ProductOrder productORder order.getList.isEmpty? : " + order.getProductOrderObservableList().isEmpty());
+                referenceTotalOrder = order.getProductOrderObservableList().size();
             }
+
         }
     }
 
@@ -102,9 +99,7 @@ public class DashboardModel {
                         }
                     }
                 }
-                System.out.println("updateCategories productOrder order.getList.isEmpty? " + order.getProductOrderObservableList().isEmpty());
             }
-            System.out.println("updateCategories orderHistoryListSize: " + synchronizedOrderHistoryObservableList.size());
         }
     }
 
@@ -127,19 +122,25 @@ public class DashboardModel {
             });
             pieChartData.add(emptyData);
         } else {
-            pieChartData.addAll(
-                    new PieChart.Data(MilkTeaEnum.getCategory(), referenceMilkTeaCounter),
-                    new PieChart.Data(CoolersEnum.getCategory(), referenceCoolersCounter),
-                    new PieChart.Data(CoffeeEnum.getCategory(), referenceCoffeeCounter),
-                    new PieChart.Data(IceCandyCupsEnum.getCategory(), referenceIceCandyCupsCounter),
-                    new PieChart.Data(AppetizersEnum.getCategory(), referenceAppetizerCounter)
-            );
+            if (referenceMilkTeaCounter > 0) {
+                pieChartData.add(new PieChart.Data(MilkTeaEnum.getCategory(), referenceMilkTeaCounter));
+            }
+            if (referenceCoolersCounter > 0) {
+                pieChartData.add(new PieChart.Data(CoolersEnum.getCategory(), referenceCoolersCounter));
+            }
+            if (referenceCoffeeCounter > 0) {
+                pieChartData.add(new PieChart.Data(CoffeeEnum.getCategory(), referenceCoffeeCounter));
+            }
+            if (referenceIceCandyCupsCounter > 0) {
+                pieChartData.add(new PieChart.Data(IceCandyCupsEnum.getCategory(), referenceIceCandyCupsCounter));
+            }
+            if (referenceAppetizerCounter > 0) {
+                pieChartData.add(new PieChart.Data(AppetizersEnum.getCategory(), referenceAppetizerCounter));
+            }
 
-            // Assign colors to each data segment
-            String[] colors = {"#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff"};
             for (int i = 0; i < pieChartData.size(); i++) {
                 PieChart.Data data = pieChartData.get(i);
-                String color = colors[i % colors.length];
+                String color = pieChartColors[i % pieChartColors.length];
                 data.nodeProperty().addListener((observable, oldValue, newValue) -> {
                     if (newValue != null) {
                         newValue.setStyle("-fx-pie-color: " + color + ";");
@@ -148,26 +149,21 @@ public class DashboardModel {
             }
         }
 
-        pieChartData.forEach(
-                data ->
-                        data.nameProperty().bind(
-                                Bindings.concat(
-                                        data.getName(), " ", data.pieValueProperty().asString()
-                                )
+        pieChartData.forEach(data ->
+                data.nameProperty().bind(
+                        Bindings.concat(
+                                data.getName(), " ", data.pieValueProperty().asString()
                         )
+                )
         );
 
         mainController.pieChartDashboard.getData().addAll(pieChartData);
 
-
-
-
-
-
-
-        System.out.println("Total Revenue: " + referenceTotalRevenue);
-        System.out.println("Total Customer: " + referenceTotalCustomer);
-        System.out.println("Total Order: " + referenceTotalOrder);
+        for (Node legend : mainController.pieChartDashboard.lookupAll(".chart-legend-item")) {
+            if (legend instanceof Label) {
+                ((Label) legend).setFont(Font.font("Arial", FontWeight.NORMAL, 18));
+            }
+        }
     }
 
 }

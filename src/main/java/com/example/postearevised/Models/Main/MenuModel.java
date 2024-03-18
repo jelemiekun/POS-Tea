@@ -726,7 +726,7 @@ public class MenuModel {
                     invokeOrderListStartsHereMethod();
                 }
             });
-            //clearOrderReference();
+
         }
     }
 
@@ -741,10 +741,6 @@ public class MenuModel {
 
     private void invokeOrderListStartsHereMethod() {
         mainController.orderListModel.orderListOperationStartsHere();
-    }
-
-    private void clearOrderReference() {
-        orderReference = null;
     }
 
 //    orderReference = null;
