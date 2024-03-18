@@ -156,12 +156,14 @@ public class OrderHistoryModel {
         mainController.textFieldOrderHistorySearch.setText("");
 
         mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.isEmpty())
-                setReverseItem();
-            else
-                searchTheText(newValue);
+            if (!orderHistoryObservableList.isEmpty()) {
+                if (newValue.isEmpty())
+                    setReverseItem();
+                else
+                    searchTheText(newValue);
 
-            System.out.println(newValue);
+                System.out.println(newValue);
+            }
         });
     }
 
