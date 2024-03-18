@@ -8,8 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Font;
@@ -21,7 +19,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProductOrderListController implements Initializable {
-    private OrderListModel orderListModel;
     private Order order;
 
     @FXML
@@ -35,7 +32,7 @@ public class ProductOrderListController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        orderListModel = new OrderListModel();
+        OrderListModel orderListModel = new OrderListModel();
         orderListModel.setProductOrderListController(this);
     }
 
@@ -115,13 +112,7 @@ public class ProductOrderListController implements Initializable {
     }
 
     @FXML
-    void btnOrderDoneClicked(MouseEvent event) {
-        orderDone = true;
-        closeThisStage();
-    }
-
-    @FXML
-    void btnOrderDoneTouched(TouchEvent event) {
+    void btnOrderDone() {
         orderDone = true;
         closeThisStage();
     }
