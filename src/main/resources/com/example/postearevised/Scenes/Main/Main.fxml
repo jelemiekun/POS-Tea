@@ -744,7 +744,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -863,7 +863,7 @@
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -911,9 +911,9 @@
                                     <Image url="@../../Medias/Buttons/Product%20Process/delete%20product.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="labelAddProductBtn1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="2.0" layoutY="17.0" prefHeight="27.0" prefWidth="150.0" text="Delete Product(s)" textFill="WHITE">
+                              <Label fx:id="labelAddProductBtn1" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="-2.0" layoutY="20.0" prefHeight="27.0" prefWidth="150.0" text="Delete Product(s)" textFill="WHITE">
                                  <font>
-                                    <Font name="Arial" size="20.0" />
+                                    <Font name="Arial" size="18.0" />
                                  </font>
                               </Label>
                            </children>
