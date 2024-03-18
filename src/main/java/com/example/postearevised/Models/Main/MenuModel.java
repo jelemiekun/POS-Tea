@@ -276,7 +276,7 @@ public class MenuModel {
         }
 
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -529,7 +529,7 @@ public class MenuModel {
         }
 
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -626,7 +626,7 @@ public class MenuModel {
     private void cashSelected() {
         mainController.imageCash.setImage(CASH_SELECTED);
         mainController.labelCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = Cash.getModeOfPayment();
+        referenceModeOfPayment = CashEnum.getModeOfPayment();
 
         mainController.imageGCash.setImage(GCASH);
         mainController.labelGCash.setTextFill(Color.BLACK);
@@ -635,7 +635,7 @@ public class MenuModel {
     private void gCashSelected() {
         mainController.imageGCash.setImage(GCASH_SELECTED);
         mainController.labelGCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = GCash.getModeOfPayment();
+        referenceModeOfPayment = GCashEnum.getModeOfPayment();
 
         mainController.imageCash.setImage(CASH);
         mainController.labelCash.setTextFill(Color.BLACK);

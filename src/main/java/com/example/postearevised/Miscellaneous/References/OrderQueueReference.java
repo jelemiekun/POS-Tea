@@ -7,5 +7,6 @@ import javafx.collections.ObservableList;
 public class OrderQueueReference {
     public static Order orderReference;
     public static int orderNumberReference = 1;
+    public static boolean orderDone = false;
     public static ObservableList<Order> orderQueueObservableList = FXCollections.observableArrayList();
 }

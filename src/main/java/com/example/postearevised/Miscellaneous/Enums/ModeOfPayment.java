@@ -1,8 +1,8 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum ModeOfPayment {
-    Cash("Cash"),
-    GCash("GCash");
+    CashEnum("Cash"),
+    GCashEnum("GCash");
 
     private final String modeOfPayment;
 

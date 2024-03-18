@@ -1,11 +1,11 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-public enum EnumProduct {
-    ProductEnum("Product");
+public enum OrderEnum {
+    OrderEnum("Order Summary");
 
     private final String title;
 
-    EnumProduct(String title) {
+    OrderEnum(String title) {
         this.title = title;
     }
 

@@ -1,7 +1,6 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.binding.Bindings;
@@ -34,7 +33,7 @@ public class DashboardModel {
 
     private void updateRevenue() {
         referenceTotalRevenue = 0;
-        for (Order order : orderHistoryDeque) {
+        for (Order order : orderHistoryObservableList) {
             referenceTotalRevenue += order.getTotalPrice();
             for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                 System.out.println(productOrder.getProductName());
@@ -43,13 +42,13 @@ public class DashboardModel {
     }
 
     private void updateCustomer() {
-        referenceTotalCustomer = orderHistoryDeque.size();
+        referenceTotalCustomer = orderHistoryObservableList.size();
     }
 
     private void updateOrder() {
         referenceTotalOrder = 0;
 
-        for (Order order : orderHistoryDeque) {
+        for (Order order : orderHistoryObservableList) {
             referenceTotalOrder += order.getProductOrderObservableList().size();
         }
     }
@@ -63,7 +62,7 @@ public class DashboardModel {
         referenceIceCandyCupsCounter = 0;
         referenceAppetizerCounter = 0;
 
-        for (Order order : orderHistoryDeque) {
+        for (Order order : orderHistoryObservableList) {
 
             synchronized (order.getProductOrderObservableList()) {
                 for (ProductOrder productOrder : order.getProductOrderObservableList()) {
@@ -141,7 +140,8 @@ public class DashboardModel {
         pieChartData.forEach(data ->
                 data.nameProperty().bind(
                         Bindings.concat(
-                                data.getName(), " ", data.pieValueProperty().asString()
+                                data.getName(), " ",
+                                Bindings.format("%.0f", data.pieValueProperty())
                         )
                 )
         );
@@ -154,5 +154,6 @@ public class DashboardModel {
             }
         }
     }
+
 
 }

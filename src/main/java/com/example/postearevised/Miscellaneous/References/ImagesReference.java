@@ -14,7 +14,7 @@ public class ImagesReference {
     public static final Image GCASH = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/gcash.png")));
     public static final Image GCASH_SELECTED = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/gcash selected.png")));
 
-    public static final Image ORDER_QUEUE_DONE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+    public static final Image ORDER_QUEUE_DONE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/OrderList/done.png")));
 
 
     public static final Image SYSTEM_LOGO = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/logo.png")));

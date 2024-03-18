@@ -214,7 +214,7 @@ public class SettingsModel {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -264,7 +264,7 @@ public class SettingsModel {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/Product.fxml"));
         Parent root = loader.load();
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.Product.getTitle());
+        newStage.setTitle(EnumProduct.ProductEnum.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);

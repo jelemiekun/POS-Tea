@@ -1,12 +1,16 @@
 package com.example.postearevised.Models.Main;
 
+import com.example.postearevised.Controllers.Additional.ProductOrderListController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
+import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
@@ -15,10 +19,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import static com.example.postearevised.Miscellaneous.Enums.OrderEnum.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -29,6 +37,9 @@ public class OrderListModel {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
+    private ProductOrderListController productOrderListController;
+    public void setProductOrderListController(ProductOrderListController productOrderListController) { this.productOrderListController = productOrderListController; }
 
     /**
      * Date And Time
@@ -113,8 +124,8 @@ public class OrderListModel {
         // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
         innerAnchorPane.setPrefSize(297, 260);
-        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order));
-        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order));
+        innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order, anchorPane));
+        innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order, anchorPane));
         innerAnchorPane.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(innerAnchorPane, 99.0);
         AnchorPane.setLeftAnchor(innerAnchorPane, 28.0);
@@ -130,7 +141,7 @@ public class OrderListModel {
                 AnchorPane.setLeftAnchor(productNameLabel, 16.0);
                 innerAnchorPane.getChildren().add(productNameLabel);
 
-                Label quantityLabel = new Label("x" + productOrder.getQuantity());
+                Label quantityLabel = new Label(productOrder.getQuantity() + "x");
                 quantityLabel.setFont(Font.font("Arial", 18));
                 AnchorPane.setTopAnchor(quantityLabel, labelTop);
                 AnchorPane.setRightAnchor(quantityLabel, 16.0);
@@ -202,11 +213,39 @@ public class OrderListModel {
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
     }
 
-    private void orderContentClickedTouched(Order order) {
-        System.out.println("Inner AnchorPane clicked");
+    private void orderContentClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/postearevised/Scenes/Additional/ProductOrderList.fxml"));
+
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Stage newStage = new Stage();
+        newStage.setTitle(OrderEnum.getTitle());
+        newStage.setScene(new Scene(root));
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setResizable(false);
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+
+        ProductOrderListController productOrderListController = loader.getController();
+        productOrderListController.setOrderAndAnchorPane(order);
+        productOrderListController.setContents();
+
+        newStage.showAndWait();
+
+        if (orderDone) {
+            orderDoneClickedTouched(order, anchorPaneToDelete);
+
+            orderDone = false;
+        }
     }
 
-    private void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+    public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
         orderDoneGetDateAndTime(order);
         addOrderToOrderHistory(order);
         removeOrderToOrderQueue(order, anchorPaneToDelete);
@@ -224,13 +263,13 @@ public class OrderListModel {
     }
 
     private void addOrderToOrderHistory(Order order) {
-        orderHistoryDeque.push(order);
+        orderHistoryObservableList.add(order);
     }
 
 
     private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryDeque.size()));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
     }
 }

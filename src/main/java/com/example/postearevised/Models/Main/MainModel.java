@@ -111,6 +111,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(true);
                 mainController.anchorPaneSettings.setVisible(false);
+                mainController.orderHistoryModel.refreshOrderHistoryTable();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);

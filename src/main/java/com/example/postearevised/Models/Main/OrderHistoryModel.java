@@ -1,11 +1,9 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.References.OrderHistoryReference;
 import com.example.postearevised.Objects.Order;
 import com.example.postearevised.Objects.ProductOrder;
 import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -15,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Collection;
+import java.util.Collections;
 
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
@@ -55,7 +55,7 @@ public class OrderHistoryModel {
             StringBuilder quantities = new StringBuilder();
             for (int i = 0; i < productOrders.size(); i++) {
                 ProductOrder productOrder = productOrders.get(i);
-                quantities.append("x").append(productOrder.getQuantity());
+                quantities.append(productOrder.getQuantity()).append("x");
                 if (i < productOrders.size() - 1) {
                     quantities.append(", ");
                 }
@@ -108,8 +108,8 @@ public class OrderHistoryModel {
             };
         });
 
-        ObservableList<Order> observableListOrderHistoryDeque = FXCollections.observableArrayList(orderHistoryDeque);
-        mainController.tableViewOrderHistory.setItems(observableListOrderHistoryDeque);
+        Collections.reverse(orderHistoryObservableList);
+        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
 
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);
@@ -121,10 +121,10 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColModeOfPayment.setReorderable(false);
         mainController.tableViewOrderHistoryColDateAndTime.setReorderable(false);
 
-        refreshOrderHistoryTable();
     }
 
-    private void refreshOrderHistoryTable() {
+    public void refreshOrderHistoryTable() {
+        Collections.reverse(orderHistoryObservableList);
         mainController.tableViewOrderHistory.refresh();
     }
 }
