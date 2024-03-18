@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.orderHistoryObservableList;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class OrderListModel {
@@ -61,17 +62,11 @@ public class OrderListModel {
         daemonThreadForDateAndTime.start();
     }
 
-    public void orderListOperationStartsHere() {
-        Order order = getOrderReference();
+    public void orderListOperationStartsHere(Order order) {
         System.out.println("orderListOperationStartsHere is orderReference list empty? " + order.getProductOrderObservableList().isEmpty());
         addOrderToList(order);
         updateOrderQueueLabelsAndPane();
     }
-
-    private Order getOrderReference() {
-        return new Order(orderReference.getProductOrderObservableList(), orderReference.getCustomerName(), orderReference.getOrderNumber(), orderReference.getTotalPrice(), orderReference.getAmountPaid(), orderReference.getChange(), orderReference.getModeOfPayment());
-    }
-
     private boolean notExceedLabelTop(AnchorPane innerAnchorPane, double labelTop, double maxHeight) {
         if (labelTop >= maxHeight) {
             labelTop += 25;
@@ -117,7 +112,7 @@ public class OrderListModel {
 
         // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
-        innerAnchorPane.setPrefSize(297, 321);
+        innerAnchorPane.setPrefSize(297, 260);
         innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order));
         innerAnchorPane.setOnTouchReleased(event -> orderContentClickedTouched(order));
         innerAnchorPane.setCursor(Cursor.HAND);
@@ -205,8 +200,6 @@ public class OrderListModel {
         anchorPane.getChildren().addAll(rectangle, orderNumberLabel, customerNameLabel, innerAnchorPane, imageView);
 
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
-
-        clearOrderReference();
     }
 
     private void orderContentClickedTouched(Order order) {
@@ -231,19 +224,13 @@ public class OrderListModel {
     }
 
     private void addOrderToOrderHistory(Order order) {
-        synchronized (OrderHistoryReference.orderHistoryObservableList) {
-            OrderHistoryReference.orderHistoryObservableList.add(order);
-        }
+        orderHistoryObservableList.add(order);
     }
 
 
     private void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
-        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(OrderHistoryReference.orderHistoryObservableList.size()));
+        mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
-    }
-
-    private void clearOrderReference() {
-        orderReference = null;
     }
 }

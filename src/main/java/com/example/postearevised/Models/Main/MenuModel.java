@@ -659,6 +659,7 @@ public class MenuModel {
             orderCancelledOrAddedToQueue();
             clearFields();
             incrementCustomerNumber();
+            clearOrderReference();
         }
     }
 
@@ -710,24 +711,18 @@ public class MenuModel {
         }
     }
 
-    private final Object lock = new Object();
-
     private void addToOrderQueue() {
-        synchronized (lock) {
-            ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
-            Order order = new Order(copyList, referenceCustomerName, referenceOrderNumber,
-                    referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
-            System.out.println("line 702: " + order.getProductOrderObservableList().isEmpty());
-            orderQueueObservableList.add(order);
-            setOrderReference(order);
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    invokeOrderListStartsHereMethod();
-                }
-            });
-
-        }
+        ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
+        Order order = new Order(copyList, referenceCustomerName, referenceOrderNumber,
+                referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
+        System.out.println("line 702: " + order.getProductOrderObservableList().isEmpty());
+        orderQueueObservableList.add(order);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                invokeOrderListStartsHereMethod(order);
+            }
+        });
     }
 
 
@@ -735,12 +730,12 @@ public class MenuModel {
         referenceChange = referenceAmountPaid - referenceTotalPrice;
     }
 
-    private void setOrderReference(Order order) {
-        orderReference = order;
+    private void invokeOrderListStartsHereMethod(Order order) {
+        mainController.orderListModel.orderListOperationStartsHere(order);
     }
 
-    private void invokeOrderListStartsHereMethod() {
-        mainController.orderListModel.orderListOperationStartsHere();
+    private void clearOrderReference() {
+        orderReference = null;
     }
 
 //    orderReference = null;
