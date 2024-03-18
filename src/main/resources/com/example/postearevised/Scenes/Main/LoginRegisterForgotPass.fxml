@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController">
     <children>
-        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" onMouseClicked="#anchorPaneLoginClicked" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneLogin" layoutY="-23.0" onMouseClicked="#anchorPaneLoginClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -144,7 +144,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -298,18 +298,18 @@
                                           <Font name="Arial Bold" size="18.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="85.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="85.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../../Medias/Icons/icon%20tooltip.png" />
+                                          <Image url="@../../Medias/Icons/Register/information.png" />
                                        </image>
                                     </ImageView>
                                  </children>
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="registerNameToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="535.0" layoutY="120.0" onMouseClicked="#registerNameToolTipClicked" onMouseEntered="#registerNameToolTipEntered" onMouseExited="#registerNameToolTipExited" onTouchReleased="#registerNameToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="registerNameToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="116.0" onMouseClicked="#registerNameToolTipClicked" onMouseEntered="#registerNameToolTipEntered" onMouseExited="#registerNameToolTipExited" onTouchReleased="#registerNameToolTipTouched" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../Medias/Icons/icon%20tooltip.png" />
+                              <Image url="@../../Medias/Icons/Register/information.png" />
                            </image>
                         </ImageView>
                          </children>
@@ -705,9 +705,9 @@
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fx:id="forgotPasswordToolTip" fitHeight="35.0" fitWidth="35.0" layoutX="85.0" onMouseClicked="#forgotPasswordToolTipClicked" onMouseEntered="#forgotPasswordToolTipEntered" onMouseExited="#forgotPasswordToolTipExited" onTouchReleased="#forgotPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="forgotPasswordToolTip" fitHeight="23.0" fitWidth="24.0" layoutX="95.0" layoutY="4.0" onMouseClicked="#forgotPasswordToolTipClicked" onMouseEntered="#forgotPasswordToolTipEntered" onMouseExited="#forgotPasswordToolTipExited" onTouchReleased="#forgotPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../Medias/Icons/icon%20tooltip.png" />
+                                                <Image url="@../../Medias/Icons/Register/information.png" />
                                              </image>
                                           </ImageView>
                                        </children>
