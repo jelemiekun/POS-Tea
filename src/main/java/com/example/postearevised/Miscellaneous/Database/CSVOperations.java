@@ -70,6 +70,7 @@ public class CSVOperations {
                     sb.append(milkTea.getCategory()).append(",");
                     sb.append(milkTea.getImagePath()).append(",");
 
+                    
                     sb.append(milkTea.getSmallPrice()).append(",");
                     sb.append(milkTea.getMediumPrice()).append(",");
                     sb.append(milkTea.getLargePrice()).append(",");
