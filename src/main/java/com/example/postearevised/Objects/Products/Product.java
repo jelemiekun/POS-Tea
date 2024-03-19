@@ -24,7 +24,7 @@ public abstract class Product {
             this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "" : productDescription;
             this.category = category;
             System.out.println(imagePath);
-            this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
+            this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Medias/Product No Image/no image.png" : imagePath;
             this.image = new Image(new File(this.imagePath).toURI().toString());
             this.imageView = new ImageView();
             this.imageView.setImage(this.image);
@@ -89,7 +89,7 @@ public abstract class Product {
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
+        this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Medias/Product No Image/no image.png" : imagePath;
         this.image = new Image(this.imagePath);
         this.imageView.setImage(this.image);
         this.imageViewSmall.setImage(this.image);
