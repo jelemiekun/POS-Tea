@@ -189,14 +189,4 @@ public class CSVOperations {
         }
     }
 
-    private static String imageToBase64(Image image) {
-        // Convert Image to Base64 string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", outputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return Base64.getEncoder().encodeToString(outputStream.toByteArray());
-    }
 }
