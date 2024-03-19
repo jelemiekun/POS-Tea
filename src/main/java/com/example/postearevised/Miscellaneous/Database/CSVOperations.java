@@ -5,6 +5,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.ImportCSV.*;
@@ -353,6 +354,10 @@ public class CSVOperations {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void deleteProductInCSV(List<Product> productListToDelete) {
+        
     }
 
 
