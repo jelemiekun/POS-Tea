@@ -40,9 +40,9 @@ public class ProductModel {
         this.productController = productController;
     }
 
-    public boolean isAdd = false;
-    public boolean isSelected = false;
-    public boolean isEdit = false;
+    public boolean isAddProduct = false;
+    public boolean isSelectedProductOrder = false;
+    public boolean isEditProduct = false;
 
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
@@ -176,20 +176,20 @@ public class ProductModel {
     }
 
     public void addEditProductAddOrder() {
-        if (isEdit) {
+        if (isEditProduct) {
             setAttributes(true);
 
             addProductToOrderOrEditProductOrder(false);
         } else {
-            if (isSelected) {
+            if (isSelectedProductOrder) {
                 addOrder();
             } else {
                 setAttributes(false);
 
-                if (isAdd)
+                if (isAddProduct)
                     instantiateProduct();
                 else
-                    setObjectAttributes();
+                    setObjectAttributesUpdateProduct();
             }
         }
 
@@ -328,9 +328,9 @@ public class ProductModel {
         setAddEditProductsDisableRadioButtons();
         setAddProductsTextFieldsToNone();
 
-        isAdd = true;
-        isSelected = false;
-        isEdit = false;
+        isAddProduct = true;
+        isSelectedProductOrder = false;
+        isEditProduct = false;
     }
 
     private void setAddProductsVisibilities() {
@@ -673,9 +673,9 @@ public class ProductModel {
         setEditProductsTextFieldsValues();
         initializeTextFieldAddListener();
 
-        isAdd = false;
-        isSelected = false;
-        isEdit = false;
+        isAddProduct = false;
+        isSelectedProductOrder = false;
+        isEditProduct = false;
     }
 
     private void setEditProductsVisibilities() {
@@ -781,7 +781,12 @@ public class ProductModel {
         }
     }
 
-    private void setObjectAttributes() {
+    private void setObjectAttributesUpdateProduct() {
+        Product oldProduct = new Product(editOrShowSelectedProduct.getProductName(),
+                editOrShowSelectedProduct.getProductDescription(),
+                editOrShowSelectedProduct.getImagePath(),
+                editOrShowSelectedProduct.getCategory());
+
         editOrShowSelectedProduct.setProductName(referenceProductName);
         editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
         editOrShowSelectedProduct.setImagePath(referenceImagePath);
@@ -790,7 +795,6 @@ public class ProductModel {
             editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
             editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
             editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
-
             editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOne);
             editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
             editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwo);
@@ -810,7 +814,10 @@ public class ProductModel {
         } else if (editOrShowSelectedProduct instanceof Appetizer editSelectedAppetizer) {
             editSelectedAppetizer.setPrice(referenceAppetizersPrice);
         }
+
+        editProductInCSV(oldProduct, editOrShowSelectedProduct);
     }
+
 
     /**
      * Product Selected From Menu
@@ -823,9 +830,9 @@ public class ProductModel {
         setSelectedProductAddProductToOrderEnable();
         setSelectedProductTexts();
 
-        isAdd = false;
-        isSelected = true;
-        isEdit = false;
+        isAddProduct = false;
+        isSelectedProductOrder = true;
+        isEditProduct = false;
     }
 
     private void setSelectedProductButton() {
@@ -985,9 +992,9 @@ public class ProductModel {
         setSelectedOrderProductValues();
         setDisableRadioButtons();
 
-        isAdd = false;
-        isSelected = false;
-        isEdit = true;
+        isAddProduct = false;
+        isSelectedProductOrder = false;
+        isEditProduct = true;
     }
 
     private void setSelectedEditOrderProductButton() {

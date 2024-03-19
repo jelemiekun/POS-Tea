@@ -10,7 +10,7 @@ import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
-public abstract class Product {
+public class Product {
     private String productName;
     private String productDescription;
     private String category;

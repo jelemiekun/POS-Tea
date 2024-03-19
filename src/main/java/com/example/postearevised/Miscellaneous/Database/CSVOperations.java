@@ -7,10 +7,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Base64;
 
 import static com.example.postearevised.Miscellaneous.Database.ExportCSV.*;
@@ -73,7 +70,7 @@ public class CSVOperations {
                     sb.append(milkTea.getCategory()).append(",");
                     sb.append(milkTea.getImagePath()).append(",");
 
-                    
+
                     sb.append(milkTea.getSmallPrice()).append(",");
                     sb.append(milkTea.getMediumPrice()).append(",");
                     sb.append(milkTea.getLargePrice()).append(",");
@@ -191,6 +188,156 @@ public class CSVOperations {
             e.printStackTrace();
         }
     }
+
+    public static void editProductInCSV(Product oldProduct, Product newProduct) {
+        try {
+            File inputFile = new File(FILE_PATH);
+            File tempFile = new File("temp.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+            String oldProductDetails = oldProduct.getProductName() + "," +
+                    oldProduct.getProductDescription() + "," +
+                    oldProduct.getCategory() + "," +
+                    oldProduct.getImagePath();
+
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                String productDetails = fields[0] + "," + fields[1] + "," + fields[2] + "," + fields[3];
+
+                if (productDetails.equals(oldProductDetails)) {
+                    // Update the line with new product details
+                    StringBuilder sb = new StringBuilder();
+                    switch (newProduct.getCategory()) {
+                        case "Milk Tea":
+                            MilkTea milkTea = (MilkTea) newProduct;
+                            sb.append(milkTea.getProductName()).append(",");
+                            sb.append(milkTea.getProductDescription()).append(",");
+                            sb.append(milkTea.getCategory()).append(",");
+                            sb.append(milkTea.getImagePath()).append(",");
+                            sb.append(milkTea.getSmallPrice()).append(",");
+                            sb.append(milkTea.getMediumPrice()).append(",");
+                            sb.append(milkTea.getLargePrice()).append(",");
+                            sb.append(milkTea.getAddOnsOne()).append(",");
+                            sb.append(milkTea.getAddOnsOnePrice()).append(",");
+                            sb.append(milkTea.getAddOnsTwo()).append(",");
+                            sb.append(milkTea.getAddOnsTwoPrice());
+                            break;
+                        case "Coolers":
+                            Coolers coolers = (Coolers) newProduct;
+                            sb.append(coolers.getProductName()).append(",");
+                            sb.append(coolers.getProductDescription()).append(",");
+                            sb.append(coolers.getCategory()).append(",");
+                            sb.append(coolers.getImagePath()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+
+                            sb.append(coolers.getSmallPrice()).append(",");
+                            sb.append(coolers.getMediumPrice()).append(",");
+                            sb.append(coolers.getLargePrice()).append(",");
+                            sb.append(coolers.getAddOnsOne()).append(",");
+                            sb.append(coolers.getAddOnsOnePrice()).append(",");
+                            sb.append(coolers.getAddOnsTwo()).append(",");
+                            sb.append(coolers.getAddOnsTwoPrice()).append("\n");
+                        case "Coffee":
+                            Coffee coffee = (Coffee) newProduct;
+                            sb.append(coffee.getProductName()).append(",");
+                            sb.append(coffee.getProductDescription()).append(",");
+                            sb.append(coffee.getCategory()).append(",");
+                            sb.append(coffee.getImagePath()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+
+                            sb.append(coffee.getPrice()).append("\n");
+                            break;
+                        case "Ice Candy Cups":
+                            IceCandyCups iceCandyCups = (IceCandyCups) newProduct;
+                            sb.append(iceCandyCups.getProductName()).append(",");
+                            sb.append(iceCandyCups.getProductDescription()).append(",");
+                            sb.append(iceCandyCups.getCategory()).append(",");
+                            sb.append(iceCandyCups.getImagePath()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+
+                            sb.append(iceCandyCups.getPrice()).append("\n");
+                            break;
+                        case "Appetizers":
+                            Appetizer appetizer = (Appetizer) newProduct;
+                            sb.append(appetizer.getProductName()).append(",");
+                            sb.append(appetizer.getProductDescription()).append(",");
+                            sb.append(appetizer.getCategory()).append(",");
+                            sb.append(appetizer.getImagePath()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+
+                            sb.append(appetizer.getPrice()).append("\n");
+                            break;
+                    }
+                    writer.write(sb.toString());
+                } else {
+                    writer.write(line);
+                }
+                writer.newLine();
+            }
+            writer.close();
+            reader.close();
+            inputFile.delete();
+            tempFile.renameTo(inputFile); // Rename temp file to original file name
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void chooseFilePath(Stage stage, boolean isImport) {
         FileChooser fileChooser = new FileChooser();
