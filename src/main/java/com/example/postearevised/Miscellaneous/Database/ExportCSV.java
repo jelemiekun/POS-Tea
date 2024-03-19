@@ -31,8 +31,7 @@ public class ExportCSV {
                 sb.append(product.getCategory()).append(",");
                 sb.append(product.getImagePath()).append(",");
 
-                if (product instanceof MilkTea) {
-                    MilkTea milkTea = (MilkTea) product;
+                if (product instanceof MilkTea milkTea) {
                     sb.append(milkTea.getSmallPrice()).append(",");
                     sb.append(milkTea.getMediumPrice()).append(",");
                     sb.append(milkTea.getLargePrice()).append(",");
@@ -49,8 +48,7 @@ public class ExportCSV {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");
-                } else if (product instanceof Coolers) {
-                    Coolers coolers = (Coolers) product;
+                } else if (product instanceof Coolers coolers) {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");
@@ -71,8 +69,7 @@ public class ExportCSV {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");
-                } else if (product instanceof Coffee) {
-                    Coffee coffee = (Coffee) product;
+                } else if (product instanceof Coffee coffee) {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");
@@ -91,8 +88,7 @@ public class ExportCSV {
                     sb.append(coffee.getPrice()).append(",");
                     sb.append(",");
                     sb.append(",");
-                } else if (product instanceof IceCandyCups) {
-                    IceCandyCups iceCandyCups = (IceCandyCups) product;
+                } else if (product instanceof IceCandyCups iceCandyCups) {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");
@@ -111,8 +107,7 @@ public class ExportCSV {
 
                     sb.append(iceCandyCups.getPrice()).append(",");
                     sb.append(",");
-                } else if (product instanceof Appetizer) {
-                    Appetizer appetizer = (Appetizer) product;
+                } else if (product instanceof Appetizer appetizer) {
                     sb.append(",");
                     sb.append(",");
                     sb.append(",");

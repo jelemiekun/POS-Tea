@@ -1,14 +1,10 @@
 package com.example.postearevised.Miscellaneous.Database;
 
 import com.example.postearevised.Objects.Products.*;
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import javax.imageio.ImageIO;
 import java.io.*;
-import java.util.Base64;
 
 import static com.example.postearevised.Miscellaneous.Database.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.ImportCSV.*;
@@ -224,6 +220,17 @@ public class CSVOperations {
                             sb.append(milkTea.getAddOnsOnePrice()).append(",");
                             sb.append(milkTea.getAddOnsTwo()).append(",");
                             sb.append(milkTea.getAddOnsTwoPrice());
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
                             break;
                         case "Coolers":
                             Coolers coolers = (Coolers) newProduct;
@@ -246,7 +253,12 @@ public class CSVOperations {
                             sb.append(coolers.getAddOnsOne()).append(",");
                             sb.append(coolers.getAddOnsOnePrice()).append(",");
                             sb.append(coolers.getAddOnsTwo()).append(",");
-                            sb.append(coolers.getAddOnsTwoPrice()).append("\n");
+                            sb.append(coolers.getAddOnsTwoPrice()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
+                            sb.append(",");
+                            break;
                         case "Coffee":
                             Coffee coffee = (Coffee) newProduct;
                             sb.append(coffee.getProductName()).append(",");
@@ -269,7 +281,10 @@ public class CSVOperations {
                             sb.append(",");
                             sb.append(",");
 
-                            sb.append(coffee.getPrice()).append("\n");
+                            sb.append(coffee.getPrice()).append(",");
+
+                            sb.append(",");
+                            sb.append(",");
                             break;
                         case "Ice Candy Cups":
                             IceCandyCups iceCandyCups = (IceCandyCups) newProduct;
@@ -294,7 +309,9 @@ public class CSVOperations {
                             sb.append(",");
                             sb.append(",");
 
-                            sb.append(iceCandyCups.getPrice()).append("\n");
+                            sb.append(iceCandyCups.getPrice()).append(",");
+
+                            sb.append(",");
                             break;
                         case "Appetizers":
                             Appetizer appetizer = (Appetizer) newProduct;
