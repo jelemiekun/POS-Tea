@@ -1,8 +1,10 @@
-package com.example.postearevised.Objects;
+package com.example.postearevised.Objects.Products;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+import java.io.File;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
@@ -11,8 +13,6 @@ public abstract class Product {
     private String productDescription;
     private String category;
     private ImageView imageView;
-    private double imageViewPositionX;
-    private double imageViewPositionY;
     private Image image;
     private String imagePath;
     private CheckBox checkBox;
@@ -23,8 +23,9 @@ public abstract class Product {
             this.productName = (productName.isBlank() || productName.isEmpty()) ? "" : productName;
             this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "" : productDescription;
             this.category = category;
+            System.out.println(imagePath);
             this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
-            this.image = new Image(this.imagePath);
+            this.image = new Image(new File(this.imagePath).toURI().toString());
             this.imageView = new ImageView();
             this.imageView.setImage(this.image);
             this.imageViewSmall = new ImageView();
@@ -40,22 +41,6 @@ public abstract class Product {
 
     public void setImage(Image image) {
         this.image = image;
-    }
-
-    public double getImageViewPositionX() {
-        return imageViewPositionX;
-    }
-
-    public void setImageViewPositionX(double imageViewPositionX) {
-        this.imageViewPositionX = imageViewPositionX;
-    }
-
-    public double getImageViewPositionY() {
-        return imageViewPositionY;
-    }
-
-    public void setImageViewPositionY(double imageViewPositionY) {
-        this.imageViewPositionY = imageViewPositionY;
     }
 
     public ImageView getImageViewSmall() {

@@ -1,4 +1,4 @@
-package com.example.postearevised.Objects;
+package com.example.postearevised.Objects.Order;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;

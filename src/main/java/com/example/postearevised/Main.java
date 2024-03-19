@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
@@ -27,6 +28,8 @@ public class Main extends Application {
         setScreenResolution(false, false);
         loginRegisterStage.getIcons().add(SYSTEM_LOGO);
         loginRegisterStage.show();
+
+        doesCSVExist();
     }
 
 

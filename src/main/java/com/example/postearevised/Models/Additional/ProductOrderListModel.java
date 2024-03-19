@@ -1,7 +1,7 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductOrderListController;
-import com.example.postearevised.Objects.ProductOrder;
+import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;

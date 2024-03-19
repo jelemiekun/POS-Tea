@@ -2,8 +2,9 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
-import com.example.postearevised.Objects.*;
+import com.example.postearevised.Objects.Order.Order;
+import com.example.postearevised.Objects.Order.ProductOrder;
+import com.example.postearevised.Objects.Products.Product;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

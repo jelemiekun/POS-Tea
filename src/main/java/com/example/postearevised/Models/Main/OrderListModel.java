@@ -2,8 +2,8 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductOrderListController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Objects.Order;
-import com.example.postearevised.Objects.ProductOrder;
+import com.example.postearevised.Objects.Order.Order;
+import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import static com.example.postearevised.Miscellaneous.Enums.OrderEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;

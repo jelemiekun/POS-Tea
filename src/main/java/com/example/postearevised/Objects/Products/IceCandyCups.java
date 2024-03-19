@@ -1,8 +1,8 @@
-package com.example.postearevised.Objects;
+package com.example.postearevised.Objects.Products;
 
-public class Coffee extends Product {
+public class IceCandyCups extends Product {
     private double price;
-    public Coffee(String productName, String productDescription, String imagePath, String category,
+    public IceCandyCups(String productName, String productDescription, String imagePath, String category,
                   double price) {
         super(productName, productDescription, imagePath, category);
         this.price = (String.valueOf(price).isBlank()) ? 0 : price;

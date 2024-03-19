@@ -1,7 +1,6 @@
 package com.example.postearevised.Miscellaneous.Database;
 
-import com.example.postearevised.Objects.*;
-
+import com.example.postearevised.Objects.Products.*;
 import javafx.embed.swing.SwingFXUtils;
 
 import javafx.scene.image.Image;
@@ -9,104 +8,85 @@ import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Base64;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.References.ProductReference.allProductObservableList;
-
 public class ExportCSV {
-//    public static void exportProductsToCSV() {
-//        List<Product> products = allProductObservableList;
-//
-//        FileChooser fileChooser = new FileChooser();
-//        fileChooser.setTitle("Save CSV File");
-//        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-//        File file = fileChooser.showSaveDialog(null);
-//
-//        if (file != null) {
-//            try (FileWriter writer = new FileWriter(file)) {
-//                // Write the header
-//                writer.append("Class,Product Name,Description,Category,Price,Image\n");
-//
-//                // Write each product to the CSV file
-//                for (Product product : products) {
-//                    if (product instanceof Appetizer) {
-//                        writeProduct((Appetizer) product, writer);
-//                    } else if (product instanceof Coffee) {
-//                        writeProduct((Coffee) product, writer);
-//                    } else if (product instanceof Coolers) {
-//                        writeProduct((Coolers) product, writer);
-//                    } else if (product instanceof IceCandyCups) {
-//                        writeProduct((IceCandyCups) product, writer);
-//                    } else if (product instanceof MilkTea) {
-//                        writeProduct((MilkTea) product, writer);
-//                    }
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-//
-//    private static void writeProduct(Product product, FileWriter writer) throws IOException {
-//        writer.append(product.getClass().getSimpleName())
-//                .append(",")
-//                .append(product.getProductName())
-//                .append(",")
-//                .append(product.getProductDescription())
-//                .append(",")
-//                .append(product.getCategory())
-//                .append(",")
-//                .append(getPriceString(product))
-//                .append(",")
-//                .append(getImageBase64String(product.getImage()))
-//                .append("\n");
-//    }
-//
-//    private static String getPriceString(Product product) {
-//        if (product instanceof Appetizer) {
-//            return String.valueOf(((Appetizer) product).getPrice());
-//        } else if (product instanceof Coffee) {
-//            return String.valueOf(((Coffee) product).getPrice());
-//        } else if (product instanceof Coolers) {
-//            Coolers coolers = (Coolers) product;
-//            return String.valueOf(coolers.getSmallPrice()) + "," +
-//                    String.valueOf(coolers.getMediumPrice()) + "," +
-//                    String.valueOf(coolers.getLargePrice()) + "," +
-//                    coolers.getAddOnsOne() + "," +
-//                    String.valueOf(coolers.getAddOnsOnePrice()) + "," +
-//                    coolers.getAddOnsTwo() + "," +
-//                    String.valueOf(coolers.getAddOnsTwoPrice());
-//        } else if (product instanceof IceCandyCups) {
-//            return String.valueOf(((IceCandyCups) product).getPrice());
-//        } else if (product instanceof MilkTea) {
-//            MilkTea milkTea = (MilkTea) product;
-//            return String.valueOf(milkTea.getSmallPrice()) + "," +
-//                    String.valueOf(milkTea.getMediumPrice()) + "," +
-//                    String.valueOf(milkTea.getLargePrice()) + "," +
-//                    milkTea.getAddOnsOne() + "," +
-//                    String.valueOf(milkTea.getAddOnsOnePrice()) + "," +
-//                    milkTea.getAddOnsTwo() + "," +
-//                    String.valueOf(milkTea.getAddOnsTwoPrice());
-//        }
-//        return "";
-//    }
-//
-//    private static String getImageBase64String(Image image) throws IOException {
-//        if (image != null) {
-//            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
-//            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-//            ImageIO.write(bufferedImage, "png", outputStream);
-//            byte[] imageBytes = outputStream.toByteArray();
-//            return Base64.getEncoder().encodeToString(imageBytes);
-//        } else {
-//            return "";
-//        }
-//    }
+    public static void exportProductsToCSV(List<Product> products, String filePath) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
+            // Write column headers to the CSV file
+            writer.println("productName,productDescription,productCategory,image,imagePath,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice");
 
+            // Write each product to the CSV file
+            for (Product product : products) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(product.getProductName()).append(",");
+                sb.append(product.getProductDescription()).append(",");
+                sb.append(product.getCategory()).append(",");
+
+                // Encode the image as Base64 string
+                String imageBase64 = encodeImageToBase64(product.getImage());
+                sb.append(imageBase64).append(",");
+
+                sb.append(product.getImagePath()).append(",");
+
+                if (product instanceof MilkTea) {
+                    MilkTea milkTea = (MilkTea) product;
+                    sb.append(milkTea.getSmallPrice()).append(",");
+                    sb.append(milkTea.getMediumPrice()).append(",");
+                    sb.append(milkTea.getLargePrice()).append(",");
+                    sb.append(milkTea.getAddOnsOne()).append(",");
+                    sb.append(milkTea.getAddOnsOnePrice()).append(",");
+                    sb.append(milkTea.getAddOnsTwo()).append(",");
+                    sb.append(milkTea.getAddOnsTwoPrice()).append(",");
+                    sb.append(",,,,,,");
+                } else if (product instanceof Coolers) {
+                    Coolers coolers = (Coolers) product;
+                    sb.append(",,,,,,,"); // For Milk Tea columns
+                    sb.append(coolers.getSmallPrice()).append(",");
+                    sb.append(coolers.getMediumPrice()).append(",");
+                    sb.append(coolers.getLargePrice()).append(",");
+                    sb.append(coolers.getAddOnsOne()).append(",");
+                    sb.append(coolers.getAddOnsOnePrice()).append(",");
+                    sb.append(coolers.getAddOnsTwo()).append(",");
+                    sb.append(coolers.getAddOnsTwoPrice()).append(",");
+                    sb.append(",,,,,");
+                } else if (product instanceof Coffee) {
+                    Coffee coffee = (Coffee) product;
+                    sb.append(",,,,,,,,,"); // For Milk Tea and Coolers columns
+                    sb.append(coffee.getPrice()).append(",");
+                    sb.append(",,,,,,,");
+                } else if (product instanceof IceCandyCups) {
+                    IceCandyCups iceCandyCups = (IceCandyCups) product;
+                    sb.append(",,,,,,,,,,,"); // For Milk Tea, Coolers, and Coffee columns
+                    sb.append(iceCandyCups.getPrice()).append(",");
+                    sb.append(",,,,,,");
+                } else if (product instanceof Appetizer) {
+                    Appetizer appetizer = (Appetizer) product;
+                    sb.append(",,,,,,,,,,,,"); // For Milk Tea, Coolers, Coffee, and Ice Candy Cups columns
+                    sb.append(appetizer.getPrice());
+                }
+
+                writer.println(sb.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String encodeImageToBase64(Image image) {
+        // Convert the Image to byte array
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", baos);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] imageData = baos.toByteArray();
+
+        // Encode the byte array as Base64 string
+        return Base64.getEncoder().encodeToString(imageData);
+    }
 
 }

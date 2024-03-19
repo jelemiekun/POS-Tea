@@ -1,6 +1,6 @@
 package com.example.postearevised.Miscellaneous.References;
 
-import com.example.postearevised.Objects.*;
+import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

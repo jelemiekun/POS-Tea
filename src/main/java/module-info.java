@@ -13,9 +13,10 @@ module com.example.postearevised {
     opens com.example.postearevised.Models.Additional to javafx.fxml;
     exports com.example.postearevised.Controllers.Additional;
     opens com.example.postearevised.Controllers.Additional to javafx.fxml;
-    opens com.example.postearevised.Objects to javafx.base;
     exports com.example.postearevised.Controllers.Main;
     opens com.example.postearevised.Controllers.Main to javafx.fxml;
     exports com.example.postearevised.Models.Main;
     opens com.example.postearevised.Models.Main to javafx.fxml;
+    opens com.example.postearevised.Objects.Products to javafx.base;
+    opens com.example.postearevised.Objects.Order to javafx.base;
 }

@@ -2,7 +2,7 @@ package com.example.postearevised.Controllers.Additional;
 
 import com.example.postearevised.Models.Additional.ProductOrderListModel;
 import com.example.postearevised.Models.Main.OrderListModel;
-import com.example.postearevised.Objects.Order;
+import com.example.postearevised.Objects.Order.Order;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;

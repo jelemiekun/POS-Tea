@@ -1,8 +1,8 @@
 package com.example.postearevised.Controllers.Main;
 
 import com.example.postearevised.Models.Main.*;
-import com.example.postearevised.Objects.Order;
-import com.example.postearevised.Objects.Product;
+import com.example.postearevised.Objects.Order.Order;
+import com.example.postearevised.Objects.Products.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

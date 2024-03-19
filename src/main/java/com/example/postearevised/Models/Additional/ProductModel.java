@@ -1,7 +1,8 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
-import com.example.postearevised.Objects.*;
+import com.example.postearevised.Objects.Order.ProductOrder;
+import com.example.postearevised.Objects.Products.*;
 import javafx.application.Platform;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
@@ -15,8 +16,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -244,14 +247,11 @@ public class ProductModel {
                 // Get the input stream of the selected file
                 InputStream inputStream = Files.newInputStream(selectedFile.toPath());
 
-                // Get the current working directory
-                String currentDir = System.getProperty("user.dir");
+                // Get the AppData directory
+                String appDataDir = System.getenv("APPDATA");
 
-                // Get the path to the resources directory
-                Path resourcesDir = Path.of(currentDir, "src", "main", "resources");
-
-                // Get the destination directory within resources
-                Path destinationDir = Path.of(resourcesDir.toString(), "com", "example", "postearevised", "Product Media", "uploaded media");
+                // Specify the destination directory
+                Path destinationDir = Paths.get(appDataDir, "POS_Tea", "product images");
 
                 // Create directory if it doesn't exist
                 Files.createDirectories(destinationDir);
@@ -262,8 +262,8 @@ public class ProductModel {
 
                 System.out.println("File copied successfully!");
 
-                setImagePathValue(String.valueOf(copiedFilePath));
-                setImageProduct(String.valueOf(copiedFilePath));
+                setImagePathValue(copiedFilePath.toString());
+                setImageProduct(copiedFilePath.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -273,14 +273,17 @@ public class ProductModel {
         }
     }
 
+
     private void setImagePathValue(String copiedFilePath) {
         referenceImagePath = copiedFilePath;
     }
 
     private void setImageProduct(String copiedFilePath) {
-        Image image = new Image(copiedFilePath);
+        File file = new File(copiedFilePath);
+        Image image = new Image(file.toURI().toString());
         productController.imgProduct.setImage(image);
     }
+
 
     /**
      * Remove Photo
@@ -613,47 +616,44 @@ public class ProductModel {
     }
 
     private void instantiateProduct() {
+        Product product = null;
         switch(referenceCategory) {
             case "Milk Tea":
-                MilkTea milkTea = new MilkTea(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
+                product = new MilkTea(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
                         referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
                         referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
-
-                allProductObservableList.add(milkTea);
-                availableMilkTeaObservableList.add(milkTea);
+                availableMilkTeaObservableList.add((MilkTea) product);
                 break;
             case "Coolers":
-                Coolers coolers = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
+                product = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice,
                         referenceCoolersAddOnsOneName, referenceCoolersAddOnsOnePrice, referenceCoolersAddOnsTwoName, referenceCoolersAddOnsTwoPrice);
-
-                allProductObservableList.add(coolers);
-                availableCoolersObservableList.add(coolers);
+                availableCoolersObservableList.add((Coolers) product);
                 break;
             case "Coffee":
-                Coffee coffee = new Coffee(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
+                product = new Coffee(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoffeePrice);
-
-                allProductObservableList.add(coffee);
-                availableCoffeeObservableList.add(coffee);
+                availableCoffeeObservableList.add((Coffee) product);
                 break;
             case "Ice Candy Cups":
-                IceCandyCups iceCandyCups = new IceCandyCups(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
+                product = new IceCandyCups(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceIceCandyCupsPrice);
-
-                allProductObservableList.add(iceCandyCups);
-                availableIceCandyCupsObservableList.add(iceCandyCups);
+                availableIceCandyCupsObservableList.add((IceCandyCups) product);
                 break;
             case "Appetizers":
-                Appetizer appetizer = new Appetizer(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
+                product = new Appetizer(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceAppetizersPrice);
-
-                allProductObservableList.add(appetizer);
-                availableAppetizerObservableList.add(appetizer);
+                availableAppetizerObservableList.add((Appetizer) product);
                 break;
         }
+
+        if (product != null) {
+            allProductObservableList.add(product);
+            addProductToCSV(product);
+        }
     }
+
 
     /**
      * Edit Product

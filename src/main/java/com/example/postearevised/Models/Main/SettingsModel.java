@@ -4,7 +4,7 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
-import com.example.postearevised.Objects.Product;
+import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

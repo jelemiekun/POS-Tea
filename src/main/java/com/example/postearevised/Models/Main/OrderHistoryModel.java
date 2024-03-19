@@ -1,8 +1,8 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Objects.Order;
-import com.example.postearevised.Objects.ProductOrder;
+import com.example.postearevised.Objects.Order.Order;
+import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
