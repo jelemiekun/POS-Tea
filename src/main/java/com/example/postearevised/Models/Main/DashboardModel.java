@@ -49,7 +49,9 @@ public class DashboardModel {
         referenceTotalOrder = 0;
 
         for (Order order : orderHistoryObservableList) {
-            referenceTotalOrder += order.getProductOrderObservableList().size();
+            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                referenceTotalOrder += productOrder.getQuantity();
+            }
         }
     }
 

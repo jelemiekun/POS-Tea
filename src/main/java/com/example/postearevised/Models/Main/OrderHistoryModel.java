@@ -28,6 +28,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 
+import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -40,6 +41,7 @@ public class OrderHistoryModel {
     }
 
     public void setOrderHistoryTable() {
+        setComboBox();
         setCellValueFactories();
         setReorderToFalse();
         setReverseItem();
@@ -49,6 +51,16 @@ public class OrderHistoryModel {
         mainController.anchorPaneOrderHistory.requestFocus();
         refreshOrderHistoryTable();
         setTextFieldSearch();
+    }
+
+    private void setComboBox() {
+        mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
+        mainController.comboBoxOrderHistory.setValue(ALL_TIME_ENUM.getTitle());
+        getComboBoxValue();
+    }
+
+    public void getComboBoxValue() {
+        System.out.println(mainController.comboBoxOrderHistory.getValue());
     }
 
     private void setCellValueFactories() {
@@ -163,8 +175,6 @@ public class OrderHistoryModel {
             if (!orderHistoryObservableList.isEmpty()) {
                 if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY))
                     mainController.textFieldOrderHistorySearch.setText(oldValue);
-                else if (newValue.isEmpty())
-                    setReverseItem();
                 else
                     searchTheText(newValue);
             }

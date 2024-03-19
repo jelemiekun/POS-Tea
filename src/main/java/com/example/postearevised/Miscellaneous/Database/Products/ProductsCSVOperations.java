@@ -1,4 +1,4 @@
-package com.example.postearevised.Miscellaneous.Database;
+package com.example.postearevised.Miscellaneous.Database.Products;
 
 import com.example.postearevised.Objects.Products.*;
 import javafx.stage.FileChooser;
@@ -7,30 +7,30 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.ExportCSV.*;
-import static com.example.postearevised.Miscellaneous.Database.ImportCSV.*;
+import static com.example.postearevised.Miscellaneous.Database.Products.ExportCSV.*;
+import static com.example.postearevised.Miscellaneous.Database.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
-public class CSVOperations {
-    public static void doesCSVExist() {
+public class ProductsCSVOperations {
+    public static void doesProductCSVExist() {
         File directory = new File(DIRECTORY_PATH);
-        File file = new File(FILE_PATH);
+        File file = new File(PRODUCTS_CSV_FILE_PATH);
 
         if (!directory.exists()) {
             if (directory.mkdirs()) {
                 System.out.println("Created POS_Tea directory: " + DIRECTORY_PATH);
-                createCSVFile(FILE_PATH);
+                createCSVFile(PRODUCTS_CSV_FILE_PATH);
             } else {
                 System.out.println("Failed to create POS_Tea directory: " + DIRECTORY_PATH);
             }
         } else {
             if (!file.exists()) {
-                System.out.println("Directory exists but no csv file, will now create csv...");
-                createCSVFile(FILE_PATH);
+                System.out.println("Directory exists but no csv file, will now create products csv...");
+                createCSVFile(PRODUCTS_CSV_FILE_PATH);
             } else {
-                System.out.println("CSV file already exists: " + FILE_PATH);
+                System.out.println("CSV products file already exists: " + PRODUCTS_CSV_FILE_PATH);
                 // Import the products that are in csv
-                importProductsFromCSV(FILE_PATH, false);
+                importProductsFromCSV(PRODUCTS_CSV_FILE_PATH, false);
             }
         }
 
@@ -49,14 +49,14 @@ public class CSVOperations {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Write column headers to the CSV file
             writer.write("productName,productDescription,productCategory,imagePath,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice\n");
-            System.out.println("Creating csv file: " + filePath);
+            System.out.println("Creating products csv file: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void addProductToCSV(Product product) {
-        try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
+        try (FileWriter writer = new FileWriter(PRODUCTS_CSV_FILE_PATH, true)) {
             StringBuilder sb = new StringBuilder();
 
             switch (product.getCategory()) {
@@ -186,7 +186,7 @@ public class CSVOperations {
 
     public static void editProductInCSV(Product oldProduct, Product newProduct) {
         try {
-            File inputFile = new File(FILE_PATH);
+            File inputFile = new File(PRODUCTS_CSV_FILE_PATH);
             File tempFile = new File("temp.csv");
 
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
@@ -362,7 +362,7 @@ public class CSVOperations {
             BufferedWriter writer = new BufferedWriter(fw);
 
             // Read the CSV file
-            BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH));
+            BufferedReader reader = new BufferedReader(new FileReader(PRODUCTS_CSV_FILE_PATH));
             String line;
             try {
                 while ((line = reader.readLine()) != null) {
@@ -394,13 +394,13 @@ public class CSVOperations {
             }
 
             // Remove the current products.csv file
-            File currentFile = new File(FILE_PATH);
+            File currentFile = new File(PRODUCTS_CSV_FILE_PATH);
             if (!currentFile.delete()) {
                 throw new IOException("Failed to delete current products.csv file");
             }
 
             // Rename the temporary file to the original file name
-            File originalFile = new File(FILE_PATH);
+            File originalFile = new File(PRODUCTS_CSV_FILE_PATH);
             if (!tempFile.renameTo(originalFile)) {
                 throw new IOException("Failed to rename temporary file to original file");
             }

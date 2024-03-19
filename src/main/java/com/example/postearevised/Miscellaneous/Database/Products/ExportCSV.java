@@ -1,4 +1,4 @@
-package com.example.postearevised.Miscellaneous.Database;
+package com.example.postearevised.Miscellaneous.Database.Products;
 
 import com.example.postearevised.Objects.Products.*;
 

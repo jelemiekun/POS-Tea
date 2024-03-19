@@ -17,7 +17,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
@@ -26,14 +25,12 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Objects;
 
-import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;

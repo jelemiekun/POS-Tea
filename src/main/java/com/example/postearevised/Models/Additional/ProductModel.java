@@ -19,7 +19,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;

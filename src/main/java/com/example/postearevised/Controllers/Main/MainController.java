@@ -456,7 +456,7 @@ public class MainController implements Initializable {
 
     @FXML
     void comboBoxOrderHistoryOnAction(ActionEvent event) {
-
+        orderHistoryModel.getComboBoxValue();
     }
 
     @FXML
