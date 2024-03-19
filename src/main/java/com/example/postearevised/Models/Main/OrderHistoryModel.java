@@ -31,6 +31,7 @@ import java.util.Collections;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -148,8 +149,11 @@ public class OrderHistoryModel {
     }
 
     private void setReverseItem() {
+        mainController.textFieldOrderHistorySearch.setText("");
         Collections.reverse(orderHistoryObservableList);
         mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+        mainController.tableViewOrderHistory.refresh();
+        mainController.anchorPaneOrderHistory.requestFocus();
     }
 
     private void setTextFieldSearch() {
@@ -157,7 +161,9 @@ public class OrderHistoryModel {
 
         mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!orderHistoryObservableList.isEmpty()) {
-                if (newValue.isEmpty())
+                if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY))
+                    mainController.textFieldOrderHistorySearch.setText(oldValue);
+                else if (newValue.isEmpty())
                     setReverseItem();
                 else
                     searchTheText(newValue);
@@ -203,9 +209,8 @@ public class OrderHistoryModel {
 
 
 
-    private void refreshOrderHistoryTable() {
-        Collections.reverse(orderHistoryObservableList);
-        mainController.tableViewOrderHistory.refresh();
+    public void refreshOrderHistoryTable() {
+        setReverseItem();
 
         if (orderHistoryObservableList.isEmpty()) {
             Label placeholderLabel = new Label("Your order history is empty.\nMake a new order to see transactions.");

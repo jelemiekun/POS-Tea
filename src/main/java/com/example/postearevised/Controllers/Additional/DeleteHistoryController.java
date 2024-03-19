@@ -33,10 +33,14 @@ public class DeleteHistoryController implements Initializable {
     @FXML
     public Label labelDeleteConfirmation;
 
+    @FXML
+    public Label labelOrderHistoryEmpty;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         deleteHistoryModel = new DeleteHistoryModel();
         deleteHistoryModel.setDeleteHistoryController(this);
+        deleteHistoryModel.setEmptyLabel();
 
         deleteHistoryModel.populateFlowPane();
     }
@@ -45,6 +49,7 @@ public class DeleteHistoryController implements Initializable {
     void btnDeleteRecordClickedTouched() {
         flowPaneYearlyRecords.getChildren().remove(selectedAnchorPane);
         deleteHistoryModel.setDeleteHide();
+        labelOrderHistoryEmpty.setVisible(flowPaneYearlyRecords.getChildren().isEmpty());
     }
 
 }

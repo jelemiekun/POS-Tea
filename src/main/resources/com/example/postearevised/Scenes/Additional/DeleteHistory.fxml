@@ -49,6 +49,11 @@
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
+            <Label fx:id="labelOrderHistoryEmpty" layoutX="238.0" layoutY="115.0" text="Order history is empty">
+               <font>
+                  <Font name="Arial" size="28.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

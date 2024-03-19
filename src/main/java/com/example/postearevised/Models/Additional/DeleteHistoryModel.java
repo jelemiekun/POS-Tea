@@ -23,8 +23,12 @@ public class DeleteHistoryModel {
         this.deleteHistoryController = deleteHistoryController;
     }
 
+    public void setEmptyLabel() {
+        deleteHistoryController.labelOrderHistoryEmpty.setVisible(!deleteHistoryController.flowPaneYearlyRecords.getChildren().isEmpty());
+    }
+
     public void populateFlowPane() {
-        ObservableList<String> listYearObservableList = FXCollections.observableArrayList("2018", "2019", "2020", "2021", "2022", "2023", "2024");
+        ObservableList<String> listYearObservableList = FXCollections.observableArrayList("2020", "2021", "2022", "2023", "2024");
 
         for (String string : listYearObservableList) {
             AnchorPane anchorPane = createAnchorPane(string);

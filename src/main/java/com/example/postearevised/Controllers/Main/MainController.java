@@ -411,6 +411,8 @@ public class MainController implements Initializable {
      */
 
     @FXML
+    public ImageView btnHistoryTableRefresh;
+    @FXML
     public TextField textFieldOrderHistorySearch;
     @FXML
     public ComboBox<String> comboBoxOrderHistory;
@@ -436,6 +438,16 @@ public class MainController implements Initializable {
     public TableColumn<Order, String> tableViewOrderHistoryColModeOfPayment;
     @FXML
     public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColDateAndTime;
+
+    @FXML
+    public void btnHistoryTableRefreshClicked(MouseEvent event) {
+        orderHistoryModel.refreshOrderHistoryTable();
+    }
+
+    @FXML
+    public void btnHistoryTableRefreshTouched(TouchEvent event) {
+        orderHistoryModel.refreshOrderHistoryTable();
+    }
 
     @FXML
     void textFieldOrderHistorySearchTyping(KeyEvent event) {

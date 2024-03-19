@@ -1,17 +1,8 @@
 package com.example.postearevised.Miscellaneous.Database;
 
 import com.example.postearevised.Objects.Products.*;
-import javafx.embed.swing.SwingFXUtils;
 
-import javafx.scene.image.Image;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.Base64;
-import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 

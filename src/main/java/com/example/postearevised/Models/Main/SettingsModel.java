@@ -7,8 +7,11 @@ import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
@@ -17,6 +20,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -315,6 +321,15 @@ public class SettingsModel {
     public void refreshProductTable() {
         mainController.tableProducts.refresh();
         mainController.tableProducts.getSelectionModel().clearSelection();
+
+        if (allProductObservableList.isEmpty()) {
+            Label placeholderLabel = new Label("Your product list is empty.\nClick \"Add Product\" to start adding products");
+            placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
+            placeholderLabel.setAlignment(Pos.CENTER);
+            placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
+            placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+            mainController.tableProducts.setPlaceholder(placeholderLabel);
+        }
     }
 
     /**
