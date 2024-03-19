@@ -3,6 +3,8 @@ package com.example.postearevised.Miscellaneous.Database;
 import com.example.postearevised.Objects.Products.*;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
 import java.io.ByteArrayOutputStream;
@@ -11,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Base64;
 
+import static com.example.postearevised.Miscellaneous.Database.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
@@ -33,7 +36,7 @@ public class CSVOperations {
             } else {
                 System.out.println("CSV file already exists: " + FILE_PATH);
                 // Import the products that are in csv
-                importProductsFromCSV(FILE_PATH);
+                importProductsFromCSV(FILE_PATH, false);
             }
         }
 
@@ -70,6 +73,7 @@ public class CSVOperations {
                     sb.append(milkTea.getCategory()).append(",");
                     sb.append(milkTea.getImagePath()).append(",");
 
+                    
                     sb.append(milkTea.getSmallPrice()).append(",");
                     sb.append(milkTea.getMediumPrice()).append(",");
                     sb.append(milkTea.getLargePrice()).append(",");
@@ -188,14 +192,28 @@ public class CSVOperations {
         }
     }
 
-    private static String imageToBase64(Image image) {
-        // Convert Image to Base64 string
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        try {
-            ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", outputStream);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void chooseFilePath(Stage stage, boolean isImport) {
+        FileChooser fileChooser = new FileChooser();
+        File file;
+
+        if (isImport) {
+            fileChooser.setTitle("Import Products CSV File");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+            file = fileChooser.showOpenDialog(stage);
+        } else {
+            fileChooser.setTitle("Save Products CSV File");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
+            fileChooser.setInitialFileName("products.csv");
+            file = fileChooser.showSaveDialog(stage);
         }
-        return Base64.getEncoder().encodeToString(outputStream.toByteArray());
+
+        if (file != null) {
+            String filePath = file.getAbsolutePath();
+
+            if (isImport)
+                importProductsFromCSV(filePath, true);
+            else
+                exportProductsToCSV(filePath);
+        }
     }
 }

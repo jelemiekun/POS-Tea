@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
@@ -177,10 +178,10 @@ public class SettingsModel {
 
         if (selected.equals(Import.getImportOperation())) {
             System.out.println("Import CSV");
-//            importProductsFromCSV();
+            chooseFilePath(mainStage, true);
         } else if (selected.equals(Export.getImportOperation())){
             System.out.println("Export CSV");
-//            exportProductsToCSV();
+            chooseFilePath(mainStage, false);
         }
     }
 
