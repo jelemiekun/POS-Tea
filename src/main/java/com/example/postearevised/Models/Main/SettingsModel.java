@@ -4,7 +4,7 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
-import com.example.postearevised.Objects.Products.Product;
+import com.example.postearevised.Objects.Products.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,14 +12,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
@@ -109,7 +115,6 @@ public class SettingsModel {
             case 3: // Edit Products
                 editProductsInitializeTable();
                 editProductsCheckIfOrderIsOngoing();
-                populateComboBoxImportExport();
                 refreshProductTable();
 
                 mainController.anchorPaneSettingsAccount.setVisible(false);
@@ -168,7 +173,7 @@ public class SettingsModel {
         }
     }
 
-    private void populateComboBoxImportExport() {
+    public void populateComboBoxImportExport() {
         mainController.importExportComboBox.getItems().clear();
         mainController.importExportComboBox.getItems().addAll("Import CSV", "Export CSV");
     }
@@ -177,10 +182,8 @@ public class SettingsModel {
         String selected = mainController.importExportComboBox.getValue();
 
         if (selected.equals(Import.getImportOperation())) {
-            System.out.println("Import CSV");
             chooseFilePath(mainStage, true);
         } else if (selected.equals(Export.getImportOperation())){
-            System.out.println("Export CSV");
             chooseFilePath(mainStage, false);
         }
     }
@@ -295,6 +298,16 @@ public class SettingsModel {
     public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
         deleteProductInCSV(selectedItemsToDelete);
+
+        for (Product product : selectedItemsToDelete) {
+            availableAllProductObservableList.remove(product);
+            availableMilkTeaObservableList.remove(product);
+            availableCoolersObservableList.remove(product);
+            availableCoffeeObservableList.remove(product);
+            availableIceCandyCupsObservableList.remove(product);
+            availableAppetizerObservableList.remove(product);
+        }
+
         mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
         refreshProductTable();
     }
@@ -303,4 +316,22 @@ public class SettingsModel {
         mainController.tableProducts.refresh();
         mainController.tableProducts.getSelectionModel().clearSelection();
     }
+
+    /**
+     * System Manual
+     */
+
+    public void setVideo() {
+        URL videoUrl = getClass().getResource(SAMPLE_VIDEO_PATH);
+        if (videoUrl == null) {
+            System.err.println("Video file not found: " + SAMPLE_VIDEO_PATH);
+            return;
+        }
+
+        Media media = new Media(videoUrl.toExternalForm());
+        MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+        mainController.systemVideoPlayer.setMediaPlayer(mediaPlayer);
+    }
+
 }

@@ -100,13 +100,7 @@ public class ImportCSV {
             e.printStackTrace();
         }
 
-        addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers);
-
-        if (fromImport) {
-            for (Product product : allProductObservableList) {
-                addProductToCSV(product);
-            }
-        }
+        addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
     }
 
     private static void addImportedListsToSystemLists(ObservableList<Product> importedProducts,
@@ -114,7 +108,8 @@ public class ImportCSV {
                                                       ObservableList<Product> importedCoolers,
                                                       ObservableList<Product> importedCoffees,
                                                       ObservableList<Product> importedIceCandyCups,
-                                                      ObservableList<Product> importedAppetizers) {
+                                                      ObservableList<Product> importedAppetizers,
+                                                      boolean fromImport) {
         allProductObservableList.addAll(importedProducts);
 
         for (Product product : importedMilkTeas) {
@@ -152,6 +147,12 @@ public class ImportCSV {
                 availableAppetizerObservableList.add(appetizer);
             } else {
                 // Handle invalid elements
+            }
+        }
+
+        if (fromImport) {
+            for (Product product : importedProducts) {
+                addProductToCSV(product);
             }
         }
     }

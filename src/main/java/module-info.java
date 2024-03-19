@@ -5,6 +5,7 @@ module com.example.postearevised {
     requires java.desktop;
     requires javafx.base;
     requires javafx.swing;
+    requires javafx.media;
 
 
     opens com.example.postearevised to javafx.fxml;

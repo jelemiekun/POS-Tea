@@ -11,6 +11,7 @@ public class GeneralReference {
     public static final String DIRECTORY_PATH = System.getenv("APPDATA") + "\\POS_Tea";
     public static final String FILE_PATH = DIRECTORY_PATH + "\\products.csv";
     public static final String PRODUCT_IMAGES_PATH = DIRECTORY_PATH + "\\product images";
+    public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;
     public static final int PASSWORD_LIMIT = 128;

@@ -129,6 +129,7 @@ public class MainModel {
                 mainController.anchorPaneSettings.setVisible(true);
                 mainController.settingsModel.setDropShadow();
                 mainController.settingsModel.setPane();
+                mainController.settingsModel.populateComboBoxImportExport();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);

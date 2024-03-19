@@ -178,8 +178,6 @@ public class CSVOperations {
                     // Handle if category is not recognized
                     break;
             }
-
-            // Write the product details to the CSV file
             writer.write(sb.toString());
         } catch (IOException e) {
             e.printStackTrace();

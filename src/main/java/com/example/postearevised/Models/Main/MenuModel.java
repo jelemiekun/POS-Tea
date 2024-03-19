@@ -324,7 +324,7 @@ public class MenuModel {
         }));
 
         mainController.textFieldMenuEnterAmount.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+            if (!newValue.matches(REGEX_DIGITS_ONLY_NO_LEADING_ZERO)) {
                 mainController.textFieldMenuEnterAmount.setText(oldValue);
             }
         }));

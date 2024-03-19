@@ -3,6 +3,7 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.*;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Products.Product;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.scene.media.MediaView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +30,7 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 
 public class MainController implements Initializable {
     /**
@@ -65,6 +68,12 @@ public class MainController implements Initializable {
 
         settingsModel = new SettingsModel();
         settingsModel.setMainController(this);
+
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {settingsModel.setVideo();
+            }
+        });
     }
 
     /**
@@ -256,7 +265,8 @@ public class MainController implements Initializable {
     @FXML
     public void textFieldCustomerNameTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            menuModel.payClicked();
+            if (anchorPaneHideHalfRightPanel.isVisible())
+                menuModel.payClicked();
         } else {
             menuModel.customerNameTyping();
         }
@@ -633,4 +643,11 @@ public class MainController implements Initializable {
     void importExportOnAction(ActionEvent event) {
         settingsModel.comboBoxValueSelected();
     }
+
+    /**
+     * Settings - System Manual
+     */
+
+    @FXML
+    public MediaView systemVideoPlayer;
 }
