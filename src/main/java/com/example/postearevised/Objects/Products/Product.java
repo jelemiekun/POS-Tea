@@ -107,7 +107,7 @@ public abstract class Product {
             String imageUrl = new File(this.imagePath).toURI().toString();
             this.image = new Image(imageUrl);
         }
-        this.imageView = new ImageView();
+        this.imageView = new ImageView();a
         this.imageView.setImage(this.image);
         this.imageViewSmall.setImage(this.image);
         this.imageViewSmall.setFitWidth(IMAGE_VIEW_SMALL_WIDTH);
