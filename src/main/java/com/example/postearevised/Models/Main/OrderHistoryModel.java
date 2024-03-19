@@ -41,20 +41,23 @@ public class OrderHistoryModel {
     }
 
     public void setOrderHistoryTable() {
-        setComboBox();
+        setComboBox(true);
         setCellValueFactories();
         setReorderToFalse();
         setReverseItem();
     }
 
     public void setOrderHistory() {
+        setComboBox(false);
         mainController.anchorPaneOrderHistory.requestFocus();
         refreshOrderHistoryTable();
         setTextFieldSearch();
     }
 
-    private void setComboBox() {
-        mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
+    private void setComboBox(boolean initialized) {
+        if (initialized)
+            mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
+
         mainController.comboBoxOrderHistory.setValue(ALL_TIME_ENUM.getTitle());
         getComboBoxValue();
     }

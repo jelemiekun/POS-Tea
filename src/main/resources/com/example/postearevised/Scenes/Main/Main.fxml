@@ -557,14 +557,14 @@
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
-                  <AnchorPane layoutX="1267.0" layoutY="101.0">
+                  <AnchorPane layoutX="1277.0" layoutY="101.0">
                      <children>
                         <Label layoutY="8.0" text="Search">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldOrderHistorySearch" alignment="CENTER_RIGHT" layoutX="118.0" onKeyTyped="#textFieldOrderHistorySearchTyping" prefWidth="400.0" promptText="Customer Name or Product Name">
+                        <TextField fx:id="textFieldOrderHistorySearch" alignment="CENTER_RIGHT" layoutX="118.0" onKeyTyped="#textFieldOrderHistorySearchTyping" prefWidth="390.0" promptText="Customer Name or Product Name">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -578,7 +578,7 @@
                   </Label>
                   <AnchorPane layoutX="51.0" layoutY="101.0">
                      <children>
-                        <ComboBox fx:id="comboBoxOrderHistory" layoutX="149.0" onAction="#comboBoxOrderHistoryOnAction" prefHeight="51.0" prefWidth="400.0" />
+                        <ComboBox fx:id="comboBoxOrderHistory" layoutX="149.0" onAction="#comboBoxOrderHistoryOnAction" prefHeight="51.0" prefWidth="390.0" />
                         <Label layoutY="7.0" text="Sort Date">
                            <font>
                               <Font name="Arial" size="30.0" />
