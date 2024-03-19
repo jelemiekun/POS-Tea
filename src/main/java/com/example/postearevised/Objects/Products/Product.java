@@ -1,10 +1,12 @@
 package com.example.postearevised.Objects.Products;
 
+import com.example.postearevised.Miscellaneous.References.GeneralReference;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
+import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
@@ -25,7 +27,14 @@ public abstract class Product {
             this.category = category;
             System.out.println(imagePath);
             this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
-            this.image = new Image(new File(this.imagePath).toURI().toString());
+            if (imagePath.isEmpty()) {
+                this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+            } else if (imagePath.equals("/com/example/postearevised/Product Media/no image/no image.png")) {
+                this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+            } else {
+                String imageUrl = new File(this.imagePath).toURI().toString();
+                this.image = new Image(imageUrl);
+            }
             this.imageView = new ImageView();
             this.imageView.setImage(this.image);
             this.imageViewSmall = new ImageView();
@@ -90,7 +99,15 @@ public abstract class Product {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
-        this.image = new Image(this.imagePath);
+        if (imagePath.isEmpty()) {
+            this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+        } else if (imagePath.equals("/com/example/postearevised/Product Media/no image/no image.png")) {
+            this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+        } else {
+            String imageUrl = new File(this.imagePath).toURI().toString();
+            this.image = new Image(imageUrl);
+        }
+        this.imageView = new ImageView();
         this.imageView.setImage(this.image);
         this.imageViewSmall.setImage(this.image);
         this.imageViewSmall.setFitWidth(IMAGE_VIEW_SMALL_WIDTH);

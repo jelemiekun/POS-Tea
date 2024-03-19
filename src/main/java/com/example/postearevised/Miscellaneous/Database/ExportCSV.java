@@ -16,20 +16,6 @@ import java.util.List;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class ExportCSV {
-    public static void chooseFilePath(Stage stage) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Save Products CSV File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-        fileChooser.setInitialFileName("products.csv");
-
-        // Show the save file dialog
-        java.io.File file = fileChooser.showSaveDialog(stage);
-
-        if (file != null) {
-            String filePath = file.getAbsolutePath();
-            exportProductsToCSV(filePath);
-        }
-    }
 
     public static void exportProductsToCSV(String filePath) {
 

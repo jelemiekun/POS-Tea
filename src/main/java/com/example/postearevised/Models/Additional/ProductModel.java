@@ -280,7 +280,13 @@ public class ProductModel {
 
     private void setImageProduct(String copiedFilePath) {
         File file = new File(copiedFilePath);
-        Image image = new Image(file.toURI().toString());
+        String pathString = file.toURI().toString();
+        Image image;
+        if (pathString.isEmpty() || pathString.isBlank()) {
+            image = new Image("/com/example/postearevised/Product Media/no image/no image.png");
+        } else {
+            image = new Image(pathString);
+        }
         productController.imgProduct.setImage(image);
     }
 
@@ -292,7 +298,7 @@ public class ProductModel {
     public void removePhoto() {
         removePhotoFromResources();
         productController.imgProduct.setImage(NO_IMAGE);
-        referenceImagePath = "";
+        referenceImagePath = "/com/example/postearevised/Product Media/no image/no image.png";
         hideAnchorPaneEditPhoto();
     }
 

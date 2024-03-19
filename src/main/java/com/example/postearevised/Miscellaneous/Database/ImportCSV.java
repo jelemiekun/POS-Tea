@@ -16,10 +16,11 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Database.CSVOperations.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class ImportCSV {
-    public static void importProductsFromCSV(String filePath) {
+    public static void importProductsFromCSV(String filePath, boolean fromImport) {
         ObservableList<Product> importedProducts = FXCollections.observableArrayList();
         ObservableList<Product> importedMilkTeas = FXCollections.observableArrayList();
         ObservableList<Product> importedCoolers = FXCollections.observableArrayList();
@@ -100,6 +101,12 @@ public class ImportCSV {
         }
 
         addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers);
+
+        if (fromImport) {
+            for (Product product : allProductObservableList) {
+                addProductToCSV(product);
+            }
+        }
     }
 
     private static void addImportedListsToSystemLists(ObservableList<Product> importedProducts,
