@@ -1,4 +1,4 @@
-package com.example.postearevised.Miscellaneous.Database.Products;
+package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
 import com.example.postearevised.Objects.Products.*;
 import javafx.stage.FileChooser;
@@ -7,8 +7,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.Products.ExportCSV.*;
-import static com.example.postearevised.Miscellaneous.Database.Products.ImportCSV.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class ProductsCSVOperations {

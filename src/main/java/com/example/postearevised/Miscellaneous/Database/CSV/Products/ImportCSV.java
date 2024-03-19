@@ -1,4 +1,4 @@
-package com.example.postearevised.Miscellaneous.Database.Products;
+package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 
 import java.io.*;
 
-import static com.example.postearevised.Miscellaneous.Database.Products.ProductsCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class ImportCSV {
