@@ -7,6 +7,7 @@ public class ProductOrder {
     private final String productName;
     private final String productCategory;
     private final Image productImage;
+    private final String imagePath;
     private final String firstAttribute;
     private final String secondAttribute;
     private final String thirdAttribute;
@@ -15,10 +16,11 @@ public class ProductOrder {
     private final Label labelPrice;
     private final Label labelQuantity;
 
-    public ProductOrder(String productName, String productCategory, Image productImage, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
+    public ProductOrder(String productName, String productCategory, Image productImage, String imagePath, String firstAttribute, String secondAttribute, String thirdAttribute, int totalAmount, int quantity) {
         this.productName = productName;
         this.productCategory = productCategory;
         this.productImage = productImage;
+        this.imagePath = imagePath;
         this.firstAttribute = firstAttribute;
         this.secondAttribute = secondAttribute;
         this.thirdAttribute = thirdAttribute;
@@ -26,6 +28,10 @@ public class ProductOrder {
         this.quantity = quantity;
         this.labelPrice = new Label();
         this.labelQuantity = new Label();
+    }
+
+    public String getImagePath() {
+        return imagePath;
     }
 
     public String getProductCategory() {
