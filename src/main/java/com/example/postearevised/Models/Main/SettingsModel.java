@@ -293,9 +293,10 @@ public class SettingsModel {
     }
 
     public void deleteSelectedProductsProcess() {
-            ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
-            mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
-            refreshProductTable();
+        ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
+        deleteProductInCSV(selectedItemsToDelete);
+        mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
+        refreshProductTable();
     }
 
     public void refreshProductTable() {

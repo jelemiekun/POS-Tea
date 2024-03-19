@@ -357,8 +357,61 @@ public class CSVOperations {
     }
 
     public static void deleteProductInCSV(List<Product> productListToDelete) {
-        
+        try {
+            // Create a temporary file to write the updated content
+            File tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
+            FileWriter fw = new FileWriter(tempFile);
+            BufferedWriter writer = new BufferedWriter(fw);
+
+            // Read the CSV file
+            BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH));
+            String line;
+            try {
+                while ((line = reader.readLine()) != null) {
+                    String[] fields = line.split(",");
+
+                    boolean deleteRow = false;
+
+                    // Check if any product in productListToDelete matches the criteria
+                    for (Product product : productListToDelete) {
+                        if (fields.length >= 4 && fields[0].equals(product.getProductName()) &&
+                                fields[1].equals(product.getProductDescription()) &&
+                                fields[2].equals(product.getCategory()) &&
+                                fields[3].equals(product.getImagePath())) {
+                            deleteRow = true;
+                            break; // No need to check further, delete this row
+                        }
+                    }
+
+                    if (!deleteRow) {
+                        // Write the row to the temporary file if it doesn't match the criteria
+                        writer.write(line);
+                        writer.newLine();
+                    }
+                }
+            } finally {
+                // Close the reader and writer
+                reader.close();
+                writer.close();
+            }
+
+            // Remove the current products.csv file
+            File currentFile = new File(FILE_PATH);
+            if (!currentFile.delete()) {
+                throw new IOException("Failed to delete current products.csv file");
+            }
+
+            // Rename the temporary file to the original file name
+            File originalFile = new File(FILE_PATH);
+            if (!tempFile.renameTo(originalFile)) {
+                throw new IOException("Failed to rename temporary file to original file");
+            }
+        } catch (IOException e) {
+            e.printStackTrace(); // Consider handling more gracefully
+        }
     }
+
+
 
 
     public static void chooseFilePath(Stage stage, boolean isImport) {
