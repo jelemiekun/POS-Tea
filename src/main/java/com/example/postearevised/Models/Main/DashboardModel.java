@@ -12,6 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -94,8 +97,42 @@ public class DashboardModel {
 
 
     private void updateBestSeller() {
+        Map<ProductOrder, Long> productOrderCounts = orderHistoryObservableList.stream()
+                .flatMap(order -> order.getProductOrderObservableList().stream())
+                .collect(Collectors.groupingBy(
+                        productOrder -> productOrder,
+                        Collectors.summingLong(ProductOrder::getQuantity)
+                ));
 
+        List<Map.Entry<ProductOrder, Long>> sortedEntries = new ArrayList<>(productOrderCounts.entrySet());
+        sortedEntries.sort((entry1, entry2) -> Long.compare(entry2.getValue(), entry1.getValue()));
+
+        Map<String, ProductOrder> uniqueProductsMap = new HashMap<>();
+        topTenProducts = new ArrayList<>();
+
+        for (Map.Entry<ProductOrder, Long> entry : sortedEntries) {
+            ProductOrder product = entry.getKey();
+            String key = product.getProductName() + product.getProductCategory() + product.getImagePath();
+
+            if (!uniqueProductsMap.containsKey(key)) {
+                uniqueProductsMap.put(key, product);
+                topTenProducts.add(product);
+                if (topTenProducts.size() >= 10) {
+                    break;
+                }
+            }
+        }
+
+        System.out.println("Top 10 best-selling products:");
+        int i = 1;
+        for (ProductOrder product : topTenProducts) {
+            System.out.println(i + ": " + product.getProductName());
+            i++;
+        }
     }
+
+
+
 
 
     private void updateUIs() {

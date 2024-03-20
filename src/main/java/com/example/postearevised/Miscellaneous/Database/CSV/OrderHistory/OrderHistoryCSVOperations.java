@@ -77,6 +77,7 @@ public class OrderHistoryCSVOperations {
             e.printStackTrace();
         }
 
+        // Add imported history
         orderHistoryObservableList.addAll(orders);
     }
 
