@@ -32,7 +32,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setPaymentSuccessful;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setProceedPayment;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;

@@ -49,7 +49,27 @@ public class ProductsCSVOperations {
     public static void createCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Write column headers to the CSV file
-            writer.write("productName,productDescription,productCategory,imagePath,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice\n");
+            writer.write("productName," +
+                    "productDescription," +
+                    "productCategory," +
+                    "imagePath," +
+                    "milkTeaSmallPrice," +
+                    "milkTeaMediumPrice," +
+                    "milkTeaLargePrice," +
+                    "milkTeaAddOnsOne," +
+                    "milkTeaAddOnsOnePrice," +
+                    "milkTeaAddOnsTwo," +
+                    "milkTeaAddOnsTwoPrice," +
+                    "coolersSmallPrice," +
+                    "coolersMediumPrice," +
+                    "coolersLargePrice," +
+                    "coolersAddOnsOne," +
+                    "coolersAddOnsOnePrice," +
+                    "coolersAddOnsTwo," +
+                    "coolersAddOnsTwoPrice," +
+                    "coffeePrice," +
+                    "iceCandyCupsPrice," +
+                    "appetizerPrice\n");
             System.out.println("Creating products csv file: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
