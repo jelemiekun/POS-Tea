@@ -9,4 +9,10 @@ public class OrderQueueReference {
     public static int orderNumberReference = 1;
     public static boolean orderDone = false;
     public static ObservableList<Order> orderQueueObservableList = FXCollections.observableArrayList();
+
+    public static void clearOrderQueueReferences() {
+        orderReference = null;
+        orderDone = false;
+        orderQueueObservableList.clear();
+    }
 }

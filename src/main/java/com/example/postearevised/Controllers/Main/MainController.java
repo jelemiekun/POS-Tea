@@ -30,7 +30,10 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
+import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class MainController implements Initializable {
     /**
@@ -69,11 +72,20 @@ public class MainController implements Initializable {
         settingsModel = new SettingsModel();
         settingsModel.setMainController(this);
 
+        clearAllReferences();
+
         Platform.runLater(new Runnable() {
             @Override
             public void run() {settingsModel.setVideo();
             }
         });
+    }
+
+    private void clearAllReferences() {
+        clearAllProductReferences();
+        clearProductOrderReferences();
+        clearOrderHistoryReferences();
+        clearOrderQueueReferences();
     }
 
     /**

@@ -14,4 +14,8 @@ public class OrderHistoryReference {
             THIS_MONTH_ENUM.getTitle(),
             THIS_YEAR_ENUM.getTitle(),
             ALL_TIME_ENUM.getTitle());
+
+    public static void clearOrderHistoryReferences() {
+        orderHistoryObservableList.clear();
+    }
 }

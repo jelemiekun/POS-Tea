@@ -103,4 +103,43 @@ public class ProductReference {
 
         addedProductSuccess = false;
     }
+
+    public static void clearAllProductReferences() {
+        allProductObservableList.clear();
+        availableAllProductObservableList.clear();
+        availableMilkTeaObservableList.clear();
+        availableCoolersObservableList.clear();
+        availableCoffeeObservableList.clear();
+        availableIceCandyCupsObservableList.clear();
+        availableAppetizerObservableList.clear();
+
+        referenceProductName = "";
+        referenceProductDescription = "";
+        referenceCategory = "";
+        referenceImagePath = "";
+
+        referenceMilkTeaSmallPrice = 0.0;
+        referenceMilkTeaMediumPrice = 0.0;
+        referenceMilkTeaLargePrice = 0.0;
+        referenceMilkTeaAddOnsOne = "";
+        referenceMilkTeaAddOnsOnePrice = 0.0;
+        referenceMilkTeaAddOnsTwo = "";
+        referenceMilkTeaAddOnsTwoPrice = 0.0;
+
+        referenceCoolersSmallPrice = 0.0;
+        referenceCoolersMediumPrice = 0.0;
+        referenceCoolersLargePrice = 0.0;
+        referenceCoolersAddOnsOneName = "";
+        referenceCoolersAddOnsOnePrice = 0.0;
+        referenceCoolersAddOnsTwoName = "";
+        referenceCoolersAddOnsTwoPrice = 0.0;
+
+        referenceCoffeePrice = 0.0;
+
+        referenceIceCandyCupsPrice = 0.0;
+
+        referenceAppetizersPrice = 0.0;
+
+        addedProductSuccess = false;
+    }
 }

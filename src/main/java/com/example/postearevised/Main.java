@@ -29,9 +29,6 @@ public class Main extends Application {
         setScreenResolution(false, false);
         loginRegisterStage.getIcons().add(SYSTEM_LOGO);
         loginRegisterStage.show();
-
-        doesProductCSVExist();
-        doesOrderHistoryCSVExist();
     }
 
 
