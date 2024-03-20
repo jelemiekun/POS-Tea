@@ -485,6 +485,8 @@ public class MainController implements Initializable {
     public Label labelDashboardTotalOrder;
     @FXML
     public PieChart pieChartDashboard;
+    @FXML
+    public FlowPane flowPaneBestSeller;
 
     /**
      * Settings

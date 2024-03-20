@@ -633,9 +633,9 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="128.0" prefHeight="908.0" prefWidth="1833.0">
+            <AnchorPane layoutX="-1.0" layoutY="128.0" prefHeight="908.0" prefWidth="1833.0">
                <children>
-                  <AnchorPane layoutX="52.0" layoutY="14.0" prefHeight="815.0" prefWidth="1200.0">
+                  <AnchorPane layoutX="52.0" layoutY="14.0" prefHeight="819.0" prefWidth="1200.0">
                      <children>
                         <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="88.0" prefHeight="280.0" prefWidth="1200.0">
                            <children>
@@ -723,7 +723,7 @@
                               </AnchorPane>
                            </children>
                         </FlowPane>
-                        <AnchorPane layoutY="315.0" prefHeight="500.0" prefWidth="1200.0">
+                        <AnchorPane layoutY="319.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
                               <PieChart fx:id="pieChartDashboard" layoutX="333.0" layoutY="45.0" prefHeight="419.0" prefWidth="535.0" />
@@ -735,47 +735,20 @@
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="1300.0" layoutY="14.0" prefHeight="815.0" prefWidth="470.0">
+                  <AnchorPane layoutX="1305.0" layoutY="14.0" prefHeight="815.0" prefWidth="490.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="815.0" stroke="BLACK" strokeType="INSIDE" width="470.0" />
-                        <AnchorPane prefHeight="95.0" prefWidth="470.0">
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="815.0" stroke="BLACK" strokeType="INSIDE" width="490.0" />
+                        <AnchorPane prefHeight="95.0" prefWidth="490.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="24.0" prefHeight="17.0" prefWidth="470.0" text="BEST SELLER" textAlignment="CENTER">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="24.0" prefHeight="17.0" prefWidth="490.0" text="BEST SELLER" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial Bold" size="40.0" />
                                  </font></Label>
                            </children>
                         </AnchorPane>
-                        <ScrollPane layoutY="95.0">
+                        <ScrollPane layoutY="94.0" prefWidth="490.0" style="-fx-background-color: white; -fx-border-width: 1px; -fx-border-color: black;">
                            <content>
-                              <FlowPane prefHeight="720.0" prefWidth="470.0">
-                                 <children>
-                                    <AnchorPane prefHeight="146.0" prefWidth="441.0" visible="false">
-                                       <children>
-                                          <ImageView fitHeight="85.0" fitWidth="141.0" layoutX="29.0" layoutY="43.0" pickOnBounds="true">
-                                             <image>
-                                                <Image url="@../../Product%20Media/uploaded%20media/Add%20a%20heading.png" />
-                                             </image>
-                                          </ImageView>
-                                          <Label layoutX="29.0" layoutY="12.0" prefHeight="27.0" prefWidth="365.0" text="Product Name">
-                                             <font>
-                                                <Font name="Arial" size="24.0" />
-                                             </font>
-                                          </Label>
-                                          <Label layoutX="273.0" layoutY="74.0" text="Total Orders:">
-                                             <font>
-                                                <Font name="Arial" size="20.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="369.0" layoutY="74.0" prefHeight="23.0" prefWidth="64.0" text="0" textAlignment="RIGHT">
-                                             <font>
-                                                <Font name="Arial" size="20.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                 </children>
-                              </FlowPane>
+                              <FlowPane fx:id="flowPaneBestSeller" prefHeight="720.0" prefWidth="472.0" style="-fx-background-color: white;" />
                            </content>
                         </ScrollPane>
                         <Label fx:id="labelDashBoardNoSalesBestSeller" layoutX="120.0" layoutY="410.0" text="No Sales Recorded" visible="false">

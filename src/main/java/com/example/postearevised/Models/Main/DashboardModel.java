@@ -9,9 +9,14 @@ import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -26,16 +31,19 @@ public class DashboardModel {
     }
 
     public void updateContents() {
-        updateRevenue();
-        updateCustomer();
-        updateOrder();
-        updateCategories();
-        updateBestSeller();
-
+        updateReferences();
         updateUIs();
     }
 
-    private void updateRevenue() {
+    private void updateReferences() {
+        updateReferenceRevenue();
+        updateReferenceCustomer();
+        updateReferenceOrder();
+        updateReferenceCategories();
+        updateReferenceBestSeller();
+    }
+
+    private void updateReferenceRevenue() {
         referenceTotalRevenue = 0;
         for (Order order : orderHistoryObservableList) {
             referenceTotalRevenue += order.getTotalPrice();
@@ -45,11 +53,11 @@ public class DashboardModel {
         }
     }
 
-    private void updateCustomer() {
+    private void updateReferenceCustomer() {
         referenceTotalCustomer = orderHistoryObservableList.size();
     }
 
-    private void updateOrder() {
+    private void updateReferenceOrder() {
         referenceTotalOrder = 0;
 
         for (Order order : orderHistoryObservableList) {
@@ -59,7 +67,7 @@ public class DashboardModel {
         }
     }
 
-    private void updateCategories() {
+    private void updateReferenceCategories() {
         referenceMilkTeaCounter = 0;
         referenceCoolersCounter = 0;
         referenceCoffeeCounter = 0;
@@ -96,7 +104,7 @@ public class DashboardModel {
     }
 
 
-    private void updateBestSeller() {
+    private void updateReferenceBestSeller() {
         Map<ProductOrder, Long> productOrderCounts = orderHistoryObservableList.stream()
                 .flatMap(order -> order.getProductOrderObservableList().stream())
                 .collect(Collectors.groupingBy(
@@ -136,10 +144,18 @@ public class DashboardModel {
 
 
     private void updateUIs() {
+        updateUIRevenueCustomerAndOrder();
+        updateUIPieChart();
+        updateUIBestSeller();
+    }
+
+    private void updateUIRevenueCustomerAndOrder() {
         mainController.labelDashboardTotalRevenue.setText(String.valueOf(referenceTotalRevenue));
         mainController.labelDashboardTotalCustomer.setText(String.valueOf(referenceTotalCustomer));
         mainController.labelDashboardTotalOrder.setText(String.valueOf(referenceTotalOrder));
+    }
 
+    private void updateUIPieChart() {
         mainController.pieChartDashboard.getData().clear();
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
@@ -201,6 +217,70 @@ public class DashboardModel {
             }
         }
     }
+
+    private void updateUIBestSeller() {
+        mainController.flowPaneBestSeller.getChildren().clear();
+
+        for (ProductOrder productOrder : topTenProducts) {
+            AnchorPane anchorPane = new AnchorPane();
+            anchorPane.setPrefWidth(441);
+            anchorPane.setPrefHeight(161);
+
+            ImageView imageView;
+
+            System.out.println("Image Path: " + productOrder.getImagePath()); // Print out the image path
+            if (!productOrder.getImagePath().isEmpty()) {
+                if (productOrder.getImagePath().startsWith("/com/example/postearevised/")) {
+                    imageView = new ImageView(new Image(productOrder.getImagePath()));
+                } else {
+                    File file = new File(productOrder.getImagePath());
+                    String fileUrl = null;
+                    try {
+                        fileUrl = file.toURI().toURL().toString();
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
+                    }
+
+                    imageView = new ImageView(new Image(fileUrl));
+                }
+            } else {
+                imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+            }
+
+
+            imageView.setFitWidth(141);
+            imageView.setFitHeight(85);
+            imageView.setLayoutX(29);
+            imageView.setLayoutY(52);
+
+            Label nameLabel = new Label(productOrder.getProductName());
+            nameLabel.setLayoutX(29);
+            nameLabel.setLayoutY(21);
+            nameLabel.setPrefWidth(365);
+            nameLabel.setPrefHeight(27);
+            nameLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 24;");
+
+            Label totalOrdersLabel = new Label("Total Orders:");
+            totalOrdersLabel.setLayoutX(273);
+            totalOrdersLabel.setLayoutY(74);
+            totalOrdersLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
+
+            Label ordersCountLabel = new Label("0");
+            ordersCountLabel.setLayoutX(369);
+            ordersCountLabel.setLayoutY(74);
+            ordersCountLabel.setPrefWidth(64);
+            ordersCountLabel.setPrefHeight(23);
+            ordersCountLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
+            ordersCountLabel.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
+            ordersCountLabel.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
+
+            anchorPane.getChildren().addAll(imageView, nameLabel, totalOrdersLabel, ordersCountLabel);
+
+            mainController.flowPaneBestSeller.getChildren().add(anchorPane);
+        }
+    }
+
+
 
     private void isNoSalesLabelsVisible(boolean isVisible) {
         mainController.labelDashBoardNoSalesPieChart.setVisible(isVisible);
