@@ -29,6 +29,7 @@ public class ImagesReference {
     public static final Image INTERNET_CONNECTION_REQUIRED_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/internetConnection.png")));
     public static final Image TRIANGLE_RED_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/warningTriangle.png")));
     public static final Image RED_BIN_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/redBin.png")));
+    public static final Image EX_RED_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/ex.png")));
 
     /**
      * Processing Order

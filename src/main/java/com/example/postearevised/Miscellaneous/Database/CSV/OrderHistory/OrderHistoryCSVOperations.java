@@ -95,7 +95,7 @@ public class OrderHistoryCSVOperations {
     }
 
 
-    public static boolean writeOrderToCSV(Order order) {
+    public static boolean addOrderToCSV(Order order) {
         try (FileWriter writer = new FileWriter(ORDER_HISTORY_CSV_FILE_PATH, true)) {
             StringBuilder sb = new StringBuilder();
             sb.append(order.getCustomerName()).append(",");

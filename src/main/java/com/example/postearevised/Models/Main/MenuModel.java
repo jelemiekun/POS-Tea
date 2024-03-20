@@ -32,6 +32,8 @@ import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setPaymentSuccessful;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setProceedPayment;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -670,26 +672,37 @@ public class MenuModel {
         boolean checkedModeOfPayment = checkModeOfPayment();
 
         if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
-            setAttributes();
-            getChange();
-            Thread t1 = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    addToOrderQueue();
-                }
-            });
-
-            t1.start();
-
             try {
-                t1.join();
-            } catch (InterruptedException e) {
+                String amountPaid = mainController.textFieldMenuEnterAmount.getText();
+                setProceedPayment(amountPaid);
+                if (mainController.mainModel.openPrompt()) {
+                    setAttributes();
+                    getChange();
+                    setPaymentSuccessful(String.valueOf(referenceChange));
+                    if (mainController.mainModel.openPrompt()) {
+                        Thread t1 = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                addToOrderQueue();
+                            }
+                        });
+
+                        t1.start();
+
+                        try {
+                            t1.join();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                        orderCancelledOrAddedToQueue();
+                        clearFields();
+                        incrementCustomerNumber();
+                        clearOrderReference();
+                    }
+                }
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            orderCancelledOrAddedToQueue();
-            clearFields();
-            incrementCustomerNumber();
-            clearOrderReference();
         }
     }
 

@@ -249,7 +249,7 @@ public class OrderListModel {
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
         orderDoneGetDateAndTime(order);
-        if (writeOrderToCSV(order)) {
+        if (addOrderToCSV(order)) {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
                 removeOrderToOrderQueue(order, anchorPaneToDelete);

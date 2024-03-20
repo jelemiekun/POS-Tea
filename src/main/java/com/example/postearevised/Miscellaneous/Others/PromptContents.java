@@ -63,7 +63,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Are you sure you want to log out?";
-        promptContentText = "Press 'Log out' to log out, or \npress 'Stay' to remain logged in.";
+        promptContentText = "Press 'Log out' to log out, or press 'Stay' to remain logged in.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
@@ -114,7 +114,7 @@ public class PromptContents {
 
         iconImageReference = INTERNET_CONNECTION_REQUIRED_ICON;
         promptHeaderText = "Internet Connection Required";
-        promptContentText = "It seems that you're currently offline.\nPlease connect to the internet to continue.";
+        promptContentText = "It seems that you're currently offline. Please connect to the internet to continue.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -148,7 +148,7 @@ public class PromptContents {
 
         iconImageReference = RED_BIN_ICON;
         promptHeaderText = "DELETE RECORD";
-        promptContentText = "ONCE DELETED THIS RECORD, THERE'S NO\nGOING BACK. PLEASE BE CERTAIN.";
+        promptContentText = "ONCE DELETED THIS RECORD, THERE'S NO GOING BACK. PLEASE BE CERTAIN.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
@@ -199,7 +199,7 @@ public class PromptContents {
 
         iconImageReference = CHECK_GREEN_ICON;
         promptHeaderText = "Export Successful";
-        promptContentText = "The data export was successful! Your files has been\nsaved to " + filePath;
+        promptContentText = "The data export was successful! Your files has been saved to " + filePath;
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -267,7 +267,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Blank Cells Detected";
-        promptContentText = "Some cells in the imported CSV file contains\nblank data. How would you like to proceed?";
+        promptContentText = "Some cells in the imported CSV file contains blank data. How would you like to proceed?";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
@@ -284,7 +284,7 @@ public class PromptContents {
 
         iconImageReference = TRIANGLE_RED_ICON;
         promptHeaderText = "Invalid File Format";
-        promptContentText = "The selected file has an invalid\ndata format and cannot be imported.";
+        promptContentText = "The selected file has an invalid data format and cannot be imported.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -318,7 +318,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Proceed Payment";
-        promptContentText = "The entered amount pay is \n₱" + amount + "\". \nAre you sure you want to proceed with the payment?\"\n";
+        promptContentText = "The entered amount pay is ₱" + amount + "\". Are you sure you want to proceed with the payment?\"";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
@@ -335,7 +335,7 @@ public class PromptContents {
 
         iconImageReference = CHECK_GREEN_ICON;
         promptHeaderText = "Payment successful";
-        promptContentText = "Payment successful.\nYour change amount is ₱" + change;
+        promptContentText = "Payment successful. Your change amount is ₱" + change;
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -369,7 +369,7 @@ public class PromptContents {
 
         iconImageReference = TRIANGLE_RED_ICON;
         promptHeaderText = "CSV File creation error";
-        promptContentText = "Failed to create CSV file.\nCheck directory exists & permissions.";
+        promptContentText = "Failed to create CSV file. Check directory exists & permissions.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -386,7 +386,7 @@ public class PromptContents {
 
         iconImageReference = TRIANGLE_RED_ICON;
         promptHeaderText = "Order history read error";
-        promptContentText = "Failed to read order history from CSV.\nEnsure correct format & accessibility.";
+        promptContentText = "Failed to read order history from CSV. Ensure correct format & accessibility.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
