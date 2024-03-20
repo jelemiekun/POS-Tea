@@ -354,7 +354,8 @@ public class ProductsCSVOperations {
         }
     }
 
-    public static void deleteProductInCSV(List<Product> productListToDelete) {
+    public static boolean deleteProductInCSV(List<Product> productListToDelete) {
+        boolean success = false;
         try {
             // Create a temporary file to write the updated content
             File tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
@@ -404,10 +405,22 @@ public class ProductsCSVOperations {
             if (!tempFile.renameTo(originalFile)) {
                 throw new IOException("Failed to rename temporary file to original file");
             }
+
+            success = true;
         } catch (IOException e) {
-            e.printStackTrace(); // Consider handling more gracefully
+            return success;
+        } finally {
+            if (!success) {
+                // Delete the temporary file if there was an error
+                File tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
+                }
+            }
         }
+        return success;
     }
+
 
 
 

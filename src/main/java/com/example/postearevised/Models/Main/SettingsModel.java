@@ -34,6 +34,8 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Prod
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteProduct;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorDeleteProduct;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -298,21 +300,27 @@ public class SettingsModel {
         mainController.tableProducts.getSelectionModel().clearSelection();
     }
 
-    public void deleteSelectedProductsProcess() {
-        ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
-        deleteProductInCSV(selectedItemsToDelete);
+    public void deleteSelectedProductsProcess() throws IOException {
+        setDeleteProduct();
+        if (mainController.mainModel.openPrompt()) {
+            ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
+            if (deleteProductInCSV(selectedItemsToDelete)) {
+                for (Product product : selectedItemsToDelete) {
+                    availableAllProductObservableList.remove(product);
+                    availableMilkTeaObservableList.remove(product);
+                    availableCoolersObservableList.remove(product);
+                    availableCoffeeObservableList.remove(product);
+                    availableIceCandyCupsObservableList.remove(product);
+                    availableAppetizerObservableList.remove(product);
+                }
 
-        for (Product product : selectedItemsToDelete) {
-            availableAllProductObservableList.remove(product);
-            availableMilkTeaObservableList.remove(product);
-            availableCoolersObservableList.remove(product);
-            availableCoffeeObservableList.remove(product);
-            availableIceCandyCupsObservableList.remove(product);
-            availableAppetizerObservableList.remove(product);
+                mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
+                refreshProductTable();
+            } else {
+                setErrorDeleteProduct();
+                mainController.mainModel.openPrompt();
+            }
         }
-
-        mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
-        refreshProductTable();
     }
 
     public void refreshProductTable() {

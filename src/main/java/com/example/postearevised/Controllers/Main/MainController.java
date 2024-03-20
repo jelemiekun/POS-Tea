@@ -636,13 +636,13 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void settingsDeleteProductClicked(MouseEvent event) {
+    public void settingsDeleteProductClicked(MouseEvent event) throws IOException {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML
-    public void settingsDeleteProductTouched(TouchEvent event) {
+    public void settingsDeleteProductTouched(TouchEvent event) throws IOException {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }

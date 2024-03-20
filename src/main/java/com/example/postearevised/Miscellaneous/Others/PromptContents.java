@@ -177,6 +177,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorDeleteProduct() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = RED_BIN_ICON;
+        promptHeaderText = "Product Deletion Error";
+        promptContentText = "Failed to remove product(s) from the local database.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
     public static void setExportSuccessful(String filePath) {
         setIsConfirmedToFalse();
 
