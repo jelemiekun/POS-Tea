@@ -274,6 +274,7 @@ public class MenuModel {
 
     private void openProductSelectedFXML(Product product) {
         editOrShowSelectedProduct = product;
+        mainController.mainModel.showRectangleModal();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
 
@@ -311,6 +312,7 @@ public class MenuModel {
 
             isProductOrderAdded = false;
         }
+        mainController.mainModel.hideRectangleModal();
     }
 
     private void setPanesAfterAddingOrder() {

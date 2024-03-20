@@ -189,16 +189,19 @@ public class ProductModel {
             setAttributes(true);
 
             addProductToOrderOrEditProductOrder(false);
+
+            success = true;
         } else {
             if (isSelectedProductOrder) {
                 addOrder();
+                success = true;
             } else {
                 setAttributes(false);
 
                 if (isAddProduct)
                     success = instantiateProduct();
                 else
-                    setObjectAttributesUpdateProduct();
+                    success = setObjectAttributesUpdateProduct();
             }
         }
 
@@ -805,7 +808,7 @@ public class ProductModel {
         }
     }
 
-    private void setObjectAttributesUpdateProduct() {
+    private boolean setObjectAttributesUpdateProduct() {
         Product oldProduct = new Product(editOrShowSelectedProduct.getProductName(),
                 editOrShowSelectedProduct.getProductDescription(),
                 editOrShowSelectedProduct.getImagePath(),
@@ -839,7 +842,8 @@ public class ProductModel {
             editSelectedAppetizer.setPrice(referenceAppetizersPrice);
         }
 
-        boolean edited = editProductInCSV(oldProduct, editOrShowSelectedProduct);
+        // dapat hindi gagana if naka open ang csv
+        return editProductInCSV(oldProduct, editOrShowSelectedProduct);
     }
 
 

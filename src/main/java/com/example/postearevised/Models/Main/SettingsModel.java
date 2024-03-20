@@ -260,7 +260,6 @@ public class SettingsModel {
 
         newStage.showAndWait();
 
-        mainController.mainModel.hideRectangleModal();
         isAddingProductSuccess();
         refreshProductTable();
     }
@@ -270,6 +269,7 @@ public class SettingsModel {
             removePhotoFromResources();
             clearProductReferenceValues();
         }
+        mainController.mainModel.hideRectangleModal();
     }
 
     private void removePhotoFromResources() {
@@ -313,8 +313,6 @@ public class SettingsModel {
         productController.productModel.setEditProduct();
 
         newStage.showAndWait();
-
-        mainController.mainModel.showRectangleModal();
         isAddingProductSuccess();
         refreshProductTable();
     }
