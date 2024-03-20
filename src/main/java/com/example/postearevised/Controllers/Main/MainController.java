@@ -58,6 +58,7 @@ public class MainController implements Initializable {
         menuModel = new MenuModel();
         menuModel.setMainController(this);
         menuModel.setDropShadow();
+        menuModel.setTextFieldListeners();
 
         orderListModel = new OrderListModel();
         orderListModel.setMainController(this);
@@ -78,7 +79,9 @@ public class MainController implements Initializable {
 
         Platform.runLater(new Runnable() {
             @Override
-            public void run() {settingsModel.setVideo();
+            public void run() {
+                menuModel.setCustomerNumber();
+                settingsModel.setVideo();
             }
         });
     }

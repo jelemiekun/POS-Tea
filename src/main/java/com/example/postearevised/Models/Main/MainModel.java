@@ -57,6 +57,7 @@ public class MainModel {
         switch (selectedPane) {
             case 1: // Menu
                 mainStage.setTitle(MENU_ENUM.getName());
+                mainController.menuModel.checkIfIsMenuEmpty();
                 mainController.anchorPaneMenu.setVisible(true);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
@@ -70,7 +71,6 @@ public class MainModel {
                 mainController.mainOrderHistoryIcon.setImage(mainOrderHistoryIcon);
                 mainController.mainSettingsIcon.setImage(mainSettingsIcon);
                 mainController.mainLogoutIcon.setImage(mainLogoutIcon);
-                mainController.menuModel.checkIfIsMenuEmpty();
                 break;
             case 2: // Dashboard
                 mainStage.setTitle(DASHBOARD_ENUM.getName());
@@ -95,6 +95,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(true);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
+                mainController.orderListModel.updateOrderQueueLabelsAndPane();
 
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);

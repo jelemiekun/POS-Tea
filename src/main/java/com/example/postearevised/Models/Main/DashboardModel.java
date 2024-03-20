@@ -233,6 +233,10 @@ public class DashboardModel {
             if (!productOrder.getImagePath().isEmpty()) {
                 if (productOrder.getImagePath().startsWith("/com/example/postearevised/")) {
                     imageView = new ImageView(new Image(productOrder.getImagePath()));
+                } else if (productOrder.getImagePath().startsWith("com")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().equals("com")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else {
                     File file = new File(productOrder.getImagePath());
                     String fileUrl = null;

@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -55,10 +56,8 @@ public class OrderHistoryModel {
     }
 
     private void setComboBox(boolean initialized) {
-        if (initialized) {
+        if (initialized)
             mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
-            Collections.reverse(orderHistoryObservableList);
-        }
 
         mainController.comboBoxOrderHistory.setValue(ALL_TIME_ENUM.getTitle());
         getComboBoxValue();
@@ -170,54 +169,58 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
         mainController.tableViewOrderHistory.refresh();
         mainController.anchorPaneOrderHistory.requestFocus();
+        mainController.tableViewOrderHistory.getSortOrder().clear();
+        mainController.tableViewOrderHistory.getSortOrder().add(mainController.tableViewOrderHistoryColDateAndTime);
+        mainController.tableViewOrderHistoryColDateAndTime.setSortType(TableColumn.SortType.DESCENDING);
+        mainController.tableViewOrderHistory.sort();
     }
 
     public void setTextFieldSearch() {
         mainController.textFieldOrderHistorySearch.setText("");
 
         mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!orderHistoryObservableList.isEmpty()) {
-                if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY))
-                    mainController.textFieldOrderHistorySearch.setText(oldValue);
-                else
-                    searchTheText(newValue);
-            }
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY))
+                mainController.textFieldOrderHistorySearch.setText(oldValue);
+            else
+                searchTheText(newValue);
         });
     }
 
     private void searchTheText(String stringToSearch) {
-        ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
-        for (Order order : orderHistoryObservableList) {
-            if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
-                filteredOrders.add(order);
-            } else {
-                for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                    if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
-                        filteredOrders.add(order);
-                        break;
+        if (!orderHistoryObservableList.isEmpty()) {
+            ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
+            for (Order order : orderHistoryObservableList) {
+                if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                    filteredOrders.add(order);
+                } else {
+                    for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                        if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                            filteredOrders.add(order);
+                            break;
+                        }
                     }
                 }
             }
-        }
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                if (filteredOrders.isEmpty()) {
-                    mainController.tableViewOrderHistory.getItems().clear();
-                    Label placeholderLabel = new Label("No matching records found.");
-                    placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
-                    placeholderLabel.setAlignment(Pos.CENTER);
-                    placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
-                    placeholderLabel.setTextAlignment(TextAlignment.CENTER);
-                    mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
-                } else {
-                    mainController.tableViewOrderHistory.setItems(filteredOrders);
-                    mainController.tableViewOrderHistory.refresh();
-                    System.out.println(filteredOrders);
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    if (filteredOrders.isEmpty()) {
+                        mainController.tableViewOrderHistory.getItems().clear();
+                        Label placeholderLabel = new Label("No matching records found.");
+                        placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
+                        placeholderLabel.setAlignment(Pos.CENTER);
+                        placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
+                        placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+                        mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+                    } else {
+                        mainController.tableViewOrderHistory.setItems(filteredOrders);
+                        mainController.tableViewOrderHistory.refresh();
+                        System.out.println(filteredOrders);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
 

@@ -268,7 +268,7 @@ public class OrderListModel {
     }
 
 
-    private void updateOrderQueueLabelsAndPane() {
+    public void updateOrderQueueLabelsAndPane() {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
         mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());

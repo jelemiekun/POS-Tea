@@ -8,4 +8,5 @@ public class RegexReference {
     public static final String REGEX_DIGITS_ONLY = "\\d*";
     public static final String REGEX_DIGITS_ONLY_NO_LEADING_ZERO = "^(?:[1-9][0-9]*)?$";
     public static final String REGEX_ENGLISH_ALPHABET_ONLY = "[A-Za-z ]*";
+    public static final String REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS =  "^[A-Za-z][A-Za-z ]{0,15}$";
 }

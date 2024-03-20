@@ -34,6 +34,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -53,6 +54,10 @@ public class MenuModel {
         dropShadow.setColor(dropShadowColor);
 
         mainController.anchorPaneRightPanel.setEffect(dropShadow);
+    }
+
+    public void setCustomerNumber() {
+        mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 1));
     }
 
     public void goToSystemManual() throws IOException {
@@ -316,12 +321,15 @@ public class MenuModel {
         mainController.labelCash.setTextFill(Color.BLACK);
     }
 
-    private void setTextFieldListeners() {
+    public void setTextFieldListeners() {
         mainController.textFieldMenuCustomerName.textProperty().addListener(((observableValue, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (newValue.isEmpty()) {
+                mainController.textFieldMenuCustomerName.setText(newValue);
+            } else if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 mainController.textFieldMenuCustomerName.setText(oldValue);
             }
         }));
+
 
         mainController.textFieldMenuEnterAmount.textProperty().addListener(((observableValue, oldValue, newValue) -> {
             if (!newValue.matches(REGEX_DIGITS_ONLY_NO_LEADING_ZERO)) {
@@ -686,12 +694,11 @@ public class MenuModel {
     }
 
     private void incrementCustomerNumber() {
-        orderNumberReference++;
-        mainController.labelCustomerNumber.setText(String.valueOf(orderNumberReference));
+        mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 2));
     }
 
     private void setAttributes() {
-        referenceOrderNumber = orderNumberReference;
+        referenceOrderNumber = orderHistoryObservableList.size() + 1;
     }
 
     private boolean checkCustomerName() {

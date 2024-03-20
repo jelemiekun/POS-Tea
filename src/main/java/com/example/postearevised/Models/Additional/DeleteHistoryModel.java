@@ -64,8 +64,8 @@ public class DeleteHistoryModel {
         anchorPane.getChildren().add(labelYear);
 
         DropShadow dropShadow = new DropShadow();
-        dropShadow.setOffsetX(7);
-        dropShadow.setOffsetY(7);
+        dropShadow.setOffsetX(5);
+        dropShadow.setOffsetY(5);
         dropShadow.setColor(dropShadowColor);
         anchorPane.setEffect(dropShadow);
 
