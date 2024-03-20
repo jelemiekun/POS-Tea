@@ -78,7 +78,6 @@ public class MainController implements Initializable {
 
             orderHistoryModel = new OrderHistoryModel();
             orderHistoryModel.setMainController(this);
-            orderHistoryModel.setOrderHistoryTable();
             orderHistoryModel.setTextFieldSearch();
 
             dashboardModel = new DashboardModel();
@@ -90,6 +89,7 @@ public class MainController implements Initializable {
             Platform.runLater(() -> {
                 menuModel.setCustomerNumber();
                 settingsModel.setVideo();
+                orderHistoryModel.setOrderHistoryTable();
 
                 fadeOutLoading();
             });
