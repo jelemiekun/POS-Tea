@@ -54,7 +54,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         anchorPaneLoading.setVisible(true);
-        
+
         new Thread(() -> {
             doesProductCSVExist();
             doesOrderHistoryCSVExist();
