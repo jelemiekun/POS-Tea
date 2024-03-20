@@ -102,6 +102,8 @@ public class MainController implements Initializable {
     public Parent root;
     public Stage newStage;
     @FXML
+    public Rectangle rectangleModal;
+    @FXML
     public AnchorPane anchorPaneDashboard;
 
     @FXML

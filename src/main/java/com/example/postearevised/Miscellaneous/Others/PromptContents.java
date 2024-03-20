@@ -126,12 +126,12 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
-    public static void setOrderSuccessful(String orderNumber) {
+    public static void setOrderSuccessful(String orderNumber, String customerName) {
         setIsConfirmedToFalse();
 
         iconImageReference = CHECK_GREEN_ICON;
         promptHeaderText = "Order Successful";
-        promptContentText = "Order no. " + orderNumber + " is ready to serve";
+        promptContentText = "Order no. " + orderNumber +  " is ready to serve customer " + customerName;
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;

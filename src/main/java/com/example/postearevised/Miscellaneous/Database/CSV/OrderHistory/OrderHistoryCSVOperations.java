@@ -136,8 +136,6 @@ public class OrderHistoryCSVOperations {
             System.out.println("Order added to CSV file: " + ORDER_HISTORY_CSV_FILE_PATH);
             return true;
         } catch (IOException e) {
-             setErrorAddingOrderToCSV();
-            openPrompt();
             return false;
         }
     }

@@ -1137,5 +1137,6 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Rectangle fx:id="rectangleModal" arcHeight="5.0" arcWidth="5.0" fill="#0000008c" height="1050.0" stroke="#0000008c" strokeType="INSIDE" visible="false" width="1920.0" />
     </children>
 </AnchorPane>

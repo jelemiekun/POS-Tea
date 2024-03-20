@@ -145,14 +145,24 @@ public class MainModel {
         }
 
         if (logout) {
-            if (confirmLogout())
+            if (openPrompt()) {
+                setConfirmLogout();
                 logout();
+            }
         }
     }
 
+    private void showRectangleModal() {
+        mainController.rectangleModal.setVisible(true);
+    }
 
-    private boolean confirmLogout() throws IOException {
-        setConfirmLogout();
+    private void hideRectangleModal() {
+        mainController.rectangleModal.setVisible(false);
+    }
+
+
+    public boolean openPrompt() throws IOException {
+        showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
@@ -165,6 +175,7 @@ public class MainModel {
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
+        hideRectangleModal();
         return isConfirmed;
     }
 

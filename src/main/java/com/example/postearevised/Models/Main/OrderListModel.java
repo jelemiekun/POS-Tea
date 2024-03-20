@@ -27,6 +27,8 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddingOrderToCSV;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setOrderSuccessful;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -246,12 +248,30 @@ public class OrderListModel {
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        orderDoneGetDateAndTime(order);
         if (writeOrderToCSV(order)) {
-            orderDoneGetDateAndTime(order);
-            addOrderToOrderHistory(order);
-            removeOrderToOrderQueue(order, anchorPaneToDelete);
+            if (openPrompt(order)) {
+                addOrderToOrderHistory(order);
+                removeOrderToOrderQueue(order, anchorPaneToDelete);
 
-            updateOrderQueueLabelsAndPane();
+                updateOrderQueueLabelsAndPane();
+            }
+        } else {
+            setErrorAddingOrderToCSV();
+            try {
+                mainController.mainModel.openPrompt();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    private boolean openPrompt(Order order) {
+        setOrderSuccessful(String.valueOf(order.getOrderNumber()), order.getCustomerName());
+        try {
+            return mainController.mainModel.openPrompt();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
