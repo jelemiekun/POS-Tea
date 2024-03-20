@@ -8,10 +8,6 @@ public class GeneralReference {
     public static Stage mainStage;
     public static Stage loginRegisterStage;
     public static Stage loginFromMainSceneStage;
-    public static final String DIRECTORY_PATH = System.getenv("APPDATA") + "\\POS_Tea";
-    public static final String PRODUCTS_CSV_FILE_PATH = DIRECTORY_PATH + "\\products.csv";
-    public static final String ORDER_HISTORY_CSV_FILE_PATH = DIRECTORY_PATH + "\\orderHistory.csv";
-    public static final String PRODUCT_IMAGES_PATH = DIRECTORY_PATH + "\\product images";
     public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;

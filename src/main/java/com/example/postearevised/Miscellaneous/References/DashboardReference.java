@@ -1,5 +1,7 @@
 package com.example.postearevised.Miscellaneous.References;
 
+import com.example.postearevised.Objects.Order.Order;
+
 public class DashboardReference {
     public static int referenceTotalRevenue;
     public static int referenceTotalCustomer;
@@ -10,6 +12,7 @@ public class DashboardReference {
     public static int referenceCoffeeCounter;
     public static int referenceIceCandyCupsCounter;
     public static int referenceAppetizerCounter;
+
 
     public static final String[] pieChartColors = {"#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff"};
 }

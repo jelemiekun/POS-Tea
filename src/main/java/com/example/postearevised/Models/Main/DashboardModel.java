@@ -27,6 +27,7 @@ public class DashboardModel {
         updateCustomer();
         updateOrder();
         updateCategories();
+        updateBestSeller();
 
         updateUIs();
     }
@@ -54,8 +55,6 @@ public class DashboardModel {
             }
         }
     }
-
-
 
     private void updateCategories() {
         referenceMilkTeaCounter = 0;
@@ -91,6 +90,11 @@ public class DashboardModel {
                 }
             }
         }
+    }
+
+
+    private void updateBestSeller() {
+
     }
 
 

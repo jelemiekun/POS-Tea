@@ -20,14 +20,9 @@ public class ImportCSV {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
-            // Skip the header line
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-//                if (fields.length < 22) {
-//                    System.err.println("Invalid CSV format: Insufficient fields in line: " + line);
-//                    continue;
-//                }
                 String productName = fields[0];
                 String productDescription = fields[1];
                 String productCategory = fields[2];
@@ -78,6 +73,7 @@ public class ImportCSV {
                         importedAppetizers.add(product);
                         break;
                     default:
+                        // invalid product category dito
                         System.err.println("Invalid product category: " + productCategory);
                         break;
                 }
@@ -111,32 +107,24 @@ public class ImportCSV {
         for (Product product : importedCoolers) {
             if (product instanceof Coolers coolers) {
                 availableCoolersObservableList.add(coolers);
-            } else {
-                // Handle invalid elements
             }
         }
 
         for (Product product : importedCoffees) {
             if (product instanceof Coffee coffee) {
                 availableCoffeeObservableList.add(coffee);
-            } else {
-                // Handle invalid elements
             }
         }
 
         for (Product product : importedIceCandyCups) {
             if (product instanceof IceCandyCups iceCandyCups) {
                 availableIceCandyCupsObservableList.add(iceCandyCups);
-            } else {
-                // Handle invalid elements
             }
         }
 
         for (Product product : importedAppetizers) {
             if (product instanceof Appetizer appetizer) {
                 availableAppetizerObservableList.add(appetizer);
-            } else {
-                // Handle invalid elements
             }
         }
 

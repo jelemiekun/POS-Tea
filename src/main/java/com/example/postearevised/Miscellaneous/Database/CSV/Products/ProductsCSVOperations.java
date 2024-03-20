@@ -9,7 +9,7 @@ import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
 public class ProductsCSVOperations {
     public static void doesProductCSVExist() {
