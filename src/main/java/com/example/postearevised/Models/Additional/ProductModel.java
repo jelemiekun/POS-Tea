@@ -839,7 +839,7 @@ public class ProductModel {
             editSelectedAppetizer.setPrice(referenceAppetizersPrice);
         }
 
-        editProductInCSV(oldProduct, editOrShowSelectedProduct);
+        boolean edited = editProductInCSV(oldProduct, editOrShowSelectedProduct);
     }
 
 

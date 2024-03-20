@@ -329,24 +329,27 @@ public class SettingsModel {
     }
 
     public void deleteSelectedProductsProcess() throws IOException {
-        setDeleteProduct();
-        if (mainController.mainModel.openPrompt()) {
-            ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
-            if (deleteProductInCSV(selectedItemsToDelete)) {
-                for (Product product : selectedItemsToDelete) {
-                    availableAllProductObservableList.remove(product);
-                    availableMilkTeaObservableList.remove(product);
-                    availableCoolersObservableList.remove(product);
-                    availableCoffeeObservableList.remove(product);
-                    availableIceCandyCupsObservableList.remove(product);
-                    availableAppetizerObservableList.remove(product);
-                }
+        ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
-                mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
-                refreshProductTable();
-            } else {
-                setErrorDeleteProduct();
-                mainController.mainModel.openPrompt();
+        if (!selectedItemsToDelete.isEmpty()) {
+            setDeleteProduct();
+            if (mainController.mainModel.openPrompt()) {
+                if (deleteProductInCSV(selectedItemsToDelete)) {
+                    for (Product product : selectedItemsToDelete) {
+                        availableAllProductObservableList.remove(product);
+                        availableMilkTeaObservableList.remove(product);
+                        availableCoolersObservableList.remove(product);
+                        availableCoffeeObservableList.remove(product);
+                        availableIceCandyCupsObservableList.remove(product);
+                        availableAppetizerObservableList.remove(product);
+                    }
+
+                    mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
+                    refreshProductTable();
+                } else {
+                    setErrorDeleteProduct();
+                    mainController.mainModel.openPrompt();
+                }
             }
         }
     }

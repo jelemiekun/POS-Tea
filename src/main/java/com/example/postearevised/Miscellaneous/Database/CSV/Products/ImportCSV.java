@@ -186,7 +186,7 @@ public class ImportCSV {
 
         if (fromImport) {
             for (Product product : importedProducts) {
-                addProductToCSV(product);
+                boolean add = addProductToCSV(product);
             }
         }
     }
