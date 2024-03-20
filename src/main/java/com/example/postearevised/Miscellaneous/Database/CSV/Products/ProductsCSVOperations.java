@@ -9,6 +9,7 @@ import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setExportSuccessful;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
 public class ProductsCSVOperations {
@@ -425,7 +426,7 @@ public class ProductsCSVOperations {
 
 
 
-    public static void chooseFilePath(Stage stage, boolean isImport) {
+    public static int chooseFilePath(Stage stage, boolean isImport) {
         FileChooser fileChooser = new FileChooser();
         File file;
 
@@ -443,10 +444,13 @@ public class ProductsCSVOperations {
         if (file != null) {
             String filePath = file.getAbsolutePath();
 
-            if (isImport)
-                importProductsFromCSV(filePath, true);
-            else
-                exportProductsToCSV(filePath);
+            if (isImport) {
+                return importProductsFromCSV(filePath, true);
+            } else {
+                setExportSuccessful(filePath);
+                return exportProductsToCSV(filePath);
+            }
         }
+        return -1;
     }
 }

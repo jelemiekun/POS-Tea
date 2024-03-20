@@ -228,6 +228,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setImportOtherError() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Error Encountered";
+        promptContentText = "Error during execution. Check error details for more info.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorPrintingError() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Error Printing Failed";
+        promptContentText = "An error occurred while attempting to print out the error message.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setBlankCellsDetected() {
         setIsConfirmedToFalse();
 
@@ -262,12 +296,12 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
-    public static void setErrorAddingProduct() {
+    public static void setErrorAddingProductCategory() {
         setIsConfirmedToFalse();
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Error Importing Product";
-        promptContentText = "One or more products cannot be add due to error\nwith the category cells.";
+        promptContentText = "One or more products cannot be add due to error with the category cells. Continue adding products with valid category?";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;

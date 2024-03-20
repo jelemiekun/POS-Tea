@@ -8,7 +8,7 @@ import static com.example.postearevised.Miscellaneous.References.ProductReferenc
 
 public class ExportCSV {
 
-    public static void exportProductsToCSV(String filePath) {
+    public static int exportProductsToCSV(String filePath) {
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
             // Write column headers to the CSV file
@@ -120,8 +120,9 @@ public class ExportCSV {
 
                 writer.println(sb.toString());
             }
+            return 4;
         } catch (IOException e) {
-            e.printStackTrace();
+            return 0;
         }
     }
 

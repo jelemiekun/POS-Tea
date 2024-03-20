@@ -5,6 +5,7 @@ public class FileReference {
     public static final String PRODUCTS_CSV_FILE_PATH;
     public static final String ORDER_HISTORY_CSV_FILE_PATH;
     public static final String PRODUCT_IMAGES_PATH;
+    public static final String ERROR_LOG_PATH;
 
     static {
         String osName = System.getProperty("os.name").toLowerCase();
@@ -14,12 +15,14 @@ public class FileReference {
             PRODUCTS_CSV_FILE_PATH = DIRECTORY_PATH + "\\products.csv";
             ORDER_HISTORY_CSV_FILE_PATH = DIRECTORY_PATH + "\\orderHistory.csv";
             PRODUCT_IMAGES_PATH = DIRECTORY_PATH + "\\product images";
+            ERROR_LOG_PATH = DIRECTORY_PATH + "\\error_log.txt";
         } else {
             // Assume other operating systems (e.g., macOS, Linux)
             DIRECTORY_PATH = System.getProperty("user.home") + "/POS_Tea";
             PRODUCTS_CSV_FILE_PATH = DIRECTORY_PATH + "/products.csv";
             ORDER_HISTORY_CSV_FILE_PATH = DIRECTORY_PATH + "/orderHistory.csv";
             PRODUCT_IMAGES_PATH = DIRECTORY_PATH + "/product images";
+            ERROR_LOG_PATH = DIRECTORY_PATH + "/error_log.txt";
         }
     }
 }

@@ -1,16 +1,29 @@
 package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
+import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.*;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class ImportCSV {
-    public static void importProductsFromCSV(String filePath, boolean fromImport) {
+    public static int importProductsFromCSV(String filePath, boolean fromImport) {
+
+        // 0- do nothing, 1- successful, 2- invalid file format, 3- other unexpected errors
+
         ObservableList<Product> importedProducts = FXCollections.observableArrayList();
         ObservableList<Product> importedMilkTeas = FXCollections.observableArrayList();
         ObservableList<Product> importedCoolers = FXCollections.observableArrayList();
@@ -19,14 +32,40 @@ public class ImportCSV {
         ObservableList<Product> importedAppetizers = FXCollections.observableArrayList();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            boolean repeatCategory = true;
+            boolean repeatBlankCells = true;
             String line;
-            reader.readLine();
+            reader.readLine(); // Skip header line
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
+                if (fields.length < 21) { // Check for invalid file format
+                    return 2; // Return 2 for invalid file format
+                }
+
                 String productName = fields[0];
                 String productDescription = fields[1];
                 String productCategory = fields[2];
                 String imagePath = fields[3];
+
+                if (fromImport) {
+                    if (repeatCategory) {
+                        if (!isValidCategory(productCategory)) {
+                            repeatCategory = false;
+                            setErrorAddingProductCategory();
+                            if (!openPrompt())
+                                return 0;
+                        }
+                    }
+
+                    if (repeatBlankCells) {
+                        if (hasBlankCells(fields)) {
+                            repeatBlankCells = false;
+                            setBlankCellsDetected();
+                            if (!openPrompt())
+                                return 0;
+                        }
+                    }
+                }
 
                 Product product = null;
 
@@ -73,7 +112,7 @@ public class ImportCSV {
                         importedAppetizers.add(product);
                         break;
                     default:
-                        // invalid product category dito
+                        // invalid product category here, not adding
                         System.err.println("Invalid product category: " + productCategory);
                         break;
                 }
@@ -83,18 +122,34 @@ public class ImportCSV {
                 }
             }
         } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+            errorMessage = e.getMessage();
+            return 3; // Return 3 for other exceptions
         }
 
         addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
+        return 1; // Return 1 if successful
     }
 
-    private static void addImportedListsToSystemLists(ObservableList<Product> importedProducts,
-                                                      ObservableList<Product> importedMilkTeas,
-                                                      ObservableList<Product> importedCoolers,
-                                                      ObservableList<Product> importedCoffees,
-                                                      ObservableList<Product> importedIceCandyCups,
-                                                      ObservableList<Product> importedAppetizers,
+    private static boolean isValidCategory(String category) {
+        // Check if the category is one of the valid categories
+        return category.equals("Milk Tea") || category.equals("Coolers") || category.equals("Coffee") || category.equals("Ice Candy Cups") || category.equals("Appetizers");
+    }
+
+    private static boolean hasBlankCells(String[] fields) {
+        // Check if any field is empty
+        for (String field : fields) {
+            if (field.trim().isEmpty()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    private static void addImportedListsToSystemLists(ObservableList<Product> importedProducts, ObservableList<Product> importedMilkTeas,
+                                                      ObservableList<Product> importedCoolers, ObservableList<Product> importedCoffees,
+                                                      ObservableList<Product> importedIceCandyCups, ObservableList<Product> importedAppetizers,
                                                       boolean fromImport) {
         allProductObservableList.addAll(importedProducts);
 
@@ -135,5 +190,24 @@ public class ImportCSV {
         }
     }
 
+    private static boolean openPrompt() {
+        FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage newStage = new Stage();
 
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainStage.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
+    }
 }

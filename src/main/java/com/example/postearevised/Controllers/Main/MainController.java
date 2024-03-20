@@ -674,7 +674,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void importExportOnAction(ActionEvent event) {
+    void importExportOnAction(ActionEvent event) throws IOException {
         settingsModel.comboBoxValueSelected();
     }
 

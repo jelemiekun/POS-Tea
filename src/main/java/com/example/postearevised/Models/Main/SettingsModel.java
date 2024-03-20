@@ -25,17 +25,23 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteProduct;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorDeleteProduct;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.FileReference.ERROR_LOG_PATH;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -180,16 +186,76 @@ public class SettingsModel {
 
     public void populateComboBoxImportExport() {
         mainController.importExportComboBox.getItems().clear();
-        mainController.importExportComboBox.getItems().addAll("Import CSV", "Export CSV");
+        mainController.importExportComboBox.getItems().addAll("Import/Export CSV","Import CSV", "Export CSV");
+        mainController.importExportComboBox.setValue("Import/Export CSV");
     }
 
-    public void comboBoxValueSelected() {
+    public void comboBoxValueSelected() throws IOException {
+        mainController.mainModel.showRectangleModal();
         String selected = mainController.importExportComboBox.getValue();
 
         if (selected.equals(Import.getImportOperation())) {
-            chooseFilePath(mainStage, true);
+            switch (chooseFilePath(mainStage, true)) {
+                // 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
+                case 1:
+                    setImportSuccessful();
+                    mainController.mainModel.openPrompt();
+                    break;
+                case 2:
+                    setInvalidFileFormat();
+                    mainController.mainModel.openPrompt();
+                    break;
+                case 3:
+                    setImportOtherError();
+                    mainController.mainModel.openPrompt();
+                    openError();
+                    break;
+            }
         } else if (selected.equals(Export.getImportOperation())){
-            chooseFilePath(mainStage, false);
+            // 4 - export successful
+            if (chooseFilePath(mainStage, false) == 4) {
+                mainController.mainModel.openPrompt();
+            }
+        }
+        mainController.mainModel.hideRectangleModal();
+        mainController.importExportComboBox.setValue("Import/Export CSV");
+    }
+
+    private void openError() throws IOException {
+        try {
+            // Get current date and time
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+            String dateTime = dateFormat.format(new Date());
+
+            // Create a FileWriter object with append mode set to true
+            FileWriter fileWriter = new FileWriter(ERROR_LOG_PATH, true);
+
+            // Create a BufferedWriter object
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+
+            // Write the date and time to the notepad
+            bufferedWriter.write(dateTime);
+            bufferedWriter.newLine();
+
+            // Write the error message to the notepad
+            bufferedWriter.write("Error: " + errorMessage);
+            bufferedWriter.newLine();
+
+            // Add two empty lines
+            bufferedWriter.newLine();
+            bufferedWriter.newLine();
+
+            // Close the BufferedWriter
+            bufferedWriter.close();
+
+            // Inform the user
+            System.out.println("Error written to notepad successfully!");
+
+            // Open the notepad
+            Desktop.getDesktop().open(new File(ERROR_LOG_PATH));
+        } catch (IOException e) {
+            setErrorPrintingError();
+            mainController.mainModel.openPrompt();
         }
     }
 
