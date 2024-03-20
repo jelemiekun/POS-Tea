@@ -244,6 +244,7 @@ public class OrderHistoryModel {
     }
 
     private void openDeleteHistoryFXML() {
+        mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(DELETE_HISTORY.getURL()));
 
         Parent root = null;
@@ -263,6 +264,6 @@ public class OrderHistoryModel {
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         newStage.showAndWait();
-
+        mainController.mainModel.hideRectangleModal();
     }
 }

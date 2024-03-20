@@ -3,8 +3,11 @@ package com.example.postearevised.Models.Additional;
 import com.example.postearevised.Controllers.Additional.DeleteHistoryController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
@@ -13,8 +16,16 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
+
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 
 public class DeleteHistoryModel {
     private DeleteHistoryController deleteHistoryController;
@@ -91,6 +102,22 @@ public class DeleteHistoryModel {
         setDeleteVisible();
     }
 
+    public boolean openPrompt() throws IOException {
+        setDeleteRecord();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(deleteHistoryController.labelOrderHistoryEmpty.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
+    }
     private void setDeleteVisible() {
         deleteHistoryController.btnDeleteRecord.setVisible(true);
         deleteHistoryController.labelDeleteConfirmation.setVisible(true);

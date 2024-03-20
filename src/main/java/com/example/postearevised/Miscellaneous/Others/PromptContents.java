@@ -152,9 +152,9 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = DELETE_RED;
-        btnCenterImageReference = DELETE_RED;
-        btnRightImageReference = DELETE_RED;
+        btnLeftImageReference = DELETE_RED_BUTTON;
+        btnCenterImageReference = DELETE_RED_BUTTON;
+        btnRightImageReference = CANCEL_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;

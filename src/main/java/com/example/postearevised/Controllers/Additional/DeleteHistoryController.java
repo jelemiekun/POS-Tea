@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,10 +47,12 @@ public class DeleteHistoryController implements Initializable {
     }
 
     @FXML
-    void btnDeleteRecordClickedTouched() {
-        flowPaneYearlyRecords.getChildren().remove(selectedAnchorPane);
-        deleteHistoryModel.setDeleteHide();
-        labelOrderHistoryEmpty.setVisible(flowPaneYearlyRecords.getChildren().isEmpty());
+    void btnDeleteRecordClickedTouched() throws IOException {
+        if (deleteHistoryModel.openPrompt()) {
+            flowPaneYearlyRecords.getChildren().remove(selectedAnchorPane);
+            deleteHistoryModel.setDeleteHide();
+            labelOrderHistoryEmpty.setVisible(flowPaneYearlyRecords.getChildren().isEmpty());
+        }
     }
 
 }

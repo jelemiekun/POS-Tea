@@ -152,11 +152,11 @@ public class MainModel {
         }
     }
 
-    private void showRectangleModal() {
+    public void showRectangleModal() {
         mainController.rectangleModal.setVisible(true);
     }
 
-    private void hideRectangleModal() {
+    public void hideRectangleModal() {
         mainController.rectangleModal.setVisible(false);
     }
 
