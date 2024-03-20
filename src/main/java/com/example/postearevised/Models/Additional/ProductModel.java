@@ -47,9 +47,9 @@ public class ProductModel {
         this.productController = productController;
     }
 
-    public boolean isAddProduct = false;
+    public boolean isAddProductToListAndDatabase = false;
     public boolean isSelectedProductOrder = false;
-    public boolean isEditProduct = false;
+    public boolean isEditProductOrder = false;
 
     public void initializedHideElements() {
         productController.anchorPaneEditPhoto.setVisible(false);
@@ -185,7 +185,7 @@ public class ProductModel {
     public void addEditProductAddOrder() {
         boolean success = false;
 
-        if (isEditProduct) {
+        if (isEditProductOrder) { // viewable lang to
             setAttributes(true);
 
             addProductToOrderOrEditProductOrder(false);
@@ -193,15 +193,15 @@ public class ProductModel {
             success = true;
         } else {
             if (isSelectedProductOrder) {
-                addOrder();
+                addOrder(); // add product to order
                 success = true;
             } else {
                 setAttributes(false);
 
-                if (isAddProduct)
-                    success = instantiateProduct();
+                if (isAddProductToListAndDatabase)
+                    success = instantiateProduct(); // create product
                 else
-                    success = setObjectAttributesUpdateProduct();
+                    success = setObjectAttributesUpdateProduct(); // edit product
             }
         }
 
@@ -342,9 +342,9 @@ public class ProductModel {
         setAddEditProductsDisableRadioButtons();
         setAddProductsTextFieldsToNone();
 
-        isAddProduct = true;
+        isAddProductToListAndDatabase = true;
         isSelectedProductOrder = false;
-        isEditProduct = false;
+        isEditProductOrder = false;
     }
 
     private void setAddProductsVisibilities() {
@@ -638,34 +638,30 @@ public class ProductModel {
 
     private boolean instantiateProduct() {
         Product product = null;
+
         switch(referenceCategory) {
             case "Milk Tea":
                 product = new MilkTea(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
                         referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
                         referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
-                availableMilkTeaObservableList.add((MilkTea) product);
                 break;
             case "Coolers":
                 product = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice,
                         referenceCoolersAddOnsOneName, referenceCoolersAddOnsOnePrice, referenceCoolersAddOnsTwoName, referenceCoolersAddOnsTwoPrice);
-                availableCoolersObservableList.add((Coolers) product);
                 break;
             case "Coffee":
                 product = new Coffee(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceCoffeePrice);
-                availableCoffeeObservableList.add((Coffee) product);
                 break;
             case "Ice Candy Cups":
                 product = new IceCandyCups(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceIceCandyCupsPrice);
-                availableIceCandyCupsObservableList.add((IceCandyCups) product);
                 break;
             case "Appetizers":
                 product = new Appetizer(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceAppetizersPrice);
-                availableAppetizerObservableList.add((Appetizer) product);
                 break;
         }
 
@@ -673,8 +669,32 @@ public class ProductModel {
         if (product != null) {
             boolean successToCSV = addProductToCSV(product);
             if (successToCSV) {
+
+                switch(referenceCategory) {
+                    case "Milk Tea":
+                        assert product instanceof MilkTea;
+                        availableMilkTeaObservableList.add((MilkTea) product);
+                        break;
+                    case "Coolers":
+                        assert product instanceof Coolers;
+                        availableCoolersObservableList.add((Coolers) product);
+                        break;
+                    case "Coffee":
+                        assert product instanceof Coffee;
+                        availableCoffeeObservableList.add((Coffee) product);
+                        break;
+                    case "Ice Candy Cups":
+                        assert product instanceof IceCandyCups;
+                        availableIceCandyCupsObservableList.add((IceCandyCups) product);
+                        break;
+                    case "Appetizers":
+                        assert product instanceof Appetizer;
+                        availableAppetizerObservableList.add((Appetizer) product);
+                        break;
+                }
                 allProductObservableList.add(product);
                 return true;
+
             } else {
                 setErrorAddProduct();
                 try {
@@ -700,9 +720,9 @@ public class ProductModel {
         setEditProductsTextFieldsValues();
         initializeTextFieldAddListener();
 
-        isAddProduct = false;
+        isAddProductToListAndDatabase = false;
         isSelectedProductOrder = false;
-        isEditProduct = false;
+        isEditProductOrder = false;
     }
 
     private void setEditProductsVisibilities() {
@@ -858,9 +878,9 @@ public class ProductModel {
         setSelectedProductAddProductToOrderEnable();
         setSelectedProductTexts();
 
-        isAddProduct = false;
+        isAddProductToListAndDatabase = false;
         isSelectedProductOrder = true;
-        isEditProduct = false;
+        isEditProductOrder = false;
     }
 
     private void setSelectedProductButton() {
@@ -1020,9 +1040,9 @@ public class ProductModel {
         setSelectedOrderProductValues();
         setDisableRadioButtons();
 
-        isAddProduct = false;
+        isAddProductToListAndDatabase = false;
         isSelectedProductOrder = false;
-        isEditProduct = true;
+        isEditProductOrder = true;
     }
 
     private void setSelectedEditOrderProductButton() {
