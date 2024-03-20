@@ -56,6 +56,8 @@ public class MainController implements Initializable {
         anchorPaneLoading.setVisible(true);
 
         new Thread(() -> {
+            clearAllReferences();
+
             doesProductCSVExist();
             doesOrderHistoryCSVExist();
 
@@ -84,8 +86,6 @@ public class MainController implements Initializable {
 
             settingsModel = new SettingsModel();
             settingsModel.setMainController(this);
-
-            clearAllReferences();
 
             Platform.runLater(() -> {
                 menuModel.setCustomerNumber();
