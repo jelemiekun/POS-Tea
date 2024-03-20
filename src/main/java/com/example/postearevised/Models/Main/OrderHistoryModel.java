@@ -55,8 +55,10 @@ public class OrderHistoryModel {
     }
 
     private void setComboBox(boolean initialized) {
-        if (initialized)
+        if (initialized) {
             mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
+            Collections.reverse(orderHistoryObservableList);
+        }
 
         mainController.comboBoxOrderHistory.setValue(ALL_TIME_ENUM.getTitle());
         getComboBoxValue();
@@ -165,6 +167,7 @@ public class OrderHistoryModel {
 
     private void setReverseItem() {
         mainController.textFieldOrderHistorySearch.setText("");
+        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
         mainController.tableViewOrderHistory.refresh();
         mainController.anchorPaneOrderHistory.requestFocus();
     }
@@ -221,8 +224,6 @@ public class OrderHistoryModel {
 
 
     public void refreshOrderHistoryTable() {
-        setReverseItem();
-
         if (orderHistoryObservableList.isEmpty()) {
             Label placeholderLabel = new Label("Your order history is empty.\nMake a new order to see transactions.");
             placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
@@ -231,6 +232,8 @@ public class OrderHistoryModel {
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
         }
+
+        setReverseItem();
     }
 
     public void orderHistoryDeleteBin() {
