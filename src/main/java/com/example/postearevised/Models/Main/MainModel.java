@@ -145,8 +145,8 @@ public class MainModel {
         }
 
         if (logout) {
+            setConfirmLogout();
             if (openPrompt()) {
-                setConfirmLogout();
                 logout();
             }
         }

@@ -183,6 +183,8 @@ public class ProductModel {
     }
 
     public void addEditProductAddOrder() {
+        boolean success = false;
+
         if (isEditProduct) {
             setAttributes(true);
 
@@ -194,14 +196,16 @@ public class ProductModel {
                 setAttributes(false);
 
                 if (isAddProduct)
-                    instantiateProduct();
+                    success = instantiateProduct();
                 else
                     setObjectAttributesUpdateProduct();
             }
         }
 
-        clearProductReferenceValues();
-        closeThisStage();
+        if (success) {
+            clearProductReferenceValues();
+            closeThisStage();
+        }
     }
 
     /**
@@ -629,7 +633,7 @@ public class ProductModel {
 
     }
 
-    private void instantiateProduct() {
+    private boolean instantiateProduct() {
         Product product = null;
         switch(referenceCategory) {
             case "Milk Tea":
@@ -662,9 +666,12 @@ public class ProductModel {
                 break;
         }
 
+
         if (product != null) {
-            if (addProductToCSV(product)) {
+            boolean successToCSV = addProductToCSV(product);
+            if (successToCSV) {
                 allProductObservableList.add(product);
+                return true;
             } else {
                 setErrorAddProduct();
                 try {
@@ -674,6 +681,7 @@ public class ProductModel {
                 }
             }
         }
+        return false;
     }
 
 
