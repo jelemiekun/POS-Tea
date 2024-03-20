@@ -419,8 +419,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void loginCheckBoxRememberPasswordAction() {
-
+    void loginCheckBoxRememberPasswordAction() throws IOException {
+        loginModel.checkBoxDeselected();
     }
 
 

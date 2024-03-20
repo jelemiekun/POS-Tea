@@ -4,6 +4,7 @@ import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassControl
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -29,6 +31,30 @@ public class LoginModel {
         loginRegisterForgotPassController.anchorPaneLogin.setVisible(true);
         loginRegisterForgotPassController.anchorPaneRegister.setVisible(false);
         loginRegisterForgotPassController.anchorPaneForgotPass.setVisible(false);
+    }
+
+    public void checkBoxDeselected() throws IOException {
+        if (!loginRegisterForgotPassController.checkBoxRememberPassword.isSelected()) {
+            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
+            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox());
+        }
+    }
+
+    private boolean confirmDeselectCheckbox() throws IOException {
+        setContinueLoginWithoutStayingIn();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterForgotPassController.anchorPaneLogin.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
     }
 
     /**

@@ -92,6 +92,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setContinueLoginWithoutStayingIn() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Log-in without staying in??";
+        promptContentText = "If you log in without staying logged in, you may need internet to log in again.";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = CANCEL_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setInternetRequired() {
         setIsConfirmedToFalse();
 
