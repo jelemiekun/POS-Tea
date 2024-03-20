@@ -165,13 +165,11 @@ public class OrderHistoryModel {
 
     private void setReverseItem() {
         mainController.textFieldOrderHistorySearch.setText("");
-        Collections.reverse(orderHistoryObservableList);
-        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
         mainController.tableViewOrderHistory.refresh();
         mainController.anchorPaneOrderHistory.requestFocus();
     }
 
-    private void setTextFieldSearch() {
+    public void setTextFieldSearch() {
         mainController.textFieldOrderHistorySearch.setText("");
 
         mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {

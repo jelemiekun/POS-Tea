@@ -20,4 +20,8 @@ public class DashboardReference {
     public static List<ProductOrder> topTenProducts = new ArrayList<>();
 
     public static final String[] pieChartColors = {"#ff0000", "#ffa500", "#ffff00", "#008000", "#0000ff"};
+
+    public static void clearDashBoardReferences() {
+        topTenProducts.clear();
+    }
 }

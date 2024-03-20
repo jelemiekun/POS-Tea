@@ -30,6 +30,7 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
@@ -65,6 +66,7 @@ public class MainController implements Initializable {
         orderHistoryModel = new OrderHistoryModel();
         orderHistoryModel.setMainController(this);
         orderHistoryModel.setOrderHistoryTable();
+        orderHistoryModel.setTextFieldSearch();
 
         dashboardModel = new DashboardModel();
         dashboardModel.setMainController(this);
@@ -86,6 +88,7 @@ public class MainController implements Initializable {
         clearProductOrderReferences();
         clearOrderHistoryReferences();
         clearOrderQueueReferences();
+        clearDashBoardReferences();
     }
 
     /**

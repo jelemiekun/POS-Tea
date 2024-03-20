@@ -81,19 +81,19 @@ public class DashboardModel {
                     String category = productOrder.getProductCategory();
                     switch (category) {
                         case "Milk Tea":
-                            referenceMilkTeaCounter++;
+                            referenceMilkTeaCounter += productOrder.getQuantity();
                             break;
                         case "Coolers":
-                            referenceCoolersCounter++;
+                            referenceCoolersCounter += productOrder.getQuantity();
                             break;
                         case "Coffee":
-                            referenceCoffeeCounter++;
+                            referenceCoffeeCounter += productOrder.getQuantity();
                             break;
                         case "Ice Candy Cups":
-                            referenceIceCandyCupsCounter++;
+                            referenceIceCandyCupsCounter += productOrder.getQuantity();
                             break;
                         case "Appetizers":
-                            referenceAppetizerCounter++;
+                            referenceAppetizerCounter += productOrder.getQuantity();
                             break;
                         default:
                             break;
@@ -160,8 +160,9 @@ public class DashboardModel {
 
         ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
 
-        if (referenceMilkTeaCounter == 0 && referenceCoolersCounter == 0 && referenceCoffeeCounter == 0 && referenceIceCandyCupsCounter == 0 && referenceAppetizerCounter == 0) {
-            PieChart.Data emptyData = new PieChart.Data("Empty", 1);
+        int totalCounter = referenceMilkTeaCounter + referenceCoolersCounter + referenceCoffeeCounter + referenceIceCandyCupsCounter + referenceAppetizerCounter;
+        if (totalCounter == 0) {
+            PieChart.Data emptyData = new PieChart.Data("Empty", 100);
             emptyData.nodeProperty().addListener((observable, oldValue, newValue) -> {
                 if (newValue != null) {
                     newValue.setStyle("-fx-pie-color: #808080;");
@@ -174,19 +175,19 @@ public class DashboardModel {
             isNoSalesLabelsVisible(false);
 
             if (referenceMilkTeaCounter > 0) {
-                pieChartData.add(new PieChart.Data(MILK_TEA_ENUM.getCategory(), referenceMilkTeaCounter));
+                pieChartData.add(new PieChart.Data(MILK_TEA_ENUM.getCategory(), (referenceMilkTeaCounter * 100.0) / totalCounter));
             }
             if (referenceCoolersCounter > 0) {
-                pieChartData.add(new PieChart.Data(COOLERS_ENUM.getCategory(), referenceCoolersCounter));
+                pieChartData.add(new PieChart.Data(COOLERS_ENUM.getCategory(), (referenceCoolersCounter * 100.0) / totalCounter));
             }
             if (referenceCoffeeCounter > 0) {
-                pieChartData.add(new PieChart.Data(COFFEE_ENUM.getCategory(), referenceCoffeeCounter));
+                pieChartData.add(new PieChart.Data(COFFEE_ENUM.getCategory(), (referenceCoffeeCounter * 100.0) / totalCounter));
             }
             if (referenceIceCandyCupsCounter > 0) {
-                pieChartData.add(new PieChart.Data(ICE_CANDY_CUPS_ENUM.getCategory(), referenceIceCandyCupsCounter));
+                pieChartData.add(new PieChart.Data(ICE_CANDY_CUPS_ENUM.getCategory(), (referenceIceCandyCupsCounter * 100.0) / totalCounter));
             }
             if (referenceAppetizerCounter > 0) {
-                pieChartData.add(new PieChart.Data(APPETIZERS_ENUM.getCategory(), referenceAppetizerCounter));
+                pieChartData.add(new PieChart.Data(APPETIZERS_ENUM.getCategory(), (referenceAppetizerCounter * 100.0) / totalCounter));
             }
 
             for (int i = 0; i < pieChartData.size(); i++) {
@@ -204,7 +205,7 @@ public class DashboardModel {
                 data.nameProperty().bind(
                         Bindings.concat(
                                 data.getName(), " ",
-                                Bindings.format("%.0f", data.pieValueProperty())
+                                Bindings.createStringBinding(() -> String.format("%.0f%%", data.getPieValue()), data.pieValueProperty())
                         )
                 )
         );
