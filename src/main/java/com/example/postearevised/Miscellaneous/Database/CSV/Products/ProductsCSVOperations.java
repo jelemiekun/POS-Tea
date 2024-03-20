@@ -76,7 +76,7 @@ public class ProductsCSVOperations {
         }
     }
 
-    public static void addProductToCSV(Product product) {
+    public static boolean addProductToCSV(Product product) {
         try (FileWriter writer = new FileWriter(PRODUCTS_CSV_FILE_PATH, true)) {
             StringBuilder sb = new StringBuilder();
 
@@ -200,12 +200,15 @@ public class ProductsCSVOperations {
                     break;
             }
             writer.write(sb.toString());
+
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public static void editProductInCSV(Product oldProduct, Product newProduct) {
+    public static boolean editProductInCSV(Product oldProduct, Product newProduct) {
         try {
             File inputFile = new File(PRODUCTS_CSV_FILE_PATH);
             File tempFile = new File("temp.csv");
@@ -370,8 +373,10 @@ public class ProductsCSVOperations {
             reader.close();
             inputFile.delete();
             tempFile.renameTo(inputFile); // Rename temp file to original file name
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

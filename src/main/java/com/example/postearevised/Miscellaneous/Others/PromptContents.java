@@ -194,6 +194,40 @@ public class PromptContents {
         btnRightBoolean = true;
     }
 
+    public static void setErrorAddProduct() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = CHECK_GREEN_ICON;
+        promptHeaderText = "Product Adding Error";
+        promptContentText = "Failed to add product to the local database.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorEditProduct() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = CHECK_GREEN_ICON;
+        promptHeaderText = "Product Editing Error";
+        promptContentText = "Failed to update edited product to the local database.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setExportSuccessful(String filePath) {
         setIsConfirmedToFalse();
 

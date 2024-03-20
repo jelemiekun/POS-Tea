@@ -1,31 +1,21 @@
 ------------------TO DO------------------
 
-design ng no customer name, no payment, insufficient payment, at no payment method selected
+ihanda csv mula sa
 
-if ieedit yung product sa orders, mag uupdate din yung price, then mag uupdate din sa right panel
+colors ng legends sa dashboard
 
-if diniselect, confirmation if continue, kase need nya ulit ng internet connectivity to login
+gawing * lahat ng static import
 
-import/export csv - @Lance
-delete product - @Junjie @Lance
-pic ng products nila, 2 per category, sa gdrive - @Vivian
-system manual - @Junjie @Grazzily
-t&c - @Junjie @Lance
-mysql database for accounts - @Lance
+gawing try-catch lahat ng throws
 
-yung orders sa products na ioorder is clickable para maedit yung attributes.
+tapos errorMessage = e.getMessage();
 
-laggyan ng size yung coffee ng 16 oz lang
+tapos iinvoke yung pag log ng error sa log file
 
-NAWAWALA/HANAPIN YUNG I SA TOOLTIPS
+css files ng 2 table mula kay abella
 
-nawawala yung I sa tooltip
 
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
-
-uupdate yung main page (gagawing slide nalang ns humburger)
-
-AYAW GUMANA DELETE PRODUCTS HAHA,.
 
 ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
 
@@ -191,3 +181,26 @@ english alphabet lang sa addons sa pag add/edit ng product
 gawing selected na yung remember me sa login
 
 tatlo list ko, unang list is para sa nilalaman ng product order sa isang customer order.
+
+design ng no customer name, no payment, insufficient payment, at no payment method selected
+
+if ieedit yung product sa orders, mag uupdate din yung price, then mag uupdate din sa right panel
+
+if diniselect, confirmation if continue, kase need nya ulit ng internet connectivity to login
+
+import/export csv - @Lance
+delete product - @Junjie @Lance
+pic ng products nila, 2 per category, sa gdrive - @Vivian
+system manual - @Junjie @Grazzily
+t&c - @Junjie @Lance
+mysql database for accounts - @Lance
+
+yung orders sa products na ioorder is clickable para maedit yung attributes.
+
+laggyan ng size yung coffee ng 16 oz lang
+
+NAWAWALA/HANAPIN YUNG I SA TOOLTIPS
+
+nawawala yung I sa tooltip
+
+AYAW GUMANA DELETE PRODUCTS HAHA,.

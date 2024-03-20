@@ -59,7 +59,6 @@ public class DashboardModel {
 
     private void updateReferenceOrder() {
         referenceTotalOrder = 0;
-
         for (Order order : orderHistoryObservableList) {
             for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                 referenceTotalOrder += productOrder.getQuantity();
@@ -105,6 +104,8 @@ public class DashboardModel {
 
 
     private void updateReferenceBestSeller() {
+        topTenProducts.clear();
+
         Map<ProductOrder, Long> productOrderCounts = orderHistoryObservableList.stream()
                 .flatMap(order -> order.getProductOrderObservableList().stream())
                 .collect(Collectors.groupingBy(

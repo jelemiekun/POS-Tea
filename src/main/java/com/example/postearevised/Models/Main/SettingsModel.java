@@ -243,6 +243,7 @@ public class SettingsModel {
     }
 
     public void openAddProductsFXML() throws IOException {
+        mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
@@ -259,6 +260,7 @@ public class SettingsModel {
 
         newStage.showAndWait();
 
+        mainController.mainModel.hideRectangleModal();
         isAddingProductSuccess();
         refreshProductTable();
     }
@@ -293,6 +295,7 @@ public class SettingsModel {
     }
 
     private void openEditProductsFXML() throws IOException {
+        mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
         Parent root = loader.load();
         Stage newStage = new Stage();
@@ -309,6 +312,7 @@ public class SettingsModel {
 
         newStage.showAndWait();
 
+        mainController.mainModel.showRectangleModal();
         isAddingProductSuccess();
         refreshProductTable();
     }

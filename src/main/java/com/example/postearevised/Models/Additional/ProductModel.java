@@ -4,11 +4,15 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import com.example.postearevised.Objects.Products.*;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -20,6 +24,9 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddProduct;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -656,8 +663,16 @@ public class ProductModel {
         }
 
         if (product != null) {
-            allProductObservableList.add(product);
-            addProductToCSV(product);
+            if (addProductToCSV(product)) {
+                allProductObservableList.add(product);
+            } else {
+                setErrorAddProduct();
+                try {
+                    openPrompt();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
         }
     }
 
@@ -1093,6 +1108,22 @@ public class ProductModel {
                 // walang attributes / radio buttons
                 break;
         }
+    }
+
+    public boolean openPrompt() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = loader.load();
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(productController.anchorPaneMain.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        return isConfirmed;
     }
 
     private void closeThisStage() {

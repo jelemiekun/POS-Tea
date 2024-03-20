@@ -531,6 +531,7 @@ public class MenuModel {
     private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product, Label firstAttribute, Label secondAttribute, Label thirdAttribute, Label productPrice, Label quantity) {
         editOrShowSelectedProduct = product;
 
+        mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
 
         Parent root = null;
@@ -553,6 +554,8 @@ public class MenuModel {
         productController.productModel.setEditOrderProduct();
 
         newStage.showAndWait();
+
+        mainController.mainModel.hideRectangleModal();
     }
 
     // Event handlers
