@@ -29,8 +29,8 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
-import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
-import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 

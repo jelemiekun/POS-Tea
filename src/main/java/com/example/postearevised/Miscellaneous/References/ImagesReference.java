@@ -5,10 +5,30 @@ import javafx.scene.image.Image;
 import java.util.Objects;
 
 public class ImagesReference {
+    /**
+     * Prompt Buttons
+     */
+    public static final Image OKAY_GREEN_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+    public static final Image OKAY_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay black.png")));;
+    public static final Image NO_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
+    public static final Image YES_RED_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
+    public static final Image CHECK_GREEN_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Register/check.png")));
+    public static final Image LOG_OUT_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
+    public static final Image STAY_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
+
+
+    /**
+     * Prompt Icons
+     */
+    public static final Image QUESTION_MARK_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/questionMark.png")));
+    public static final Image INTERNET_CONNECTION_REQUIRED_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/internetConnection.png")));
+    public static final Image TRIANGLE_RED_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/warningTriangle.png")));
+    public static final Image RED_BIN_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Prompt/redBin.png")));
+
+    /**
+     * Processing Order
+     */
     public static final Image CLOSE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/close.png")));
-    public static final Image NO_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
-
-
     public static final Image CASH = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/cash.png")));
     public static final Image CASH_SELECTED = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/cash selected.png")));
     public static final Image GCASH = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Payments/gcash.png")));
@@ -17,9 +37,13 @@ public class ImagesReference {
     public static final Image ORDER_QUEUE_DONE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/OrderList/done.png")));
 
 
+    public static final Image NO_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
     public static final Image SYSTEM_LOGO = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/logo.png")));
 
 
+    /**
+     * Left Panel
+     */
     public static final Image mainMenuIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/Menu button.png")));
     public static final Image mainMenuSelectedIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/Menu button selected.png")));
     public static final Image mainDashboardIcon = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Left Panel/dashboard.png")));

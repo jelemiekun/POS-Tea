@@ -1,4 +1,4 @@
-package com.example.postearevised.Miscellaneous;
+package com.example.postearevised.Miscellaneous.Others;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

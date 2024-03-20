@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 
 public class TermsAndConditionController implements Initializable {
     private final Image acceptEnabled = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png")));

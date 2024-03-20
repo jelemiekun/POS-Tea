@@ -7,11 +7,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class Main extends Application {

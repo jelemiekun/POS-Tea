@@ -7,21 +7,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="332.0" prefWidth="642.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.PromptLayoutController">
+<AnchorPane prefHeight="402.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.PromptLayoutController">
    <children>
-      <AnchorPane prefHeight="332.0" prefWidth="642.0">
+      <AnchorPane prefHeight="402.0" prefWidth="690.0">
          <children>
-            <Label fx:id="labelHeader" alignment="CENTER" layoutX="27.0" layoutY="42.0" prefHeight="76.0" prefWidth="588.0" text="Are you sure you want to go back?" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Arial Bold" size="33.0" />
-               </font>
-            </Label>
-            <Label fx:id="labelContent" alignment="CENTER" layoutX="54.0" layoutY="118.0" prefHeight="56.0" prefWidth="535.0" text="Any unsaved changes will be lost!" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Microsoft Sans Serif" size="24.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="69.0" layoutY="209.0" prefHeight="51.0" prefWidth="506.0">
+            <AnchorPane layoutX="51.0" layoutY="143.0">
+               <children>
+                  <Label fx:id="labelHeader" alignment="CENTER" prefHeight="76.0" prefWidth="588.0" text="Are you sure you want to go back?" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Arial Bold" size="33.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelContent" alignment="CENTER" layoutX="27.0" layoutY="76.0" prefHeight="56.0" prefWidth="535.0" text="Any unsaved changes will be lost!" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="Microsoft Sans Serif" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="92.0" layoutY="292.0" prefHeight="51.0" prefWidth="506.0">
                <children>
                   <ImageView fx:id="btnLeft" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="2.0" onMouseClicked="#btnLeftClicked" onTouchReleased="#btnLeftTouched" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -49,6 +53,11 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <ImageView fx:id="imageView" fitHeight="111.0" fitWidth="106.0" layoutX="292.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Medias/Icons/logo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

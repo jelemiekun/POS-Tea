@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 
 public class PromptLayoutController implements Initializable {
 
@@ -28,6 +28,9 @@ public class PromptLayoutController implements Initializable {
     @FXML
     private Label labelHeader;
 
+    @FXML
+    private ImageView imageView;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         labelHeader.setText(promptHeaderText);
@@ -40,6 +43,8 @@ public class PromptLayoutController implements Initializable {
         btnLeft.setImage(btnLeftImageReference);
         btnCenter.setImage(btnCenterImageReference);
         btnRight.setImage(btnRightImageReference);
+
+        imageView.setImage(iconImageReference);
     }
 
     @FXML

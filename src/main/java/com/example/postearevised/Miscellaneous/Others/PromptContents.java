@@ -1,9 +1,11 @@
-package com.example.postearevised.Miscellaneous;
+package com.example.postearevised.Miscellaneous.Others;
 
 import com.example.postearevised.Miscellaneous.References.GeneralReference;
 import javafx.scene.image.Image;
 
 import java.util.Objects;
+
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 
 public class PromptContents {
     public static boolean isConfirmed = false;
@@ -19,6 +21,7 @@ public class PromptContents {
     public static boolean btnLeftBoolean;
     public static boolean btnCenterBoolean;
     public static boolean btnRightBoolean;
+    public static Image iconImageReference;
 
     public static void setIsConfirmedToFalse() {
         isConfirmed = false;
@@ -32,12 +35,13 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
+        btnLeftImageReference = YES_RED_BUTTON;
+        btnCenterImageReference = NO_BLACK_BUTTON;
+        btnRightImageReference = NO_BLACK_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
+        iconImageReference = QUESTION_MARK_ICON;
     }
 
     public static void setAccountCreatedConfirmation() {
@@ -48,12 +52,13 @@ public class PromptContents {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_GREEN_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
+        iconImageReference = CHECK_GREEN_BUTTON;
     }
 
     public static void setConfirmLogout() {
@@ -64,12 +69,13 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
+        btnLeftImageReference = LOG_OUT_BUTTON;
+        btnCenterImageReference = LOG_OUT_BUTTON;
+        btnRightImageReference = STAY_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = false;
         btnRightBoolean = false;
+        iconImageReference = QUESTION_MARK_ICON;
     }
 
     public static void setResetPasswordSuccessfully() {
@@ -80,12 +86,13 @@ public class PromptContents {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_GREEN_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
+        iconImageReference = CHECK_GREEN_BUTTON;
     }
 
     public static void setInternetRequired() {
@@ -96,11 +103,12 @@ public class PromptContents {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnCenterImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-        btnRightImageReference = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
         btnLeftBoolean = true;
         btnCenterBoolean = true;
         btnRightBoolean = true;
+        iconImageReference = INTERNET_CONNECTION_REQUIRED_ICON;
     }
 }

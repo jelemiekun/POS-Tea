@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
