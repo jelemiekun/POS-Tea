@@ -172,9 +172,6 @@ public class LoginModel {
                 mainStage.getIcons().add(SYSTEM_LOGO);
                 mainStage.show();
                 closeThisStage();
-
-                doesProductCSVExist();
-                doesOrderHistoryCSVExist();
             }
         }
     }

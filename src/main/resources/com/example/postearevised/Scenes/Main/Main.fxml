@@ -149,7 +149,7 @@
               </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -1138,5 +1138,23 @@
          </children>
       </AnchorPane>
       <Rectangle fx:id="rectangleModal" arcHeight="5.0" arcWidth="5.0" fill="#0000008c" height="1050.0" stroke="#0000008c" strokeType="INSIDE" visible="false" width="1920.0" />
+      <AnchorPane fx:id="anchorPaneLoading" prefHeight="1050.0" prefWidth="1920.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" stroke="WHITE" strokeType="INSIDE" width="1920.0" />
+            <AnchorPane layoutX="572.0" layoutY="173.0" prefHeight="704.0" prefWidth="776.0">
+               <children>
+                  <ImageView fitHeight="437.0" fitWidth="618.0" layoutX="175.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Icons/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="245.0" layoutY="545.0" text="Loading...">
+                     <font>
+                        <Font name="Arial" size="69.0" />
+                     </font>
+                  </Label>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

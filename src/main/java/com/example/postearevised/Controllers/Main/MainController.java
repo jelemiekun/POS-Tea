@@ -3,6 +3,7 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.*;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Products.Product;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,12 +22,15 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.doesOrderHistoryCSVExist;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.doesProductCSVExist;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
@@ -49,41 +53,59 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        mainModel = new MainModel();
-        mainModel.setMainController(this);
-        mainModel.setDropShadow();
-        mainModel.setMainMenuIconSelected();
-        mainModel.setAnchorPane();
+        new Thread(() -> {
+            doesProductCSVExist();
+            doesOrderHistoryCSVExist();
 
-        menuModel = new MenuModel();
-        menuModel.setMainController(this);
-        menuModel.setDropShadow();
-        menuModel.setTextFieldListeners();
+            mainModel = new MainModel();
+            mainModel.setMainController(this);
+            mainModel.setDropShadow();
+            mainModel.setMainMenuIconSelected();
+            mainModel.setAnchorPane();
 
-        orderListModel = new OrderListModel();
-        orderListModel.setMainController(this);
-        orderListModel.createAndStartDaemonThreadForDateAndTime();
+            menuModel = new MenuModel();
+            menuModel.setMainController(this);
+            menuModel.setDropShadow();
+            menuModel.setTextFieldListeners();
 
-        orderHistoryModel = new OrderHistoryModel();
-        orderHistoryModel.setMainController(this);
-        orderHistoryModel.setOrderHistoryTable();
-        orderHistoryModel.setTextFieldSearch();
+            orderListModel = new OrderListModel();
+            orderListModel.setMainController(this);
+            orderListModel.createAndStartDaemonThreadForDateAndTime();
 
-        dashboardModel = new DashboardModel();
-        dashboardModel.setMainController(this);
+            orderHistoryModel = new OrderHistoryModel();
+            orderHistoryModel.setMainController(this);
+            orderHistoryModel.setOrderHistoryTable();
+            orderHistoryModel.setTextFieldSearch();
 
-        settingsModel = new SettingsModel();
-        settingsModel.setMainController(this);
+            dashboardModel = new DashboardModel();
+            dashboardModel.setMainController(this);
 
-        clearAllReferences();
+            settingsModel = new SettingsModel();
+            settingsModel.setMainController(this);
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
+            clearAllReferences();
+
+            // Update JavaFX UI elements on the JavaFX Application Thread
+            Platform.runLater(() -> {
+                // Hide the loading screen once initialization is complete
+                fadeOutLoading();
+
+                // Additional UI updates or tasks can be performed here
                 menuModel.setCustomerNumber();
                 settingsModel.setVideo();
-            }
+            });
+        }).start();
+    }
+
+    private void fadeOutLoading() {
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), anchorPaneLoading);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(event -> {
+            // Hide the loading screen once fade-out animation is complete
+            anchorPaneLoading.setVisible(false);
         });
+        fadeOut.play();
     }
 
     private void clearAllReferences() {
@@ -97,6 +119,9 @@ public class MainController implements Initializable {
     /**
      * Main
      */
+
+    @FXML
+    public AnchorPane anchorPaneLoading;
 
     public FXMLLoader loader;
     public Parent root;
