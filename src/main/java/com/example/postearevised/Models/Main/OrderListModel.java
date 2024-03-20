@@ -246,11 +246,13 @@ public class OrderListModel {
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        orderDoneGetDateAndTime(order);
-        addOrderToOrderHistory(order);
-        removeOrderToOrderQueue(order, anchorPaneToDelete);
+        if (writeOrderToCSV(order)) {
+            orderDoneGetDateAndTime(order);
+            addOrderToOrderHistory(order);
+            removeOrderToOrderQueue(order, anchorPaneToDelete);
 
-        updateOrderQueueLabelsAndPane();
+            updateOrderQueueLabelsAndPane();
+        }
     }
 
     private void orderDoneGetDateAndTime(Order order) {
@@ -263,7 +265,6 @@ public class OrderListModel {
     }
 
     private void addOrderToOrderHistory(Order order) {
-        writeOrderToCSV(order);
         orderHistoryObservableList.add(order);
     }
 

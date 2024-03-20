@@ -279,12 +279,12 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
-    public static void setFileInUse() {
+    public static void setErrorAddingOrderToCSV() {
         setIsConfirmedToFalse();
 
         iconImageReference = TRIANGLE_RED_ICON;
-        promptHeaderText = "File In Use";
-        promptContentText = "The process cannot access the file because it is being used by another process. Close other apps using file & retry.";
+        promptHeaderText = "Error Writing Order to local database";
+        promptContentText = "Failed to write the order details to the CSV file. Close other apps using file & retry.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;

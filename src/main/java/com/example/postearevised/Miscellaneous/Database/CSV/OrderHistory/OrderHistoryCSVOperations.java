@@ -95,7 +95,7 @@ public class OrderHistoryCSVOperations {
     }
 
 
-    public static void writeOrderToCSV(Order order) {
+    public static boolean writeOrderToCSV(Order order) {
         try (FileWriter writer = new FileWriter(ORDER_HISTORY_CSV_FILE_PATH, true)) {
             StringBuilder sb = new StringBuilder();
             sb.append(order.getCustomerName()).append(",");
@@ -134,10 +134,11 @@ public class OrderHistoryCSVOperations {
 
             writer.write(sb.toString());
             System.out.println("Order added to CSV file: " + ORDER_HISTORY_CSV_FILE_PATH);
+            return true;
         } catch (IOException e) {
-            e.printStackTrace();
-            setFileInUse();
+             setErrorAddingOrderToCSV();
             openPrompt();
+            return false;
         }
     }
 
