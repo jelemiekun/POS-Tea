@@ -32,6 +32,7 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class LoginRegisterForgotPassController implements Initializable {
@@ -236,6 +237,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
     }

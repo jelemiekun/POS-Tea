@@ -162,6 +162,7 @@ public class MainModel {
 
         newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
         return isConfirmed;

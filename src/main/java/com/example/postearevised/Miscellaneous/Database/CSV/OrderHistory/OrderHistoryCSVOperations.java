@@ -4,13 +4,22 @@ import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryCSVOperations {
@@ -33,6 +42,8 @@ public class OrderHistoryCSVOperations {
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
+            setErrorCreatingCSVFile();
+            openPrompt();
         }
     }
 
@@ -75,6 +86,8 @@ public class OrderHistoryCSVOperations {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            setErrorReadingOrderHistoryFromCSV();
+            openPrompt();
         }
 
         // Add imported history
@@ -123,10 +136,28 @@ public class OrderHistoryCSVOperations {
             System.out.println("Order added to CSV file: " + ORDER_HISTORY_CSV_FILE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
+            setFileInUse();
+            openPrompt();
         }
     }
 
+    private static void openPrompt() {
+        FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Stage newStage = new Stage();
 
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainStage.getScene().getWindow());
 
-
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+    }
 }

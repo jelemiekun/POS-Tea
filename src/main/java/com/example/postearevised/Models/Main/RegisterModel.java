@@ -16,6 +16,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class RegisterModel {
@@ -426,6 +427,7 @@ public class RegisterModel {
 
         newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
 
@@ -466,6 +468,7 @@ public class RegisterModel {
 
         newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
         newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
 
