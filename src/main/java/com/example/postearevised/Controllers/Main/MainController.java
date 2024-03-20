@@ -53,6 +53,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        anchorPaneLoading.setVisible(true);
+        
         new Thread(() -> {
             doesProductCSVExist();
             doesOrderHistoryCSVExist();
@@ -85,24 +87,20 @@ public class MainController implements Initializable {
 
             clearAllReferences();
 
-            // Update JavaFX UI elements on the JavaFX Application Thread
             Platform.runLater(() -> {
-                // Hide the loading screen once initialization is complete
-                fadeOutLoading();
-
-                // Additional UI updates or tasks can be performed here
                 menuModel.setCustomerNumber();
                 settingsModel.setVideo();
+
+                fadeOutLoading();
             });
         }).start();
     }
 
     private void fadeOutLoading() {
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(1000), anchorPaneLoading);
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), anchorPaneLoading);
         fadeOut.setFromValue(1.0);
         fadeOut.setToValue(0.0);
         fadeOut.setOnFinished(event -> {
-            // Hide the loading screen once fade-out animation is complete
             anchorPaneLoading.setVisible(false);
         });
         fadeOut.play();
