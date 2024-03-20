@@ -216,6 +216,7 @@ public class OrderListModel {
     }
 
     private void orderContentClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
+        mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ORDER_LIST.getURL()));
 
         Parent root = null;
@@ -241,10 +242,12 @@ public class OrderListModel {
         newStage.showAndWait();
 
         if (orderDone) {
+            mainController.mainModel.hideRectangleModal();
             orderDoneClickedTouched(order, anchorPaneToDelete);
 
             orderDone = false;
         }
+        mainController.mainModel.hideRectangleModal();
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {

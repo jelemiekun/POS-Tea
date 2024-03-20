@@ -236,7 +236,7 @@ public class OrderHistoryModel {
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
         }
 
-        setReverseItem();
+        //setReverseItem();
     }
 
     public void orderHistoryDeleteBin() {
