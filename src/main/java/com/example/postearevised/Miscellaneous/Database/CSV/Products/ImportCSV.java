@@ -47,6 +47,7 @@ public class ImportCSV {
                 String productDescription = fields[1];
                 String productCategory = fields[2];
                 String imagePath = fields[3];
+                System.out.println("Image Path: " + imagePath);
 
                 if (fromImport) {
                     if (repeatCategory) {

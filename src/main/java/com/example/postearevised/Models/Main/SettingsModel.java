@@ -188,7 +188,10 @@ public class SettingsModel {
         mainController.mainModel.showRectangleModal();
         String selected = mainController.importExportComboBox.getValue();
 
-        if (selected.equals(Import.getImportOperation())) {
+        if (selected == null) {
+            mainController.mainModel.hideRectangleModal();
+            mainController.importExportComboBox.setValue("Import/Export CSV");
+        } else if (selected.equals(Import.getImportOperation())) {
             switch (chooseFilePath(mainStage, true)) {
                 // 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
                 case 1:
@@ -210,6 +213,9 @@ public class SettingsModel {
             if (chooseFilePath(mainStage, false) == 4) {
                 mainController.mainModel.openPrompt();
             }
+        } else {
+            mainController.mainModel.hideRectangleModal();
+            mainController.importExportComboBox.setValue("Import/Export CSV");
         }
         mainController.mainModel.hideRectangleModal();
         mainController.importExportComboBox.setValue("Import/Export CSV");
