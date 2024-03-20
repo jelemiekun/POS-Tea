@@ -130,10 +130,7 @@ public class OrderHistoryModel {
             return new SimpleStringProperty(change);
         });
         mainController.tableViewOrderHistoryColModeOfPayment.setCellValueFactory(new PropertyValueFactory<>("modeOfPayment"));
-        mainController.tableViewOrderHistoryColDateAndTime.setCellValueFactory(cellData -> {
-            ObjectProperty<LocalDateTime> property = new SimpleObjectProperty<>(cellData.getValue().getDateAndTime());
-            return property;
-        });
+        mainController.tableViewOrderHistoryColDateAndTime.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDateAndTime()));
 
         mainController.tableViewOrderHistoryColDateAndTime.setCellFactory(column -> {
             return new TableCell<Order, LocalDateTime>() {
@@ -236,7 +233,7 @@ public class OrderHistoryModel {
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
         }
 
-        //setReverseItem();
+        //setReverseItem(); wag to i uncomment, mag w-wierd as fuck
     }
 
     public void orderHistoryDeleteBin() {
