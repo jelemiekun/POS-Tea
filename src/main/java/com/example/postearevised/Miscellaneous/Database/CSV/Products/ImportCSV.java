@@ -69,6 +69,11 @@ public class ImportCSV {
                     }
                 }
 
+                File imageFile = new File(imagePath);
+                if (!imageFile.exists() || imageFile.length() == 0) {
+                    imagePath = "/com/example/postearevised/Product Media/no image/no image.png";
+                }
+
                 Product product = null;
 
                 switch (productCategory) {
