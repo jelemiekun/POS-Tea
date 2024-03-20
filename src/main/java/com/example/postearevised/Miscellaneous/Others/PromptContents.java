@@ -96,7 +96,7 @@ public class PromptContents {
         setIsConfirmedToFalse();
 
         iconImageReference = QUESTION_MARK_ICON;
-        promptHeaderText = "Log-in without staying in??";
+        promptHeaderText = "Log-in without staying in?";
         promptContentText = "If you log in without staying logged in, you may need internet to log in again.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;

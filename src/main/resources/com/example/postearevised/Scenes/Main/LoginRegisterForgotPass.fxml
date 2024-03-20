@@ -93,7 +93,7 @@
                               </ImageView>
                         <AnchorPane layoutY="229.0" prefHeight="76.0" prefWidth="776.0">
                            <children>
-                              <CheckBox fx:id="checkBoxRememberPassword" layoutX="34.0" layoutY="22.0" mnemonicParsing="false" onAction="#loginCheckBoxRememberPasswordAction" text="Stay Logged in">
+                              <CheckBox fx:id="checkBoxRememberPassword" layoutX="34.0" layoutY="22.0" mnemonicParsing="false" onAction="#loginCheckBoxRememberPasswordAction" selected="true" text="Stay Logged in">
                                  <font>
                                     <Font name="Arial Bold" size="24.0" />
                                  </font>

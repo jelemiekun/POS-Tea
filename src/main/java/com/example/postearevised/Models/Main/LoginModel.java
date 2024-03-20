@@ -36,7 +36,9 @@ public class LoginModel {
     public void checkBoxDeselected() throws IOException {
         if (!loginRegisterForgotPassController.checkBoxRememberPassword.isSelected()) {
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
+            loginRegisterForgotPassController.toggleRectangleModal();
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox());
+            loginRegisterForgotPassController.toggleRectangleModal();
         }
     }
 
@@ -154,24 +156,26 @@ public class LoginModel {
      */
 
     public void checkInputsBeforeLogin() throws IOException {
-        disableLimitInput();
-        
-        boolean proceed = checkCredentials();
+        if (loginRegisterForgotPassController.checkConnectivity()) {
+            disableLimitInput();
 
-        if (proceed) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
-            Parent root = loader.load();
-            mainStage = new Stage();
-            mainStage.setTitle(MAIN_ENUM.getTITLE());
-            mainStage.setResizable(false);
-            mainStage.setScene(new Scene(root));
-            setScreenResolution(true, false);
-            mainStage.getIcons().add(SYSTEM_LOGO);
-            mainStage.show();
-            closeThisStage();
+            boolean proceed = checkCredentials();
 
-            doesProductCSVExist();
-            doesOrderHistoryCSVExist();
+            if (proceed) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
+                Parent root = loader.load();
+                mainStage = new Stage();
+                mainStage.setTitle(MAIN_ENUM.getTITLE());
+                mainStage.setResizable(false);
+                mainStage.setScene(new Scene(root));
+                setScreenResolution(true, false);
+                mainStage.getIcons().add(SYSTEM_LOGO);
+                mainStage.show();
+                closeThisStage();
+
+                doesProductCSVExist();
+                doesOrderHistoryCSVExist();
+            }
         }
     }
 
