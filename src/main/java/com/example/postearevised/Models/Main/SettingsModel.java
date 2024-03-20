@@ -291,7 +291,9 @@ public class SettingsModel {
 
     public void editAProduct() throws IOException {
         editOrShowSelectedProduct = getSelectedProduct();
-        openEditProductsFXML();
+
+        if(editOrShowSelectedProduct != null)
+            openEditProductsFXML();
     }
 
     private void openEditProductsFXML() throws IOException {

@@ -197,7 +197,7 @@ public class PromptContents {
     public static void setErrorAddProduct() {
         setIsConfirmedToFalse();
 
-        iconImageReference = CHECK_GREEN_ICON;
+        iconImageReference = EX_RED_ICON;
         promptHeaderText = "Product Adding Error";
         promptContentText = "Failed to add product to the local database.";
         promptBtnLeftVisible = false;

@@ -41,7 +41,6 @@ public class OrderHistoryCSVOperations {
             writer.write("customerName, orderNumber, foodCategories,productName,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
-            e.printStackTrace();
             setErrorCreatingCSVFile();
             openPrompt();
         }
@@ -85,7 +84,6 @@ public class OrderHistoryCSVOperations {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
             setErrorReadingOrderHistoryFromCSV();
             openPrompt();
         }

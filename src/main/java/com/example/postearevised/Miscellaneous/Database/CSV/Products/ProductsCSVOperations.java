@@ -72,7 +72,7 @@ public class ProductsCSVOperations {
                     "appetizerPrice\n");
             System.out.println("Creating products csv file: " + filePath);
         } catch (IOException e) {
-            e.printStackTrace();
+
         }
     }
 
@@ -203,7 +203,6 @@ public class ProductsCSVOperations {
 
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
             return false;
         }
     }
@@ -375,7 +374,6 @@ public class ProductsCSVOperations {
             tempFile.renameTo(inputFile); // Rename temp file to original file name
             return true;
         } catch (IOException e) {
-            e.printStackTrace();
             return false;
         }
     }
