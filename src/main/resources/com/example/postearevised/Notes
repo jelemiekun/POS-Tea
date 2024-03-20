@@ -1,5 +1,15 @@
 ------------------TO DO------------------
 
+kapag naka open yung csv tas nag add ng product, na aadd sya sa categories list pero sa allavailable hindi
+
+connect fxml ng account sa mainController
+
+account settings nilalaman
+
+name sa upper left
+
+pag ayos ng format sa table history
+
 dapat hindi gagana and edit product if naka open ang csv
 
 available sa edit products
@@ -8,7 +18,7 @@ edit products pop up if naka open csv
 
 UPLOAD/REMOVE PHOTO SA APPETIZER
 
-ihanda csv mula sa
+ihanda csv mula sa products
 
 colors ng legends sa dashboard
 
@@ -21,7 +31,6 @@ tapos errorMessage = e.getMessage();
 tapos iinvoke yung pag log ng error sa log file
 
 css files ng 2 table mula kay abella
-
 
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 

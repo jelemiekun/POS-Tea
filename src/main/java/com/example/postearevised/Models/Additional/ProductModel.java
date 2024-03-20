@@ -172,7 +172,7 @@ public class ProductModel {
 
         // Word Counter
         productController.textFieldProductDescription.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.length() > 200) {
+            if (newValue.length() > 200 && !newValue.matches(REGEX_NAME_200_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 productController.textFieldProductDescription.setText(oldValue);
             }
         });
