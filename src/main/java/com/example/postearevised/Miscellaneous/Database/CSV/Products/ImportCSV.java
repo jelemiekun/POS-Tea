@@ -39,7 +39,7 @@ public class ImportCSV {
             reader.readLine(); // Skip header line
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-                if (fields.length < 21) { // Check for invalid file format
+                if (fields.length > 21) { // Check for invalid file format
                     return 2; // Return 2 for invalid file format
                 }
 

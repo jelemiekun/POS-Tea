@@ -31,7 +31,8 @@ public class ProductsCSVOperations {
             } else {
                 System.out.println("CSV products file already exists: " + PRODUCTS_CSV_FILE_PATH);
                 // Import the products that are in csv
-                importProductsFromCSV(PRODUCTS_CSV_FILE_PATH, false);
+                int i = importProductsFromCSV(PRODUCTS_CSV_FILE_PATH, false);
+                System.out.println("line 35: " + i);
             }
         }
 
