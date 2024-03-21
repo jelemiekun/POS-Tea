@@ -31,7 +31,6 @@ import java.util.Collections;
 
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -249,8 +248,7 @@ public class OrderHistoryModel {
         try {
             root = loader.load();
         } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
+            throw new RuntimeException(e);
         }
 
         Stage newStage = new Stage();
