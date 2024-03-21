@@ -110,7 +110,7 @@ public class DashboardModel {
         Map<String, ProductOrder> productTotalQuantities = orderHistoryObservableList.stream()
                 .flatMap(order -> order.getProductOrderObservableList().stream())
                 .collect(Collectors.groupingBy(
-                        productOrder -> productOrder.getProductName() + productOrder.getProductCategory() + productOrder.getImagePath(),
+                        productOrder -> productOrder.getProductName() + productOrder.getProductCategory(),
                         Collectors.collectingAndThen(
                                 Collectors.toList(),
                                 productOrders -> {
