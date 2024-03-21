@@ -107,39 +107,44 @@ public class DashboardModel {
     private void updateReferenceBestSeller() {
         topTenProducts.clear();
 
-        Map<ProductOrder, Long> productOrderCounts = orderHistoryObservableList.stream()
+        Map<String, ProductOrder> productTotalQuantities = orderHistoryObservableList.stream()
                 .flatMap(order -> order.getProductOrderObservableList().stream())
                 .collect(Collectors.groupingBy(
-                        productOrder -> productOrder,
-                        Collectors.summingLong(ProductOrder::getQuantity)
+                        productOrder -> productOrder.getProductName() + productOrder.getProductCategory(),
+                        Collectors.collectingAndThen(
+                                Collectors.toList(),
+                                productOrders -> {
+                                    ProductOrder firstProductOrder = productOrders.get(0);
+                                    int totalQuantity = productOrders.stream().mapToInt(ProductOrder::getQuantity).sum();
+                                    return new ProductOrder(
+                                            firstProductOrder.getProductName(),
+                                            firstProductOrder.getProductCategory(),
+                                            firstProductOrder.getProductImage(),
+                                            firstProductOrder.getImagePath(),
+                                            firstProductOrder.getFirstAttribute(),
+                                            firstProductOrder.getSecondAttribute(),
+                                            firstProductOrder.getThirdAttribute(),
+                                            firstProductOrder.getTotalAmount(),
+                                            totalQuantity
+                                    );
+                                }
+                        )
                 ));
 
-        List<Map.Entry<ProductOrder, Long>> sortedEntries = new ArrayList<>(productOrderCounts.entrySet());
-        sortedEntries.sort((entry1, entry2) -> Long.compare(entry2.getValue(), entry1.getValue()));
-
-        Map<String, ProductOrder> uniqueProductsMap = new HashMap<>();
-        topTenProducts = new ArrayList<>();
-
-        for (Map.Entry<ProductOrder, Long> entry : sortedEntries) {
-            ProductOrder product = entry.getKey();
-            String key = product.getProductName() + product.getProductCategory() + product.getImagePath();
-
-            if (!uniqueProductsMap.containsKey(key)) {
-                uniqueProductsMap.put(key, product);
-                topTenProducts.add(product);
-                if (topTenProducts.size() >= 10) {
-                    break;
-                }
-            }
-        }
+        List<ProductOrder> sortedEntries = productTotalQuantities.values().stream()
+                .sorted(Comparator.comparingInt(ProductOrder::getQuantity).reversed())
+                .limit(10)
+                .toList();
 
         System.out.println("Top 10 best-selling products:");
-        int i = 1;
-        for (ProductOrder product : topTenProducts) {
-            System.out.println(i + ": " + product.getProductName());
-            i++;
+        for (int i = 0; i < sortedEntries.size(); i++) {
+            ProductOrder product = sortedEntries.get(i);
+            System.out.println((i + 1) + ": " + product.getProductName() + " - Total Quantity: " + product.getQuantity() + ": " + product.getImagePath());
+            topTenProducts.add(product);
         }
     }
+
+
 
 
 
@@ -239,6 +244,10 @@ public class DashboardModel {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else if (productOrder.getImagePath().equals("com")) {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().isEmpty()) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().equals("example")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else {
                     File file = new File(productOrder.getImagePath());
                     String fileUrl = null;
@@ -248,7 +257,6 @@ public class DashboardModel {
                         errorMessage = e.getMessage();
                         logError(false);
                     }
-
                     imageView = new ImageView(new Image(fileUrl));
                 }
             } else {
@@ -273,7 +281,7 @@ public class DashboardModel {
             totalOrdersLabel.setLayoutY(74);
             totalOrdersLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
 
-            Label ordersCountLabel = new Label("0");
+            Label ordersCountLabel = new Label(String.valueOf(productOrder.getQuantity()));
             ordersCountLabel.setLayoutX(369);
             ordersCountLabel.setLayoutY(74);
             ordersCountLabel.setPrefWidth(64);

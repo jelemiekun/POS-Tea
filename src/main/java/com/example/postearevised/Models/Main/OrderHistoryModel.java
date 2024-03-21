@@ -77,7 +77,7 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 categories.append(productOrder.getProductCategory());
                 if (i < productOrders.size() - 1) {
-                    categories.append(", ");
+                    categories.append("\n");
                 }
             }
             return new SimpleStringProperty(categories.toString());
@@ -89,7 +89,7 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 names.append(productOrder.getProductName());
                 if (i < productOrders.size() - 1) {
-                    names.append(", ");
+                    names.append("\n");
                 }
             }
             return new SimpleStringProperty(names.toString());
@@ -101,7 +101,7 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 quantities.append(productOrder.getQuantity()).append("x");
                 if (i < productOrders.size() - 1) {
-                    quantities.append(", ");
+                    quantities.append("\n");
                 }
             }
             return new SimpleStringProperty(quantities.toString());
@@ -113,7 +113,7 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 prices.append("₱ ").append(productOrder.getTotalAmount());
                 if (i < productOrders.size() - 1) {
-                    prices.append(", ");
+                    prices.append("\n");
                 }
             }
             return new SimpleStringProperty(prices.toString());

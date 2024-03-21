@@ -33,6 +33,8 @@ public class Product {
                 this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
             } else if (imagePath.startsWith("/com/example/postearevised")) {
                 this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+            } else if (imagePath.equals("example")) {
+                this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
             } else {
                 String imageUrl = new File(this.imagePath).toURI().toString();
                 this.image = new Image(imageUrl);
@@ -48,10 +50,6 @@ public class Product {
         } else {
             // prommpt can't add product, no category
         }
-    }
-
-    public Product copy() {
-        return new Product(this.getProductName(), this.getProductDescription(), this.getImagePath(), this.getCategory());
     }
 
 
@@ -105,10 +103,13 @@ public class Product {
     }
 
     public void setImagePath(String imagePath) {
-        this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
         if (imagePath.isEmpty()) {
             this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
         } else if (imagePath.equals("/com/example/postearevised/Product Media/no image/no image.png")) {
+            this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+        } else if (imagePath.startsWith("/com/example/postearevised")) {
+            this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
+        } else if (imagePath.equals("example")) {
             this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
         } else {
             String imageUrl = new File(this.imagePath).toURI().toString();
