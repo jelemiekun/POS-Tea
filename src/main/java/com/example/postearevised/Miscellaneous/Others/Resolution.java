@@ -38,17 +38,6 @@ public class Resolution {
         setScreenResolution(screenWidth, screenHeight);
     }
 
-    static {
-        try {
-            // Run the command to restart Windows Explorer
-            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "start explorer.exe");
-            builder.redirectErrorStream(true);
-            builder.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private static void setScreenResolution(int screenWidth, int screenHeight) {
         screenResolution[0] = screenWidth;
         screenResolution[1] = screenHeight;

@@ -50,6 +50,11 @@ public class Product {
         }
     }
 
+    public Product copy() {
+        return new Product(this.getProductName(), this.getProductDescription(), this.getImagePath(), this.getCategory());
+    }
+
+
     public void setImage(Image image) {
         this.image = image;
     }

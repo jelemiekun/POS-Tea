@@ -214,7 +214,7 @@ public class PromptContents {
     public static void setErrorEditProduct() {
         setIsConfirmedToFalse();
 
-        iconImageReference = CHECK_GREEN_ICON;
+        iconImageReference = EX_RED_ICON;
         promptHeaderText = "Product Editing Error";
         promptContentText = "Failed to update edited product to the local database.";
         promptBtnLeftVisible = false;
