@@ -1,7 +1,5 @@
 ------------------TO DO------------------
 
-if naka file chooser, tapos na exit yung parent modal, maeexit din yung file chooser
-
 dapat di gumagana editProduct if naka open csv
 
 idadag receipt, update resibo content
@@ -225,3 +223,5 @@ gawing try-catch lahat ng throws
 tapos errorMessage = e.getMessage();
 
 tapos iinvoke yung pag log ng error sa log file
+
+if naka file chooser, tapos na exit yung parent modal, maeexit din yung file chooser

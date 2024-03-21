@@ -510,7 +510,7 @@ public class ProductModel {
 
 
     private void addProductToOrderOrEditProductOrder(boolean isAddOrder) {
-        String orderTitle = editOrShowSelectedProduct.getProductName();
+        String orderName = editOrShowSelectedProduct.getProductName();
         String orderCategory = editOrShowSelectedProduct.getCategory();
         String orderImagePath = editOrShowSelectedProduct.getImagePath();
         Image orderImage = editOrShowSelectedProduct.getImage();
@@ -602,7 +602,10 @@ public class ProductModel {
         }
 
         if (isAddOrder) {
-            referenceProductOrder = new ProductOrder(orderTitle, orderCategory, orderImage, orderImagePath ,firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
+            if (orderName.isEmpty())
+                orderName = ".";
+
+            referenceProductOrder = new ProductOrder(orderName, orderCategory, orderImage, orderImagePath ,firstAttribute, secondAttribute, thirdAttribute, (int) totalAmount, 1);
         } else {
 
         }
