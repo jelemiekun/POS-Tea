@@ -110,7 +110,7 @@ public class DashboardModel {
         Map<String, ProductOrder> productTotalQuantities = orderHistoryObservableList.stream()
                 .flatMap(order -> order.getProductOrderObservableList().stream())
                 .collect(Collectors.groupingBy(
-                        productOrder -> productOrder.getProductName() + productOrder.getProductCategory(),
+                        productOrder -> productOrder.getProductName() + productOrder.getProductCategory() + productOrder.getImagePath(),
                         Collectors.collectingAndThen(
                                 Collectors.toList(),
                                 productOrders -> {
@@ -247,6 +247,12 @@ public class DashboardModel {
                 } else if (productOrder.getImagePath().isEmpty()) {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else if (productOrder.getImagePath().equals("example")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().isBlank()) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().contains("no image")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (productOrder.getImagePath().contains("Product Media")) {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else {
                     File file = new File(productOrder.getImagePath());

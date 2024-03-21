@@ -14,11 +14,15 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 
 public class ReceiptGenerator {
     public static void generateReceipt(Order order) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
+
+        // Format the date and time according to the desired format
+        String formattedDateTime = order.getDateAndTime().format(formatter);
 
         // Prepare the receipt content
         StringBuilder receiptContentBuilder = new StringBuilder();
         receiptContentBuilder.append("Customer: ").append(order.getCustomerName()).append("\n");
-        receiptContentBuilder.append("Date and Time: ").append(order.getDateAndTime()).append("\n\n");
+        receiptContentBuilder.append("Date and Time: ").append(formattedDateTime).append("\n\n");
         receiptContentBuilder.append("Products:\n");
 
         List<ProductOrder> productOrders = order.getProductOrderObservableList();
