@@ -30,6 +30,7 @@ import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddingOrderToCSV;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setOrderSuccessful;
+import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -284,6 +285,7 @@ public class OrderListModel {
 
     private void addOrderToOrderHistory(Order order) {
         orderHistoryObservableList.add(order);
+        generateReceipt(order);
         mainController.orderHistoryModel.refreshOrderHistory();
     }
 
