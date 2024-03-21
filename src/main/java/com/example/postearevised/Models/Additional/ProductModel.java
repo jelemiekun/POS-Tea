@@ -898,7 +898,7 @@ public class ProductModel {
         }
 
         // dapat hindi gagana if naka open ang csv
-        if (editProductInCSV(editOrShowSelectedProduct,toUpdateProduct)) {
+        if (editProductInCSV(oldProduct ,toUpdateProduct)) {
             editOrShowSelectedProduct.setProductName(referenceProductName);
             editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
             editOrShowSelectedProduct.setImagePath(referenceImagePath);

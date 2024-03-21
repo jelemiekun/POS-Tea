@@ -62,6 +62,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         forgotPassModel.setLoginRegisterController(this);
 
         setLoginAccountAndPasswordNoSpaceInputLimitListener();
+
+        checkBoxRememberPassword.setSelected(true);
     }
 
     public void switchPane(int paneNumber) {
@@ -1017,8 +1019,6 @@ public class LoginRegisterForgotPassController implements Initializable {
                 forgotPassModel.checkPane2Input();
         }
     }
-
-
 
 
     /**

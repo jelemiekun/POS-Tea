@@ -207,7 +207,7 @@ public class ProductsCSVOperations {
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();
-            logError(true);
+            logError(false);
             return false;
         }
     }

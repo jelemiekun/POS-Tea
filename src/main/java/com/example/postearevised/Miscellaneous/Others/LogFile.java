@@ -52,10 +52,9 @@ public class LogFile {
             // Inform the user
             System.out.println("Error written to notepad successfully!");
 
-            if (openError) {
-                // Open the notepad
+            // Open the note pad
+            if (openError)
                 Desktop.getDesktop().open(new File(ERROR_LOG_PATH));
-            }
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
@@ -72,7 +71,6 @@ public class LogFile {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-            throw new RuntimeException(e);
         }
         Stage newStage = new Stage();
 
