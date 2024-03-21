@@ -718,7 +718,7 @@ public class MenuModel {
     }
 
     private void setAttributes() {
-        referenceOrderNumber = orderHistoryObservableList.size() + 1;
+        referenceOrderNumber = Integer.parseInt(mainController.labelCustomerNumber.getText());
     }
 
     private boolean checkCustomerName() {

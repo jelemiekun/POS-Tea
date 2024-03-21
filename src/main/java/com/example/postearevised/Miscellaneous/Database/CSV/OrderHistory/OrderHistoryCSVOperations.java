@@ -70,10 +70,15 @@ public class OrderHistoryCSVOperations {
                     String[] imagePaths = parts[11].split("/");
 
                     // Assuming all arrays have the same length
-                    for (int i = 0; i < categories.length; i++) {
-                        // Assuming you have a constructor for ProductOrder that takes necessary arguments
-                        ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], "", "", "", Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
-                        productOrders.add(productOrder);
+                    try {
+                        for (int i = 0; i < categories.length; i++) {
+                            // Assuming you have a constructor for ProductOrder that takes necessary arguments
+                            ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], "", "", "", Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
+                            productOrders.add(productOrder);
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        errorMessage = e.getMessage();
+                        logError(false);
                     }
 
                     double totalPrice = Double.parseDouble(parts[6]);
