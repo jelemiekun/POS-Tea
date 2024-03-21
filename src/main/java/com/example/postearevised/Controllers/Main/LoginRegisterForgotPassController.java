@@ -30,7 +30,7 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
-import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.Internet.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;

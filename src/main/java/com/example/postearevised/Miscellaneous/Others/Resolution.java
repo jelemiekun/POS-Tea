@@ -1,29 +1,11 @@
 package com.example.postearevised.Miscellaneous.Others;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.awt.*;
+import java.io.IOException;
 
-import java.awt.Dimension;
-import java.awt.GraphicsEnvironment;
-import java.awt.Rectangle;
-
-import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
-
-public class InternetAndResolution {
-    public static boolean isInternetRequired = false;
-    public static boolean isInternetAvailable() {
-        try {
-            InetAddress address = InetAddress.getByName("www.google.com");
-            return !address.equals("");
-        } catch (UnknownHostException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-            return false;
-        }
-    }
-
+public class Resolution {
     public static void setScreenResolution(boolean isMain, boolean isLogout) {
         isTaskBarHidden();
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
@@ -48,15 +30,27 @@ public class InternetAndResolution {
 
         // Check if taskbar is Hidden
         boolean taskbarHidden = (screenSize.width != bounds.width || screenSize.height != bounds.height);
+        taskbarHidden = !taskbarHidden;
 
         // Prints if taskbar is hidden
-        System.out.println(taskbarHidden);
+        System.out.println("Is taskbar hidden? " + taskbarHidden);
 
         setScreenResolution(screenWidth, screenHeight);
     }
 
+    static {
+        try {
+            // Run the command to restart Windows Explorer
+            ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "start explorer.exe");
+            builder.redirectErrorStream(true);
+            builder.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void setScreenResolution(int screenWidth, int screenHeight) {
-       screenResolution[0] = screenWidth;
-       screenResolution[1] = screenHeight;
+        screenResolution[0] = screenWidth;
+        screenResolution[1] = screenHeight;
     }
 }
