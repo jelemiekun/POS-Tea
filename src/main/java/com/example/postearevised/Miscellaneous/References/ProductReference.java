@@ -42,9 +42,9 @@ public class ProductReference {
     public static double referenceMilkTeaSmallPrice = 0.0;
     public static double referenceMilkTeaMediumPrice = 0.0;
     public static double referenceMilkTeaLargePrice = 0.0;
-    public static String referenceMilkTeaAddOnsOne = "";
+    public static String referenceMilkTeaAddOnsOneName = "";
     public static double referenceMilkTeaAddOnsOnePrice = 0.0;
-    public static String referenceMilkTeaAddOnsTwo = "";
+    public static String referenceMilkTeaAddOnsTwoName = "";
     public static double referenceMilkTeaAddOnsTwoPrice = 0.0;
 
     /**
@@ -82,9 +82,9 @@ public class ProductReference {
         referenceMilkTeaSmallPrice = 0.0;
         referenceMilkTeaMediumPrice = 0.0;
         referenceMilkTeaLargePrice = 0.0;
-        referenceMilkTeaAddOnsOne = "";
+        referenceMilkTeaAddOnsOneName = "";
         referenceMilkTeaAddOnsOnePrice = 0.0;
-        referenceMilkTeaAddOnsTwo = "";
+        referenceMilkTeaAddOnsTwoName = "";
         referenceMilkTeaAddOnsTwoPrice = 0.0;
 
         referenceCoolersSmallPrice = 0.0;
@@ -121,9 +121,9 @@ public class ProductReference {
         referenceMilkTeaSmallPrice = 0.0;
         referenceMilkTeaMediumPrice = 0.0;
         referenceMilkTeaLargePrice = 0.0;
-        referenceMilkTeaAddOnsOne = "";
+        referenceMilkTeaAddOnsOneName = "";
         referenceMilkTeaAddOnsOnePrice = 0.0;
-        referenceMilkTeaAddOnsTwo = "";
+        referenceMilkTeaAddOnsTwoName = "";
         referenceMilkTeaAddOnsTwoPrice = 0.0;
 
         referenceCoolersSmallPrice = 0.0;

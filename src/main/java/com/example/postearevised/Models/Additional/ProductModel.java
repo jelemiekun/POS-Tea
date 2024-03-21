@@ -620,9 +620,9 @@ public class ProductModel {
                 referenceMilkTeaSmallPrice = productController.milkTeaTextFieldSmallPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldSmallPrice.getText());
                 referenceMilkTeaMediumPrice = productController.milkTeaTextFieldMediumPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldMediumPrice.getText());
                 referenceMilkTeaLargePrice = productController.milkTeaTextFieldLargePrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldLargePrice.getText());
-                referenceMilkTeaAddOnsOne = productController.milkTeaTextFieldAddOnsOneName.getText();
+                referenceMilkTeaAddOnsOneName = productController.milkTeaTextFieldAddOnsOneName.getText();
                 referenceMilkTeaAddOnsOnePrice = productController.milkTeaTextFieldAddOnsPriceOne.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceOne.getText());
-                referenceMilkTeaAddOnsTwo = productController.milkTeaTextFieldAddOnsTwoName.getText();
+                referenceMilkTeaAddOnsTwoName = productController.milkTeaTextFieldAddOnsTwoName.getText();
                 referenceMilkTeaAddOnsTwoPrice = productController.milkTeaTextFieldAddOnsPriceTwo.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceTwo.getText());
                 break;
             case "Coolers":
@@ -654,8 +654,8 @@ public class ProductModel {
             case "Milk Tea":
                 product = new MilkTea(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
                         referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
-                        referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
-                        referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
+                        referenceMilkTeaAddOnsOneName, referenceMilkTeaAddOnsOnePrice,
+                        referenceMilkTeaAddOnsTwoName, referenceMilkTeaAddOnsTwoPrice);
                 break;
             case "Coolers":
                 product = new Coolers(referenceProductName, referenceProductDescription, referenceImagePath, referenceCategory,
@@ -864,8 +864,8 @@ public class ProductModel {
             toUpdateProduct = new MilkTea(editSelectedMilkTea.getProductName(), editSelectedMilkTea.getProductDescription(),
                     editSelectedMilkTea.getImagePath(), editSelectedMilkTea.getCategory(),
                     referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
-                    referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
-                    referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
+                    referenceMilkTeaAddOnsOneName, referenceMilkTeaAddOnsOnePrice,
+                    referenceMilkTeaAddOnsTwoName, referenceMilkTeaAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
             oldProduct = new Coolers(editSelectedCoolers.getProductName(), editSelectedCoolers.getProductDescription(),
                     editSelectedCoolers.getImagePath(), editSelectedCoolers.getCategory(),
@@ -914,9 +914,9 @@ public class ProductModel {
                 editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
                 editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
                 editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
-                editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOne);
+                editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOneName);
                 editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
-                editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwo);
+                editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwoName);
                 editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
             } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
                 editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
