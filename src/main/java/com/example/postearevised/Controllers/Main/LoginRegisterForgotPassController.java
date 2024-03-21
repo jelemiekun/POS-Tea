@@ -27,14 +27,14 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
-import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class LoginRegisterForgotPassController implements Initializable {

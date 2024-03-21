@@ -22,8 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;

@@ -21,8 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 

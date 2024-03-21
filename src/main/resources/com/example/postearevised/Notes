@@ -4,11 +4,7 @@ dapat di gumagana editProduct if naka open csv
 
 idadag receipt, update resibo content
 
-palitan referenceMilkTeaAddOnsOne to referenceMilkTeaAddOnsOneName at referenceMilkTeaAddOnsTwo to referenceMilkTeaAddOnsTwoName
-
 name sa upper left
-
-dapat hindi gagana and edit product if naka open ang csv
 
 connect fxml ng account sa mainController
 
@@ -22,17 +18,9 @@ ayusin ui ng account settings
 
 UPLOAD/REMOVE PHOTO SA APPETIZER
 
-ihanda csv mula sa products
-
 colors ng legends sa dashboard
 
 gawing * lahat ng static import
-
-gawing try-catch lahat ng throws
-
-tapos errorMessage = e.getMessage();
-
-tapos iinvoke yung pag log ng error sa log file
 
 css files ng 2 table mula kay abella
 
@@ -227,3 +215,11 @@ nawawala yung I sa tooltip
 AYAW GUMANA DELETE PRODUCTS HAHA,.
 
 kapag naka open yung csv tas nag add ng product, na aadd sya sa categories list pero sa allavailable hindi
+
+palitan referenceMilkTeaAddOnsOne to referenceMilkTeaAddOnsOneName at referenceMilkTeaAddOnsTwo to referenceMilkTeaAddOnsTwoName
+
+gawing try-catch lahat ng throws
+
+tapos errorMessage = e.getMessage();
+
+tapos iinvoke yung pag log ng error sa log file

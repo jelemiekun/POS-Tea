@@ -25,8 +25,7 @@ import java.nio.file.StandardCopyOption;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -208,12 +207,7 @@ public class ProductModel {
                     } else {
                         System.out.println("Error edit product");
                         setErrorEditProduct();
-                        try {
-                            openPrompt();
-                        } catch (IOException e) {
-                            errorMessage = e.getMessage();
-                            logError(false);
-                        }
+                        openPrompt();
                     }
                 }
             }
@@ -711,12 +705,7 @@ public class ProductModel {
 
             } else {
                 setErrorAddProduct();
-                try {
-                    openPrompt();
-                } catch (IOException e) {
-                    errorMessage = e.getMessage();
-                    logError(false);
-                }
+                openPrompt();
             }
         }
         return false;

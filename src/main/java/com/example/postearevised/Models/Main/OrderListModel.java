@@ -27,8 +27,7 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddingOrderToCSV;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setOrderSuccessful;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;

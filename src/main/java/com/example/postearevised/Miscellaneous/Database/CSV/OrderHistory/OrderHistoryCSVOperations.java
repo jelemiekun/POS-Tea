@@ -16,8 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;

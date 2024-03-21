@@ -7,8 +7,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 
