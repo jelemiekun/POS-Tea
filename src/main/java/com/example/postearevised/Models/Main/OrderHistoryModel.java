@@ -50,6 +50,11 @@ public class OrderHistoryModel {
     }
 
     public void setOrderHistory() {
+        mainController.tableViewOrderHistory.refresh();
+        mainController.tableViewOrderHistory.getSortOrder().clear();
+        mainController.tableViewOrderHistory.getSortOrder().add(mainController.tableViewOrderHistoryColDateAndTime);
+        mainController.tableViewOrderHistoryColDateAndTime.setSortType(TableColumn.SortType.DESCENDING);
+        mainController.tableViewOrderHistory.refresh();
         setComboBox(false);
         mainController.anchorPaneOrderHistory.requestFocus();
         refreshOrderHistoryTable();
