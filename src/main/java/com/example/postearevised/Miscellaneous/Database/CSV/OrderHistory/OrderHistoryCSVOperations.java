@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -41,6 +43,8 @@ public class OrderHistoryCSVOperations {
             writer.write("customerName, orderNumber, foodCategories,productName,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             setErrorCreatingCSVFile();
             openPrompt();
         }
@@ -84,6 +88,8 @@ public class OrderHistoryCSVOperations {
                 }
             }
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             setErrorReadingOrderHistoryFromCSV();
             openPrompt();
         }
@@ -134,6 +140,8 @@ public class OrderHistoryCSVOperations {
             System.out.println("Order added to CSV file: " + ORDER_HISTORY_CSV_FILE_PATH);
             return true;
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return false;
         }
     }
@@ -144,7 +152,8 @@ public class OrderHistoryCSVOperations {
         try {
             root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            errorMessage = e.getMessage();
+            logError(false);
         }
         Stage newStage = new Stage();
 

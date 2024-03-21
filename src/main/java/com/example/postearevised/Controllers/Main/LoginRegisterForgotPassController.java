@@ -30,6 +30,8 @@ import java.util.ResourceBundle;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
@@ -203,7 +205,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         setForgotPassAccountAndPasswordNoSpaceInputLimitListener();
     }
 
-    public boolean checkConnectivity() throws IOException {
+    public boolean checkConnectivity() {
         boolean proceed;
 
         if (isInternetRequired) {
@@ -220,16 +222,22 @@ public class LoginRegisterForgotPassController implements Initializable {
         return proceed;
     }
 
-    public void noInternet() throws IOException{
+    public void noInternet() {
         toggleRectangleModal();
         openPromptInternetRequired();
         toggleRectangleModal();
     }
 
-    private void openPromptInternetRequired() throws IOException {
+    private void openPromptInternetRequired() {
         setInternetRequired();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -321,13 +329,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void loginBtnForgotPasswordClicked() throws IOException {
+    void loginBtnForgotPasswordClicked() {
         if (checkConnectivity())
             switchPane(ForgotPassword.getPaneNumber());
     }
 
     @FXML
-    void loginBtnForgotPasswordTouched() throws IOException {
+    void loginBtnForgotPasswordTouched() {
         if (checkConnectivity())
             switchPane(ForgotPassword.getPaneNumber());
     }
@@ -343,17 +351,17 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnLoginClicked() throws IOException {
+    void btnLoginClicked() {
         loginModel.checkInputsBeforeLogin();
     }
 
     @FXML
-    void btnLoginTouched() throws IOException {
+    void btnLoginTouched() {
         loginModel.checkInputsBeforeLogin();
     }
 
     @FXML
-    void loginTextFieldAccountPressedEnter(KeyEvent event) throws IOException {
+    void loginTextFieldAccountPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             loginModel.checkInputsBeforeLogin();
         } else {
@@ -363,7 +371,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void loginTextFieldPasswordPressedEnter(KeyEvent event) throws IOException {
+    void loginTextFieldPasswordPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             loginModel.checkInputsBeforeLogin();
         else
@@ -371,13 +379,13 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnRegisterFromLoginClicked() throws IOException {
+    void btnRegisterFromLoginClicked() {
         if (checkConnectivity())
             switchPane(Register.getPaneNumber());
     }
 
     @FXML
-    void btnRegisterFromLoginTouched() throws IOException {
+    void btnRegisterFromLoginTouched() {
         if (checkConnectivity())
             switchPane(Register.getPaneNumber());
     }
@@ -396,14 +404,14 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    public void btnLoginPressedEnter(KeyEvent event) throws IOException {
+    public void btnLoginPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             loginModel.checkInputsBeforeLogin();
         }
     }
 
     @FXML
-    public void labelRegisterHerePressedEnter(KeyEvent event) throws IOException {
+    public void labelRegisterHerePressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 switchPane(Register.getPaneNumber());
@@ -411,7 +419,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    public void labelForgotPasswordPressedEnter(KeyEvent event) throws IOException {
+    public void labelForgotPasswordPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 switchPane(ForgotPassword.getPaneNumber());
@@ -419,7 +427,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void loginCheckBoxRememberPasswordAction() throws IOException {
+    void loginCheckBoxRememberPasswordAction() {
         loginModel.checkBoxDeselected();
     }
 
@@ -512,29 +520,29 @@ public class LoginRegisterForgotPassController implements Initializable {
     };
 
     @FXML
-    void registerBtnCloseClicked() throws IOException {
+    void registerBtnCloseClicked() {
         registerModel.close();
     }
 
     @FXML
-    void btnCloseTouched() throws IOException {
+    void btnCloseTouched() {
         registerModel.close();
     }
 
     @FXML
-    void btnRegisterOnRegisterPaneClicked() throws IOException {
+    void btnRegisterOnRegisterPaneClicked() {
         if (checkConnectivity())
             registerModel.registerAction();
     }
 
     @FXML
-    void btnRegisterOnRegisterPaneTouched() throws IOException {
+    void btnRegisterOnRegisterPaneTouched() {
         if (checkConnectivity())
             registerModel.registerAction();
     }
 
     @FXML
-    void registerTextFieldTyping(KeyEvent event) throws IOException {
+    void registerTextFieldTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -543,7 +551,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldNameTyping(KeyEvent event) throws IOException {
+    void textFieldNameTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -553,7 +561,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void registerTextFieldPasswordTyping(KeyEvent event) throws IOException{
+    void registerTextFieldPasswordTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -679,7 +687,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldEmailOrPhoneNumberTyping(KeyEvent event) throws IOException {
+    void textFieldEmailOrPhoneNumberTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             registerModel.registerAction();
         } else {
@@ -711,7 +719,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    public void btnRegisterOnRegisterPanePressedEnter(KeyEvent event) throws IOException {
+    public void btnRegisterOnRegisterPanePressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 registerModel.registerAction();
@@ -902,23 +910,23 @@ public class LoginRegisterForgotPassController implements Initializable {
      * Forgot password - Pane 1
      */
     @FXML
-    void btnCloseForgotPass1Clicked() throws IOException {
+    void btnCloseForgotPass1Clicked() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnCloseForgotPass1Touched() throws IOException {
+    void btnCloseForgotPass1Touched() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnForgotPass1ProceedClicked() throws IOException {
+    void btnForgotPass1ProceedClicked() {
         if (checkConnectivity())
             forgotPassModel.checkPane1Input();
     }
 
     @FXML
-    void btnForgotPass1ProceedTouched() throws IOException {
+    void btnForgotPass1ProceedTouched() {
         if (checkConnectivity())
             forgotPassModel.checkPane1Input();
     }
@@ -934,7 +942,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnForgotPass1ProceedPressedEnter(KeyEvent event) throws IOException{
+    void btnForgotPass1ProceedPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 forgotPassModel.checkPane1Input();
@@ -947,23 +955,23 @@ public class LoginRegisterForgotPassController implements Initializable {
      */
 
     @FXML
-    void btnCloseForgotPass2Clicked() throws IOException {
+    void btnCloseForgotPass2Clicked() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnCloseForgotPass2Touched() throws IOException {
+    void btnCloseForgotPass2Touched() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnForgotPass2ProceedClicked() throws IOException {
+    void btnForgotPass2ProceedClicked() {
         if (checkConnectivity())
             forgotPassModel.checkPane2Input();
     }
 
     @FXML
-    void btnForgotPass2ProceedTouched() throws IOException {
+    void btnForgotPass2ProceedTouched() {
         if (checkConnectivity())
             forgotPassModel.checkPane2Input();
     }
@@ -977,7 +985,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void ForgotBtnResendOTPClicked() throws IOException {
+    void ForgotBtnResendOTPClicked() {
         if (functionalOTP) {
             if (checkConnectivity())
                 forgotPassModel.countDownResendOTP();
@@ -985,7 +993,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void ForgotBtnResendOTPTouched() throws IOException {
+    void ForgotBtnResendOTPTouched() {
         if (functionalOTP) {
             if (checkConnectivity())
                 forgotPassModel.countDownResendOTP();
@@ -993,7 +1001,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void ForgotBtnResendOTPPressedEnter(KeyEvent event) throws IOException {
+    void ForgotBtnResendOTPPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (functionalOTP) {
                 if (checkConnectivity())
@@ -1003,7 +1011,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnForgotPass2ProceedPressedEnter(KeyEvent event) throws IOException {
+    void btnForgotPass2ProceedPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 forgotPassModel.checkPane2Input();
@@ -1018,29 +1026,29 @@ public class LoginRegisterForgotPassController implements Initializable {
      */
 
     @FXML
-    void btnCloseForgotPass3Clicked() throws IOException {
+    void btnCloseForgotPass3Clicked() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnCloseForgotPass3Touched() throws IOException {
+    void btnCloseForgotPass3Touched() {
         forgotPassModel.checkIfProgressStartedBeforeGoBack();
     }
 
     @FXML
-    void btnForgotPass3ProceedClicked() throws IOException {
+    void btnForgotPass3ProceedClicked() {
         if (checkConnectivity())
             forgotPassModel.checkPane3Input();
     }
 
     @FXML
-    void btnForgotPass3ProceedTouched() throws IOException {
+    void btnForgotPass3ProceedTouched() {
         if (checkConnectivity())
             forgotPassModel.checkPane3Input();
     }
 
     @FXML
-    void textFieldForgotPass3PressedEnter(KeyEvent event) throws IOException {
+    void textFieldForgotPass3PressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             forgotPassModel.checkPane3Input();
         } else {
@@ -1110,7 +1118,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void btnForgotPass3ProceedPressedEnter(KeyEvent event) throws IOException {
+    void btnForgotPass3ProceedPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (checkConnectivity())
                 forgotPassModel.checkPane3Input();

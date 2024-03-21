@@ -25,6 +25,8 @@ import java.nio.file.StandardCopyOption;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -209,7 +211,8 @@ public class ProductModel {
                         try {
                             openPrompt();
                         } catch (IOException e) {
-                            throw new RuntimeException(e);
+                            errorMessage = e.getMessage();
+                            logError(false);
                         }
                     }
                 }
@@ -711,7 +714,8 @@ public class ProductModel {
                 try {
                     openPrompt();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    errorMessage = e.getMessage();
+                    logError(false);
                 }
             }
         }
@@ -1215,9 +1219,15 @@ public class ProductModel {
         }
     }
 
-    public boolean openPrompt() throws IOException {
+    public boolean openPrompt() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);

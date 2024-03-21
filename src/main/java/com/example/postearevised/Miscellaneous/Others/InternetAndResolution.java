@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.GraphicsEnvironment;
 import java.awt.Rectangle;
 
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 
@@ -17,6 +19,8 @@ public class InternetAndResolution {
             InetAddress address = InetAddress.getByName("www.google.com");
             return !address.equals("");
         } catch (UnknownHostException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return false;
         }
     }

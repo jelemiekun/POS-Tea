@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
@@ -102,10 +104,16 @@ public class DeleteHistoryModel {
         setDeleteVisible();
     }
 
-    public boolean openPrompt() throws IOException {
+    public boolean openPrompt() {
         setDeleteRecord();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);

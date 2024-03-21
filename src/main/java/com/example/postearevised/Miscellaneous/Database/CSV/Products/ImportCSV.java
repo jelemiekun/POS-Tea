@@ -130,6 +130,7 @@ public class ImportCSV {
             }
         } catch (IOException | NumberFormatException e) {
             errorMessage = e.getMessage();
+            logError(false);
             return 3; // Return 3 for other exceptions
         }
 
@@ -203,7 +204,8 @@ public class ImportCSV {
         try {
             root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            errorMessage = e.getMessage();
+            logError(false);
         }
         Stage newStage = new Stage();
 

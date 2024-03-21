@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
@@ -42,16 +43,12 @@ public class MainModel {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                try {
-                    openSelectedPane(MENU_ENUM.getPaneNumber());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                openSelectedPane(MENU_ENUM.getPaneNumber());
             }
         });
     }
 
-    public void openSelectedPane(int selectedPane) throws IOException {
+    public void openSelectedPane(int selectedPane) {
         boolean logout = false;
 
         switch (selectedPane) {
@@ -161,10 +158,16 @@ public class MainModel {
     }
 
 
-    public boolean openPrompt() throws IOException {
+    public boolean openPrompt() {
         showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -179,9 +182,14 @@ public class MainModel {
         return isConfirmed;
     }
 
-    private void logout() throws IOException {
+    private void logout() {
         mainController.loader = new FXMLLoader(getClass().getResource(LOGIN_ENUM.getURL()));
-        mainController.root = mainController.loader.load();
+        try {
+            mainController.root = mainController.loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         mainController.newStage = new Stage();
         loginFromMainSceneStage = mainController.newStage;
         mainController.newStage.setTitle(LOGIN_ENUM.getTITLE());

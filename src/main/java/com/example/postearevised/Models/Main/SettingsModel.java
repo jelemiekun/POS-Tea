@@ -184,7 +184,7 @@ public class SettingsModel {
         mainController.importExportComboBox.setValue("Import/Export CSV");
     }
 
-    public void comboBoxValueSelected() throws IOException {
+    public void comboBoxValueSelected() {
         mainController.mainModel.showRectangleModal();
         String selected = mainController.importExportComboBox.getValue();
 
@@ -205,7 +205,7 @@ public class SettingsModel {
                 case 3:
                     setImportOtherError();
                     mainController.mainModel.openPrompt();
-                    logError(true);
+                    logError(false);
                     break;
             }
         } else if (selected.equals(Export.getImportOperation())){
@@ -248,10 +248,16 @@ public class SettingsModel {
         mainController.tableProductsColAvailable.setReorderable(false);
     }
 
-    public void openAddProductsFXML() throws IOException {
+    public void openAddProductsFXML() {
         mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
         newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
@@ -286,6 +292,8 @@ public class SettingsModel {
                 Files.delete(photoPath);
                 System.out.println("Photo deleted successfully!");
             } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
                 System.out.println("Failed to delete the photo: " + e.getMessage());
             }
         }
@@ -295,17 +303,23 @@ public class SettingsModel {
      * Edit Product
      */
 
-    public void editAProduct() throws IOException {
+    public void editAProduct() {
         editOrShowSelectedProduct = getSelectedProduct();
 
         if(editOrShowSelectedProduct != null)
             openEditProductsFXML();
     }
 
-    private void openEditProductsFXML() throws IOException {
+    private void openEditProductsFXML() {
         mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(PRODUCT_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
         newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
@@ -332,7 +346,7 @@ public class SettingsModel {
         mainController.tableProducts.getSelectionModel().clearSelection();
     }
 
-    public void deleteSelectedProductsProcess() throws IOException {
+    public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
         if (!selectedItemsToDelete.isEmpty()) {

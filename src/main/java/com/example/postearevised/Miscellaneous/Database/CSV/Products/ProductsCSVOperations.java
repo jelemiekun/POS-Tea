@@ -11,6 +11,7 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Expo
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setExportSuccessful;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 public class ProductsCSVOperations {
     public static void doesProductCSVExist() {
@@ -73,7 +74,8 @@ public class ProductsCSVOperations {
                     "appetizerPrice\n");
             System.out.println("Creating products csv file: " + filePath);
         } catch (IOException e) {
-
+            errorMessage = e.getMessage();
+            logError(false);
         }
     }
 
@@ -204,6 +206,8 @@ public class ProductsCSVOperations {
 
             return true;
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(true);
             return false;
         }
     }
@@ -376,6 +380,8 @@ public class ProductsCSVOperations {
             System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return false;
         }
     }
@@ -434,6 +440,8 @@ public class ProductsCSVOperations {
 
             success = true;
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return success;
         } finally {
             if (!success) {

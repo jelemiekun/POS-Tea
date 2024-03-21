@@ -16,6 +16,8 @@ import java.util.Random;
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
@@ -250,7 +252,8 @@ public class ForgotPassModel {
                         try {
                             Thread.sleep(countdownTimer);
                         } catch (InterruptedException e) {
-                            System.out.println("Countdown interrupted");
+                            errorMessage = e.getMessage();
+                            logError(false);
                         }
 
                     }
@@ -298,7 +301,7 @@ public class ForgotPassModel {
      * Pane 3
      */
 
-    public void checkPane3Input() throws IOException {
+    public void checkPane3Input() {
         pane3SubmittedOnce();
 
         setAttributes(ForgotPassword3.getPaneNumber());
@@ -481,7 +484,7 @@ public class ForgotPassModel {
      * Redirecting to another scene
      */
 
-    public void checkIfProgressStartedBeforeGoBack() throws IOException {
+    public void checkIfProgressStartedBeforeGoBack() {
         hasStared();
 
         boolean confirmGoBack = true;
@@ -498,10 +501,16 @@ public class ForgotPassModel {
         loginRegisterForgotPassController.toggleRectangleModal();
     }
 
-    private boolean openPromptConfirmGoBack() throws IOException {
+    private boolean openPromptConfirmGoBack() {
         setGoBackConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -515,10 +524,16 @@ public class ForgotPassModel {
         return isConfirmed;
     }
 
-    private void openPromptGoBackToLogin() throws IOException {
+    private void openPromptGoBackToLogin() {
         setResetPasswordSuccessfully();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);

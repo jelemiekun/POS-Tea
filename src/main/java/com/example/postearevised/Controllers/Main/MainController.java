@@ -181,62 +181,62 @@ public class MainController implements Initializable {
     public ImageView mainLogoutIcon;
 
     @FXML
-    void anchorPaneMenuClicked() throws IOException {
+    void anchorPaneMenuClicked() {
         mainModel.openSelectedPane(MENU_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneMenuTouched() throws IOException {
+    void anchorPaneMenuTouched() {
         mainModel.openSelectedPane(MENU_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneDashBoardClicked() throws IOException {
+    void anchorPaneDashBoardClicked() {
         mainModel.openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneDashboardTouched() throws IOException {
+    void anchorPaneDashboardTouched() {
         mainModel.openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderListClicked() throws IOException {
+    void anchorPaneOrderListClicked() {
         mainModel.openSelectedPane(ORDER_LIST_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderListTouched() throws IOException {
+    void anchorPaneOrderListTouched() {
         mainModel.openSelectedPane(ORDER_LIST_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderHistoryClicked() throws IOException {
+    void anchorPaneOrderHistoryClicked() {
         mainModel.openSelectedPane(ORDER_HISTORY_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneOrderHistoryTouched() throws IOException {
+    void anchorPaneOrderHistoryTouched() {
         mainModel.openSelectedPane(ORDER_HISTORY_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsClicked() throws IOException {
+    void anchorPaneSettingsClicked() {
         mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneSettingsTouched() throws IOException {
+    void anchorPaneSettingsTouched() {
         mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneLogoutClicked() throws IOException {
+    void anchorPaneLogoutClicked() {
         mainModel.openSelectedPane(LOGOUT_ENUM.getPaneNumber());
     }
 
     @FXML
-    void anchorPaneLogoutTouched() throws IOException {
+    void anchorPaneLogoutTouched() {
         mainModel.openSelectedPane(LOGOUT_ENUM.getPaneNumber());
     }
 
@@ -296,12 +296,12 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneMenuIsEmpty;
 
     @FXML
-    public void menuNeedHelpClicked(MouseEvent event) throws IOException {
+    public void menuNeedHelpClicked(MouseEvent event) {
         menuModel.goToSystemManual();
     }
 
     @FXML
-    public void menuNeedHelpTouched(TouchEvent event) throws IOException {
+    public void menuNeedHelpTouched(TouchEvent event) {
         menuModel.goToSystemManual();
     }
 
@@ -424,12 +424,12 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void labelMenuIsEmptyClicked(MouseEvent event) throws IOException {
+    public void labelMenuIsEmptyClicked(MouseEvent event) {
         mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
     @FXML
-    public void labelMenuIsEmptyTouched(TouchEvent event) throws IOException {
+    public void labelMenuIsEmptyTouched(TouchEvent event) {
         mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
@@ -650,28 +650,28 @@ public class MainController implements Initializable {
     public TableColumn<Product, CheckBox> tableProductsColAvailable;
 
     @FXML
-    public void settingsAddProductClicked() throws IOException{
+    public void settingsAddProductClicked() {
         settingsModel.openAddProductsFXML();
     }
     @FXML
-    public void settingsAddProductTouched() throws IOException {
+    public void settingsAddProductTouched() {
         settingsModel.openAddProductsFXML();
     }
 
     @FXML
-    public void settingsDeleteProductClicked(MouseEvent event) throws IOException {
+    public void settingsDeleteProductClicked(MouseEvent event) {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML
-    public void settingsDeleteProductTouched(TouchEvent event) throws IOException {
+    public void settingsDeleteProductTouched(TouchEvent event) {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML
-    public void tableProductsClicked(MouseEvent event) throws IOException {
+    public void tableProductsClicked(MouseEvent event) {
         if (event.getClickCount() == 2) {
             if (!orderIsOngoing)
                 settingsModel.editAProduct();
@@ -679,7 +679,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void tableProductsTouched(TouchEvent event) throws IOException {
+    public void tableProductsTouched(TouchEvent event) {
         if (event.getTouchCount() == 2) {
             if (!orderIsOngoing)
                 settingsModel.editAProduct();
@@ -697,7 +697,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void importExportOnAction(ActionEvent event) throws IOException {
+    void importExportOnAction(ActionEvent event) {
         settingsModel.comboBoxValueSelected();
     }
 

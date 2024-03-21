@@ -13,6 +13,8 @@ import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
@@ -45,7 +47,7 @@ public class RegisterModel {
         });
     }
 
-    public void registerAction() throws IOException {
+    public void registerAction() {
         loginRegisterForgotPassController.registerSubmittedOnce = true;
         checkTextFields();
     }
@@ -276,7 +278,7 @@ public class RegisterModel {
      */
 
 
-    private void checkTextFields() throws IOException {
+    private void checkTextFields() {
         setAttributes();
 
         boolean allFieldsNotEmpty = notEmptyTextFields();
@@ -294,7 +296,7 @@ public class RegisterModel {
         }
     }
 
-    public void readTAC() throws IOException {
+    public void readTAC() {
         if (openTAC()) {
             if (loginRegisterForgotPassController.checkConnectivity()) {
                 openPromptRegisteredSuccess();
@@ -414,12 +416,18 @@ public class RegisterModel {
      * Pop-up windows
      */
 
-    private boolean openPromptConfirmGoBack() throws IOException {
+    private boolean openPromptConfirmGoBack() {
         loginRegisterForgotPassController.toggleRectangleModal();
 
         setGoBackConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -436,10 +444,16 @@ public class RegisterModel {
         return isConfirmed;
     }
 
-    private boolean openTAC() throws IOException {
+    private boolean openTAC() {
         loginRegisterForgotPassController.toggleRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(TERMS_AND_CONDITION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -455,12 +469,18 @@ public class RegisterModel {
         return isConfirmed;
     }
 
-    private void openPromptRegisteredSuccess() throws IOException {
+    private void openPromptRegisteredSuccess() {
         loginRegisterForgotPassController.toggleRectangleModal();
 
         setAccountCreatedConfirmation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -475,7 +495,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.toggleRectangleModal();
     }
 
-    public void close() throws IOException {
+    public void close() {
         setAttributes();
         if (exitAreFieldsEmpty()) {
             if (openPromptConfirmGoBack()) {

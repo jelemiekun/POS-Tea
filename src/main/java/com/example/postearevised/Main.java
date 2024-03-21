@@ -8,18 +8,28 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class Main extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         String URL = LOGIN_ENUM.getURL();
         String TITLE = LOGIN_ENUM.getTITLE();
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(URL));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = null;
+
+        try {
+            scene = new Scene(fxmlLoader.load());
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(true);
+        }
+
         loginRegisterStage = stage;
         loginRegisterStage.setTitle(TITLE);
         loginRegisterStage.setResizable(false);

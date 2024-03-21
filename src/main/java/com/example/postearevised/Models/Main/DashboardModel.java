@@ -21,6 +21,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
@@ -244,7 +246,8 @@ public class DashboardModel {
                     try {
                         fileUrl = file.toURI().toURL().toString();
                     } catch (MalformedURLException e) {
-                        e.printStackTrace();
+                        errorMessage = e.getMessage();
+                        logError(false);
                     }
 
                     imageView = new ImageView(new Image(fileUrl));

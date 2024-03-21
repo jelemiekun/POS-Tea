@@ -32,6 +32,8 @@ import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setProceedPayment;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -62,7 +64,7 @@ public class MenuModel {
         mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 1));
     }
 
-    public void goToSystemManual() throws IOException {
+    public void goToSystemManual() {
         mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
     }
@@ -282,7 +284,8 @@ public class MenuModel {
         try {
             root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            errorMessage = e.getMessage();
+            logError(false);
         }
 
         Stage newStage = new Stage();
@@ -540,7 +543,8 @@ public class MenuModel {
         try {
             root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            errorMessage = e.getMessage();
+            logError(false);
         }
 
         Stage newStage = new Stage();
@@ -677,36 +681,33 @@ public class MenuModel {
         boolean checkedModeOfPayment = checkModeOfPayment();
 
         if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
-            try {
-                String amountPaid = mainController.textFieldMenuEnterAmount.getText();
-                setProceedPayment(amountPaid);
+            String amountPaid = mainController.textFieldMenuEnterAmount.getText();
+            setProceedPayment(amountPaid);
+            if (mainController.mainModel.openPrompt()) {
+                setAttributes();
+                getChange();
+                setPaymentSuccessful(String.valueOf(referenceChange));
                 if (mainController.mainModel.openPrompt()) {
-                    setAttributes();
-                    getChange();
-                    setPaymentSuccessful(String.valueOf(referenceChange));
-                    if (mainController.mainModel.openPrompt()) {
-                        Thread t1 = new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                addToOrderQueue();
-                            }
-                        });
-
-                        t1.start();
-
-                        try {
-                            t1.join();
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
+                    Thread t1 = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            addToOrderQueue();
                         }
-                        orderCancelledOrAddedToQueue();
-                        clearFields();
-                        incrementCustomerNumber();
-                        clearOrderReference();
+                    });
+
+                    t1.start();
+
+                    try {
+                        t1.join();
+                    } catch (InterruptedException e) {
+                        errorMessage = e.getMessage();
+                        logError(false);
                     }
+                    orderCancelledOrAddedToQueue();
+                    clearFields();
+                    incrementCustomerNumber();
+                    clearOrderReference();
                 }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
     }

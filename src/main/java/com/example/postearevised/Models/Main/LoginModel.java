@@ -13,6 +13,8 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Others.InternetAndResolution.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
@@ -33,7 +35,7 @@ public class LoginModel {
         loginRegisterForgotPassController.anchorPaneForgotPass.setVisible(false);
     }
 
-    public void checkBoxDeselected() throws IOException {
+    public void checkBoxDeselected() {
         if (!loginRegisterForgotPassController.checkBoxRememberPassword.isSelected()) {
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
             loginRegisterForgotPassController.toggleRectangleModal();
@@ -42,10 +44,16 @@ public class LoginModel {
         }
     }
 
-    private boolean confirmDeselectCheckbox() throws IOException {
+    private boolean confirmDeselectCheckbox() {
         setContinueLoginWithoutStayingIn();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
-        Parent root = loader.load();
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
         Stage newStage = new Stage();
 
         newStage.initModality(Modality.WINDOW_MODAL);
@@ -155,7 +163,7 @@ public class LoginModel {
      * Pop-up windows
      */
 
-    public void checkInputsBeforeLogin() throws IOException {
+    public void checkInputsBeforeLogin() {
         if (loginRegisterForgotPassController.checkConnectivity()) {
             disableLimitInput();
 
@@ -163,7 +171,13 @@ public class LoginModel {
 
             if (proceed) {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
-                Parent root = loader.load();
+                Parent root = null;
+                try {
+                    root = loader.load();
+                } catch (IOException e) {
+                    errorMessage = e.getMessage();
+                    logError(false);
+                }
                 mainStage = new Stage();
                 mainStage.setTitle(MAIN_ENUM.getTITLE());
                 mainStage.setResizable(false);

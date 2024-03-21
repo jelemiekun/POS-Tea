@@ -27,6 +27,8 @@ import java.time.format.DateTimeFormatter;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddingOrderToCSV;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setOrderSuccessful;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -64,7 +66,8 @@ public class OrderListModel {
                     try {
                         Thread.sleep(ONE_SECOND);
                     } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+                        errorMessage = e.getMessage();
+                        logError(false);
                     }
                 }
             }
@@ -223,7 +226,8 @@ public class OrderListModel {
         try {
             root = loader.load();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            errorMessage = e.getMessage();
+            logError(false);
         }
 
         Stage newStage = new Stage();
@@ -261,21 +265,13 @@ public class OrderListModel {
             }
         } else {
             setErrorAddingOrderToCSV();
-            try {
-                mainController.mainModel.openPrompt();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            mainController.mainModel.openPrompt();
         }
     }
 
     private boolean openPrompt(Order order) {
         setOrderSuccessful(String.valueOf(order.getOrderNumber()), order.getCustomerName());
-        try {
-            return mainController.mainModel.openPrompt();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        return mainController.mainModel.openPrompt();
     }
 
     private void orderDoneGetDateAndTime(Order order) {

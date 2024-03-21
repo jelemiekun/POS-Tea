@@ -4,6 +4,8 @@ import com.example.postearevised.Objects.Products.*;
 
 import java.io.*;
 
+import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class ExportCSV {
@@ -122,6 +124,8 @@ public class ExportCSV {
             }
             return 4;
         } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return 0;
         }
     }
