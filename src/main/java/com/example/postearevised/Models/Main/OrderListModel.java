@@ -291,6 +291,6 @@ public class OrderListModel {
         mainController.labelOrderQueueOrderInQueue.setText(String.valueOf(orderQueueObservableList.size()));
         mainController.labelOrderQueueTotalOrder.setText(String.valueOf(orderHistoryObservableList.size()));
         mainController.anchorPaneOrderListNoOrders.setVisible(orderQueueObservableList.isEmpty());
-        mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 1));
+        mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + orderQueueObservableList.size() + 1));
     }
 }
