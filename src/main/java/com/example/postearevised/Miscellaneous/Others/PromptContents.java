@@ -352,7 +352,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Proceed Payment";
-        promptContentText = "The entered amount pay is ₱" + amount + "\". Are you sure you want to proceed with the payment?\"";
+        promptContentText = "The entered amount pay is ₱" + amount + ". Are you sure you want to proceed with the payment?\"";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;

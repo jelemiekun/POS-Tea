@@ -712,7 +712,9 @@ public class MenuModel {
     }
 
     private void incrementCustomerNumber() {
-        mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 2));
+        Platform.runLater(() -> {
+            mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + orderQueueObservableList.size() + 1));
+        });
     }
 
     private void setAttributes() {
