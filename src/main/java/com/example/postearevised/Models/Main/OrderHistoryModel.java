@@ -200,26 +200,22 @@ public class OrderHistoryModel {
                 }
             }
 
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    if (filteredOrders.isEmpty()) {
-                        mainController.tableViewOrderHistory.getItems().clear();
-                        Label placeholderLabel = new Label("No matching records found.");
-                        placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
-                        placeholderLabel.setAlignment(Pos.CENTER);
-                        placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
-                        placeholderLabel.setTextAlignment(TextAlignment.CENTER);
-                        mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
-                    } else {
-                        mainController.tableViewOrderHistory.setItems(filteredOrders);
-                        mainController.tableViewOrderHistory.refresh();
-                        System.out.println(filteredOrders);
-                    }
+            Platform.runLater(() -> {
+                if (filteredOrders.isEmpty()) {
+                    mainController.tableViewOrderHistory.setItems(FXCollections.observableArrayList());
+                    Label placeholderLabel = new Label("No matching records found.");
+                    placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
+                    placeholderLabel.setAlignment(Pos.CENTER);
+                    placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
+                    placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+                    mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+                } else {
+                    mainController.tableViewOrderHistory.setItems(filteredOrders);
                 }
             });
         }
     }
+
 
 
 
