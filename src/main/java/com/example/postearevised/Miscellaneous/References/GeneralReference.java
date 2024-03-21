@@ -8,6 +8,7 @@ public class GeneralReference {
     public static Stage mainStage;
     public static Stage loginRegisterStage;
     public static Stage loginFromMainSceneStage;
+    public static Stage productStage;
     public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;

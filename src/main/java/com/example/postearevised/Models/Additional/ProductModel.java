@@ -262,7 +262,7 @@ public class ProductModel {
         fileChooser.getExtensionFilters().add(extFilter);
 
         // Show the file chooser dialog
-        File selectedFile = fileChooser.showOpenDialog(null);
+        File selectedFile = fileChooser.showOpenDialog(productStage);
 
         if (selectedFile != null) {
             try {

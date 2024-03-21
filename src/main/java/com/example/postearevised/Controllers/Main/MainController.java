@@ -117,9 +117,9 @@ public class MainController implements Initializable {
     private Timeline loadingTimeline;
     private void loading() {
         loadingTimeline = new Timeline(
-                new KeyFrame(Duration.seconds(0.4), event -> labelLoading.setText("Loading.")),
-                new KeyFrame(Duration.seconds(0.9), event -> labelLoading.setText("Loading..")),
-                new KeyFrame(Duration.seconds(1.4), event -> labelLoading.setText("Loading..."))
+                new KeyFrame(Duration.seconds(0.5), event -> labelLoading.setText("Loading.")),
+                new KeyFrame(Duration.seconds(1), event -> labelLoading.setText("Loading..")),
+                new KeyFrame(Duration.seconds(1.5), event -> labelLoading.setText("Loading..."))
         );
         loadingTimeline.setCycleCount(Timeline.INDEFINITE);
         loadingTimeline.play();

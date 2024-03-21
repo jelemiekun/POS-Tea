@@ -264,6 +264,8 @@ public class SettingsModel {
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
 
+        productStage = newStage;
+
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
@@ -325,6 +327,8 @@ public class SettingsModel {
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
+
+        productStage = newStage;
 
         newStage.initModality(Modality.WINDOW_MODAL);
         newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
