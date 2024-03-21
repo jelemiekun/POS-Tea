@@ -4,6 +4,8 @@ import com.example.postearevised.Models.Main.*;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Products.Product;
 import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,6 +56,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         anchorPaneLoading.setVisible(true);
+        loading();
 
         new Thread(() -> {
             clearAllReferences();
@@ -96,16 +99,6 @@ public class MainController implements Initializable {
         }).start();
     }
 
-    private void fadeOutLoading() {
-        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), anchorPaneLoading);
-        fadeOut.setFromValue(1.0);
-        fadeOut.setToValue(0.0);
-        fadeOut.setOnFinished(event -> {
-            anchorPaneLoading.setVisible(false);
-        });
-        fadeOut.play();
-    }
-
     private void clearAllReferences() {
         clearAllProductReferences();
         clearProductOrderReferences();
@@ -115,11 +108,38 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Main
+     * Loading
      */
-
     @FXML
     public AnchorPane anchorPaneLoading;
+    @FXML
+    public Label labelLoading;
+    private Timeline loadingTimeline;
+    private void loading() {
+        loadingTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(0.4), event -> labelLoading.setText("Loading.")),
+                new KeyFrame(Duration.seconds(0.9), event -> labelLoading.setText("Loading..")),
+                new KeyFrame(Duration.seconds(1.4), event -> labelLoading.setText("Loading..."))
+        );
+        loadingTimeline.setCycleCount(Timeline.INDEFINITE);
+        loadingTimeline.play();
+    }
+
+    private void fadeOutLoading() {
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), anchorPaneLoading);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(event -> {
+            anchorPaneLoading.setVisible(false);
+            loadingTimeline.stop();
+        });
+        fadeOut.play();
+    }
+
+
+    /**
+     * Main
+     */
 
     public FXMLLoader loader;
     public Parent root;

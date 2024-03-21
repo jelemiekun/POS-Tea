@@ -1274,7 +1274,7 @@
                         <Image url="@../../Medias/Icons/logo.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="245.0" layoutY="545.0" text="Loading...">
+                  <Label fx:id="labelLoading" alignment="CENTER" contentDisplay="CENTER" layoutY="545.0" prefHeight="80.0" prefWidth="776.0" text="Loading." textAlignment="CENTER">
                      <font>
                         <Font name="Arial" size="69.0" />
                      </font>
