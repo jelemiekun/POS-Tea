@@ -1,12 +1,14 @@
 ------------------TO DO------------------
 
-dapat di gumagana editProduct if naka open csv
+order receipt - idadag receipt, update resibo content
 
-idadag receipt, update resibo content
+pop up amount too large
 
 name sa upper left
 
 connect fxml ng account sa mainController
+
+video sa system manual
 
 pag ayos ng format sa table history
 
@@ -28,6 +30,7 @@ lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos pro
 
 ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
 
+dapat di gumagana editProduct if naka open csv
 
 
 
@@ -46,9 +49,31 @@ if selected remember me tapos nag logout, naka select pa rin remember me
 
 ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
-rectangleModal sa main(menu)
-
 lagyan ng max attempts mga input
+
+
+
+
+
+
+
+
+
+------------------MGA ITATANONG------------------
+order history, paano yun? haha ang labo
+
+amount too large prompt, anong header at content?
+
+resibo
+
+tanongin store if ilang percentage binabayad sa tax, if wala silang binabayad, N/A
+
+
+
+
+
+
+
 
 
 ------------------OPTIONAL------------------
@@ -225,3 +250,5 @@ tapos errorMessage = e.getMessage();
 tapos iinvoke yung pag log ng error sa log file
 
 if naka file chooser, tapos na exit yung parent modal, maeexit din yung file chooser
+
+rectangleModal sa main(menu)
