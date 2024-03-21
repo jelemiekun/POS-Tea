@@ -388,9 +388,11 @@ public class ProductsCSVOperations {
 
     public static boolean deleteProductInCSV(List<Product> productListToDelete) {
         boolean success = false;
+        File tempFile = null;
+
         try {
             // Create a temporary file to write the updated content
-            File tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
+            tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
             FileWriter fw = new FileWriter(tempFile);
             BufferedWriter writer = new BufferedWriter(fw);
 
@@ -442,18 +444,15 @@ public class ProductsCSVOperations {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-            return success;
         } finally {
-            if (!success) {
-                // Delete the temporary file if there was an error
-                File tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
-                if (tempFile.exists() && !tempFile.delete()) {
-                    System.err.println("Failed to delete temporary file.");
-                }
+            // Delete the temporary file if there was an error
+            if (!success && tempFile != null && tempFile.exists() && !tempFile.delete()) {
+                System.err.println("Failed to delete temporary file.");
             }
         }
         return success;
     }
+
 
 
 

@@ -326,13 +326,17 @@ public class ProductModel {
 
     private void removePhotoFromResources() {
         if (!referenceImagePath.isBlank() && !referenceImagePath.isEmpty()) {
-            Path photoPath = Path.of(referenceImagePath);
-            try {
-                // Attempt to delete the photo
-                Files.delete(photoPath);
-                System.out.println("Photo deleted successfully!");
-            } catch (IOException e) {
-                System.out.println("Failed to delete the photo: " + e.getMessage());
+            if (!referenceImagePath.startsWith("/com") || referenceImagePath.contains("no image.png")) {
+                Path photoPath = Path.of(referenceImagePath);
+                try {
+                    // Attempt to delete the photo
+                    Files.delete(photoPath);
+                    System.out.println("Photo deleted successfully!");
+                } catch (IOException e) {
+                    errorMessage = e.getMessage();
+                    logError(false);
+                    System.out.println("Failed to delete the photo: " + e.getMessage());
+                }
             }
         }
     }
@@ -838,98 +842,36 @@ public class ProductModel {
                 editOrShowSelectedProduct.getImagePath(),
                 editOrShowSelectedProduct.getCategory());
 
-        Product toUpdateProduct = new Product(editOrShowSelectedProduct.getProductName(),
-                editOrShowSelectedProduct.getProductDescription(),
-                editOrShowSelectedProduct.getImagePath(),
-                editOrShowSelectedProduct.getCategory());
-
-        /**
-         * DAPAT MAG UPDATE RIN PRODUCT NAME, DESCRIPTION, AT IMAGE PATH
-         */
+        editOrShowSelectedProduct.setProductName(referenceProductName);
+        editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
+        editOrShowSelectedProduct.setImagePath(referenceImagePath);
 
         if (editOrShowSelectedProduct instanceof MilkTea editSelectedMilkTea) {
-            oldProduct = new MilkTea(editSelectedMilkTea.getProductName(), editSelectedMilkTea.getProductDescription(),
-                    editSelectedMilkTea.getImagePath(), editSelectedMilkTea.getCategory(),
-                    editSelectedMilkTea.getSmallPrice(), editSelectedMilkTea.getMediumPrice(), editSelectedMilkTea.getLargePrice(),
-                    editSelectedMilkTea.getAddOnsOne(), editSelectedMilkTea.getAddOnsOnePrice(),
-                    editSelectedMilkTea.getAddOnsTwo(), editSelectedMilkTea.getAddOnsTwoPrice());
-
-            toUpdateProduct = new MilkTea(editSelectedMilkTea.getProductName(), editSelectedMilkTea.getProductDescription(),
-                    editSelectedMilkTea.getImagePath(), editSelectedMilkTea.getCategory(),
-                    referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
-                    referenceMilkTeaAddOnsOneName, referenceMilkTeaAddOnsOnePrice,
-                    referenceMilkTeaAddOnsTwoName, referenceMilkTeaAddOnsTwoPrice);
+            editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
+            editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
+            editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
+            editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOneName);
+            editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
+            editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwoName);
+            editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
-            oldProduct = new Coolers(editSelectedCoolers.getProductName(), editSelectedCoolers.getProductDescription(),
-                    editSelectedCoolers.getImagePath(), editSelectedCoolers.getCategory(),
-                    editSelectedCoolers.getSmallPrice(), editSelectedCoolers.getMediumPrice(), editSelectedCoolers.getLargePrice(),
-                    editSelectedCoolers.getAddOnsOne(), editSelectedCoolers.getAddOnsOnePrice(),
-                    editSelectedCoolers.getAddOnsTwo(), editSelectedCoolers.getAddOnsTwoPrice());
-
-            toUpdateProduct = new MilkTea(editSelectedCoolers.getProductName(), editSelectedCoolers.getProductDescription(),
-                    editSelectedCoolers.getImagePath(), editSelectedCoolers.getCategory(),
-                    referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice,
-                    referenceCoolersAddOnsOneName, referenceCoolersAddOnsOnePrice,
-                    referenceCoolersAddOnsTwoName, referenceCoolersAddOnsTwoPrice);
+            editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
+            editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
+            editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
+            editSelectedCoolers.setAddOnsOne(referenceCoolersAddOnsOneName);
+            editSelectedCoolers.setAddOnsOnePrice(referenceCoolersAddOnsOnePrice);
+            editSelectedCoolers.setAddOnsTwo(referenceCoolersAddOnsTwoName);
+            editSelectedCoolers.setAddOnsTwoPrice(referenceCoolersAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
-            oldProduct = new Coffee(editSelectedCoffee.getProductName(), editSelectedCoffee.getProductDescription(),
-                    editSelectedCoffee.getImagePath(), editSelectedCoffee.getCategory(),
-                    editSelectedCoffee.getPrice());
-
-            toUpdateProduct = new Coffee(editSelectedCoffee.getProductName(), editSelectedCoffee.getProductDescription(),
-                    editSelectedCoffee.getImagePath(), editSelectedCoffee.getCategory(),
-                    referenceCoffeePrice);
+            editSelectedCoffee.setPrice(referenceCoffeePrice);
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
-            oldProduct = new IceCandyCups(editSelectedIceCandyCups.getProductName(), editSelectedIceCandyCups.getProductDescription(),
-                    editSelectedIceCandyCups.getImagePath(), editSelectedIceCandyCups.getCategory(),
-                    editSelectedIceCandyCups.getPrice());
-
-            toUpdateProduct = new IceCandyCups(editSelectedIceCandyCups.getProductName(), editSelectedIceCandyCups.getProductDescription(),
-                    editSelectedIceCandyCups.getImagePath(), editSelectedIceCandyCups.getCategory(),
-                    referenceIceCandyCupsPrice);
+            editSelectedIceCandyCups.setPrice(referenceIceCandyCupsPrice);
         } else if (editOrShowSelectedProduct instanceof Appetizer editSelectedAppetizer) {
-            oldProduct = new Appetizer(editSelectedAppetizer.getProductName(), editSelectedAppetizer.getProductDescription(),
-                    editSelectedAppetizer.getImagePath(), editSelectedAppetizer.getCategory(),
-                    editSelectedAppetizer.getPrice());
-
-            toUpdateProduct = new Appetizer(editSelectedAppetizer.getProductName(), editSelectedAppetizer.getProductDescription(),
-                    editSelectedAppetizer.getImagePath(), editSelectedAppetizer.getCategory(),
-                    referenceAppetizersPrice);
+            editSelectedAppetizer.setPrice(referenceAppetizersPrice);
         }
 
         // dapat hindi gagana if naka open ang csv
-        if (editProductInCSV(oldProduct ,toUpdateProduct)) {
-            editOrShowSelectedProduct.setProductName(referenceProductName);
-            editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
-            editOrShowSelectedProduct.setImagePath(referenceImagePath);
-
-            if (editOrShowSelectedProduct instanceof MilkTea editSelectedMilkTea) {
-                editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
-                editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
-                editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
-                editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOneName);
-                editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
-                editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwoName);
-                editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
-            } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
-                editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
-                editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
-                editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
-                editSelectedCoolers.setAddOnsOne(referenceCoolersAddOnsOneName);
-                editSelectedCoolers.setAddOnsOnePrice(referenceCoolersAddOnsOnePrice);
-                editSelectedCoolers.setAddOnsTwo(referenceCoolersAddOnsTwoName);
-                editSelectedCoolers.setAddOnsTwoPrice(referenceCoolersAddOnsTwoPrice);
-            } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
-                editSelectedCoffee.setPrice(referenceCoffeePrice);
-            } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
-                editSelectedIceCandyCups.setPrice(referenceIceCandyCupsPrice);
-            } else if (editOrShowSelectedProduct instanceof Appetizer editSelectedAppetizer) {
-                editSelectedAppetizer.setPrice(referenceAppetizersPrice);
-            }
-            return true;
-        } else {
-            return false;
-        }
+        return editProductInCSV(oldProduct, editOrShowSelectedProduct);
     }
 
 
