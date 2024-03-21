@@ -284,6 +284,7 @@ public class OrderListModel {
 
     private void addOrderToOrderHistory(Order order) {
         orderHistoryObservableList.add(order);
+        mainController.orderHistoryModel.refreshOrderHistory();
     }
 
 

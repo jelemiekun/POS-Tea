@@ -8,8 +8,6 @@ connect fxml ng account sa mainController
 
 video sa system manual
 
-pag ayos ng format sa table history
-
 available sa edit products
 
 edit products pop up if naka open csv
@@ -250,3 +248,5 @@ tapos iinvoke yung pag log ng error sa log file
 if naka file chooser, tapos na exit yung parent modal, maeexit din yung file chooser
 
 rectangleModal sa main(menu)
+
+pag ayos ng format sa table history
