@@ -110,33 +110,46 @@ public class OrderHistoryCSVOperations {
             sb.append(order.getOrderNumber()).append(",");
             List<ProductOrder> productOrders = order.getProductOrderObservableList();
 
-            StringBuilder categoryBuilder = new StringBuilder();
-            StringBuilder nameBuilder = new StringBuilder();
-            StringBuilder quantityBuilder = new StringBuilder();
-            StringBuilder totalAmountBuilder = new StringBuilder();
+            if (!productOrders.isEmpty()) {
+                StringBuilder categoryBuilder = new StringBuilder();
+                StringBuilder nameBuilder = new StringBuilder();
+                StringBuilder quantityBuilder = new StringBuilder();
+                StringBuilder totalAmountBuilder = new StringBuilder();
 
-            for (ProductOrder productOrder : productOrders) {
-                categoryBuilder.append(productOrder.getProductCategory()).append("/");
-                nameBuilder.append(productOrder.getProductName()).append("/");
-                quantityBuilder.append(productOrder.getQuantity()).append("/");
-                totalAmountBuilder.append(productOrder.getTotalAmount()).append("/");
+                for (ProductOrder productOrder : productOrders) {
+                    if (productOrder.getProductName().isEmpty()) {
+                        productOrder.setProductName(".");
+                    }
+
+                    categoryBuilder.append(productOrder.getProductCategory()).append("/");
+                    nameBuilder.append(productOrder.getProductName()).append("/");
+                    quantityBuilder.append(productOrder.getQuantity()).append("/");
+                    totalAmountBuilder.append(productOrder.getTotalAmount()).append("/");
+                }
+
+                sb.append(categoryBuilder.toString()).append(",");
+                sb.append(nameBuilder.toString()).append(",");
+                sb.append(quantityBuilder.toString()).append(",");
+                sb.append(totalAmountBuilder.toString()).append(",");
+
+                double totalPrice = order.getTotalPrice();
+                double amountPaid = order.getAmountPaid();
+                double change = order.getChange();
+                String modeOfPayment = order.getModeOfPayment();
+                LocalDateTime dateAndTime = order.getDateAndTime();
+
+                sb.append(totalPrice).append(",");
+                sb.append(amountPaid).append(",");
+                sb.append(change).append(",");
+                sb.append(modeOfPayment).append(",");
+                sb.append(dateAndTime).append(",");
+
+                StringBuilder imagePathBuilder = new StringBuilder();
+                for (ProductOrder productOrder : productOrders) {
+                    imagePathBuilder.append(productOrder.getImagePath()).append("/");
+                }
+                sb.append(imagePathBuilder.toString()).append(",");
             }
-            sb.append(categoryBuilder.append(","));
-            sb.append(nameBuilder.append(","));
-            sb.append(quantityBuilder.append(","));
-            sb.append(totalAmountBuilder.append(","));
-
-            sb.append(order.getTotalPrice()).append(",");
-            sb.append(order.getAmountPaid()).append(",");
-            sb.append(order.getChange()).append(",");
-            sb.append(order.getModeOfPayment()).append(",");
-            sb.append(order.getDateAndTime()).append(",");
-
-            StringBuilder imagePathBuilder = new StringBuilder();
-            for (ProductOrder productOrder : productOrders) {
-                imagePathBuilder.append(productOrder.getImagePath()).append("/");
-            }
-            sb.append(imagePathBuilder.toString()).append(",");
 
             sb.append("\n");
 
@@ -149,6 +162,7 @@ public class OrderHistoryCSVOperations {
             return false;
         }
     }
+
 
     private static void openPrompt() {
         FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));

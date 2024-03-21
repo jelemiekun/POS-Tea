@@ -4,7 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 
 public class ProductOrder {
-    private final String productName;
+    private String productName;
     private final String productCategory;
     private final Image productImage;
     private final String imagePath;
@@ -60,6 +60,10 @@ public class ProductOrder {
 
     public String getProductName() {
         return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public Image getProductImage() {
