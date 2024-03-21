@@ -373,6 +373,7 @@ public class ProductsCSVOperations {
             reader.close();
             inputFile.delete();
             tempFile.renameTo(inputFile); // Rename temp file to original file name
+            System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
             return false;

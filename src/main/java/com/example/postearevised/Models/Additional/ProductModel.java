@@ -25,8 +25,7 @@ import java.nio.file.StandardCopyOption;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddProduct;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -200,8 +199,20 @@ public class ProductModel {
 
                 if (isAddProductToListAndDatabase)
                     success = instantiateProduct(); // create product
-                else
-                    success = setObjectAttributesUpdateProduct(); // edit product
+                else {
+                    if (setObjectAttributesUpdateProduct()) {
+                        success = true;
+                        System.out.println("gumagana line 205");
+                    } else {
+                        System.out.println("Error edit product");
+                        setErrorEditProduct();
+                        try {
+                            openPrompt();
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
             }
         }
 
@@ -834,36 +845,98 @@ public class ProductModel {
                 editOrShowSelectedProduct.getImagePath(),
                 editOrShowSelectedProduct.getCategory());
 
-        editOrShowSelectedProduct.setProductName(referenceProductName);
-        editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
-        editOrShowSelectedProduct.setImagePath(referenceImagePath);
+        Product toUpdateProduct = new Product(editOrShowSelectedProduct.getProductName(),
+                editOrShowSelectedProduct.getProductDescription(),
+                editOrShowSelectedProduct.getImagePath(),
+                editOrShowSelectedProduct.getCategory());
+
+        /**
+         * DAPAT MAG UPDATE RIN PRODUCT NAME, DESCRIPTION, AT IMAGE PATH
+         */
 
         if (editOrShowSelectedProduct instanceof MilkTea editSelectedMilkTea) {
-            editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
-            editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
-            editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
-            editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOne);
-            editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
-            editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwo);
-            editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
+            oldProduct = new MilkTea(editSelectedMilkTea.getProductName(), editSelectedMilkTea.getProductDescription(),
+                    editSelectedMilkTea.getImagePath(), editSelectedMilkTea.getCategory(),
+                    editSelectedMilkTea.getSmallPrice(), editSelectedMilkTea.getMediumPrice(), editSelectedMilkTea.getLargePrice(),
+                    editSelectedMilkTea.getAddOnsOne(), editSelectedMilkTea.getAddOnsOnePrice(),
+                    editSelectedMilkTea.getAddOnsTwo(), editSelectedMilkTea.getAddOnsTwoPrice());
+
+            toUpdateProduct = new MilkTea(editSelectedMilkTea.getProductName(), editSelectedMilkTea.getProductDescription(),
+                    editSelectedMilkTea.getImagePath(), editSelectedMilkTea.getCategory(),
+                    referenceMilkTeaSmallPrice, referenceMilkTeaMediumPrice, referenceMilkTeaLargePrice,
+                    referenceMilkTeaAddOnsOne, referenceMilkTeaAddOnsOnePrice,
+                    referenceMilkTeaAddOnsTwo, referenceMilkTeaAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
-            editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
-            editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
-            editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
-            editSelectedCoolers.setAddOnsOne(referenceCoolersAddOnsOneName);
-            editSelectedCoolers.setAddOnsOnePrice(referenceCoolersAddOnsOnePrice);
-            editSelectedCoolers.setAddOnsTwo(referenceCoolersAddOnsTwoName);
-            editSelectedCoolers.setAddOnsTwoPrice(referenceCoolersAddOnsTwoPrice);
+            oldProduct = new Coolers(editSelectedCoolers.getProductName(), editSelectedCoolers.getProductDescription(),
+                    editSelectedCoolers.getImagePath(), editSelectedCoolers.getCategory(),
+                    editSelectedCoolers.getSmallPrice(), editSelectedCoolers.getMediumPrice(), editSelectedCoolers.getLargePrice(),
+                    editSelectedCoolers.getAddOnsOne(), editSelectedCoolers.getAddOnsOnePrice(),
+                    editSelectedCoolers.getAddOnsTwo(), editSelectedCoolers.getAddOnsTwoPrice());
+
+            toUpdateProduct = new MilkTea(editSelectedCoolers.getProductName(), editSelectedCoolers.getProductDescription(),
+                    editSelectedCoolers.getImagePath(), editSelectedCoolers.getCategory(),
+                    referenceCoolersSmallPrice, referenceCoolersMediumPrice, referenceCoolersLargePrice,
+                    referenceCoolersAddOnsOneName, referenceCoolersAddOnsOnePrice,
+                    referenceCoolersAddOnsTwoName, referenceCoolersAddOnsTwoPrice);
         } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
-            editSelectedCoffee.setPrice(referenceCoffeePrice);
+            oldProduct = new Coffee(editSelectedCoffee.getProductName(), editSelectedCoffee.getProductDescription(),
+                    editSelectedCoffee.getImagePath(), editSelectedCoffee.getCategory(),
+                    editSelectedCoffee.getPrice());
+
+            toUpdateProduct = new Coffee(editSelectedCoffee.getProductName(), editSelectedCoffee.getProductDescription(),
+                    editSelectedCoffee.getImagePath(), editSelectedCoffee.getCategory(),
+                    referenceCoffeePrice);
         } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
-            editSelectedIceCandyCups.setPrice(referenceIceCandyCupsPrice);
+            oldProduct = new IceCandyCups(editSelectedIceCandyCups.getProductName(), editSelectedIceCandyCups.getProductDescription(),
+                    editSelectedIceCandyCups.getImagePath(), editSelectedIceCandyCups.getCategory(),
+                    editSelectedIceCandyCups.getPrice());
+
+            toUpdateProduct = new IceCandyCups(editSelectedIceCandyCups.getProductName(), editSelectedIceCandyCups.getProductDescription(),
+                    editSelectedIceCandyCups.getImagePath(), editSelectedIceCandyCups.getCategory(),
+                    referenceIceCandyCupsPrice);
         } else if (editOrShowSelectedProduct instanceof Appetizer editSelectedAppetizer) {
-            editSelectedAppetizer.setPrice(referenceAppetizersPrice);
+            oldProduct = new Appetizer(editSelectedAppetizer.getProductName(), editSelectedAppetizer.getProductDescription(),
+                    editSelectedAppetizer.getImagePath(), editSelectedAppetizer.getCategory(),
+                    editSelectedAppetizer.getPrice());
+
+            toUpdateProduct = new Appetizer(editSelectedAppetizer.getProductName(), editSelectedAppetizer.getProductDescription(),
+                    editSelectedAppetizer.getImagePath(), editSelectedAppetizer.getCategory(),
+                    referenceAppetizersPrice);
         }
 
         // dapat hindi gagana if naka open ang csv
-        return editProductInCSV(oldProduct, editOrShowSelectedProduct);
+        if (editProductInCSV(editOrShowSelectedProduct,toUpdateProduct)) {
+            editOrShowSelectedProduct.setProductName(referenceProductName);
+            editOrShowSelectedProduct.setProductDescription(referenceProductDescription);
+            editOrShowSelectedProduct.setImagePath(referenceImagePath);
+
+            if (editOrShowSelectedProduct instanceof MilkTea editSelectedMilkTea) {
+                editSelectedMilkTea.setSmallPrice(referenceMilkTeaSmallPrice);
+                editSelectedMilkTea.setMediumPrice(referenceMilkTeaMediumPrice);
+                editSelectedMilkTea.setLargePrice(referenceMilkTeaLargePrice);
+                editSelectedMilkTea.setAddOnsOne(referenceMilkTeaAddOnsOne);
+                editSelectedMilkTea.setAddOnsOnePrice(referenceMilkTeaAddOnsOnePrice);
+                editSelectedMilkTea.setAddOnsTwo(referenceMilkTeaAddOnsTwo);
+                editSelectedMilkTea.setAddOnsTwoPrice(referenceMilkTeaAddOnsTwoPrice);
+            } else if (editOrShowSelectedProduct instanceof Coolers editSelectedCoolers) {
+                editSelectedCoolers.setSmallPrice(referenceCoolersSmallPrice);
+                editSelectedCoolers.setMediumPrice(referenceCoolersMediumPrice);
+                editSelectedCoolers.setLargePrice(referenceCoolersLargePrice);
+                editSelectedCoolers.setAddOnsOne(referenceCoolersAddOnsOneName);
+                editSelectedCoolers.setAddOnsOnePrice(referenceCoolersAddOnsOnePrice);
+                editSelectedCoolers.setAddOnsTwo(referenceCoolersAddOnsTwoName);
+                editSelectedCoolers.setAddOnsTwoPrice(referenceCoolersAddOnsTwoPrice);
+            } else if (editOrShowSelectedProduct instanceof Coffee editSelectedCoffee) {
+                editSelectedCoffee.setPrice(referenceCoffeePrice);
+            } else if (editOrShowSelectedProduct instanceof IceCandyCups editSelectedIceCandyCups) {
+                editSelectedIceCandyCups.setPrice(referenceIceCandyCupsPrice);
+            } else if (editOrShowSelectedProduct instanceof Appetizer editSelectedAppetizer) {
+                editSelectedAppetizer.setPrice(referenceAppetizersPrice);
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
