@@ -228,7 +228,7 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="272.0" prefWidth="473.0" visible="false">
+                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="272.0" prefWidth="473.0">
                            <children>
                               <Label layoutX="41.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
@@ -245,52 +245,6 @@
                                     <Font name="Arial" size="20.0" />
                                  </font>
                               </TextField>
-                              <AnchorPane layoutX="14.0" layoutY="109.0" onMouseClicked="#menuPaymentCashClicked" onTouchReleased="#menuPaymentCashTouched">
-                                 <children>
-                                    <ImageView fx:id="imageCash" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../Medias/Buttons/Payments/cash.png" />
-                                       </image>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </ImageView>
-                                    <Label fx:id="labelCash" layoutX="34.0" layoutY="17.0" text="Cash">
-                                       <font>
-                                          <Font name="Arial" size="28.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Label>
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </AnchorPane>
-                              <AnchorPane layoutX="256.0" layoutY="109.0" onMouseClicked="#menuPaymentGCashClicked" onTouchReleased="#menuPaymentGCashTouched">
-                                 <children>
-                                    <ImageView fx:id="imageGCash" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../Medias/Buttons/Payments/gcash.png" />
-                                       </image>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </ImageView>
-                                    <Label fx:id="labelGCash" layoutX="30.0" layoutY="17.0" text="GCash">
-                                       <font>
-                                          <Font name="Arial" size="28.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Label>
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </AnchorPane>
                               <AnchorPane layoutX="14.0" layoutY="192.0" onMouseClicked="#menuPaymentCancelClicked" onTouchReleased="#menuPaymentCancelTouched">
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -911,7 +865,7 @@
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="571.0" layoutY="28.0" text="Accessibility" textAlignment="CENTER">
+                              <Label layoutX="580.0" layoutY="25.0" text="Appearance" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -963,11 +917,11 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffc061" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Red" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="36.0" />
                                              </font>
@@ -976,11 +930,11 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2521d1" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Blue" textAlignment="CENTER">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="36.0" />
                                              </font>
@@ -1002,11 +956,11 @@
                                     </AnchorPane>
                                     <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                        <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffe8d6" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Beige" textAlignment="CENTER">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Green" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="36.0" />
                                              </font>
@@ -1014,14 +968,6 @@
                                        </children>
                                     </AnchorPane>
                                  </children></FlowPane>
-                              <Label layoutX="1127.0" layoutY="104.0" text="View All ">
-                                 <font>
-                                    <Font name="Arial" size="24.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Label>
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
@@ -1186,7 +1132,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Display.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="27.0" text="Accessibility">
+                                    <Label layoutX="100.0" layoutY="27.0" text="Appearance">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1264,7 +1210,7 @@
          </children>
       </AnchorPane>
       <Rectangle fx:id="rectangleModal" arcHeight="5.0" arcWidth="5.0" fill="#0000008c" height="1050.0" stroke="#0000008c" strokeType="INSIDE" visible="false" width="1920.0" />
-      <AnchorPane fx:id="anchorPaneLoading" prefHeight="1050.0" prefWidth="1920.0">
+      <AnchorPane fx:id="anchorPaneLoading" prefHeight="1050.0" prefWidth="1920.0" visible="false">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" stroke="WHITE" strokeType="INSIDE" width="1920.0" />
             <AnchorPane layoutX="572.0" layoutY="173.0" prefHeight="704.0" prefWidth="776.0">

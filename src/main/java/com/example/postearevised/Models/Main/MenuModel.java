@@ -28,7 +28,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
-import static com.example.postearevised.Miscellaneous.Enums.ModeOfPayment.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
@@ -632,33 +631,6 @@ public class MenuModel {
 
     private void clearSelectedProductReference() {
         editOrShowSelectedProduct = null;
-    }
-
-    public void updateModeOfPayment(boolean isCash) {
-        if (isCash)
-            cashSelected();
-        else
-            gCashSelected();
-
-        mainController.labelMenuNoModeOfPayment.setVisible(false);
-    }
-
-    private void cashSelected() {
-        mainController.imageCash.setImage(CASH_SELECTED);
-        mainController.labelCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = CASH_ENUM.getModeOfPayment();
-
-        mainController.imageGCash.setImage(GCASH);
-        mainController.labelGCash.setTextFill(Color.BLACK);
-    }
-
-    private void gCashSelected() {
-        mainController.imageGCash.setImage(GCASH_SELECTED);
-        mainController.labelGCash.setTextFill(Color.WHITE);
-        referenceModeOfPayment = G_CASH_ENUM.getModeOfPayment();
-
-        mainController.imageCash.setImage(CASH);
-        mainController.labelCash.setTextFill(Color.BLACK);
     }
 
     public void orderCancelledOrAddedToQueue() {

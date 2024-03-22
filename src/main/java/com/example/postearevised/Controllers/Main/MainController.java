@@ -270,14 +270,6 @@ public class MainController implements Initializable {
     @FXML
     public Label labelMenuNoAmount;
     @FXML
-    public ImageView imageCash;
-    @FXML
-    public ImageView imageGCash;
-    @FXML
-    public Label labelCash;
-    @FXML
-    public Label labelGCash;
-    @FXML
     public TextField textFieldMenuCustomerName;
     @FXML
     public FlowPane flowPaneOrdersSelected;
@@ -401,26 +393,6 @@ public class MainController implements Initializable {
     @FXML
     public void imageViewMenuAppetizersTouched(TouchEvent event) {
         menuModel.switchCategory(APPETIZERS_ENUM.getNumber());
-    }
-
-    @FXML
-    public void menuPaymentCashClicked(MouseEvent event) {
-        menuModel.updateModeOfPayment(true);
-    }
-
-    @FXML
-    public void menuPaymentCashTouched(TouchEvent event) {
-        menuModel.updateModeOfPayment(true);
-    }
-
-    @FXML
-    public void menuPaymentGCashClicked(MouseEvent event) {
-        menuModel.updateModeOfPayment(false);
-    }
-
-    @FXML
-    public void menuPaymentGCashTouched(TouchEvent event) {
-        menuModel.updateModeOfPayment(false);
     }
 
     @FXML
