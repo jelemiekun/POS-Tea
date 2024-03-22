@@ -66,6 +66,16 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistory.refresh();
     }
 
+    public void refreshOrderHistoryBtn() {
+        mainController.textFieldOrderHistorySearch.setText("");
+        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+        mainController.tableViewOrderHistory.refresh();
+        mainController.tableViewOrderHistory.getSortOrder().clear();
+        mainController.tableViewOrderHistory.getSortOrder().add(mainController.tableViewOrderHistoryColDateAndTime);
+        mainController.tableViewOrderHistoryColDateAndTime.setSortType(TableColumn.SortType.DESCENDING);
+        mainController.tableViewOrderHistory.refresh();
+    }
+
     private void setComboBox(boolean initialized) {
         if (initialized)
             mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
@@ -196,33 +206,37 @@ public class OrderHistoryModel {
 
     private void searchTheText(String stringToSearch) {
         if (!orderHistoryObservableList.isEmpty()) {
-            ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
-            for (Order order : orderHistoryObservableList) {
-                if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
-                    filteredOrders.add(order);
-                } else {
-                    for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                        if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
-                            filteredOrders.add(order);
-                            break;
+            if (!stringToSearch.isBlank()) {
+                ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
+                for (Order order : orderHistoryObservableList) {
+                    if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                        filteredOrders.add(order);
+                    } else {
+                        for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                            if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                filteredOrders.add(order);
+                                break;
+                            }
                         }
                     }
                 }
-            }
 
-            Platform.runLater(() -> {
-                if (filteredOrders.isEmpty()) {
-                    mainController.tableViewOrderHistory.setItems(FXCollections.observableArrayList());
-                    Label placeholderLabel = new Label("No matching records found.");
-                    placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
-                    placeholderLabel.setAlignment(Pos.CENTER);
-                    placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
-                    placeholderLabel.setTextAlignment(TextAlignment.CENTER);
-                    mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
-                } else {
-                    mainController.tableViewOrderHistory.setItems(filteredOrders);
-                }
-            });
+                Platform.runLater(() -> {
+                    if (filteredOrders.isEmpty()) {
+                        mainController.tableViewOrderHistory.setItems(FXCollections.observableArrayList());
+                        Label placeholderLabel = new Label("No matching records found.");
+                        placeholderLabel.setFont(Font.font("Arial", FontWeight.NORMAL, 28));
+                        placeholderLabel.setAlignment(Pos.CENTER);
+                        placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
+                        placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+                        mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+                    } else {
+                        mainController.tableViewOrderHistory.setItems(filteredOrders);
+                    }
+                });
+            } else {
+                mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+            }
         }
     }
 

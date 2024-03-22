@@ -504,12 +504,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void btnHistoryTableRefreshClicked(MouseEvent event) {
-        orderHistoryModel.refreshOrderHistory();
+        orderHistoryModel.refreshOrderHistoryBtn();
     }
 
     @FXML
     public void btnHistoryTableRefreshTouched(TouchEvent event) {
-        orderHistoryModel.refreshOrderHistory();
+        orderHistoryModel.refreshOrderHistoryBtn();
     }
 
     @FXML

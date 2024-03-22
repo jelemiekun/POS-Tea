@@ -1,24 +1,150 @@
 ------------------TO DO------------------
 
-tooltips
+// maam maricar
 
-duplication ng product
+
+apperance yung accesibility
+
+if may blank fields, may lalabas na error confirmation
+
+magbabawas ng mga
+
+paikliin product names sa resibo
+
+daily (today), weekly, monthly, annually
+
+anually, year lang
+
+monthly, year tsaka month
+
+weekly, year month tsaka week
+
+daily, year month day
+
+if weekly,
+
+if monthly, lalabas
+
+
+
+alisin na
+
+
+
+
+
+
+
+DEVIN AI
+
+
+
+
+
+pagkapindot ng pay, generate agad ng resibo, tapos may lalabas na pop up window na receipt generated
+
+BASTA NASA MENU PAY YUNG GENERATE RECEIPT WALA SA ORDER LIST
+
+HINDI NA MAGLALAGAY NG BUTTON OR ANO MAN NA MAVVIEW YUNG COPY NG RECEIPT
+PERO, GAGAWA ULIT NG BAGONG METHOD NA GAGAWA NG DUPLICATE COPY NG RESIBO
+
+lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPDATE YUNG REVENUE, CUSTOMER, AT TOTAL ORDER.
+
+bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
+
+sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
+
+WHITE, BLACK, RED, ORANGE, YELLOW, GREEN
+
+
+
+
+
+
+// tindahan mismo
+itanong saan napupunta order info tsaka yung payment
+
+
+//sir dan
+
+alisin na yung change sa payment transaction // research
+
+lagyan ng number bawat process // research dfd
+
+alisin na yung export/import process // research dfd
+
+add/edit/delete magiging inventory na // research dfd
+
+seller sa dulo na // research dfd
+
+wag na ilagay give the order at serve the customer // research dfd
+
+wag na ilagay update dashboard content // research dfd
+
+select order diretso na payment transaction // research dfd
+
+update dashboard content magiging seller nalang // research dfd
+
+maliit yung image ng theoretical at conceptual framework kahit maliit na ung arrow // research
+
+pagsama samahin na yung input details // research ipo
+
+pagsama samahin nalang yunng processes // research ipo
+
+alisin new account sa output at dashboard content alisin na, isama na resibo sa output // resaerch ipo
+
+
+forgot pass at register baliktad // system design
+
+alisin na yung to make a system sa project objectives // research  deli
+
+rephrase yung first ng scope of, dapat ano yung features meron ng system, ano yung kayang gawin ng system // research
+
+rephrase some products can have add-ons, dapat mapakitang iffle yung system // research
+
+paikliin it has a customizable background....... // research
+
+the system only accepts cash and gcash, ALISIN NA // system design
+
+alisin na yung buttons sa cash, gcash, combobox nalang sa left na "cash gcash etc" tapos if others, may lalabas na textfield // system design
+
+alisin na yung it only has three sizes // research scope deli
+
+ang ilagay sa 5 categories ay "fixed na yung product information", kasama na dito yung add-ons // research scope deli
+
+def of terms isama about sa sales na terms "point of sale" // research def of terms
+
+ilagay minimum at recommended system specs tsaka minimum ng processor // research specs
+
+alisin na yung can not print receipt sa delimitation KASI MAKAKAPAG PRINT NA TAYO YEY
+
+acknowledgement receipt // system (palitan from or to acknowledgement receipt)
+
+video sa system manual // lomboy
+
+// akin
+
+lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
+
+tooltips, basta lagyan lahat ng dapat lagyan
+
+duplication ng product, pag dumiplicate, error message na product already existed, hindi na mag pprooceed
+
+maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin sa system manual na sortable sya, tapos may maliit na text na nakalagay na pede mapindot yung header para ma sort
 
 pag nag search na, di na mag uupdate automatically yung order history
 
 order receipt - update resibo content
 
-name sa upper left
+name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
 
 connect fxml ng account sa mainController
-
-video sa system manual
 
 available sa edit products
 
 edit products pop up if naka open csv
 
-ayusin ui ng account settings
+ayusin ui ng account settings, dagdagan na ng recovery questions at change username
 
 UPLOAD/REMOVE PHOTO SA APPETIZER
 
@@ -27,8 +153,6 @@ colors ng legends sa dashboard
 gawing * lahat ng static import
 
 css files ng 2 table mula kay abella
-
-lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 
 ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
 
@@ -64,7 +188,7 @@ lagyan ng max attempts mga input
 ------------------MGA ITATANONG------------------
 order history, paano yun? haha ang labo
 
-amount too large prompt, anong header at content?
+amount too large     prompt, anong header at content?
 
 resibo
 
