@@ -319,11 +319,6 @@ public class MenuModel {
     private void setPanesAfterAddingOrder() {
         mainController.labelNoOrdersSelected.setVisible(false);
         mainController.anchorPaneHideHalfRightPanel.setVisible(true);
-
-        mainController.imageGCash.setImage(GCASH);
-        mainController.labelGCash.setTextFill(Color.BLACK);
-        mainController.imageCash.setImage(CASH);
-        mainController.labelCash.setTextFill(Color.BLACK);
     }
 
     public void setTextFieldListeners() {
