@@ -154,43 +154,43 @@
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
-                  <AnchorPane layoutX="40.0" layoutY="14.0" prefHeight="174.0" prefWidth="478.0">
+                  <AnchorPane layoutX="40.0" layoutY="14.0" prefHeight="115.0" prefWidth="478.0">
                      <children>
-                        <Label layoutX="27.0" layoutY="36.0" text="Customer No.:">
+                        <Label layoutX="27.0" layoutY="28.0" text="Customer No.:">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="27.0" layoutY="88.0" text="Customer Name:">
+                        <Label layoutX="27.0" layoutY="65.0" text="Customer Name:">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="36.0" prefHeight="31.0" prefWidth="168.0" text="1">
+                        <Label fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="28.0" prefHeight="31.0" prefWidth="168.0" text="1">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldMenuCustomerName" alignment="CENTER_RIGHT" layoutX="256.0" layoutY="85.0" onKeyPressed="#textFieldCustomerNameTyping" prefHeight="40.0" prefWidth="200.0">
+                        <TextField fx:id="textFieldMenuCustomerName" alignment="CENTER_RIGHT" layoutX="256.0" layoutY="60.0" onKeyPressed="#textFieldCustomerNameTyping" prefHeight="40.0" prefWidth="200.0">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </TextField>
-                        <Label fx:id="labelMenuNoName" layoutX="284.0" layoutY="125.0" text="*please input name" textFill="#ff2020" visible="false">
+                        <Label fx:id="labelMenuNoName" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="284.0" layoutY="100.0" prefHeight="23.0" prefWidth="173.0" text="*input name" textAlignment="RIGHT" textFill="#ff2020" visible="false">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="40.0" layoutY="156.0" prefHeight="452.0" prefWidth="478.0">
+                  <AnchorPane layoutX="40.0" layoutY="135.0" prefHeight="460.0" prefWidth="478.0">
                      <children>
-                        <Label layoutX="27.0" layoutY="10.0" text="Bills">
+                        <Label layoutX="27.0" text="Bills">
                            <font>
                               <Font name="Arial Black" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane layoutX="13.0" layoutY="50.0" prefHeight="36.0" prefWidth="436.0">
+                        <AnchorPane layoutX="13.0" layoutY="35.0" prefHeight="36.0" prefWidth="436.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="WHITE" strokeType="INSIDE" width="436.0" />
                               <Label layoutX="90.0" layoutY="9.0" text="Order Details" />
@@ -200,7 +200,7 @@
                               <Line endX="-40.0" endY="47.0" layoutX="292.0" layoutY="-11.0" startX="-40.0" startY="12.0" visible="false" />
                            </children>
                         </AnchorPane>
-                        <ScrollPane layoutX="12.0" layoutY="84.0" prefHeight="368.0" prefWidth="451.0">
+                        <ScrollPane layoutX="12.0" layoutY="75.0" prefHeight="368.0" prefWidth="451.0">
                           <content>
                               <FlowPane fx:id="flowPaneOrdersSelected" prefHeight="365.0" prefWidth="433.0" />
                           </content>
@@ -210,42 +210,43 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                     </children></AnchorPane>
-                  <Label layoutX="44.0" layoutY="600.0" text="-----------------------------------------------">
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="44.0" layoutY="580.0" text="-----------------------------------------------">
                      <font>
                         <Font name="Arial" size="30.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="40.0" layoutY="632.0" prefHeight="329.0" prefWidth="472.0">
+                  <AnchorPane layoutX="40.0" layoutY="610.0" prefHeight="350.0" prefWidth="472.0">
                      <children>
-                        <Label layoutX="43.0" layoutY="-1.0" text="Total Amount">
+                        <Label layoutX="35.0" layoutY="5.0" text="Total Amount">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="290.0" layoutY="-1.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
+                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="290.0" layoutY="5.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="272.0" prefWidth="473.0">
+                        <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="293.0" prefWidth="473.0">
                            <children>
-                              <Label layoutX="41.0" layoutY="-7.0" text="Enter Amount:">
+                              <Label layoutX="35.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="41.0" layoutY="59.0" text="Payment Method">
+                              <Label layoutX="35.0" layoutY="59.0" text="Payment Method">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textFieldMenuEnterAmount" alignment="CENTER_RIGHT" layoutX="374.0" layoutY="-6.0" onKeyPressed="#textFieldAmountTyping" prefHeight="37.0" prefWidth="85.0">
+                              <TextField fx:id="textFieldMenuEnterAmount" alignment="CENTER_RIGHT" layoutX="374.0" layoutY="-4.0" onKeyPressed="#textFieldAmountTyping" prefHeight="37.0" prefWidth="85.0">
                                  <font>
                                     <Font name="Arial" size="20.0" />
                                  </font>
                               </TextField>
-                              <AnchorPane layoutX="14.0" layoutY="192.0" onMouseClicked="#menuPaymentCancelClicked" onTouchReleased="#menuPaymentCancelTouched">
+                              <AnchorPane layoutX="14.0" layoutY="230.0" onMouseClicked="#menuPaymentCancelClicked" onTouchReleased="#menuPaymentCancelTouched">
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -268,7 +269,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane layoutX="256.0" layoutY="192.0" onMouseClicked="#menuPaymentPayClicked" onTouchReleased="#menuPaymentPayTouched">
+                              <AnchorPane layoutX="256.0" layoutY="230.0" onMouseClicked="#menuPaymentPayClicked" onTouchReleased="#menuPaymentPayTouched">
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -296,7 +297,7 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="355.0" layoutY="-3.0" text="₱">
+                              <Label layoutX="355.0" layoutY="-1.0" text="₱">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -306,9 +307,19 @@
                                     <Font name="Arial" size="20.0" />
                                  </font>
                               </Label>
+                              <TextField fx:id="textFieldModeOfPaymentOthers" layoutX="20.0" layoutY="165.0" prefHeight="47.0" prefWidth="436.0" promptText="Please specify..." visible="false">
+                                 <font>
+                                    <Font name="Arial" size="26.0" />
+                                 </font></TextField>
+                              <ComboBox fx:id="comboBoxModeOfPayment" layoutX="20.0" layoutY="105.0" onAction="#comboBoxModeOfPaymentOnAction" prefHeight="47.0" prefWidth="436.0" />
+                              <Label fx:id="labelSelectModeOfPayment" layoutX="35.0" layoutY="113.0" text="Select Mode Of Payment">
+                                 <font>
+                                    <Font name="Arial" size="26.0" />
+                                 </font>
+                              </Label>
                            </children>
                         </AnchorPane>
-                        <Label fx:id="labelMenuNoAmount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="27.0" prefHeight="23.0" prefWidth="325.0" text="*select mode of payment" textAlignment="RIGHT" textFill="#ff2020" visible="false">
+                        <Label fx:id="labelMenuNoAmount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="31.0" prefHeight="23.0" prefWidth="325.0" text="*input amount" textAlignment="RIGHT" textFill="#ff2020" visible="false">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>

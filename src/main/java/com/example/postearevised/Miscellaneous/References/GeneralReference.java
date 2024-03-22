@@ -1,6 +1,8 @@
 package com.example.postearevised.Miscellaneous.References;
 
 import com.example.postearevised.Objects.Products.Product;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -10,6 +12,7 @@ public class GeneralReference {
     public static Stage loginFromMainSceneStage;
     public static Stage productStage;
     public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
+    public static final ObservableList<String> modeOfPaymentChoices = FXCollections.observableArrayList("Cash", "GCash", "Maya", "Others");
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;
     public static final int PASSWORD_LIMIT = 128;

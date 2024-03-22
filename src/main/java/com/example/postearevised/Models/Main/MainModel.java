@@ -54,13 +54,14 @@ public class MainModel {
         switch (selectedPane) {
             case 1: // Menu
                 mainStage.setTitle(MENU_ENUM.getName());
-                mainController.menuModel.checkIfIsMenuEmpty();
                 mainController.anchorPaneMenu.setVisible(true);
                 mainController.anchorPaneDashboard.setVisible(false);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
                 mainController.anchorPaneMenu.requestFocus();
+                mainController.menuModel.checkIfIsMenuEmpty();
+                mainController.menuModel.setHalfRightPanel();
 
                 mainController.mainMenuIcon.setImage(mainMenuSelectedIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);

@@ -26,6 +26,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
@@ -34,6 +35,7 @@ import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setProceedPayment;
+import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -75,6 +77,10 @@ public class MenuModel {
         } else {
             updateElementsIfNotEmpty();
         }
+    }
+
+    public void setHalfRightPanel() {
+        mainController.anchorPaneHideHalfRightPanel.setVisible(!referenceProductOrderObservableList.isEmpty());
     }
 
     private void removeFlowPaneChildren() {
@@ -310,6 +316,10 @@ public class MenuModel {
             setPanesAfterAddingOrder();
             setTextFieldListeners();
             createAnchorPane(product);
+            setLabelSelectPaymentClickable();
+
+            if (referenceProductOrderObservableList.isEmpty())
+                setLabelSelectModeOfPaymentVisibility();
 
             isProductOrderAdded = false;
         }
@@ -319,6 +329,33 @@ public class MenuModel {
     private void setPanesAfterAddingOrder() {
         mainController.labelNoOrdersSelected.setVisible(false);
         mainController.anchorPaneHideHalfRightPanel.setVisible(true);
+    }
+
+    private void setLabelSelectModeOfPaymentVisibility() {
+        mainController.labelSelectModeOfPayment.setVisible(true);
+        mainController.textFieldModeOfPaymentOthers.setVisible(false);
+    }
+
+    private void setLabelSelectPaymentClickable() {
+        mainController.labelSelectModeOfPayment.setOnMouseClicked(event -> mainController.comboBoxModeOfPayment.show());
+        mainController.labelSelectModeOfPayment.setOnTouchReleased(event -> mainController.comboBoxModeOfPayment.show());
+    }
+
+    public void modeOfPaymentSelected() {
+        mainController.labelMenuNoModeOfPayment.setVisible(false);
+        String selectedModeOfPayment = mainController.comboBoxModeOfPayment.getValue();
+
+        if (selectedModeOfPayment != null) {
+            mainController.labelSelectModeOfPayment.setVisible(false);
+
+            if (selectedModeOfPayment.equals("Others")) {
+                referenceModeOfPayment = "";
+                mainController.textFieldModeOfPaymentOthers.setVisible(true);
+            } else {
+                mainController.textFieldModeOfPaymentOthers.setVisible(false);
+                referenceModeOfPayment = selectedModeOfPayment;
+            }
+        }
     }
 
     public void setTextFieldListeners() {
@@ -336,6 +373,23 @@ public class MenuModel {
                 mainController.textFieldMenuEnterAmount.setText(oldValue);
             }
         }));
+
+        mainController.textFieldModeOfPaymentOthers.textProperty().addListener(((observableValue, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                mainController.textFieldModeOfPaymentOthers.setText(newValue);
+                mainController.labelMenuNoModeOfPayment.setVisible(true);
+            } else if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
+                mainController.textFieldModeOfPaymentOthers.setText(oldValue);
+            } else {
+                mainController.labelMenuNoModeOfPayment.setVisible(false);
+            }
+        }));
+    }
+
+    public void setComboBoxModEOfPaymentItems() {
+        mainController.comboBoxModeOfPayment.setItems(modeOfPaymentChoices);
+
+        mainController.comboBoxModeOfPayment.setStyle("-fx-font-family: Arial; -fx-font-size: 26px;");
     }
 
     private void noOrderSelected() {
@@ -639,6 +693,11 @@ public class MenuModel {
         mainController.anchorPaneMenu.requestFocus();
         mainController.textFieldMenuCustomerName.setText("");
         mainController.textFieldMenuEnterAmount.setText("");
+        mainController.textFieldModeOfPaymentOthers.setVisible(false);
+        mainController.textFieldModeOfPaymentOthers.setText("");
+        mainController.textFieldModeOfPaymentOthers.setPromptText("Please specify...");
+        mainController.labelSelectModeOfPayment.setVisible(true);
+        mainController.comboBoxModeOfPayment.setValue(null);
     }
 
     public void payClicked() {
@@ -650,7 +709,7 @@ public class MenuModel {
             String amountPaid = mainController.textFieldMenuEnterAmount.getText();
             setProceedPayment(amountPaid);
             if (mainController.mainModel.openPrompt()) {
-                setAttributes();
+                setReferenceOrderNumber();
                 getChange();
                 setPaymentSuccessful(String.valueOf(referenceChange));
                 if (mainController.mainModel.openPrompt()) {
@@ -669,6 +728,7 @@ public class MenuModel {
                         errorMessage = e.getMessage();
                         logError(false);
                     }
+                    generateReceipt(orderReference);
                     orderCancelledOrAddedToQueue();
                     clearFields();
                     incrementCustomerNumber();
@@ -685,8 +745,13 @@ public class MenuModel {
         });
     }
 
-    private void setAttributes() {
-        referenceOrderNumber = Integer.parseInt(mainController.labelCustomerNumber.getText());
+    private void setReferenceOrderNumber() {
+        try {
+            referenceOrderNumber = Integer.parseInt(mainController.labelCustomerNumber.getText());
+        } catch (NumberFormatException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
     }
 
     private boolean checkCustomerName() {
@@ -718,6 +783,10 @@ public class MenuModel {
     }
 
     private boolean checkModeOfPayment() {
+        if (mainController.textFieldModeOfPaymentOthers.isVisible()) {
+            referenceModeOfPayment = mainController.textFieldModeOfPaymentOthers.getText();
+        }
+
         if (!referenceModeOfPayment.isBlank()) {
             return true;
         } else {
@@ -729,8 +798,9 @@ public class MenuModel {
     private void addToOrderQueue() {
         ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
         Order order = new Order(copyList, referenceCustomerName, referenceOrderNumber,
-                referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment);
+                referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment, getOrderDateAndTime());
         System.out.println("line 702: " + order.getProductOrderObservableList().isEmpty());
+        orderReference = order;
         orderQueueObservableList.add(order);
         Platform.runLater(new Runnable() {
             @Override
@@ -738,6 +808,9 @@ public class MenuModel {
                 invokeOrderListStartsHereMethod(order);
             }
         });
+    }
+    private LocalDateTime getOrderDateAndTime() {
+        return LocalDateTime.now();
     }
 
 

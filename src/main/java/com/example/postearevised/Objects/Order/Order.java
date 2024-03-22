@@ -15,19 +15,6 @@ public class Order {
     private LocalDateTime dateAndTime;
 
     public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
-                 int totalPrice, int amountPaid, int change, String modeOfPayment) {
-        this.productOrderObservableList = productOrderObservableList;
-        this.customerName = customerName;
-        this.orderNumber = orderNumber;
-        this.totalPrice = totalPrice;
-        this.amountPaid = amountPaid;
-        this.change = change;
-        this.modeOfPayment = modeOfPayment;
-
-        System.out.println("Order this.list.isEmpty? " + this.productOrderObservableList.isEmpty());
-    }
-
-    public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
                  int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime) {
         this.productOrderObservableList = productOrderObservableList;
         this.customerName = customerName;
@@ -37,8 +24,6 @@ public class Order {
         this.change = change;
         this.modeOfPayment = modeOfPayment;
         this.dateAndTime = dateAndTime;
-
-        System.out.println("Order this.list.isEmpty? " + this.productOrderObservableList.isEmpty());
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {

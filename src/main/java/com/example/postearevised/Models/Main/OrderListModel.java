@@ -255,7 +255,6 @@ public class OrderListModel {
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        orderDoneGetDateAndTime(order);
         if (addOrderToCSV(order)) {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
@@ -274,10 +273,6 @@ public class OrderListModel {
         return mainController.mainModel.openPrompt();
     }
 
-    private void orderDoneGetDateAndTime(Order order) {
-        order.setDateAndTime(LocalDateTime.now());
-    }
-
     private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {
         orderQueueObservableList.remove(order);
         mainController.flowPaneOrderQueue.getChildren().remove(anchorPaneToDelete);
@@ -285,7 +280,6 @@ public class OrderListModel {
 
     private void addOrderToOrderHistory(Order order) {
         orderHistoryObservableList.add(order);
-        generateReceipt(order);
         mainController.orderHistoryModel.refreshOrderHistory();
     }
 

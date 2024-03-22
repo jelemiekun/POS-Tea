@@ -26,7 +26,6 @@ import javafx.stage.Stage;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -74,6 +73,7 @@ public class MainController implements Initializable {
             menuModel.setMainController(this);
             menuModel.setDropShadow();
             menuModel.setTextFieldListeners();
+            menuModel.setComboBoxModEOfPaymentItems();
 
             orderListModel = new OrderListModel();
             orderListModel.setMainController(this);
@@ -264,6 +264,12 @@ public class MainController implements Initializable {
      * Menu
      */
     @FXML
+    public Label labelSelectModeOfPayment;
+    @FXML
+    public ComboBox<String> comboBoxModeOfPayment;
+    @FXML
+    public TextField textFieldModeOfPaymentOthers;
+    @FXML
     public Label labelMenuNoName;
     @FXML
     public Label labelMenuNoModeOfPayment;
@@ -306,6 +312,11 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneRightPanel;
     @FXML
     public AnchorPane anchorPaneMenuIsEmpty;
+
+    @FXML
+    public void comboBoxModeOfPaymentOnAction() {
+        menuModel.modeOfPaymentSelected();
+    }
 
     @FXML
     public void menuNeedHelpClicked(MouseEvent event) {
