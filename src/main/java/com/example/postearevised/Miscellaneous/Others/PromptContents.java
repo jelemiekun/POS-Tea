@@ -143,6 +143,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setOrderCancellation() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Cancel order?";
+        promptContentText = "Are you sure you want to cancel this order?\nThis action cannot be undone.";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = YES_RED_BUTTON;
+        btnCenterImageReference = NO_BLACK_BUTTON;
+        btnRightImageReference = NO_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
+    public static void setAddOrderBlankFields() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Incomplete Information";
+        promptContentText = "Some fields are blank. Proceed?";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = NO_BLACK_BUTTON;
+        btnRightImageReference = YES_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = true;
+    }
+
     public static void setDeleteRecord() {
         setIsConfirmedToFalse();
 

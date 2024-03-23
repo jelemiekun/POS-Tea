@@ -1,5 +1,7 @@
 ------------------TO DO------------------
 
+DISABLE ADD PRODUCT IF ORDER IS ONGOING
+
 // maam maricar
 
 
@@ -55,8 +57,6 @@ lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPD
 bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
 
 sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
-
-WHITE, BLACK, RED, ORANGE, YELLOW, GREEN
 
 
 
@@ -259,6 +259,55 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 
 
+
+
+
+-----------------RESEARCH------------------
+
+SIR DAN
+
+alisin na yung change sa payment transaction // research
+
+lagyan ng number bawat process // research dfd
+
+alisin na yung export/import process // research dfd
+
+add/edit/delete magiging inventory na // research dfd
+
+seller sa dulo na // research dfd
+
+wag na ilagay give the order at serve the customer // research dfd
+
+wag na ilagay update dashboard content // research dfd
+
+select order diretso na payment transaction // research dfd
+
+update dashboard content magiging seller nalang // research dfd
+
+alisin na yung to make a system sa project objectives // research  deli
+
+the system only accepts cash and gcash // research
+
+alisin na yung can not print receipt sa delimitation KASI MAKAKAPAG PRINT NA TAYO YEY // research
+
+alisin na yung it only has three sizes // research scope deli
+
+pagsama samahin na yung input details // research ipo
+
+pagsama samahin nalang yunng processes // research ipo
+
+alisin new account sa output at dashboard content alisin na, isama na resibo sa output // resaerch ipo
+
+
+
+
+
+
+
+
+
+
+
 ------------------DONE/FIXED------------------
 
 lagyan ng asterisk sa invalid email forgotpass1
@@ -377,43 +426,6 @@ rectangleModal sa main(menu)
 
 pag ayos ng format sa table history
 
+WHITE, BLACK, RED, ORANGE, YELLOW, GREEN
 
-
-
-
-
------------------RESEARCH------------------
-
-SIR DAN
-
-alisin na yung change sa payment transaction // research
-
-lagyan ng number bawat process // research dfd
-
-alisin na yung export/import process // research dfd
-
-add/edit/delete magiging inventory na // research dfd
-
-seller sa dulo na // research dfd
-
-wag na ilagay give the order at serve the customer // research dfd
-
-wag na ilagay update dashboard content // research dfd
-
-select order diretso na payment transaction // research dfd
-
-update dashboard content magiging seller nalang // research dfd
-
-alisin na yung to make a system sa project objectives // research  deli
-
-the system only accepts cash and gcash // research
-
-alisin na yung can not print receipt sa delimitation KASI MAKAKAPAG PRINT NA TAYO YEY // research
-
-alisin na yung it only has three sizes // research scope deli
-
-pagsama samahin na yung input details // research ipo
-
-pagsama samahin nalang yunng processes // research ipo
-
-alisin new account sa output at dashboard content alisin na, isama na resibo sa output // resaerch ipo
+confirmation message if icancel and order

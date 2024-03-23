@@ -682,11 +682,20 @@ public class MenuModel {
         editOrShowSelectedProduct = null;
     }
 
-    public void orderCancelledOrAddedToQueue() {
-        clearProductOrderReferences();
-        noOrderSelected();
-        updateTotalAmountOfOrder();
-        clearFields();
+    public void orderCancelledOrAddedToQueue(boolean isCancel) {
+        boolean proceed = true;
+
+        if (isCancel) {
+            setOrderCancellation();
+            proceed = mainController.mainModel.openPrompt();
+        }
+
+        if (proceed) {
+            clearProductOrderReferences();
+            noOrderSelected();
+            updateTotalAmountOfOrder();
+            clearFields();
+        }
     }
 
     private void clearFields() {
@@ -729,7 +738,7 @@ public class MenuModel {
                         logError(false);
                     }
                     generateReceipt(orderReference);
-                    orderCancelledOrAddedToQueue();
+                    orderCancelledOrAddedToQueue(false);
                     clearFields();
                     incrementCustomerNumber();
                     clearOrderReference();

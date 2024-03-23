@@ -187,9 +187,7 @@ public class ProductModel {
 
         if (isEditProductOrder) { // viewable lang to
             setAttributes(true);
-
             addProductToOrderOrEditProductOrder(false);
-
             success = true;
         } else {
             if (isSelectedProductOrder) {
@@ -197,10 +195,15 @@ public class ProductModel {
                 success = true;
             } else {
                 setAttributes(false);
-
-                if (isAddProductToListAndDatabase)
-                    success = instantiateProduct(); // create product
-                else {
+                if (isAddProductToListAndDatabase) {
+                    if (isIncompleteInformation()) {
+                        setAddOrderBlankFields();
+                        if (openPrompt()) // open prompt for confirmation if some fields are blank
+                            success = instantiateProduct(); // create product
+                    } else {
+                        success = instantiateProduct(); // create product
+                    }
+                } else {
                     if (setObjectAttributesUpdateProduct()) {
                         success = true;
                         System.out.println("gumagana line 205");
@@ -217,6 +220,30 @@ public class ProductModel {
             clearProductReferenceValues();
             closeThisStage();
         }
+    }
+
+    public boolean isIncompleteInformation() {
+        boolean productNameAndDescription = productController.textFieldProductName.getText().isBlank() || productController.textFieldProductDescription.getText().isBlank();
+
+        switch (referenceCategory) {
+            case "Milk Tea":
+                return productController.milkTeaTextFieldSmallPrice.getText().isBlank() || productController.milkTeaTextFieldMediumPrice.getText().isBlank() ||
+                        productController.milkTeaTextFieldLargePrice.getText().isBlank() || productController.milkTeaTextFieldAddOnsOneName.getText().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsPriceOne.getText().isBlank() || productController.milkTeaTextFieldAddOnsTwoName.getText().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsPriceTwo.getText().isBlank() || productNameAndDescription;
+            case "Coolers":
+                return productController.coolersTextFieldSmallPrice.getText().isBlank() || productController.coolersTextFieldMediumPrice.getText().isBlank() ||
+                        productController.coolersTextFieldLargePrice.getText().isBlank() || productController.coolersTextFieldAddOnsOneName.getText().isBlank() ||
+                        productController.coolersTextFieldAddOnsPriceOne.getText().isBlank() || productController.coolersTextFieldAddOnsTwoName.getText().isBlank() ||
+                        productController.coolersTextFieldAddOnsPriceTwo.getText().isBlank() || productNameAndDescription;
+            case "Coffee":
+                return productController.coffeeTextFieldPrice.getText().isBlank() || productNameAndDescription;
+            case "Ice Candy Cups":
+                return productController.iceCandyCupsTextFieldPrice.getText().isBlank() || productNameAndDescription;
+            case "Appetizers":
+                return productController.appetizerTextFieldPrice.getText().isBlank() || productNameAndDescription;
+        }
+        return productNameAndDescription;
     }
 
     /**
@@ -261,33 +288,21 @@ public class ProductModel {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
         fileChooser.getExtensionFilters().add(extFilter);
 
-        // Show the file chooser dialog
         File selectedFile = fileChooser.showOpenDialog(productStage);
 
         if (selectedFile != null) {
             try {
-                // Get the input stream of the selected file
                 InputStream inputStream = Files.newInputStream(selectedFile.toPath());
-
-                // Get the AppData directory
                 String appDataDir = System.getenv("APPDATA");
-
-                // Specify the destination directory
                 Path destinationDir = Paths.get(appDataDir, "POS_Tea", "product images");
-
-                // Create directory if it doesn't exist
                 Files.createDirectories(destinationDir);
-
-                // Create a copy of the selected file in the destination directory
                 Path copiedFilePath = destinationDir.resolve(selectedFile.getName());
                 Files.copy(inputStream, copiedFilePath, StandardCopyOption.REPLACE_EXISTING);
-
-                System.out.println("File copied successfully!");
-
                 setImagePathValue(copiedFilePath.toString());
                 setImageProduct(copiedFilePath.toString());
             } catch (IOException e) {
-                e.printStackTrace();
+                errorMessage = e.getMessage();
+                logError(false);
             }
         } else {
             // User canceled the operation

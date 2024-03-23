@@ -73,7 +73,6 @@ public class MainController implements Initializable {
             menuModel.setMainController(this);
             menuModel.setDropShadow();
             menuModel.setTextFieldListeners();
-            menuModel.setComboBoxModEOfPaymentItems();
 
             orderListModel = new OrderListModel();
             orderListModel.setMainController(this);
@@ -90,6 +89,7 @@ public class MainController implements Initializable {
             settingsModel.setMainController(this);
 
             Platform.runLater(() -> {
+                menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
                 settingsModel.setVideo();
                 orderHistoryModel.setOrderHistoryTable();
@@ -408,12 +408,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void menuPaymentCancelClicked(MouseEvent event) {
-        menuModel.orderCancelledOrAddedToQueue();
+        menuModel.orderCancelledOrAddedToQueue(true);
     }
 
     @FXML
     public void menuPaymentCancelTouched(TouchEvent event) {
-        menuModel.orderCancelledOrAddedToQueue();
+        menuModel.orderCancelledOrAddedToQueue(true);
     }
 
     @FXML
@@ -654,11 +654,13 @@ public class MainController implements Initializable {
 
     @FXML
     public void settingsAddProductClicked() {
-        settingsModel.openAddProductsFXML();
+        if (!orderIsOngoing)
+            settingsModel.openAddProductsFXML();
     }
     @FXML
     public void settingsAddProductTouched() {
-        settingsModel.openAddProductsFXML();
+        if (!orderIsOngoing)
+            settingsModel.openAddProductsFXML();
     }
 
     @FXML
