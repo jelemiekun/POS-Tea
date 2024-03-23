@@ -15,38 +15,38 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 public class ProductsCSVOperations {
     public static void doesProductCSVExist() {
-        File directory = new File(DIRECTORY_PATH);
-        File file = new File(PRODUCTS_CSV_FILE_PATH);
+        createDirectoryIfNotExists(DIRECTORY_PATH);
+        createDirectoryIfNotExists(DIRECTORY_CSV_PATH);
+        createCSVFileIfNotExists(PRODUCTS_CSV_FILE_PATH);
+        createDirectoryIfNotExists(PRODUCT_IMAGES_PATH);
+        createDirectoryIfNotExists(DIRECTORY_ACCOUNTS_PATH);
+    }
 
+    private static void createDirectoryIfNotExists(String path) {
+        File directory = new File(path);
         if (!directory.exists()) {
             if (directory.mkdirs()) {
-                System.out.println("Created POS_Tea directory: " + DIRECTORY_PATH);
-                createCSVFile(PRODUCTS_CSV_FILE_PATH);
+                System.out.println("Created directory: " + path);
             } else {
-                System.out.println("Failed to create POS_Tea directory: " + DIRECTORY_PATH);
+                System.out.println("Failed to create directory: " + path);
             }
         } else {
-            if (!file.exists()) {
-                System.out.println("Directory exists but no csv file, will now create products csv...");
-                createCSVFile(PRODUCTS_CSV_FILE_PATH);
-            } else {
-                System.out.println("CSV products file already exists: " + PRODUCTS_CSV_FILE_PATH);
-                // Import the products that are in csv
-                int i = importProductsFromCSV(PRODUCTS_CSV_FILE_PATH, false);
-                System.out.println("line 35: " + i);
-            }
-        }
-
-        // Check if "product images" folder exists in POS_Tea and create if it doesn't
-        File productImagesDir = new File(PRODUCT_IMAGES_PATH);
-        if (!productImagesDir.exists()) {
-            if (productImagesDir.mkdirs()) {
-                System.out.println("Created 'product images' folder in POS_Tea.");
-            } else {
-                System.out.println("Failed to create 'product images' folder in POS_Tea.");
-            }
+            System.out.println("Directory already exists: " + path);
         }
     }
+
+    private static void createCSVFileIfNotExists(String filePath) {
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("Directory exists but no CSV file, will now create products CSV: " + filePath);
+            createCSVFile(filePath);
+        } else {
+            System.out.println("CSV products file already exists: " + filePath);
+            int i = importProductsFromCSV(filePath, false);
+            System.out.println("line 35: " + i);
+        }
+    }
+
 
     public static void createCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {

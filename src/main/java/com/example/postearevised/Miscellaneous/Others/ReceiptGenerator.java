@@ -3,6 +3,7 @@ package com.example.postearevised.Miscellaneous.Others;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -12,6 +13,20 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
 public class ReceiptGenerator {
+    public static void doesReceiptPathExist() {
+        File receiptPath = new File(DIRECTORY_RECEIPT_PATH);
+
+        if (!receiptPath.exists()) {
+            if (receiptPath.mkdirs()) {
+                System.out.println("Created directory: " + DIRECTORY_RECEIPT_PATH);
+            } else {
+                System.out.println("Failed to create directory: " + DIRECTORY_RECEIPT_PATH);
+            }
+        } else {
+            System.out.println("Directory already exists: " + DIRECTORY_RECEIPT_PATH);
+        }
+    }
+
     public static void generateReceipt(Order order, int invocationCount) {
         if (invocationCount == 1 || invocationCount == 2) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
@@ -55,5 +70,4 @@ public class ReceiptGenerator {
             }
         }
     }
-
 }
