@@ -95,15 +95,15 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 categories.append(productOrder.getProductCategory());
 
-                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
-                    categories.append("\n");
-                }
-                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
-                    categories.append("\n");
-                }
-                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
-                    categories.append("\n");
-                }
+//                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
+//                    categories.append("\n");
+//                }
+//                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
+//                    categories.append("\n");
+//                }
+//                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
+//                    categories.append("\n");
+//                }
 
                 if (i < productOrders.size() - 1) {
                     categories.append("\n");
@@ -118,15 +118,15 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 names.append(productOrder.getProductName());
 
-                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
-                    names.append("\n    - ").append(productOrder.getThirdAttribute());
-                }
-                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
-                    names.append("\n    - ").append(productOrder.getFirstAttribute());
-                }
-                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
-                    names.append("\n    - ").append(productOrder.getSecondAttribute());
-                }
+//                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
+//                    names.append("\n    - ").append(productOrder.getThirdAttribute());
+//                }
+//                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
+//                    names.append("\n    - ").append(productOrder.getFirstAttribute());
+//                }
+//                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
+//                    names.append("\n    - ").append(productOrder.getSecondAttribute());
+//                }
 
                 if (i < productOrders.size() - 1) {
                     names.append("\n");
@@ -141,15 +141,15 @@ public class OrderHistoryModel {
                 ProductOrder productOrder = productOrders.get(i);
                 quantities.append(productOrder.getQuantity()).append("x");
 
-                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
-                    quantities.append("\n");
-                }
-                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
-                    quantities.append("\n");
-                }
-                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
-                    quantities.append("\n");
-                }
+//                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
+//                    quantities.append("\n");
+//                }
+//                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
+//                    quantities.append("\n");
+//                }
+//                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
+//                    quantities.append("\n");
+//                }
 
                 if (i < productOrders.size() - 1) {
                     quantities.append("\n");
