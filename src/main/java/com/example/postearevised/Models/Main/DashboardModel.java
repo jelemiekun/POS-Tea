@@ -237,6 +237,8 @@ public class DashboardModel {
             ImageView imageView;
 
             System.out.println("Image Path: " + productOrder.getImagePath()); // Print out the image path
+            File productImage = new File(productOrder.getImagePath());
+
             if (!productOrder.getImagePath().isEmpty()) {
                 if (productOrder.getImagePath().startsWith("/com/example/postearevised/")) {
                     imageView = new ImageView(new Image(productOrder.getImagePath()));
@@ -253,6 +255,8 @@ public class DashboardModel {
                 } else if (productOrder.getImagePath().contains("no image")) {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else if (productOrder.getImagePath().contains("Product Media")) {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                } else if (!productImage.exists()) {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 } else {
                     File file = new File(productOrder.getImagePath());

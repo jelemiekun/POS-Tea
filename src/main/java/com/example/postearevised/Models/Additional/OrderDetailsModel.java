@@ -124,6 +124,7 @@ public class OrderDetailsModel {
             String change = "₱ " + cellData.getValue().getChange();
             return new SimpleStringProperty(change);
         });
+        orderDetailsController.tableViewRecordDetails.setSelectionModel(null);
     }
 
     public void setHeader() {

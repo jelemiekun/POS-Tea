@@ -518,13 +518,13 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" onMouseClicked="#anchorPaneOrderHistoryRequestFocus" onTouchReleased="#anchorPaneOrderHistoryRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" onMouseClicked="#anchorPaneOrderHistoryRequestFocus" onTouchReleased="#anchorPaneOrderHistoryRequestFocus" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
                   <AnchorPane layoutX="1277.0" layoutY="30.0">
                      <children>
-                        <Label layoutY="8.0" text="Search">
+                        <Label layoutX="12.0" layoutY="10.0" text="Search">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
@@ -837,7 +837,7 @@
                                                             <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
                                                          </image>
                                                       </ImageView>
-                                                      <Label layoutX="12.0" layoutY="21.0" text="DELETEE ACCOUNT" textFill="WHITE">
+                                                      <Label layoutX="18.0" layoutY="21.0" text="DELETE ACCOUNT" textFill="WHITE">
                                                          <font>
                                                             <Font name="Arial Black" size="16.0" />
                                                          </font>
