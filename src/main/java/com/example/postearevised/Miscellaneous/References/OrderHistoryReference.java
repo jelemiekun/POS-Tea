@@ -14,9 +14,9 @@ public class OrderHistoryReference {
             CUSTOMER_NAME_ENUM.getTitle(),
             FOOD_CATEGORY_ENUM.getTitle(),
             PRODUCT_NAME_ENUM.getTitle(),
-            PRODUCT_QUANTITY_ENUM.getTitle(),
-            PRODUCT_TOTAL_PRICE_ENUM.getTitle(),
-            DATE_AND_TIME_ENUM.getTitle());
+            DAY_ENUM.getTitle(),
+            MONTH_ENUM.getTitle(),
+            YEAR_ENUM.getTitle());
 
     public static void clearOrderHistoryReferences() {
         orderHistoryObservableList.clear();

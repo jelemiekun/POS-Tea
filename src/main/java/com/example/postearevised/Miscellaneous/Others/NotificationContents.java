@@ -9,6 +9,12 @@ public class NotificationContents {
     public static String notificationHeaderReference;
     public static String notificationContentReference;
 
+    public static void setLoadingTooLong() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Loading Taking Too Long";
+        notificationContentReference = "Please wait or refer to the error log for details.";
+    }
+
     public static void setReceiptPrinting() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Receipt Printing";

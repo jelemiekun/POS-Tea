@@ -4,9 +4,9 @@ public enum OrderHistorySortEnum {
     CUSTOMER_NAME_ENUM("Customer Name"),
     FOOD_CATEGORY_ENUM("Food Category"),
     PRODUCT_NAME_ENUM("Product Name"),
-    PRODUCT_QUANTITY_ENUM("Quantity"),
-    PRODUCT_TOTAL_PRICE_ENUM("Total Price"),
-    DATE_AND_TIME_ENUM("Date and Time");
+    DAY_ENUM("Day"),
+    MONTH_ENUM("Month"),
+    YEAR_ENUM("Year");
 
     private final String title;
 

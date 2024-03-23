@@ -60,17 +60,13 @@ hindi pede madelete current year
 
 
 
-notifications upper center, delete history pagkadelete, pagkaprint, edit products kapag magddelete, add, and edit, remove photo din
-
-alisin na search by quantity, alisin na price. tapos sa date and time, search by day, month, year nalang. 12 hours format nalang din
+lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
 update yung pag dineselect stay logged in sa login
 
 kapag pinindot yung exit sa window mismo sa pagka add ng order at sa order list, dapat mag pproceed na
 
 kailangan kong mag garbage collect para maiwasan heap space
-
-ihide na refresh button sa order history, pati sa edit products
 
 hindi double clickable yung column header
 
@@ -440,3 +436,11 @@ alisin na quantity, price, change (PATULONG SI ABELLA KILA CORPUZ AT VIVIAN)
 ORDER HISTORY SEARCH BY
 
 pag nag search na, di na mag uupdate automatically yung order history
+
+notifications upper center, delete history pagkadelete, pagkaprint, edit products kapag magddelete, add, and edit, remove photo din
+
+alisin na search by quantity, alisin na price. tapos sa date and time, search by day, month, year nalang. 12 hours format nalang din
+
+ihide na refresh button sa order history, pati sa edit products
+
+change listeners sa order history search depende sa comboBoxValue

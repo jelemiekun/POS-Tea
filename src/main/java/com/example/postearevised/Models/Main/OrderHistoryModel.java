@@ -6,6 +6,7 @@ import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -24,8 +25,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -33,6 +36,7 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -45,23 +49,27 @@ public class OrderHistoryModel {
         setCellValueFactories();
         setReorderToFalse();
         setReverseItem();
+        refreshOrderHistory();
+        setTextFieldSearch();
     }
 
-    public void setOrderHistory() {
-        refreshOrderHistory();
-        setComboBox(false);
-        mainController.anchorPaneOrderHistory.requestFocus();
-        refreshOrderHistoryTable();
-        setTextFieldSearch();
-        refreshOrderHistory();
-    }
+//    public void setOrderHistory() { // unused kasi if clicked yung order history left panel, maiiwanan lang yung nilalaman "AS IS"
+//        refreshOrderHistory(); // go to MainModel openSelectedPane() case 4, uncomment yun para magamit to
+//        setComboBox(false);
+//        mainController.anchorPaneOrderHistory.requestFocus();
+//        refreshOrderHistoryTable();
+//        setTextFieldSearch();
+//        refreshOrderHistory();
+//    }
 
     public void refreshOrderHistory() {
+        mainController.tableViewOrderHistoryColDateAndTime.setSortable(true);
         mainController.tableViewOrderHistory.refresh();
         mainController.tableViewOrderHistory.getSortOrder().clear();
         mainController.tableViewOrderHistory.getSortOrder().add(mainController.tableViewOrderHistoryColDateAndTime);
         mainController.tableViewOrderHistoryColDateAndTime.setSortType(TableColumn.SortType.DESCENDING);
         mainController.tableViewOrderHistory.refresh();
+        mainController.tableViewOrderHistoryColDateAndTime.setSortable(false);
     }
 
     public void refreshOrderHistoryBtn() {
@@ -97,17 +105,19 @@ public class OrderHistoryModel {
             case "Product Name":
                 mainController.textFieldOrderHistorySearch.setPromptText("Product Name");
                 break;
-            case "Quantity":
-                mainController.textFieldOrderHistorySearch.setPromptText("Quantity");
+            case "Day":
+                mainController.textFieldOrderHistorySearch.setPromptText("Day");
                 break;
-            case "Total Price":
-                mainController.textFieldOrderHistorySearch.setPromptText("Total Price");
+            case "Month":
+                mainController.textFieldOrderHistorySearch.setPromptText("Month");
                 break;
-            case "Date and Time":
-                mainController.textFieldOrderHistorySearch.setPromptText("Date and Time");
+            case "Year":
+                mainController.textFieldOrderHistorySearch.setPromptText("Year");
                 break;
         }
         mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+
+        setTextFieldSearch();
     }
 
     private void setCellValueFactories() {
@@ -196,12 +206,14 @@ public class OrderHistoryModel {
                     if (empty || item == null) {
                         setText(null);
                     } else {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd : HH:mm:ss");
-                        setText(item.format(formatter));
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm:ss a", Locale.ENGLISH);
+                        String formattedDateTime = item.format(formatter);
+                        setText(formattedDateTime);
                     }
                 }
             };
         });
+
     }
 
     private void setReorderToFalse() {
@@ -225,13 +237,26 @@ public class OrderHistoryModel {
 
     public void setTextFieldSearch() {
         mainController.textFieldOrderHistorySearch.setText("");
+        String searchBy = mainController.comboBoxOrderHistory.getValue();
 
-        mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
-                searchTheText(newValue);
-        });
+        if (searchBy.equals(CUSTOMER_NAME_ENUM.getTitle()) || searchBy.equals(FOOD_CATEGORY_ENUM.getTitle()) ||
+                searchBy.equals(PRODUCT_NAME_ENUM.getTitle()) || searchBy.equals(MONTH_ENUM.getTitle())) {
+
+            mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerDigitsOnly);
+            mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerCharactersOnly);
+            mainController.textFieldOrderHistorySearch.textProperty().addListener(mainController.textFieldChangeListenerCharactersOnly);
+
+        } else if (searchBy.equals(DAY_ENUM.getTitle()) || searchBy.equals(YEAR_ENUM.getTitle())){
+
+            mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerDigitsOnly);
+            mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerCharactersOnly);
+            mainController.textFieldOrderHistorySearch.textProperty().addListener(mainController.textFieldChangeListenerDigitsOnly);
+
+        }
+
     }
 
-    private void searchTheText(String stringToSearch) {
+    public void searchTheText(String stringToSearch) {
         if (!orderHistoryObservableList.isEmpty()) {
             if (!stringToSearch.isBlank()) {
                 ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
@@ -258,24 +283,31 @@ public class OrderHistoryModel {
                                 }
                             }
                             break;
-                        case "Quantity":
-                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                                if (String.valueOf(productOrder.getQuantity()).toLowerCase().contains(stringToSearch.toLowerCase())) {
-                                    filteredOrders.add(order);
-                                    break;
-                                }
+                        case "Day":
+                            DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                            String dayFormattedDate = order.getDateAndTime().format(dayFormatter);
+                            String[] dayParts = dayFormattedDate.split(" ");
+                            String day = dayParts[1].replace(",", "");
+                            if (day.contains(stringToSearch)) {
+                                filteredOrders.add(order);
                             }
                             break;
-                        case "Total Price":
-                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                                if (String.valueOf(productOrder.getTotalAmount()).toLowerCase().contains(stringToSearch.toLowerCase())) {
-                                    filteredOrders.add(order);
-                                    break;
-                                }
+                        case "Month":
+                            DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                            String monthFormattedDate = order.getDateAndTime().format(monthFormatter);
+                            String[] monthParts = monthFormattedDate.split(" ");
+                            String month = monthParts[0].toLowerCase();
+                            String search = stringToSearch.toLowerCase();
+                            if (month.contains(search)) {
+                                filteredOrders.add(order);
                             }
                             break;
-                        case "Date and Time":
-                            if (String.valueOf(order.getDateAndTime()).toLowerCase().contains(stringToSearch.toLowerCase())) {
+                        case "Year":
+                            DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("MMMM d, yyyy");
+                            String yearFormattedDate = order.getDateAndTime().format(yearFormatter);
+                            String[] yearParts = yearFormattedDate.split(", ");
+                            String year = yearParts[1];
+                            if (year.contains(stringToSearch)) {
                                 filteredOrders.add(order);
                             }
                             break;
@@ -358,30 +390,31 @@ public class OrderHistoryModel {
 
     public void openOrderDetails() {
         selectedOrderDetails = mainController.tableViewOrderHistory.getSelectionModel().getSelectedItem();
+        if (selectedOrderDetails != null) {
+            mainController.mainModel.showRectangleModal();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(ORDER_DETAILS.getURL()));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
+            Stage newStage = new Stage();
 
-        mainController.mainModel.showRectangleModal();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ORDER_DETAILS.getURL()));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
+            newStage.initModality(Modality.WINDOW_MODAL);
+            newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+            newStage.setTitle(ORDER_DETAILS.getTITLE());
+            newStage.setResizable(false);
+            newStage.getIcons().add(SYSTEM_LOGO);
+            newStage.setScene(new Scene(root));
+            newStage.showAndWait();
+
+            mainController.mainModel.hideRectangleModal();
+
+            if (!orderHistoryObservableList.isEmpty())
+                mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
         }
-        Stage newStage = new Stage();
-
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
-
-        newStage.setTitle(ORDER_DETAILS.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
-
-        mainController.mainModel.hideRectangleModal();
-
-        if (!orderHistoryObservableList.isEmpty())
-            mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
     }
 }

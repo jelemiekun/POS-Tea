@@ -39,6 +39,7 @@ public class DeleteHistoryModel {
 
     public void setEmptyLabel() {
         deleteHistoryController.labelOrderHistoryEmpty.setVisible(orderHistoryObservableList.isEmpty());
+        deleteHistoryController.labelOrderHistoryEmpty.requestFocus();
     }
 
     public void checkRecord() {

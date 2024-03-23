@@ -7,6 +7,7 @@ import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -42,6 +43,7 @@ import static com.example.postearevised.Miscellaneous.References.OrderHistoryRef
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class MainController implements Initializable {
     /**
@@ -94,7 +96,6 @@ public class MainController implements Initializable {
 
             orderHistoryModel = new OrderHistoryModel();
             orderHistoryModel.setMainController(this);
-            orderHistoryModel.setTextFieldSearch();
 
             dashboardModel = new DashboardModel();
             dashboardModel.setMainController(this);
@@ -509,6 +510,28 @@ public class MainController implements Initializable {
     public TableColumn<Order, String> tableViewOrderHistoryColTotalPrice;
     @FXML
     public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColDateAndTime;
+
+    public ChangeListener<String> textFieldChangeListenerDigitsOnly = (observable, oldValue, newValue) -> {
+        if (newValue.isEmpty()) {
+            textFieldOrderHistorySearch.setText(newValue);
+            orderHistoryModel.searchTheText(newValue);
+        } else if (!newValue.matches(REGEX_DIGITS_ONLY)) {
+            textFieldOrderHistorySearch.setText(oldValue);
+        } else {
+            orderHistoryModel.searchTheText(newValue);
+        }
+    };
+
+    public ChangeListener<String> textFieldChangeListenerCharactersOnly = (observable, oldValue, newValue) -> {
+        if (newValue.isEmpty()) {
+            textFieldOrderHistorySearch.setText(newValue);
+            orderHistoryModel.searchTheText(newValue);
+        } else if (!newValue.matches(REGEX_ORDER_HISTORY_SEARCH_256_LIMIT_NO_SPACE_IN_FRONT_NO_SPECIAL_CHARACTERS)) {
+            textFieldOrderHistorySearch.setText(oldValue);
+        } else {
+            orderHistoryModel.searchTheText(newValue);
+        }
+    };
 
     @FXML
     public void btnHistoryTableRefreshClicked(MouseEvent event) {

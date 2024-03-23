@@ -547,7 +547,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="btnHistoryTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="51.0" layoutY="109.0" onMouseClicked="#btnHistoryTableRefreshClicked" onTouchReleased="#btnHistoryTableRefreshTouched" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnHistoryTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="51.0" layoutY="109.0" onMouseClicked="#btnHistoryTableRefreshClicked" onTouchReleased="#btnHistoryTableRefreshTouched" pickOnBounds="true" preserveRatio="true" visible="false">
                      <image>
                         <Image url="@../../Medias/Buttons/refresh.png" />
                      </image>
@@ -563,7 +563,7 @@
                     <columns>
                       <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="274.0" resizable="false" sortable="false" text="Customer Name" />
                         <TableColumn fx:id="tableViewOrderHistoryColProductCategory" prefWidth="288.0" sortable="false" text="Category" />
-                      <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="298.0" resizable="false" sortable="false" text="Product Details" />
+                      <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="298.0" resizable="false" sortable="false" text="Product Name" />
                         <TableColumn fx:id="tableViewOrderHistoryColQuantity" prefWidth="307.0" resizable="false" sortable="false" text="Quantity" />
                         <TableColumn fx:id="tableViewOrderHistoryColTotalPrice" prefWidth="291.0" resizable="false" sortable="false" text="Total Price" />
                         <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="263.0" text="Date and Time" />
@@ -1032,7 +1032,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </AnchorPane>
-                        <ImageView fx:id="btnProductTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="1235.0" layoutY="100.0" onMouseClicked="#btnProductTableRefreshClicked" onTouchReleased="#btnProductTableRefreshTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="btnProductTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="1235.0" layoutY="100.0" onMouseClicked="#btnProductTableRefreshClicked" onTouchReleased="#btnProductTableRefreshTouched" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
                               <Image url="@../../Medias/Buttons/refresh.png" />
                            </image>

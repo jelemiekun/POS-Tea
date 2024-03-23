@@ -116,7 +116,7 @@ public class MainModel {
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(true);
                 mainController.anchorPaneSettings.setVisible(false);
-                mainController.orderHistoryModel.setOrderHistory();
+                //mainController.orderHistoryModel.setOrderHistory();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardIcon);
@@ -191,6 +191,21 @@ public class MainModel {
         fadeIn.play();
         timeline.play();
     }
+
+    public void showNotificationLoader(boolean isShow) {
+        mainController.anchorPaneNotification.setVisible(true);
+        mainController.anchorPaneNotification.setOpacity(isShow ? 0.0 : 1.0); // Set opacity based on isShow
+
+        FadeTransition fade = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
+        fade.setFromValue(isShow ? 0.0 : 1.0);
+        fade.setToValue(isShow ? 1.0 : 0.0);
+        if (!isShow) {
+            fade.setOnFinished(event -> mainController.anchorPaneNotification.setVisible(false));
+        }
+
+        fade.play();
+    }
+
 
 
     public boolean openPrompt() {
