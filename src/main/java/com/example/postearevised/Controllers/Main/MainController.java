@@ -260,6 +260,9 @@ public class MainController implements Initializable {
         mainModel.openSelectedPane(LOGOUT_ENUM.getPaneNumber());
     }
 
+    @FXML
+    void anchorPaneLeftPanelRequestFocus() { anchorPaneLeftPanel.requestFocus(); }
+
     /**
      * Menu
      */
@@ -519,6 +522,12 @@ public class MainController implements Initializable {
         if (event.getTouchCount() == 2) {
             orderHistoryModel.openOrderDetails();
         }
+    }
+
+    @FXML
+    public void anchorPaneOrderHistoryRequestFocus() {
+        anchorPaneOrderHistory.requestFocus();
+        tableViewOrderHistory.getSelectionModel().clearSelection();
     }
 
     /**

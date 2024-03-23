@@ -18,10 +18,6 @@ weekly, year month tsaka week
 
 daily, year month day
 
-alisin na quantity, price, change (PATULONG SI ABELLA KILA CORPUZ AT VIVIAN)
-
-ORDER HISTORY SEARCH BY
-
 i trim mga inputs PARA WALANG EXTRA SPACES
 
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
@@ -39,8 +35,6 @@ name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, d
 connect fxml ng account sa mainController
 
 available sa edit products
-
-edit products pop up if naka open csv
 
 ayusin ui ng account settings, dagdagan na ng recovery questions at change username
 
@@ -389,3 +383,7 @@ itanong saan napupunta order info tsaka yung payment (SA SELLER, DFD BEFORE KAY 
 magbabawas ng mga (NG ANO?!?#!?#@?@!#)
 
 if selected remember me tapos nag logout, naka select pa rin remember me
+
+alisin na quantity, price, change (PATULONG SI ABELLA KILA CORPUZ AT VIVIAN)
+
+ORDER HISTORY SEARCH BY

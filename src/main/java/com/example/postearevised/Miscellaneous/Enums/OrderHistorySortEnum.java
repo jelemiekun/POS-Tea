@@ -1,11 +1,12 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum OrderHistorySortEnum {
-    TODAY_ENUM("Today"),
-    THIS_WEEK_ENUM("This Week"),
-    THIS_MONTH_ENUM("This Month"),
-    THIS_YEAR_ENUM("This Year"),
-    ALL_TIME_ENUM("All Time");
+    CUSTOMER_NAME_ENUM("Customer Name"),
+    FOOD_CATEGORY_ENUM("Food Category"),
+    PRODUCT_NAME_ENUM("Product Name"),
+    PRODUCT_QUANTITY_ENUM("Quantity"),
+    PRODUCT_TOTAL_PRICE_ENUM("Total Price"),
+    DATE_AND_TIME_ENUM("Date and Time");
 
     private final String title;
 

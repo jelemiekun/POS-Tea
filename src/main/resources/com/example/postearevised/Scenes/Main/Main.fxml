@@ -22,7 +22,7 @@
     <children>
       <AnchorPane prefHeight="1080.0" prefWidth="1920.0">
          <children>
-              <AnchorPane fx:id="anchorPaneLeftPanel" layoutY="-1.0" prefHeight="1081.0" prefWidth="86.0">
+              <AnchorPane fx:id="anchorPaneLeftPanel" layoutY="-1.0" onMouseClicked="#anchorPaneLeftPanelRequestFocus" onTouchReleased="#anchorPaneLeftPanelRequestFocus" prefHeight="1081.0" prefWidth="86.0">
                   <children>
                       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1081.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="86.0" />
                   <AnchorPane layoutX="1.0" layoutY="9.0" prefHeight="94.0" prefWidth="85.0">
@@ -518,20 +518,20 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" onMouseClicked="#anchorPaneOrderHistoryRequestFocus" onTouchReleased="#anchorPaneOrderHistoryRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane prefHeight="174.0" prefWidth="1833.0">
                <children>
-                  <AnchorPane layoutX="1277.0" layoutY="101.0">
+                  <AnchorPane layoutX="1277.0" layoutY="30.0">
                      <children>
                         <Label layoutY="8.0" text="Search">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="textFieldOrderHistorySearch" alignment="CENTER_RIGHT" layoutX="118.0" onKeyTyped="#textFieldOrderHistorySearchTyping" prefWidth="390.0" promptText="Customer Name or Product Name">
+                        <TextField fx:id="textFieldOrderHistorySearch" layoutX="118.0" onKeyTyped="#textFieldOrderHistorySearchTyping" prefWidth="390.0" promptText="Customer Name">
                            <font>
-                              <Font size="24.0" />
+                              <Font name="Arial" size="30.0" />
                            </font>
                         </TextField>
                      </children>
@@ -541,17 +541,17 @@
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="51.0" layoutY="101.0">
+                  <AnchorPane layoutX="1246.0" layoutY="101.0">
                      <children>
                         <ComboBox fx:id="comboBoxOrderHistory" layoutX="149.0" onAction="#comboBoxOrderHistoryOnAction" prefHeight="51.0" prefWidth="390.0" />
-                        <Label layoutY="7.0" text="Sort Date">
+                        <Label layoutY="7.0" text="Search by">
                            <font>
                               <Font name="Arial" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <ImageView fx:id="btnHistoryTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="1730.0" layoutY="37.0" onMouseClicked="#btnHistoryTableRefreshClicked" onTouchReleased="#btnHistoryTableRefreshTouched" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="btnHistoryTableRefresh" fitHeight="36.0" fitWidth="64.0" layoutX="51.0" layoutY="109.0" onMouseClicked="#btnHistoryTableRefreshClicked" onTouchReleased="#btnHistoryTableRefreshTouched" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Medias/Buttons/refresh.png" />
                      </image>

@@ -30,7 +30,6 @@ import java.time.format.DateTimeFormatter;
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -73,18 +72,42 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistory.getSortOrder().add(mainController.tableViewOrderHistoryColDateAndTime);
         mainController.tableViewOrderHistoryColDateAndTime.setSortType(TableColumn.SortType.DESCENDING);
         mainController.tableViewOrderHistory.refresh();
+        mainController.anchorPaneOrderHistory.requestFocus();
     }
 
     private void setComboBox(boolean initialized) {
-        if (initialized)
+        if (initialized) {
             mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
+            mainController.comboBoxOrderHistory.setStyle("-fx-font-family: Arial; -fx-font-size: 30px;");
+        }
 
-        mainController.comboBoxOrderHistory.setValue(ALL_TIME_ENUM.getTitle());
+        mainController.comboBoxOrderHistory.setValue(CUSTOMER_NAME_ENUM.getTitle());
         getComboBoxValue();
     }
 
     public void getComboBoxValue() {
-        System.out.println(mainController.comboBoxOrderHistory.getValue());
+        mainController.textFieldOrderHistorySearch.setText("");
+        switch (mainController.comboBoxOrderHistory.getValue()) {
+            case "Customer Name":
+                mainController.textFieldOrderHistorySearch.setPromptText("Customer Name");
+                break;
+            case "Food Category":
+                mainController.textFieldOrderHistorySearch.setPromptText("Food Category");
+                break;
+            case "Product Name":
+                mainController.textFieldOrderHistorySearch.setPromptText("Product Name");
+                break;
+            case "Quantity":
+                mainController.textFieldOrderHistorySearch.setPromptText("Quantity");
+                break;
+            case "Total Price":
+                mainController.textFieldOrderHistorySearch.setPromptText("Total Price");
+                break;
+            case "Date and Time":
+                mainController.textFieldOrderHistorySearch.setPromptText("Date and Time");
+                break;
+        }
+        mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
     }
 
     private void setCellValueFactories() {
@@ -204,9 +227,6 @@ public class OrderHistoryModel {
         mainController.textFieldOrderHistorySearch.setText("");
 
         mainController.textFieldOrderHistorySearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY))
-                mainController.textFieldOrderHistorySearch.setText(oldValue);
-            else
                 searchTheText(newValue);
         });
     }
@@ -216,15 +236,49 @@ public class OrderHistoryModel {
             if (!stringToSearch.isBlank()) {
                 ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
                 for (Order order : orderHistoryObservableList) {
-                    if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
-                        filteredOrders.add(order);
-                    } else {
-                        for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                            if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                    switch (mainController.comboBoxOrderHistory.getValue()) {
+                        case "Customer Name":
+                            if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
                                 filteredOrders.add(order);
-                                break;
                             }
-                        }
+                            break;
+                        case "Food Category":
+                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                                if (productOrder.getProductCategory().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                    filteredOrders.add(order);
+                                    break;
+                                }
+                            }
+                            break;
+                        case "Product Name":
+                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                                if (productOrder.getProductName().toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                    filteredOrders.add(order);
+                                    break;
+                                }
+                            }
+                            break;
+                        case "Quantity":
+                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                                if (String.valueOf(productOrder.getQuantity()).toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                    filteredOrders.add(order);
+                                    break;
+                                }
+                            }
+                            break;
+                        case "Total Price":
+                            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
+                                if (String.valueOf(productOrder.getTotalAmount()).toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                    filteredOrders.add(order);
+                                    break;
+                                }
+                            }
+                            break;
+                        case "Date and Time":
+                            if (String.valueOf(order.getDateAndTime()).toLowerCase().contains(stringToSearch.toLowerCase())) {
+                                filteredOrders.add(order);
+                            }
+                            break;
                     }
                 }
 
