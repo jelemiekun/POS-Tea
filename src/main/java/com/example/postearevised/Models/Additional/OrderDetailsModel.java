@@ -144,7 +144,10 @@ public class OrderDetailsModel {
             @Override
             public void run() {
                 orderDetailsController.anchorPaneMain.requestFocus();
-                orderDetailsController.tableViewRecordDetails.getSelectionModel().clearSelection();
+                if (orderDetailsController.tableViewRecordDetails.getSelectionModel() != null) {
+                    if (!orderDetailsController.tableViewRecordDetails.getSelectionModel().isEmpty())
+                        orderDetailsController.tableViewRecordDetails.getSelectionModel().clearSelection();
+                }
             }
         });
     }

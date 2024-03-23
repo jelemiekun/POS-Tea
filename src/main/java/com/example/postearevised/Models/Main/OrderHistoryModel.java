@@ -314,7 +314,6 @@ public class OrderHistoryModel {
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
         }
-
         //setReverseItem(); wag to i uncomment, mag w-wierd as fuck
     }
 
@@ -369,8 +368,12 @@ public class OrderHistoryModel {
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
+
         mainController.mainModel.hideRectangleModal();
 
-        mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
+        if (!orderHistoryObservableList.isEmpty())
+            mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
+
+        refreshOrderHistoryTable();
     }
 }

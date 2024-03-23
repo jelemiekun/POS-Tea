@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.DeleteHistoryController;
+import com.example.postearevised.Objects.Order.Order;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -20,13 +21,14 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.*;
 
-import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.EXIT_CONFIRMATION_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.dropShadowColor;
-import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class DeleteHistoryModel {
     private DeleteHistoryController deleteHistoryController;
@@ -39,13 +41,31 @@ public class DeleteHistoryModel {
         deleteHistoryController.labelOrderHistoryEmpty.setVisible(!deleteHistoryController.flowPaneYearlyRecords.getChildren().isEmpty());
     }
 
-    public void populateFlowPane() {
-        ObservableList<String> listYearObservableList = FXCollections.observableArrayList("2020", "2021", "2022", "2023", "2024");
+    public void checkRecord() {
+        deleteHistoryController.flowPaneYearlyRecords.getChildren().clear();
 
-        for (String string : listYearObservableList) {
-            AnchorPane anchorPane = createAnchorPane(string);
+        Map<Integer, ObservableList<Order>> yearOrderMap = new HashMap<>();
+        for (Order order : orderHistoryObservableList) {
+            int year = order.getDateAndTime().getYear();
+            ObservableList<Order> yearOrders = yearOrderMap.getOrDefault(year, FXCollections.observableArrayList());
+            yearOrders.add(order);
+            yearOrderMap.put(year, yearOrders);
+        }
+
+        List<Map.Entry<Integer, ObservableList<Order>>> entries = new ArrayList<>(yearOrderMap.entrySet());
+        Collections.reverse(entries);
+
+        for (Map.Entry<Integer, ObservableList<Order>> entry : entries) {
+            int year = entry.getKey();
+
+            AnchorPane anchorPane = createAnchorPane(String.valueOf(year));
             deleteHistoryController.flowPaneYearlyRecords.getChildren().add(anchorPane);
         }
+    }
+
+    public void deleteOrdersByYear(int year) {
+        orderHistoryObservableList.removeIf(order -> order.getDateAndTime().getYear() == year);
+        checkRecord();
     }
 
     private AnchorPane createAnchorPane(String year) {
@@ -67,7 +87,7 @@ public class DeleteHistoryModel {
         AnchorPane.setTopAnchor(labelOrderHistory, 15.0);
         anchorPane.getChildren().add(labelOrderHistory);
 
-        Label labelYear = new Label("Year " + year);
+        Label labelYear = new Label("Year ");
         labelYear.setFont(Font.font("Arial", 18));
         labelYear.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
         labelYear.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
@@ -75,31 +95,38 @@ public class DeleteHistoryModel {
         AnchorPane.setTopAnchor(labelYear, 15.0);
         anchorPane.getChildren().add(labelYear);
 
+        Label labelYearInteger = new Label(year);
+        labelYearInteger.setFont(Font.font("Arial", 18));
+        labelYearInteger.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
+        labelYearInteger.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
+        AnchorPane.setLeftAnchor(labelYearInteger, 468.0);
+        AnchorPane.setTopAnchor(labelYearInteger, 15.0);
+        anchorPane.getChildren().add(labelYearInteger);
+
+
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(5);
         dropShadow.setOffsetY(5);
         dropShadow.setColor(dropShadowColor);
         anchorPane.setEffect(dropShadow);
 
-        anchorPane.setOnMouseClicked(event -> orderHistoryClickedTouched(anchorPane, rectangle, year));
-        anchorPane.setOnTouchReleased(event -> orderHistoryClickedTouched(anchorPane, rectangle, year));
+        anchorPane.setOnMouseClicked(event -> orderHistoryClickedTouched(anchorPane, rectangle));
+        anchorPane.setOnTouchReleased(event -> orderHistoryClickedTouched(anchorPane, rectangle));
 
         FlowPane.setMargin(anchorPane, new Insets(0, 0, 7, 0));
 
         return anchorPane;
     }
 
-    void orderHistoryClickedTouched(AnchorPane anchorPaneSelected, Rectangle selectedRectangle, String year) {
+
+    void orderHistoryClickedTouched(AnchorPane anchorPaneSelected, Rectangle selectedRectangle) {
         if (deleteHistoryController.selectedAnchorPane != null) {
             ((Rectangle) deleteHistoryController.selectedAnchorPane.getChildren().get(0)).setStroke(null);
         }
         selectedRectangle.setStroke(Color.BLACK);
-        selectedRectangle.setStrokeWidth(2);
+        selectedRectangle.setStrokeWidth(4);
         selectedRectangle.setStrokeType(StrokeType.INSIDE);
         deleteHistoryController.selectedAnchorPane = anchorPaneSelected;
-
-        System.out.println("Delete History Selected Year: " + year);
-
         setDeleteVisible();
     }
 
