@@ -430,15 +430,22 @@ public class ProductsCSVOperations {
 
             // Remove the current products.csv file
             File currentFile = new File(PRODUCTS_CSV_FILE_PATH);
-            if (!currentFile.delete()) {
-                throw new IOException("Failed to delete current products.csv file");
+
+            try {
+                if (!currentFile.delete()) {
+                    throw new IOException("Failed to delete current products.csv file");
+                }
+
+                // Rename the temporary file to the original file name
+                File originalFile = new File(PRODUCTS_CSV_FILE_PATH);
+                if (!tempFile.renameTo(originalFile)) {
+                    throw new IOException("Failed to rename temporary file to original file");
+                }
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
             }
 
-            // Rename the temporary file to the original file name
-            File originalFile = new File(PRODUCTS_CSV_FILE_PATH);
-            if (!tempFile.renameTo(originalFile)) {
-                throw new IOException("Failed to rename temporary file to original file");
-            }
 
             success = true;
         } catch (IOException e) {

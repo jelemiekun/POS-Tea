@@ -47,7 +47,7 @@ public class DeleteHistoryController implements Initializable {
     }
 
     @FXML
-    void btnDeleteRecordClickedTouched() throws IOException {
+    void btnDeleteRecordClickedTouched() {
         if (deleteHistoryModel.openPrompt()) {
             flowPaneYearlyRecords.getChildren().remove(selectedAnchorPane);
             deleteHistoryModel.setDeleteHide();

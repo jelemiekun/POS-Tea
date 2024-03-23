@@ -196,13 +196,20 @@ public class ProductModel {
             } else {
                 setAttributes(false);
                 if (isAddProductToListAndDatabase) {
-                    if (isIncompleteInformation()) {
-                        setAddOrderBlankFields();
-                        if (openPrompt()) // open prompt for confirmation if some fields are blank
-                            success = instantiateProduct(); // create product
+
+                    if (isDuplicate()) {
+                        setAddProductDuplicateError();
+                        success = !openPrompt();
                     } else {
-                        success = instantiateProduct(); // create product
+                        if (isIncompleteInformation()) {
+                            setAddProductBlankFields();
+                            if (openPrompt()) // open prompt for confirmation if some fields are blank
+                                success = instantiateProduct(); // create product
+                        } else {
+                            success = instantiateProduct(); // create product
+                        }
                     }
+
                 } else {
                     if (setObjectAttributesUpdateProduct()) {
                         success = true;
@@ -246,6 +253,16 @@ public class ProductModel {
                 return productController.appetizerTextFieldPrice.getText().isBlank() || productNameAndDescription;
         }
         return productNameAndDescription;
+    }
+
+    public boolean isDuplicate() {
+        for (Product existingProduct : allProductObservableList) {
+            if (existingProduct.getProductName().equals(referenceProductName) &&
+                    existingProduct.getCategory().equals(referenceCategory)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
