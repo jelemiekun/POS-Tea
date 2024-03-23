@@ -60,31 +60,21 @@ hindi pede madelete current year
 
 
 
-lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
-update yung pag dineselect stay logged in sa login
-
-kapag pinindot yung exit sa window mismo sa pagka add ng order at sa order list, dapat mag pproceed na
-
-kailangan kong mag garbage collect para maiwasan heap space
-
-hindi double clickable yung column header
-
-CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCEED
-
-pagka sort ng order, setReorderable to false na
-
-import/export csv
-
-i trim mga inputs PARA WALANG EXTRA SPACES
-
-lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
-
-available sa edit products
 
 gawan csv for order list
 
-dapat naddelete rin sa csv yung order history na iddelete
+lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
+
+i trim mga inputs PARA WALANG EXTRA SPACES
+
+available sa edit products
+
+IF MAG DELETE YEAR RECORD SA SYSTEM, DAPAT MAG DDELETE RIN SA CSV
+
+update yung pag dineselect stay logged in sa login
+
+CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCEED ( ANO TO WTF )
 
 
 
@@ -102,9 +92,9 @@ new password cannot be the same as old password error
 
 ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
 
-ayusin directories, pagsama samahin csv, tsaka txts, nasa labas lang error_log
-
 kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
+
+lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
 
 
@@ -120,6 +110,7 @@ ano pa magiging saysay ng import/export csv if lahat need ilipat?
 
 gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
 
+sa search order history, contains or startswith?
 
 ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHIDE NA YANG REFRESH BUTTON NA YAN SINCE WALA RING MAAYOS NA PAGLALAGYAN
 
@@ -444,3 +435,15 @@ alisin na search by quantity, alisin na price. tapos sa date and time, search by
 ihide na refresh button sa order history, pati sa edit products
 
 change listeners sa order history search depende sa comboBoxValue
+
+ayusin directories, pagsama samahin csv, tsaka txts, nasa labas lang error_log
+
+hindi double clickable yung column header
+
+kapag pinindot yung exit sa window mismo sa pagka add ng order at sa order list, dapat mag pproceed na
+
+import/export csv
+
+kailangan kong mag garbage collect para maiwasan heap space
+
+pagka sort ng order, setReorderable to false na

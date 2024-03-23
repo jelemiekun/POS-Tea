@@ -180,7 +180,6 @@ public class SettingsModel {
     }
 
     public void populateComboBoxImportExport() {
-        mainController.importExportComboBox.getItems().clear();
         mainController.importExportComboBox.getItems().addAll("Import/Export CSV","Import CSV", "Export CSV");
         mainController.importExportComboBox.setValue("Import/Export CSV");
     }

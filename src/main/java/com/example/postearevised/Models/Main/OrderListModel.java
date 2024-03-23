@@ -269,7 +269,8 @@ public class OrderListModel {
 
     private boolean openPrompt(Order order) {
         setOrderSuccessful(String.valueOf(order.getOrderNumber()), order.getCustomerName());
-        return mainController.mainModel.openPrompt();
+        boolean dump = mainController.mainModel.openPrompt();
+        return true;
     }
 
     private void removeOrderToOrderQueue(Order order, AnchorPane anchorPaneToDelete) {

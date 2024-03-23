@@ -58,6 +58,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.gc();
+
         anchorPaneLoading.setVisible(true);
         loading();
 
@@ -109,8 +111,9 @@ public class MainController implements Initializable {
                 anchorPaneLeftPanel.setVisible(true);
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
-                settingsModel.setVideo();
                 orderHistoryModel.setOrderHistoryTable();
+                settingsModel.setVideo();
+                settingsModel.populateComboBoxImportExport();
 
                 fadeOutLoading();
             });

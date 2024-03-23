@@ -49,6 +49,8 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        System.gc();
+
         loginModel = new LoginModel();
         loginModel.setLoginRegisterController(this);
         loginModel.setPane();
