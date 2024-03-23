@@ -1,19 +1,12 @@
 ------------------TO DO------------------
 
-DISABLE ADD PRODUCT IF ORDER IS ONGOING
+DEVIN AI
 
-// maam maricar
-
-
-apperance yung accesibility
-
-if may blank fields, may lalabas na pop up confirmation
-
-magbabawas ng mga
-
-i inform si seller na as much as possible paki iklian ng mga names dahil li
+// akin
 
 paikliin product names sa resibo (ALISIN A E I O U)
+
+lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPDATE YUNG REVENUE, CUSTOMER, AT TOTAL ORDER.
 
 daily (today), weekly, monthly, annually
 
@@ -25,98 +18,15 @@ weekly, year month tsaka week
 
 daily, year month day
 
-if weekly,
-
-if monthly, lalabas
-
-
-
 alisin na quantity, price, change (PATULONG SI ABELLA KILA CORPUZ AT VIVIAN)
-
-
-
-
-
-
-
-DEVIN AI
-
-
-
-
-
-pagkapindot ng pay, generate agad ng resibo, tapos may lalabas na pop up window na receipt generated
-
-BASTA NASA MENU PAY YUNG GENERATE RECEIPT WALA SA ORDER LIST
-
-HINDI NA MAGLALAGAY NG BUTTON OR ANO MAN NA MAVVIEW YUNG COPY NG RECEIPT
-PERO, GAGAWA ULIT NG BAGONG METHOD NA GAGAWA NG DUPLICATE COPY NG RESIBO
-
-lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPDATE YUNG REVENUE, CUSTOMER, AT TOTAL ORDER.
-
-bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
-
-sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
-
-
-
-
-
-
-// tindahan mismo
-itanong saan napupunta order info tsaka yung payment
-
-
-//sir dan
-
-forgot pass at register baliktad // system design
-
-maliit yung image ng theoretical at conceptual framework kahit maliit na ung arrow // research
-
-
-
-rephrase yung first ng scope of, dapat ano yung features meron ng system, ano yung kayang gawin ng system // research
-
-rephrase some products can have add-ons, dapat mapakitang iffle yung system // research
-
-paikliin it has a customizable background....... // research
-
-ang ilagay sa 5 categories ay "fixed na yung product information", kasama na dito yung add-ons // research scope deli
-
-def of terms isama about sa sales na terms "point of sale" // research def of terms
-
-ilagay minimum at recommended system specs tsaka minimum ng processor // research specs
-
-
-
-
-video sa system manual // lomboy
-
-
-
-
-// akin
-
-(Suggestion lang pero parang malabo to)
-IF EMPTY YUNG SA PAG ADD NG PRODUCT, SA ADD PRODUCTORDER TSAKA VIEW PRODUCT, HINDI NALANG LALABAS YUNG FIELDS NA YUN
-
-ORDER HISTORY HINDI NA SORTABLE MGA COLUMNS
 
 ORDER HISTORY SEARCH BY
 
 i trim mga inputs PARA WALANG EXTRA SPACES
 
-PRODUCT NAME MAY LIMIT NA 16 CHARACTERS
-
-acknowledgement receipt // system (palitan from or to acknowledgement receipt)
-
-alisin na yung buttons sa cash, gcash, combobox nalang sa left na "cash gcash etc" tapos if others, may lalabas na textfield // system design
-
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 
 tooltips, basta lagyan lahat ng dapat lagyan
-
-duplication ng product, pag dumiplicate, error message na product already existed, hindi na mag pprooceed
 
 maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin sa system manual na sortable sya, tapos may maliit na text na nakalagay na pede mapindot yung header para ma sort
 
@@ -136,15 +46,9 @@ ayusin ui ng account settings, dagdagan na ng recovery questions at change usern
 
 palitan recovery questions sa second phase ng forgot pass
 
-
-
-
-
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
 
 UPLOAD/REMOVE PHOTO SA APPETIZER
-
-colors ng legends sa dashboard
 
 gawing * lahat ng static import
 
@@ -154,41 +58,29 @@ ispecify somewhere sa system na need pa rin ng internet connectivity paminsan mi
 
 dapat di gumagana editProduct if naka open csv
 
+bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
+
+sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
 
 
 
 
 
-// PAG SINIPAG
 
-ayusin medias
+
+
+
+
 
 // SA DULO NA TO
 
 new password cannot be the same as old password error
 
-if selected remember me tapos nag logout, naka select pa rin remember me
-
 ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
-
-lagyan ng max attempts mga input
-
-
-
-
-
-
 
 
 
 ------------------MGA ITATANONG------------------
-order history, paano yun? haha ang labo
-
-amount too large     prompt, anong header at content?
-
-resibo
-
-tanongin store if ilang percentage binabayad sa tax, if wala silang binabayad, N/A
 
 
 
@@ -199,11 +91,6 @@ tanongin store if ilang percentage binabayad sa tax, if wala silang binabayad, N
 
 
 ------------------OPTIONAL------------------
-
-mag error ba if new password is same as old password or hindi //di na siya optional
-
-
-03:00 ba o 3:00 sa countdown otp? haha
 
 
 
@@ -229,7 +116,9 @@ lagyan design/indicator yung mata sa login if naka traversible haha
 pag exit confirmation, mawawala yung icon (gagawing same color ng background)
 
 Done
+
 darker green yung done
+
 account register successful
 
 
@@ -250,6 +139,10 @@ hanapin saan mga end points/dulo ng mga operations
 
 cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
+video sa system manual // lomboy & austria
+
+i inform si seller na as much as possible paki iklian ng mga names dahil li
+
 
 
 
@@ -264,7 +157,21 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 -----------------RESEARCH------------------
 
-SIR DAN
+//sir dan
+
+maliit yung image ng theoretical at conceptual framework kahit maliit na ung arrow // research
+
+rephrase yung first ng scope of, dapat ano yung features meron ng system, ano yung kayang gawin ng system // research
+
+rephrase some products can have add-ons, dapat mapakitang iffle yung system // research
+
+paikliin it has a customizable background....... // research
+
+ang ilagay sa 5 categories ay "fixed na yung product information", kasama na dito yung add-ons // research scope deli
+
+def of terms isama about sa sales na terms "point of sale" // research def of terms
+
+ilagay minimum at recommended system specs tsaka minimum ng processor // research specs
 
 alisin na yung change sa payment transaction // research
 
@@ -429,3 +336,52 @@ pag ayos ng format sa table history
 WHITE, BLACK, RED, ORANGE, YELLOW, GREEN
 
 confirmation message if icancel and order
+
+DISABLE ADD PRODUCT IF ORDER IS ONGOING
+
+apperance yung accesibility
+
+if may blank fields, may lalabas na pop up confirmation
+
+pagkapindot ng pay, generate agad ng resibo, tapos may lalabas na pop up window na receipt generated
+
+BASTA NASA MENU PAY YUNG GENERATE RECEIPT WALA SA ORDER LIST
+
+forgot pass at register baliktad // system design // sir dan
+
+HINDI NA MAGLALAGAY NG BUTTON OR ANO MAN NA MAVVIEW YUNG COPY NG RECEIPT
+
+PERO, GAGAWA ULIT NG BAGONG METHOD NA GAGAWA NG DUPLICATE COPY NG RESIBO
+
+order history, paano yun? haha ang labo (SAGOT: OFFLINE NALANG LAHAT)
+
+amount too large prompt, anong header at content? (SAGOT: WALA NANG AMOUNT TOO LARGe)
+
+resibo
+
+tanongin store if ilang percentage binabayad sa tax, if wala silang binabayad, N/A (SAGOT: HINDI SILA NAGBABAYAD NG BUWIS!)
+
+ayusin medias (HINDI NA AAYUSIN, BAKA MAG ERROR ERROR PA HAHA)
+
+lagyan ng max attempts mga input
+
+03:00 ba o 3:00 sa countdown otp? haha (SAGOT: WALA NANG OTP)
+
+colors ng legends sa dashboard (WALA NANG PIE CHART)
+
+duplication ng product, pag dumiplicate, error message na product already existed, hindi na mag pprooceed
+
+alisin na yung buttons sa cash, gcash, combobox nalang sa left na "cash gcash etc" tapos if others, may lalabas na textfield // system design
+
+PRODUCT NAME MAY LIMIT NA 16 CHARACTERS
+
+acknowledgement receipt // system (palitan from or to acknowledgement receipt)
+
+ORDER HISTORY HINDI NA SORTABLE MGA COLUMNS
+
+// tindahan mismo
+itanong saan napupunta order info tsaka yung payment (SA SELLER, DFD BEFORE KAY LOMBOY 'TO)
+
+magbabawas ng mga (NG ANO?!?#!?#@?@!#)
+
+if selected remember me tapos nag logout, naka select pa rin remember me

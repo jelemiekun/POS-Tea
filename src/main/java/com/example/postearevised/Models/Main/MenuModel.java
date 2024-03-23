@@ -737,7 +737,7 @@ public class MenuModel {
                         errorMessage = e.getMessage();
                         logError(false);
                     }
-                    generateReceipt(orderReference);
+                    generateReceipt(orderReference, 1);
                     orderCancelledOrAddedToQueue(false);
                     clearFields();
                     incrementCustomerNumber();

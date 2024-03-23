@@ -112,20 +112,24 @@
                         </ImageView>
                   <AnchorPane layoutX="248.0" layoutY="726.0" prefHeight="128.0" prefWidth="421.0">
                      <children>
-                        <Label fx:id="labelIncorrectCredentials1" focusTraversable="false" layoutY="28.0" text="Don't have an account?">
-                           <font>
-                              <Font name="Arial Bold" size="23.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelRegisterHere" layoutX="268.0" layoutY="28.0" onKeyPressed="#labelRegisterHerePressedEnter" onMouseClicked="#btnRegisterFromLoginClicked" onTouchReleased="#btnRegisterFromLoginTouched" text="Register Here" textFill="#2f34b9" underline="true">
-                           <font>
-                              <Font name="Arial Bold" size="23.0" />
-                           </font>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Label>
-                        <Label fx:id="labelForgotPassword" alignment="CENTER" focusTraversable="false" layoutX="115.0" layoutY="74.0" onKeyPressed="#labelForgotPasswordPressedEnter" onMouseClicked="#loginBtnForgotPasswordClicked" onTouchReleased="#loginBtnForgotPasswordTouched" prefHeight="27.0" prefWidth="192.0" text="Forgot Password" textFill="#2f34b9" underline="true">
+                        <AnchorPane layoutY="74.0">
+                           <children>
+                              <Label fx:id="labelIncorrectCredentials1" focusTraversable="false" text="Don't have an account?">
+                                 <font>
+                                    <Font name="Arial Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelRegisterHere" layoutX="268.0" onKeyPressed="#labelRegisterHerePressedEnter" onMouseClicked="#btnRegisterFromLoginClicked" onTouchReleased="#btnRegisterFromLoginTouched" text="Register Here" textFill="#2f34b9" underline="true">
+                                 <font>
+                                    <Font name="Arial Bold" size="23.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="labelForgotPassword" alignment="CENTER" focusTraversable="false" layoutX="115.0" layoutY="28.0" onKeyPressed="#labelForgotPasswordPressedEnter" onMouseClicked="#loginBtnForgotPasswordClicked" onTouchReleased="#loginBtnForgotPasswordTouched" prefHeight="27.0" prefWidth="192.0" text="Forgot Password" textFill="#2f34b9" underline="true">
                            <font>
                               <Font name="Arial Bold" size="23.0" />
                            </font>
