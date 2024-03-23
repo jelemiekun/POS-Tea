@@ -563,7 +563,7 @@
             </AnchorPane>
             <AnchorPane layoutY="174.0" prefHeight="876.0" prefWidth="1833.0">
                <children>
-                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" prefHeight="759.0" prefWidth="1739.0">
+                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" onMouseClicked="#tableViewOrderHistoryClicked" onTouchReleased="#tableViewOrderHistoryTouched" prefHeight="759.0" prefWidth="1739.0">
                     <columns>
                       <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="274.0" resizable="false" sortable="false" text="Customer Name" />
                         <TableColumn fx:id="tableViewOrderHistoryColProductCategory" prefWidth="288.0" sortable="false" text="Category" />
@@ -573,7 +573,7 @@
                         <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="263.0" text="Date and Time" />
                     </columns>
                   </TableView>
-                  <ImageView fitHeight="85.0" fitWidth="74.0" layoutX="1686.0" layoutY="676.0" onMouseClicked="#btnOrderHistoryDeleteClicked" onTouchReleased="#btnOrderHistoryDeleteTouched" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="80.0" fitWidth="229.0" layoutX="1531.0" layoutY="676.0" onMouseClicked="#btnOrderHistoryDeleteClicked" onTouchReleased="#btnOrderHistoryDeleteTouched" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Medias/Buttons/Order%20History/Delete%20record.png" />
                      </image>
@@ -991,7 +991,7 @@
                               <ComboBox fx:id="importExportComboBox" layoutX="33.0" layoutY="23.0" onAction="#importExportOnAction" prefHeight="40.0" prefWidth="200.0" promptText="Import/Export CSV" />
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="tableProducts" layoutX="37.0" layoutY="154.0" onMouseClicked="#tableProductsClicked" onTouchReleased="#tableProductsTouched" prefHeight="680.0" prefWidth="1234.0">
+                        <TableView fx:id="tableProducts" layoutX="37.0" layoutY="154.0" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1234.0">
                           <columns>
                             <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="266.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
                             <TableColumn fx:id="tableProductsColProductName" prefWidth="514.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />

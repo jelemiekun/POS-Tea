@@ -13,6 +13,7 @@ public class OrderDetailsModel {
     }
 
     public void setTable() {
+        orderDetailsController.tableViewRecordDetails.setItems(orderDetailsController.selectedOrder);
         orderDetailsController.tableViewRecordDetailsFoodCategories.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
             StringBuilder categories = new StringBuilder();
@@ -66,15 +67,15 @@ public class OrderDetailsModel {
                 ProductOrder productOrder = productOrders.get(i);
                 quantities.append(productOrder.getQuantity()).append("x");
 
-//                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
-//                    quantities.append("\n");
-//                }
-//                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
-//                    quantities.append("\n");
-//                }
-//                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
-//                    quantities.append("\n");
-//                }
+                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
+                    quantities.append("\n");
+                }
+                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
+                    quantities.append("\n");
+                }
+                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
+                    quantities.append("\n");
+                }
 
                 if (i < productOrders.size() - 1) {
                     quantities.append("\n");
@@ -82,9 +83,40 @@ public class OrderDetailsModel {
             }
             return new SimpleStringProperty(quantities.toString());
         });
+        orderDetailsController.tableViewRecordDetailsProductPrice.setCellValueFactory(cellData -> {
+            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
+            StringBuilder prices = new StringBuilder();
+            for (int i = 0; i < productOrders.size(); i++) {
+                ProductOrder productOrder = productOrders.get(i);
+                prices.append("₱ ").append(productOrder.getTotalAmount());
+
+                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
+                    prices.append("\n");
+                }
+                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
+                    prices.append("\n");
+                }
+                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
+                    prices.append("\n");
+                }
+
+                if (i < productOrders.size() - 1) {
+                    prices.append("\n");
+                }
+            }
+            return new SimpleStringProperty(prices.toString());
+        });
         orderDetailsController.tableViewRecordDetailsTotalAmount.setCellValueFactory(cellData -> {
             String totalPrice = "₱ " + cellData.getValue().getTotalPrice();
             return new SimpleStringProperty(totalPrice);
+        });
+        orderDetailsController.tableViewRecordDetailsAmountPaid.setCellValueFactory(cellData -> {
+            String amountPaid = "₱ " + cellData.getValue().getAmountPaid();
+            return new SimpleStringProperty(amountPaid);
+        });
+        orderDetailsController.tableViewRecordDetailsChange.setCellValueFactory(cellData -> {
+            String change = "₱ " + cellData.getValue().getChange();
+            return new SimpleStringProperty(change);
         });
     }
 }

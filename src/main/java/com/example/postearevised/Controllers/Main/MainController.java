@@ -507,6 +507,20 @@ public class MainController implements Initializable {
         orderHistoryModel.orderHistoryDeleteBin();
     }
 
+    @FXML
+    public void tableViewOrderHistoryClicked(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            // open fxml orderdetails
+        }
+    }
+
+    @FXML
+    public void tableViewOrderHistoryTouched(TouchEvent event) {
+        if (event.getTouchCount() == 2) {
+            // open fxml orderdetails
+        }
+    }
+
     /**
      * Dashboard
      */
@@ -668,7 +682,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void tableProductsClicked(MouseEvent event) {
+    public void tableViewProductsClicked(MouseEvent event) {
         if (event.getClickCount() == 2) {
             if (!orderIsOngoing)
                 settingsModel.editAProduct();
@@ -676,7 +690,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void tableProductsTouched(TouchEvent event) {
+    public void tableViewProductsTouched(TouchEvent event) {
         if (event.getTouchCount() == 2) {
             if (!orderIsOngoing)
                 settingsModel.editAProduct();

@@ -2,6 +2,8 @@ package com.example.postearevised.Controllers.Additional;
 
 import com.example.postearevised.Models.Additional.OrderDetailsModel;
 import com.example.postearevised.Objects.Order.Order;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -50,11 +52,12 @@ public class OrderDetailsController implements Initializable {
     public TableColumn<Order, String> tableViewRecordDetailsTotalAmount;
 
 
-    public Order selectedOrder;
+    public ObservableList<Order> selectedOrder = FXCollections.observableArrayList();
     private OrderDetailsModel orderDetailsModel;
 
     public void setSelectedOrder(Order order) {
-        this.selectedOrder = order;
+        selectedOrder.clear();
+        selectedOrder.add(order);
     }
 
     @Override
