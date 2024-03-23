@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="769.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.OrderDetailsController">
+   <children>
+      <AnchorPane prefHeight="197.0" prefWidth="1198.0">
+         <children>
+            <Label layoutX="51.0" layoutY="16.0" text="Record Details">
+               <font>
+                  <Font name="Arial Bold" size="40.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="24.0" layoutY="82.0" prefHeight="100.0" prefWidth="1149.0">
+               <children>
+                  <Line endX="1149.0" />
+                  <Line endX="1149.0" layoutY="100.0" />
+                  <Label layoutX="97.0" layoutY="14.0" text="Order no.">
+                     <font>
+                        <Font name="Arial Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="51.0" text="Customer Name:">
+                     <font>
+                        <Font name="Arial Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOrderNumber" layoutX="231.0" layoutY="14.0" text="1">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOrderCustomerName" layoutX="327.0" layoutY="51.0" text="Name">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="556.0" layoutY="17.0" text="Date and Time:">
+                     <font>
+                        <Font name="Arial Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="556.0" layoutY="54.0" text="Mode of Payment:">
+                     <font>
+                        <Font name="Arial Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOrderDateAndTime" layoutX="765.0" layoutY="17.0" text="January 1, 2000 | 12:00 AM">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelOrderModeOfPayment" layoutX="803.0" layoutY="54.0" text="Payment">
+                     <font>
+                        <Font name="Arial" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="197.0" prefHeight="571.0" prefWidth="1198.0">
+         <children>
+            <TableView fx:id="tableViewRecordDetails" layoutX="25.0" layoutY="21.0" prefHeight="530.0" prefWidth="1149.0">
+              <columns>
+                <TableColumn fx:id="tableViewRecordDetailsFoodCategories" prefWidth="189.0" sortable="false" text="Food Cateogires" />
+                <TableColumn fx:id="tableViewRecordDetailsProductDetails" prefWidth="170.0" sortable="false" text="Product Details" />
+                  <TableColumn fx:id="tableViewRecordDetailsQuantity" prefWidth="139.0" sortable="false" text="Quantity" />
+                  <TableColumn fx:id="tableViewRecordDetailsProductPrice" prefWidth="179.0" sortable="false" text="Product Price" />
+                  <TableColumn fx:id="tableViewRecordDetailsTotalAmount" prefWidth="165.0" sortable="false" text="Total Amount" />
+                  <TableColumn fx:id="tableViewRecordDetailsAmountPaid" prefWidth="164.0" sortable="false" text="Amount Paid" />
+                  <TableColumn fx:id="tableViewRecordDetailsChange" prefWidth="142.0" sortable="false" text="Change" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
