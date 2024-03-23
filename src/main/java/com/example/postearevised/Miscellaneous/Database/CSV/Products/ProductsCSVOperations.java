@@ -392,7 +392,7 @@ public class ProductsCSVOperations {
 
         try {
             // Create a temporary file to write the updated content
-            tempFile = new File(DIRECTORY_PATH + File.separator + "temp.csv");
+            tempFile = new File(DIRECTORY_CSV_PATH + File.separator + "temp.csv");
             FileWriter fw = new FileWriter(tempFile);
             BufferedWriter writer = new BufferedWriter(fw);
 

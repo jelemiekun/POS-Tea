@@ -166,31 +166,44 @@ public class MainModel {
 
 
     public void showNotification() {
+        // Stop the timeline if it's running
+        if (mainController.notificationTimeline != null)
+            mainController.notificationTimeline.stop();
+
+        // Set notification details
         mainController.imageViewNotification.setImage(imageViewNotificationReference);
         mainController.labelNotificationHeader.setText(notificationHeaderReference);
         mainController.labelNotificationContent.setText(notificationContentReference);
 
+        // Make notification pane invisible and set opacity to 0
         mainController.anchorPaneNotification.setVisible(false);
-        mainController.anchorPaneNotification.setVisible(true);
         mainController.anchorPaneNotification.setOpacity(0);
 
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
+        // Fade in animation
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), mainController.anchorPaneNotification);
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
-        Timeline timeline = new Timeline();
+
+        // Fade out animation after 3 seconds
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), mainController.anchorPaneNotification);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(fadeFinishedEvent -> {
+            mainController.anchorPaneNotification.setVisible(false);
+        });
+
+        // Create a new timeline
+        mainController.notificationTimeline = new Timeline();
         KeyFrame key = new KeyFrame(Duration.seconds(3), event -> {
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), mainController.anchorPaneNotification);
-            fadeOut.setFromValue(1.0);
-            fadeOut.setToValue(0.0);
-            fadeOut.setOnFinished(fadeFinishedEvent -> {
-                mainController.anchorPaneNotification.setVisible(false);
-            });
             fadeOut.play();
         });
-        timeline.getKeyFrames().add(key);
+        mainController.notificationTimeline.getKeyFrames().add(key);
+
+        // Play the fade-in animation and start the timeline
         fadeIn.play();
-        timeline.play();
+        mainController.notificationTimeline.play();
     }
+
 
 
     public boolean openPrompt() {

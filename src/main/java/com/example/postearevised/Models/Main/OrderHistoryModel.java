@@ -30,9 +30,9 @@ import java.time.format.DateTimeFormatter;
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
-import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -322,6 +322,8 @@ public class OrderHistoryModel {
     }
 
     private void openDeleteHistoryFXML() {
+        int holdCurrentOrderHistorySize = orderHistoryObservableList.size();
+
         mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(DELETE_HISTORY.getURL()));
 
@@ -344,6 +346,11 @@ public class OrderHistoryModel {
 
         newStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
+
+        if (holdCurrentOrderHistorySize != orderHistoryObservableList.size()) {
+            setDeleteHistorySuccess();
+            mainController.mainModel.showNotification();
+        }
 
         refreshOrderHistoryTable();
         refreshOrderHistoryBtn();

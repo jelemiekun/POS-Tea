@@ -14,4 +14,28 @@ public class NotificationContents {
         notificationHeaderReference = "Receipt Printing";
         notificationContentReference = "Printing receipt...";
     }
+
+    public static void setDeleteHistorySuccess() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Record Deleted";
+        notificationContentReference = "Record Deleted Successfully";
+    }
+
+    public static void setEditProductSuccess() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Product Edited";
+        notificationContentReference = "Edit Successful";
+    }
+
+    public static void setAddProductSuccess() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Product Added";
+        notificationContentReference = "Addition Successful";
+    }
+
+    public static void setDeleteProductSuccess() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Product Deleted";
+        notificationContentReference = "Deletion Successful";
+    }
 }

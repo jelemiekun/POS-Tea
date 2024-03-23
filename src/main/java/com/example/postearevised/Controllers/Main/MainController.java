@@ -157,6 +157,7 @@ public class MainController implements Initializable {
      * Notification
      */
 
+    public Timeline notificationTimeline;
     @FXML
     public ImageView imageViewNotification;
     @FXML
