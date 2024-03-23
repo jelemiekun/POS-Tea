@@ -344,6 +344,9 @@ public class OrderHistoryModel {
 
         newStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
+
+        refreshOrderHistoryTable();
+        refreshOrderHistoryBtn();
     }
 
     public void openOrderDetails() {
@@ -373,7 +376,5 @@ public class OrderHistoryModel {
 
         if (!orderHistoryObservableList.isEmpty())
             mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
-
-        refreshOrderHistoryTable();
     }
 }
