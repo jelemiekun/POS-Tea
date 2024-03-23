@@ -38,28 +38,32 @@ public class DeleteHistoryModel {
     }
 
     public void setEmptyLabel() {
-        deleteHistoryController.labelOrderHistoryEmpty.setVisible(!deleteHistoryController.flowPaneYearlyRecords.getChildren().isEmpty());
+        deleteHistoryController.labelOrderHistoryEmpty.setVisible(orderHistoryObservableList.isEmpty());
     }
 
     public void checkRecord() {
         deleteHistoryController.flowPaneYearlyRecords.getChildren().clear();
 
-        Map<Integer, ObservableList<Order>> yearOrderMap = new HashMap<>();
-        for (Order order : orderHistoryObservableList) {
-            int year = order.getDateAndTime().getYear();
-            ObservableList<Order> yearOrders = yearOrderMap.getOrDefault(year, FXCollections.observableArrayList());
-            yearOrders.add(order);
-            yearOrderMap.put(year, yearOrders);
-        }
+        if (orderHistoryObservableList.isEmpty()) {
+            setEmptyLabel();
+        } else {
+            Map<Integer, ObservableList<Order>> yearOrderMap = new HashMap<>();
+            for (Order order : orderHistoryObservableList) {
+                int year = order.getDateAndTime().getYear();
+                ObservableList<Order> yearOrders = yearOrderMap.getOrDefault(year, FXCollections.observableArrayList());
+                yearOrders.add(order);
+                yearOrderMap.put(year, yearOrders);
+            }
 
-        List<Map.Entry<Integer, ObservableList<Order>>> entries = new ArrayList<>(yearOrderMap.entrySet());
-        Collections.reverse(entries);
+            List<Map.Entry<Integer, ObservableList<Order>>> entries = new ArrayList<>(yearOrderMap.entrySet());
+            Collections.reverse(entries);
 
-        for (Map.Entry<Integer, ObservableList<Order>> entry : entries) {
-            int year = entry.getKey();
+            for (Map.Entry<Integer, ObservableList<Order>> entry : entries) {
+                int year = entry.getKey();
 
-            AnchorPane anchorPane = createAnchorPane(String.valueOf(year));
-            deleteHistoryController.flowPaneYearlyRecords.getChildren().add(anchorPane);
+                AnchorPane anchorPane = createAnchorPane(String.valueOf(year));
+                deleteHistoryController.flowPaneYearlyRecords.getChildren().add(anchorPane);
+            }
         }
     }
 

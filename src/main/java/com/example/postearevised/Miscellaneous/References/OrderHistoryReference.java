@@ -8,7 +8,8 @@ import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum
 
 public class OrderHistoryReference {
     public static Order selectedOrderDetails;
-    public static ObservableList<Order> orderHistoryObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Order> orderHistoryObservableList = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
+
     public static final ObservableList<String> orderHistorySortByChoices = FXCollections.observableArrayList(
             CUSTOMER_NAME_ENUM.getTitle(),
             FOOD_CATEGORY_ENUM.getTitle(),

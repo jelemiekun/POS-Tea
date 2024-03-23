@@ -29,9 +29,8 @@ public class DeleteHistoryController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         deleteHistoryModel = new DeleteHistoryModel();
         deleteHistoryModel.setDeleteHistoryController(this);
-        deleteHistoryModel.setEmptyLabel();
-
         deleteHistoryModel.checkRecord();
+        deleteHistoryModel.setEmptyLabel();
     }
 
     @FXML
