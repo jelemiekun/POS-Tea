@@ -1,12 +1,12 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-public enum ImportExport {
+public enum ImportExportEnum {
     Import("Import CSV"),
     Export("Export CSV");
 
     private final String importOperation;
 
-    ImportExport(String importOperation) {
+    ImportExportEnum(String importOperation) {
         this.importOperation = importOperation;
     }
 

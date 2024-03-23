@@ -2,7 +2,7 @@ package com.example.postearevised.Miscellaneous.Enums;
 
 import javafx.scene.paint.Color;
 
-public enum PasswordColors {
+public enum PasswordColorsEnum {
     WHITE_ENUM("", Color.web("#ffffff")),
     WEAK_ENUM("Weak", Color.web("#ff2b2b")),
     FAIR_ENUM("Fair", Color.web("#ffc629")),
@@ -12,7 +12,7 @@ public enum PasswordColors {
     private final String text;
     private final Color color;
 
-    PasswordColors(String text, Color color) {
+    PasswordColorsEnum(String text, Color color) {
         this.text = text;
         this.color = color;
     }

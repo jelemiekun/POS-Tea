@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
 import static com.example.postearevised.Miscellaneous.Others.Internet.*;
@@ -82,7 +82,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneForgotPass.setVisible(false);
                 btnRegisterOnRegisterPane.requestFocus();
                 break;
-            case 3: // Forgot PasswordColors
+            case 3: // Forgot Password
                 loginRegisterStage.setTitle(ForgotPassword.getName());
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(false);

@@ -13,8 +13,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Random;
 
-import static com.example.postearevised.Miscellaneous.Enums.PasswordColors.*;
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
+import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;

@@ -32,9 +32,9 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.doesOrderHistoryCSVExist;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.doesProductCSVExist;
-import static com.example.postearevised.Miscellaneous.Enums.MainPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
-import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;

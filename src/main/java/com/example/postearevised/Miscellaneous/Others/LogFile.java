@@ -3,7 +3,6 @@ package com.example.postearevised.Miscellaneous.Others;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -14,8 +13,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.EXIT_CONFIRMATION_ENUM;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorPrintingError;
 import static com.example.postearevised.Miscellaneous.References.FileReference.ERROR_LOG_PATH;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;

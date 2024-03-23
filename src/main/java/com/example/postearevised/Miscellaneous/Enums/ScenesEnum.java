@@ -1,8 +1,8 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-import static com.example.postearevised.Miscellaneous.Enums.MainPane.MENU_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.MENU_ENUM;
 
-public enum Scenes {
+public enum ScenesEnum {
     LOGIN_ENUM("Login", "/com/example/postearevised/Scenes/Main/LoginRegisterForgotPass.fxml"),
     Register("Register", "/com/example/postearevised/Scenes/Main/LoginRegisterForgotPass.fxml"),
     MAIN_ENUM(MENU_ENUM.getName(), "/com/example/postearevised/Scenes/Main/Main.fxml"),
@@ -14,7 +14,7 @@ public enum Scenes {
 
     private final String TITLE;
     private final String URL;
-    Scenes(String TITLE, String URL) {
+    ScenesEnum(String TITLE, String URL) {
         this.TITLE = TITLE;
         this.URL = URL;
     }

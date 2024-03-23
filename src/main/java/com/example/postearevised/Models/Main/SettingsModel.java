@@ -2,7 +2,7 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Miscellaneous.Enums.EnumProduct;
+import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.ObservableList;
@@ -31,9 +31,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Enums.ImportExport.*;
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.*;
-import static com.example.postearevised.Miscellaneous.Enums.SettingsPane.*;
+import static com.example.postearevised.Miscellaneous.Enums.ImportExportEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -259,7 +259,7 @@ public class SettingsModel {
             logError(false);
         }
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
+        newStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);
@@ -323,7 +323,7 @@ public class SettingsModel {
             logError(false);
         }
         Stage newStage = new Stage();
-        newStage.setTitle(EnumProduct.PRODUCT_ENUM.getTitle());
+        newStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
         newStage.setScene(new Scene(root));
         newStage.getIcons().add(SYSTEM_LOGO);
         newStage.setResizable(false);

@@ -1,6 +1,6 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-public enum SettingsPane {
+public enum SettingsPaneEnum {
     Account(1),
     Display(2),
     EditProducts(3),
@@ -9,7 +9,7 @@ public enum SettingsPane {
 
     private final int paneNumber;
 
-    SettingsPane(int paneNumber) {
+    SettingsPaneEnum(int paneNumber) {
         this.paneNumber = paneNumber;
     }
 

@@ -1,8 +1,8 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
-import static com.example.postearevised.Miscellaneous.Enums.Scenes.LOGIN_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.LOGIN_ENUM;
 
-public enum MainPane {
+public enum MainPaneEnum {
     MENU_ENUM("Menu",1),
     DASHBOARD_ENUM("Dashboard",2),
     ORDER_LIST_ENUM("Order List",3),
@@ -13,7 +13,7 @@ public enum MainPane {
     private final String name;
     private final int paneNumber;
 
-    MainPane(String name, int paneNumber) {
+    MainPaneEnum(String name, int paneNumber) {
         this.name = name;
         this.paneNumber = paneNumber;
     }
