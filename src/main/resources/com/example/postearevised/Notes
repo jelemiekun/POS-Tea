@@ -18,23 +18,15 @@ weekly, year month tsaka week
 
 daily, year month day
 
-i trim mga inputs PARA WALANG EXTRA SPACES
-
-lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
+name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
 
 tooltips, basta lagyan lahat ng dapat lagyan
 
 maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin sa system manual na sortable sya, tapos may maliit na text na nakalagay na pede mapindot yung header para ma sort
 
-pag nag search na, di na mag uupdate automatically yung order history
-
 order receipt - update resibo content
 
-name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
-
 connect fxml ng account sa mainController
-
-available sa edit products
 
 ayusin ui ng account settings, dagdagan na ng recovery questions at change username
 
@@ -56,21 +48,21 @@ bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tano
 
 sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
 
-gawan csv for order list
-
-DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
-
 may mag ppop up if may changes na nadetect sa directory
 
 ihhide yung accounts excel
 
+hindi pede madelete current year
+
+
+
+
+
+
+
 notifications upper center, delete history pagkadelete, pagkaprint, edit products kapag magddelete, add, and edit, remove photo din
 
 alisin na search by quantity, alisin na price. tapos sa date and time, search by day, month, year nalang. 12 hours format nalang din
-
-hindi pede madelete current year
-
-dapat naddelete rin sa csv yung order history na iddelete
 
 update yung pag dineselect stay logged in sa login
 
@@ -86,6 +78,17 @@ CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCE
 
 pagka sort ng order, setReorderable to false na
 
+import/export csv
+
+i trim mga inputs PARA WALANG EXTRA SPACES
+
+lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
+
+available sa edit products
+
+gawan csv for order list
+
+dapat naddelete rin sa csv yung order history na iddelete
 
 
 
@@ -96,6 +99,8 @@ pagka sort ng order, setReorderable to false na
 
 
 // SA DULO NA TO
+
+DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
 new password cannot be the same as old password error
 
@@ -433,3 +438,5 @@ if selected remember me tapos nag logout, naka select pa rin remember me
 alisin na quantity, price, change (PATULONG SI ABELLA KILA CORPUZ AT VIVIAN)
 
 ORDER HISTORY SEARCH BY
+
+pag nag search na, di na mag uupdate automatically yung order history
