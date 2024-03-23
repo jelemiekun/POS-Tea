@@ -1,6 +1,10 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,12 +12,14 @@ import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -156,6 +162,34 @@ public class MainModel {
 
     public void hideRectangleModal() {
         mainController.rectangleModal.setVisible(false);
+    }
+
+
+    public void showNotification() {
+        mainController.imageViewNotification.setImage(imageViewNotificationReference);
+        mainController.labelNotificationHeader.setText(notificationHeaderReference);
+        mainController.labelNotificationContent.setText(notificationContentReference);
+
+        mainController.anchorPaneNotification.setVisible(false);
+        mainController.anchorPaneNotification.setVisible(true);
+        mainController.anchorPaneNotification.setOpacity(0);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
+        fadeIn.setFromValue(0.0);
+        fadeIn.setToValue(1.0);
+        Timeline timeline = new Timeline();
+        KeyFrame key = new KeyFrame(Duration.seconds(3), event -> {
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), mainController.anchorPaneNotification);
+            fadeOut.setFromValue(1.0);
+            fadeOut.setToValue(0.0);
+            fadeOut.setOnFinished(fadeFinishedEvent -> {
+                mainController.anchorPaneNotification.setVisible(false);
+            });
+            fadeOut.play();
+        });
+        timeline.getKeyFrames().add(key);
+        fadeIn.play();
+        timeline.play();
     }
 
 

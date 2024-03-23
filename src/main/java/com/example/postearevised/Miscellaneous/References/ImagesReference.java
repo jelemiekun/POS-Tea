@@ -22,6 +22,12 @@ public class ImagesReference {
 
 
     /**
+     * Notifcation Icons
+     */
+    public static final Image NOTIFICATION_I_WHITE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Notifications/information white.png")));
+
+
+    /**
      * Prompt Icons
      */
     public static final Image CHECK_GREEN_ICON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Register/check.png")));

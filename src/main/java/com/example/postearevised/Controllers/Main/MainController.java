@@ -102,7 +102,10 @@ public class MainController implements Initializable {
             settingsModel = new SettingsModel();
             settingsModel.setMainController(this);
 
+
+
             Platform.runLater(() -> {
+                anchorPaneLeftPanel.setVisible(true);
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
                 settingsModel.setVideo();
@@ -149,6 +152,19 @@ public class MainController implements Initializable {
         });
         fadeOut.play();
     }
+
+    /**
+     * Notification
+     */
+
+    @FXML
+    public ImageView imageViewNotification;
+    @FXML
+    public Label labelNotificationHeader;
+    @FXML
+    public Label labelNotificationContent;
+    @FXML
+    public AnchorPane anchorPaneNotification;
 
 
     /**

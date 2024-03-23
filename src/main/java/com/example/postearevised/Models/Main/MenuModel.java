@@ -33,8 +33,8 @@ import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setProceedPayment;
 import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -737,6 +737,8 @@ public class MenuModel {
                         errorMessage = e.getMessage();
                         logError(false);
                     }
+                    setReceiptPrinting();
+                    mainController.mainModel.showNotification();
                     generateReceipt(orderReference, 1);
                     orderCancelledOrAddedToQueue(false);
                     clearFields();
