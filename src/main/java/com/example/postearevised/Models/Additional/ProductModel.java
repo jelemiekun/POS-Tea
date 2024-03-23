@@ -223,7 +223,9 @@ public class ProductModel {
     }
 
     public boolean isIncompleteInformation() {
-        boolean productNameAndDescription = productController.textFieldProductName.getText().isBlank() || productController.textFieldProductDescription.getText().isBlank();
+        boolean productNameAndDescription = productController.textFieldProductName.getText().isBlank() ||
+                                            productController.textFieldProductDescription.getText().isBlank() ||
+                                            referenceImagePath.isBlank();
 
         switch (referenceCategory) {
             case "Milk Tea":
@@ -281,13 +283,10 @@ public class ProductModel {
      */
     public void uploadPhoto() {
         hideAnchorPaneEditPhoto();
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Image File");
-
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg");
         fileChooser.getExtensionFilters().add(extFilter);
-
         File selectedFile = fileChooser.showOpenDialog(productStage);
 
         if (selectedFile != null) {
@@ -305,7 +304,6 @@ public class ProductModel {
                 logError(false);
             }
         } else {
-            // User canceled the operation
             System.out.println("No file selected");
         }
     }
