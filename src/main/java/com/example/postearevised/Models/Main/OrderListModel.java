@@ -159,7 +159,7 @@ public class OrderListModel {
 
             if (!productOrder.getThirdAttribute().isEmpty()) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
-                    Label firstAttributeLabel = new Label("  - " + productOrder.getThirdAttribute());
+                    Label firstAttributeLabel = new Label("    - " + productOrder.getThirdAttribute());
                     firstAttributeLabel.setFont(Font.font("Arial", 18));
                     AnchorPane.setTopAnchor(firstAttributeLabel, labelTop);
                     AnchorPane.setLeftAnchor(firstAttributeLabel, 16.0);
@@ -172,7 +172,7 @@ public class OrderListModel {
 
             if (!productOrder.getFirstAttribute().isEmpty()) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
-                    Label secondAttributeLabel = new Label("  - " + productOrder.getFirstAttribute());
+                    Label secondAttributeLabel = new Label("    - " + productOrder.getFirstAttribute());
                     secondAttributeLabel.setFont(Font.font("Arial", 18));
                     AnchorPane.setTopAnchor(secondAttributeLabel, labelTop);
                     AnchorPane.setLeftAnchor(secondAttributeLabel, 16.0);
@@ -185,7 +185,7 @@ public class OrderListModel {
 
             if (!productOrder.getSecondAttribute().isEmpty()) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
-                    Label thirdAttributeLabel = new Label("  - " + productOrder.getSecondAttribute());
+                    Label thirdAttributeLabel = new Label("    - " + productOrder.getSecondAttribute());
                     thirdAttributeLabel.setFont(Font.font("Arial", 18));
                     AnchorPane.setTopAnchor(thirdAttributeLabel, labelTop);
                     AnchorPane.setLeftAnchor(thirdAttributeLabel, 16.0);

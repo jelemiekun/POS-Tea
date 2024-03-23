@@ -83,10 +83,10 @@ public class OrderHistoryCSVOperations {
                     }
 
                     int totalPrice = Integer.parseInt(parts[9]);
-                    int amountPaid = Integer.parseInt(parts[11]);
-                    int change = Integer.parseInt(parts[12]);
-                    String modeOfPayment = parts[13];
-                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[14]);
+                    int amountPaid = Integer.parseInt(parts[10]);
+                    int change = Integer.parseInt(parts[11]);
+                    String modeOfPayment = parts[12];
+                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[13]);
 
                     Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime);
                     orders.add(order);

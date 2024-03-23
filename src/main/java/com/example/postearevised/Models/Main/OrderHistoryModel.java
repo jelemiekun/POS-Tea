@@ -108,13 +108,13 @@ public class OrderHistoryModel {
                 names.append(productOrder.getProductName());
 
                 if (!productOrder.getThirdAttribute().isEmpty()) {
-                    names.append("\n  - ").append(productOrder.getThirdAttribute());
+                    names.append("\n    - ").append(productOrder.getThirdAttribute());
                 }
                 if (!productOrder.getFirstAttribute().isEmpty()) {
-                    names.append("\n  - ").append(productOrder.getFirstAttribute());
+                    names.append("\n    - ").append(productOrder.getFirstAttribute());
                 }
                 if (!productOrder.getSecondAttribute().isEmpty()) {
-                    names.append("\n  - ").append(productOrder.getSecondAttribute());
+                    names.append("\n    - ").append(productOrder.getSecondAttribute());
                 }
 
                 if (i < productOrders.size() - 1) {
