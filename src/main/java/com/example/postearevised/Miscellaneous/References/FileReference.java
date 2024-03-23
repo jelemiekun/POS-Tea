@@ -7,9 +7,9 @@ public class FileReference {
     public static final String DIRECTORY_ACCOUNTS_PATH;
     public static final String DIRECTORY_CSV_PATH;
     public static final String DIRECTORY_RECEIPT_PATH;
+    public static final String DIRECTORY_PRODUCT_IMAGES_PATH;
     public static final String PRODUCTS_CSV_FILE_PATH;
     public static final String ORDER_HISTORY_CSV_FILE_PATH;
-    public static final String PRODUCT_IMAGES_PATH;
     public static final String ORDER_RECEIPT_CUSTOMER_COPY_PATH;
     public static final String ORDER_RECEIPT_STORE_COPY_PATH;
     public static final String ERROR_LOG_PATH;
@@ -24,7 +24,7 @@ public class FileReference {
             DIRECTORY_RECEIPT_PATH = DIRECTORY_ACCOUNTS_PATH + "\\receipts";
             PRODUCTS_CSV_FILE_PATH = DIRECTORY_CSV_PATH + "\\products.csv";
             ORDER_HISTORY_CSV_FILE_PATH = DIRECTORY_CSV_PATH + "\\orderHistory.csv";
-            PRODUCT_IMAGES_PATH = DIRECTORY_ACCOUNTS_PATH + "\\product images";
+            DIRECTORY_PRODUCT_IMAGES_PATH = DIRECTORY_ACCOUNTS_PATH + "\\product images";
             ORDER_RECEIPT_CUSTOMER_COPY_PATH = DIRECTORY_RECEIPT_PATH + "\\customerReceipt.txt";
             ORDER_RECEIPT_STORE_COPY_PATH = DIRECTORY_RECEIPT_PATH + "\\storeReceipt.txt";
             ERROR_LOG_PATH = DIRECTORY_ACCOUNTS_PATH + "\\error_log.txt";
@@ -36,7 +36,7 @@ public class FileReference {
             DIRECTORY_RECEIPT_PATH = DIRECTORY_ACCOUNTS_PATH + "/receipts";
             PRODUCTS_CSV_FILE_PATH = DIRECTORY_CSV_PATH + "/products.csv";
             ORDER_HISTORY_CSV_FILE_PATH = DIRECTORY_CSV_PATH + "/orderHistory.csv";
-            PRODUCT_IMAGES_PATH = DIRECTORY_ACCOUNTS_PATH + "/product images";
+            DIRECTORY_PRODUCT_IMAGES_PATH = DIRECTORY_ACCOUNTS_PATH + "/product images";
             ORDER_RECEIPT_CUSTOMER_COPY_PATH = DIRECTORY_RECEIPT_PATH + "/customerReceipt.txt";
             ORDER_RECEIPT_STORE_COPY_PATH = DIRECTORY_RECEIPT_PATH + "/storeReceipt.txt";
             ERROR_LOG_PATH = DIRECTORY_ACCOUNTS_PATH + "/error_log.txt";

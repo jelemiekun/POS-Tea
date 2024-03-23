@@ -18,7 +18,7 @@ public class ProductsCSVOperations {
         createDirectoryIfNotExists(DIRECTORY_PATH);
         createDirectoryIfNotExists(DIRECTORY_CSV_PATH);
         createCSVFileIfNotExists(PRODUCTS_CSV_FILE_PATH);
-        createDirectoryIfNotExists(PRODUCT_IMAGES_PATH);
+        createDirectoryIfNotExists(DIRECTORY_PRODUCT_IMAGES_PATH);
         createDirectoryIfNotExists(DIRECTORY_ACCOUNTS_PATH);
     }
 

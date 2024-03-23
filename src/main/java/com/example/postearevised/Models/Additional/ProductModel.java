@@ -27,6 +27,7 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Prod
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -310,7 +311,7 @@ public class ProductModel {
             try {
                 InputStream inputStream = Files.newInputStream(selectedFile.toPath());
                 String appDataDir = System.getenv("APPDATA");
-                Path destinationDir = Paths.get(appDataDir, "POS_Tea", "product images");
+                Path destinationDir = Paths.get(appDataDir, "POS_Tea", "accounts", accountReference, "product images");
                 Files.createDirectories(destinationDir);
                 Path copiedFilePath = destinationDir.resolve(selectedFile.getName());
                 Files.copy(inputStream, copiedFilePath, StandardCopyOption.REPLACE_EXISTING);

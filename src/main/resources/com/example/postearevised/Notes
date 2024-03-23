@@ -58,6 +58,7 @@ sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time f
 
 gawan csv for order list
 
+DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
 
 
@@ -89,6 +90,8 @@ ilagay ba attributes sa order history product details?
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
 
 ano pa magiging saysay ng import/export csv if lahat need ilipat?
+
+gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
 
 
 ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHIDE NA YANG REFRESH BUTTON NA YAN SINCE WALA RING MAAYOS NA PAGLALAGYAN

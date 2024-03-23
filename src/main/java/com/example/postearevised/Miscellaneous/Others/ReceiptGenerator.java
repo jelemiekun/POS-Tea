@@ -56,7 +56,7 @@ public class ReceiptGenerator {
             receiptContentBuilder.append("\nTotal Price: ₱").append(order.getTotalPrice()).append("\n");
             receiptContentBuilder.append("Amount Paid: ₱").append(order.getAmountPaid()).append("\n");
             receiptContentBuilder.append("Change: ₱").append(order.getChange()).append("\n");
-            receiptContentBuilder.append("Mode of Payment: ").append(order.getModeOfPayment()).append("\n");
+            receiptContentBuilder.append("Mode of Payment: ").append(order.getModeOfPayment()).append("\n\n\n");
 
             String receiptContent = receiptContentBuilder.toString();
 
@@ -70,4 +70,5 @@ public class ReceiptGenerator {
             }
         }
     }
+
 }

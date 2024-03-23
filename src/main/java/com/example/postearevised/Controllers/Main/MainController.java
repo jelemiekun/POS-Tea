@@ -35,6 +35,7 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Prod
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -61,9 +62,20 @@ public class MainController implements Initializable {
         new Thread(() -> {
             clearAllReferences();
 
-            doesProductCSVExist();
-            doesOrderHistoryCSVExist();
-            doesReceiptPathExist();
+            Thread t1 = new Thread(() -> {
+                doesProductCSVExist();
+                doesOrderHistoryCSVExist();
+                doesReceiptPathExist();
+            });
+
+            t1.start();
+
+            try {
+                t1.join();
+            } catch (InterruptedException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
 
             mainModel = new MainModel();
             mainModel.setMainController(this);
