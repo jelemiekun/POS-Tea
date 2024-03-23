@@ -9,11 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+
 public class OrderDetailsController implements Initializable {
+
+    @FXML
+    public AnchorPane anchorPaneMain;
 
     @FXML
     public Label labelOrderCustomerName;
@@ -55,15 +61,22 @@ public class OrderDetailsController implements Initializable {
     public ObservableList<Order> selectedOrder = FXCollections.observableArrayList();
     private OrderDetailsModel orderDetailsModel;
 
-    public void setSelectedOrder(Order order) {
-        selectedOrder.clear();
-        selectedOrder.add(order);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         orderDetailsModel = new OrderDetailsModel();
         orderDetailsModel.setOrderDetailsController(this);
+
+        selectedOrder.clear();
+        selectedOrder.add(selectedOrderDetails);
+
+        orderDetailsModel.setHeader();
         orderDetailsModel.setTable();
+
+        orderDetailsModel.requestFocusOnMainAnchorPane();
+    }
+
+    @FXML
+    public void requestFocusMainPane() {
+        orderDetailsModel.requestFocusOnMainAnchorPane();
     }
 }

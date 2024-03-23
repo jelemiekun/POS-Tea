@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 
 public class OrderHistoryReference {
+    public static Order selectedOrderDetails;
     public static ObservableList<Order> orderHistoryObservableList = FXCollections.observableArrayList();
     public static final ObservableList<String> orderHistorySortByChoices = FXCollections.observableArrayList(
             TODAY_ENUM.getTitle(),

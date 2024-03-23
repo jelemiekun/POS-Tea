@@ -510,14 +510,14 @@ public class MainController implements Initializable {
     @FXML
     public void tableViewOrderHistoryClicked(MouseEvent event) {
         if (event.getClickCount() == 2) {
-            // open fxml orderdetails
+            orderHistoryModel.openOrderDetails();
         }
     }
 
     @FXML
     public void tableViewOrderHistoryTouched(TouchEvent event) {
         if (event.getTouchCount() == 2) {
-            // open fxml orderdetails
+            orderHistoryModel.openOrderDetails();
         }
     }
 

@@ -10,7 +10,8 @@ public enum ScenesEnum {
     TERMS_AND_CONDITION_ENUM("Terms And Condition", "/com/example/postearevised/Scenes/Additional/TermsAndCondition.fxml"),
     PRODUCT_ENUM("Product", "/com/example/postearevised/Scenes/Additional/Product.fxml"),
     PRODUCT_ORDER_LIST("Order Summary", "/com/example/postearevised/Scenes/Additional/ProductOrderList.fxml"),
-    DELETE_HISTORY("Delete History", "/com/example/postearevised/Scenes/Additional/DeleteHistory.fxml");
+    DELETE_HISTORY("Delete History", "/com/example/postearevised/Scenes/Additional/DeleteHistory.fxml"),
+    ORDER_DETAILS("Order Details", "/com/example/postearevised/Scenes/Additional/OrderDetails.fxml");
 
     private final String TITLE;
     private final String URL;

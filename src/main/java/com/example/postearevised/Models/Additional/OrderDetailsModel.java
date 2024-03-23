@@ -2,8 +2,14 @@ package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.OrderDetailsController;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderDetailsModel {
     private OrderDetailsController orderDetailsController;
@@ -117,6 +123,28 @@ public class OrderDetailsModel {
         orderDetailsController.tableViewRecordDetailsChange.setCellValueFactory(cellData -> {
             String change = "₱ " + cellData.getValue().getChange();
             return new SimpleStringProperty(change);
+        });
+    }
+
+    public void setHeader() {
+        orderDetailsController.labelOrderNumber.setText(String.valueOf(selectedOrderDetails.getOrderNumber()));
+        orderDetailsController.labelOrderCustomerName.setText(selectedOrderDetails.getCustomerName());
+
+        LocalDateTime dateTime = selectedOrderDetails.getDateAndTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy | hh:mm:ss a");
+        String formattedDateTime = dateTime.format(formatter);
+        orderDetailsController.labelOrderDateAndTime.setText(formattedDateTime);
+
+        orderDetailsController.labelOrderModeOfPayment.setText(selectedOrderDetails.getModeOfPayment());
+    }
+
+    public void requestFocusOnMainAnchorPane() {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                orderDetailsController.anchorPaneMain.requestFocus();
+                orderDetailsController.tableViewRecordDetails.getSelectionModel().clearSelection();
+            }
         });
     }
 }

@@ -30,6 +30,7 @@ import java.time.format.DateTimeFormatter;
 import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.isConfirmed;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -290,5 +291,32 @@ public class OrderHistoryModel {
 
         newStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
+    }
+
+    public void openOrderDetails() {
+        selectedOrderDetails = mainController.tableViewOrderHistory.getSelectionModel().getSelectedItem();
+
+        mainController.mainModel.showRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ORDER_DETAILS.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+        newStage.setTitle(ORDER_DETAILS.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        mainController.mainModel.hideRectangleModal();
+
+        mainController.tableViewOrderHistory.getSelectionModel().clearSelection();
     }
 }

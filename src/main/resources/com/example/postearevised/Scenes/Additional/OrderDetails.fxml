@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="769.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.OrderDetailsController">
+<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#requestFocusMainPane" onTouchReleased="#requestFocusMainPane" prefHeight="769.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.OrderDetailsController">
    <children>
       <AnchorPane prefHeight="197.0" prefWidth="1198.0">
          <children>
@@ -20,42 +20,42 @@
                <children>
                   <Line endX="1149.0" />
                   <Line endX="1149.0" layoutY="100.0" />
-                  <Label layoutX="97.0" layoutY="14.0" text="Order no.">
+                  <Label layoutX="40.0" layoutY="16.0" text="Order no.">
                      <font>
                         <Font name="Arial Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="97.0" layoutY="51.0" text="Customer Name:">
+                  <Label layoutX="40.0" layoutY="53.0" text="Customer Name:">
                      <font>
                         <Font name="Arial Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderNumber" layoutX="231.0" layoutY="14.0" text="1">
+                  <Label fx:id="labelOrderNumber" layoutX="174.0" layoutY="16.0" text="1">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderCustomerName" layoutX="327.0" layoutY="51.0" text="Name">
+                  <Label fx:id="labelOrderCustomerName" layoutX="270.0" layoutY="53.0" text="Name">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="17.0" text="Date and Time:">
+                  <Label layoutX="528.0" layoutY="18.0" text="Date and Time:">
                      <font>
                         <Font name="Arial Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="556.0" layoutY="54.0" text="Mode of Payment:">
+                  <Label layoutX="528.0" layoutY="55.0" text="Mode of Payment:">
                      <font>
                         <Font name="Arial Bold" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderDateAndTime" layoutX="765.0" layoutY="17.0" text="January 1, 2000 | 12:00 AM">
+                  <Label fx:id="labelOrderDateAndTime" layoutX="737.0" layoutY="18.0" text="September 1, 2000 | 12:00 AM">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderModeOfPayment" layoutX="803.0" layoutY="54.0" text="Payment">
+                  <Label fx:id="labelOrderModeOfPayment" layoutX="775.0" layoutY="55.0" text="Payment">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
@@ -74,7 +74,7 @@
                   <TableColumn fx:id="tableViewRecordDetailsProductPrice" prefWidth="179.0" sortable="false" text="Product Price" />
                   <TableColumn fx:id="tableViewRecordDetailsTotalAmount" prefWidth="165.0" sortable="false" text="Total Amount" />
                   <TableColumn fx:id="tableViewRecordDetailsAmountPaid" prefWidth="164.0" sortable="false" text="Amount Paid" />
-                  <TableColumn fx:id="tableViewRecordDetailsChange" prefWidth="142.0" sortable="false" text="Change" />
+                  <TableColumn fx:id="tableViewRecordDetailsChange" prefWidth="137.0" sortable="false" text="Change" />
               </columns>
             </TableView>
          </children>
