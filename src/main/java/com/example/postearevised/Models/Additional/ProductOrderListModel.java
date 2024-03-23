@@ -48,8 +48,8 @@ public class ProductOrderListModel {
 
             int attributeCount = 0;
 
-            if (!productOrder.getFirstAttribute().isEmpty()) {
-                Label firstAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
+            if (!productOrder.getThirdAttribute().isEmpty()) {
+                Label firstAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
                 firstAttributeLabel.setFont(new Font("Arial", 18));
                 AnchorPane.setLeftAnchor(firstAttributeLabel, 230.0);
                 AnchorPane.setTopAnchor(firstAttributeLabel, 13.0 + (attributeCount * 30));
@@ -57,8 +57,8 @@ public class ProductOrderListModel {
                 attributeCount++;
             }
 
-            if (!productOrder.getSecondAttribute().isEmpty()) {
-                Label secondAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
+            if (!productOrder.getFirstAttribute().isEmpty()) {
+                Label secondAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
                 secondAttributeLabel.setFont(new Font("Arial", 18));
                 AnchorPane.setLeftAnchor(secondAttributeLabel, 230.0);
                 AnchorPane.setTopAnchor(secondAttributeLabel, 13.0 + (attributeCount * 30));
@@ -66,8 +66,8 @@ public class ProductOrderListModel {
                 attributeCount++;
             }
 
-            if (!productOrder.getThirdAttribute().isEmpty()) {
-                Label thirdAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
+            if (!productOrder.getSecondAttribute().isEmpty()) {
+                Label thirdAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
                 thirdAttributeLabel.setFont(new Font("Arial", 18));
                 AnchorPane.setLeftAnchor(thirdAttributeLabel, 230.0);
                 AnchorPane.setTopAnchor(thirdAttributeLabel, 13.0 + (attributeCount * 30));

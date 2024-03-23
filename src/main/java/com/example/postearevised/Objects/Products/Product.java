@@ -103,6 +103,7 @@ public class Product {
     }
 
     public void setImagePath(String imagePath) {
+        this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
         if (imagePath.isEmpty()) {
             this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
         } else if (imagePath.equals("/com/example/postearevised/Product Media/no image/no image.png")) {

@@ -57,7 +57,7 @@ public class ProductModel {
 
     public void initializeTextFieldAddListener() {
         productController.textFieldProductName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY) || newValue.length() > 16) {
                 productController.textFieldProductName.setText(oldValue);
             }
         });
