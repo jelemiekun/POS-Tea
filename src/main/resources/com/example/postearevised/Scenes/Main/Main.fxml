@@ -574,7 +574,7 @@
                         <TableColumn fx:id="tableViewOrderHistoryColAmountPaid" prefWidth="178.0" resizable="false" sortable="false" text="Amount Paid" />
                         <TableColumn fx:id="tableViewOrderHistoryColChange" prefWidth="179.0" resizable="false" sortable="false" text="Change" />
                         <TableColumn fx:id="tableViewOrderHistoryColModeOfPayment" prefWidth="220.0" resizable="false" sortable="false" text="Mode of Payment" />
-                        <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="210.0" sortable="false" text="Date and Time" />
+                        <TableColumn fx:id="tableViewOrderHistoryColDateAndTime" prefWidth="210.0" text="Date and Time" />
                     </columns>
                   </TableView>
                   <ImageView fitHeight="85.0" fitWidth="74.0" layoutX="1686.0" layoutY="676.0" onMouseClicked="#btnOrderHistoryDeleteClicked" onTouchReleased="#btnOrderHistoryDeleteTouched" pickOnBounds="true" preserveRatio="true">

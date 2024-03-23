@@ -39,7 +39,7 @@ public class OrderHistoryCSVOperations {
     private static void createCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Write column headers to the CSV file
-            writer.write("customerName, orderNumber, foodCategories,productName,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -59,21 +59,22 @@ public class OrderHistoryCSVOperations {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length >= 12) { // Ensure there are at least 12 elements (assuming all fields are present)
+                if (parts.length >= 15) {
                     String customerName = parts[0];
                     int orderNumber = Integer.parseInt(parts[1]);
                     ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
                     String[] categories = parts[2].split("/");
                     String[] names = parts[3].split("/");
-                    String[] quantities = parts[4].split("/");
-                    String[] totalAmounts = parts[5].split("/");
-                    String[] imagePaths = parts[11].split("/");
+                    String[] firstAttribute = parts[4].split("/");
+                    String[] secondAttribute = parts[5].split("/");
+                    String[] thirdAttribute = parts[6].split("/");
+                    String[] quantities = parts[7].split("/");
+                    String[] totalAmounts = parts[8].split("/");
+                    String[] imagePaths = parts[14].split("/");
 
-                    // Assuming all arrays have the same length
                     try {
                         for (int i = 0; i < categories.length; i++) {
-                            // Assuming you have a constructor for ProductOrder that takes necessary arguments
-                            ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], "", "", "", Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
+                            ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], firstAttribute[i], secondAttribute[i], thirdAttribute[i], Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
                             productOrders.add(productOrder);
                         }
                     } catch (ArrayIndexOutOfBoundsException e) {
@@ -81,13 +82,13 @@ public class OrderHistoryCSVOperations {
                         logError(false);
                     }
 
-                    double totalPrice = Double.parseDouble(parts[6]);
-                    double amountPaid = Double.parseDouble(parts[7]);
-                    double change = Double.parseDouble(parts[8]);
-                    String modeOfPayment = parts[9];
-                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[10]);
+                    int totalPrice = Integer.parseInt(parts[9]);
+                    int amountPaid = Integer.parseInt(parts[11]);
+                    int change = Integer.parseInt(parts[12]);
+                    String modeOfPayment = parts[13];
+                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[14]);
 
-                    Order order = new Order(productOrders, customerName, orderNumber, (int) totalPrice, (int) amountPaid, (int) change, modeOfPayment, dateAndTime);
+                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime);
                     orders.add(order);
                 }
             }
@@ -113,6 +114,9 @@ public class OrderHistoryCSVOperations {
             if (!productOrders.isEmpty()) {
                 StringBuilder categoryBuilder = new StringBuilder();
                 StringBuilder nameBuilder = new StringBuilder();
+                StringBuilder firstAttributeBuilder = new StringBuilder();
+                StringBuilder secondAttributeBuilder = new StringBuilder();
+                StringBuilder thirdAttributeBuilder = new StringBuilder();
                 StringBuilder quantityBuilder = new StringBuilder();
                 StringBuilder totalAmountBuilder = new StringBuilder();
 
@@ -120,21 +124,36 @@ public class OrderHistoryCSVOperations {
                     if (productOrder.getProductName().isEmpty()) {
                         productOrder.setProductName(".");
                     }
+                    if (productOrder.getFirstAttribute().isEmpty()) {
+                        productOrder.setFirstAttribute(".");
+                    }
+                    if (productOrder.getSecondAttribute().isEmpty()) {
+                        productOrder.setSecondAttribute(".");
+                    }
+                    if (productOrder.getThirdAttribute().isEmpty()) {
+                        productOrder.setThirdAttribute(".");
+                    }
 
                     categoryBuilder.append(productOrder.getProductCategory()).append("/");
                     nameBuilder.append(productOrder.getProductName()).append("/");
+                    firstAttributeBuilder.append(productOrder.getFirstAttribute()).append("/");
+                    secondAttributeBuilder.append(productOrder.getSecondAttribute()).append("/");
+                    thirdAttributeBuilder.append(productOrder.getThirdAttribute()).append("/");
                     quantityBuilder.append(productOrder.getQuantity()).append("/");
                     totalAmountBuilder.append(productOrder.getTotalAmount()).append("/");
                 }
 
                 sb.append(categoryBuilder.toString()).append(",");
                 sb.append(nameBuilder.toString()).append(",");
+                sb.append(firstAttributeBuilder.toString()).append(",");
+                sb.append(secondAttributeBuilder.toString()).append(",");
+                sb.append(thirdAttributeBuilder.toString()).append(",");
                 sb.append(quantityBuilder.toString()).append(",");
                 sb.append(totalAmountBuilder.toString()).append(",");
 
-                double totalPrice = order.getTotalPrice();
-                double amountPaid = order.getAmountPaid();
-                double change = order.getChange();
+                int totalPrice = order.getTotalPrice();
+                int amountPaid = order.getAmountPaid();
+                int change = order.getChange();
                 String modeOfPayment = order.getModeOfPayment();
                 LocalDateTime dateAndTime = order.getDateAndTime();
 
@@ -162,6 +181,7 @@ public class OrderHistoryCSVOperations {
             return false;
         }
     }
+
 
 
     private static void openPrompt() {

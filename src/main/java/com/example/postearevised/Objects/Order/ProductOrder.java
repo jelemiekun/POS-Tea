@@ -8,9 +8,9 @@ public class ProductOrder {
     private final String productCategory;
     private final Image productImage;
     private final String imagePath;
-    private final String firstAttribute;
-    private final String secondAttribute;
-    private final String thirdAttribute;
+    private String firstAttribute;
+    private String secondAttribute;
+    private String thirdAttribute;
     private int totalAmount;
     private int quantity;
     private final Label labelPrice;
@@ -84,5 +84,17 @@ public class ProductOrder {
 
     public void setTotalAmount(int totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public void setFirstAttribute(String firstAttribute) {
+        this.firstAttribute = firstAttribute;
+    }
+
+    public void setSecondAttribute(String secondAttribute) {
+        this.secondAttribute = secondAttribute;
+    }
+
+    public void setThirdAttribute(String thirdAttribute) {
+        this.thirdAttribute = thirdAttribute;
     }
 }
