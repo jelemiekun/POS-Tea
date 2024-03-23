@@ -27,6 +27,10 @@ public class ProductReference {
             ICE_CANDY_CUPS_ENUM.getCategory(),
             APPETIZERS_ENUM.getCategory()));
 
+    public static boolean addingProductSuccess = false;
+    public static boolean editingProductSuccess = false;
+    public static boolean deletingProductSuccess = false;
+
     public static boolean addedProductSuccess = false;
     /**
      * General

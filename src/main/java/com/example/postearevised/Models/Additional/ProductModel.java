@@ -198,24 +198,31 @@ public class ProductModel {
                 setAttributes(false);
                 if (isAddProductToListAndDatabase) {
 
-                    if (isDuplicate()) {
+                    if (isDuplicate()) { // hindi success kasi may duplicate sa pag add
                         setAddProductDuplicateError();
                         success = !openPrompt();
                     } else {
                         if (isIncompleteInformation()) {
                             setAddProductBlankFields();
-                            if (openPrompt()) // open prompt for confirmation if some fields are blank
-                                success = instantiateProduct(); // create product
+                            if (openPrompt()) { // open prompt for confirmation if some fields are blank
+                                boolean isCreatingProductSuccess = instantiateProduct(); // create product
+                                success = isCreatingProductSuccess;
+                                addingProductSuccess = isCreatingProductSuccess;
+                            }
                         } else {
-                            success = instantiateProduct(); // create product
+                            boolean isCreatingProductSuccess = instantiateProduct(); // create product
+                            success = isCreatingProductSuccess;
+                            addingProductSuccess = isCreatingProductSuccess;
                         }
                     }
 
                 } else {
-                    if (setObjectAttributesUpdateProduct()) {
+                    if (setObjectAttributesUpdateProduct()) { // edit product
                         success = true;
+                        editingProductSuccess = true;
                         System.out.println("gumagana line 205");
                     } else {
+                        // AYUSIN TO, DAPAT IF ERROR, MAG REREVERT SA OLD VALUES YUNG EDITORSHOWSELECTEDPRODUCT
                         System.out.println("Error edit product");
                         setErrorEditProduct();
                         openPrompt();

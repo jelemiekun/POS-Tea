@@ -35,6 +35,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ImportExportEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -274,6 +275,13 @@ public class SettingsModel {
 
         newStage.showAndWait();
 
+        if (addingProductSuccess) {
+            setAddProductSuccess();
+            mainController.mainModel.showNotification();
+
+            addingProductSuccess = false;
+        }
+
         isAddingProductSuccess();
         refreshProductTable();
     }
@@ -337,6 +345,14 @@ public class SettingsModel {
         productController.productModel.setEditProduct();
 
         newStage.showAndWait();
+
+        if (editingProductSuccess) {
+            setEditProductSuccess();
+            mainController.mainModel.showNotification();
+
+            editingProductSuccess = false;
+        }
+
         isAddingProductSuccess();
         refreshProductTable();
     }
@@ -350,6 +366,10 @@ public class SettingsModel {
         mainController.tableProducts.getSelectionModel().clearSelection();
     }
 
+    /**
+     * Delete
+     */
+
     public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
@@ -357,6 +377,8 @@ public class SettingsModel {
             setDeleteProduct();
             if (mainController.mainModel.openPrompt()) {
                 if (deleteProductInCSV(selectedItemsToDelete)) {
+                    deletingProductSuccess = true;
+
                     for (Product product : selectedItemsToDelete) {
                         availableAllProductObservableList.remove(product);
                         availableMilkTeaObservableList.remove(product);
@@ -368,6 +390,13 @@ public class SettingsModel {
 
                     mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
                     refreshProductTable();
+
+                    if (deletingProductSuccess) {
+                        setAddProductSuccess();
+                        mainController.mainModel.showNotification();
+
+                        deletingProductSuccess = false;
+                    }
                 } else {
                     setErrorDeleteProduct();
                     mainController.mainModel.openPrompt();
