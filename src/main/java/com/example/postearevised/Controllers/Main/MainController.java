@@ -473,15 +473,7 @@ public class MainController implements Initializable {
     @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColQuantity;
     @FXML
-    public TableColumn<Order, String> tableViewOrderHistoryColPrice;
-    @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColTotalPrice;
-    @FXML
-    public TableColumn<Order, String> tableViewOrderHistoryColAmountPaid;
-    @FXML
-    public TableColumn<Order, String> tableViewOrderHistoryColChange;
-    @FXML
-    public TableColumn<Order, String> tableViewOrderHistoryColModeOfPayment;
     @FXML
     public TableColumn<Order, LocalDateTime> tableViewOrderHistoryColDateAndTime;
 

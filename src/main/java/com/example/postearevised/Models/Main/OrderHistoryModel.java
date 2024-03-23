@@ -157,42 +157,10 @@ public class OrderHistoryModel {
             }
             return new SimpleStringProperty(quantities.toString());
         });
-        mainController.tableViewOrderHistoryColPrice.setCellValueFactory(cellData -> {
-            ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
-            StringBuilder prices = new StringBuilder();
-            for (int i = 0; i < productOrders.size(); i++) {
-                ProductOrder productOrder = productOrders.get(i);
-                prices.append("₱ ").append(productOrder.getTotalAmount());
-
-                if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
-                    prices.append("\n");
-                }
-                if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
-                    prices.append("\n");
-                }
-                if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
-                    prices.append("\n");
-                }
-
-                if (i < productOrders.size() - 1) {
-                    prices.append("\n");
-                }
-            }
-            return new SimpleStringProperty(prices.toString());
-        });
         mainController.tableViewOrderHistoryColTotalPrice.setCellValueFactory(cellData -> {
             String totalPrice = "₱ " + cellData.getValue().getTotalPrice();
             return new SimpleStringProperty(totalPrice);
         });
-        mainController.tableViewOrderHistoryColAmountPaid.setCellValueFactory(cellData -> {
-            String amountPaid = "₱ " + cellData.getValue().getAmountPaid();
-            return new SimpleStringProperty(amountPaid);
-        });
-        mainController.tableViewOrderHistoryColChange.setCellValueFactory(cellData -> {
-            String change = "₱ " + cellData.getValue().getChange();
-            return new SimpleStringProperty(change);
-        });
-        mainController.tableViewOrderHistoryColModeOfPayment.setCellValueFactory(new PropertyValueFactory<>("modeOfPayment"));
         mainController.tableViewOrderHistoryColDateAndTime.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDateAndTime()));
 
         mainController.tableViewOrderHistoryColDateAndTime.setCellFactory(column -> {
@@ -216,11 +184,7 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColCustomerName.setReorderable(false);
         mainController.tableViewOrderHistoryColProductName.setReorderable(false);
         mainController.tableViewOrderHistoryColQuantity.setReorderable(false);
-        mainController.tableViewOrderHistoryColPrice.setReorderable(false);
         mainController.tableViewOrderHistoryColTotalPrice.setReorderable(false);
-        mainController.tableViewOrderHistoryColAmountPaid.setReorderable(false);
-        mainController.tableViewOrderHistoryColChange.setReorderable(false);
-        mainController.tableViewOrderHistoryColModeOfPayment.setReorderable(false);
         mainController.tableViewOrderHistoryColDateAndTime.setReorderable(false);
     }
 
