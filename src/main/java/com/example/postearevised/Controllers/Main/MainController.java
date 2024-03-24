@@ -733,6 +733,29 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneSettingsBtnEdit;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDelete;
+    @FXML
+    public ImageView imagePencilSettingsAccount1;
+    @FXML
+    public ImageView imagePencilSettingsAccount2;
+    @FXML
+    public ImageView imagePencilSettingsAccount3;
+    @FXML
+    public ImageView imagePencilSettingsAccount4;
+    @FXML
+    public ImageView imagePencilSettingsAccount5;
+    @FXML
+    public ImageView imagePencilSettingsAccount6;
+    @FXML
+    public ImageView imagePencilSettingsAccount7;
+    @FXML
+    public ImageView imagePencilSettingsAccount8;
+    @FXML
+    public ImageView imagePencilSettingsAccount9;
+    @FXML
+    public ImageView imagePencilSettingsAccount10;
+    @FXML
+    public ImageView imagePencilSettingsAccount11;
+
 
     @FXML
     public void anchorPaneSettingsBtnEditClickedTouched() {

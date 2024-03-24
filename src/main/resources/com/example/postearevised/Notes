@@ -26,8 +26,6 @@ maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin 
 
 order receipt - update resibo content
 
-connect fxml ng account sa mainController
-
 ayusin ui ng account settings, dagdagan na ng recovery questions at change username
 
 palitan recovery questions sa second phase ng forgot pass
@@ -460,3 +458,5 @@ ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHID
 UPLOAD/REMOVE PHOTO SA APPETIZER
 
 catched out of memory error
+
+connect fxml ng account sa mainController

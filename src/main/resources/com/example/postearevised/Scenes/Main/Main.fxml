@@ -756,12 +756,22 @@
                                                    </font>
                                                 </TextField>
                                                 <ChoiceBox fx:id="comboBoxAccountName" layoutX="310.0" layoutY="65.0" prefHeight="42.0" prefWidth="436.0" />
+                                                <ImageView fx:id="imagePencilSettingsAccount1" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount2" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="289.0" prefWidth="1300.0">
+                                          <AnchorPane prefHeight="300.0" prefWidth="1300.0">
                                              <children>
                                                 <Label layoutX="0.041015625" text="Password">
                                                    <font>
@@ -798,6 +808,21 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
+                                                <ImageView fx:id="imagePencilSettingsAccount3" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount4" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount5" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
@@ -860,6 +885,36 @@
                                                       </TextField>
                                                    </children>
                                                 </AnchorPane>
+                                                <ImageView fx:id="imagePencilSettingsAccount6" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount7" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount8" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount9" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount10" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount11" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
