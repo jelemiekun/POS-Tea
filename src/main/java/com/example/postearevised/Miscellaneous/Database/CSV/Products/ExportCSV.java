@@ -20,6 +20,7 @@ public class ExportCSV {
                 sb.append(product.getProductDescription()).append(",");
                 sb.append(product.getCategory()).append(",");
                 sb.append(product.getImagePath()).append(",");
+                sb.append(product.getCheckBox().isSelected()).append(",");
 
                 if (product instanceof MilkTea milkTea) {
                     sb.append(milkTea.getSmallPrice()).append(",");

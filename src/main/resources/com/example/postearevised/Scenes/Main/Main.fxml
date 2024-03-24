@@ -724,7 +724,7 @@
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1016,7 +1016,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -1040,7 +1040,7 @@
                                     <Font name="Arial" size="24.0" />
                                  </font>
                               </Label>
-                              <FlowPane layoutX="66.0" layoutY="192.0" prefHeight="520.0" prefWidth="1180.0">
+                              <FlowPane layoutX="71.0" layoutY="150.0" prefHeight="520.0" prefWidth="1180.0">
                                  <children>
                                     <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                        <children>
