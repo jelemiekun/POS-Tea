@@ -2,9 +2,9 @@ package com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue;
 
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import com.example.postearevised.Objects.Products.Product;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -88,5 +88,76 @@ public class OrderQueueCSVOperations {
             logError(false);
             return false;
         }
+    }
+
+
+    public static boolean deleteOrderInOrderQueueCSV(List<Order> orders) {
+        boolean success = false;
+        File tempFile = null;
+
+        try {
+            // Create a temporary file to write the updated content
+            tempFile = new File(DIRECTORY_PATH_CSV + File.separator + "temp.csv");
+            FileWriter fw = new FileWriter(tempFile);
+            BufferedWriter writer = new BufferedWriter(fw);
+
+            // Read the CSV file
+            BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_QUEUE));
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                boolean deleteRow = false;
+
+                // Check if any product in productListToDelete matches the criteria
+                for (Order order : orders) {
+                    if (fields[0].equals(order.getCustomerName()) &&
+                            fields[13].equals(String.valueOf(order.getDateAndTime()))) {
+                        deleteRow = true;
+
+                        break; // No need to check further, delete this row
+                    }
+                }
+
+                if (!deleteRow) {
+                    // Write the row to the temporary file if it doesn't match the criteria
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
+            reader.close();
+            writer.close();
+
+            // Remove the current products.csv file
+            File currentFile = new File(CSV_FILE_PATH_ORDER_QUEUE);
+
+            if (!currentFile.delete()) {
+                System.out.println("Failed to delete current orderQueue.csv file");
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
+                }
+                return false;
+            }
+
+            // Rename the temporary file to the original file name
+            File originalFile = new File(CSV_FILE_PATH_ORDER_QUEUE);
+            if (!tempFile.renameTo(originalFile)) {
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
+                }
+                System.out.println("Failed to rename temporary file to original file");
+                return false;
+            }
+
+
+            success = true;
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            if (tempFile.exists() && !tempFile.delete()) {
+                System.err.println("Failed to delete temporary file.");
+            }
+        }
+        return success;
     }
 }

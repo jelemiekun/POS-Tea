@@ -24,12 +24,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorAddingOrderToCSV;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setOrderSuccessful;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -254,7 +258,8 @@ public class OrderListModel {
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        if (addOrderToOrderHistoryCSV(order)) {
+        List<Order> passThisListToDeleteOrderInOrderQueueCSV = new ArrayList<>(Collections.singletonList(order));
+        if (addOrderToOrderHistoryCSV(order) && deleteOrderInOrderQueueCSV(passThisListToDeleteOrderInOrderQueueCSV)) {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
                 removeOrderToOrderQueue(order, anchorPaneToDelete);
