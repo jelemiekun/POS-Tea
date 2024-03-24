@@ -26,7 +26,7 @@ public class GeneralReference {
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
     public static Product editOrShowSelectedProduct;
-
+    public static boolean isAddingProductsFromImport = true;
     public static DropShadow setDropShadowRightDown() {
 
         DropShadow labelDropShadowRightDown = new DropShadow();

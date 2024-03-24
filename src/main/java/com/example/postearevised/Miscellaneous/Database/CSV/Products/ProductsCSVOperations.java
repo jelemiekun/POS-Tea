@@ -369,9 +369,11 @@ public class ProductsCSVOperations {
     }
 
     public static boolean editProductAvailabilityInCSV(Product product) {
+        File tempFile = null;
+
         try {
             File inputFile = new File(CSV_FILE_PATH_PRODUCTS);
-            File tempFile = new File("temp.csv");
+            tempFile = new File(DIRECTORY_PATH_CSV + File.separator + "temp.csv");
 
             BufferedReader reader = new BufferedReader(new FileReader(inputFile));
             BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
@@ -403,14 +405,29 @@ public class ProductsCSVOperations {
             reader.close();
             writer.close();
 
-            inputFile.delete();
-            tempFile.renameTo(inputFile);
+            if(!inputFile.delete()) {
+                System.out.println("Failed to delete current csv file");
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
+                }
+                return false;
+            }
+            if (!tempFile.renameTo(inputFile)) {
+                System.out.println("Failed to rename temporary file to original file.");
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
+                }
+                return false;
+            }
 
             System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
+            if (tempFile.exists() && !tempFile.delete()) {
+                System.err.println("Failed to delete temporary file.");
+            }
             return false;
         }
     }

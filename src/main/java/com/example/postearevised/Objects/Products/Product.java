@@ -13,6 +13,7 @@ import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class Product {
@@ -54,9 +55,18 @@ public class Product {
             this.checkBox.setSelected(true);
 
             this.checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
-                if (!editProductAvailabilityInCSV(Product.this)) {
-                    setErrorEditProduct();
-                    ProductReference.openPrompt();
+                if (!isAddingProductsFromImport) {
+                    if (editProductAvailabilityInCSV(Product.this)) {
+                        isAddingProductsFromImport = true;
+                        this.checkBox.setSelected(newValue);
+                    } else {
+                        isAddingProductsFromImport = true;
+                        this.checkBox.setSelected(oldValue);
+                        setErrorEditProduct();
+                        ProductReference.openPrompt();
+                        System.out.println("di gumagana 61");
+                        isAddingProductsFromImport = false;
+                    }
                 }
             });
         } else {

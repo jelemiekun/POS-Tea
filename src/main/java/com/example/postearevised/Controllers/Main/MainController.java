@@ -38,6 +38,7 @@ import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
@@ -57,6 +58,8 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        isAddingProductsFromImport = true;
+
         System.gc();
 
         anchorPaneLoading.setVisible(true);
@@ -120,6 +123,8 @@ public class MainController implements Initializable {
                 
                 settingsModel.setVideo();
                 settingsModel.populateComboBoxImportExport();
+
+                isAddingProductsFromImport = false;
 
                 fadeOutLoading();
             });

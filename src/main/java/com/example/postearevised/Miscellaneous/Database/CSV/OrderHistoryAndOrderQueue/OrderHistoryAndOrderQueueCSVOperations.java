@@ -240,7 +240,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
             File currentFile = new File(filePath);
 
             if (!currentFile.delete()) {
-                System.out.println("Failed to delete current orderQueue.csv file");
+                System.out.println("Failed to delete current csv file");
                 if (tempFile.exists() && !tempFile.delete()) {
                     System.err.println("Failed to delete temporary file.");
                 }
@@ -249,10 +249,10 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
             File originalFile = new File(filePath);
             if (!tempFile.renameTo(originalFile)) {
+                System.out.println("Failed to rename temporary file to original file");
                 if (tempFile.exists() && !tempFile.delete()) {
                     System.err.println("Failed to delete temporary file.");
                 }
-                System.out.println("Failed to rename temporary file to original file");
                 return false;
             }
 
