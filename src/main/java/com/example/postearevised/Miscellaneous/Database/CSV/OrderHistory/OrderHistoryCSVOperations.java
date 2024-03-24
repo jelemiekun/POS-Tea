@@ -236,6 +236,10 @@ public class OrderHistoryCSVOperations {
                 // Rename the temporary file to the original file name
                 File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
                 if (!tempFile.renameTo(originalFile)) {
+                    // If renaming fails, delete the temporary file
+                    if (!tempFile.delete()) {
+                        throw new IOException("Failed to delete temporary file.");
+                    }
                     throw new IOException("Failed to rename temporary file to original file");
                 }
             } catch (IOException e) {
