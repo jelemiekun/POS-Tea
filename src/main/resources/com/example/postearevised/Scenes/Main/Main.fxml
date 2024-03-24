@@ -1021,9 +1021,9 @@
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane prefHeight="850.0" prefWidth="1320.0">
+                              <ScrollPane prefHeight="850.0" prefWidth="1320.0" style="-fx-background-color: white;">
                                 <content>
-                                    <FlowPane prefHeight="848.0" prefWidth="1302.0">
+                                    <FlowPane prefHeight="848.0" prefWidth="1318.0" style="-fx-background-color: white;">
                                        <children>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
                                              <children>
