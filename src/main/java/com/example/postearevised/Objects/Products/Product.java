@@ -57,7 +57,6 @@ public class Product {
             this.checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                 if (!isAddingProductsFromImport) {
                     if (editProductAvailabilityInCSV(Product.this)) {
-                        isAddingProductsFromImport = true;
                         this.checkBox.setSelected(newValue);
                     } else {
                         isAddingProductsFromImport = true;
