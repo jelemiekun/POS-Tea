@@ -70,8 +70,6 @@ i trim mga inputs PARA WALANG EXTRA SPACES
 
 available sa edit products
 
-IF MAG DELETE YEAR RECORD SA SYSTEM, DAPAT MAG DDELETE RIN SA CSV
-
 update yung pag dineselect stay logged in sa login
 
 CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCEED ( ANO TO WTF )
@@ -447,3 +445,5 @@ import/export csv
 kailangan kong mag garbage collect para maiwasan heap space
 
 pagka sort ng order, setReorderable to false na
+
+IF MAG DELETE YEAR RECORD SA SYSTEM, DAPAT MAG DDELETE RIN SA CSV

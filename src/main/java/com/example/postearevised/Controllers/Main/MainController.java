@@ -111,6 +111,7 @@ public class MainController implements Initializable {
                 anchorPaneLeftPanel.setVisible(true);
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
+                orderListModel.readImportedOrders();
                 orderHistoryModel.setOrderHistoryTable();
                 settingsModel.setVideo();
                 settingsModel.populateComboBoxImportExport();

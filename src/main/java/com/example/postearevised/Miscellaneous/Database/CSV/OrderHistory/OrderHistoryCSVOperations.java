@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.openPrompt;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -24,6 +25,19 @@ import static com.example.postearevised.Miscellaneous.References.ImagesReference
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryCSVOperations {
+
+    public static void createCSVFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            // Write column headers to the CSV file
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
+            System.out.println("Creating order history csv file: " + filePath);
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            setErrorCreatingCSVFile();
+            openPrompt();
+        }
+    }
 
     public static void readOrdersFromOrderHistoryCSV() {
         List<Order> orders = new ArrayList<>();
@@ -234,7 +248,7 @@ public class OrderHistoryCSVOperations {
 
 
 
-    private static void openPrompt() {
+    public static void openPrompt() {
         FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {

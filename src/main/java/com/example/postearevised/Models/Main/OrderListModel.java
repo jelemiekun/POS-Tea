@@ -81,8 +81,13 @@ public class OrderListModel {
         daemonThreadForDateAndTime.start();
     }
 
+    public void readImportedOrders() {
+        for (Order order : orderQueueObservableList) {
+            orderListOperationStartsHere(order);
+        }
+    }
+
     public void orderListOperationStartsHere(Order order) {
-        System.out.println("orderListOperationStartsHere is orderReference list empty? " + order.getProductOrderObservableList().isEmpty());
         addOrderToList(order);
         updateOrderQueueLabelsAndPane();
     }

@@ -8,10 +8,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
@@ -34,19 +34,6 @@ public class CSVUtility {
         } else {
             System.out.println("CSV order history file already exists: " + CSV_FILE_PATH_ORDER_HISTORY);
             readOrdersFromOrderHistoryCSV();
-        }
-    }
-
-    private static void createCSVFile(String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            // Write column headers to the CSV file
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
-            System.out.println("Creating order history csv file: " + filePath);
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-            setErrorCreatingCSVFile();
-            openPrompt();
         }
     }
 
@@ -79,7 +66,7 @@ public class CSVUtility {
                 System.out.println("line 35: " + i);
             } else if (filePath.contains("orderQueue")) {
                 System.out.println("CSV products file already exists: " + filePath);
-                //int i = importProductsFromCSV(filePath, false); // import order list DAPAT TO
+                importOrdersFromOrderQueueCSV();
             }
         }
     }
