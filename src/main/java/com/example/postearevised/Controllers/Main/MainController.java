@@ -704,6 +704,47 @@ public class MainController implements Initializable {
     }
 
     /**
+     * Settings - Accounts
+     */
+
+    @FXML
+    public ChoiceBox<String> comboBoxAccountName;
+    @FXML
+    public TextField textFieldAccountContact;
+    @FXML
+    public TextField textFieldAccountOldPassword;
+    @FXML
+    public TextField textFieldAccountNewPassword;
+    @FXML
+    public TextField textFieldAccountConfirmNewPassword;
+    @FXML
+    public ComboBox<String> comboBoxSettingsQuestionOne;
+    @FXML
+    public TextField textFieldAccountQuestionOne;
+    @FXML
+    public ComboBox<String> comboBoxSettingsQuestionTwo;
+    @FXML
+    public TextField textFieldAccountQuestionTwo;
+    @FXML
+    public ComboBox<String> comboBoxSettingsQuestionThree;
+    @FXML
+    public TextField textFieldAccountQuestionThree;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnEdit;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnDelete;
+
+    @FXML
+    public void anchorPaneSettingsBtnEditClickedTouched() {
+
+    }
+
+    @FXML
+    public void anchorPaneSettingsBtnDeleteClickedTouched() {
+
+    }
+
+    /**
      * Settings - Products
      */
     public boolean orderIsOngoing = false;

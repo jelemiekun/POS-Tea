@@ -10,12 +10,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
-import static com.example.postearevised.Miscellaneous.Enums.StartPane.ForgotPassword;
+import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
