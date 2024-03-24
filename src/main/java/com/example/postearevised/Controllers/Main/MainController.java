@@ -82,18 +82,12 @@ public class MainController implements Initializable {
 
             mainModel = new MainModel();
             mainModel.setMainController(this);
-            mainModel.setDropShadow();
-            mainModel.setMainMenuIconSelected();
-            mainModel.setAnchorPane();
 
             menuModel = new MenuModel();
             menuModel.setMainController(this);
-            menuModel.setDropShadow();
-            menuModel.setTextFieldListeners();
 
             orderListModel = new OrderListModel();
             orderListModel.setMainController(this);
-            orderListModel.createAndStartDaemonThreadForDateAndTime();
 
             orderHistoryModel = new OrderHistoryModel();
             orderHistoryModel.setMainController(this);
@@ -109,10 +103,21 @@ public class MainController implements Initializable {
             Platform.runLater(() -> {
                 anchorPaneLeftPanel.setVisible(true);
                 anchorPaneMenu.setVisible(true);
+
+                mainModel.setDropShadow();
+                mainModel.setMainMenuIconSelected();
+                mainModel.setAnchorPane();
+
+                menuModel.setDropShadow();
+                menuModel.setTextFieldListeners();
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
+
+                orderListModel.createAndStartDaemonThreadForDateAndTime();
                 orderListModel.readImportedOrders();
+
                 orderHistoryModel.setOrderHistoryTable();
+                
                 settingsModel.setVideo();
                 settingsModel.populateComboBoxImportExport();
 
