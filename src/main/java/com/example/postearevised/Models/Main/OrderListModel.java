@@ -254,7 +254,7 @@ public class OrderListModel {
     }
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
-        if (addOrderToCSV(order)) {
+        if (addOrderToOrderHistoryCSV(order)) {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
                 removeOrderToOrderQueue(order, anchorPaneToDelete);

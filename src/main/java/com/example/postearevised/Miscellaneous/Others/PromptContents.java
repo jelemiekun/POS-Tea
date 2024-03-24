@@ -262,6 +262,23 @@ public class PromptContents {
         btnRightBoolean = true;
     }
 
+    public static void setErrorAddOrder() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Order Adding Error";
+        promptContentText = "Failed to add order.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setErrorAddProduct() {
         setIsConfirmedToFalse();
 

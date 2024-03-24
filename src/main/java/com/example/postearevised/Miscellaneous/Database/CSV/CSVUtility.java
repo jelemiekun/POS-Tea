@@ -33,7 +33,7 @@ public class CSVUtility {
             createCSVFile(CSV_FILE_PATH_ORDER_HISTORY);
         } else {
             System.out.println("CSV order history file already exists: " + CSV_FILE_PATH_ORDER_HISTORY);
-            readOrdersFromCSV();
+            readOrdersFromOrderHistoryCSV();
         }
     }
 

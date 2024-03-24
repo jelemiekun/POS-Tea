@@ -79,7 +79,7 @@ public class DeleteHistoryModel {
             }
         }
 
-        if (deleteOrdersInCSV(ordersToRemove)) {
+        if (deleteOrdersInOrderHistoryCSV(ordersToRemove)) {
             orderHistoryObservableList.removeAll(ordersToRemove);
         } else {
             setErrorDeleteRecord();

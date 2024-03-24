@@ -2,7 +2,6 @@ package com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory;
 
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
-import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +25,7 @@ import static com.example.postearevised.Miscellaneous.References.OrderHistoryRef
 
 public class OrderHistoryCSVOperations {
 
-    public static void readOrdersFromCSV() {
+    public static void readOrdersFromOrderHistoryCSV() {
         List<Order> orders = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY))) {
@@ -81,7 +80,7 @@ public class OrderHistoryCSVOperations {
     }
 
 
-    public static boolean addOrderToCSV(Order order) {
+    public static boolean addOrderToOrderHistoryCSV(Order order) {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ORDER_HISTORY, true)) {
             StringBuilder sb = new StringBuilder();
             sb.append(order.getCustomerName()).append(",");
@@ -160,7 +159,7 @@ public class OrderHistoryCSVOperations {
     }
 
 
-    public static boolean deleteOrdersInCSV(List<Order> orderListToDelete) {
+    public static boolean deleteOrdersInOrderHistoryCSV(List<Order> orderListToDelete) {
         boolean success = false;
         File tempFile = null;
 
