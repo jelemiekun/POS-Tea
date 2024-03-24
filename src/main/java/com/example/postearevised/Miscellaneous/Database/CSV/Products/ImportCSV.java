@@ -39,7 +39,7 @@ public class ImportCSV {
             reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-                if (fields.length > 21) {
+                if (fields.length > 22) {
                     return 2;
                 }
 
@@ -47,6 +47,7 @@ public class ImportCSV {
                 String productDescription = fields[1];
                 String productCategory = fields[2];
                 String imagePath = fields[3];
+                String availability = fields[4];
                 System.out.println("Image Path: " + imagePath);
 
                 if (fromImport) {
@@ -78,44 +79,49 @@ public class ImportCSV {
 
                 switch (productCategory) {
                     case "Milk Tea":
-                        double milkTeaSmallPrice = Double.parseDouble(fields[4]);
-                        double milkTeaMediumPrice = Double.parseDouble(fields[5]);
-                        double milkTeaLargePrice = Double.parseDouble(fields[6]);
-                        String milkTeaAddOnsOne = fields[7];
-                        double milkTeaAddOnsOnePrice = Double.parseDouble(fields[8]);
-                        String milkTeaAddOnsTwo = fields[9];
-                        double milkTeaAddOnsTwoPrice = Double.parseDouble(fields[10]);
+                        double milkTeaSmallPrice = Double.parseDouble(fields[5]);
+                        double milkTeaMediumPrice = Double.parseDouble(fields[6]);
+                        double milkTeaLargePrice = Double.parseDouble(fields[7]);
+                        String milkTeaAddOnsOne = fields[8];
+                        double milkTeaAddOnsOnePrice = Double.parseDouble(fields[9]);
+                        String milkTeaAddOnsTwo = fields[10];
+                        double milkTeaAddOnsTwoPrice = Double.parseDouble(fields[11]);
                         product = new MilkTea(productName, productDescription, imagePath, productCategory,
                                 milkTeaSmallPrice, milkTeaMediumPrice, milkTeaLargePrice,
                                 milkTeaAddOnsOne, milkTeaAddOnsOnePrice, milkTeaAddOnsTwo, milkTeaAddOnsTwoPrice);
+                        product.getCheckBox().setSelected(Boolean.parseBoolean(availability));
                         importedMilkTeas.add(product);
                         break;
                     case "Coolers":
-                        double coolersSmallPrice = Double.parseDouble(fields[11]);
-                        double coolersMediumPrice = Double.parseDouble(fields[12]);
-                        double coolersLargePrice = Double.parseDouble(fields[13]);
-                        String coolersAddOnsOne = fields[14];
-                        double coolersAddOnsOnePrice = Double.parseDouble(fields[15]);
-                        String coolersAddOnsTwo = fields[16];
-                        double coolersAddOnsTwoPrice = Double.parseDouble(fields[17]);
+                        double coolersSmallPrice = Double.parseDouble(fields[12]);
+                        double coolersMediumPrice = Double.parseDouble(fields[13]);
+                        double coolersLargePrice = Double.parseDouble(fields[14]);
+                        String coolersAddOnsOne = fields[15];
+                        double coolersAddOnsOnePrice = Double.parseDouble(fields[16]);
+                        String coolersAddOnsTwo = fields[17];
+                        double coolersAddOnsTwoPrice = Double.parseDouble(fields[18]);
                         product = new Coolers(productName, productDescription, imagePath, productCategory,
                                 coolersSmallPrice, coolersMediumPrice, coolersLargePrice,
                                 coolersAddOnsOne, coolersAddOnsOnePrice, coolersAddOnsTwo, coolersAddOnsTwoPrice);
+                        product.getCheckBox().setSelected(Boolean.parseBoolean(availability));
                         importedCoolers.add(product);
                         break;
                     case "Coffee":
-                        double coffeePrice = Double.parseDouble(fields[18]);
+                        double coffeePrice = Double.parseDouble(fields[19]);
                         product = new Coffee(productName, productDescription, imagePath, productCategory, coffeePrice);
+                        product.getCheckBox().setSelected(Boolean.parseBoolean(availability));
                         importedCoffees.add(product);
                         break;
                     case "Ice Candy Cups":
-                        double iceCandyCupsPrice = Double.parseDouble(fields[19]);
+                        double iceCandyCupsPrice = Double.parseDouble(fields[20]);
                         product = new IceCandyCups(productName, productDescription, imagePath, productCategory, iceCandyCupsPrice);
+                        product.getCheckBox().setSelected(Boolean.parseBoolean(availability));
                         importedIceCandyCups.add(product);
                         break;
                     case "Appetizers":
-                        double appetizerPrice = Double.parseDouble(fields[20]);
+                        double appetizerPrice = Double.parseDouble(fields[21]);
                         product = new Appetizer(productName, productDescription, imagePath, productCategory, appetizerPrice);
+                        product.getCheckBox().setSelected(Boolean.parseBoolean(availability));
                         importedAppetizers.add(product);
                         break;
                     default:

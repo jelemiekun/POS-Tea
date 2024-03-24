@@ -1,6 +1,9 @@
 package com.example.postearevised.Objects.Products;
 
 import com.example.postearevised.Miscellaneous.References.GeneralReference;
+import com.example.postearevised.Miscellaneous.References.ProductReference;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,6 +11,8 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.util.Objects;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 
 public class Product {
@@ -47,6 +52,13 @@ public class Product {
             this.imageViewSmall.setFitHeight(IMAGE_VIEW_SMALL_HEIGHT);
             this.checkBox = new CheckBox();
             this.checkBox.setSelected(true);
+
+            this.checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+                if (!editProductAvailabilityInCSV(Product.this)) {
+                    setErrorEditProduct();
+                    ProductReference.openPrompt();
+                }
+            });
         } else {
             // prommpt can't add product, no category
         }

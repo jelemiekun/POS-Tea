@@ -27,6 +27,7 @@ public class ProductsCSVOperations {
                     "productDescription," +
                     "productCategory," +
                     "imagePath," +
+                    "isAvailable" +
                     "milkTeaSmallPrice," +
                     "milkTeaMediumPrice," +
                     "milkTeaLargePrice," +
@@ -62,6 +63,7 @@ public class ProductsCSVOperations {
                     sb.append(milkTea.getProductDescription()).append(",");
                     sb.append(milkTea.getCategory()).append(",");
                     sb.append(milkTea.getImagePath()).append(",");
+                    sb.append(milkTea.getCheckBox().isSelected()).append(",");
 
 
                     sb.append(milkTea.getSmallPrice()).append(",");
@@ -78,6 +80,7 @@ public class ProductsCSVOperations {
                     sb.append(coolers.getProductDescription()).append(",");
                     sb.append(coolers.getCategory()).append(",");
                     sb.append(coolers.getImagePath()).append(",");
+                    sb.append(coolers.getCheckBox().isSelected()).append(",");
 
                     sb.append(",");
                     sb.append(",");
@@ -101,6 +104,7 @@ public class ProductsCSVOperations {
                     sb.append(coffee.getProductDescription()).append(",");
                     sb.append(coffee.getCategory()).append(",");
                     sb.append(coffee.getImagePath()).append(",");
+                    sb.append(coffee.getCheckBox().isSelected()).append(",");
 
                     sb.append(",");
                     sb.append(",");
@@ -125,6 +129,7 @@ public class ProductsCSVOperations {
                     sb.append(iceCandyCups.getProductDescription()).append(",");
                     sb.append(iceCandyCups.getCategory()).append(",");
                     sb.append(iceCandyCups.getImagePath()).append(",");
+                    sb.append(iceCandyCups.getCheckBox().isSelected()).append(",");
 
                     sb.append(",");
                     sb.append(",");
@@ -150,6 +155,7 @@ public class ProductsCSVOperations {
                     sb.append(appetizer.getProductDescription()).append(",");
                     sb.append(appetizer.getCategory()).append(",");
                     sb.append(appetizer.getImagePath()).append(",");
+                    sb.append(appetizer.getCheckBox().isSelected()).append(",");
 
                     sb.append(",");
                     sb.append(",");
@@ -211,6 +217,7 @@ public class ProductsCSVOperations {
                             sb.append(milkTea.getProductDescription()).append(",");
                             sb.append(milkTea.getCategory()).append(",");
                             sb.append(milkTea.getImagePath()).append(",");
+                            sb.append(milkTea.getCheckBox().isSelected()).append(",");
                             sb.append(milkTea.getSmallPrice()).append(",");
                             sb.append(milkTea.getMediumPrice()).append(",");
                             sb.append(milkTea.getLargePrice()).append(",");
@@ -236,6 +243,7 @@ public class ProductsCSVOperations {
                             sb.append(coolers.getProductDescription()).append(",");
                             sb.append(coolers.getCategory()).append(",");
                             sb.append(coolers.getImagePath()).append(",");
+                            sb.append(coolers.getCheckBox().isSelected()).append(",");
 
                             sb.append(",");
                             sb.append(",");
@@ -263,6 +271,7 @@ public class ProductsCSVOperations {
                             sb.append(coffee.getProductDescription()).append(",");
                             sb.append(coffee.getCategory()).append(",");
                             sb.append(coffee.getImagePath()).append(",");
+                            sb.append(coffee.getCheckBox().isSelected()).append(",");
 
                             sb.append(",");
                             sb.append(",");
@@ -290,6 +299,7 @@ public class ProductsCSVOperations {
                             sb.append(iceCandyCups.getProductDescription()).append(",");
                             sb.append(iceCandyCups.getCategory()).append(",");
                             sb.append(iceCandyCups.getImagePath()).append(",");
+                            sb.append(iceCandyCups.getCheckBox().isSelected()).append(",");
 
                             sb.append(",");
                             sb.append(",");
@@ -317,6 +327,7 @@ public class ProductsCSVOperations {
                             sb.append(appetizer.getProductDescription()).append(",");
                             sb.append(appetizer.getCategory()).append(",");
                             sb.append(appetizer.getImagePath()).append(",");
+                            sb.append(appetizer.getCheckBox().isSelected()).append(",");
 
                             sb.append(",");
                             sb.append(",");
@@ -356,6 +367,54 @@ public class ProductsCSVOperations {
             return false;
         }
     }
+
+    public static boolean editProductAvailabilityInCSV(Product product) {
+        try {
+            File inputFile = new File(CSV_FILE_PATH_PRODUCTS);
+            File tempFile = new File("temp.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                if (fields.length < 6) {
+                    continue;
+                }
+                String productName = fields[0];
+                String productDescription = fields[1];
+                String category = fields[2];
+                String imagePath = fields[3];
+
+                if (productName.equals(product.getProductName())
+                        && productDescription.equals(product.getProductDescription())
+                        && category.equals(product.getCategory())
+                        && imagePath.equals(product.getImagePath())) {
+                    fields[4] = String.valueOf(product.getCheckBox().isSelected());
+                }
+
+                String modifiedLine = String.join(",", fields);
+                writer.write(modifiedLine);
+                writer.newLine();
+            }
+
+            reader.close();
+            writer.close();
+
+            inputFile.delete();
+            tempFile.renameTo(inputFile);
+
+            System.out.println("Gumagana");
+            return true;
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            return false;
+        }
+    }
+
 
     public static boolean deleteProductInCSV(List<Product> productListToDelete) {
         boolean success = false;
