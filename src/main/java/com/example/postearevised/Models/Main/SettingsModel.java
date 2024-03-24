@@ -391,7 +391,7 @@ public class SettingsModel {
                     refreshProductTable();
 
                     if (deletingProductSuccess) {
-                        setAddProductSuccess();
+                        setDeleteProductSuccess();
                         mainController.mainModel.showNotification();
 
                         deletingProductSuccess = false;

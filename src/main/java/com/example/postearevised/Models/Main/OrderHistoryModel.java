@@ -51,6 +51,7 @@ public class OrderHistoryModel {
         setReverseItem();
         refreshOrderHistory();
         setTextFieldSearch();
+        refreshOrderHistoryTable();
     }
 
 //    public void setOrderHistory() { // unused kasi if clicked yung order history left panel, maiiwanan lang yung nilalaman "AS IS"

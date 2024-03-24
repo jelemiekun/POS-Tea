@@ -427,51 +427,50 @@ public class ProductsCSVOperations {
             // Read the CSV file
             BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_PRODUCTS));
             String line;
-            try {
-                while ((line = reader.readLine()) != null) {
-                    String[] fields = line.split(",");
 
-                    boolean deleteRow = false;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                 boolean deleteRow = false;
 
-                    // Check if any product in productListToDelete matches the criteria
-                    for (Product product : productListToDelete) {
-                        if (fields.length >= 4 && fields[0].equals(product.getProductName()) &&
-                                fields[1].equals(product.getProductDescription()) &&
-                                fields[2].equals(product.getCategory()) &&
-                                fields[3].equals(product.getImagePath())) {
-                            deleteRow = true;
-                            break; // No need to check further, delete this row
-                        }
-                    }
-
-                    if (!deleteRow) {
-                        // Write the row to the temporary file if it doesn't match the criteria
-                        writer.write(line);
-                        writer.newLine();
+                 // Check if any product in productListToDelete matches the criteria
+                for (Product product : productListToDelete) {
+                    if (fields.length >= 4 && fields[0].equals(product.getProductName()) &&
+                            fields[1].equals(product.getProductDescription()) &&
+                            fields[2].equals(product.getCategory()) &&
+                            fields[3].equals(product.getImagePath())) {
+                        deleteRow = true;
+                        break; // No need to check further, delete this row
                     }
                 }
-            } finally {
-                // Close the reader and writer
-                reader.close();
-                writer.close();
+
+                if (!deleteRow) {
+                    // Write the row to the temporary file if it doesn't match the criteria
+                    writer.write(line);
+                    writer.newLine();
+                }
             }
+            reader.close();
+            writer.close();
 
             // Remove the current products.csv file
             File currentFile = new File(CSV_FILE_PATH_PRODUCTS);
 
-            try {
-                if (!currentFile.delete()) {
-                    throw new IOException("Failed to delete current products.csv file");
+            if (!currentFile.delete()) {
+                System.out.println("Failed to delete current products.csv file");
+                if (!success && tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
                 }
+                return false;
+            }
 
-                // Rename the temporary file to the original file name
-                File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
-                if (!tempFile.renameTo(originalFile)) {
-                    throw new IOException("Failed to rename temporary file to original file");
+            // Rename the temporary file to the original file name
+            File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
+            if (!tempFile.renameTo(originalFile)) {
+                if (!success && tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
                 }
-            } catch (IOException e) {
-                errorMessage = e.getMessage();
-                logError(false);
+                System.out.println("Failed to rename temporary file to original file");
+                return false;
             }
 
 
@@ -479,9 +478,7 @@ public class ProductsCSVOperations {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-        } finally {
-            // Delete the temporary file if there was an error
-            if (!success && tempFile != null && tempFile.exists() && !tempFile.delete()) {
+            if (!success && tempFile.exists() && !tempFile.delete()) {
                 System.err.println("Failed to delete temporary file.");
             }
         }
