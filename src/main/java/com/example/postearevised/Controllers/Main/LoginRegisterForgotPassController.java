@@ -41,6 +41,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public Rectangle rectangleModal;
     public boolean rectangleModalVisible = false;
+    public int loginAttemptCounter = 0;
     public final Image showImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png")));
     public final Image hideImage = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png")));
     public LoginModel loginModel;

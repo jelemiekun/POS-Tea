@@ -24,6 +24,23 @@ public class PromptContents {
         isConfirmed = false;
     }
 
+    public static void setForgotPassword() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Forgot password?";
+        promptContentText = "Click yes if you wish to reset your password.";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = YES_BLACK_BUTTON;
+        btnCenterImageReference = NO_BLACK_BUTTON;
+        btnRightImageReference = NO_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setGoBackConfirmation() {
         setIsConfirmedToFalse();
 

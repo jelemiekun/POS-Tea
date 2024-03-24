@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.StartPane.ForgotPassword;
+import static com.example.postearevised.Miscellaneous.Enums.StartPane.Login;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -162,6 +164,8 @@ public class LoginModel {
      */
 
     public void checkInputsBeforeLogin() {
+        loginRegisterForgotPassController.loginAttemptCounter++;
+
         if (loginRegisterForgotPassController.checkConnectivity()) {
             disableLimitInput();
 
@@ -186,7 +190,40 @@ public class LoginModel {
                 closeThisStage();
                 System.gc();
             }
+
+            if (!proceed && loginRegisterForgotPassController.loginAttemptCounter % 5 == 0) {
+                loginRegisterForgotPassController.loginAttemptCounter = 0;
+                setForgotPassword();
+                if (openPromptForgotPassword()) {
+                    loginRegisterForgotPassController.switchPane(ForgotPassword.getPaneNumber());
+                }
+            }
         }
+    }
+
+    private boolean openPromptForgotPassword() {
+        loginRegisterForgotPassController.toggleRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+        return isConfirmed;
     }
 
     private void closeThisStage() {
