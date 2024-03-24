@@ -38,8 +38,6 @@ gawing * lahat ng static import
 
 css files ng 2 table mula kay abella
 
-ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
-
 bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
 
 sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
@@ -48,7 +46,7 @@ may mag ppop up if may changes na nadetect sa directory
 
 ihhide yung accounts excel
 
-hindi pede madelete current year
+hindi pede madelete current year ( pero itatanong pa ano basehan )
 
 
 
@@ -89,8 +87,6 @@ lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si noti
 
 ------------------MGA ITATANONG------------------
 
-pede ba madelete yung current year sa order history?
-
 ilagay ba attributes sa order history product details?
 
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
@@ -101,9 +97,9 @@ gumawa pa ba ng copy sa project file path ng picture mula sa order history? or n
 
 sa search order history, contains or startswith?
 
-ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHIDE NA YANG REFRESH BUTTON NA YAN SINCE WALA RING MAAYOS NA PAGLALAGYAN
-
 kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
+
+hindi pede madelete current year (ano basehan ng current year)
 
 
 
@@ -448,3 +444,7 @@ update yung pag dineselect stay logged in sa login
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 
 CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCEED ( ANO TO WTF ) ( ALAM KO NA HAHA SA HEADER ORDER HISTORY TO, LABO KASI)
+
+ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
+
+ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHIDE NA YANG REFRESH BUTTON NA YAN SINCE WALA RING MAAYOS NA PAGLALAGYAN
