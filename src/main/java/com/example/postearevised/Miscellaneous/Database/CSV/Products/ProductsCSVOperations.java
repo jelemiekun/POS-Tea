@@ -457,7 +457,7 @@ public class ProductsCSVOperations {
 
             if (!currentFile.delete()) {
                 System.out.println("Failed to delete current products.csv file");
-                if (!success && tempFile.exists() && !tempFile.delete()) {
+                if (tempFile.exists() && !tempFile.delete()) {
                     System.err.println("Failed to delete temporary file.");
                 }
                 return false;
@@ -466,7 +466,7 @@ public class ProductsCSVOperations {
             // Rename the temporary file to the original file name
             File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
             if (!tempFile.renameTo(originalFile)) {
-                if (!success && tempFile.exists() && !tempFile.delete()) {
+                if (tempFile.exists() && !tempFile.delete()) {
                     System.err.println("Failed to delete temporary file.");
                 }
                 System.out.println("Failed to rename temporary file to original file");

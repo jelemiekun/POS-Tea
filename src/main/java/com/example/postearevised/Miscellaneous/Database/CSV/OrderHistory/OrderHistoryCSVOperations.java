@@ -197,54 +197,52 @@ public class OrderHistoryCSVOperations {
             // Read the CSV file
             BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY));
             String line;
-            try {
-                while ((line = reader.readLine()) != null) {
-                    String[] fields = line.split(",");
 
-                    boolean deleteRow = false;
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                 boolean deleteRow = false;
 
-                    // Check if any product in productListToDelete matches the criteria
-                    for (Order order : orderListToDelete) {
-                        if (fields.length >= 4 &&
-                                fields[0].equals(order.getCustomerName()) &&
-                                fields[13].equals(String.valueOf(order.getDateAndTime()))) {
-                            deleteRow = true;
-                            break; // No need to check further, delete this row
-                        }
-                    }
-
-                    if (!deleteRow) {
-                        // Write the row to the temporary file if it doesn't match the criteria
-                        writer.write(line);
-                        writer.newLine();
+                 // Check if any product in productListToDelete matches the criteria
+                for (Order order : orderListToDelete) {
+                    if (fields.length >= 4 &&
+                            fields[0].equals(order.getCustomerName()) &&
+                            fields[13].equals(String.valueOf(order.getDateAndTime()))) {
+                        deleteRow = true;
+                        break; // No need to check further, delete this row
                     }
                 }
-            } finally {
-                // Close the reader and writer
-                reader.close();
-                writer.close();
+
+                if (!deleteRow) {
+                    // Write the row to the temporary file if it doesn't match the criteria
+                    writer.write(line);
+                    writer.newLine();
+                }
             }
+
+            // Close the reader and writer
+            reader.close();
+            writer.close();
+
 
             // Remove the current products.csv file
             File currentFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
 
-            try {
-                if (!currentFile.delete()) {
-                    throw new IOException("Failed to delete current orderQueue.csv file");
+            if (!currentFile.delete()) {
+                System.out.println("Failed to delete current orderQueue.csv file");
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
                 }
+                return false;
+            }
 
-                // Rename the temporary file to the original file name
-                File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
-                if (!tempFile.renameTo(originalFile)) {
-                    // If renaming fails, delete the temporary file
-                    if (!tempFile.delete()) {
-                        throw new IOException("Failed to delete temporary file.");
-                    }
-                    throw new IOException("Failed to rename temporary file to original file");
+            // Rename the temporary file to the original file name
+            File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
+            if (!tempFile.renameTo(originalFile)) {
+                if (tempFile.exists() && !tempFile.delete()) {
+                    System.err.println("Failed to delete temporary file.");
                 }
-            } catch (IOException e) {
-                errorMessage = e.getMessage();
-                logError(false);
+                System.out.println("Failed to rename temporary file to original file");
+                return false;
             }
 
 
@@ -252,9 +250,7 @@ public class OrderHistoryCSVOperations {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-        } finally {
-            // Delete the temporary file if there was an error
-            if (!success && tempFile != null && tempFile.exists() && !tempFile.delete()) {
+            if (tempFile.exists() && !tempFile.delete()) {
                 System.err.println("Failed to delete temporary file.");
             }
         }
