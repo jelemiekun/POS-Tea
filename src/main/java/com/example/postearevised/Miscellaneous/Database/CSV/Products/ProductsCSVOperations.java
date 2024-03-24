@@ -18,51 +18,6 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 public class ProductsCSVOperations {
-    public static void doesProductCSVExist() {
-        createDirectoryIfNotExists(DIRECTORY_PATH);
-        createDirectoryIfNotExists(DIRECTORY_PATH_ACCOUNTS);
-        createDirectoryIfNotExists(DIRECTORY_PATH_CSV);
-        createDirectoryIfNotExists(DIRECTORY_PATH_PRODUCT_IMAGES);
-        createCSVFileIfNotExists(CSV_FILE_PATH_PRODUCTS);
-        createCSVFileIfNotExists(CSV_FILE_PATH_ORDER_QUEUE);
-    }
-
-    private static void createDirectoryIfNotExists(String path) {
-        File directory = new File(path);
-        if (!directory.exists()) {
-            if (directory.mkdirs()) {
-                System.out.println("Created directory: " + path);
-            } else {
-                System.out.println("Failed to create directory: " + path);
-            }
-        } else {
-            System.out.println("Directory already exists: " + path);
-        }
-    }
-
-    private static void createCSVFileIfNotExists(String filePath) {
-        File file = new File(filePath);
-        if (!file.exists()) {
-            System.out.println("Directory exists but no CSV file, will now create CSV: " + filePath);
-            if (filePath.contains("products")) {
-                createProductsCSVFile(filePath);
-            } else if (filePath.contains("orderQueue")) {
-                createOrderQueueCSVFile(filePath);
-            }
-        } else {
-            if (filePath.contains("products")) {
-                System.out.println("CSV products file already exists: " + filePath);
-                int i = importProductsFromCSV(filePath, false);
-                System.out.println("line 35: " + i);
-            } else if (filePath.contains("orderQueue")) {
-                System.out.println("CSV products file already exists: " + filePath);
-                //int i = importProductsFromCSV(filePath, false); // import order list DAPAT TO
-            }
-        }
-    }
-
-
-
     public static void createOrderQueueCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Write column headers to the CSV file
@@ -439,6 +394,19 @@ public class ProductsCSVOperations {
                             fields[2].equals(product.getCategory()) &&
                             fields[3].equals(product.getImagePath())) {
                         deleteRow = true;
+
+                        // Delete product image
+
+                        if (!product.getImagePath().startsWith("/com/example/")) {
+                            File productImage = new File(product.getImagePath());
+                            if (!productImage.delete()) {
+                                System.out.println("Failed to delete product image");
+                                if (tempFile.exists() && !tempFile.delete()) {
+                                    System.err.println("Failed to delete temporary file.");
+                                }
+                            }
+                        }
+
                         break; // No need to check further, delete this row
                     }
                 }
@@ -486,115 +454,4 @@ public class ProductsCSVOperations {
     }
 
 
-
-//    public static boolean addOrderToCSV(Order order) {
-//        try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ORDER_QUEUE, true)) {
-//            StringBuilder sb = new StringBuilder();
-//            sb.append(order.getCustomerName()).append(",");
-//            sb.append(order.getOrderNumber()).append(",");
-//            List<ProductOrder> productOrders = order.getProductOrderObservableList();
-//
-//            if (!productOrders.isEmpty()) {
-//                StringBuilder categoryBuilder = new StringBuilder();
-//                StringBuilder nameBuilder = new StringBuilder();
-//                StringBuilder firstAttributeBuilder = new StringBuilder();
-//                StringBuilder secondAttributeBuilder = new StringBuilder();
-//                StringBuilder thirdAttributeBuilder = new StringBuilder();
-//                StringBuilder quantityBuilder = new StringBuilder();
-//                StringBuilder totalAmountBuilder = new StringBuilder();
-//
-//                for (ProductOrder productOrder : productOrders) {
-//                    if (productOrder.getProductName().isEmpty()) {
-//                        productOrder.setProductName(".");
-//                    }
-//                    if (productOrder.getFirstAttribute().isEmpty()) {
-//                        productOrder.setFirstAttribute(".");
-//                    }
-//                    if (productOrder.getSecondAttribute().isEmpty()) {
-//                        productOrder.setSecondAttribute(".");
-//                    }
-//                    if (productOrder.getThirdAttribute().isEmpty()) {
-//                        productOrder.setThirdAttribute(".");
-//                    }
-//
-//                    categoryBuilder.append(productOrder.getProductCategory()).append("/");
-//                    nameBuilder.append(productOrder.getProductName()).append("/");
-//                    firstAttributeBuilder.append(productOrder.getFirstAttribute()).append("/");
-//                    secondAttributeBuilder.append(productOrder.getSecondAttribute()).append("/");
-//                    thirdAttributeBuilder.append(productOrder.getThirdAttribute()).append("/");
-//                    quantityBuilder.append(productOrder.getQuantity()).append("/");
-//                    totalAmountBuilder.append(productOrder.getTotalAmount()).append("/");
-//                }
-//
-//                sb.append(categoryBuilder.toString()).append(",");
-//                sb.append(nameBuilder.toString()).append(",");
-//                sb.append(firstAttributeBuilder.toString()).append(",");
-//                sb.append(secondAttributeBuilder.toString()).append(",");
-//                sb.append(thirdAttributeBuilder.toString()).append(",");
-//                sb.append(quantityBuilder.toString()).append(",");
-//                sb.append(totalAmountBuilder.toString()).append(",");
-//
-//                int totalPrice = order.getTotalPrice();
-//                int amountPaid = order.getAmountPaid();
-//                int change = order.getChange();
-//                String modeOfPayment = order.getModeOfPayment();
-//                LocalDateTime dateAndTime = order.getDateAndTime();
-//
-//                sb.append(totalPrice).append(",");
-//                sb.append(amountPaid).append(",");
-//                sb.append(change).append(",");
-//                sb.append(modeOfPayment).append(",");
-//                sb.append(dateAndTime).append(",");
-//
-//                StringBuilder imagePathBuilder = new StringBuilder();
-//                for (ProductOrder productOrder : productOrders) {
-//                    imagePathBuilder.append(productOrder.getImagePath()).append("/");
-//                }
-//                sb.append(imagePathBuilder.toString()).append(",");
-//            }
-//
-//            sb.append("\n");
-//
-//            writer.write(sb.toString());
-//            System.out.println("Order added to CSV file: " + CSV_FILE_PATH_ORDER_QUEUE);
-//            return true;
-//        } catch (IOException e) {
-//            errorMessage = e.getMessage();
-//            logError(false);
-//            return false;
-//        }
-//    }
-
-
-
-
-
-
-    public static int chooseFilePath(Stage stage, boolean isImport) {
-        FileChooser fileChooser = new FileChooser();
-        File file;
-
-        if (isImport) {
-            fileChooser.setTitle("Import Products CSV File");
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-            file = fileChooser.showOpenDialog(stage);
-        } else {
-            fileChooser.setTitle("Save Products CSV File");
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
-            fileChooser.setInitialFileName("products.csv");
-            file = fileChooser.showSaveDialog(stage);
-        }
-
-        if (file != null) {
-            String filePath = file.getAbsolutePath();
-
-            if (isImport) {
-                return importProductsFromCSV(filePath, true);
-            } else {
-                setExportSuccessful(filePath);
-                return exportProductsToCSV(filePath);
-            }
-        }
-        return -1;
-    }
 }

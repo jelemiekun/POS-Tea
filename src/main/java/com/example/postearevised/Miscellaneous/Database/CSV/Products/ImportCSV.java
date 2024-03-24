@@ -193,12 +193,12 @@ public class ImportCSV {
 
         if (fromImport) {
             for (Product product : importedProducts) {
-                boolean add = addProductToCSV(product);
+                boolean dump = addProductToCSV(product);
             }
         }
     }
 
-    private static boolean openPrompt() {
+    public static boolean openPrompt() {
         FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {

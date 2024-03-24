@@ -25,30 +25,6 @@ import static com.example.postearevised.Miscellaneous.References.ImagesReference
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryCSVOperations {
-    public static void doesOrderHistoryCSVExist() {
-        File file = new File(CSV_FILE_PATH_ORDER_HISTORY);
-
-        if (!file.exists()) {
-            System.out.println("Directory exists but no csv file, will now create order history csv...");
-            createCSVFile(CSV_FILE_PATH_ORDER_HISTORY);
-        } else {
-            System.out.println("CSV order history file already exists: " + CSV_FILE_PATH_ORDER_HISTORY);
-            readOrdersFromCSV();
-        }
-    }
-
-    private static void createCSVFile(String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            // Write column headers to the CSV file
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
-            System.out.println("Creating order history csv file: " + filePath);
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-            setErrorCreatingCSVFile();
-            openPrompt();
-        }
-    }
 
     public static void readOrdersFromCSV() {
         List<Order> orders = new ArrayList<>();
