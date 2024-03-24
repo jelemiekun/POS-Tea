@@ -14,16 +14,16 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 
 public class ReceiptGenerator {
     public static void doesReceiptPathExist() {
-        File receiptPath = new File(DIRECTORY_RECEIPT_PATH);
+        File receiptPath = new File(DIRECTORY_PATH_RECEIPT);
 
         if (!receiptPath.exists()) {
             if (receiptPath.mkdirs()) {
-                System.out.println("Created directory: " + DIRECTORY_RECEIPT_PATH);
+                System.out.println("Created directory: " + DIRECTORY_PATH_RECEIPT);
             } else {
-                System.out.println("Failed to create directory: " + DIRECTORY_RECEIPT_PATH);
+                System.out.println("Failed to create directory: " + DIRECTORY_PATH_RECEIPT);
             }
         } else {
-            System.out.println("Directory already exists: " + DIRECTORY_RECEIPT_PATH);
+            System.out.println("Directory already exists: " + DIRECTORY_PATH_RECEIPT);
         }
     }
 
@@ -60,7 +60,7 @@ public class ReceiptGenerator {
 
             String receiptContent = receiptContentBuilder.toString();
 
-            try (FileWriter writer = new FileWriter(invocationCount == 1 ? ORDER_RECEIPT_STORE_COPY_PATH : ORDER_RECEIPT_CUSTOMER_COPY_PATH)) {
+            try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY, true)) {
                 writer.write(receiptContent);
                 generateReceipt(order, ++invocationCount);
                 System.out.println("Receipt generated successfully.");

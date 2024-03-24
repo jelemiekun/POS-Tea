@@ -2,6 +2,7 @@ package com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory;
 
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -25,13 +26,13 @@ import static com.example.postearevised.Miscellaneous.References.OrderHistoryRef
 
 public class OrderHistoryCSVOperations {
     public static void doesOrderHistoryCSVExist() {
-        File file = new File(ORDER_HISTORY_CSV_FILE_PATH);
+        File file = new File(CSV_FILE_PATH_ORDER_HISTORY);
 
         if (!file.exists()) {
             System.out.println("Directory exists but no csv file, will now create order history csv...");
-            createCSVFile(ORDER_HISTORY_CSV_FILE_PATH);
+            createCSVFile(CSV_FILE_PATH_ORDER_HISTORY);
         } else {
-            System.out.println("CSV order history file already exists: " + ORDER_HISTORY_CSV_FILE_PATH);
+            System.out.println("CSV order history file already exists: " + CSV_FILE_PATH_ORDER_HISTORY);
             readOrdersFromCSV();
         }
     }
@@ -52,7 +53,7 @@ public class OrderHistoryCSVOperations {
     public static void readOrdersFromCSV() {
         List<Order> orders = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(ORDER_HISTORY_CSV_FILE_PATH))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY))) {
             // Read and ignore the header
             String headerLine = reader.readLine();
 
@@ -105,7 +106,7 @@ public class OrderHistoryCSVOperations {
 
 
     public static boolean addOrderToCSV(Order order) {
-        try (FileWriter writer = new FileWriter(ORDER_HISTORY_CSV_FILE_PATH, true)) {
+        try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ORDER_HISTORY, true)) {
             StringBuilder sb = new StringBuilder();
             sb.append(order.getCustomerName()).append(",");
             sb.append(order.getOrderNumber()).append(",");
@@ -173,13 +174,87 @@ public class OrderHistoryCSVOperations {
             sb.append("\n");
 
             writer.write(sb.toString());
-            System.out.println("Order added to CSV file: " + ORDER_HISTORY_CSV_FILE_PATH);
+            System.out.println("Order added to CSV file: " + CSV_FILE_PATH_ORDER_HISTORY);
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
             return false;
         }
+    }
+
+
+    public static boolean deleteOrdersInCSV(List<Order> orderListToDelete) {
+        boolean success = false;
+        File tempFile = null;
+
+        try {
+            // Create a temporary file to write the updated content
+            tempFile = new File(DIRECTORY_PATH_CSV + File.separator + "temp.csv");
+            FileWriter fw = new FileWriter(tempFile);
+            BufferedWriter writer = new BufferedWriter(fw);
+
+            // Read the CSV file
+            BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY));
+            String line;
+            try {
+                while ((line = reader.readLine()) != null) {
+                    String[] fields = line.split(",");
+
+                    boolean deleteRow = false;
+
+                    // Check if any product in productListToDelete matches the criteria
+                    for (Order order : orderListToDelete) {
+                        if (fields.length >= 4 &&
+                                fields[0].equals(order.getCustomerName()) &&
+                                fields[13].equals(String.valueOf(order.getDateAndTime()))) {
+                            deleteRow = true;
+                            break; // No need to check further, delete this row
+                        }
+                    }
+
+                    if (!deleteRow) {
+                        // Write the row to the temporary file if it doesn't match the criteria
+                        writer.write(line);
+                        writer.newLine();
+                    }
+                }
+            } finally {
+                // Close the reader and writer
+                reader.close();
+                writer.close();
+            }
+
+            // Remove the current products.csv file
+            File currentFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
+
+            try {
+                if (!currentFile.delete()) {
+                    throw new IOException("Failed to delete current orderQueue.csv file");
+                }
+
+                // Rename the temporary file to the original file name
+                File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
+                if (!tempFile.renameTo(originalFile)) {
+                    throw new IOException("Failed to rename temporary file to original file");
+                }
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
+
+
+            success = true;
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        } finally {
+            // Delete the temporary file if there was an error
+            if (!success && tempFile != null && tempFile.exists() && !tempFile.delete()) {
+                System.err.println("Failed to delete temporary file.");
+            }
+        }
+        return success;
     }
 
 

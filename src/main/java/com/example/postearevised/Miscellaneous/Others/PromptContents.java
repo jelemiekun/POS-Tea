@@ -228,6 +228,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorDeleteRecord() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = RED_BIN_ICON;
+        promptHeaderText = "Record Deletion Error";
+        promptContentText = "Failed to delete record(s) from the local database.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
     public static void setErrorDeleteProduct() {
         setIsConfirmedToFalse();
 

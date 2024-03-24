@@ -9,6 +9,8 @@ import javafx.scene.layout.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
+
 public class DeleteHistoryController implements Initializable {
 
     public DeleteHistoryModel deleteHistoryModel;
@@ -36,6 +38,7 @@ public class DeleteHistoryController implements Initializable {
     @FXML
     void btnDeleteRecordClickedTouched() {
         if (selectedAnchorPane != null) {
+            setDeleteRecord();
             if (deleteHistoryModel.openPrompt()) {
                 String yearString = ((Label) selectedAnchorPane.getChildren().get(3)).getText();
                 int year = Integer.parseInt(yearString);

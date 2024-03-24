@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.*;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -69,9 +70,26 @@ public class DeleteHistoryModel {
     }
 
     public void deleteOrdersByYear(int year) {
-        orderHistoryObservableList.removeIf(order -> order.getDateAndTime().getYear() == year);
+        List<Order> ordersToRemove = new ArrayList<>();
+
+        // Find orders with the specified year and add them to ordersToRemove list
+        for (Order order : orderHistoryObservableList) {
+            if (order.getDateAndTime().getYear() == year) {
+                ordersToRemove.add(order);
+            }
+        }
+
+        if (deleteOrdersInCSV(ordersToRemove)) {
+            orderHistoryObservableList.removeAll(ordersToRemove);
+        } else {
+            setErrorDeleteRecord();
+            openPrompt();
+        }
+
+        // Perform any additional operations after removing orders
         checkRecord();
     }
+
 
     private AnchorPane createAnchorPane(String year) {
         AnchorPane anchorPane = new AnchorPane();
@@ -136,7 +154,6 @@ public class DeleteHistoryModel {
     }
 
     public boolean openPrompt() {
-        setDeleteRecord();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {
