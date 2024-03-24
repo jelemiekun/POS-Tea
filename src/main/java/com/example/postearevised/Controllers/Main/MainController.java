@@ -108,6 +108,7 @@ public class MainController implements Initializable {
 
             Platform.runLater(() -> {
                 anchorPaneLeftPanel.setVisible(true);
+                anchorPaneMenu.setVisible(true);
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
                 orderListModel.readImportedOrders();

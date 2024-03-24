@@ -168,7 +168,7 @@ public class ProductsCSVOperations {
                     sb.append(",");
                     sb.append(",");
 
-                    sb.append(appetizer.getPrice()).append("\n");
+                    sb.append(appetizer.getPrice());
                     break;
                 default:
                     // Handle if category is not recognized
@@ -335,7 +335,7 @@ public class ProductsCSVOperations {
                             sb.append(",");
                             sb.append(",");
 
-                            sb.append(appetizer.getPrice()).append("\n");
+                            sb.append(appetizer.getPrice());
                             break;
                     }
                     writer.write(sb.toString());

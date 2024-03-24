@@ -71,8 +71,6 @@ available sa edit products
 
 // SA DULO NA TO
 
-UPLOAD/REMOVE PHOTO SA APPETIZER
-
 dapat di gumagana editProduct if naka open csv
 
 DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
@@ -108,6 +106,8 @@ sa search order history, contains or startswith?
 kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
 
 hindi pede madelete current year (ano basehan ng current year)
+
+ano default value ng no product name?
 
 
 
@@ -456,3 +456,5 @@ CHECK MUNA IF GETSELECTION ORDER IS HINDI NULL, KUNG HINDI NULL, TSAKA MAG PROCE
 ispecify somewhere sa system na need pa rin ng internet connectivity paminsan minsan para maiupdate ang order history sa account
 
 ITRY GAMITIN ANG ORDER HISTORY NANG WALANG REFRESH BUTTON, PAG GOODS NAMAN, IHIDE NA YANG REFRESH BUTTON NA YAN SINCE WALA RING MAAYOS NA PAGLALAGYAN
+
+UPLOAD/REMOVE PHOTO SA APPETIZER
