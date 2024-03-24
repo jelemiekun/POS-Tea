@@ -767,7 +767,7 @@ public class MenuModel {
         });
     }
 
-    private void setReferenceOrderNumber() {
+    public void setReferenceOrderNumber() {
         try {
             referenceOrderNumber = Integer.parseInt(mainController.labelCustomerNumber.getText());
         } catch (NumberFormatException e) {

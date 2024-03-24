@@ -57,6 +57,8 @@ public class MainModel {
     public void openSelectedPane(int selectedPane) {
         boolean logout = false;
 
+        mainController.orderListModel.updateOrderQueueLabelsAndPane();
+
         switch (selectedPane) {
             case 1: // Menu
                 mainStage.setTitle(MENU_ENUM.getName());

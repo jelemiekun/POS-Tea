@@ -2,8 +2,6 @@ package com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory;
 
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,17 +10,14 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.openPrompt;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class OrderHistoryCSVOperations {
 
@@ -38,61 +33,6 @@ public class OrderHistoryCSVOperations {
             openPrompt();
         }
     }
-
-    public static void readOrdersFromOrderHistoryCSV() {
-        List<Order> orders = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY))) {
-            // Read and ignore the header
-            String headerLine = reader.readLine();
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 15) {
-                    String customerName = parts[0];
-                    int orderNumber = Integer.parseInt(parts[1]);
-                    ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
-                    String[] categories = parts[2].split("/");
-                    String[] names = parts[3].split("/");
-                    String[] firstAttribute = parts[4].split("/");
-                    String[] secondAttribute = parts[5].split("/");
-                    String[] thirdAttribute = parts[6].split("/");
-                    String[] quantities = parts[7].split("/");
-                    String[] totalAmounts = parts[8].split("/");
-                    String[] imagePaths = parts[14].split("/");
-
-                    try {
-                        for (int i = 0; i < categories.length; i++) {
-                            ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], firstAttribute[i], secondAttribute[i], thirdAttribute[i], Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
-                            productOrders.add(productOrder);
-                        }
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
-                    }
-
-                    int totalPrice = Integer.parseInt(parts[9]);
-                    int amountPaid = Integer.parseInt(parts[10]);
-                    int change = Integer.parseInt(parts[11]);
-                    String modeOfPayment = parts[12];
-                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[13]);
-
-                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime);
-                    orders.add(order);
-                }
-            }
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-            setErrorReadingOrderHistoryFromCSV();
-            openPrompt();
-        }
-
-        // Add imported history
-        orderHistoryObservableList.addAll(orders);
-    }
-
 
     public static boolean addOrderToOrderHistoryCSV(Order order) {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ORDER_HISTORY, true)) {

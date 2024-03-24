@@ -8,7 +8,6 @@ import static com.example.postearevised.Miscellaneous.References.OrderHistoryRef
 
 public class OrderQueueReference {
     public static Order orderReference;
-    public static int orderNumberReference = orderHistoryObservableList.size() + 1;
     public static boolean orderDone = false;
     public static ObservableList<Order> orderQueueObservableList = FXCollections.observableArrayList();
 
