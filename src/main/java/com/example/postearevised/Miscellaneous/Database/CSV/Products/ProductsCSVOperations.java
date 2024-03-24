@@ -1,26 +1,16 @@
 package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
-import com.example.postearevised.Objects.Order.Order;
-import com.example.postearevised.Objects.Order.ProductOrder;
 import com.example.postearevised.Objects.Products.*;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
-import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorCreatingCSVFile;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setExportSuccessful;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 public class ProductsCSVOperations {
     public static void createOrderQueueCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            // Write column headers to the CSV file
             writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
@@ -33,7 +23,6 @@ public class ProductsCSVOperations {
 
     public static void createProductsCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            // Write column headers to the CSV file
             writer.write("productName," +
                     "productDescription," +
                     "productCategory," +
@@ -214,7 +203,6 @@ public class ProductsCSVOperations {
                 String productDetails = fields[0] + "," + fields[1] + "," + fields[2] + "," + fields[3];
 
                 if (productDetails.equals(oldProductDetails)) {
-                    // Update the line with new product details
                     StringBuilder sb = new StringBuilder();
                     switch (newProduct.getCategory()) {
                         case "Milk Tea":
@@ -359,7 +347,7 @@ public class ProductsCSVOperations {
             writer.close();
             reader.close();
             inputFile.delete();
-            tempFile.renameTo(inputFile); // Rename temp file to original file name
+            tempFile.renameTo(inputFile);
             System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
@@ -374,12 +362,10 @@ public class ProductsCSVOperations {
         File tempFile = null;
 
         try {
-            // Create a temporary file to write the updated content
             tempFile = new File(DIRECTORY_PATH_CSV + File.separator + "temp.csv");
             FileWriter fw = new FileWriter(tempFile);
             BufferedWriter writer = new BufferedWriter(fw);
 
-            // Read the CSV file
             BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_PRODUCTS));
             String line;
 
@@ -387,15 +373,12 @@ public class ProductsCSVOperations {
                 String[] fields = line.split(",");
                  boolean deleteRow = false;
 
-                 // Check if any product in productListToDelete matches the criteria
                 for (Product product : productListToDelete) {
                     if (fields.length >= 4 && fields[0].equals(product.getProductName()) &&
                             fields[1].equals(product.getProductDescription()) &&
                             fields[2].equals(product.getCategory()) &&
                             fields[3].equals(product.getImagePath())) {
                         deleteRow = true;
-
-                        // Delete product image
 
                         if (!product.getImagePath().startsWith("/com/example/")) {
                             File productImage = new File(product.getImagePath());
@@ -407,12 +390,11 @@ public class ProductsCSVOperations {
                             }
                         }
 
-                        break; // No need to check further, delete this row
+                        break;
                     }
                 }
 
                 if (!deleteRow) {
-                    // Write the row to the temporary file if it doesn't match the criteria
                     writer.write(line);
                     writer.newLine();
                 }
@@ -420,7 +402,6 @@ public class ProductsCSVOperations {
             reader.close();
             writer.close();
 
-            // Remove the current products.csv file
             File currentFile = new File(CSV_FILE_PATH_PRODUCTS);
 
             if (!currentFile.delete()) {
@@ -431,7 +412,6 @@ public class ProductsCSVOperations {
                 return false;
             }
 
-            // Rename the temporary file to the original file name
             File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
             if (!tempFile.renameTo(originalFile)) {
                 if (tempFile.exists() && !tempFile.delete()) {

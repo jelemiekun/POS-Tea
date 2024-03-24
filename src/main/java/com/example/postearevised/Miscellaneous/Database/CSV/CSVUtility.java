@@ -1,28 +1,16 @@
 package com.example.postearevised.Miscellaneous.Database.CSV;
 
-import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations;
-import com.example.postearevised.Objects.Order.Order;
-import com.example.postearevised.Objects.Order.ProductOrder;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ExportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
-import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 
 public class CSVUtility {
     public static void doesProductCSVExist() {
@@ -107,70 +95,4 @@ public class CSVUtility {
         }
         return -1;
     }
-
-    public static void importOrdersFromCSV(boolean isOrderQueue) {
-        List<Order> orders = new ArrayList<>();
-
-        String filePath = "";
-
-        if (isOrderQueue)
-            filePath = CSV_FILE_PATH_ORDER_QUEUE;
-        else
-            filePath = CSV_FILE_PATH_ORDER_HISTORY;
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            // Read and ignore the header
-            String headerLine = reader.readLine();
-
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 15) {
-                    String customerName = parts[0];
-                    int orderNumber = Integer.parseInt(parts[1]);
-                    ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
-                    String[] categories = parts[2].split("/");
-                    String[] names = parts[3].split("/");
-                    String[] firstAttribute = parts[4].split("/");
-                    String[] secondAttribute = parts[5].split("/");
-                    String[] thirdAttribute = parts[6].split("/");
-                    String[] quantities = parts[7].split("/");
-                    String[] totalAmounts = parts[8].split("/");
-                    String[] imagePaths = parts[14].split("/");
-
-                    try {
-                        for (int i = 0; i < categories.length; i++) {
-                            ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], firstAttribute[i], secondAttribute[i], thirdAttribute[i], Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
-                            productOrders.add(productOrder);
-                        }
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
-                    }
-
-                    int totalPrice = Integer.parseInt(parts[9]);
-                    int amountPaid = Integer.parseInt(parts[10]);
-                    int change = Integer.parseInt(parts[11]);
-                    String modeOfPayment = parts[12];
-                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[13]);
-
-                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime);
-                    orders.add(order);
-                }
-            }
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-            setErrorReadingOrderHistoryFromCSV();
-            OrderHistoryCSVOperations.openPrompt();
-        }
-
-        // Add imported orders to the appropriate list
-        if (isOrderQueue) {
-            orderQueueObservableList.addAll(orders);
-        } else {
-            orderHistoryObservableList.addAll(orders);
-        }
-    }
-
 }

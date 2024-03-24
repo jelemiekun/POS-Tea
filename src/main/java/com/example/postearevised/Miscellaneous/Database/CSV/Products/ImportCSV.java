@@ -1,6 +1,6 @@
 package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
-import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations;
+import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -36,11 +36,11 @@ public class ImportCSV {
             boolean repeatCategory = true;
             boolean repeatBlankCells = true;
             String line;
-            reader.readLine(); // Skip header line
+            reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-                if (fields.length > 21) { // Check for invalid file format
-                    return 2; // Return 2 for invalid file format
+                if (fields.length > 21) {
+                    return 2;
                 }
 
                 String productName = fields[0];
@@ -119,7 +119,6 @@ public class ImportCSV {
                         importedAppetizers.add(product);
                         break;
                     default:
-                        // invalid product category here, not adding
                         System.err.println("Invalid product category: " + productCategory);
                         break;
                 }
@@ -131,20 +130,18 @@ public class ImportCSV {
         } catch (IOException | NumberFormatException e) {
             errorMessage = e.getMessage();
             logError(false);
-            return 3; // Return 3 for other exceptions
+            return 3;
         }
 
         addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
-        return 1; // Return 1 if successful
+        return 1;
     }
 
     private static boolean isValidCategory(String category) {
-        // Check if the category is one of the valid categories
         return category.equals("Milk Tea") || category.equals("Coolers") || category.equals("Coffee") || category.equals("Ice Candy Cups") || category.equals("Appetizers");
     }
 
     private static boolean hasBlankCells(String[] fields) {
-        // Check if any field is empty
         for (String field : fields) {
             if (field.trim().isEmpty()) {
                 return true;
@@ -193,13 +190,13 @@ public class ImportCSV {
 
         if (fromImport) {
             for (Product product : importedProducts) {
-                boolean dump = addProductToCSV(product);
+                addProductToCSV(product);
             }
         }
     }
 
     public static boolean openPrompt() {
-        FXMLLoader loader = new FXMLLoader(OrderHistoryCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        FXMLLoader loader = new FXMLLoader(OrderHistoryAndOrderQueueCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {
             root = loader.load();

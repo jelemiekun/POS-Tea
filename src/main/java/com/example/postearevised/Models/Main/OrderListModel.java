@@ -25,12 +25,10 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -264,7 +262,7 @@ public class OrderListModel {
 
     public void orderDoneClickedTouched(Order order, AnchorPane anchorPaneToDelete) {
         List<Order> passThisListToDeleteOrderInOrderQueueCSV = new ArrayList<>(Collections.singletonList(order));
-        if (addOrderToOrderHistoryCSV(order) && deleteOrderInOrderQueueCSV(passThisListToDeleteOrderInOrderQueueCSV)) {
+        if (addOrderToCSV(order, false) && deleteOrdersInCSV(passThisListToDeleteOrderInOrderQueueCSV, true)) {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
                 removeOrderToOrderQueue(order, anchorPaneToDelete);

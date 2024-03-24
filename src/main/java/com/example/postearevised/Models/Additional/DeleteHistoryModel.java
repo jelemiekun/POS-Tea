@@ -23,7 +23,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.*;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistory.OrderHistoryCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -79,7 +79,7 @@ public class DeleteHistoryModel {
             }
         }
 
-        if (deleteOrdersInOrderHistoryCSV(ordersToRemove)) {
+        if (deleteOrdersInCSV(ordersToRemove, false)) {
             orderHistoryObservableList.removeAll(ordersToRemove);
         } else {
             setErrorDeleteRecord();

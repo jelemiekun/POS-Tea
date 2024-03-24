@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -722,7 +722,7 @@ public class MenuModel {
             if (mainController.mainModel.openPrompt()) {
                 setReferenceOrderNumber();
                 Order order = makeOrder();
-                if (addOrderToOrderQueueCSV(order)) {
+                if (addOrderToCSV(order, true)) {
                     getChange();
                     setPaymentSuccessful(String.valueOf(referenceChange));
                     boolean dump = mainController.mainModel.openPrompt();

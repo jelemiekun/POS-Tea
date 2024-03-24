@@ -62,8 +62,6 @@ hindi pede madelete current year
 
 
 
-gawan csv for order list
-
 lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 
 i trim mga inputs PARA WALANG EXTRA SPACES
@@ -447,3 +445,5 @@ kailangan kong mag garbage collect para maiwasan heap space
 pagka sort ng order, setReorderable to false na
 
 IF MAG DELETE YEAR RECORD SA SYSTEM, DAPAT MAG DDELETE RIN SA CSV
+
+gawan csv for order list

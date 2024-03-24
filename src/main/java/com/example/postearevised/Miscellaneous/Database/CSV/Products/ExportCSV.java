@@ -12,10 +12,8 @@ public class ExportCSV {
     public static int exportProductsToCSV(String filePath) {
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            // Write column headers to the CSV file
             writer.println("productName,productDescription,productCategory,imagePath,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice");
 
-            // Write each product to the CSV file
             for (Product product : allProductObservableList) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(product.getProductName()).append(",");
@@ -119,7 +117,7 @@ public class ExportCSV {
                     sb.append(appetizer.getPrice());
                 }
 
-                writer.println(sb.toString());
+                writer.println(sb);
             }
             return 4;
         } catch (IOException e) {
