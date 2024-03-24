@@ -157,7 +157,7 @@ public class OrderListModel {
                 break;
             }
 
-            if (!productOrder.getThirdAttribute().isEmpty()) {
+            if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                     Label firstAttributeLabel = new Label("    - " + productOrder.getThirdAttribute());
                     firstAttributeLabel.setFont(Font.font("Arial", 18));
@@ -170,7 +170,7 @@ public class OrderListModel {
                 }
             }
 
-            if (!productOrder.getFirstAttribute().isEmpty()) {
+            if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                     Label secondAttributeLabel = new Label("    - " + productOrder.getFirstAttribute());
                     secondAttributeLabel.setFont(Font.font("Arial", 18));
@@ -183,7 +183,7 @@ public class OrderListModel {
                 }
             }
 
-            if (!productOrder.getSecondAttribute().isEmpty()) {
+            if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
                 if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                     Label thirdAttributeLabel = new Label("    - " + productOrder.getSecondAttribute());
                     thirdAttributeLabel.setFont(Font.font("Arial", 18));

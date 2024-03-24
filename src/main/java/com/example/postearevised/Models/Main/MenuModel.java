@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderQueue.OrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -717,16 +718,19 @@ public class MenuModel {
         if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
             String amountPaid = mainController.textFieldMenuEnterAmount.getText();
             setProceedPayment(amountPaid);
-            
+
             if (mainController.mainModel.openPrompt()) {
-                setReferenceOrderNumber();
-                getChange();
-                setPaymentSuccessful(String.valueOf(referenceChange));
-                if (mainController.mainModel.openPrompt()) {
+                Order order = makeOrder();
+                if (addOrderToOrderQueueCSV(order)) {
+                    setReferenceOrderNumber();
+                    getChange();
+                    setPaymentSuccessful(String.valueOf(referenceChange));
+                    boolean dump = mainController.mainModel.openPrompt();
+
                     Thread t1 = new Thread(new Runnable() {
                         @Override
                         public void run() {
-                            addToOrderQueue();
+                            addToOrderQueue(order);
                         }
                     });
 
@@ -738,13 +742,19 @@ public class MenuModel {
                         errorMessage = e.getMessage();
                         logError(false);
                     }
+
                     setReceiptPrinting();
                     mainController.mainModel.showNotification();
-                    generateReceipt(orderReference, 1);
+
+
+                    generateReceipt(order, 1);
                     orderCancelledOrAddedToQueue(false);
                     clearFields();
                     incrementCustomerNumber();
                     clearOrderReference();
+                } else {
+                    setErrorAddOrder();
+                    mainController.mainModel.openPrompt();
                 }
             }
         }
@@ -807,12 +817,13 @@ public class MenuModel {
         }
     }
 
-    private void addToOrderQueue() {
+    private Order makeOrder() {
         ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
-        Order order = new Order(copyList, referenceCustomerName, referenceOrderNumber,
+        return new Order(copyList, referenceCustomerName, referenceOrderNumber,
                 referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment, getOrderDateAndTime());
-        System.out.println("line 702: " + order.getProductOrderObservableList().isEmpty());
-        orderReference = order;
+    }
+
+    private void addToOrderQueue(Order order) {
         orderQueueObservableList.add(order);
         Platform.runLater(new Runnable() {
             @Override
