@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.ComboBox?>
@@ -718,7 +719,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -731,119 +732,190 @@
                                 <content>
                                     <FlowPane prefHeight="848.0" prefWidth="1307.0">
                                        <children>
-                                          <AnchorPane prefHeight="848.0" prefWidth="1320.0" style="-fx-background-color: white;">
+                                          <AnchorPane prefHeight="209.0" prefWidth="1300.0">
                                              <children>
-                                                <AnchorPane layoutX="141.0" layoutY="53.0" prefHeight="556.0" prefWidth="1001.0">
+                                                <Label layoutX="0.041015625" text="Account Details">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="70.0" layoutY="71.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="310.0" layoutY="65.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label layoutX="70.0" layoutY="148.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="310.0" layoutY="142.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets left="150.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="289.0" prefWidth="1300.0">
+                                             <children>
+                                                <Label layoutX="0.041015625" text="Password">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="70.0" layoutY="71.0" prefHeight="26.0" prefWidth="188.0" text="Old Password">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="310.0" layoutY="65.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label layoutX="70.0" layoutY="150.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="310.0" layoutY="144.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label layoutX="70.0" layoutY="238.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField layoutX="310.0" layoutY="232.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                             <padding>
+                                                <Insets left="150.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="680.0" prefWidth="1300.0">
+                                             <children>
+                                                <Label layoutX="0.041015625" text="Security Questions">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane />
+                                                <Label layoutX="70.0" layoutY="58.0" prefHeight="26.0" prefWidth="490.0" text="Set your security questions for account recovery.">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane layoutX="70.0" layoutY="137.0">
                                                    <children>
-                                                      <AnchorPane prefHeight="153.0" prefWidth="1001.0">
-                                                         <children>
-                                                            <Label layoutX="0.041015625" text="Account Details">
-                                                               <font>
-                                                                  <Font name="Arial" size="28.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="70.0" layoutY="61.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
-                                                               <font>
-                                                                  <Font name="Arial" size="22.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutX="310.0" layoutY="55.0" prefWidth="436.0">
-                                                               <font>
-                                                                  <Font name="Arial" size="24.0" />
-                                                               </font>
-                                                            </TextField>
-                                                         </children>
-                                                      </AnchorPane>
-                                                      <AnchorPane layoutY="153.0" prefHeight="289.0" prefWidth="1001.0">
-                                                         <children>
-                                                            <Label layoutX="0.041015625" text="Password">
-                                                               <font>
-                                                                  <Font name="Arial" size="28.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Label layoutX="70.0" layoutY="61.0" prefHeight="26.0" prefWidth="188.0" text="Old Password">
-                                                               <font>
-                                                                  <Font name="Arial" size="22.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutX="310.0" layoutY="55.0" prefWidth="436.0">
-                                                               <font>
-                                                                  <Font name="Arial" size="24.0" />
-                                                               </font>
-                                                            </TextField>
-                                                            <Label layoutX="70.0" layoutY="140.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
-                                                               <font>
-                                                                  <Font name="Arial" size="22.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutX="310.0" layoutY="134.0" prefWidth="436.0">
-                                                               <font>
-                                                                  <Font name="Arial" size="24.0" />
-                                                               </font>
-                                                            </TextField>
-                                                            <Label layoutX="70.0" layoutY="228.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
-                                                               <font>
-                                                                  <Font name="Arial" size="22.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <TextField layoutX="310.0" layoutY="222.0" prefWidth="436.0">
-                                                               <font>
-                                                                  <Font name="Arial" size="24.0" />
-                                                               </font>
-                                                            </TextField>
-                                                         </children>
-                                                      </AnchorPane>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="1041.0" layoutY="480.0">
-                                                   <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <Label layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
-                                                         <font>
-                                                            <Font name="Arial Black" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="141.0" layoutY="666.0" prefWidth="1001.0">
-                                                   <children>
-                                                      <Label layoutY="-2.0" text="Delete Account" textFill="#ff3636">
-                                                         <font>
-                                                            <Font name="Arial" size="28.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label layoutX="86.0" layoutY="53.0" text="Once you deleted your account, there is no going back. Please be certain.">
+                                                      <Label prefHeight="26.0" prefWidth="188.0" text="Question 1">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
+                                                      <TextField layoutY="127.0" prefWidth="674.0">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <ComboBox layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane layoutX="1041.0" layoutY="708.0">
+                                                <AnchorPane layoutX="70.0" layoutY="341.0">
                                                    <children>
-                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <Label layoutX="18.0" layoutY="21.0" text="DELETE ACCOUNT" textFill="WHITE">
+                                                      <Label prefHeight="26.0" prefWidth="188.0" text="Question 1">
                                                          <font>
-                                                            <Font name="Arial Black" size="16.0" />
+                                                            <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
+                                                      <TextField layoutY="127.0" prefWidth="674.0">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <ComboBox layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
                                                    </children>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="70.0" layoutY="544.0">
+                                                   <children>
+                                                      <Label prefHeight="26.0" prefWidth="188.0" text="Question 1">
+                                                         <font>
+                                                            <Font name="Arial" size="22.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField layoutY="127.0" prefWidth="674.0">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </TextField>
+                                                      <ComboBox layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
+                                                   </children>
                                                 </AnchorPane>
                                              </children>
+                                             <padding>
+                                                <Insets left="150.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefWidth="1300.0">
+                                             <children>
+                                                <Label layoutY="-2.0" text="Delete Account" textFill="#ff3636">
+                                                   <font>
+                                                      <Font name="Arial" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="86.0" layoutY="53.0" text="Once you deleted your account, there is no going back. Please be certain.">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </AnchorPane>
+                                          <AnchorPane>
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="18.0" layoutY="21.0" text="DELETE ACCOUNT" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="Arial Black" size="16.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
                                           </AnchorPane>
                                        </children>
                                     </FlowPane>

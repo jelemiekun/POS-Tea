@@ -60,7 +60,7 @@ public class ProductModel {
 
     public void initializeTextFieldAddListener() {
         productController.textFieldProductName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY) || newValue.length() > 16) {
+            if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS) || newValue.length() > 16) {
                 productController.textFieldProductName.setText(oldValue);
             }
         });
@@ -97,13 +97,13 @@ public class ProductModel {
         });
 
         productController.milkTeaTextFieldAddOnsOneName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 productController.milkTeaTextFieldAddOnsOneName.setText(oldValue);
             }
         });
 
         productController.milkTeaTextFieldAddOnsTwoName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 productController.milkTeaTextFieldAddOnsTwoName.setText(oldValue);
             }
         });
@@ -141,13 +141,13 @@ public class ProductModel {
         });
 
         productController.coolersTextFieldAddOnsOneName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 productController.coolersTextFieldAddOnsOneName.setText(oldValue);
             }
         });
 
         productController.coolersTextFieldAddOnsTwoName.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            if (!newValue.matches(REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS)) {
                 productController.coolersTextFieldAddOnsTwoName.setText(oldValue);
             }
         });
