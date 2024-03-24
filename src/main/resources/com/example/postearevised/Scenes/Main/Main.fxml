@@ -732,19 +732,6 @@
                                 <content>
                                     <FlowPane prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
-                                          <AnchorPane layoutX="-4.0" prefHeight="70.0" prefWidth="1300.0">
-                                             <children>
-                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdd77a" height="70.0" layoutX="-4.0" stroke="BLACK" strokeType="INSIDE" width="1312.0" />
-                                                <Label layoutX="593.0" layoutY="20.0" text="EDITING">
-                                                   <font>
-                                                      <Font name="Arial Bold" size="28.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <padding>
-                                                <Insets left="150.0" />
-                                             </padding>
-                                          </AnchorPane>
                                           <AnchorPane prefHeight="209.0" prefWidth="1300.0">
                                              <children>
                                                 <Label layoutX="0.041015625" text="Account Details">
