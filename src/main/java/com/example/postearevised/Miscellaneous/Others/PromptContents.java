@@ -24,6 +24,23 @@ public class PromptContents {
         isConfirmed = false;
     }
 
+    public static void setOutOfMemoryError() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Out Of Memory";
+        promptContentText = "Our application has encountered a memory error. Please close other applications to free up memory, and then restart the application.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = YES_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = NO_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setForgotPassword() {
         setIsConfirmedToFalse();
 

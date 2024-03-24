@@ -11,7 +11,6 @@ import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.ForgotPassword;
-import static com.example.postearevised.Miscellaneous.Enums.StartPane.Login;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -164,44 +163,51 @@ public class LoginModel {
      */
 
     public void checkInputsBeforeLogin() {
-        loginRegisterForgotPassController.loginAttemptCounter++;
+        try {
+            loginRegisterForgotPassController.loginAttemptCounter++;
 
-        if (loginRegisterForgotPassController.checkConnectivity()) {
-            disableLimitInput();
+            if (loginRegisterForgotPassController.checkConnectivity()) {
+                disableLimitInput();
 
-            boolean proceed = checkCredentials();
+                boolean proceed = checkCredentials();
 
-            if (proceed) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
-                Parent root = null;
-                try {
-                    root = loader.load();
-                } catch (IOException e) {
-                    errorMessage = e.getMessage();
-                    logError(false);
+                if (proceed) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        errorMessage = e.getMessage();
+                        logError(false);
+                    }
+                    mainStage = new Stage();
+                    mainStage.setTitle(MAIN_ENUM.getTITLE());
+                    mainStage.setResizable(false);
+                    mainStage.setScene(new Scene(root));
+                    setScreenResolution(true, false);
+                    mainStage.getIcons().add(SYSTEM_LOGO);
+                    mainStage.show();
+                    closeThisStage();
+                    System.gc();
                 }
-                mainStage = new Stage();
-                mainStage.setTitle(MAIN_ENUM.getTITLE());
-                mainStage.setResizable(false);
-                mainStage.setScene(new Scene(root));
-                setScreenResolution(true, false);
-                mainStage.getIcons().add(SYSTEM_LOGO);
-                mainStage.show();
-                closeThisStage();
-                System.gc();
-            }
 
-            if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAX_LIMIT_BEFORE_ASKING_TO_RESET_PASSWORD) {
-                loginRegisterForgotPassController.loginAttemptCounter = 0;
-                setForgotPassword();
-                if (openPromptForgotPassword()) {
-                    loginRegisterForgotPassController.switchPane(ForgotPassword.getPaneNumber());
+                if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAX_LIMIT_BEFORE_ASKING_TO_RESET_PASSWORD) {
+                    loginRegisterForgotPassController.loginAttemptCounter = 0;
+                    setForgotPassword();
+                    if (openPrompt()) {
+                        loginRegisterForgotPassController.switchPane(ForgotPassword.getPaneNumber());
+                    }
                 }
             }
+        } catch (OutOfMemoryError e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            setOutOfMemoryError();
+            openPrompt();
         }
     }
 
-    private boolean openPromptForgotPassword() {
+    private boolean openPrompt() {
         loginRegisterForgotPassController.toggleRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;

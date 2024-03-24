@@ -8,9 +8,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -177,6 +179,12 @@ public class ProductModel {
                 productController.textFieldProductDescription.setText(oldValue);
             }
         });
+    }
+
+    public void setDropShadow() {
+        productController.labelProductName.setEffect(setDropShadowRightDown());
+        productController.labelProductDescription.setEffect(setDropShadowRightDown());
+        productController.labelDescriptionWordCounter.setEffect(setDropShadowRightDown());
     }
 
     public void updateWordCounter() {

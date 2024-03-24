@@ -3,6 +3,7 @@ package com.example.postearevised.Miscellaneous.References;
 import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -25,4 +26,15 @@ public class GeneralReference {
     public static int[] screenResolution = new int[2];
     public static Thread countdown;
     public static Product editOrShowSelectedProduct;
+
+    public static DropShadow setDropShadowRightDown() {
+
+        DropShadow labelDropShadowRightDown = new DropShadow();
+        labelDropShadowRightDown.setRadius(20);
+        labelDropShadowRightDown.setOffsetX(0);
+        labelDropShadowRightDown.setOffsetY(0);
+        labelDropShadowRightDown.setColor(Color.rgb(0, 0, 0, 1));
+
+        return labelDropShadowRightDown;
+    }
 }

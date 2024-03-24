@@ -28,6 +28,7 @@ public class ProductController implements Initializable {
         productModel = new ProductModel();
         productModel.setProductController(this);
         productModel.initializedHideElements();
+        productModel.setDropShadow();
     }
 
     @FXML

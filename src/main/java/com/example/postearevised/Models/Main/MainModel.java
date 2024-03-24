@@ -179,8 +179,8 @@ public class MainModel {
         fadeIn.setFromValue(0.0);
         fadeIn.setToValue(1.0);
         Timeline timeline = new Timeline();
-        KeyFrame key = new KeyFrame(Duration.seconds(3), event -> {
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), mainController.anchorPaneNotification);
+        KeyFrame key = new KeyFrame(Duration.seconds(2.5), event -> {
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), mainController.anchorPaneNotification);
             fadeOut.setFromValue(1.0);
             fadeOut.setToValue(0.0);
             fadeOut.setOnFinished(fadeFinishedEvent -> {

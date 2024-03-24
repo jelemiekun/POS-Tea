@@ -248,6 +248,7 @@ public class MenuModel {
         Label label = new Label(productName);
         label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
         label.setTextFill(Color.WHITE);
+        label.setEffect(setDropShadowRightDown());
 
         ImageView imageView = new ImageView();
         imageView.setImage(imageProduct);
