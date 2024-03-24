@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -1018,6 +1019,159 @@
                   </AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
+                        <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
+                           <children>
+                              <ScrollPane prefHeight="850.0" prefWidth="1320.0">
+                                <content>
+                                    <FlowPane prefHeight="848.0" prefWidth="1302.0">
+                                       <children>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
+                                             <children>
+                                                <Label layoutX="86.0" layoutY="38.0" text="Notification and Guide Message">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane layoutX="86.0" layoutY="93.0" prefHeight="38.0" prefWidth="1130.0">
+                                                   <children>
+                                                      <Label layoutY="6.0" text="Show Notifications">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox fx:id="checkBoxSettingNotification" layoutX="1080.0" layoutY="1.0" mnemonicParsing="false" onAction="#checkBoxSettingNotificationOnAction" selected="true">
+                                                         <font>
+                                                            <Font name="Arial" size="28.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="86.0" layoutY="147.0" prefHeight="38.0" prefWidth="1130.0">
+                                                   <children>
+                                                      <Label layoutY="6.0" text="Show Guide Messages">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox fx:id="checkBoxSettingGuideMessages" layoutX="1080.0" mnemonicParsing="false" onAction="#checkBoxSettingGuideMessagesOnAction" selected="true">
+                                                         <font>
+                                                            <Font name="Arial" size="28.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </AnchorPane>
+                                          <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="617.0" prefWidth="1302.0">
+                                             <children>
+                                                <Label layoutX="88.0" layoutY="14.0" text="Display">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="88.0" layoutY="68.0" text="Change background theme">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <FlowPane layoutX="61.0" layoutY="103.0" prefHeight="500.0" prefWidth="1180.0">
+                                                   <children>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <effect>
+                                                                  <InnerShadow />
+                                                               </effect>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Light" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Dark" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Red" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Yellow" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                      <AnchorPane prefHeight="249.0" prefWidth="390.0">
+                                                         <children>
+                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Rectangle>
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Green" textAlignment="CENTER">
+                                                               <font>
+                                                                  <Font name="Arial" size="36.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </FlowPane>
+                                             </children>
+                                          </AnchorPane>
+                                       </children>
+                                    </FlowPane>
+                                </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
@@ -1028,103 +1182,6 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
-                           <children>
-                              <Label layoutX="62.0" layoutY="43.0" text="Display">
-                                 <font>
-                                    <Font name="Arial Bold" size="36.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="67.0" layoutY="104.0" text="Change background theme">
-                                 <font>
-                                    <Font name="Arial" size="24.0" />
-                                 </font>
-                              </Label>
-                              <FlowPane layoutX="71.0" layoutY="150.0" prefHeight="520.0" prefWidth="1180.0">
-                                 <children>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <effect>
-                                                <InnerShadow />
-                                             </effect>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Light" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Dark" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Red" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Yellow" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane prefHeight="249.0" prefWidth="390.0">
-                                       <children>
-                                          <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor></Rectangle>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Green" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="36.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                 </children></FlowPane>
-                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">

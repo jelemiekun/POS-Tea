@@ -827,6 +827,25 @@ public class MainController implements Initializable {
     }
 
     /**
+     * Settings - Appearance
+     */
+    @FXML
+    public CheckBox checkBoxSettingNotification;
+    @FXML
+    public CheckBox checkBoxSettingGuideMessages;
+
+    @FXML
+    public void checkBoxSettingNotificationOnAction() {
+        settingsModel.notificationOnAction();
+    }
+
+    @FXML
+    public void checkBoxSettingGuideMessagesOnAction() {
+        settingsModel.guideMessagesOnAction();
+    }
+
+
+    /**
      * Settings - Products
      */
     public boolean orderIsOngoing = false;

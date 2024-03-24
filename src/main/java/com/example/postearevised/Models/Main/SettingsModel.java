@@ -38,6 +38,7 @@ import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
@@ -418,6 +419,18 @@ public class SettingsModel {
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableProducts.setPlaceholder(placeholderLabel);
         }
+    }
+
+    /**
+     * Appearance
+     */
+
+    public void notificationOnAction() {
+        showNotificationsReference = mainController.checkBoxSettingNotification.isSelected();
+    }
+
+    public void guideMessagesOnAction() {
+        showGuideMessagesReference = mainController.checkBoxSettingGuideMessages.isSelected();
     }
 
     /**

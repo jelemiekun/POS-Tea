@@ -3,7 +3,6 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -22,6 +21,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 
@@ -167,30 +167,32 @@ public class MainModel {
 
 
     public void showNotification() {
-        mainController.imageViewNotification.setImage(imageViewNotificationReference);
-        mainController.labelNotificationHeader.setText(notificationHeaderReference);
-        mainController.labelNotificationContent.setText(notificationContentReference);
+        if (showNotificationsReference) {
+            mainController.imageViewNotification.setImage(imageViewNotificationReference);
+            mainController.labelNotificationHeader.setText(notificationHeaderReference);
+            mainController.labelNotificationContent.setText(notificationContentReference);
 
-        mainController.anchorPaneNotification.setVisible(false);
-        mainController.anchorPaneNotification.setVisible(true);
-        mainController.anchorPaneNotification.setOpacity(0);
+            mainController.anchorPaneNotification.setVisible(false);
+            mainController.anchorPaneNotification.setVisible(true);
+            mainController.anchorPaneNotification.setOpacity(0);
 
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
-        fadeIn.setFromValue(0.0);
-        fadeIn.setToValue(1.0);
-        Timeline timeline = new Timeline();
-        KeyFrame key = new KeyFrame(Duration.seconds(2.5), event -> {
-            FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), mainController.anchorPaneNotification);
-            fadeOut.setFromValue(1.0);
-            fadeOut.setToValue(0.0);
-            fadeOut.setOnFinished(fadeFinishedEvent -> {
-                mainController.anchorPaneNotification.setVisible(false);
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            Timeline timeline = new Timeline();
+            KeyFrame key = new KeyFrame(Duration.seconds(2.5), event -> {
+                FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), mainController.anchorPaneNotification);
+                fadeOut.setFromValue(1.0);
+                fadeOut.setToValue(0.0);
+                fadeOut.setOnFinished(fadeFinishedEvent -> {
+                    mainController.anchorPaneNotification.setVisible(false);
+                });
+                fadeOut.play();
             });
-            fadeOut.play();
-        });
-        timeline.getKeyFrames().add(key);
-        fadeIn.play();
-        timeline.play();
+            timeline.getKeyFrames().add(key);
+            fadeIn.play();
+            timeline.play();
+        }
     }
 
     public void showNotificationLoader(boolean isShow) {
