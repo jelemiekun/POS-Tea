@@ -717,6 +717,7 @@ public class MenuModel {
         if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
             String amountPaid = mainController.textFieldMenuEnterAmount.getText();
             setProceedPayment(amountPaid);
+            
             if (mainController.mainModel.openPrompt()) {
                 setReferenceOrderNumber();
                 getChange();
