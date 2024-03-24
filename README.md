@@ -12,29 +12,30 @@ INTRODUCTION
 FEATURES
 
 - The features of the POS-Tea system are the following:
-•	MENU
+
+MENU
 It shows the overall product of the shop like milk tea, coolers, coffee, candy cups, and appetizers.
 
-•	ORDER QUE
+ORDER QUE
 It illustrates the customer's overall sequence of transactions.
 
-•	ORDER HISTORY
+ORDER HISTORY
 This feature provides a comprehensive overview of the customer's transactions, spanning from the present moment to their entire history, allowing for a clear and detailed understanding of their financial activity.
 
-•	DASHBOARD
+DASHBOARD
 It displays comprehensive data on total revenue, customer count, order volume, and popular menu categories, showcasing the top-performing items of the establishment.
 
-•	SETTINGS
+SETTINGS
 It’s the overall access to the system in which the user can manipulate the system. 
 
-•	DISPLAY
+DISPLAY
 It shows the theme or color of the system which the user wants to use.
 
-•	EDIT PRODUCT
+EDIT PRODUCT
 These features of the POS-Tea system can be used to add product and delete products.
 
 INSTALLATION
--
+- Not yet applicable.
 
 CONTACT
 - Phone number reference: 09855489116
