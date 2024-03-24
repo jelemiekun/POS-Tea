@@ -380,6 +380,7 @@ public class SettingsModel {
                     deletingProductSuccess = true;
 
                     for (Product product : selectedItemsToDelete) {
+                        allProductObservableList.remove(product);
                         availableAllProductObservableList.remove(product);
                         availableMilkTeaObservableList.remove(product);
                         availableCoolersObservableList.remove(product);
