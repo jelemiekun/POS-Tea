@@ -13,6 +13,7 @@ public class GeneralReference {
     public static Stage productStage;
     public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
     public static final ObservableList<String> modeOfPaymentChoices = FXCollections.observableArrayList("Cash", "GCash", "Maya", "Others");
+    public static final int MAX_LIMIT_BEFORE_ASKING_TO_RESET_PASSWORD = 5;
     public static final int INPUT_LIMIT_TO_ELEVEN = 11;
     public static final int OTP_LENGTH = 4;
     public static final int PASSWORD_LIMIT = 128;

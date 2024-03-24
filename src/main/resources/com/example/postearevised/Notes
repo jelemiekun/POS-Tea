@@ -62,7 +62,6 @@ hindi pede madelete current year
 
 
 
-lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)
 
 i trim mga inputs PARA WALANG EXTRA SPACES
 
@@ -447,3 +446,5 @@ IF MAG DELETE YEAR RECORD SA SYSTEM, DAPAT MAG DDELETE RIN SA CSV
 gawan csv for order list
 
 update yung pag dineselect stay logged in sa login
+
+lagyan pag count ng attempts sa mga pag submit (login - divisible by 5 tapos prompt, login lang)

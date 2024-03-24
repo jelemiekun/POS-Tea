@@ -191,7 +191,7 @@ public class LoginModel {
                 System.gc();
             }
 
-            if (!proceed && loginRegisterForgotPassController.loginAttemptCounter % 5 == 0) {
+            if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAX_LIMIT_BEFORE_ASKING_TO_RESET_PASSWORD) {
                 loginRegisterForgotPassController.loginAttemptCounter = 0;
                 setForgotPassword();
                 if (openPromptForgotPassword()) {
