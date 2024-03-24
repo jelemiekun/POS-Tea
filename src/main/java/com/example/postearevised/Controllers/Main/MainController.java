@@ -708,7 +708,11 @@ public class MainController implements Initializable {
      */
 
     @FXML
-    public ChoiceBox<String> comboBoxAccountName;
+    public Label labelSettingsAccountEditFinishAccount;
+    @FXML
+    public ImageView btnImageSettingsAccountRemoveName;
+    @FXML
+    public ComboBox<String> comboBoxAccountName;
     @FXML
     public TextField textFieldAccountContact;
     @FXML
@@ -755,7 +759,52 @@ public class MainController implements Initializable {
     public ImageView imagePencilSettingsAccount10;
     @FXML
     public ImageView imagePencilSettingsAccount11;
+    @FXML
+    public ImageView imageHideShowOldPasswordAccountSettings;
+    @FXML
+    public ImageView imageHideShowNewPasswordAccountSettings;
+    @FXML
+    public ImageView imageHideShowConfirmNewPasswordAccountSettings;
 
+    @FXML
+    public void btnImageSettingsAccountRemoveNameClickedTouched() {
+
+    }
+
+    @FXML
+    public void comboBoxAccountNameOnAction() {
+
+    }
+
+    @FXML
+    public void comboBoxSettingsQuestionOneOnAction() {
+
+    }
+
+    @FXML
+    public void comboBoxSettingsQuestionTwoOnAction() {
+
+    }
+
+    @FXML
+    public void comboBoxSettingsQuestionThreeOnAction() {
+
+    }
+
+    @FXML
+    public void imageHideShowOldPasswordAccountSettingsClickedTouched() {
+
+    }
+
+    @FXML
+    public void imageHideShowNewPasswordAccountSettingsClickedTouched() {
+
+    }
+
+    @FXML
+    public void imageHideShowConfirmNewPasswordAccountSettingsClickedTouched() {
+
+    }
 
     @FXML
     public void anchorPaneSettingsBtnEditClickedTouched() {

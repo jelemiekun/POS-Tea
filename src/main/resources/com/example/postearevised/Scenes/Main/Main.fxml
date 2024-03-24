@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -731,8 +730,21 @@
                            <children>
                               <ScrollPane prefHeight="850.0" prefWidth="1322.0" style="-fx-background-color: white;">
                                 <content>
-                                    <FlowPane prefHeight="848.0" prefWidth="1307.0">
+                                    <FlowPane prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
+                                          <AnchorPane layoutX="-4.0" prefHeight="70.0" prefWidth="1300.0">
+                                             <children>
+                                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cdd77a" height="70.0" layoutX="-4.0" stroke="BLACK" strokeType="INSIDE" width="1312.0" />
+                                                <Label layoutX="593.0" layoutY="20.0" text="EDITING">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <padding>
+                                                <Insets left="150.0" />
+                                             </padding>
+                                          </AnchorPane>
                                           <AnchorPane prefHeight="209.0" prefWidth="1300.0">
                                              <children>
                                                 <Label layoutX="0.041015625" text="Account Details">
@@ -755,7 +767,6 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <ChoiceBox fx:id="comboBoxAccountName" layoutX="310.0" layoutY="65.0" prefHeight="42.0" prefWidth="436.0" />
                                                 <ImageView fx:id="imagePencilSettingsAccount1" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
@@ -766,6 +777,14 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
+                                                <ComboBox fx:id="comboBoxAccountName" layoutX="310.0" layoutY="65.0" onAction="#comboBoxAccountNameOnAction" prefHeight="49.0" prefWidth="436.0" />
+                                                <ImageView fx:id="btnImageSettingsAccountRemoveName" fitHeight="49.0" fitWidth="142.0" layoutX="759.0" layoutY="66.0" onMouseClicked="#btnImageSettingsAccountRemoveNameClickedTouched" onTouchReleased="#btnImageSettingsAccountRemoveNameClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/Order%20History/Delete%20record.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor></ImageView>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
@@ -823,6 +842,30 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
+                                                <ImageView fx:id="imageHideShowOldPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="66.0" onMouseClicked="#imageHideShowOldPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowOldPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="148.0" onMouseClicked="#imageHideShowNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowConfirmNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="234.0" onMouseClicked="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
@@ -847,7 +890,7 @@
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionOne" layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionOne" layoutY="51.0" onAction="#comboBoxSettingsQuestionOneOnAction" prefHeight="47.0" prefWidth="674.0" />
                                                       <TextField fx:id="textFieldAccountQuestionOne" layoutY="127.0" prefWidth="674.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
@@ -862,7 +905,7 @@
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionTwo" layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionTwo" layoutY="51.0" onAction="#comboBoxSettingsQuestionTwoOnAction" prefHeight="47.0" prefWidth="674.0" />
                                                       <TextField fx:id="textFieldAccountQuestionTwo" layoutY="127.0" prefWidth="674.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
@@ -877,7 +920,7 @@
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionThree" layoutY="51.0" prefHeight="47.0" prefWidth="674.0" />
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionThree" layoutY="51.0" onAction="#comboBoxSettingsQuestionThreeOnAction" prefHeight="47.0" prefWidth="674.0" />
                                                       <TextField fx:id="textFieldAccountQuestionThree" layoutY="127.0" prefWidth="674.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
@@ -941,7 +984,7 @@
                                                       <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
+                                                <Label fx:id="labelSettingsAccountEditFinishAccount" layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
                                                    <font>
                                                       <Font name="Arial Black" size="16.0" />
                                                    </font>
