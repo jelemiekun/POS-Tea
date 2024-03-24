@@ -719,8 +719,8 @@ public class MenuModel {
             String amountPaid = mainController.textFieldMenuEnterAmount.getText();
             setProceedPayment(amountPaid);
 
-            setReferenceOrderNumber();
             if (mainController.mainModel.openPrompt()) {
+                setReferenceOrderNumber();
                 Order order = makeOrder();
                 if (addOrderToOrderQueueCSV(order)) {
                     getChange();
