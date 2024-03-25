@@ -190,6 +190,8 @@ public class MainController implements Initializable {
     public Parent root;
     public Stage newStage;
     @FXML
+    public AnchorPane anchorPaneLeftProfile;
+    @FXML
     public Rectangle rectangleModal;
     @FXML
     public AnchorPane anchorPaneDashboard;
@@ -307,6 +309,11 @@ public class MainController implements Initializable {
 
     @FXML
     void anchorPaneLeftPanelRequestFocus() { anchorPaneLeftPanel.requestFocus(); }
+
+    @FXML
+    void anchorPaneLeftProfileClickedTouched() {
+        
+    }
 
     /**
      * Menu
