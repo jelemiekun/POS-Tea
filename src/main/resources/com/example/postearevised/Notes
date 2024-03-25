@@ -59,8 +59,6 @@ i trim mga inputs PARA WALANG EXTRA SPACES
 
 codes ng account settings
 
-PAGBALIKTARIN SEARCH AT SAERCH BY, TAPOS PALITAN YUNG LABEL NA SEARCH BY
-
 hindi pede madelete current year (ano basehan ng current year) (JAN 1 - DEC 31)
 
 BAWAL MAG ADD NG PRODUCT PAG WALANG NAME
@@ -70,8 +68,6 @@ nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
 isang color lang lahat ng sticks sa bar graph
 
 gawin lahat ng pic ng .ico
-
-lagyan ng order list sa order list pane tapos liitan nalang yung date and time
 
 
 
@@ -476,3 +472,7 @@ sa search order history, contains or startswith? (constians)
 ano default value ng no product name?
 
 ano pa magiging saysay ng import/export csv if lahat need ilipat? (okay lang)
+
+PAGBALIKTARIN SEARCH AT SAERCH BY, TAPOS PALITAN YUNG LABEL NA SEARCH BY
+
+lagyan ng order list sa order list pane tapos liitan nalang yung date and time
