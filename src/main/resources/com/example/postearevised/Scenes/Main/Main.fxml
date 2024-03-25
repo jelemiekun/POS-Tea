@@ -725,7 +725,7 @@
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1017,7 +1017,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1025,44 +1025,7 @@
                                 <content>
                                     <FlowPane prefHeight="848.0" prefWidth="1318.0" style="-fx-background-color: white;">
                                        <children>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
-                                             <children>
-                                                <Label layoutX="86.0" layoutY="38.0" text="Notification and Guide Message">
-                                                   <font>
-                                                      <Font name="Arial Bold" size="36.0" />
-                                                   </font>
-                                                </Label>
-                                                <AnchorPane layoutX="86.0" layoutY="93.0" prefHeight="38.0" prefWidth="1130.0">
-                                                   <children>
-                                                      <Label layoutY="6.0" text="Show Notifications">
-                                                         <font>
-                                                            <Font name="Arial" size="24.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <CheckBox fx:id="checkBoxSettingNotification" layoutX="1080.0" layoutY="1.0" mnemonicParsing="false" onAction="#checkBoxSettingNotificationOnAction" selected="true">
-                                                         <font>
-                                                            <Font name="Arial" size="28.0" />
-                                                         </font>
-                                                      </CheckBox>
-                                                   </children>
-                                                </AnchorPane>
-                                                <AnchorPane layoutX="86.0" layoutY="147.0" prefHeight="38.0" prefWidth="1130.0">
-                                                   <children>
-                                                      <Label layoutY="6.0" text="Show Guide Messages">
-                                                         <font>
-                                                            <Font name="Arial" size="24.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <CheckBox fx:id="checkBoxSettingGuideMessages" layoutX="1080.0" mnemonicParsing="false" onAction="#checkBoxSettingGuideMessagesOnAction" selected="true">
-                                                         <font>
-                                                            <Font name="Arial" size="28.0" />
-                                                         </font>
-                                                      </CheckBox>
-                                                   </children>
-                                                </AnchorPane>
-                                             </children>
-                                          </AnchorPane>
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="617.0" prefWidth="1302.0">
+                                          <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1302.0">
                                              <children>
                                                 <Label layoutX="88.0" layoutY="14.0" text="Display">
                                                    <font>
@@ -1165,6 +1128,43 @@
                                                       </AnchorPane>
                                                    </children>
                                                 </FlowPane>
+                                             </children>
+                                          </AnchorPane>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
+                                             <children>
+                                                <Label layoutX="86.0" layoutY="38.0" text="Notification and Guide Message">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="36.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane layoutX="86.0" layoutY="93.0" prefHeight="38.0" prefWidth="1130.0">
+                                                   <children>
+                                                      <Label layoutY="6.0" text="Show Notifications">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox fx:id="checkBoxSettingNotification" layoutX="1080.0" layoutY="1.0" mnemonicParsing="false" onAction="#checkBoxSettingNotificationOnAction" selected="true">
+                                                         <font>
+                                                            <Font name="Arial" size="28.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </AnchorPane>
+                                                <AnchorPane layoutX="86.0" layoutY="147.0" prefHeight="38.0" prefWidth="1130.0">
+                                                   <children>
+                                                      <Label layoutY="6.0" text="Show Guide Messages">
+                                                         <font>
+                                                            <Font name="Arial" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <CheckBox fx:id="checkBoxSettingGuideMessages" layoutX="1080.0" mnemonicParsing="false" onAction="#checkBoxSettingGuideMessagesOnAction" selected="true">
+                                                         <font>
+                                                            <Font name="Arial" size="28.0" />
+                                                         </font>
+                                                      </CheckBox>
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
                                           </AnchorPane>
                                        </children>
