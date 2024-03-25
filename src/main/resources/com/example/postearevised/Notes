@@ -59,6 +59,18 @@ i trim mga inputs PARA WALANG EXTRA SPACES
 
 codes ng account settings
 
+PAGBALIKTARIN SEARCH AT SAERCH BY, TAPOS PALITAN YUNG LABEL NA SEARCH BY
+
+hindi pede madelete current year (ano basehan ng current year) (JAN 1 - DEC 31)
+
+BAWAL MAG ADD NG PRODUCT PAG WALANG NAME
+
+nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
+
+isang color lang lahat ng sticks sa bar graph
+
+gawin lahat ng pic ng .ico
+
 
 
 
@@ -91,21 +103,12 @@ i encrypt mga dapat i encreypt like like at pass
 
 ------------------MGA ITATANONG------------------
 
-ilagay ba attributes sa order history product details?
-
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
-
-ano pa magiging saysay ng import/export csv if lahat need ilipat?
 
 gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
 
-sa search order history, contains or startswith?
-
 kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
 
-hindi pede madelete current year (ano basehan ng current year)
-
-ano default value ng no product name?
 
 
 
@@ -462,3 +465,11 @@ catched out of memory error
 connect fxml ng account sa mainController
 
 available sa edit products
+
+ilagay ba attributes sa order history product details? ( HINDI NA, OKAY NA)
+
+sa search order history, contains or startswith? (constians)
+
+ano default value ng no product name?
+
+ano pa magiging saysay ng import/export csv if lahat need ilipat? (okay lang)
