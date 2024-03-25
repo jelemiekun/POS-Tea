@@ -5,6 +5,7 @@ import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -374,21 +375,23 @@ public class SettingsModel {
     public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
-        if (!selectedItemsToDelete.isEmpty()) {
+        if (selectedItemsToDelete != null && !selectedItemsToDelete.isEmpty()) {
             setDeleteProduct();
             if (mainController.mainModel.openPrompt()) {
                 if (deleteProductInCSV(selectedItemsToDelete)) {
                     deletingProductSuccess = true;
 
-                    for (Product product : selectedItemsToDelete) {
-                        allProductObservableList.remove(product);
-                        availableAllProductObservableList.remove(product);
-                        availableMilkTeaObservableList.remove(product);
-                        availableCoolersObservableList.remove(product);
-                        availableCoffeeObservableList.remove(product);
-                        availableIceCandyCupsObservableList.remove(product);
-                        availableAppetizerObservableList.remove(product);
-                    }
+                    Platform.runLater(() -> {
+                        for (Product product : selectedItemsToDelete) {
+                            allProductObservableList.remove(product);
+                            availableAllProductObservableList.remove(product);
+                            availableMilkTeaObservableList.remove(product);
+                            availableCoolersObservableList.remove(product);
+                            availableCoffeeObservableList.remove(product);
+                            availableIceCandyCupsObservableList.remove(product);
+                            availableAppetizerObservableList.remove(product);
+                        }
+                    });
 
                     mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
                     refreshProductTable();
