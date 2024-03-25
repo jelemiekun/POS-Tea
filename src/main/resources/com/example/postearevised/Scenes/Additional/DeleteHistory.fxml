@@ -44,7 +44,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </AnchorPane>
-            <Label fx:id="labelDeleteConfirmation" alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" prefHeight="27.0" prefWidth="750.0" text="WOULD YOU LIKE TO DELETE THIS YEAR RECORD?" textAlignment="CENTER" visible="false">
+            <Label fx:id="labelDeleteConfirmation" alignment="CENTER" contentDisplay="CENTER" layoutY="1.0" prefHeight="27.0" prefWidth="750.0" text="WOULD YOU LIKE TO DELETE THIS YEAR RECORD?" textAlignment="CENTER" textFill="#ff1b1b" visible="false">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>

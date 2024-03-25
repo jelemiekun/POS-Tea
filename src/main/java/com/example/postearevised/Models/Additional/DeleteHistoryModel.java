@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.*;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
@@ -133,8 +134,8 @@ public class DeleteHistoryModel {
         dropShadow.setColor(dropShadowColor);
         anchorPane.setEffect(dropShadow);
 
-        anchorPane.setOnMouseClicked(event -> orderHistoryClickedTouched(anchorPane, rectangle));
-        anchorPane.setOnTouchReleased(event -> orderHistoryClickedTouched(anchorPane, rectangle));
+        anchorPane.setOnMouseClicked(event -> orderHistoryClickedTouched(anchorPane, rectangle, year));
+        anchorPane.setOnTouchReleased(event -> orderHistoryClickedTouched(anchorPane, rectangle, year));
 
         FlowPane.setMargin(anchorPane, new Insets(0, 0, 7, 0));
 
@@ -142,7 +143,7 @@ public class DeleteHistoryModel {
     }
 
 
-    void orderHistoryClickedTouched(AnchorPane anchorPaneSelected, Rectangle selectedRectangle) {
+    void orderHistoryClickedTouched(AnchorPane anchorPaneSelected, Rectangle selectedRectangle, String year) {
         if (deleteHistoryController.selectedAnchorPane != null) {
             ((Rectangle) deleteHistoryController.selectedAnchorPane.getChildren().get(0)).setStroke(null);
         }
@@ -150,7 +151,13 @@ public class DeleteHistoryModel {
         selectedRectangle.setStrokeWidth(4);
         selectedRectangle.setStrokeType(StrokeType.INSIDE);
         deleteHistoryController.selectedAnchorPane = anchorPaneSelected;
-        setDeleteVisible();
+
+        String currentYear = String.valueOf(LocalDate.now().getYear());
+
+        if (year.equals(currentYear))
+            setNotAvailableToDeleteVisible();
+        else
+            setDeleteVisible();
     }
 
     public boolean openPrompt() {
@@ -176,6 +183,13 @@ public class DeleteHistoryModel {
     }
     private void setDeleteVisible() {
         deleteHistoryController.btnDeleteRecord.setVisible(true);
+        deleteHistoryController.labelDeleteConfirmation.setText("WOULD YOU LIKE TO DELETE THIS YEAR RECORD?");
+        deleteHistoryController.labelDeleteConfirmation.setVisible(true);
+    }
+
+    private void setNotAvailableToDeleteVisible() {
+        deleteHistoryController.btnDeleteRecord.setVisible(false);
+        deleteHistoryController.labelDeleteConfirmation.setText("CURRENT YEAR RECORD CANNOT BE DELETED.");
         deleteHistoryController.labelDeleteConfirmation.setVisible(true);
     }
 
