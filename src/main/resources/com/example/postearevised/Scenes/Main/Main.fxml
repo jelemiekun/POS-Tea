@@ -983,12 +983,12 @@
                                           </AnchorPane>
                                           <AnchorPane prefHeight="236.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="148.0" layoutY="35.0" text="Delete Account" textFill="#ff3636">
+                                                <Label layoutX="140.0" layoutY="35.0" text="Delete Account" textFill="#ff3636">
                                                    <font>
                                                       <Font name="Arial" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="298.0" layoutY="90.0" text="Once you deleted your account, there is no going back. Please be certain.">
+                                                <Label layoutX="140.0" layoutY="90.0" text="Once you deleted your account, there is no going back. Please be certain.">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
