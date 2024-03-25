@@ -735,123 +735,43 @@
                                        <children>
                                           <AnchorPane prefHeight="209.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="0.041015625" text="Account Details">
+                                                <Label layoutX="140.0" layoutY="44.0" text="Account Details">
                                                    <font>
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="70.0" layoutY="71.0" prefHeight="26.0" prefWidth="188.0" text="Name">
+                                                <Label layoutX="286.0" layoutY="137.0" prefHeight="26.0" prefWidth="188.0" text="Name">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="70.0" layoutY="148.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
+                                                <Label layoutX="286.0" layoutY="232.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountContact" layoutX="310.0" layoutY="142.0" prefWidth="436.0">
+                                                <TextField fx:id="textFieldAccountContact" layoutX="580.0" layoutY="233.0" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <ImageView fx:id="imagePencilSettingsAccount1" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount1" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount2" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount2" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ComboBox fx:id="comboBoxAccountName" layoutX="310.0" layoutY="65.0" onAction="#comboBoxAccountNameOnAction" prefHeight="49.0" prefWidth="436.0" />
-                                                <ImageView fx:id="btnImageSettingsAccountRemoveName" fitHeight="49.0" fitWidth="142.0" layoutX="759.0" layoutY="66.0" onMouseClicked="#btnImageSettingsAccountRemoveNameClickedTouched" onTouchReleased="#btnImageSettingsAccountRemoveNameClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="138.0" onAction="#comboBoxAccountNameOnAction" prefHeight="49.0" prefWidth="436.0" />
+                                                <ImageView fx:id="btnImageSettingsAccountRemoveName" fitHeight="49.0" fitWidth="142.0" layoutX="1031.0" layoutY="138.0" onMouseClicked="#btnImageSettingsAccountRemoveNameClickedTouched" onTouchReleased="#btnImageSettingsAccountRemoveNameClickedTouched" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Buttons/Order%20History/Delete%20record.png" />
                                                    </image>
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
-                                                   </cursor></ImageView>
-                                             </children>
-                                             <padding>
-                                                <Insets left="150.0" />
-                                             </padding>
-                                          </AnchorPane>
-                                          <AnchorPane prefHeight="300.0" prefWidth="1300.0">
-                                             <children>
-                                                <Label layoutX="0.041015625" text="Password">
-                                                   <font>
-                                                      <Font name="Arial Bold" size="28.0" />
-                                                   </font>
-                                                </Label>
-                                                <Label layoutX="70.0" layoutY="71.0" prefHeight="26.0" prefWidth="188.0" text="Old Password">
-                                                   <font>
-                                                      <Font name="Arial" size="22.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="textFieldAccountOldPassword" layoutX="310.0" layoutY="65.0" prefWidth="436.0">
-                                                   <font>
-                                                      <Font name="Arial" size="24.0" />
-                                                   </font>
-                                                </TextField>
-                                                <Label layoutX="70.0" layoutY="150.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
-                                                   <font>
-                                                      <Font name="Arial" size="22.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="310.0" layoutY="144.0" prefWidth="436.0">
-                                                   <font>
-                                                      <Font name="Arial" size="24.0" />
-                                                   </font>
-                                                </TextField>
-                                                <Label layoutX="70.0" layoutY="238.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
-                                                   <font>
-                                                      <Font name="Arial" size="22.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="textFieldAccountConfirmNewPassword" layoutX="310.0" layoutY="232.0" prefWidth="436.0">
-                                                   <font>
-                                                      <Font name="Arial" size="24.0" />
-                                                   </font>
-                                                </TextField>
-                                                <ImageView fx:id="imagePencilSettingsAccount3" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount4" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount5" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <ImageView fx:id="imageHideShowOldPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="66.0" onMouseClicked="#imageHideShowOldPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowOldPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                                                   </image>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                </ImageView>
-                                                <ImageView fx:id="imageHideShowNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="148.0" onMouseClicked="#imageHideShowNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                                                   </image>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                </ImageView>
-                                                <ImageView fx:id="imageHideShowConfirmNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="761.0" layoutY="234.0" onMouseClicked="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                                                   </image>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </ImageView>
                                              </children>
@@ -859,145 +779,226 @@
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="680.0" prefWidth="1300.0">
+                                          <AnchorPane prefHeight="431.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="0.041015625" text="Security Questions">
+                                                <Label layoutX="138.0" layoutY="52.0" text="Password">
                                                    <font>
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="70.0" layoutY="58.0" prefHeight="26.0" prefWidth="490.0" text="Set your security questions for account recovery.">
+                                                <Label layoutX="292.0" layoutY="133.0" prefHeight="26.0" prefWidth="188.0" text="Old Password">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <AnchorPane layoutX="70.0" layoutY="137.0">
+                                                <TextField fx:id="textFieldAccountOldPassword" layoutX="580.0" layoutY="133.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label layoutX="292.0" layoutY="213.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="213.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label layoutX="292.0" layoutY="293.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="textFieldAccountConfirmNewPassword" layoutX="580.0" layoutY="293.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <ImageView fx:id="imagePencilSettingsAccount3" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount4" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imagePencilSettingsAccount5" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowOldPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="1030.0" layoutY="133.0" onMouseClicked="#imageHideShowOldPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowOldPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="1030.0" layoutY="213.0" onMouseClicked="#imageHideShowNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowConfirmNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="1030.0" layoutY="293.0" onMouseClicked="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                             </children>
+                                             <padding>
+                                                <Insets left="150.0" />
+                                             </padding>
+                                          </AnchorPane>
+                                          <AnchorPane prefHeight="830.0" prefWidth="1300.0">
+                                             <children>
+                                                <Label layoutX="140.0" text="Security Questions">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label layoutX="140.0" layoutY="58.0" prefHeight="26.0" prefWidth="490.0" text="Set your security questions for account recovery.">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
+                                                <AnchorPane layoutX="300.0" layoutY="143.0" prefHeight="170.0" prefWidth="720.0">
                                                    <children>
                                                       <Label prefHeight="26.0" prefWidth="188.0" text="Question 1">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionOne" layoutY="51.0" onAction="#comboBoxSettingsQuestionOneOnAction" prefHeight="47.0" prefWidth="674.0" />
-                                                      <TextField fx:id="textFieldAccountQuestionOne" layoutY="127.0" prefWidth="674.0">
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionOne" layoutY="51.0" onAction="#comboBoxSettingsQuestionOneOnAction" prefHeight="47.0" prefWidth="720.0" />
+                                                      <TextField fx:id="textFieldAccountQuestionOne" layoutY="127.0" prefHeight="43.0" prefWidth="720.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
                                                       </TextField>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane layoutX="70.0" layoutY="341.0">
+                                                <AnchorPane layoutX="300.0" layoutY="347.0" prefWidth="720.0">
                                                    <children>
                                                       <Label prefHeight="26.0" prefWidth="188.0" text="Question 2">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionTwo" layoutY="51.0" onAction="#comboBoxSettingsQuestionTwoOnAction" prefHeight="47.0" prefWidth="674.0" />
-                                                      <TextField fx:id="textFieldAccountQuestionTwo" layoutY="127.0" prefWidth="674.0">
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionTwo" layoutY="51.0" onAction="#comboBoxSettingsQuestionTwoOnAction" prefHeight="47.0" prefWidth="720.0" />
+                                                      <TextField fx:id="textFieldAccountQuestionTwo" layoutY="127.0" prefWidth="720.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
                                                       </TextField>
                                                    </children>
                                                 </AnchorPane>
-                                                <AnchorPane layoutX="70.0" layoutY="544.0">
+                                                <AnchorPane layoutX="300.0" layoutY="550.0" prefWidth="720.0">
                                                    <children>
                                                       <Label prefHeight="26.0" prefWidth="188.0" text="Question 3">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
                                                       </Label>
-                                                      <ComboBox fx:id="comboBoxSettingsQuestionThree" layoutY="51.0" onAction="#comboBoxSettingsQuestionThreeOnAction" prefHeight="47.0" prefWidth="674.0" />
-                                                      <TextField fx:id="textFieldAccountQuestionThree" layoutY="127.0" prefWidth="674.0">
+                                                      <ComboBox fx:id="comboBoxSettingsQuestionThree" layoutY="51.0" onAction="#comboBoxSettingsQuestionThreeOnAction" prefHeight="47.0" prefWidth="720.0" />
+                                                      <TextField fx:id="textFieldAccountQuestionThree" layoutY="127.0" prefWidth="720.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
                                                       </TextField>
                                                    </children>
                                                 </AnchorPane>
-                                                <ImageView fx:id="imagePencilSettingsAccount6" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount6" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount7" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount7" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount8" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount8" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount9" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount9" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount10" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="598.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount10" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="604.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <ImageView fx:id="imagePencilSettingsAccount11" fitHeight="35.0" fitWidth="35.0" layoutX="25.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fx:id="imagePencilSettingsAccount11" fitHeight="35.0" fitWidth="35.0" layoutX="246.0" layoutY="678.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
+                                                <AnchorPane fx:id="anchorPaneSettingsBtnEdit" layoutX="1000.0" layoutY="750.0" onMouseClicked="#anchorPaneSettingsBtnEditClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditClickedTouched">
+                                                   <children>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label fx:id="labelSettingsAccountEditFinishAccount" layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Arial Black" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </AnchorPane>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane prefWidth="1300.0">
+                                          <AnchorPane prefHeight="236.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutY="-2.0" text="Delete Account" textFill="#ff3636">
+                                                <Label layoutX="148.0" layoutY="35.0" text="Delete Account" textFill="#ff3636">
                                                    <font>
                                                       <Font name="Arial" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="86.0" layoutY="53.0" text="Once you deleted your account, there is no going back. Please be certain.">
+                                                <Label layoutX="298.0" layoutY="90.0" text="Once you deleted your account, there is no going back. Please be certain.">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
+                                                <AnchorPane fx:id="anchorPaneSettingsBtnDelete" layoutX="1000.0" layoutY="136.0" onMouseClicked="#anchorPaneSettingsBtnDeleteClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteClickedTouched">
+                                                   <children>
+                                                      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                      <Label layoutX="18.0" layoutY="21.0" text="DELETE ACCOUNT" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Arial Black" size="16.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </AnchorPane>
                                              </children>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="anchorPaneSettingsBtnEdit" onMouseClicked="#anchorPaneSettingsBtnEditClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditClickedTouched">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label fx:id="labelSettingsAccountEditFinishAccount" layoutX="32.0" layoutY="21.0" text="EDIT ACCOUNT" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Arial Black" size="16.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </AnchorPane>
-                                          <AnchorPane fx:id="anchorPaneSettingsBtnDelete" onMouseClicked="#anchorPaneSettingsBtnDeleteClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteClickedTouched">
-                                             <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label layoutX="18.0" layoutY="21.0" text="DELETE ACCOUNT" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="Arial Black" size="16.0" />
-                                                   </font>
-                                                </Label>
-                                             </children>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
                                           </AnchorPane>
                                        </children>
                                     </FlowPane>
