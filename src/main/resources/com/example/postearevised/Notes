@@ -47,6 +47,12 @@ ihhide yung accounts excel
 
 
 
+if may unnamed product, lalabas nalang si pop up na this name cannot be blank, tapos mawawala na si some fields are blank? ganon nalang ata
+
+tapos if some products are not available, kasama pa ba sya sa bibilangin sa category result? ano basehan ng number result?
+
+
+
 
 
 unahin muna helper messages
@@ -63,9 +69,11 @@ nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
 
 isang color lang lahat ng sticks sa bar graph
 
-gawin lahat ng pic ng .ico
-
 kapag mag i import, dapat bawal duplication
+
+helper message sa add product na you can leave some fields empty (???)
+
+what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass phase 2 yon? paano magiging display non?
 
 
 
@@ -478,3 +486,5 @@ hindi pede madelete current year (ano basehan ng current year) (JAN 1 - DEC 31)
 hindi pede madelete current year ( pero itatanong pa ano basehan )
 
 yung size ng terms n conditions kunin tapos iset din sa table ng edit products at system manual
+
+gawin lahat ng pic ng .ico (wag nalang)
