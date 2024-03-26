@@ -76,6 +76,67 @@ helper message sa add product na you can leave some fields empty (???)
 what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass phase 2 yon? paano magiging display non?
 
 
+so kapag walang name, lalabas na pop up prompt na name cannot be blank. if may name tapos walang laman yung ibang fields, some fields naman lalabas na prompt
+
+total products pa rin binibilang pero may maliit na text nalang na nakalagay kung ilan yung unavailable
+
+
+
+
+
+
+
+
+
+sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery questions, pagkapindot ng register, lalabas na tac
+
+dashboard mauuna sa left panel (landing page)
+
+sa upper left na need help gettingstarted tapos sa upper right na yung add product (hyperlink lang)
+
+
+alisin sa order list yung total order
+
+wag stretch images
+
+either hover or click or nasa scroll nalang sa baba yung receipt
+
+sa lahat ng pages sa left panel, ilagay yung time and date, mag iiba lang positioning sa menu at dashboard
+
+lalabas din sa order history kahit void/cancelled
+
+maglagay ng maliit na somethin
+
+tanong namin sa seller kung ilang products lalabas sa all time favs
+
+2 recovery questions nalang
+
+full name sa name pero lalabas lang sa display is yung given name lang
+
+sec questions pede pa mapalitan
+
+mauuna edit products, kasunod display
+
+if mag eedit or mag ddelete ng account, hihingin password
+
+pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
+
+transaction number magiging 2024-01-31-19-09-23 nalang
+
+system manual - "CSV" gawing Menu
+
+sa receipt, "First Name " + "M.I." lang lalabas, transaction,
+
+
+kahit cancelled, dire diretso
+
+
+
+
+
+
+DFD, MAWAWALA NA YUNG "MARK ORDER AS DONE" at "GEnerate order". AFTER NG STEP 3, ORDER HISTORY NA AGAD. LAGYAIN DIN NG NUMBER YUNG DFD DATABASE
+
 
 
 
@@ -83,6 +144,8 @@ what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass
 
 
 // SA DULO NA TO
+
+papacheck lahat lahat ng texts sa system sa non ict-teacher
 
 dapat di gumagana editProduct if naka open csv
 
