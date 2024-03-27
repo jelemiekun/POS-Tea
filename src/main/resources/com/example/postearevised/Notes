@@ -47,10 +47,6 @@ ihhide yung accounts excel
 
 
 
-if may unnamed product, lalabas nalang si pop up na this name cannot be blank, tapos mawawala na si some fields are blank? ganon nalang ata
-
-tapos if some products are not available, kasama pa ba sya sa bibilangin sa category result? ano basehan ng number result?
-
 
 
 
@@ -67,13 +63,9 @@ BAWAL MAG ADD NG PRODUCT PAG WALANG NAME
 
 nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
 
-isang color lang lahat ng sticks sa bar graph
-
 kapag mag i import, dapat bawal duplication
 
 helper message sa add product na you can leave some fields empty (???)
-
-what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass phase 2 yon? paano magiging display non?
 
 
 so kapag walang name, lalabas na pop up prompt na name cannot be blank. if may name tapos walang laman yung ibang fields, some fields naman lalabas na prompt
@@ -90,12 +82,10 @@ total products pa rin binibilang pero may maliit na text nalang na nakalagay kun
 
 sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery questions, pagkapindot ng register, lalabas na tac
 
-dashboard mauuna sa left panel (landing page)
-
 sa upper left na need help gettingstarted tapos sa upper right na yung add product (hyperlink lang)
 
 
-alisin sa order list yung total order
+
 
 wag stretch images
 
@@ -109,13 +99,9 @@ maglagay ng maliit na somethin
 
 tanong namin sa seller kung ilang products lalabas sa all time favs
 
-2 recovery questions nalang
-
 full name sa name pero lalabas lang sa display is yung given name lang
 
 sec questions pede pa mapalitan
-
-mauuna edit products, kasunod display
 
 if mag eedit or mag ddelete ng account, hihingin password
 
@@ -551,3 +537,17 @@ hindi pede madelete current year ( pero itatanong pa ano basehan )
 yung size ng terms n conditions kunin tapos iset din sa table ng edit products at system manual
 
 gawin lahat ng pic ng .ico (wag nalang)
+
+dashboard mauuna sa left panel (landing page)
+
+alisin sa order list yung total order
+
+mauuna edit products, kasunod display
+
+2 recovery questions nalang
+    
+what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass phase 2 yon? paano magiging display non?
+
+if may unnamed product, lalabas nalang si pop up na this name cannot be blank, tapos mawawala na si some fields are blank? ganon nalang ata
+
+tapos if some products are not available, kasama pa ba sya sa bibilangin sa category result? ano basehan ng number result?

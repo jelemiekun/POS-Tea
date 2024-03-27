@@ -42,14 +42,14 @@ public class MainModel {
     }
 
     public void setMainMenuIconSelected() {
-        mainController.mainMenuIcon.setImage(mainMenuSelectedIcon);
+        mainController.mainDashboardIcon.setImage(mainDashboardSelectedIcon);
     }
 
     public void setAnchorPane() {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-                openSelectedPane(MENU_ENUM.getPaneNumber());
+                openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
             }
         });
     }

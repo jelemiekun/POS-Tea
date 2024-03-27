@@ -105,7 +105,7 @@ public class MainController implements Initializable {
 
             Platform.runLater(() -> {
                 anchorPaneLeftPanel.setVisible(true);
-                anchorPaneMenu.setVisible(true);
+                anchorPaneDashboard.setVisible(true);
 
                 mainModel.setDropShadow();
                 mainModel.setMainMenuIconSelected();
@@ -747,10 +747,6 @@ public class MainController implements Initializable {
     @FXML
     public TextField textFieldAccountQuestionTwo;
     @FXML
-    public ComboBox<String> comboBoxSettingsQuestionThree;
-    @FXML
-    public TextField textFieldAccountQuestionThree;
-    @FXML
     public AnchorPane anchorPaneSettingsBtnEdit;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDelete;
@@ -800,11 +796,6 @@ public class MainController implements Initializable {
 
     @FXML
     public void comboBoxSettingsQuestionTwoOnAction() {
-
-    }
-
-    @FXML
-    public void comboBoxSettingsQuestionThreeOnAction() {
 
     }
 
