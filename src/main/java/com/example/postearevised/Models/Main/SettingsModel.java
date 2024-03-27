@@ -390,6 +390,12 @@ public class SettingsModel {
                             availableCoffeeObservableList.remove(product);
                             availableIceCandyCupsObservableList.remove(product);
                             availableAppetizerObservableList.remove(product);
+                            unavailableAllProductObservableList.remove(product);
+                            unavailableMilkTeaObservableList.remove(product);
+                            unavailableCoolersObservableList.remove(product);
+                            unavailableCoffeeObservableList.remove(product);
+                            unavailableIceCandyCupsObservableList.remove(product);
+                            unavailableAppetizerObservableList.remove(product);
                         }
                     });
 

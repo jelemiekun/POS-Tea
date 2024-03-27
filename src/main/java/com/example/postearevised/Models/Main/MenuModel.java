@@ -172,31 +172,31 @@ public class MenuModel {
     }
 
     private void switchCategorySetTexts(int categoryNumber) {
-        if (!allProductObservableList.isEmpty()) {//availableAllProductObservableList dapat to
+        if (!allProductObservableList.isEmpty()) {
             switch (categoryNumber) {
                 case 1:
                     mainController.labelMenuCategorySelected.setText("Milk Tea Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(availableMilkTeaObservableList.size() + " Milk Teas Result");
+                    mainController.labelMenuCategoryResultCounter.setText(availableMilkTeaObservableList.size()  + unavailableMilkTeaObservableList.size() + " Milk Teas Result");
                     break;
                 case 2:
                     mainController.labelMenuCategorySelected.setText("Coolers Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(availableCoolersObservableList.size() + " Coolers Result");
+                    mainController.labelMenuCategoryResultCounter.setText(availableCoolersObservableList.size() + unavailableCoolersObservableList.size() + " Coolers Result");
                     break;
                 case 3:
                     mainController.labelMenuCategorySelected.setText("Coffee Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(availableCoffeeObservableList.size() + " Coffees Result");
+                    mainController.labelMenuCategoryResultCounter.setText(availableCoffeeObservableList.size() + unavailableCoffeeObservableList.size() + " Coffees Result");
                     break;
                 case 4:
                     mainController.labelMenuCategorySelected.setText("Ice Candy Cups Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(availableIceCandyCupsObservableList.size() + " Ice Candy Cups Result");
+                    mainController.labelMenuCategoryResultCounter.setText(availableIceCandyCupsObservableList.size() + unavailableIceCandyCupsObservableList.size() + " Ice Candy Cups Result");
                     break;
                 case 5:
                     mainController.labelMenuCategorySelected.setText("Appetizers Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(availableAppetizerObservableList.size() + " Appetizers Result");
+                    mainController.labelMenuCategoryResultCounter.setText(availableAppetizerObservableList.size() + unavailableAppetizerObservableList.size() + " Appetizers Result");
                     break;
                 case 6:
                     mainController.labelMenuCategorySelected.setText("Menu");
-                    mainController.labelMenuCategoryResultCounter.setText(allProductObservableList.size() + " Result");//availableAllProductObservableList dapat to
+                    mainController.labelMenuCategoryResultCounter.setText(allProductObservableList.size() + " Result");
                     break;
             }
         }

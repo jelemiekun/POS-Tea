@@ -164,33 +164,55 @@ public class ImportCSV {
                                                       boolean fromImport) {
         allProductObservableList.addAll(importedProducts);
 
+        for (Product product : importedProducts) {
+            if (product.getCheckBox().isSelected())
+                availableAllProductObservableList.add(product);
+            else
+                unavailableAllProductObservableList.add(product);
+        }
+
         for (Product product : importedMilkTeas) {
             if (product instanceof MilkTea milkTea) {
-                availableMilkTeaObservableList.add(milkTea);
+                if (milkTea.getCheckBox().isSelected())
+                    availableMilkTeaObservableList.add(milkTea);
+                else
+                    unavailableMilkTeaObservableList.add(milkTea);
             }
         }
 
         for (Product product : importedCoolers) {
             if (product instanceof Coolers coolers) {
-                availableCoolersObservableList.add(coolers);
+                if (coolers.getCheckBox().isSelected())
+                    availableCoolersObservableList.add(coolers);
+                else
+                    unavailableCoolersObservableList.add(coolers);
             }
         }
 
         for (Product product : importedCoffees) {
             if (product instanceof Coffee coffee) {
-                availableCoffeeObservableList.add(coffee);
+                if (coffee.getCheckBox().isSelected())
+                    availableCoffeeObservableList.add(coffee);
+                else
+                    unavailableCoffeeObservableList.add(coffee);
             }
         }
 
         for (Product product : importedIceCandyCups) {
             if (product instanceof IceCandyCups iceCandyCups) {
-                availableIceCandyCupsObservableList.add(iceCandyCups);
+                if (iceCandyCups.getCheckBox().isSelected())
+                    availableIceCandyCupsObservableList.add(iceCandyCups);
+                else
+                    unavailableIceCandyCupsObservableList.add(iceCandyCups);
             }
         }
 
         for (Product product : importedAppetizers) {
             if (product instanceof Appetizer appetizer) {
-                availableAppetizerObservableList.add(appetizer);
+                if (appetizer.getCheckBox().isSelected())
+                    availableAppetizerObservableList.add(appetizer);
+                else
+                    unavailableAppetizerObservableList.add(appetizer);
             }
         }
 

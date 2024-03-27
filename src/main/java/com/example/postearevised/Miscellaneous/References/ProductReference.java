@@ -31,6 +31,12 @@ public class ProductReference {
     public static ObservableList<Coffee> availableCoffeeObservableList = FXCollections.observableArrayList();
     public static ObservableList<IceCandyCups> availableIceCandyCupsObservableList = FXCollections.observableArrayList();
     public static ObservableList<Appetizer> availableAppetizerObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Product> unavailableAllProductObservableList = FXCollections.observableArrayList();
+    public static ObservableList<MilkTea> unavailableMilkTeaObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coolers> unavailableCoolersObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Coffee> unavailableCoffeeObservableList = FXCollections.observableArrayList();
+    public static ObservableList<IceCandyCups> unavailableIceCandyCupsObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Appetizer> unavailableAppetizerObservableList = FXCollections.observableArrayList();
     public static final List<String> productCategories = new ArrayList<>(Arrays.asList(
             MILK_TEA_ENUM.getCategory(),
             COOLERS_ENUM.getCategory(),
@@ -127,6 +133,13 @@ public class ProductReference {
         availableCoffeeObservableList.clear();
         availableIceCandyCupsObservableList.clear();
         availableAppetizerObservableList.clear();
+
+        unavailableAllProductObservableList.clear();
+        unavailableMilkTeaObservableList.clear();
+        unavailableCoolersObservableList.clear();
+        unavailableCoffeeObservableList.clear();
+        unavailableIceCandyCupsObservableList.clear();
+        unavailableAppetizerObservableList.clear();
 
         referenceProductName = "";
         referenceProductDescription = "";
