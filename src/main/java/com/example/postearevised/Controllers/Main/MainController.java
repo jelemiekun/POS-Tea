@@ -335,6 +335,11 @@ public class MainController implements Initializable {
     @FXML
     public FlowPane flowPaneBestSeller;
 
+    @FXML
+    public void dashboardNeedHelpClickedTouched() {
+        dashboardModel.goToSystemManual();
+    }
+
     /**
      * Menu
      */
@@ -391,18 +396,13 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneMenuIsEmpty;
 
     @FXML
+    public void menuEditProductClickedTouched() {
+        menuModel.goToEditProducts();
+    }
+
+    @FXML
     public void comboBoxModeOfPaymentOnAction() {
         menuModel.modeOfPaymentSelected();
-    }
-
-    @FXML
-    public void menuNeedHelpClicked(MouseEvent event) {
-        menuModel.goToSystemManual();
-    }
-
-    @FXML
-    public void menuNeedHelpTouched(TouchEvent event) {
-        menuModel.goToSystemManual();
     }
 
     @FXML
@@ -504,12 +504,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void labelMenuIsEmptyClicked(MouseEvent event) {
-        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
-        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
-    }
-    @FXML
-    public void labelMenuIsEmptyTouched(TouchEvent event) {
+    public void labelMenuIsEmptyClickedTouched() {
         mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
         settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }

@@ -65,9 +65,9 @@ public class MenuModel {
         mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + 1));
     }
 
-    public void goToSystemManual() {
+    public void goToEditProducts() {
         mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
-        mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+        mainController.settingsModel.openSelectedPane(EditProducts.getPaneNumber());
     }
 
     public void checkIfIsMenuEmpty() {

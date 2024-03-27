@@ -41,7 +41,7 @@
                         <Font name="Arial Bold" size="70.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="1595.0" layoutY="19.0" onMouseClicked="#menuNeedHelpClicked" onTouchReleased="#menuNeedHelpTouched" prefHeight="67.0" prefWidth="200.0">
+                  <AnchorPane layoutX="1595.0" layoutY="19.0" onMouseClicked="#dashboardNeedHelpClickedTouched" onTouchReleased="#dashboardNeedHelpClickedTouched" prefHeight="67.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -188,7 +188,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
@@ -381,6 +381,23 @@
                               <Font name="Arial" size="28.0" />
                            </font>
                         </Label>
+                        <AnchorPane layoutX="1010.0" layoutY="42.0" onMouseClicked="#menuEditProductClickedTouched" onTouchReleased="#menuEditProductClickedTouched" prefHeight="67.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Menu/need%20help.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Edit Product">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                   <AnchorPane layoutX="58.0" layoutY="140.0" prefHeight="233.0" prefWidth="1163.0">
@@ -458,7 +475,7 @@
                         </ScrollPane>
                         <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
                            <children>
-                              <AnchorPane layoutX="2.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClicked" onTouchReleased="#labelMenuIsEmptyTouched" prefHeight="42.0" prefWidth="313.0">
+                              <AnchorPane layoutX="2.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClickedTouched" onTouchReleased="#labelMenuIsEmptyClickedTouched" prefHeight="42.0" prefWidth="313.0">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
@@ -554,7 +571,7 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" onMouseClicked="#anchorPaneOrderHistoryRequestFocus" onTouchReleased="#anchorPaneOrderHistoryRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneOrderHistory" layoutX="86.0" onMouseClicked="#anchorPaneOrderHistoryRequestFocus" onTouchReleased="#anchorPaneOrderHistoryRequestFocus" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>

@@ -20,7 +20,9 @@ import java.net.MalformedURLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.SETTINGS_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.SystemManual;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -314,4 +316,8 @@ public class DashboardModel {
     }
 
 
+    public void goToSystemManual() {
+        mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
+        mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+    }
 }
