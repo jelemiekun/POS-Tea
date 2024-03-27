@@ -22,6 +22,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 
 public class ProductReference {
+    public static final int PRODUCT_DESCRIPTION_MAX_CHARACTERS = 200;
     public static final double IMAGE_VIEW_SMALL_WIDTH = 150;
     public static final double IMAGE_VIEW_SMALL_HEIGHT = 95;
     public static ObservableList<Product> allProductObservableList = FXCollections.observableArrayList();

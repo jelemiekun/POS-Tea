@@ -2,6 +2,7 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
+import com.example.postearevised.Main;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
@@ -375,7 +376,7 @@ public class SettingsModel {
     public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
-        if (selectedItemsToDelete != null && !selectedItemsToDelete.isEmpty()) {
+        if (!selectedItemsToDelete.isEmpty()) {
             setDeleteProduct();
             if (mainController.mainModel.openPrompt()) {
                 if (deleteProductInCSV(selectedItemsToDelete)) {
@@ -383,33 +384,39 @@ public class SettingsModel {
 
                     Platform.runLater(() -> {
                         for (Product product : selectedItemsToDelete) {
-                            allProductObservableList.remove(product);
+                            if (product instanceof MilkTea milkTea) {
+                                availableMilkTeaObservableList.remove(milkTea);
+                                unavailableMilkTeaObservableList.remove(milkTea);
+                            } else if (product instanceof Coolers coolers) {
+                                availableCoolersObservableList.remove(coolers);
+                                unavailableCoolersObservableList.remove(coolers);
+                            } else if (product instanceof Coffee coffee) {
+                                availableCoffeeObservableList.remove(coffee);
+                                unavailableCoffeeObservableList.remove(coffee);
+                            } else if (product instanceof IceCandyCups iceCandyCups) {
+                                availableIceCandyCupsObservableList.remove(iceCandyCups);
+                                unavailableIceCandyCupsObservableList.remove(iceCandyCups);
+                            } else if (product instanceof Appetizer appetizer) {
+                                availableAppetizerObservableList.remove(appetizer);
+                                unavailableAppetizerObservableList.remove(appetizer);
+                            }
 
                             availableAllProductObservableList.remove(product);
-                            availableMilkTeaObservableList.remove(product);
-                            availableCoolersObservableList.remove(product);
-                            availableCoffeeObservableList.remove(product);
-                            availableIceCandyCupsObservableList.remove(product);
-                            availableAppetizerObservableList.remove(product);
-
                             unavailableAllProductObservableList.remove(product);
-                            unavailableMilkTeaObservableList.remove(product);
-                            unavailableCoolersObservableList.remove(product);
-                            unavailableCoffeeObservableList.remove(product);
-                            unavailableIceCandyCupsObservableList.remove(product);
-                            unavailableAppetizerObservableList.remove(product);
+
+                            allProductObservableList.remove(product);
+                        }
+
+                        refreshProductTable();
+
+                        if (deletingProductSuccess) {
+                            setDeleteProductSuccess();
+                            mainController.mainModel.showNotification();
+
+                            deletingProductSuccess = false;
                         }
                     });
 
-                    mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
-                    refreshProductTable();
-
-                    if (deletingProductSuccess) {
-                        setDeleteProductSuccess();
-                        mainController.mainModel.showNotification();
-
-                        deletingProductSuccess = false;
-                    }
                 } else {
                     setErrorDeleteProduct();
                     mainController.mainModel.openPrompt();
