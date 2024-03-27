@@ -46,39 +46,6 @@ public class OrderListModel {
     private ProductOrderListController productOrderListController;
     public void setProductOrderListController(ProductOrderListController productOrderListController) { this.productOrderListController = productOrderListController; }
 
-    /**
-     * Date And Time
-     */
-
-    private LocalDateTime localDateTime;
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy - hh:mm:ss a");
-
-    public void createAndStartDaemonThreadForDateAndTime() {
-        Thread daemonThreadForDateAndTime = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    localDateTime = LocalDateTime.now();
-                    String formattedDateTime = localDateTime.format(formatter);
-
-                    Platform.runLater(() -> {
-                        mainController.labelOrderQueueDateAndTIme.setText(formattedDateTime);
-                    });
-                    try {
-                        Thread.sleep(ONE_SECOND);
-                    } catch (InterruptedException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
-                    }
-                }
-            }
-        });
-
-        daemonThreadForDateAndTime.setDaemon(true);
-
-        daemonThreadForDateAndTime.start();
-    }
-
     public void readImportedOrders() {
         for (Order order : orderQueueObservableList) {
             orderListOperationStartsHere(order);

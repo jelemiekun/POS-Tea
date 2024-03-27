@@ -72,6 +72,8 @@ so kapag walang name, lalabas na pop up prompt na name cannot be blank. if may n
 
 total products pa rin binibilang pero may maliit na text nalang na nakalagay kung ilan yung unavailable
 
+gear na icon sa settings
+
 
 
 
@@ -545,7 +547,7 @@ alisin sa order list yung total order
 mauuna edit products, kasunod display
 
 2 recovery questions nalang
-    
+
 what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass phase 2 yon? paano magiging display non?
 
 if may unnamed product, lalabas nalang si pop up na this name cannot be blank, tapos mawawala na si some fields are blank? ganon nalang ata

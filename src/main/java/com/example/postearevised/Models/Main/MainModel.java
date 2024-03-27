@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
@@ -52,6 +53,35 @@ public class MainModel {
                 openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
             }
         });
+    }
+
+    public void createAndStartDaemonThreadForDateAndTime() {
+        Thread daemonThreadForDateAndTime = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    localDateTime = LocalDateTime.now();
+                    String formattedDateTime = localDateTime.format(formatter);
+
+                    Platform.runLater(() -> {
+                        mainController.labelDashboardDateAndTIme.setText(formattedDateTime);
+                        mainController.labelMenuDateAndTIme.setText(formattedDateTime);
+                        mainController.labelOrderQueueDateAndTIme.setText(formattedDateTime);
+                        mainController.labelOrderHistoryDateAndTIme.setText(formattedDateTime);
+                    });
+                    try {
+                        Thread.sleep(ONE_SECOND);
+                    } catch (InterruptedException e) {
+                        errorMessage = e.getMessage();
+                        logError(false);
+                    }
+                }
+            }
+        });
+
+        daemonThreadForDateAndTime.setDaemon(true);
+
+        daemonThreadForDateAndTime.start();
     }
 
     public void openSelectedPane(int selectedPane) {

@@ -108,6 +108,7 @@ public class MainController implements Initializable {
                 anchorPaneDashboard.setVisible(true);
 
                 mainModel.setDropShadow();
+                mainModel.createAndStartDaemonThreadForDateAndTime();
                 mainModel.setMainMenuIconSelected();
                 mainModel.setAnchorPane();
 
@@ -116,7 +117,6 @@ public class MainController implements Initializable {
                 menuModel.setComboBoxModEOfPaymentItems();
                 menuModel.setCustomerNumber();
 
-                orderListModel.createAndStartDaemonThreadForDateAndTime();
                 orderListModel.readImportedOrders();
 
                 orderHistoryModel.setOrderHistoryTable();
@@ -316,8 +316,30 @@ public class MainController implements Initializable {
     }
 
     /**
+     * Dashboard
+     */
+    @FXML
+    public Label labelDashboardDateAndTIme;
+    @FXML
+    public Label labelDashBoardNoSalesPieChart;
+    @FXML
+    public Label labelDashBoardNoSalesBestSeller;
+    @FXML
+    public Label labelDashboardTotalRevenue;
+    @FXML
+    public Label labelDashboardTotalCustomer;
+    @FXML
+    public Label labelDashboardTotalOrder;
+    @FXML
+    public PieChart pieChartDashboard;
+    @FXML
+    public FlowPane flowPaneBestSeller;
+
+    /**
      * Menu
      */
+    @FXML
+    public Label labelMenuDateAndTIme;
     @FXML
     public Label labelSelectModeOfPayment;
     @FXML
@@ -495,7 +517,6 @@ public class MainController implements Initializable {
     /**
      * Order queue
      */
-
     @FXML
     public FlowPane flowPaneOrderQueue;
     @FXML
@@ -510,7 +531,8 @@ public class MainController implements Initializable {
     /**
      *  Order History
      */
-
+    @FXML
+    public Label labelOrderHistoryDateAndTIme;
     @FXML
     public ImageView btnHistoryTableRefresh;
     @FXML
@@ -603,25 +625,6 @@ public class MainController implements Initializable {
         anchorPaneOrderHistory.requestFocus();
         tableViewOrderHistory.getSelectionModel().clearSelection();
     }
-
-    /**
-     * Dashboard
-     */
-
-    @FXML
-    public Label labelDashBoardNoSalesPieChart;
-    @FXML
-    public Label labelDashBoardNoSalesBestSeller;
-    @FXML
-    public Label labelDashboardTotalRevenue;
-    @FXML
-    public Label labelDashboardTotalCustomer;
-    @FXML
-    public Label labelDashboardTotalOrder;
-    @FXML
-    public PieChart pieChartDashboard;
-    @FXML
-    public FlowPane flowPaneBestSeller;
 
     /**
      * Settings

@@ -7,6 +7,9 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class GeneralReference {
     public static Stage mainStage;
     public static Stage loginRegisterStage;
@@ -37,4 +40,7 @@ public class GeneralReference {
 
         return labelDropShadowRightDown;
     }
+
+    public static LocalDateTime localDateTime;
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy - hh:mm:ss a");
 }
