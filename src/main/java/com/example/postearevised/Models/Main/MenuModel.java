@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -92,6 +93,7 @@ public class MenuModel {
         mainController.anchorPaneMenuIsEmpty.setVisible(true);
         mainController.labelMenuCategorySelected.setText("Menu");
         mainController.labelMenuCategoryResultCounter.setText("");
+        mainController.labelMenuCategoryUnavailableProductCounter.setText("");
 
         mainController.imageViewMenuAll.setImage(allCategory);
         mainController.imageViewMenuMilkTea.setImage(milkTeaCategory);
@@ -117,7 +119,7 @@ public class MenuModel {
     }
 
     private void switchCategorySetVisibilities(int categoryNumber) {
-        if (!allProductObservableList.isEmpty()) {//availableAllProductObservableList dapat to
+        if (!allProductObservableList.isEmpty()) {
             switch (categoryNumber) {
                 case 1:
                     mainController.imageViewMenuMilkTea.setImage(milkTeasCategorySelected);
@@ -207,38 +209,105 @@ public class MenuModel {
         switch (categoryNumber) {
             case 1:
                 for (Product product : availableMilkTeaObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableMilkTeaObservableList.isEmpty()) {
+
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableMilkTeaObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(650);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableMilkTeaObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
             case 2:
                 for (Product product : availableCoolersObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableCoolersObservableList.isEmpty()) {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableCoolersObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(663);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableCoolersObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
             case 3:
                 for (Product product : availableCoffeeObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableCoffeeObservableList.isEmpty()) {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableCoffeeObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(675);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableCoffeeObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
             case 4:
                 for (Product product : availableIceCandyCupsObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableIceCandyCupsObservableList.isEmpty()) {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableIceCandyCupsObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(550);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableIceCandyCupsObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
             case 5:
                 for (Product product : availableAppetizerObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableAppetizerObservableList.isEmpty()) {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableAppetizerObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(630);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableAppetizerObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
             case 6:
-                for (Product product : allProductObservableList) {
-                    addProductToFlowPane(product, product.getProductName(), product.getImage());
+                for (Product product : availableAllProductObservableList) {
+                    addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
+                }
+                if (!unavailableAllProductObservableList.isEmpty()) {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableAllProductObservableList.size() + " unavailable product(s)");
+                    mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(783);
+
+                    createLabelUnavailableProducts();
+                    for (Product product: unavailableAllProductObservableList) {
+                        addUnavailableProductToFlowPane(product.getProductName(), product.getImage());
+                    }
+                } else {
+                    mainController.labelMenuCategoryUnavailableProductCounter.setText("");
                 }
                 break;
         }
     }
 
-    private void addProductToFlowPane(Product product, String productName, Image imageProduct) {
+    private void addAvailableProductToFlowPane(Product product, String productName, Image imageProduct) {
         double width = 320;
         double height = 200;
 
@@ -264,7 +333,7 @@ public class MenuModel {
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
 
-        AnchorPane.setBottomAnchor(label, 15.0);
+        AnchorPane.setTopAnchor(label, 15.0);
         AnchorPane.setLeftAnchor(label, 20.0);
 
         anchorPane.setOnMouseClicked(event -> {
@@ -276,6 +345,78 @@ public class MenuModel {
             openProductSelectedFXML(product);
             event.consume();
         });
+
+        mainController.flowPaneMenu.getChildren().add(anchorPane);
+    }
+
+    private void addUnavailableProductToFlowPane(String productName, Image imageProduct) {
+        double width = 320;
+        double height = 200;
+
+        AnchorPane anchorPane = new AnchorPane();
+
+        Label label = new Label(productName);
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
+        label.setTextFill(Color.WHITE);
+        label.setEffect(setDropShadowRightDown());
+
+        Label labelUnavailable = new Label("This product is unavailable");
+        labelUnavailable.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+        labelUnavailable.setTextFill(Color.WHITE);
+        labelUnavailable.setEffect(setDropShadowRightDown());
+
+        ImageView imageView = new ImageView();
+        imageView.setImage(imageProduct);
+
+        Rectangle shadow = new Rectangle(width, height);
+        shadow.setFill(Color.BLACK);
+        shadow.setOpacity(0.35);
+
+        ImageView imageView1 = new ImageView(productUnavailable);
+
+        anchorPane.getChildren().addAll(imageView, shadow, label, labelUnavailable, imageView1);
+
+        anchorPane.setPrefWidth(width);
+        anchorPane.setPrefHeight(height);
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+        imageView1.setFitWidth(105);
+        imageView1.setFitHeight(105);
+
+        AnchorPane.setTopAnchor(label, 15.0);
+        AnchorPane.setLeftAnchor(label, 20.0);
+
+        AnchorPane.setBottomAnchor(labelUnavailable, 15.0);
+        AnchorPane.setLeftAnchor(labelUnavailable, 20.0);
+
+        AnchorPane.setTopAnchor(imageView1, (height - imageView1.getFitHeight()) / 2);
+        AnchorPane.setLeftAnchor(imageView1, (width - imageView1.getFitWidth()) / 2);
+
+        mainController.flowPaneMenu.getChildren().add(anchorPane);
+    }
+
+    private void createLabelUnavailableProducts() {
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefWidth(1100);
+
+        Label label = new Label("Unavailable Products");
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
+        label.setTextFill(Paint.valueOf("#000000"));
+
+        anchorPane.getChildren().add(label);
+
+        AnchorPane.setLeftAnchor(label, 50.0);
+        mainController.flowPaneMenu.getChildren().add(anchorPane);
+    }
+
+    private void createEmptyLabel() {
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefWidth(1100);
+
+        Label label = new Label("");
+        label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
+
+        anchorPane.getChildren().add(label);
 
         mainController.flowPaneMenu.getChildren().add(anchorPane);
     }

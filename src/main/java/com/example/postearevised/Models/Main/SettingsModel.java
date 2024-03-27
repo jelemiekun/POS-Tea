@@ -384,12 +384,14 @@ public class SettingsModel {
                     Platform.runLater(() -> {
                         for (Product product : selectedItemsToDelete) {
                             allProductObservableList.remove(product);
+
                             availableAllProductObservableList.remove(product);
                             availableMilkTeaObservableList.remove(product);
                             availableCoolersObservableList.remove(product);
                             availableCoffeeObservableList.remove(product);
                             availableIceCandyCupsObservableList.remove(product);
                             availableAppetizerObservableList.remove(product);
+
                             unavailableAllProductObservableList.remove(product);
                             unavailableMilkTeaObservableList.remove(product);
                             unavailableCoolersObservableList.remove(product);

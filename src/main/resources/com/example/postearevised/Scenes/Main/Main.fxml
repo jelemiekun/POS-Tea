@@ -497,9 +497,14 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Label fx:id="labelMenuCategoryResultCounter" alignment="CENTER_RIGHT" layoutX="745.0" prefHeight="42.0" prefWidth="412.0" textFill="#8a8a8a">
+                        <Label fx:id="labelMenuCategoryResultCounter" alignment="CENTER_RIGHT" layoutX="774.0" prefHeight="42.0" prefWidth="383.0" textFill="#8a8a8a">
                            <font>
                               <Font name="Arial" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelMenuCategoryUnavailableProductCounter" alignment="CENTER_RIGHT" layoutX="784.0" prefHeight="42.0" prefWidth="221.0" textAlignment="RIGHT" textFill="#8a8a8a">
+                           <font>
+                              <Font name="Arial" size="18.0" />
                            </font>
                         </Label>
                      </children>

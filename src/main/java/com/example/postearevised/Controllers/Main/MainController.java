@@ -344,6 +344,8 @@ public class MainController implements Initializable {
      * Menu
      */
     @FXML
+    public Label labelMenuCategoryUnavailableProductCounter;
+    @FXML
     public Label labelMenuDateAndTIme;
     @FXML
     public Label labelSelectModeOfPayment;

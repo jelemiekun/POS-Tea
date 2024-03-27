@@ -752,6 +752,7 @@ public class ProductModel {
                         break;
                 }
                 allProductObservableList.add(product);
+                availableAllProductObservableList.add(product);
                 return true;
 
             } else {
