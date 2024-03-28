@@ -2,7 +2,6 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
-import com.example.postearevised.Main;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
@@ -231,12 +230,12 @@ public class SettingsModel {
      */
 
     private void editProductsCheckIfOrderIsOngoing() {
-        mainController.orderIsOngoing = !ProductOrderReference.referenceProductOrderObservableList.isEmpty();
+        orderIsOngoing = !ProductOrderReference.referenceProductOrderObservableList.isEmpty();
         cantEditProductsLabelVisibility();
     }
 
     private void cantEditProductsLabelVisibility() {
-        mainController.labelSettingsEditProductsUnavailable.setVisible(mainController.orderIsOngoing);
+        mainController.labelSettingsEditProductsUnavailable.setVisible(orderIsOngoing);
     }
 
     private void editProductsInitializeTable() {

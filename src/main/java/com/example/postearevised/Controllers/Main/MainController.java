@@ -846,7 +846,6 @@ public class MainController implements Initializable {
     /**
      * Settings - Products
      */
-    public boolean orderIsOngoing = false;
     @FXML
     public ComboBox<String> importExportComboBox;
     @FXML

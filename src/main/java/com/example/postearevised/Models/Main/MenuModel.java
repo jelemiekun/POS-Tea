@@ -4,7 +4,7 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
-import com.example.postearevised.Objects.Products.Product;
+import com.example.postearevised.Objects.Products.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -342,6 +342,23 @@ public class MenuModel {
         label.setTextFill(Color.WHITE);
         label.setEffect(setDropShadowRightDown());
 
+        Label labelPrice = new Label();
+        labelPrice.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        labelPrice.setTextFill(Color.WHITE);
+        labelPrice.setEffect(setDropShadowRightDown());
+
+        if (product instanceof MilkTea milkTea) {
+
+        } else if (product instanceof Coolers coolers) {
+
+        } else if (product instanceof Coffee coffee) {
+            labelPrice.setText("₱ " + (int) coffee.getPrice());
+        } else if (product instanceof IceCandyCups iceCandyCups) {
+            labelPrice.setText("₱ " + (int) iceCandyCups.getPrice());
+        } else if (product instanceof Appetizer appetizer) {
+            labelPrice.setText("₱ " + (int) appetizer.getPrice());
+        }
+
         ImageView imageView = new ImageView();
         imageView.setImage(imageProduct);
 
@@ -349,7 +366,7 @@ public class MenuModel {
         shadow.setFill(Color.BLACK);
         shadow.setOpacity(0.35);
 
-        anchorPane.getChildren().addAll(imageView, shadow, label);
+        anchorPane.getChildren().addAll(imageView, shadow, label, labelPrice);
 
         anchorPane.setPrefWidth(width);
         anchorPane.setPrefHeight(height);
@@ -358,6 +375,9 @@ public class MenuModel {
 
         AnchorPane.setTopAnchor(label, 15.0);
         AnchorPane.setLeftAnchor(label, 20.0);
+
+        AnchorPane.setBottomAnchor(labelPrice, 15.0);
+        AnchorPane.setLeftAnchor(labelPrice, 20.0);
 
         anchorPane.setOnMouseClicked(event -> {
             openProductSelectedFXML(product);

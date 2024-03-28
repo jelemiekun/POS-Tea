@@ -56,55 +56,61 @@ public class Product {
 
             this.checkBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
                 if (!isAddingProductsFromImport) {
-                    if (editProductAvailabilityInCSV(Product.this)) {
-                        this.checkBox.setSelected(newValue);
-                        if (this.checkBox.isSelected()) {
-                            availableAllProductObservableList.add(this);
-                            unavailableAllProductObservableList.remove(this);
+                    if (!orderIsOngoing) {
+                        if (editProductAvailabilityInCSV(Product.this)) {
+                            this.checkBox.setSelected(newValue);
+                            if (this.checkBox.isSelected()) {
+                                availableAllProductObservableList.add(this);
+                                unavailableAllProductObservableList.remove(this);
 
-                            if (this instanceof MilkTea milkTea) {
-                                availableMilkTeaObservableList.add(milkTea);
-                                unavailableMilkTeaObservableList.remove(milkTea);
-                            } else if (this instanceof Coolers coolers) {
-                                availableCoolersObservableList.add(coolers);
-                                unavailableCoolersObservableList.remove(coolers);
-                            } else if (this instanceof Coffee coffee) {
-                                availableCoffeeObservableList.add(coffee);
-                                unavailableCoffeeObservableList.remove(coffee);
-                            } else if (this instanceof IceCandyCups iceCandyCups) {
-                                availableIceCandyCupsObservableList.add(iceCandyCups);
-                                unavailableIceCandyCupsObservableList.remove(iceCandyCups);
-                            } else if (this instanceof Appetizer appetizer) {
-                                availableAppetizerObservableList.add(appetizer);
-                                unavailableAppetizerObservableList.remove(appetizer);
+                                if (this instanceof MilkTea milkTea) {
+                                    availableMilkTeaObservableList.add(milkTea);
+                                    unavailableMilkTeaObservableList.remove(milkTea);
+                                } else if (this instanceof Coolers coolers) {
+                                    availableCoolersObservableList.add(coolers);
+                                    unavailableCoolersObservableList.remove(coolers);
+                                } else if (this instanceof Coffee coffee) {
+                                    availableCoffeeObservableList.add(coffee);
+                                    unavailableCoffeeObservableList.remove(coffee);
+                                } else if (this instanceof IceCandyCups iceCandyCups) {
+                                    availableIceCandyCupsObservableList.add(iceCandyCups);
+                                    unavailableIceCandyCupsObservableList.remove(iceCandyCups);
+                                } else if (this instanceof Appetizer appetizer) {
+                                    availableAppetizerObservableList.add(appetizer);
+                                    unavailableAppetizerObservableList.remove(appetizer);
+                                }
+                            } else {
+                                availableAllProductObservableList.remove(this);
+                                unavailableAllProductObservableList.add(this);
+
+                                if (this instanceof MilkTea milkTea) {
+                                    unavailableMilkTeaObservableList.add(milkTea);
+                                    availableMilkTeaObservableList.remove(milkTea);
+                                } else if (this instanceof Coolers coolers) {
+                                    unavailableCoolersObservableList.add(coolers);
+                                    availableCoolersObservableList.remove(coolers);
+                                } else if (this instanceof Coffee coffee) {
+                                    unavailableCoffeeObservableList.add(coffee);
+                                    availableCoffeeObservableList.remove(coffee);
+                                } else if (this instanceof IceCandyCups iceCandyCups) {
+                                    unavailableIceCandyCupsObservableList.add(iceCandyCups);
+                                    availableIceCandyCupsObservableList.remove(iceCandyCups);
+                                } else if (this instanceof Appetizer appetizer) {
+                                    unavailableAppetizerObservableList.add(appetizer);
+                                    availableAppetizerObservableList.remove(appetizer);
+                                }
                             }
                         } else {
-                            availableAllProductObservableList.remove(this);
-                            unavailableAllProductObservableList.add(this);
-
-                            if (this instanceof MilkTea milkTea) {
-                                unavailableMilkTeaObservableList.add(milkTea);
-                                availableMilkTeaObservableList.remove(milkTea);
-                            } else if (this instanceof Coolers coolers) {
-                                unavailableCoolersObservableList.add(coolers);
-                                availableCoolersObservableList.remove(coolers);
-                            } else if (this instanceof Coffee coffee) {
-                                unavailableCoffeeObservableList.add(coffee);
-                                availableCoffeeObservableList.remove(coffee);
-                            } else if (this instanceof IceCandyCups iceCandyCups) {
-                                unavailableIceCandyCupsObservableList.add(iceCandyCups);
-                                availableIceCandyCupsObservableList.remove(iceCandyCups);
-                            } else if (this instanceof Appetizer appetizer) {
-                                unavailableAppetizerObservableList.add(appetizer);
-                                availableAppetizerObservableList.remove(appetizer);
-                            }
+                            isAddingProductsFromImport = true;
+                            this.checkBox.setSelected(oldValue);
+                            setErrorEditProduct();
+                            ProductReference.openPrompt();
+                            System.out.println("di gumagana 61");
+                            isAddingProductsFromImport = false;
                         }
                     } else {
                         isAddingProductsFromImport = true;
                         this.checkBox.setSelected(oldValue);
-                        setErrorEditProduct();
-                        ProductReference.openPrompt();
-                        System.out.println("di gumagana 61");
                         isAddingProductsFromImport = false;
                     }
                 }
