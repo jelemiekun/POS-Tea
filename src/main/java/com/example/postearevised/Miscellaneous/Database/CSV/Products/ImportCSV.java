@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
@@ -146,8 +147,18 @@ public class ImportCSV {
             return 3;
         }
 
-        addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
-        return 1;
+        if (hasSomeProductAlreadyExist(importedProducts)) {
+            setImportingProductsDuplicateFound();
+            if (openPrompt()) {
+                addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
+                return 1;
+            } else {
+                return 0; // do nothing since hindi iaadd sa menu
+            }
+        } else {
+            addImportedListsToSystemLists(importedProducts, importedMilkTeas, importedCoolers, importedCoffees, importedIceCandyCups, importedAppetizers, fromImport);
+            return 1;
+        }
     }
 
     private static boolean isValidCategory(String category) {
@@ -158,6 +169,16 @@ public class ImportCSV {
         for (String field : fields) {
             if (field.trim().isEmpty()) {
                 return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean hasSomeProductAlreadyExist(List<Product> importedProducts) {
+        for (Product existingProduct : allProductObservableList) {
+            for (Product importedProduct : importedProducts) {
+                if (existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && existingProduct.getCategory().equals(importedProduct.getCategory()))
+                    return true;
             }
         }
         return false;

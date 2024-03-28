@@ -199,7 +199,7 @@ public class SettingsModel {
             mainController.importExportComboBox.setValue("Import/Export CSV");
         } else if (selected.equals(Import.getImportOperation())) {
             switch (chooseFilePath(mainStage, true)) {
-                // 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
+                // -1 - some product already exists, 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
                 case 1:
                     setImportSuccessful();
                     mainController.mainModel.openPrompt();

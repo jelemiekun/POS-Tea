@@ -466,6 +466,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setImportingProductsDuplicateFound() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Duplicate Products Found";
+        promptContentText = "Some of the products you are trying to import already exist in the list. Do you want to add the remaining non-existing products?";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = ADD_ANYWAY_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = CANCEL_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setInvalidFileFormat() {
         setIsConfirmedToFalse();
 
