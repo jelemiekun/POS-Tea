@@ -201,57 +201,18 @@ public class ImportCSV {
 
             if (!productExists) {
                 productsToAdd.add(importedProduct);
-            }
-        }
-
-
-
-        for (Product importedProduct : importedMilkTeas) {
-            boolean productExists = false;
-            for (Product existingProduct: allProductObservableList) {
-                if (existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && existingProduct.getCategory().equals(importedProduct.getCategory())) {
-                    productExists = true;
-                    break;
-                }
-            }
-
-            if (!productExists) {
                 if (importedProduct instanceof MilkTea milkTea)
                     milkTeasToAdd.add(milkTea);
-            }
-        }
-
-        for (Product importedProduct : importedCoolers) {
-            boolean productExists = false;
-            for (Product existingProduct: allProductObservableList) {
-                if (existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && existingProduct.getCategory().equals(importedProduct.getCategory())) {
-                    productExists = true;
-                    break;
-                }
-            }
-
-            if (!productExists) {
-                if (importedProduct instanceof Coolers coolers)
+                else if (importedProduct instanceof Coolers coolers)
                     coolersToAdd.add(coolers);
+                else if (importedProduct instanceof Coffee coffee)
+                    coffeesToAdd.add(coffee);
+                else if (importedProduct instanceof IceCandyCups iceCandyCups)
+                    iceCandyCupsToAdd.add(iceCandyCups);
+                else if (importedProduct instanceof Appetizer appetizer)
+                    appetizersToAdd.add(appetizer);
             }
         }
-
-        for (Product importedProduct : importedCoffees) {
-            boolean productExists = false;
-            for (Product existingProduct: allProductObservableList) {
-                if (existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && existingProduct.getCategory().equals(importedProduct.getCategory())) {
-                    productExists = true;
-                    break;
-                }
-            }
-
-            if (!productExists) {
-                if (importedProduct instanceof Coolers coolers)
-                    coolersToAdd.add(coolers);
-            }
-        }
-
-
 
 
 
@@ -278,16 +239,32 @@ public class ImportCSV {
                 unavailableCoolersObservableList.add(coolers);
         }
 
+        for (Coffee coffee : coffeesToAdd) {
+            if (coffee.getCheckBox().isSelected())
+                availableCoffeeObservableList.add(coffee);
+            else
+                unavailableCoffeeObservableList.add(coffee);
+        }
 
+        for (IceCandyCups iceCandyCups : iceCandyCupsToAdd) {
+            if (iceCandyCups.getCheckBox().isSelected())
+                availableIceCandyCupsObservableList.add(iceCandyCups);
+            else
+                unavailableIceCandyCupsObservableList.add(iceCandyCups);
+        }
+
+        for (Appetizer appetizer : appetizersToAdd) {
+            if (appetizer.getCheckBox().isSelected())
+                availableAppetizerObservableList.add(appetizer);
+            else
+                unavailableAppetizerObservableList.add(appetizer);
+        }
 
 
 
         if (fromImport) {
-            for (Product importedProduct : importedProducts) {
-                for (Product existingProduct: allProductObservableList) {
-                    if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory()))
-                        addProductToCSV(importedProduct);
-                }
+            for (Product product : productsToAdd) {
+                addProductToCSV(product);
             }
         }
     }
