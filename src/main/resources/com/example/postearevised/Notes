@@ -91,14 +91,6 @@ sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
 
-lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
-
-
-hindi babasahin ng current editing product yung sa allavailablelist para hindi maconsider as duplicate product
-
-
-lowest possible na amount lang sa milk tea coolers ay sa sizes lang babasahin
-
 
 
 
@@ -109,6 +101,8 @@ lowest possible na amount lang sa milk tea coolers ay sa sizes lang babasahin
 
 
 // SA DULO NA TO
+
+lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 itrim settings acount, sa register, at sa forgot password
 
@@ -552,3 +546,7 @@ maglagay ng maliit na somethin ( ano nanaman to putangina )
 sa upper left na need help gettingstarted tapos sa upper right na yung add product (hyperlink lang)
 
 gear na icon sa settings
+
+hindi babasahin ng current editing product yung sa allavailablelist para hindi maconsider as duplicate product
+
+lowest possible na amount lang sa milk tea coolers ay sa sizes lang babasahin

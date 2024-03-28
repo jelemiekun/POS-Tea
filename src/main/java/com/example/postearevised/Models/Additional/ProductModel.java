@@ -4,6 +4,8 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import com.example.postearevised.Objects.Products.*;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -318,9 +320,18 @@ public class ProductModel {
     private boolean isDuplicateEditing() {
         String newProductName = productController.textFieldProductName.getText().trim();
 
-        for (Product existingProduct: allProductObservableList) {
-            if (existingProduct.getProductName().equalsIgnoreCase(newProductName) &&
-                existingProduct.getCategory().equals(referenceCategory)) {
+        ObservableList<Product> tempList = FXCollections.observableArrayList();
+        tempList.addAll(allProductObservableList);
+
+        for (Product product : tempList) {
+            if (product.getProductName().equalsIgnoreCase(editOrShowSelectedProduct.getProductName()) && product.getCategory().equals(editOrShowSelectedProduct.getCategory())) {
+                tempList.remove(product);
+                break;
+            }
+        }
+
+        for (Product existingProduct: tempList) {
+            if (existingProduct.getProductName().equalsIgnoreCase(newProductName) && existingProduct.getCategory().equals(referenceCategory)) {
                 return true;
             }
         }
