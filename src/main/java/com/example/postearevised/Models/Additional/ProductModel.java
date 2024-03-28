@@ -4,15 +4,19 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import com.example.postearevised.Objects.Products.*;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.RadioButton;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -196,6 +200,10 @@ public class ProductModel {
         productController.labelProductName.setEffect(setDropShadowRightDown());
         productController.labelProductDescription.setEffect(setDropShadowRightDown());
         productController.labelDescriptionWordCounter.setEffect(setDropShadowRightDown());
+    }
+
+    public void setImageView() {
+        // dito code if ever man na hindi iccrop yung picture
     }
 
     public void updateWordCounter() {

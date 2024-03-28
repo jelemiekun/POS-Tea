@@ -27,6 +27,7 @@ public class ProductController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         productModel = new ProductModel();
         productModel.setProductController(this);
+        productModel.setImageView();
         productModel.initializedHideElements();
         productModel.setDropShadow();
     }
