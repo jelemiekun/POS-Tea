@@ -347,10 +347,8 @@ public class MenuModel {
         labelPrice.setTextFill(Color.WHITE);
         labelPrice.setEffect(setDropShadowRightDown());
 
-        if (product instanceof MilkTea milkTea) {
-
-        } else if (product instanceof Coolers coolers) {
-
+        if (product instanceof MilkTea || product instanceof Coolers) {
+            labelPrice.setText("₱ " + (int) getLowestDoubleValue(product) + " - " + (int) getMaxCombinedPrice(product));
         } else if (product instanceof Coffee coffee) {
             labelPrice.setText("₱ " + (int) coffee.getPrice());
         } else if (product instanceof IceCandyCups iceCandyCups) {
@@ -463,6 +461,57 @@ public class MenuModel {
         anchorPane.getChildren().add(rectangle);
 
         mainController.flowPaneMenu.getChildren().add(anchorPane);
+    }
+
+    public static double getLowestDoubleValue(Product product) {
+        double lowestValue = Double.MAX_VALUE;
+
+        if (product instanceof MilkTea milkTea) {
+            lowestValue = Math.min(lowestValue, milkTea.getSmallPrice());
+            lowestValue = Math.min(lowestValue, milkTea.getMediumPrice());
+            lowestValue = Math.min(lowestValue, milkTea.getLargePrice());
+            lowestValue = Math.min(lowestValue, milkTea.getAddOnsOnePrice());
+            lowestValue = Math.min(lowestValue, milkTea.getAddOnsTwoPrice());
+        } else if (product instanceof Coolers coolers) {
+            lowestValue = Math.min(lowestValue, coolers.getSmallPrice());
+            lowestValue = Math.min(lowestValue, coolers.getMediumPrice());
+            lowestValue = Math.min(lowestValue, coolers.getLargePrice());
+            lowestValue = Math.min(lowestValue, coolers.getAddOnsOnePrice());
+            lowestValue = Math.min(lowestValue, coolers.getAddOnsTwoPrice());
+        }
+
+        return lowestValue;
+    }
+
+    public static double getMaxCombinedPrice(Product product) {
+        double maxPrice = 0;
+
+        if (product instanceof MilkTea milkTea) {
+            double[] sizePrices = {milkTea.getSmallPrice(), milkTea.getMediumPrice(), milkTea.getLargePrice()};
+            double[] addOnsPrices = {milkTea.getAddOnsOnePrice(), milkTea.getAddOnsTwoPrice()};
+            maxPrice = calculateMaxPrice(sizePrices, addOnsPrices);
+        } else if (product instanceof Coolers coolers) {
+            double[] sizePrices = {coolers.getSmallPrice(), coolers.getMediumPrice(), coolers.getLargePrice()};
+            double[] addOnsPrices = {coolers.getAddOnsOnePrice(), coolers.getAddOnsTwoPrice()};
+            maxPrice = calculateMaxPrice(sizePrices, addOnsPrices);
+        }
+
+        return maxPrice;
+    }
+
+    private static double calculateMaxPrice(double[] sizePrices, double[] addOnsPrices) {
+        double maxPrice = 0;
+
+        for (double sizePrice : sizePrices) {
+            for (double addOnsPrice : addOnsPrices) {
+                double combinedPrice = sizePrice + addOnsPrice;
+                if (combinedPrice > maxPrice) {
+                    maxPrice = combinedPrice;
+                }
+            }
+        }
+
+        return maxPrice;
     }
 
     private void openProductSelectedFXML(Product product) {
