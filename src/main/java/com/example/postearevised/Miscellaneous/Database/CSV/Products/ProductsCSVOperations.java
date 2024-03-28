@@ -27,7 +27,7 @@ public class ProductsCSVOperations {
                     "productDescription," +
                     "productCategory," +
                     "imagePath," +
-                    "isAvailable" +
+                    "isAvailable," +
                     "milkTeaSmallPrice," +
                     "milkTeaMediumPrice," +
                     "milkTeaLargePrice," +

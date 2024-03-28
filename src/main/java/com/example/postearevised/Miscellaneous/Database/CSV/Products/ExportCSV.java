@@ -12,7 +12,7 @@ public class ExportCSV {
     public static int exportProductsToCSV(String filePath) {
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(filePath))) {
-            writer.println("productName,productDescription,productCategory,imagePath,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice");
+            writer.println("productName,productDescription,productCategory,imagePath,isAvailable,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice");
 
             for (Product product : allProductObservableList) {
                 StringBuilder sb = new StringBuilder();

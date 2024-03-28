@@ -38,7 +38,7 @@ public class ImportCSV {
             String headerLine = reader.readLine(); // Read the header
             if (headerLine != null) {
                 String[] fields = headerLine.split(",");
-                if (fields.length != 21) {
+                if (fields.length != 22) {
                     return 2;
                 }
             } else {
