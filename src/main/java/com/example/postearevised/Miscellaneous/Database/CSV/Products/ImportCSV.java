@@ -11,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
@@ -180,63 +181,108 @@ public class ImportCSV {
                                                       ObservableList<Product> importedCoolers, ObservableList<Product> importedCoffees,
                                                       ObservableList<Product> importedIceCandyCups, ObservableList<Product> importedAppetizers,
                                                       boolean fromImport) {
-        allProductObservableList.addAll(importedProducts);
+        List<Product> productsToAdd = new ArrayList<>();
+        List<MilkTea> milkTeasToAdd = new ArrayList<>();
+        List<Coolers> coolersToAdd = 
 
-        for (Product product : importedProducts) {
-            if (product.getCheckBox().isSelected())
-                availableAllProductObservableList.add(product);
-            else
-                unavailableAllProductObservableList.add(product);
-        }
+        for (Product importedProduct : importedProducts) {
+            boolean productExists = false;
+            for (Product existingProduct: allProductObservableList) {
+                if (existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    productExists = true;
+                    break;
+                }
+            }
 
-        for (Product product : importedMilkTeas) {
-            if (product instanceof MilkTea milkTea) {
-                if (milkTea.getCheckBox().isSelected())
-                    availableMilkTeaObservableList.add(milkTea);
-                else
-                    unavailableMilkTeaObservableList.add(milkTea);
+            if (!productExists) {
+                productsToAdd.add(importedProduct);
             }
         }
 
-        for (Product product : importedCoolers) {
-            if (product instanceof Coolers coolers) {
-                if (coolers.getCheckBox().isSelected())
-                    availableCoolersObservableList.add(coolers);
-                else
-                    unavailableCoolersObservableList.add(coolers);
+        allProductObservableList.addAll(productsToAdd);
+
+        for (Product importedProduct : importedProducts) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct.getCheckBox().isSelected())
+                        availableAllProductObservableList.add(importedProduct);
+                    else
+                        unavailableAllProductObservableList.add(importedProduct);
+                }
             }
         }
 
-        for (Product product : importedCoffees) {
-            if (product instanceof Coffee coffee) {
-                if (coffee.getCheckBox().isSelected())
-                    availableCoffeeObservableList.add(coffee);
-                else
-                    unavailableCoffeeObservableList.add(coffee);
+        for (Product importedProduct : importedMilkTeas) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct instanceof MilkTea milkTea) {
+                        if (milkTea.getCheckBox().isSelected())
+                            availableMilkTeaObservableList.add(milkTea);
+                        else
+                            unavailableMilkTeaObservableList.add(milkTea);
+                    }
+                }
             }
         }
 
-        for (Product product : importedIceCandyCups) {
-            if (product instanceof IceCandyCups iceCandyCups) {
-                if (iceCandyCups.getCheckBox().isSelected())
-                    availableIceCandyCupsObservableList.add(iceCandyCups);
-                else
-                    unavailableIceCandyCupsObservableList.add(iceCandyCups);
+        for (Product importedProduct : importedCoolers) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct instanceof Coolers coolers) {
+                        if (coolers.getCheckBox().isSelected())
+                            availableCoolersObservableList.add(coolers);
+                        else
+                            unavailableCoolersObservableList.add(coolers);
+                    }
+                }
             }
         }
 
-        for (Product product : importedAppetizers) {
-            if (product instanceof Appetizer appetizer) {
-                if (appetizer.getCheckBox().isSelected())
-                    availableAppetizerObservableList.add(appetizer);
-                else
-                    unavailableAppetizerObservableList.add(appetizer);
+        for (Product importedProduct : importedCoffees) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct instanceof Coffee coffee) {
+                        if (coffee.getCheckBox().isSelected())
+                            availableCoffeeObservableList.add(coffee);
+                        else
+                            unavailableCoffeeObservableList.add(coffee);
+                    }
+                }
+            }
+        }
+
+        for (Product importedProduct : importedIceCandyCups) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct instanceof IceCandyCups iceCandyCups) {
+                        if (iceCandyCups.getCheckBox().isSelected())
+                            availableIceCandyCupsObservableList.add(iceCandyCups);
+                        else
+                            unavailableIceCandyCupsObservableList.add(iceCandyCups);
+                    }
+                }
+            }
+        }
+
+        for (Product importedProduct : importedAppetizers) {
+            for (Product existingProduct: allProductObservableList) {
+                if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory())) {
+                    if (importedProduct instanceof Appetizer appetizer) {
+                        if (appetizer.getCheckBox().isSelected())
+                            availableAppetizerObservableList.add(appetizer);
+                        else
+                            unavailableAppetizerObservableList.add(appetizer);
+                    }
+                }
             }
         }
 
         if (fromImport) {
-            for (Product product : importedProducts) {
-                addProductToCSV(product);
+            for (Product importedProduct : importedProducts) {
+                for (Product existingProduct: allProductObservableList) {
+                    if (!existingProduct.getProductName().equalsIgnoreCase(importedProduct.getProductName()) && !existingProduct.getCategory().equals(importedProduct.getCategory()))
+                        addProductToCSV(importedProduct);
+                }
             }
         }
     }
