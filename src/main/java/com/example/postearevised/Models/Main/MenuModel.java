@@ -470,14 +470,14 @@ public class MenuModel {
             lowestValue = Math.min(lowestValue, milkTea.getSmallPrice());
             lowestValue = Math.min(lowestValue, milkTea.getMediumPrice());
             lowestValue = Math.min(lowestValue, milkTea.getLargePrice());
-            lowestValue = Math.min(lowestValue, milkTea.getAddOnsOnePrice());
-            lowestValue = Math.min(lowestValue, milkTea.getAddOnsTwoPrice());
+//            lowestValue = Math.min(lowestValue, milkTea.getAddOnsOnePrice());
+//            lowestValue = Math.min(lowestValue, milkTea.getAddOnsTwoPrice());
         } else if (product instanceof Coolers coolers) {
             lowestValue = Math.min(lowestValue, coolers.getSmallPrice());
             lowestValue = Math.min(lowestValue, coolers.getMediumPrice());
             lowestValue = Math.min(lowestValue, coolers.getLargePrice());
-            lowestValue = Math.min(lowestValue, coolers.getAddOnsOnePrice());
-            lowestValue = Math.min(lowestValue, coolers.getAddOnsTwoPrice());
+//            lowestValue = Math.min(lowestValue, coolers.getAddOnsOnePrice());
+//            lowestValue = Math.min(lowestValue, coolers.getAddOnsTwoPrice());
         }
 
         return lowestValue;
@@ -641,10 +641,9 @@ public class MenuModel {
     private boolean productNotExisted(ProductOrder productOrder, int productPrice) {
         ProductOrder existingOrder = isExistingOrder(productOrder);
 
-        // If the product exists, increase its quantity
         if (existingOrder != null) {
             productExists(existingOrder, productPrice);
-            return false; // Exit the method since no new pane needs to be created
+            return false;
         } else {
             return true;
         }

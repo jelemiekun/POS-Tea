@@ -53,38 +53,15 @@ ihhide yung accounts excel
 
 unahin muna helper messages
 
-DESIGN NG NOT AVAILABLE PRODUCTS SA MENU
-
-i trim mga inputs PARA WALANG EXTRA SPACES
-
 codes ng account settings
-
-BAWAL MAG ADD NG PRODUCT PAG WALANG NAME
-
-nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
 
 kapag mag i import, dapat bawal duplication
 
 helper message sa add product na you can leave some fields empty (???)
 
 
-so kapag walang name, lalabas na pop up prompt na name cannot be blank. if may name tapos walang laman yung ibang fields, some fields naman lalabas na prompt
-
-total products pa rin binibilang pero may maliit na text nalang na nakalagay kung ilan yung unavailable
-
-gear na icon sa settings
-
-
-
-
-
-
-
-
 
 sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery questions, pagkapindot ng register, lalabas na tac
-
-sa upper left na need help gettingstarted tapos sa upper right na yung add product (hyperlink lang)
 
 
 
@@ -93,11 +70,7 @@ wag stretch images
 
 either hover or click or nasa scroll nalang sa baba yung receipt
 
-sa lahat ng pages sa left panel, ilagay yung time and date, mag iiba lang positioning sa menu at dashboard
-
 lalabas din sa order history kahit void/cancelled
-
-maglagay ng maliit na somethin
 
 tanong namin sa seller kung ilang products lalabas sa all time favs
 
@@ -116,16 +89,18 @@ system manual - "CSV" gawing Menu
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 
-kahit cancelled, dire diretso
+kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
 
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 
+hindi babasahin ng current editing product yung sa allavailablelist para hindi maconsider as duplicate product
+
+
+lowest possible na amount lang sa milk tea coolers ay sa sizes lang babasahin
 
 
 
-
-DFD, MAWAWALA NA YUNG "MARK ORDER AS DONE" at "GEnerate order". AFTER NG STEP 3, ORDER HISTORY NA AGAD. LAGYAIN DIN NG NUMBER YUNG DFD DATABASE
 
 
 
@@ -295,7 +270,7 @@ pagsama samahin nalang yunng processes // research ipo
 
 alisin new account sa output at dashboard content alisin na, isama na resibo sa output // resaerch ipo
 
-
+DFD, MAWAWALA NA YUNG "MARK ORDER AS DONE" at "GEnerate order". AFTER NG STEP 3, ORDER HISTORY NA AGAD. LAGYAIN DIN NG NUMBER YUNG DFD DATABASE // dfd
 
 
 
@@ -557,3 +532,23 @@ what if hindi na set up yung recovery question? lalabas pa rin ba sa forgot pass
 if may unnamed product, lalabas nalang si pop up na this name cannot be blank, tapos mawawala na si some fields are blank? ganon nalang ata
 
 tapos if some products are not available, kasama pa ba sya sa bibilangin sa category result? ano basehan ng number result?
+
+sa lahat ng pages sa left panel, ilagay yung time and date, mag iiba lang positioning sa menu at dashboard ( DI NA NAGIBA SA MENU AT DASHBOARD, PARE PAREHO NA LAHAT)
+
+BAWAL MAG ADD NG PRODUCT PAG WALANG NAME
+
+nasa menu pa rin yung unavailable products pero nakahiwalay na sa pinaka baba
+
+DESIGN NG NOT AVAILABLE PRODUCTS SA MENU
+
+i trim mga inputs PARA WALANG EXTRA SPACES
+
+so kapag walang name, lalabas na pop up prompt na name cannot be blank. if may name tapos walang laman yung ibang fields, some fields naman lalabas na prompt
+
+total products pa rin binibilang pero may maliit na text nalang na nakalagay kung ilan yung unavailable
+
+maglagay ng maliit na somethin ( ano nanaman to putangina )
+
+sa upper left na need help gettingstarted tapos sa upper right na yung add product (hyperlink lang)
+
+gear na icon sa settings
