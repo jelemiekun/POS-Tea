@@ -667,39 +667,39 @@ public class ProductModel {
 
     private void setAttributes(boolean isSomeReferenceExisted) {
         if (!isSomeReferenceExisted) {
-            referenceProductName = productController.textFieldProductName.getText();
-            referenceProductDescription = productController.textFieldProductDescription.getText();
-            referenceCategory = productController.comboBoxCategories.getValue();
+            referenceProductName = productController.textFieldProductName.getText().trim();
+            referenceProductDescription = productController.textFieldProductDescription.getText().trim();
+            referenceCategory = productController.comboBoxCategories.getValue().trim();
             // referenceImagePath, na set na sa setImagePathValue();
         }
 
         switch (referenceCategory) {
             case "Milk Tea":
-                referenceMilkTeaSmallPrice = productController.milkTeaTextFieldSmallPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldSmallPrice.getText());
-                referenceMilkTeaMediumPrice = productController.milkTeaTextFieldMediumPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldMediumPrice.getText());
-                referenceMilkTeaLargePrice = productController.milkTeaTextFieldLargePrice.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldLargePrice.getText());
-                referenceMilkTeaAddOnsOneName = productController.milkTeaTextFieldAddOnsOneName.getText();
-                referenceMilkTeaAddOnsOnePrice = productController.milkTeaTextFieldAddOnsPriceOne.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceOne.getText());
-                referenceMilkTeaAddOnsTwoName = productController.milkTeaTextFieldAddOnsTwoName.getText();
-                referenceMilkTeaAddOnsTwoPrice = productController.milkTeaTextFieldAddOnsPriceTwo.getText().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceTwo.getText());
+                referenceMilkTeaSmallPrice = productController.milkTeaTextFieldSmallPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldSmallPrice.getText().trim());
+                referenceMilkTeaMediumPrice = productController.milkTeaTextFieldMediumPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldMediumPrice.getText().trim());
+                referenceMilkTeaLargePrice = productController.milkTeaTextFieldLargePrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldLargePrice.getText().trim());
+                referenceMilkTeaAddOnsOneName = productController.milkTeaTextFieldAddOnsOneName.getText().trim();
+                referenceMilkTeaAddOnsOnePrice = productController.milkTeaTextFieldAddOnsPriceOne.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceOne.getText().trim());
+                referenceMilkTeaAddOnsTwoName = productController.milkTeaTextFieldAddOnsTwoName.getText().trim();
+                referenceMilkTeaAddOnsTwoPrice = productController.milkTeaTextFieldAddOnsPriceTwo.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.milkTeaTextFieldAddOnsPriceTwo.getText().trim());
                 break;
             case "Coolers":
-                referenceCoolersSmallPrice = productController.coolersTextFieldSmallPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldSmallPrice.getText());
-                referenceCoolersMediumPrice = productController.coolersTextFieldMediumPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldMediumPrice.getText());
-                referenceCoolersLargePrice = productController.coolersTextFieldLargePrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldLargePrice.getText());
-                referenceCoolersAddOnsOneName = productController.coolersTextFieldAddOnsOneName.getText();
-                referenceCoolersAddOnsOnePrice = productController.coolersTextFieldAddOnsPriceOne.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceOne.getText());
-                referenceCoolersAddOnsTwoName = productController.coolersTextFieldAddOnsTwoName.getText();
-                referenceCoolersAddOnsTwoPrice = productController.coolersTextFieldAddOnsPriceTwo.getText().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceTwo.getText());
+                referenceCoolersSmallPrice = productController.coolersTextFieldSmallPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldSmallPrice.getText().trim());
+                referenceCoolersMediumPrice = productController.coolersTextFieldMediumPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldMediumPrice.getText().trim());
+                referenceCoolersLargePrice = productController.coolersTextFieldLargePrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldLargePrice.getText().trim());
+                referenceCoolersAddOnsOneName = productController.coolersTextFieldAddOnsOneName.getText().trim();
+                referenceCoolersAddOnsOnePrice = productController.coolersTextFieldAddOnsPriceOne.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceOne.getText().trim());
+                referenceCoolersAddOnsTwoName = productController.coolersTextFieldAddOnsTwoName.getText().trim();
+                referenceCoolersAddOnsTwoPrice = productController.coolersTextFieldAddOnsPriceTwo.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coolersTextFieldAddOnsPriceTwo.getText().trim());
                 break;
             case "Coffee":
-                referenceCoffeePrice = productController.coffeeTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.coffeeTextFieldPrice.getText());
+                referenceCoffeePrice = productController.coffeeTextFieldPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.coffeeTextFieldPrice.getText().trim());
                 break;
             case "Ice Candy Cups":
-                referenceIceCandyCupsPrice = productController.iceCandyCupsTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.iceCandyCupsTextFieldPrice.getText());
+                referenceIceCandyCupsPrice = productController.iceCandyCupsTextFieldPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.iceCandyCupsTextFieldPrice.getText().trim());
                 break;
             case "Appetizers":
-                referenceAppetizersPrice = productController.appetizerTextFieldPrice.getText().isBlank() ? 0 : Double.parseDouble(productController.appetizerTextFieldPrice.getText());
+                referenceAppetizersPrice = productController.appetizerTextFieldPrice.getText().trim().isBlank() ? 0 : Double.parseDouble(productController.appetizerTextFieldPrice.getText().trim());
                 break;
         }
 

@@ -951,7 +951,7 @@ public class MenuModel {
         boolean checkedModeOfPayment = checkModeOfPayment();
 
         if (checkedCustomerName && checkedAmountPaid && checkedModeOfPayment) {
-            String amountPaid = mainController.textFieldMenuEnterAmount.getText();
+            String amountPaid = mainController.textFieldMenuEnterAmount.getText().trim();
             setProceedPayment(amountPaid);
 
             if (mainController.mainModel.openPrompt()) {
@@ -1012,7 +1012,7 @@ public class MenuModel {
     }
 
     private boolean checkCustomerName() {
-        referenceCustomerName = mainController.textFieldMenuCustomerName.getText();
+        referenceCustomerName = mainController.textFieldMenuCustomerName.getText().trim();
 
         if (!referenceCustomerName.isBlank()) {
             return true;
@@ -1024,7 +1024,7 @@ public class MenuModel {
 
     private boolean checkAmountPaid() {
         if (!mainController.textFieldMenuEnterAmount.getText().isBlank()) {
-            referenceAmountPaid = (int) Double.parseDouble(mainController.textFieldMenuEnterAmount.getText());
+            referenceAmountPaid = (int) Double.parseDouble(mainController.textFieldMenuEnterAmount.getText().trim());
 
             if (referenceAmountPaid >= referenceTotalPrice) {
                 return true;
@@ -1041,7 +1041,7 @@ public class MenuModel {
 
     private boolean checkModeOfPayment() {
         if (mainController.textFieldModeOfPaymentOthers.isVisible()) {
-            referenceModeOfPayment = mainController.textFieldModeOfPaymentOthers.getText();
+            referenceModeOfPayment = mainController.textFieldModeOfPaymentOthers.getText().trim();
         }
 
         if (!referenceModeOfPayment.isBlank()) {
