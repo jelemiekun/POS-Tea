@@ -100,6 +100,12 @@ kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
 
 // SA DULO NA TO
 
+from executable jar file, gawing .exe yung system
+
+ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
+
+lagyan ng "INCOMPATIBLE SCREEN RESOLUTION." if nag run yung system sa medyo maliit na resolution
+
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 itrim settings acount, sa register, at sa forgot password
