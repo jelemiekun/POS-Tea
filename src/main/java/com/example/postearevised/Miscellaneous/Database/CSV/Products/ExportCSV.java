@@ -120,11 +120,11 @@ public class ExportCSV {
 
                 writer.println(sb);
             }
-            return 4;
+            return 4; // success
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-            return 0;
+            return 0; // error, do nothing
         }
     }
 

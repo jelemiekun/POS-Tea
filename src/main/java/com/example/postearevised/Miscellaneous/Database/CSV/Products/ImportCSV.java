@@ -33,15 +33,22 @@ public class ImportCSV {
         ObservableList<Product> importedAppetizers = FXCollections.observableArrayList();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String headerLine = reader.readLine(); // Read the header
+            if (headerLine != null) {
+                String[] fields = headerLine.split(",");
+                if (fields.length != 21) {
+                    return 2;
+                }
+            } else {
+                return 2;
+            }
+
             boolean repeatCategory = true;
             boolean repeatBlankCells = true;
             String line;
-            reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
-                if (fields.length > 22) {
-                    return 2;
-                }
+
 
                 String productName = fields[0];
                 String productDescription = fields[1];
