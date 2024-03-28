@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
@@ -319,9 +320,17 @@ public class MainController implements Initializable {
      * Dashboard
      */
     @FXML
-    public Label labelDashboardDateAndTIme;
+    public ChoiceBox<String> dashboardChoiceBoxFirstSelection;
     @FXML
-    public Label labelDashBoardNoSalesPieChart;
+    public ChoiceBox<String> dashboardChoiceBoxSecondSelection;
+    @FXML
+    public ChoiceBox<String> dashboardChoiceBoxThirdSelection;
+    @FXML
+    public ChoiceBox<String> dashboardChoiceBoxFourthSelection;
+    @FXML
+    public BarChart<?, ?> dashboardBarChart;
+    @FXML
+    public Label labelDashboardDateAndTIme;
     @FXML
     public Label labelDashBoardNoSalesBestSeller;
     @FXML
@@ -330,8 +339,6 @@ public class MainController implements Initializable {
     public Label labelDashboardTotalCustomer;
     @FXML
     public Label labelDashboardTotalOrder;
-    @FXML
-    public PieChart pieChartDashboard;
     @FXML
     public FlowPane flowPaneBestSeller;
 

@@ -3,17 +3,10 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
-import javafx.beans.binding.Bindings;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -21,7 +14,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.SETTINGS_ENUM;
-import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.SystemManual;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
@@ -154,7 +146,7 @@ public class DashboardModel {
 
     private void updateUIs() {
         updateUIRevenueCustomerAndOrder();
-        updateUIPieChart();
+        updateUIBarChart();
         updateUIBestSeller();
     }
 
@@ -164,68 +156,8 @@ public class DashboardModel {
         mainController.labelDashboardTotalOrder.setText(String.valueOf(referenceTotalOrder));
     }
 
-    private void updateUIPieChart() {
-        mainController.pieChartDashboard.getData().clear();
+    private void updateUIBarChart() {
 
-        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-
-        int totalCounter = referenceMilkTeaCounter + referenceCoolersCounter + referenceCoffeeCounter + referenceIceCandyCupsCounter + referenceAppetizerCounter;
-        if (totalCounter == 0) {
-            PieChart.Data emptyData = new PieChart.Data("Empty", 100);
-            emptyData.nodeProperty().addListener((observable, oldValue, newValue) -> {
-                if (newValue != null) {
-                    newValue.setStyle("-fx-pie-color: #808080;");
-                }
-            });
-            pieChartData.add(emptyData);
-
-            isNoSalesLabelsVisible(true);
-        } else {
-            isNoSalesLabelsVisible(false);
-
-            if (referenceMilkTeaCounter > 0) {
-                pieChartData.add(new PieChart.Data(MILK_TEA_ENUM.getCategory(), (referenceMilkTeaCounter * 100.0) / totalCounter));
-            }
-            if (referenceCoolersCounter > 0) {
-                pieChartData.add(new PieChart.Data(COOLERS_ENUM.getCategory(), (referenceCoolersCounter * 100.0) / totalCounter));
-            }
-            if (referenceCoffeeCounter > 0) {
-                pieChartData.add(new PieChart.Data(COFFEE_ENUM.getCategory(), (referenceCoffeeCounter * 100.0) / totalCounter));
-            }
-            if (referenceIceCandyCupsCounter > 0) {
-                pieChartData.add(new PieChart.Data(ICE_CANDY_CUPS_ENUM.getCategory(), (referenceIceCandyCupsCounter * 100.0) / totalCounter));
-            }
-            if (referenceAppetizerCounter > 0) {
-                pieChartData.add(new PieChart.Data(APPETIZERS_ENUM.getCategory(), (referenceAppetizerCounter * 100.0) / totalCounter));
-            }
-
-            for (int i = 0; i < pieChartData.size(); i++) {
-                PieChart.Data data = pieChartData.get(i);
-                String color = pieChartColors[i % pieChartColors.length];
-                data.nodeProperty().addListener((observable, oldValue, newValue) -> {
-                    if (newValue != null) {
-                        newValue.setStyle("-fx-pie-color: " + color + ";");
-                    }
-                });
-            }
-        }
-
-        pieChartData.forEach(data ->
-                data.nameProperty().bind(
-                        Bindings.concat(
-                                data.getName(), " ",
-                                Bindings.createStringBinding(() -> String.format("%.0f%%", data.getPieValue()), data.pieValueProperty())
-                        )
-                )
-        );
-
-        mainController.pieChartDashboard.getData().addAll(pieChartData);
-
-        for (Node legend : mainController.pieChartDashboard.lookupAll(".chart-legend-item")) {
-            if (legend instanceof Label) {
-                ((Label) legend).setFont(Font.font("Arial", FontWeight.NORMAL, 18));
-            }
-        }
     }
 
     private void updateUIBestSeller() {
@@ -306,13 +238,6 @@ public class DashboardModel {
 
             mainController.flowPaneBestSeller.getChildren().add(anchorPane);
         }
-    }
-
-
-
-    private void isNoSalesLabelsVisible(boolean isVisible) {
-        mainController.labelDashBoardNoSalesPieChart.setVisible(isVisible);
-        mainController.labelDashBoardNoSalesBestSeller.setVisible(isVisible);
     }
 
 

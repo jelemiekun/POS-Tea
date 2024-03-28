@@ -2,8 +2,11 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -64,86 +67,82 @@
                <children>
                   <AnchorPane layoutX="52.0" layoutY="14.0" prefHeight="819.0" prefWidth="1200.0">
                      <children>
-                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="88.0" prefHeight="280.0" prefWidth="1200.0">
+                        <FlowPane alignment="CENTER_LEFT" hgap="50.0" prefHeight="70.0" prefWidth="1200.0">
                            <children>
-                              <AnchorPane prefHeight="280.0" prefWidth="340.0">
+                              <ChoiceBox fx:id="dashboardChoiceBoxFirstSelection" prefHeight="25.0" prefWidth="212.0" />
+                              <ChoiceBox fx:id="dashboardChoiceBoxSecondSelection" prefHeight="25.0" prefWidth="212.0" />
+                              <ChoiceBox fx:id="dashboardChoiceBoxThirdSelection" prefHeight="25.0" prefWidth="212.0" />
+                              <ChoiceBox fx:id="dashboardChoiceBoxFourthSelection" prefHeight="25.0" prefWidth="212.0" />
+                           </children>
+                        </FlowPane>
+                        <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="60.0" layoutY="92.0" prefHeight="195.0" prefWidth="1200.0">
+                           <children>
+                              <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="280.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
-                                    <AnchorPane prefHeight="85.0" prefWidth="340.0">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+                                    <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="340.0" text="TOTAL&#10;REVENUE" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="26.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutY="83.0" prefHeight="195.0" prefWidth="340.0">
-                                       <children>
-                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="REVENUE HERE" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="36.0" prefWidth="235.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="15.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../Medias/Icons/Dashboard/Bank.png" />
                                              </image>
                                           </ImageView>
-                                       </children></AnchorPane>
-                                 </children></AnchorPane>
-                              <AnchorPane prefHeight="280.0" prefWidth="340.0">
-                                 <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="280.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
-                                    <AnchorPane prefHeight="85.0" prefWidth="340.0">
-                                       <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="340.0" text="TOTAL&#10;CUSTOMER" textAlignment="CENTER">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="360.0" text="TOTAL REVENUE" textAlignment="CENTER">
                                              <font>
-                                                <Font name="Arial" size="26.0" />
+                                                <Font name="Arial" size="18.0" />
                                              </font>
                                           </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutY="83.0" prefHeight="195.0" prefWidth="340.0">
+                                       </children></AnchorPane>
+                                 </children></AnchorPane>
+                              <AnchorPane prefHeight="195.0" prefWidth="360.0">
+                                 <children>
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+                                    <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="CUSTOMER HERE" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="27.0" prefWidth="235.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="15.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../Medias/Icons/Dashboard/Account.png" />
                                              </image>
                                           </ImageView>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="360.0" text="TOTAL CUSTOMER" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane prefHeight="280.0" prefWidth="340.0">
+                              <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="280.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
-                                    <AnchorPane prefHeight="85.0" prefWidth="340.0">
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+                                    <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="340.0" text="TOTAL&#10;ORDER" textAlignment="CENTER">
-                                             <font>
-                                                <Font name="Arial" size="26.0" />
-                                             </font>
-                                          </Label>
-                                       </children>
-                                    </AnchorPane>
-                                    <AnchorPane layoutY="83.0" prefHeight="195.0" prefWidth="340.0">
-                                       <children>
-                                          <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="27.0" prefWidth="340.0" text="ORDER HERE" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="27.0" prefWidth="235.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="30.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="122.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="95.0" fitWidth="99.0" layoutX="15.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../Medias/Icons/Dashboard/Account.png" />
                                              </image>
                                           </ImageView>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="360.0" text="TOTAL ORDER" textAlignment="CENTER">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -153,12 +152,14 @@
                         <AnchorPane layoutY="319.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-                              <PieChart fx:id="pieChartDashboard" layoutX="333.0" layoutY="45.0" prefHeight="419.0" prefWidth="535.0" />
-                              <Label fx:id="labelDashBoardNoSalesPieChart" layoutX="453.0" layoutY="20.0" text="No Sales Recorded" visible="false">
-                                 <font>
-                                    <Font name="Arial" size="34.0" />
-                                 </font>
-                              </Label>
+                              <BarChart fx:id="dashboardBarChart" layoutX="79.0" layoutY="24.0" prefHeight="453.0" prefWidth="1042.0" title="NO SALES RECORDED">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>
