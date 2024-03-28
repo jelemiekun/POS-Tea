@@ -66,8 +66,6 @@ sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery
 
 
 
-wag stretch images
-
 either hover or click or nasa scroll nalang sa baba yung receipt
 
 lalabas din sa order history kahit void/cancelled
@@ -131,10 +129,6 @@ i encrypt mga dapat i encreypt like like at pass
 ------------------MGA ITATANONG------------------
 
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
-
-gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
-
-kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
 
 
 
@@ -580,3 +574,9 @@ gear na icon sa settings
 hindi babasahin ng current editing product yung sa allavailablelist para hindi maconsider as duplicate product
 
 lowest possible na amount lang sa milk tea coolers ay sa sizes lang babasahin
+
+wag stretch images
+
+gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
+
+kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
