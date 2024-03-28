@@ -31,6 +31,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.NoSuchElementException;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
@@ -376,36 +377,44 @@ public class SettingsModel {
     public void deleteSelectedProductsProcess() {
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
-        if (!selectedItemsToDelete.isEmpty()) {
+        if (selectedItemsToDelete != null && !selectedItemsToDelete.isEmpty()) {
             setDeleteProduct();
             if (mainController.mainModel.openPrompt()) {
                 if (deleteProductInCSV(selectedItemsToDelete)) {
-                    deletingProductSuccess = true;
+                    try {
+                        deletingProductSuccess = true;
 
-                    Platform.runLater(() -> {
-                        for (Product product : selectedItemsToDelete) {
-                            if (product instanceof MilkTea milkTea) {
-                                availableMilkTeaObservableList.remove(milkTea);
-                                unavailableMilkTeaObservableList.remove(milkTea);
-                            } else if (product instanceof Coolers coolers) {
-                                availableCoolersObservableList.remove(coolers);
-                                unavailableCoolersObservableList.remove(coolers);
-                            } else if (product instanceof Coffee coffee) {
-                                availableCoffeeObservableList.remove(coffee);
-                                unavailableCoffeeObservableList.remove(coffee);
-                            } else if (product instanceof IceCandyCups iceCandyCups) {
-                                availableIceCandyCupsObservableList.remove(iceCandyCups);
-                                unavailableIceCandyCupsObservableList.remove(iceCandyCups);
-                            } else if (product instanceof Appetizer appetizer) {
-                                availableAppetizerObservableList.remove(appetizer);
-                                unavailableAppetizerObservableList.remove(appetizer);
+                        Platform.runLater(() -> {
+                            for (Product product : selectedItemsToDelete) {
+                                if (product instanceof MilkTea milkTea) {
+                                    availableMilkTeaObservableList.remove(milkTea);
+                                    unavailableMilkTeaObservableList.remove(milkTea);
+                                } else if (product instanceof Coolers coolers) {
+                                    availableCoolersObservableList.remove(coolers);
+                                    unavailableCoolersObservableList.remove(coolers);
+                                } else if (product instanceof Coffee coffee) {
+                                    availableCoffeeObservableList.remove(coffee);
+                                    unavailableCoffeeObservableList.remove(coffee);
+                                } else if (product instanceof IceCandyCups iceCandyCups) {
+                                    availableIceCandyCupsObservableList.remove(iceCandyCups);
+                                    unavailableIceCandyCupsObservableList.remove(iceCandyCups);
+                                } else if (product instanceof Appetizer appetizer) {
+                                    availableAppetizerObservableList.remove(appetizer);
+                                    unavailableAppetizerObservableList.remove(appetizer);
+                                }
+
+                                availableAllProductObservableList.remove(product);
+                                unavailableAllProductObservableList.remove(product);
+
+                                allProductObservableList.remove(product);
+
+
+                                refreshProductTable();
                             }
 
-                            availableAllProductObservableList.remove(product);
-                            unavailableAllProductObservableList.remove(product);
+                        });
 
-                            allProductObservableList.remove(product);
-                        }
+                        mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
 
                         refreshProductTable();
 
@@ -415,8 +424,13 @@ public class SettingsModel {
 
                             deletingProductSuccess = false;
                         }
-                    });
-
+                        
+                    } catch (NoSuchElementException | IndexOutOfBoundsException e) {
+                        errorMessage = e.getMessage();
+                        logError(false);
+                        setErrorDeleteProduct();
+                        mainController.mainModel.openPrompt();
+                    }
                 } else {
                     setErrorDeleteProduct();
                     mainController.mainModel.openPrompt();
