@@ -211,7 +211,10 @@ public class MenuModel {
                 for (Product product : availableMilkTeaObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableMilkTeaObservableList.isEmpty()) {
+                    if (availableMilkTeaObservableList.isEmpty())
+                        createEmptySpace();
 
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableMilkTeaObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(650);
@@ -228,7 +231,11 @@ public class MenuModel {
                 for (Product product : availableCoolersObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableCoolersObservableList.isEmpty()) {
+                    if (availableCoolersObservableList.isEmpty())
+                        createEmptySpace();
+
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableCoolersObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(663);
 
@@ -244,7 +251,11 @@ public class MenuModel {
                 for (Product product : availableCoffeeObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableCoffeeObservableList.isEmpty()) {
+                    if (availableCoffeeObservableList.isEmpty())
+                        createEmptySpace();
+
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableCoffeeObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(675);
 
@@ -260,7 +271,11 @@ public class MenuModel {
                 for (Product product : availableIceCandyCupsObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableIceCandyCupsObservableList.isEmpty()) {
+                    if (availableIceCandyCupsObservableList.isEmpty())
+                        createEmptySpace();
+
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableIceCandyCupsObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(550);
 
@@ -276,7 +291,11 @@ public class MenuModel {
                 for (Product product : availableAppetizerObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableAppetizerObservableList.isEmpty()) {
+                    if (availableAppetizerObservableList.isEmpty())
+                        createEmptySpace();
+
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableAppetizerObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(630);
 
@@ -292,7 +311,11 @@ public class MenuModel {
                 for (Product product : availableAllProductObservableList) {
                     addAvailableProductToFlowPane(product, product.getProductName(), product.getImage());
                 }
+
                 if (!unavailableAllProductObservableList.isEmpty()) {
+                    if (availableAllProductObservableList.isEmpty())
+                        createEmptySpace();
+
                     mainController.labelMenuCategoryUnavailableProductCounter.setText(unavailableAllProductObservableList.size() + " unavailable product(s)");
                     mainController.labelMenuCategoryUnavailableProductCounter.setLayoutX(783);
 
@@ -409,14 +432,15 @@ public class MenuModel {
         mainController.flowPaneMenu.getChildren().add(anchorPane);
     }
 
-    private void createEmptyLabel() {
+    private void createEmptySpace() {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefWidth(1100);
 
-        Label label = new Label("");
-        label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
+        Rectangle rectangle = new Rectangle(1100, 1);
+        rectangle.setFill(Color.WHITE);
+        rectangle.setOpacity(0.0);
 
-        anchorPane.getChildren().add(label);
+        anchorPane.getChildren().add(rectangle);
 
         mainController.flowPaneMenu.getChildren().add(anchorPane);
     }
