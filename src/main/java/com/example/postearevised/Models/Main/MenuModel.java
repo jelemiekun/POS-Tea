@@ -343,12 +343,12 @@ public class MenuModel {
         label.setEffect(setDropShadowRightDown());
 
         Label labelPrice = new Label();
-        labelPrice.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        labelPrice.setFont(Font.font("Arial", FontWeight.BOLD, 20));
         labelPrice.setTextFill(Color.WHITE);
         labelPrice.setEffect(setDropShadowRightDown());
 
         if (product instanceof MilkTea || product instanceof Coolers) {
-            labelPrice.setText("₱ " + (int) getLowestDoubleValue(product) + " - " + (int) getMaxCombinedPrice(product));
+            labelPrice.setText("from ₱ " + (int) getLowestDoubleValue(product));
         } else if (product instanceof Coffee coffee) {
             labelPrice.setText("₱ " + (int) coffee.getPrice());
         } else if (product instanceof IceCandyCups iceCandyCups) {
