@@ -449,23 +449,6 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
-    public static void setBlankCellsDetected() {
-        setIsConfirmedToFalse();
-
-        iconImageReference = QUESTION_MARK_ICON;
-        promptHeaderText = "Blank Cells Detected";
-        promptContentText = "Some cells in the imported CSV file contains blank data. How would you like to proceed?";
-        promptBtnLeftVisible = true;
-        promptBtnCenterVisible = false;
-        promptBtnRightVisible = true;
-        btnLeftImageReference = ADD_ANYWAY_BUTTON;
-        btnCenterImageReference = OKAY_BLACK_BUTTON;
-        btnRightImageReference = CANCEL_BUTTON;
-        btnLeftBoolean = true;
-        btnCenterBoolean = false;
-        btnRightBoolean = false;
-    }
-
     public static void setImportingProductsDuplicateFound() {
         setIsConfirmedToFalse();
 

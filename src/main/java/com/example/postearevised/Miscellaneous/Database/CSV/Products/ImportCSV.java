@@ -45,7 +45,6 @@ public class ImportCSV {
             }
 
             boolean repeatCategory = true;
-            boolean repeatBlankCells = true;
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] fields = line.split(",");
@@ -63,15 +62,6 @@ public class ImportCSV {
                         if (!isValidCategory(productCategory)) {
                             repeatCategory = false;
                             setErrorAddingProductCategory();
-                            if (!openPrompt())
-                                return 0;
-                        }
-                    }
-
-                    if (repeatBlankCells) {
-                        if (hasBlankCells(fields)) {
-                            repeatBlankCells = false;
-                            setBlankCellsDetected();
                             if (!openPrompt())
                                 return 0;
                         }
