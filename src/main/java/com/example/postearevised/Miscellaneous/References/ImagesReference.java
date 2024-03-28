@@ -82,5 +82,5 @@ public class ImagesReference {
     public static final Image milkTeaCategory = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/milk tea.png")));
     public static final Image milkTeasCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/milk tea selected.png")));
 
-    public static final Image productUnavailable = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/milk tea selected.png")));
+    public static final Image productUnavailable = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/not available.png")));
 }

@@ -424,7 +424,7 @@ public class SettingsModel {
 
                             deletingProductSuccess = false;
                         }
-                        
+
                     } catch (NoSuchElementException | IndexOutOfBoundsException e) {
                         errorMessage = e.getMessage();
                         logError(false);

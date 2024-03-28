@@ -281,7 +281,7 @@ public class ProductModel {
 
     public boolean isDuplicate() {
         for (Product existingProduct : allProductObservableList) {
-            if (existingProduct.getProductName().equals(referenceProductName) &&
+            if (existingProduct.getProductName().equalsIgnoreCase(referenceProductName) &&
                     existingProduct.getCategory().equals(referenceCategory)) {
                 return true;
             }
