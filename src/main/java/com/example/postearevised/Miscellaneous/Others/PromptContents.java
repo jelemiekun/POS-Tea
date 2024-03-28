@@ -194,21 +194,38 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
-    public static void setAddProductBlankFields() {
+    public static void setAddEditProductBlankFields() {
         setIsConfirmedToFalse();
 
-        iconImageReference = QUESTION_MARK_ICON;
+        iconImageReference = EX_RED_ICON;
         promptHeaderText = "Incomplete Information";
-        promptContentText = "Some fields are blank. Proceed?";
-        promptBtnLeftVisible = true;
-        promptBtnCenterVisible = false;
-        promptBtnRightVisible = true;
-        btnLeftImageReference = NO_BLACK_BUTTON;
-        btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = YES_BLACK_BUTTON;
+        promptContentText = "Cannot proceed because one or more fields are blank.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
         btnLeftBoolean = false;
-        btnCenterBoolean = false;
-        btnRightBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setAddEditProductNameBlank() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Product name empty!";
+        promptContentText = "Please input the name of your product.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
     }
 
     public static void setAddProductDuplicateError() {
@@ -217,6 +234,23 @@ public class PromptContents {
         iconImageReference = EX_RED_ICON;
         promptHeaderText = "Duplicate Product Found";
         promptContentText = "Cannot add product because a product with the same name and category already exists.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setEditProductDuplicateError() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Duplicate Product Found";
+        promptContentText = "Cannot edit product because a product with the same name and category already exists.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;

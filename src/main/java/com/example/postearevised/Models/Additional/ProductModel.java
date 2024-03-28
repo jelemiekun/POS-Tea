@@ -27,6 +27,7 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Prod
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.EXIT_CONFIRMATION_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setAddProductDuplicateError;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -214,35 +215,53 @@ public class ProductModel {
                 setAttributes(false);
                 if (isAddProductToListAndDatabase) {
 
-                    if (isDuplicate()) { // hindi success kasi may duplicate sa pag add
-                        setAddProductDuplicateError();
-                        success = !openPrompt();
+                    if (isProductNameEmpty()) { // hindi mag success kasi product name empty
+                        setAddEditProductNameBlank();
+                        openPrompt();
                     } else {
-                        if (isIncompleteInformation()) {
-                            setAddProductBlankFields();
-                            if (openPrompt()) { // open prompt for confirmation if some fields are blank
+                        if (isDuplicate()) { // hindi success kasi may duplicate sa pag add
+                            setAddProductDuplicateError();
+                            openPrompt();
+                        } else {
+                            if (isIncompleteInformation()) {
+                                setAddEditProductBlankFields();
+                                openPrompt();
+                            } else {
                                 boolean isCreatingProductSuccess = instantiateProduct(); // create product
                                 success = isCreatingProductSuccess;
                                 addingProductSuccess = isCreatingProductSuccess;
                             }
-                        } else {
-                            boolean isCreatingProductSuccess = instantiateProduct(); // create product
-                            success = isCreatingProductSuccess;
-                            addingProductSuccess = isCreatingProductSuccess;
                         }
                     }
 
                 } else {
-                    if (setObjectAttributesUpdateProduct()) { // edit product
-                        success = true;
-                        editingProductSuccess = true;
-                        System.out.println("gumagana line 205");
-                    } else {
-                        // AYUSIN TO, DAPAT IF ERROR, MAG REREVERT SA OLD VALUES YUNG EDITORSHOWSELECTEDPRODUCT
-                        System.out.println("Error edit product");
-                        setErrorEditProduct();
+
+                    if (isProductNameEmpty()) {
+                        setAddEditProductNameBlank();
                         openPrompt();
+                    } else {
+                        if (isDuplicateEditing()) {
+                            setEditProductDuplicateError();
+                            openPrompt();
+                        } else {
+                            if (isIncompleteInformation()) {
+                                setAddEditProductBlankFields();
+                                openPrompt();
+                            } else {
+                                if (setObjectAttributesUpdateProduct()) { // edit product
+                                    success = true;
+                                    editingProductSuccess = true;
+                                    System.out.println("gumagana line 205");
+                                } else {
+                                    // AYUSIN TO, DAPAT IF ERROR, MAG REREVERT SA OLD VALUES YUNG EDITORSHOWSELECTEDPRODUCT
+                                    System.out.println("Error edit product");
+                                    setErrorEditProduct();
+                                    openPrompt();
+                                }
+                            }
+                        }
                     }
+
                 }
             }
         }
@@ -253,36 +272,55 @@ public class ProductModel {
         }
     }
 
-    public boolean isIncompleteInformation() {
-        boolean productNameAndDescription = productController.textFieldProductName.getText().isBlank() ||
-                                            productController.textFieldProductDescription.getText().isBlank() ||
-                                            referenceImagePath.isBlank();
+    private boolean isProductNameEmpty() {
+        return productController.textFieldProductName.getText().trim().isEmpty();
+    }
 
+    private boolean isIncompleteInformation() {
         switch (referenceCategory) {
             case "Milk Tea":
-                return productController.milkTeaTextFieldSmallPrice.getText().isBlank() || productController.milkTeaTextFieldMediumPrice.getText().isBlank() ||
-                        productController.milkTeaTextFieldLargePrice.getText().isBlank() || productController.milkTeaTextFieldAddOnsOneName.getText().isBlank() ||
-                        productController.milkTeaTextFieldAddOnsPriceOne.getText().isBlank() || productController.milkTeaTextFieldAddOnsTwoName.getText().isBlank() ||
-                        productController.milkTeaTextFieldAddOnsPriceTwo.getText().isBlank() || productNameAndDescription;
+                return productController.milkTeaTextFieldSmallPrice.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldMediumPrice.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldLargePrice.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsOneName.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsPriceOne.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsTwoName.getText().trim().isBlank() ||
+                        productController.milkTeaTextFieldAddOnsPriceTwo.getText().trim().isBlank();
             case "Coolers":
-                return productController.coolersTextFieldSmallPrice.getText().isBlank() || productController.coolersTextFieldMediumPrice.getText().isBlank() ||
-                        productController.coolersTextFieldLargePrice.getText().isBlank() || productController.coolersTextFieldAddOnsOneName.getText().isBlank() ||
-                        productController.coolersTextFieldAddOnsPriceOne.getText().isBlank() || productController.coolersTextFieldAddOnsTwoName.getText().isBlank() ||
-                        productController.coolersTextFieldAddOnsPriceTwo.getText().isBlank() || productNameAndDescription;
+                return productController.coolersTextFieldSmallPrice.getText().trim().isBlank() ||
+                        productController.coolersTextFieldMediumPrice.getText().trim().isBlank() ||
+                        productController.coolersTextFieldLargePrice.getText().trim().isBlank() ||
+                        productController.coolersTextFieldAddOnsOneName.getText().trim().isBlank() ||
+                        productController.coolersTextFieldAddOnsPriceOne.getText().trim().isBlank() ||
+                        productController.coolersTextFieldAddOnsTwoName.getText().trim().isBlank() ||
+                        productController.coolersTextFieldAddOnsPriceTwo.getText().trim().isBlank();
             case "Coffee":
-                return productController.coffeeTextFieldPrice.getText().isBlank() || productNameAndDescription;
+                return productController.coffeeTextFieldPrice.getText().trim().isBlank();
             case "Ice Candy Cups":
-                return productController.iceCandyCupsTextFieldPrice.getText().isBlank() || productNameAndDescription;
+                return productController.iceCandyCupsTextFieldPrice.getText().trim().isBlank();
             case "Appetizers":
-                return productController.appetizerTextFieldPrice.getText().isBlank() || productNameAndDescription;
+                return productController.appetizerTextFieldPrice.getText().trim().isBlank();
+            default:
+                return true;
         }
-        return productNameAndDescription;
     }
 
     public boolean isDuplicate() {
         for (Product existingProduct : allProductObservableList) {
             if (existingProduct.getProductName().equalsIgnoreCase(referenceProductName) &&
                     existingProduct.getCategory().equals(referenceCategory)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isDuplicateEditing() {
+        String newProductName = productController.textFieldProductName.getText().trim();
+
+        for (Product existingProduct: allProductObservableList) {
+            if (existingProduct.getProductName().equalsIgnoreCase(newProductName) &&
+                existingProduct.getCategory().equals(referenceCategory)) {
                 return true;
             }
         }
