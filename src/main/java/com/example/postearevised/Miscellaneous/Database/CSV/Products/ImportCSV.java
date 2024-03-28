@@ -260,8 +260,6 @@ public class ImportCSV {
                 unavailableAppetizerObservableList.add(appetizer);
         }
 
-
-
         if (fromImport) {
             for (Product product : productsToAdd) {
                 addProductToCSV(product);

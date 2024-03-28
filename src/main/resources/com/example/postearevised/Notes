@@ -276,6 +276,8 @@ it requires 16:9 product ratio in order for the image not to be strectched.
 
 can accept long string inputs but its not recommended, if its too long, it will show as "..."
 
+IF sa pag import, dumoble and coolers, advised na irestart ang program since sign yon ng out of memory na ang program at mataas ang chance magkaroon ng unexpected behaviors
+
 
 
 

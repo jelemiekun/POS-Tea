@@ -191,6 +191,8 @@ public class SettingsModel {
     }
 
     public void comboBoxValueSelected() {
+        isAddingProductsFromImport = true;
+
         mainController.mainModel.showRectangleModal();
         String selected = mainController.importExportComboBox.getValue();
 
@@ -225,6 +227,8 @@ public class SettingsModel {
         }
         mainController.mainModel.hideRectangleModal();
         mainController.importExportComboBox.setValue("Import/Export CSV");
+
+        isAddingProductsFromImport = false;
     }
 
     /**
