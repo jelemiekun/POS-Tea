@@ -421,8 +421,8 @@ public class MenuModel {
         anchorPane.setPrefHeight(height);
         imageView.setFitWidth(width);
         imageView.setFitHeight(height);
-        imageView1.setFitWidth(105);
-        imageView1.setFitHeight(105);
+        imageView1.setFitWidth(110);
+        imageView1.setFitHeight(110);
 
         AnchorPane.setTopAnchor(label, 15.0);
         AnchorPane.setLeftAnchor(label, 20.0);
