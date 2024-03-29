@@ -50,10 +50,10 @@ public class DashboardModel {
     }
 
     private void setStyles() {
-        mainController.dashboardComboBoxFirstSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
-        mainController.dashboardComboBoxSecondSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
-        mainController.dashboardComboBoxThirdSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
-        mainController.dashboardComboBoxFourthSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
+        mainController.dashboardComboBoxFirstSelection.setStyle(dashboardComboBoxStyle);
+        mainController.dashboardComboBoxSecondSelection.setStyle(dashboardComboBoxStyle);
+        mainController.dashboardComboBoxThirdSelection.setStyle(dashboardComboBoxStyle);
+        mainController.dashboardComboBoxFourthSelection.setStyle(dashboardComboBoxStyle);
     }
 
     private void setFirstChoiceBox() {

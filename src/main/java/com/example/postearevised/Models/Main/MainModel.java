@@ -277,6 +277,45 @@ public class MainModel {
 
         Tooltip.install(mainController.anchorPaneMenuGoToEditProducts, menuGoToEditProducts);
         Tooltip.install(mainController.anchorPaneMenuIsEmptyInner, menuGoToEditProducts);
+
+        // order queue
+        Tooltip orderQueueNoOrders = new Tooltip("No order");
+
+        orderQueueNoOrders.setStyle(toolTipStyle);
+
+        Tooltip.install(mainController.orderQueueAnchorPaneNoOrder, orderQueueNoOrders);
+
+        // order history
+        Tooltip orderHistoryComboBoxFilterBy = new Tooltip("Filter search");
+
+        orderHistoryComboBoxFilterBy.setStyle(toolTipStyle);
+
+        Tooltip.install(mainController.comboBoxOrderHistory, orderHistoryComboBoxFilterBy);
+
+        //settings
+        Tooltip settingsEditProductImportExportMenu = new Tooltip("Import/Export Menu");
+        Tooltip settingsAppearanceLight = new Tooltip("Switch color light");
+        Tooltip settingsAppearanceDark = new Tooltip("Switch color dark");
+        Tooltip settingsAppearanceRed = new Tooltip("Switch color red");
+        Tooltip settingsAppearanceOrange = new Tooltip("Switch color orange");
+        Tooltip settingsAppearanceYellow = new Tooltip("Switch color yellow");
+        Tooltip settingsAppearanceGreen = new Tooltip("Switch color green");
+
+        settingsEditProductImportExportMenu.setStyle(toolTipStyle);
+        settingsAppearanceLight.setStyle(toolTipStyle);
+        settingsAppearanceDark.setStyle(toolTipStyle);
+        settingsAppearanceRed.setStyle(toolTipStyle);
+        settingsAppearanceOrange.setStyle(toolTipStyle);
+        settingsAppearanceYellow.setStyle(toolTipStyle);
+        settingsAppearanceGreen.setStyle(toolTipStyle);
+
+        Tooltip.install(mainController.importExportComboBox, settingsEditProductImportExportMenu);
+        Tooltip.install(mainController.settingsAppearanceRectangleLight, settingsAppearanceLight);
+        Tooltip.install(mainController.settingsAppearanceRectangleDark, settingsAppearanceDark);
+        Tooltip.install(mainController.settingsAppearanceRectangleRed, settingsAppearanceRed);
+        Tooltip.install(mainController.settingsAppearanceRectangleOrange, settingsAppearanceOrange);
+        Tooltip.install(mainController.settingsAppearanceRectangleYellow, settingsAppearanceYellow);
+        Tooltip.install(mainController.settingsAppearanceRectangleGreen, settingsAppearanceGreen);
     }
 
 

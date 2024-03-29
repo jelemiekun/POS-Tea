@@ -50,4 +50,7 @@ public class GeneralReference {
     public static DateTimeFormatter transactionIDFormatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 
     public static final String toolTipStyle = "-fx-font-family: Arial; -fx-font-size: 14px;";
+    public static final String dashboardComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 18px;";
+    public static final String orderHistoryComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 30px;";
+    public static final String settingEditProductImportExportComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 18px;";
 }

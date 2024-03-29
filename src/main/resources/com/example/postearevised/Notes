@@ -8,10 +8,6 @@ paikliin product names sa resibo (ALISIN A E I O U)
 
 name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
 
-tooltips, basta lagyan lahat ng dapat lagyan
-
-maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin sa system manual na sortable sya, tapos may maliit na text na nakalagay na pede mapindot yung header para ma sort
-
 order receipt - update resibo content
 
 palitan recovery questions sa second phase ng forgot pass
@@ -26,8 +22,6 @@ may mag ppop up if may changes na nadetect sa directory
 
 ihhide yung accounts excel
 
-lagyan ng listener (esc, enter ganon) mga fxml
-
 unahin muna helper messages
 
 codes ng account settings
@@ -40,11 +34,13 @@ if mag eedit or mag ddelete ng account, hihingin password
 
 pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
 
-system manual - "CSV" gawing Menu
-
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
+
+IF NASA ORDER LIST TAPOS NILOGOUT/INEXIT TAPOS PUMASOK ULIT, TAPOS NASA ORDER NA, NAGLOLOKO!!!
+
+MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 
 
@@ -56,7 +52,7 @@ GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN K
 
 // SA DULO NA TO
 
-from executable jar file, gawing .exe yung system
+from executable jar file, gawing .exe yung system ( optional )
 
 ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
 
@@ -74,18 +70,11 @@ DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
 new password cannot be the same as old password error
 
-ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
-
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
-
-helper messages
-
-i hide helper messeages sa settings
-
-may option na ion/off yung notification
 
 i encrypt mga dapat i encreypt like like at pass
 
+lagyan ng listener (esc, enter ganon) mga fxml
 
 
 ------------------MGA ITATANONG------------------
@@ -586,3 +575,17 @@ sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery
 transaction number magiging 2024-01-31-19-09-23 nalang
 
 IDOUBLE CHECK IF TAMA AND PAREHO BA YUNG TERMS AND CONDITIONS SA REGISTER AT SETTINGS
+
+tooltips, basta lagyan lahat ng dapat lagyan
+
+maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin sa system manual na sortable sya, tapos may maliit na text na nakalagay na pede mapindot yung header para ma sort ( tangina ano to )
+
+system manual - "CSV" gawing Menu
+
+ADJUST MGA ELEMENTS IF VISIBLE YUNG TASKBAR
+
+helper messages
+
+i hide helper messeages sa settings
+
+may option na ion/off yung notification

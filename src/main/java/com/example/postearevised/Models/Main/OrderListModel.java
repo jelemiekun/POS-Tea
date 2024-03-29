@@ -11,6 +11,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -183,6 +184,10 @@ public class OrderListModel {
         AnchorPane.setLeftAnchor(imageView, 95.0);
 
         anchorPane.getChildren().addAll(rectangle, orderNumberLabel, customerNameLabel, innerAnchorPane, imageView);
+
+        Tooltip orderQueueOrderAnchorPane = new Tooltip("Click to view");
+        orderQueueOrderAnchorPane.setStyle(toolTipStyle);
+        Tooltip.install(anchorPane, orderQueueOrderAnchorPane);
 
         mainController.flowPaneOrderQueue.getChildren().add(anchorPane);
     }

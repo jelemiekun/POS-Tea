@@ -13,6 +13,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -810,6 +811,15 @@ public class MenuModel {
             anchorPane.getChildren().add(deleteImageView);
 
             updateTotalAmountOfOrder();
+
+            Tooltip menuProductOrderClickToEdit = new Tooltip("Click to edit");
+            Tooltip menuProductOrderDeleteProduct = new Tooltip("Delete item");
+
+            menuProductOrderClickToEdit.setStyle(toolTipStyle);
+            menuProductOrderDeleteProduct.setStyle(toolTipStyle);
+
+            Tooltip.install(innerAnchorPane, menuProductOrderClickToEdit);
+            Tooltip.install(deleteImageView, menuProductOrderDeleteProduct);
 
             mainController.flowPaneOrdersSelected.getChildren().add(anchorPane);
         }

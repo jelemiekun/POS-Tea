@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -34,6 +31,8 @@ import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.orderHistoryComboBoxStyle;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.toolTipStyle;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -86,7 +85,7 @@ public class OrderHistoryModel {
 
     private void setComboBox() {
         mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
-        mainController.comboBoxOrderHistory.setStyle("-fx-font-family: Arial; -fx-font-size: 30px;");
+        mainController.comboBoxOrderHistory.setStyle(orderHistoryComboBoxStyle);
 
         mainController.comboBoxOrderHistory.setValue(TRANSACTION_ID_ENUM.getTitle());
         getComboBoxValue();
@@ -184,6 +183,22 @@ public class OrderHistoryModel {
             };
         });
 
+        mainController.tableViewOrderHistory.setRowFactory(tv -> {
+            TableRow<Order> row = new TableRow<>();
+            Tooltip orderHistoryTableRow = new Tooltip("View record details");
+            orderHistoryTableRow.setStyle(toolTipStyle);
+
+            row.setOnMouseEntered(event -> {
+                Order rowData = row.getItem();
+                if (rowData != null) {
+                    Tooltip.install(row, orderHistoryTableRow);
+                }
+            });
+
+            row.setOnMouseExited(event -> Tooltip.uninstall(row, orderHistoryTableRow));
+
+            return row;
+        });
     }
 
     private void setReorderToFalse() {
@@ -322,6 +337,10 @@ public class OrderHistoryModel {
             placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+
+            Tooltip orderHistoryEmpty = new Tooltip("Empty order history");
+            orderHistoryEmpty.setStyle(toolTipStyle);
+            Tooltip.install(placeholderLabel, orderHistoryEmpty);
         }
         //setReverseItem(); wag to i uncomment, mag w-wierd as fuck
     }

@@ -639,7 +639,7 @@
                   </ScrollPane>
                   <AnchorPane fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
                      <children>
-                        <AnchorPane prefHeight="500.0" prefWidth="350.0">
+                        <AnchorPane fx:id="orderQueueAnchorPaneNoOrder" prefHeight="500.0" prefWidth="350.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
                               <Label layoutX="94.0" layoutY="157.0" text="NO&#10;ORDER" textAlignment="CENTER">
@@ -1012,7 +1012,7 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <ComboBox fx:id="importExportComboBox" layoutX="33.0" layoutY="23.0" onAction="#importExportOnAction" prefHeight="40.0" prefWidth="200.0" promptText="Import/Export CSV" />
+                              <ComboBox fx:id="importExportComboBox" layoutX="60.0" layoutY="23.0" onAction="#importExportOnAction" prefHeight="40.0" prefWidth="230.0" promptText="Import/Export CSV" />
                            </children>
                         </AnchorPane>
                         <TableView fx:id="tableProducts" layoutX="60.0" layoutY="139.0" onKeyPressed="#tableProductsPressedEnter" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1200.0">
@@ -1098,7 +1098,7 @@
                                                    <children>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleLight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <effect>
                                                                   <InnerShadow />
                                                                </effect>
@@ -1115,7 +1115,7 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleDark" arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1129,7 +1129,7 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleRed" arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1143,7 +1143,7 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleOrange" arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1157,7 +1157,7 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleYellow" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1171,7 +1171,7 @@
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleGreen" arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>

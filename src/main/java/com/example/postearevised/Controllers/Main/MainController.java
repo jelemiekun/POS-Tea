@@ -28,7 +28,6 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -604,6 +603,8 @@ public class MainController implements Initializable {
      * Order queue
      */
     @FXML
+    public AnchorPane orderQueueAnchorPaneNoOrder;
+    @FXML
     public FlowPane flowPaneOrderQueue;
     @FXML
     public Label labelOrderQueueDateAndTIme;
@@ -928,6 +929,18 @@ public class MainController implements Initializable {
     public CheckBox checkBoxSettingNotification;
     @FXML
     public CheckBox checkBoxSettingGuideMessages;
+    @FXML
+    public Rectangle settingsAppearanceRectangleLight;
+    @FXML
+    public Rectangle settingsAppearanceRectangleDark;
+    @FXML
+    public Rectangle settingsAppearanceRectangleRed;
+    @FXML
+    public Rectangle settingsAppearanceRectangleOrange;
+    @FXML
+    public Rectangle settingsAppearanceRectangleYellow;
+    @FXML
+    public Rectangle settingsAppearanceRectangleGreen;
 
     @FXML
     public void checkBoxSettingNotificationOnAction() {

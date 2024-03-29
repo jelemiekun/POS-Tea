@@ -10,9 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Label;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.media.Media;
@@ -187,6 +185,7 @@ public class SettingsModel {
     public void populateComboBoxImportExport() {
         mainController.importExportComboBox.getItems().addAll(IMPORT_EXPORT_ENUM.getImportOperation(), IMPORT_ENUM.getImportOperation(), EXPORT_ENUM.getImportOperation());
         mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
+        mainController.importExportComboBox.setStyle(settingEditProductImportExportComboBoxStyle);
     }
 
     public void comboBoxValueSelected() {
@@ -256,6 +255,23 @@ public class SettingsModel {
         mainController.tableProductsColProductName.setReorderable(false);
         mainController.tableProductsColCategory.setReorderable(false);
         mainController.tableProductsColAvailable.setReorderable(false);
+
+        mainController.tableProducts.setRowFactory(tv -> {
+            TableRow<Product> row = new TableRow<>();
+            Tooltip settingsEditProductTableProductTableRow = new Tooltip("View product");
+            settingsEditProductTableProductTableRow.setStyle(toolTipStyle);
+
+            row.setOnMouseEntered(event -> {
+                Product rowData = row.getItem();
+                if (rowData != null) {
+                    Tooltip.install(row, settingsEditProductTableProductTableRow);
+                }
+            });
+
+            row.setOnMouseExited(event -> Tooltip.uninstall(row, settingsEditProductTableProductTableRow));
+
+            return row;
+        });
     }
 
     public void openAddProductsFXML() {
@@ -453,6 +469,10 @@ public class SettingsModel {
             placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
             mainController.tableProducts.setPlaceholder(placeholderLabel);
+
+            Tooltip settingsEditProduct = new Tooltip("No product in menu");
+            settingsEditProduct.setStyle(toolTipStyle);
+            Tooltip.install(placeholderLabel, settingsEditProduct);
         }
     }
 
