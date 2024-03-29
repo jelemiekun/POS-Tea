@@ -26,16 +26,26 @@ import static com.example.postearevised.Miscellaneous.References.OrderQueueRefer
 
 public class OrderHistoryAndOrderQueueCSVOperations {
 
-    public static void createCSVFile(String filePath) {
+    public static void createOrderHistoryCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             // Write column headers to the CSV file
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
             setErrorCreatingCSVFile();
             openPrompt();
+        }
+    }
+
+    public static void createOrderQueueCSVFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID\n");
+            System.out.println("Creating order history csv file: " + filePath);
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
         }
     }
 
@@ -101,8 +111,9 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     int change = Integer.parseInt(parts[11]);
                     String modeOfPayment = parts[12];
                     LocalDateTime dateAndTime = LocalDateTime.parse(parts[13]);
+                    String transactionID = parts[15];
 
-                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime);
+                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID);
                     orders.add(order);
                 }
             }
@@ -189,6 +200,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 sb.append(imagePathBuilder).append(",");
             }
 
+            sb.append(order.getTransactionID()).append(",");
             sb.append("\n");
 
             writer.write(sb.toString());

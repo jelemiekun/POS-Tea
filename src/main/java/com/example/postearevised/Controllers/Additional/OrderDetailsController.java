@@ -34,6 +34,9 @@ public class OrderDetailsController implements Initializable {
     public Label labelOrderNumber;
 
     @FXML
+    public Label labelTransactionID;
+
+    @FXML
     public TableView<Order> tableViewRecordDetails;
 
     @FXML

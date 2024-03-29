@@ -13,9 +13,10 @@ public class Order {
     private int change;
     private final String modeOfPayment;
     private LocalDateTime dateAndTime;
+    private String transactionID;
 
     public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
-                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime) {
+                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID) {
         this.productOrderObservableList = productOrderObservableList;
         this.customerName = customerName;
         this.orderNumber = orderNumber;
@@ -24,6 +25,7 @@ public class Order {
         this.change = change;
         this.modeOfPayment = modeOfPayment;
         this.dateAndTime = dateAndTime;
+        this.transactionID = transactionID;
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {
@@ -34,6 +36,8 @@ public class Order {
         this.productOrderObservableList = productOrderObservableList;
         System.out.println("Bagong pinasang productOrderObsableList: " + productOrderObservableList.size());
     }
+
+    public String getTransactionID() { return transactionID; }
 
     public String getCustomerName() {
         return customerName;

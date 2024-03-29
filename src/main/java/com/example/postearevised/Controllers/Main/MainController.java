@@ -590,6 +590,8 @@ public class MainController implements Initializable {
     @FXML
     public TableView<Order> tableViewOrderHistory;
     @FXML
+    public TableColumn<Order, String> tableViewOrderHistoryColTransactionID;
+    @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColCustomerName;
     @FXML
     public TableColumn<Order, String> tableViewOrderHistoryColProductCategory;

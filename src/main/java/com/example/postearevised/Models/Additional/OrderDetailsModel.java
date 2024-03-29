@@ -128,6 +128,8 @@ public class OrderDetailsModel {
     }
 
     public void setHeader() {
+        orderDetailsController.labelTransactionID.setText(selectedOrderDetails.getTransactionID());
+
         orderDetailsController.labelOrderNumber.setText(String.valueOf(selectedOrderDetails.getOrderNumber()));
         orderDetailsController.labelOrderCustomerName.setText(selectedOrderDetails.getCustomerName());
 

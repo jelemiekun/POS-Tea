@@ -1056,9 +1056,11 @@ public class MenuModel {
         int change = referenceAmountPaid - referenceTotalPrice;
 
         referenceChange = change;
+        LocalDateTime orderDateAndTime = getOrderDateAndTime();
+        String transactionID = orderDateAndTime.format(transactionIDFormatter);
 
         return new Order(copyList, referenceCustomerName, referenceOrderNumber,
-                referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, getOrderDateAndTime());
+                referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, orderDateAndTime, transactionID);
     }
 
     private void addToOrderQueue(Order order) {

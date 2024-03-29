@@ -9,18 +9,6 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 public class ProductsCSVOperations {
-    public static void createOrderQueueCSVFile(String filePath) {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath\n");
-            System.out.println("Creating order history csv file: " + filePath);
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-        }
-    }
-
-
-
     public static void createProductsCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write("productName," +

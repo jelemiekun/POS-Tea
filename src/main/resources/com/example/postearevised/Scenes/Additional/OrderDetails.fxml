@@ -1,83 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#requestFocusMainPane" onTouchReleased="#requestFocusMainPane" prefHeight="769.0" prefWidth="1198.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.OrderDetailsController">
+<AnchorPane fx:id="anchorPaneMain" onMouseClicked="#requestFocusMainPane" onTouchReleased="#requestFocusMainPane" prefHeight="780.0" prefWidth="1213.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.OrderDetailsController">
    <children>
-      <AnchorPane prefHeight="197.0" prefWidth="1198.0">
-         <children>
-            <Label layoutX="51.0" layoutY="16.0" text="Record Details">
-               <font>
-                  <Font name="Arial Bold" size="40.0" />
-               </font>
-            </Label>
-            <AnchorPane layoutX="24.0" layoutY="82.0" prefHeight="100.0" prefWidth="1149.0">
+      <ScrollPane prefHeight="780.0" prefWidth="1213.0">
+         <content>
+            <FlowPane prefHeight="780.0" prefWidth="1198.0">
                <children>
-                  <Line endX="1149.0" />
-                  <Line endX="1149.0" layoutY="100.0" />
-                  <Label layoutX="40.0" layoutY="16.0" text="Order no.">
-                     <font>
-                        <Font name="Arial Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="40.0" layoutY="53.0" text="Customer Name:">
-                     <font>
-                        <Font name="Arial Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelOrderNumber" layoutX="174.0" layoutY="16.0" text="1">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelOrderCustomerName" layoutX="270.0" layoutY="53.0" text="Name">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="528.0" layoutY="18.0" text="Date and Time:">
-                     <font>
-                        <Font name="Arial Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="528.0" layoutY="55.0" text="Mode of Payment:">
-                     <font>
-                        <Font name="Arial Bold" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelOrderDateAndTime" layoutX="737.0" layoutY="18.0" text="September 1, 2000 | 12:00 AM">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelOrderModeOfPayment" layoutX="775.0" layoutY="55.0" text="Payment">
-                     <font>
-                        <Font name="Arial" size="28.0" />
-                     </font>
-                  </Label>
+                  <AnchorPane>
+                     <children>
+                        <AnchorPane prefHeight="197.0" prefWidth="1198.0">
+                           <children>
+                              <Label layoutX="50.0" layoutY="15.0" text="Record Details">
+                                 <font>
+                                    <Font name="Arial Bold" size="44.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="24.0" layoutY="82.0" prefHeight="100.0" prefWidth="1149.0">
+                                 <children>
+                                    <Line endX="1149.0" />
+                                    <Line endX="1149.0" layoutY="100.0" />
+                                    <Label layoutX="40.0" layoutY="16.0" text="Order no.">
+                                       <font>
+                                          <Font name="Arial Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="40.0" layoutY="53.0" text="Customer Name:">
+                                       <font>
+                                          <Font name="Arial Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelOrderNumber" layoutX="174.0" layoutY="16.0" text="1">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelOrderCustomerName" layoutX="270.0" layoutY="53.0" text="Name">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="528.0" layoutY="18.0" text="Date and Time:">
+                                       <font>
+                                          <Font name="Arial Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="528.0" layoutY="55.0" text="Mode of Payment:">
+                                       <font>
+                                          <Font name="Arial Bold" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelOrderDateAndTime" layoutX="737.0" layoutY="18.0" text="September 1, 2000 | 12:00 AM">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelOrderModeOfPayment" layoutX="775.0" layoutY="55.0" text="Payment">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="721.0" layoutY="26.0" text="Transaction ID:">
+                                 <font>
+                                    <Font name="Arial Bold" size="28.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelTransactionID" layoutX="934.0" layoutY="26.0" text="00000000000000">
+                                 <font>
+                                    <Font name="Arial" size="28.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutY="198.0" prefHeight="435.0" prefWidth="1198.0">
+                           <children>
+                              <TableView fx:id="tableViewRecordDetails" layoutX="25.0" layoutY="14.0" prefHeight="407.0" prefWidth="1149.0">
+                                <columns>
+                                  <TableColumn fx:id="tableViewRecordDetailsFoodCategories" prefWidth="189.0" sortable="false" text="Food Cateogires" />
+                                  <TableColumn fx:id="tableViewRecordDetailsProductDetails" prefWidth="170.0" sortable="false" text="Product Details" />
+                                    <TableColumn fx:id="tableViewRecordDetailsQuantity" prefWidth="139.0" sortable="false" text="Quantity" />
+                                    <TableColumn fx:id="tableViewRecordDetailsProductPrice" prefWidth="179.0" sortable="false" text="Product Price" />
+                                    <TableColumn fx:id="tableViewRecordDetailsTotalAmount" prefWidth="165.0" sortable="false" text="Total Amount" />
+                                    <TableColumn fx:id="tableViewRecordDetailsAmountPaid" prefWidth="164.0" sortable="false" text="Amount Paid" />
+                                    <TableColumn fx:id="tableViewRecordDetailsChange" prefWidth="123.0" sortable="false" text="Change" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="1198.0">
+                     <children>
+                        <Label layoutX="50.0" layoutY="14.0" text="Invoice">
+                           <font>
+                              <Font name="Arial Bold" size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
                </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutY="197.0" prefHeight="571.0" prefWidth="1198.0">
-         <children>
-            <TableView fx:id="tableViewRecordDetails" layoutX="25.0" layoutY="14.0" prefHeight="530.0" prefWidth="1149.0">
-              <columns>
-                <TableColumn fx:id="tableViewRecordDetailsFoodCategories" prefWidth="189.0" sortable="false" text="Food Cateogires" />
-                <TableColumn fx:id="tableViewRecordDetailsProductDetails" prefWidth="170.0" sortable="false" text="Product Details" />
-                  <TableColumn fx:id="tableViewRecordDetailsQuantity" prefWidth="139.0" sortable="false" text="Quantity" />
-                  <TableColumn fx:id="tableViewRecordDetailsProductPrice" prefWidth="179.0" sortable="false" text="Product Price" />
-                  <TableColumn fx:id="tableViewRecordDetailsTotalAmount" prefWidth="165.0" sortable="false" text="Total Amount" />
-                  <TableColumn fx:id="tableViewRecordDetailsAmountPaid" prefWidth="164.0" sortable="false" text="Amount Paid" />
-                  <TableColumn fx:id="tableViewRecordDetailsChange" prefWidth="137.0" sortable="false" text="Change" />
-              </columns>
-            </TableView>
-         </children>
-      </AnchorPane>
+            </FlowPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

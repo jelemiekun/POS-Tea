@@ -27,7 +27,7 @@ public class CSVUtility {
 
         if (!file.exists()) {
             System.out.println("Directory exists but no csv file, will now create order history csv...");
-            createCSVFile(CSV_FILE_PATH_ORDER_HISTORY);
+            createOrderHistoryCSVFile(CSV_FILE_PATH_ORDER_HISTORY);
         } else {
             System.out.println("CSV order history file already exists: " + CSV_FILE_PATH_ORDER_HISTORY);
             importOrdersFromCSV(false);

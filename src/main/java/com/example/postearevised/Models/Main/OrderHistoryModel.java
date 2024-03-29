@@ -120,6 +120,7 @@ public class OrderHistoryModel {
     }
 
     private void setCellValueFactories() {
+        mainController.tableViewOrderHistoryColTransactionID.setCellValueFactory(new PropertyValueFactory<>("transactionID"));
         mainController.tableViewOrderHistoryColCustomerName.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         mainController.tableViewOrderHistoryColProductCategory.setCellValueFactory(cellData -> {
             ObservableList<ProductOrder> productOrders = cellData.getValue().getProductOrderObservableList();
@@ -191,6 +192,8 @@ public class OrderHistoryModel {
         mainController.tableViewOrderHistoryColQuantity.setReorderable(false);
         mainController.tableViewOrderHistoryColTotalPrice.setReorderable(false);
         mainController.tableViewOrderHistoryColDateAndTime.setReorderable(false);
+        mainController.tableViewOrderHistoryColProductCategory.setReorderable(false);
+        mainController.tableViewOrderHistoryColTransactionID.setReorderable(false);
     }
 
     private void setReverseItem() {
