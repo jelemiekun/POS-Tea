@@ -356,13 +356,13 @@ public class MainController implements Initializable {
     public void dashboardComboBoxFirstSelectionOnAction() { dashboardModel.firstChoiceBoxOnAction(); }
 
     @FXML
-    public void dashboardComboBoxSecondSelectionOnAction() {}
+    public void dashboardComboBoxSecondSelectionOnAction() { dashboardModel.firstChoiceBoxOnAction(); }
 
     @FXML
-    public void dashboardComboBoxThirdSelectionOnAction() {}
+    public void dashboardComboBoxThirdSelectionOnAction() { dashboardModel.firstChoiceBoxOnAction(); }
 
     @FXML
-    public void dashboardComboBoxFourthSelectionOnAction() {}
+    public void dashboardComboBoxFourthSelectionOnAction() { dashboardModel.firstChoiceBoxOnAction(); }
 
     @FXML
     public void dashboardNeedHelpClickedTouched() {

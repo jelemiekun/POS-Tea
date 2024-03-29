@@ -12,6 +12,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -19,6 +20,8 @@ import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.SETTING
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.SystemManual;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.dateOnlyFormatter;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.formatter;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class DashboardModel {
@@ -33,7 +36,6 @@ public class DashboardModel {
 
         if (!orderHistoryObservableList.isEmpty()) {
             setRefreshDashboardComboBoxOptions();
-            setToToday();
         }
     }
 
@@ -60,6 +62,14 @@ public class DashboardModel {
         mainController.dashboardComboBoxSecondSelection.setValue(String.valueOf(currentYear));
         mainController.dashboardComboBoxThirdSelection.setValue(monthName);
         mainController.dashboardComboBoxFourthSelection.setValue(String.valueOf(currentDay));
+    }
+
+    private void setRefreshDashboardComboBoxOptions() {
+        populateChoiceBoxLists();
+        refreshComboBox();
+        setToToday();
+        firstChoiceBoxOnAction();
+        updateContents();
     }
 
     public void firstChoiceBoxOnAction() {
@@ -89,12 +99,6 @@ public class DashboardModel {
         }
 
         updateDashboardOrderObservableListReference(selected);
-    }
-
-    private void setRefreshDashboardComboBoxOptions() {
-        populateChoiceBoxLists();
-        refreshComboBox();
-        updateContents();
     }
 
     private void populateChoiceBoxLists() {
@@ -142,7 +146,32 @@ public class DashboardModel {
     }
 
     private void updateDashboardOrderObservableListReference(String selected) {
+        dashboardOrderObservableListReference.clear();
 
+        switch (selected) {
+            case "Daily":
+                String dateString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue();
+
+                for (Order order : orderHistoryObservableList) {
+                    LocalDateTime dateTime = order.getDateAndTime();
+
+                    String formattedDateTime = dateTime.format(dateOnlyFormatter);
+
+                    if (formattedDateTime.equals(dateString))
+                        dashboardOrderObservableListReference.add(order);
+                }
+
+                System.out.println("line 164 " + dashboardOrderObservableListReference.size());
+                break;
+            case "Weekly":
+                break;
+            case "Monthly":
+                break;
+            case "Annually":
+                break;
+        }
+
+        updateContents();
     }
 
     // Method to get month name from month number
@@ -178,6 +207,11 @@ public class DashboardModel {
         mainController.dashboardComboBoxThirdSelection.setItems(thirdChoiceBoxObservableList);
         mainController.dashboardComboBoxFourthSelection.setItems(fourthChoiceBoxObservableList);
     }
+
+
+
+
+
 
     private void updateContents() {
         updateReferences();
