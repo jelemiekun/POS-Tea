@@ -381,7 +381,8 @@ public class DashboardModel {
         mainController.labelDashboardTotalRevenueTitle.setText("TOTAL REVENUE " + toConcat.toUpperCase());
         mainController.labelDashboardTotalCustomerTitle.setText("TOTAL CUSTOMER " + toConcat.toUpperCase());
         mainController.labelDashboardTotalOrderTitle.setText("TOTAL ORDER " + toConcat.toUpperCase());
-        mainController.dashboardBarChart.setTitle("Top Selling Food Categories" + toConcat);
+        mainController.dashboardBarChart.setTitle("Top Selling Food Categories " + toConcat);
+
     }
 
     private void updateUIRevenueCustomerAndOrder() {

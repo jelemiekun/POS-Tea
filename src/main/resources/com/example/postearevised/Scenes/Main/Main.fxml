@@ -159,7 +159,7 @@
                         <AnchorPane layoutY="319.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-                              <BarChart fx:id="dashboardBarChart" layoutX="79.0" layoutY="24.0" prefHeight="453.0" prefWidth="1042.0" title="NO SALES RECORDED">
+                              <BarChart fx:id="dashboardBarChart" layoutX="52.0" layoutY="24.0" prefHeight="453.0" prefWidth="1096.0" title="NO SALES RECORDED">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
