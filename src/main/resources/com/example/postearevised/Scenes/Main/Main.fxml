@@ -24,7 +24,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Main.MainController">
     <children>
-      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" onMouseClicked="#anchorPaneDashboardRequestFocus" onTouchReleased="#anchorPaneDashboardRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
@@ -66,12 +66,20 @@
                <children>
                   <AnchorPane layoutX="52.0" layoutY="14.0" prefHeight="819.0" prefWidth="1200.0">
                      <children>
-                        <FlowPane alignment="CENTER_LEFT" hgap="50.0" prefHeight="70.0" prefWidth="1200.0">
+                        <FlowPane alignment="CENTER_LEFT" hgap="35.0" prefHeight="70.0" prefWidth="1200.0">
                            <children>
-                              <ComboBox fx:id="dashboardComboBoxFirstSelection" onAction="#dashboardComboBoxFirstSelectionOnAction" prefWidth="200.0" />
-                              <ComboBox fx:id="dashboardComboBoxSecondSelection" onAction="#dashboardComboBoxSecondSelectionOnAction" prefWidth="200.0" />
-                              <ComboBox fx:id="dashboardComboBoxThirdSelection" onAction="#dashboardComboBoxThirdSelectionOnAction" prefWidth="200.0" />
-                              <ComboBox fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="200.0" />
+                              <ComboBox fx:id="dashboardComboBoxFirstSelection" onAction="#dashboardComboBoxFirstSelectionOnAction" prefWidth="235.0" />
+                              <ComboBox fx:id="dashboardComboBoxSecondSelection" onAction="#dashboardComboBoxSecondSelectionOnAction" prefWidth="235.0" />
+                              <ComboBox fx:id="dashboardComboBoxThirdSelection" onAction="#dashboardComboBoxThirdSelectionOnAction" prefWidth="235.0" />
+                              <ComboBox fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="235.0" />
+                              <AnchorPane onMouseClicked="#anchorPaneDashboardResetToTodayClickedTouched" onTouchReleased="#anchorPaneDashboardResetToTodayClickedTouched" prefHeight="30.0" prefWidth="102.0">
+                                 <children>
+                                    <Label layoutX="13.0" layoutY="7.0" text="Reset to today" textFill="#0000009a" underline="true" />
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </AnchorPane>
                            </children>
                         </FlowPane>
                         <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="60.0" layoutY="92.0" prefHeight="195.0" prefWidth="1200.0">
@@ -167,9 +175,9 @@
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="815.0" stroke="BLACK" strokeType="INSIDE" width="490.0" />
                         <AnchorPane prefHeight="95.0" prefWidth="490.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="24.0" prefHeight="17.0" prefWidth="490.0" text="BEST SELLER" textAlignment="CENTER">
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="27.0" prefHeight="17.0" prefWidth="490.0" text="ALL TIME FAVORITES" textAlignment="CENTER">
                                  <font>
-                                    <Font name="Arial Bold" size="40.0" />
+                                    <Font name="Arial Bold" size="36.0" />
                                  </font></Label>
                            </children>
                         </AnchorPane>

@@ -110,14 +110,12 @@ public class MainModel {
                 break;
             case 2: // Dashboard
                 mainStage.setTitle(DASHBOARD_ENUM.getName());
+                mainController.anchorPaneDashboard.requestFocus();
                 mainController.anchorPaneMenu.setVisible(false);
                 mainController.anchorPaneDashboard.setVisible(true);
                 mainController.anchorPaneOrderList.setVisible(false);
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
-                mainController.dashboardModel.updateAllTimeFavorites();
-                mainController.dashboardModel.updateContents();
-                mainController.dashboardModel.setRefreshDashboardComboBoxOptions();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardSelectedIcon);

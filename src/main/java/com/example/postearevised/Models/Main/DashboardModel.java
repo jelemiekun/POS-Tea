@@ -10,6 +10,8 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,36 +27,161 @@ public class DashboardModel {
         this.mainController = mainController;
     }
 
-    public void setRefreshDashboardComboBoxOptions() {
-        setUpSelections();
-        refreshComboBox();
+    public void setupDashboard() {
+        setStyles();
+        setFirstChoiceBox();
+
+        if (!orderHistoryObservableList.isEmpty()) {
+            setRefreshDashboardComboBoxOptions();
+            setToToday();
+        }
     }
 
-    private void setUpSelections() {
+    private void setStyles() {
+        mainController.dashboardComboBoxFirstSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
+        mainController.dashboardComboBoxSecondSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
+        mainController.dashboardComboBoxThirdSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
+        mainController.dashboardComboBoxFourthSelection.setStyle("-fx-font-family: Arial; -fx-font-size: 18px;");
+    }
 
+    private void setFirstChoiceBox() {
+        mainController.dashboardComboBoxFirstSelection.setItems(firstChoiceBoxObservableList);
+    }
+
+    public void setToToday() {
+        LocalDate currentDate = LocalDate.now();
+        int currentYear = currentDate.getYear();
+        int currentMonth = currentDate.getMonthValue();
+        int currentDay = currentDate.getDayOfMonth();
+
+        String monthName = getMonthName(currentMonth);
+
+        mainController.dashboardComboBoxFirstSelection.setValue("Daily");
+        mainController.dashboardComboBoxSecondSelection.setValue(String.valueOf(currentYear));
+        mainController.dashboardComboBoxThirdSelection.setValue(monthName);
+        mainController.dashboardComboBoxFourthSelection.setValue(String.valueOf(currentDay));
+    }
+
+    public void firstChoiceBoxOnAction() {
+        String selected = mainController.dashboardComboBoxFirstSelection.getValue();
+
+        switch (selected) {
+            case "Daily":
+                mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                mainController.dashboardComboBoxFourthSelection.setVisible(true);
+                break;
+            case "Weekly":
+                mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                mainController.dashboardComboBoxFourthSelection.setVisible(true);
+                break;
+            case "Monthly":
+                mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                break;
+            case "Annually":
+                mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                mainController.dashboardComboBoxThirdSelection.setVisible(false);
+                mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                break;
+        }
+
+        updateDashboardOrderObservableListReference(selected);
+    }
+
+    private void setRefreshDashboardComboBoxOptions() {
+        populateChoiceBoxLists();
+        refreshComboBox();
+        updateContents();
+    }
+
+    private void populateChoiceBoxLists() {
+        // Find the oldest order
+        LocalDateTime oldestDateTime = LocalDateTime.MAX;
+        for (Order order : orderHistoryObservableList) {
+            LocalDateTime orderDateTime = order.getDateAndTime();
+            if (orderDateTime.isBefore(oldestDateTime)) {
+                oldestDateTime = orderDateTime;
+            }
+        }
+
+        // Extract year, month, and day from the oldest date
+        int oldestYear = oldestDateTime.getYear();
+        int oldestMonth = oldestDateTime.getMonthValue();
+        int oldestDay = oldestDateTime.getDayOfMonth();
+
+        // Get current date
+        LocalDate currentDate = LocalDate.now();
+        int currentYear = currentDate.getYear();
+        int currentMonth = currentDate.getMonthValue();
+        int currentDay = currentDate.getDayOfMonth();
+
+        // Populate secondChoiceBoxObservableList with years from oldestYear to currentYear
+        secondChoiceBoxObservableList.clear();
+        for (int year = oldestYear; year <= currentYear; year++) {
+            secondChoiceBoxObservableList.add(String.valueOf(year));
+        }
+
+        // Populate thirdChoiceBoxObservableList with months
+        thirdChoiceBoxObservableList.clear();
+        int startMonth = (oldestYear == currentYear) ? oldestMonth : 1;
+        int endMonth = (oldestYear == currentYear) ? currentMonth : 12;
+        for (int month = startMonth; month <= endMonth; month++) {
+            thirdChoiceBoxObservableList.add(getMonthName(month));
+        }
+
+        // Populate fourthChoiceBoxObservableList with days
+        fourthChoiceBoxObservableList.clear();
+        int startDay = (oldestYear == currentYear && oldestMonth == currentMonth) ? oldestDay : 1;
+        int endDay = (oldestYear == currentYear && oldestMonth == currentMonth) ? currentDay : getDaysInMonth(currentYear, currentMonth);
+        for (int day = startDay; day <= endDay; day++) {
+            fourthChoiceBoxObservableList.add(String.valueOf(day));
+        }
+    }
+
+    private void updateDashboardOrderObservableListReference(String selected) {
+
+    }
+
+    // Method to get month name from month number
+    private String getMonthName(int month) {
+        return switch (month) {
+            case 1 -> "January";
+            case 2 -> "February";
+            case 3 -> "March";
+            case 4 -> "April";
+            case 5 -> "May";
+            case 6 -> "June";
+            case 7 -> "July";
+            case 8 -> "August";
+            case 9 -> "September";
+            case 10 -> "October";
+            case 11 -> "November";
+            case 12 -> "December";
+            default -> "";
+        };
+    }
+
+    private int getDaysInMonth(int year, int month) {
+        return LocalDate.of(year, month, 1).lengthOfMonth();
     }
 
     private void refreshComboBox() {
-        mainController.dashboardComboBoxFirstSelection.getItems().clear();
         mainController.dashboardComboBoxSecondSelection.getItems().clear();
         mainController.dashboardComboBoxThirdSelection.getItems().clear();
         mainController.dashboardComboBoxFourthSelection.getItems().clear();
 
 
-        mainController.dashboardComboBoxFirstSelection.setItems(firstChoiceBoxObservableList);
         mainController.dashboardComboBoxSecondSelection.setItems(secondChoiceBoxObservableList);
         mainController.dashboardComboBoxThirdSelection.setItems(thirdChoiceBoxObservableList);
         mainController.dashboardComboBoxFourthSelection.setItems(fourthChoiceBoxObservableList);
     }
 
-    public void updateContents() {
+    private void updateContents() {
         updateReferences();
         updateUIs();
-    }
-
-    public void updateAllTimeFavorites() {
-        updateReferenceAllTimeFavorites();
-        updateUIAllTimeFavorites();
     }
 
     private void updateReferences() {
@@ -62,11 +189,12 @@ public class DashboardModel {
         updateReferenceCustomer();
         updateReferenceOrder();
         updateReferenceCategories();
+        updateReferenceBestSeller();
     }
 
     private void updateReferenceRevenue() {
         referenceTotalRevenue = 0;
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : dashboardOrderObservableListReference) {
             referenceTotalRevenue += order.getTotalPrice();
             for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                 System.out.println(productOrder.getProductName());
@@ -75,12 +203,12 @@ public class DashboardModel {
     }
 
     private void updateReferenceCustomer() {
-        referenceTotalCustomer = orderHistoryObservableList.size();
+        referenceTotalCustomer = dashboardOrderObservableListReference.size();
     }
 
     private void updateReferenceOrder() {
         referenceTotalOrder = 0;
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : dashboardOrderObservableListReference) {
             for (ProductOrder productOrder : order.getProductOrderObservableList()) {
                 referenceTotalOrder += productOrder.getQuantity();
             }
@@ -94,7 +222,7 @@ public class DashboardModel {
         referenceIceCandyCupsCounter = 0;
         referenceAppetizerCounter = 0;
 
-        for (Order order : orderHistoryObservableList) {
+        for (Order order : dashboardOrderObservableListReference) {
 
             synchronized (order.getProductOrderObservableList()) {
                 for (ProductOrder productOrder : order.getProductOrderObservableList()) {
@@ -124,7 +252,7 @@ public class DashboardModel {
     }
 
 
-    private void updateReferenceAllTimeFavorites() {
+    private void updateReferenceBestSeller() {
         topTenProducts.clear();
 
         Map<String, ProductOrder> productTotalQuantities = orderHistoryObservableList.stream()
@@ -173,6 +301,7 @@ public class DashboardModel {
     private void updateUIs() {
         updateUIRevenueCustomerAndOrder();
         updateUIBarChart();
+        updateUIBestSeller();
     }
 
     private void updateUIRevenueCustomerAndOrder() {
@@ -185,7 +314,7 @@ public class DashboardModel {
 
     }
 
-    private void updateUIAllTimeFavorites() {
+    private void updateUIBestSeller() {
         mainController.flowPaneBestSeller.getChildren().clear();
 
         for (ProductOrder productOrder : topTenProducts) {

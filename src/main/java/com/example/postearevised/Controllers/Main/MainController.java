@@ -112,6 +112,8 @@ public class MainController implements Initializable {
                 mainModel.setMainMenuIconSelected();
                 mainModel.setAnchorPane();
 
+                dashboardModel.setupDashboard();
+
                 menuModel.setDropShadow();
                 menuModel.setTextFieldListeners();
                 menuModel.setComboBoxModEOfPaymentItems();
@@ -348,7 +350,10 @@ public class MainController implements Initializable {
     public FlowPane flowPaneBestSeller;
 
     @FXML
-    public void dashboardComboBoxFirstSelectionOnAction() {}
+    public void anchorPaneDashboardRequestFocus() { anchorPaneDashboard.requestFocus(); }
+
+    @FXML
+    public void dashboardComboBoxFirstSelectionOnAction() { dashboardModel.firstChoiceBoxOnAction(); }
 
     @FXML
     public void dashboardComboBoxSecondSelectionOnAction() {}
@@ -363,6 +368,9 @@ public class MainController implements Initializable {
     public void dashboardNeedHelpClickedTouched() {
         dashboardModel.goToSystemManual();
     }
+
+    @FXML
+    public void anchorPaneDashboardResetToTodayClickedTouched() {}
 
     /**
      * Menu

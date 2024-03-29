@@ -32,4 +32,7 @@ public class DashboardReference {
     public static ObservableList<String> secondChoiceBoxObservableList = FXCollections.observableArrayList();
     public static ObservableList<String> thirdChoiceBoxObservableList = FXCollections.observableArrayList();
     public static ObservableList<String> fourthChoiceBoxObservableList = FXCollections.observableArrayList();
+
+
+    public static ObservableList<Order> dashboardOrderObservableListReference = FXCollections.observableArrayList();
 }
