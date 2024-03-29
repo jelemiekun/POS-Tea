@@ -128,7 +128,6 @@ public class MainController implements Initializable {
 
                 isAddingProductsFromImport = false;
 
-                dashboardModel.firstChoiceBoxOnAction();
 
                 fadeOutLoading();
             });
@@ -322,6 +321,8 @@ public class MainController implements Initializable {
     /**
      * Dashboard
      */
+    @FXML
+    public Label labelDashBoardNoSalesRecordedGraph;
     @FXML
     public Label labelDashboardTotalRevenueTitle;
     @FXML

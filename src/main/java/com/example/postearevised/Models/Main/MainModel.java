@@ -117,6 +117,7 @@ public class MainModel {
                 mainController.anchorPaneOrderHistory.setVisible(false);
                 mainController.anchorPaneSettings.setVisible(false);
                 mainController.dashboardModel.updateAllTimeFavorites();
+                mainController.dashboardModel.firstChoiceBoxOnAction();
 
                 mainController.mainMenuIcon.setImage(mainMenuIcon);
                 mainController.mainDashboardIcon.setImage(mainDashboardSelectedIcon);

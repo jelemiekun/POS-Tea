@@ -6,18 +6,6 @@ DEVIN AI
 
 paikliin product names sa resibo (ALISIN A E I O U)
 
-lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPDATE YUNG REVENUE, CUSTOMER, AT TOTAL ORDER.
-
-daily (today), weekly, monthly, annually
-
-anually, year lang
-
-monthly, year tsaka month
-
-weekly, year month tsaka week
-
-daily, year month day
-
 name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
 
 tooltips, basta lagyan lahat ng dapat lagyan
@@ -36,14 +24,9 @@ gawing * lahat ng static import
 
 css files ng 2 table mula kay abella
 
-bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
-
-sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
-
 may mag ppop up if may changes na nadetect sa directory
 
 ihhide yung accounts excel
-
 
 lagyan ng listener (esc, enter ganon) mga fxml
 
@@ -70,8 +53,6 @@ sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery
 
 either hover or click or nasa scroll nalang sa baba yung receipt
 
-lalabas din sa order history kahit void/cancelled
-
 tanong namin sa seller kung ilang products lalabas sa all time favs
 
 full name sa name pero lalabas lang sa display is yung given name lang
@@ -87,10 +68,6 @@ transaction number magiging 2024-01-31-19-09-23 nalang
 system manual - "CSV" gawing Menu
 
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
-
-
-kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
-
 
 
 
@@ -203,6 +180,8 @@ cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 video sa system manual // lomboy & austria
 
 i inform si seller na as much as possible paki iklian ng mga names dahil li
+
+KUNIN SARILING BAR STICKS SA BARGRAPH TAPOS PALITAN NG COLORS, TAPOS GUMAWA NG SARILING LEGENDS NG GRAPH SA BABA NG GRAPH
 
 
 
@@ -590,3 +569,23 @@ wag stretch images
 gumawa pa ba ng copy sa project file path ng picture mula sa order history? or no image nalang talaga if madelete?
 
 kapag nasa order history na, mag save ng copy sa resources.com.example.postearevised.product media para doon nalang kukunin ng dashboard yung pictures
+
+lagyan ulit ng combobox na daily, weekly, monthly, yearly. IF MASELECT, MAG UUPDATE YUNG REVENUE, CUSTOMER, AT TOTAL ORDER.
+
+daily (today), weekly, monthly, annually
+
+anually, year lang
+
+monthly, year tsaka month
+
+weekly, year month tsaka week
+
+daily, year month day
+
+bar graph na yung pie chart, depende na sya sa naka select sa combobox (may tanong ako dito)
+
+sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time favs" nalang
+
+kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
+
+lalabas din sa order history kahit void/cancelled

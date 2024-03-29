@@ -35,11 +35,15 @@ public class DashboardModel {
 
         if (!orderHistoryObservableList.isEmpty())
             setRefreshDashboardComboBoxOptions();
+        else
+            mainController.dashboardComboBoxFirstSelection.setValue("Daily");
     }
 
     public void resetToToday() {
-        setToToday();
-        firstChoiceBoxOnAction();
+        if (!orderHistoryObservableList.isEmpty()) {
+            setToToday();
+            firstChoiceBoxOnAction();
+        }
     }
 
     private void setStyles() {
@@ -53,7 +57,7 @@ public class DashboardModel {
         mainController.dashboardComboBoxFirstSelection.setItems(firstChoiceBoxObservableList);
     }
 
-    public void setToToday() {
+    private void setToToday() {
         LocalDate currentDate = LocalDate.now();
         int currentYear = currentDate.getYear();
         int currentMonth = currentDate.getMonthValue();
@@ -73,33 +77,47 @@ public class DashboardModel {
         populateChoiceBoxLists();
         refreshComboBox();
         setToToday();
-        firstChoiceBoxOnAction();
     }
 
     public void firstChoiceBoxOnAction() {
         if (!isAddingProductsFromImport) {
-            String selected = mainController.dashboardComboBoxFirstSelection.getValue();
+            if (!orderHistoryObservableList.isEmpty()) {
+                if (mainController.dashboardComboBoxSecondSelection.getValue() == null || mainController.dashboardComboBoxThirdSelection.getValue() == null || mainController.dashboardComboBoxFourthSelection.getValue() == null)
+                    setRefreshDashboardComboBoxOptions();
 
-            switch (selected) {
-                case "Daily", "Weekly":
-                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                    mainController.dashboardComboBoxThirdSelection.setVisible(true);
-                    mainController.dashboardComboBoxFourthSelection.setVisible(true);
-                    break;
-                case "Monthly":
-                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                    mainController.dashboardComboBoxThirdSelection.setVisible(true);
-                    mainController.dashboardComboBoxFourthSelection.setVisible(false);
-                    break;
-                case "Annually":
-                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                    mainController.dashboardComboBoxThirdSelection.setVisible(false);
-                    mainController.dashboardComboBoxFourthSelection.setVisible(false);
-                    break;
+                setUIIfEmpty(false);
+
+                String selected = mainController.dashboardComboBoxFirstSelection.getValue();
+
+                switch (selected) {
+                    case "Daily", "Weekly":
+                        mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                        mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                        mainController.dashboardComboBoxFourthSelection.setVisible(true);
+                        break;
+                    case "Monthly":
+                        mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                        mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                        mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                        break;
+                    case "Annually":
+                        mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                        mainController.dashboardComboBoxThirdSelection.setVisible(false);
+                        mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                        break;
+                }
+
+                updateDashboardOrderObservableListReference(selected);
+            } else {
+                setUIIfEmpty(true);
             }
-
-            updateDashboardOrderObservableListReference(selected);
         }
+    }
+
+    private void setUIIfEmpty(boolean isEmpty) {
+        mainController.labelDashBoardNoSalesRecordedGraph.setVisible(isEmpty);
+        mainController.labelDashboardBarChartTitle.setVisible(!isEmpty);
+        mainController.dashboardBarChart.setVisible(!isEmpty);
     }
 
     private void populateChoiceBoxLists() {
@@ -421,82 +439,88 @@ public class DashboardModel {
     }
 
     private void updateUIBestSeller() {
-        mainController.flowPaneBestSeller.getChildren().clear();
+        if (topTenProducts.isEmpty()) {
+            mainController.labelDashBoardNoSalesBestSeller.setVisible(true);
+        } else {
+            mainController.labelDashBoardNoSalesBestSeller.setVisible(false);
 
-        for (ProductOrder productOrder : topTenProducts) {
-            AnchorPane anchorPane = new AnchorPane();
-            anchorPane.setPrefWidth(441);
-            anchorPane.setPrefHeight(161);
+            mainController.flowPaneBestSeller.getChildren().clear();
 
-            ImageView imageView;
+            for (ProductOrder productOrder : topTenProducts) {
+                AnchorPane anchorPane = new AnchorPane();
+                anchorPane.setPrefWidth(441);
+                anchorPane.setPrefHeight(161);
 
-            System.out.println("Image Path: " + productOrder.getImagePath()); // Print out the image path
-            File productImage = new File(productOrder.getImagePath());
+                ImageView imageView;
 
-            if (!productOrder.getImagePath().isEmpty()) {
-                if (productOrder.getImagePath().startsWith("/com/example/postearevised/")) {
-                    imageView = new ImageView(new Image(productOrder.getImagePath()));
-                } else if (productOrder.getImagePath().startsWith("com")) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().equals("com")) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().isEmpty()) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().equals("example")) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().isBlank()) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().contains("no image")) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (productOrder.getImagePath().contains("Product Media")) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else if (!productImage.exists()) {
-                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
-                } else {
-                    File file = new File(productOrder.getImagePath());
-                    String fileUrl = null;
-                    try {
-                        fileUrl = file.toURI().toURL().toString();
-                    } catch (MalformedURLException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
+                System.out.println("Image Path: " + productOrder.getImagePath()); // Print out the image path
+                File productImage = new File(productOrder.getImagePath());
+
+                if (!productOrder.getImagePath().isEmpty()) {
+                    if (productOrder.getImagePath().startsWith("/com/example/postearevised/")) {
+                        imageView = new ImageView(new Image(productOrder.getImagePath()));
+                    } else if (productOrder.getImagePath().startsWith("com")) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().equals("com")) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().isEmpty()) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().equals("example")) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().isBlank()) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().contains("no image")) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (productOrder.getImagePath().contains("Product Media")) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else if (!productImage.exists()) {
+                        imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+                    } else {
+                        File file = new File(productOrder.getImagePath());
+                        String fileUrl = null;
+                        try {
+                            fileUrl = file.toURI().toURL().toString();
+                        } catch (MalformedURLException e) {
+                            errorMessage = e.getMessage();
+                            logError(false);
+                        }
+                        imageView = new ImageView(new Image(fileUrl));
                     }
-                    imageView = new ImageView(new Image(fileUrl));
+                } else {
+                    imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
                 }
-            } else {
-                imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));
+
+
+                imageView.setFitWidth(141);
+                imageView.setFitHeight(85);
+                imageView.setLayoutX(29);
+                imageView.setLayoutY(52);
+
+                Label nameLabel = new Label(productOrder.getProductName());
+                nameLabel.setLayoutX(29);
+                nameLabel.setLayoutY(21);
+                nameLabel.setPrefWidth(365);
+                nameLabel.setPrefHeight(27);
+                nameLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 24;");
+
+                Label totalOrdersLabel = new Label("Total Orders:");
+                totalOrdersLabel.setLayoutX(273);
+                totalOrdersLabel.setLayoutY(74);
+                totalOrdersLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
+
+                Label ordersCountLabel = new Label(String.valueOf(productOrder.getQuantity()));
+                ordersCountLabel.setLayoutX(369);
+                ordersCountLabel.setLayoutY(74);
+                ordersCountLabel.setPrefWidth(64);
+                ordersCountLabel.setPrefHeight(23);
+                ordersCountLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
+                ordersCountLabel.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
+                ordersCountLabel.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
+
+                anchorPane.getChildren().addAll(imageView, nameLabel, totalOrdersLabel, ordersCountLabel);
+
+                mainController.flowPaneBestSeller.getChildren().add(anchorPane);
             }
-
-
-            imageView.setFitWidth(141);
-            imageView.setFitHeight(85);
-            imageView.setLayoutX(29);
-            imageView.setLayoutY(52);
-
-            Label nameLabel = new Label(productOrder.getProductName());
-            nameLabel.setLayoutX(29);
-            nameLabel.setLayoutY(21);
-            nameLabel.setPrefWidth(365);
-            nameLabel.setPrefHeight(27);
-            nameLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 24;");
-
-            Label totalOrdersLabel = new Label("Total Orders:");
-            totalOrdersLabel.setLayoutX(273);
-            totalOrdersLabel.setLayoutY(74);
-            totalOrdersLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
-
-            Label ordersCountLabel = new Label(String.valueOf(productOrder.getQuantity()));
-            ordersCountLabel.setLayoutX(369);
-            ordersCountLabel.setLayoutY(74);
-            ordersCountLabel.setPrefWidth(64);
-            ordersCountLabel.setPrefHeight(23);
-            ordersCountLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
-            ordersCountLabel.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-            ordersCountLabel.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
-
-            anchorPane.getChildren().addAll(imageView, nameLabel, totalOrdersLabel, ordersCountLabel);
-
-            mainController.flowPaneBestSeller.getChildren().add(anchorPane);
         }
     }
 

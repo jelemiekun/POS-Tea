@@ -1055,6 +1055,8 @@ public class MenuModel {
 
         int change = referenceAmountPaid - referenceTotalPrice;
 
+        referenceChange = change;
+
         return new Order(copyList, referenceCustomerName, referenceOrderNumber,
                 referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, getOrderDateAndTime());
     }

@@ -89,7 +89,7 @@
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="360.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="36.0" prefWidth="235.0" text="0" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="36.0" prefWidth="235.0" text="₱0.00" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="30.0" />
                                              </font>
@@ -159,7 +159,7 @@
                         <AnchorPane layoutY="319.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-                              <BarChart fx:id="dashboardBarChart" alternativeRowFillVisible="false" barGap="60.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="52.0" layoutY="83.0" prefHeight="394.0" prefWidth="1096.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                              <BarChart fx:id="dashboardBarChart" alternativeRowFillVisible="false" barGap="60.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="52.0" layoutY="83.0" prefHeight="394.0" prefWidth="1096.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false" visible="false">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -167,9 +167,14 @@
                                   <NumberAxis side="LEFT" />
                                 </yAxis>
                               </BarChart>
-                              <Label fx:id="labelDashboardBarChartTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="29.0" prefHeight="48.0" prefWidth="993.0" text="Top Selling Food Categories" textAlignment="CENTER">
+                              <Label fx:id="labelDashboardBarChartTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="29.0" prefHeight="48.0" prefWidth="993.0" text="Top Selling Food Categories" textAlignment="CENTER" visible="false">
                                  <font>
                                     <Font name="Arial" size="41.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelDashBoardNoSalesRecordedGraph" alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="138.0" prefHeight="225.0" prefWidth="960.0" text="No Sales Recorded" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Arial" size="78.0" />
                                  </font>
                               </Label>
                            </children></AnchorPane>
