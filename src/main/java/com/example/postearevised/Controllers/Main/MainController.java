@@ -28,6 +28,7 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -410,6 +411,10 @@ public class MainController implements Initializable {
      * Menu
      */
     @FXML
+    public AnchorPane anchorPaneMenuIsEmptyInner;
+    @FXML
+    public AnchorPane anchorPaneMenuGoToEditProducts;
+    @FXML
     public Label labelMenuCategoryUnavailableProductCounter;
     @FXML
     public Label labelMenuDateAndTIme;
@@ -477,6 +482,12 @@ public class MainController implements Initializable {
     public void menuEditProductPressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             menuModel.goToEditProducts();
+    }
+
+    @FXML
+    public void comboBoxModeOfPaymentPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            menuModel.payClicked();
     }
 
     @FXML

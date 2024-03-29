@@ -230,7 +230,7 @@ public class MainModel {
 
     public void showNotificationLoader(boolean isShow) {
         mainController.anchorPaneNotification.setVisible(true);
-        mainController.anchorPaneNotification.setOpacity(isShow ? 0.0 : 1.0); // Set opacity based on isShow
+        mainController.anchorPaneNotification.setOpacity(isShow ? 0.0 : 1.0);
 
         FadeTransition fade = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
         fade.setFromValue(isShow ? 0.0 : 1.0);
@@ -244,13 +244,39 @@ public class MainModel {
 
 
     public void setToolTips() {
-        Tooltip needHelpGettingStartedToolTip = new Tooltip("Go to system manual for guide");
-        
+        // dashboard
+        Tooltip dashboardNoSalesRecordedGraphAndAllTimeFavorites = new Tooltip("No Sales Recorded");
+        Tooltip dashboardNeedHelpGettingStartedToolTip = new Tooltip("Go to system manual for guide");
+        Tooltip dashboardFirstChoiceBox = new Tooltip("Select intervals");
+        Tooltip dashboardSecondChoiceBox = new Tooltip("Select year");
+        Tooltip dashboardThirdChoiceBox = new Tooltip("Select month");
+        Tooltip dashboardFourthChoiceBox = new Tooltip("Select day");
+        Tooltip dashboardResetToToday = new Tooltip("Reset the selection to current day");
 
+        dashboardNoSalesRecordedGraphAndAllTimeFavorites.setStyle(toolTipStyle);
+        dashboardNeedHelpGettingStartedToolTip.setStyle(toolTipStyle);
+        dashboardFirstChoiceBox.setStyle(toolTipStyle);
+        dashboardSecondChoiceBox.setStyle(toolTipStyle);
+        dashboardThirdChoiceBox.setStyle(toolTipStyle);
+        dashboardFourthChoiceBox.setStyle(toolTipStyle);
+        dashboardResetToToday.setStyle(toolTipStyle);
 
+        Tooltip.install(mainController.labelDashBoardNoSalesRecordedGraph, dashboardNoSalesRecordedGraphAndAllTimeFavorites);
+        Tooltip.install(mainController.labelDashBoardNoSalesBestSeller, dashboardNoSalesRecordedGraphAndAllTimeFavorites);
+        Tooltip.install(mainController.anchorDashboardPaneNeedHelpGettingStarted, dashboardNeedHelpGettingStartedToolTip);
+        Tooltip.install(mainController.dashboardComboBoxFirstSelection, dashboardFirstChoiceBox);
+        Tooltip.install(mainController.dashboardComboBoxSecondSelection, dashboardSecondChoiceBox);
+        Tooltip.install(mainController.dashboardComboBoxThirdSelection, dashboardThirdChoiceBox);
+        Tooltip.install(mainController.dashboardComboBoxFourthSelection, dashboardFourthChoiceBox);
+        Tooltip.install(mainController.anchorPaneResetToToday, dashboardResetToToday);
 
-        needHelpGettingStartedToolTip.setStyle("-fx-font-family: Arial; -fx-font-size: 14px;");
-        Tooltip.install(mainController.anchorDashboardPaneNeedHelpGettingStarted, needHelpGettingStartedToolTip);
+        // menu
+        Tooltip menuGoToEditProducts = new Tooltip("Go to edit products");
+
+        menuGoToEditProducts.setStyle(toolTipStyle);
+
+        Tooltip.install(mainController.anchorPaneMenuGoToEditProducts, menuGoToEditProducts);
+        Tooltip.install(mainController.anchorPaneMenuIsEmptyInner, menuGoToEditProducts);
     }
 
 

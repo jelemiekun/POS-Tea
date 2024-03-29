@@ -48,4 +48,6 @@ public class GeneralReference {
     public static DateTimeFormatter yearMonthFormatter = DateTimeFormatter.ofPattern("yyyy MMMM");
     public static DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
     public static DateTimeFormatter transactionIDFormatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+
+    public static final String toolTipStyle = "-fx-font-family: Arial; -fx-font-size: 14px;";
 }

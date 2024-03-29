@@ -6,6 +6,7 @@ import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -422,10 +423,30 @@ public class DashboardModel {
                     Node bar = data.getNode();
                     if (bar != null) {
                         bar.setStyle("-fx-bar-fill: " + dashboardGraphColors[index] + ";");
+                        Tooltip dashboardBarStickToolTip = new Tooltip(getStringForIndex(index) + " (" + getCountForIndex(index) + ")");
+                        dashboardBarStickToolTip.setStyle(toolTipStyle);
+                        Tooltip.install(bar, dashboardBarStickToolTip);
                     }
                     index++;
                 }
             }
+        }
+    }
+
+    private String getStringForIndex(int index) {
+        switch (index) {
+            case 0:
+                return "Milk Tea";
+            case 1:
+                return "Coolers";
+            case 2:
+                return "Coffee";
+            case 3:
+                return "Ice Candy Cups";
+            case 4:
+                return "Appetizer";
+            default:
+                return "";
         }
     }
 
