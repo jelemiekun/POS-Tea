@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,13 +36,13 @@ public class DashboardModel {
         if (!orderHistoryObservableList.isEmpty()) {
             setRefreshDashboardComboBoxOptions();
         }
+
+        updateAllTimeFavorites();
     }
 
     public void resetToToday() {
         setToToday();
-        mainController.dashboardComboBoxFirstSelection.setValue("Daily");
         firstChoiceBoxOnAction();
-        updateContents();
     }
 
     private void setStyles() {
@@ -63,47 +64,45 @@ public class DashboardModel {
 
         String monthName = getMonthName(currentMonth);
 
+        isAddingProductsFromImport = true;
         mainController.dashboardComboBoxFirstSelection.setValue("Daily");
         mainController.dashboardComboBoxSecondSelection.setValue(String.valueOf(currentYear));
         mainController.dashboardComboBoxThirdSelection.setValue(monthName);
         mainController.dashboardComboBoxFourthSelection.setValue(String.valueOf(currentDay));
+        isAddingProductsFromImport = false;
     }
 
-    private void setRefreshDashboardComboBoxOptions() {
+    public void setRefreshDashboardComboBoxOptions() {
         populateChoiceBoxLists();
         refreshComboBox();
         setToToday();
         firstChoiceBoxOnAction();
-        updateContents();
     }
 
     public void firstChoiceBoxOnAction() {
-        String selected = mainController.dashboardComboBoxFirstSelection.getValue();
+        if (!isAddingProductsFromImport) {
+            String selected = mainController.dashboardComboBoxFirstSelection.getValue();
 
-        switch (selected) {
-            case "Daily":
-                mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                mainController.dashboardComboBoxThirdSelection.setVisible(true);
-                mainController.dashboardComboBoxFourthSelection.setVisible(true);
-                break;
-            case "Weekly":
-                mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                mainController.dashboardComboBoxThirdSelection.setVisible(true);
-                mainController.dashboardComboBoxFourthSelection.setVisible(true);
-                break;
-            case "Monthly":
-                mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                mainController.dashboardComboBoxThirdSelection.setVisible(true);
-                mainController.dashboardComboBoxFourthSelection.setVisible(false);
-                break;
-            case "Annually":
-                mainController.dashboardComboBoxSecondSelection.setVisible(true);
-                mainController.dashboardComboBoxThirdSelection.setVisible(false);
-                mainController.dashboardComboBoxFourthSelection.setVisible(false);
-                break;
+            switch (selected) {
+                case "Daily", "Weekly":
+                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                    mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                    mainController.dashboardComboBoxFourthSelection.setVisible(true);
+                    break;
+                case "Monthly":
+                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                    mainController.dashboardComboBoxThirdSelection.setVisible(true);
+                    mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                    break;
+                case "Annually":
+                    mainController.dashboardComboBoxSecondSelection.setVisible(true);
+                    mainController.dashboardComboBoxThirdSelection.setVisible(false);
+                    mainController.dashboardComboBoxFourthSelection.setVisible(false);
+                    break;
+            }
+
+            updateDashboardOrderObservableListReference(selected);
         }
-
-        updateDashboardOrderObservableListReference(selected);
     }
 
     private void populateChoiceBoxLists() {
@@ -241,21 +240,22 @@ public class DashboardModel {
         updateUIs();
     }
 
+    public void updateAllTimeFavorites() {
+        updateReferenceBestSeller();
+        updateUIBestSeller();
+    }
+
     private void updateReferences() {
         updateReferenceRevenue();
         updateReferenceCustomer();
         updateReferenceOrder();
         updateReferenceCategories();
-        updateReferenceBestSeller();
     }
 
     private void updateReferenceRevenue() {
         referenceTotalRevenue = 0;
         for (Order order : dashboardOrderObservableListReference) {
             referenceTotalRevenue += order.getTotalPrice();
-            for (ProductOrder productOrder : order.getProductOrderObservableList()) {
-                System.out.println(productOrder.getProductName());
-            }
         }
     }
 
@@ -359,22 +359,29 @@ public class DashboardModel {
         updateUITitles();
         updateUIRevenueCustomerAndOrder();
         updateUIBarChart();
-        updateUIBestSeller();
     }
 
     private void updateUITitles() {
         String selected = mainController.dashboardComboBoxFirstSelection.getValue();
 
+        String toConcat = "";
+
         switch (selected) {
-            case "Daily":
-                break;
-            case "Weekly":
+            case "Daily", "Weekly":
+                toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue() + ")";
                 break;
             case "Monthly":
+                toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + mainController.dashboardComboBoxThirdSelection.getValue() + ")";
                 break;
             case "Annually":
+                toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + ")";
                 break;
         }
+
+        mainController.labelDashboardTotalRevenueTitle.setText("TOTAL REVENUE " + toConcat.toUpperCase());
+        mainController.labelDashboardTotalCustomerTitle.setText("TOTAL CUSTOMER " + toConcat.toUpperCase());
+        mainController.labelDashboardTotalOrderTitle.setText("TOTAL ORDER " + toConcat.toUpperCase());
+        mainController.dashboardBarChart.setTitle("Top Selling Food Categories" + toConcat);
     }
 
     private void updateUIRevenueCustomerAndOrder() {
@@ -384,7 +391,38 @@ public class DashboardModel {
     }
 
     private void updateUIBarChart() {
+        mainController.dashboardBarChart.getData().clear();
 
+
+
+        List<XYChart.Series<String, Number>> seriesList = new ArrayList<>();
+
+        XYChart.Series<String, Number> milkTeaSeries = new XYChart.Series<>();
+        milkTeaSeries.setName("Milk Tea");
+        milkTeaSeries.getData().add(new XYChart.Data<>("Milk Tea", referenceMilkTeaCounter));
+        seriesList.add(milkTeaSeries);
+
+        XYChart.Series<String, Number> coolersSeries = new XYChart.Series<>();
+        coolersSeries.setName("Coolers");
+        coolersSeries.getData().add(new XYChart.Data<>("Coolers", referenceCoolersCounter));
+        seriesList.add(coolersSeries);
+
+        XYChart.Series<String, Number> coffeeSeries = new XYChart.Series<>();
+        coffeeSeries.setName("Coffee");
+        coffeeSeries.getData().add(new XYChart.Data<>("Coffee", referenceCoffeeCounter));
+        seriesList.add(coffeeSeries);
+
+        XYChart.Series<String, Number> iceCandyCupsSeries = new XYChart.Series<>();
+        iceCandyCupsSeries.setName("Ice Candy Cups");
+        iceCandyCupsSeries.getData().add(new XYChart.Data<>("Ice Candy Cups", referenceIceCandyCupsCounter));
+        seriesList.add(iceCandyCupsSeries);
+
+        XYChart.Series<String, Number> appetizerSeries = new XYChart.Series<>();
+        appetizerSeries.setName("Appetizers");
+        appetizerSeries.getData().add(new XYChart.Data<>("Appetizers", referenceAppetizerCounter));
+        seriesList.add(appetizerSeries);
+
+        mainController.dashboardBarChart.getData().addAll(seriesList);
     }
 
     private void updateUIBestSeller() {

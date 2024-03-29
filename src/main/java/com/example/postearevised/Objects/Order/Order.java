@@ -10,7 +10,7 @@ public class Order {
     private final int orderNumber;
     private final int totalPrice;
     private final int amountPaid;
-    private final int change;
+    private int change;
     private final String modeOfPayment;
     private LocalDateTime dateAndTime;
 
@@ -67,5 +67,7 @@ public class Order {
         this.dateAndTime = dateAndTime;
     }
 
-
+    public void setChange(int change) {
+        this.change = change;
+    }
 }

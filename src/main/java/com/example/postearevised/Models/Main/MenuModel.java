@@ -957,7 +957,6 @@ public class MenuModel {
                 setReferenceOrderNumber();
                 Order order = makeOrder();
                 if (addOrderToCSV(order, true)) {
-                    getChange();
                     setPaymentSuccessful(String.valueOf(referenceChange));
                     boolean dump = mainController.mainModel.openPrompt();
 
@@ -1053,8 +1052,11 @@ public class MenuModel {
 
     private Order makeOrder() {
         ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
+
+        int change = referenceAmountPaid - referenceTotalPrice;
+
         return new Order(copyList, referenceCustomerName, referenceOrderNumber,
-                referenceTotalPrice, referenceAmountPaid, referenceChange, referenceModeOfPayment, getOrderDateAndTime());
+                referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, getOrderDateAndTime());
     }
 
     private void addToOrderQueue(Order order) {
@@ -1068,11 +1070,6 @@ public class MenuModel {
     }
     private LocalDateTime getOrderDateAndTime() {
         return LocalDateTime.now();
-    }
-
-
-    private void getChange() {
-        referenceChange = referenceAmountPaid - referenceTotalPrice;
     }
 
     private void invokeOrderListStartsHereMethod(Order order) {

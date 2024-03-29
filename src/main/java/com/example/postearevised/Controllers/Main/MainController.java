@@ -128,6 +128,8 @@ public class MainController implements Initializable {
 
                 isAddingProductsFromImport = false;
 
+                dashboardModel.firstChoiceBoxOnAction();
+
                 fadeOutLoading();
             });
         }).start();
@@ -335,7 +337,7 @@ public class MainController implements Initializable {
     @FXML
     public ComboBox<String> dashboardComboBoxFourthSelection;
     @FXML
-    public BarChart<?, ?> dashboardBarChart;
+    public BarChart<String, Number> dashboardBarChart;
     @FXML
     public Label labelDashboardDateAndTIme;
     @FXML
