@@ -15,10 +15,10 @@ public class NotificationContents {
         notificationContentReference = "Please wait or refer to the error log for details.";
     }
 
-    public static void setReceiptPrinting() {
+    public static void setOrderAddedToOrderQueue() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Receipt Printing";
-        notificationContentReference = "Printing receipt...";
+        notificationHeaderReference = "Order added";
+        notificationContentReference = "Order added to order queue";
     }
 
     public static void setDeleteHistorySuccess() {

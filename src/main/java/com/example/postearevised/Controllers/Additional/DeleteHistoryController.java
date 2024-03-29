@@ -4,6 +4,8 @@ import com.example.postearevised.Models.Additional.DeleteHistoryModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 import java.net.URL;

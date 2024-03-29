@@ -11,10 +11,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.input.TouchEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -245,6 +242,15 @@ public class ProductController implements Initializable {
     @FXML
     void anchorPaneBtnEditPhotoTouched(TouchEvent event) {
         productModel.editPhotoClickedTouched(event);
+    }
+
+    @FXML
+    void radioBtnPressedEnter(KeyEvent event) {
+        productModel.updateToggleGroups();
+        if (event.getCode() == KeyCode.ENTER) {
+            if (!anchorPaneBtnDone.isDisabled())
+                productModel.addEditProductAddOrder();
+        }
     }
 
     @FXML

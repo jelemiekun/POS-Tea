@@ -14,8 +14,6 @@ maglagay talaga ng tooltip na pede sya ma sort pag pinindot to at ilagay na rin 
 
 order receipt - update resibo content
 
-ayusin ui ng account settings, dagdagan na ng recovery questions at change username
-
 palitan recovery questions sa second phase ng forgot pass
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
@@ -30,30 +28,9 @@ ihhide yung accounts excel
 
 lagyan ng listener (esc, enter ganon) mga fxml
 
-
-
-
-
-
-
 unahin muna helper messages
 
 codes ng account settings
-
-kapag mag i import, dapat bawal duplication
-
-helper message sa add product na you can leave some fields empty (???)
-
-
-
-sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery questions, pagkapindot ng register, lalabas na tac
-
-
-
-
-either hover or click or nasa scroll nalang sa baba yung receipt
-
-tanong namin sa seller kung ilang products lalabas sa all time favs
 
 full name sa name pero lalabas lang sa display is yung given name lang
 
@@ -63,11 +40,11 @@ if mag eedit or mag ddelete ng account, hihingin password
 
 pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
 
-transaction number magiging 2024-01-31-19-09-23 nalang
-
 system manual - "CSV" gawing Menu
 
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
+
+GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
 
 
 
@@ -114,6 +91,14 @@ i encrypt mga dapat i encreypt like like at pass
 ------------------MGA ITATANONG------------------
 
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
+
+i inform si seller na as much as possible paki iklian ng mga names dahil li
+
+TANUNGIN SI SELLER IF MAS PREFER NA ILALAGAY REFERENCE NUMBER IF GCASH OR CARD ANG MODE OF PAYMENT.
+
+TANUNGIN SI SELLER IF NASA KANAN OR KALIWA YUNG YES BUTTON
+
+tanong namin sa seller kung ilang products lalabas sa all time favs
 
 
 
@@ -178,10 +163,6 @@ hanapin saan mga end points/dulo ng mga operations
 cleanup code (ALISIN UNUSED EVENTS, PAGSAMAHIN MGA METHODS)
 
 video sa system manual // lomboy & austria
-
-i inform si seller na as much as possible paki iklian ng mga names dahil li
-
-TANUNGIN SI SELLER IF MAS PREFER NA ILALAGAY REFERENCE NUMBER IF GCASH OR CARD ANG MODE OF PAYMENT.
 
 KUNIN SARILING BAR STICKS SA BARGRAPH TAPOS PALITAN NG COLORS, TAPOS GUMAWA NG SARILING LEGENDS NG GRAPH SA BABA NG GRAPH
 
@@ -591,3 +572,17 @@ sa dashboard, all time lang talaga, lagyan nalang ng maliit na text. "all time f
 kahit cancelled, mag aadd parin sa order history, failed nga lang yung status
 
 lalabas din sa order history kahit void/cancelled
+
+either hover or click or nasa scroll nalang sa baba yung receipt
+
+ayusin ui ng account settings, dagdagan na ng recovery questions at change username
+
+kapag mag i import, dapat bawal duplication
+
+helper message sa add product na you can leave some fields empty (???)
+
+sa register, 2 pages nalang, first page sa account detials, 2nd page sa recovery questions, pagkapindot ng register, lalabas na tac
+
+transaction number magiging 2024-01-31-19-09-23 nalang
+
+IDOUBLE CHECK IF TAMA AND PAREHO BA YUNG TERMS AND CONDITIONS SA REGISTER AT SETTINGS

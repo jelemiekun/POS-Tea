@@ -84,7 +84,7 @@
                         </AnchorPane>
                         <AnchorPane layoutY="198.0" prefHeight="435.0" prefWidth="1198.0">
                            <children>
-                              <TableView fx:id="tableViewRecordDetails" layoutX="25.0" layoutY="14.0" prefHeight="407.0" prefWidth="1149.0">
+                              <TableView fx:id="tableViewRecordDetails" focusTraversable="false" layoutX="25.0" layoutY="14.0" prefHeight="420.0" prefWidth="1149.0">
                                 <columns>
                                   <TableColumn fx:id="tableViewRecordDetailsFoodCategories" prefWidth="189.0" sortable="false" text="Food Cateogires" />
                                   <TableColumn fx:id="tableViewRecordDetailsProductDetails" prefWidth="170.0" sortable="false" text="Product Details" />

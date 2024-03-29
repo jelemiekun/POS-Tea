@@ -975,7 +975,7 @@ public class MenuModel {
                         logError(false);
                     }
 
-                    setReceiptPrinting();
+                    setOrderAddedToOrderQueue();
                     mainController.mainModel.showNotification();
 
 

@@ -368,6 +368,12 @@ public class MainController implements Initializable {
     @FXML
     public FlowPane flowPaneBestSeller;
 
+
+    @FXML
+    public void anchorPaneResetToTodayPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            dashboardModel.resetToToday();
+    }
     @FXML
     public void anchorPaneDashboardRequestFocus() { anchorPaneDashboard.requestFocus(); }
 
@@ -386,6 +392,12 @@ public class MainController implements Initializable {
     @FXML
     public void dashboardNeedHelpClickedTouched() {
         dashboardModel.goToSystemManual();
+    }
+
+    @FXML
+    public void dashboardNeedHelpPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            dashboardModel.goToSystemManual();
     }
 
     @FXML
@@ -459,6 +471,12 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void menuEditProductPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            menuModel.goToEditProducts();
+    }
+
+    @FXML
     public void textFieldCustomerNameTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             if (anchorPaneHideHalfRightPanel.isVisible())
@@ -476,6 +494,13 @@ public class MainController implements Initializable {
             menuModel.amountTyping();
         }
     }
+
+    @FXML
+    public void anchorPaneMenuIsEmptyPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            menuModel.goToEditProducts();
+    }
+
     @FXML
     public void imageViewMenuAllClicked(MouseEvent event) {
         menuModel.switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
@@ -558,8 +583,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void labelMenuIsEmptyClickedTouched() {
-        mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
-        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+        menuModel.goToEditProducts();
     }
 
     /**
@@ -661,6 +685,12 @@ public class MainController implements Initializable {
         if (event.getClickCount() == 2) {
             orderHistoryModel.openOrderDetails();
         }
+    }
+
+    @FXML
+    public void tableViewOrderHistoryPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            orderHistoryModel.openOrderDetails();
     }
 
     @FXML
@@ -937,6 +967,14 @@ public class MainController implements Initializable {
     public void settingsDeleteProductTouched(TouchEvent event) {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
+    }
+
+    @FXML
+    public void tableProductsPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            if (!orderIsOngoing)
+                settingsModel.editAProduct();
+        }
     }
 
     @FXML

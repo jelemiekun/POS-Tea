@@ -5,7 +5,6 @@ import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -186,49 +185,50 @@ public class SettingsModel {
     }
 
     public void populateComboBoxImportExport() {
-        mainController.importExportComboBox.getItems().addAll("Import/Export CSV","Import CSV", "Export CSV");
-        mainController.importExportComboBox.setValue("Import/Export CSV");
+        mainController.importExportComboBox.getItems().addAll(IMPORT_EXPORT_ENUM.getImportOperation(), IMPORT_ENUM.getImportOperation(), EXPORT_ENUM.getImportOperation());
+        mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
     }
 
     public void comboBoxValueSelected() {
-        isAddingProductsFromImport = true;
+        if (!orderIsOngoing) {
+            isAddingProductsFromImport = true;
 
-        mainController.mainModel.showRectangleModal();
-        String selected = mainController.importExportComboBox.getValue();
+            mainController.mainModel.showRectangleModal();
+            String selected = mainController.importExportComboBox.getValue();
 
-        if (selected == null) {
-            mainController.mainModel.hideRectangleModal();
-            mainController.importExportComboBox.setValue("Import/Export CSV");
-        } else if (selected.equals(Import.getImportOperation())) {
-            switch (chooseFilePath(mainStage, true)) {
-                // -1 - some product already exists, 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
-                case 1:
-                    setImportSuccessful();
+            if (selected == null) {
+                mainController.mainModel.hideRectangleModal();
+                mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
+            } else if (selected.equals(IMPORT_ENUM.getImportOperation())) {
+                switch (chooseFilePath(mainStage, true)) {
+                    // -1 - some product already exists, 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
+                    case 1:
+                        setImportSuccessful();
+                        mainController.mainModel.openPrompt();
+                        break;
+                    case 2:
+                        setInvalidFileFormat();
+                        mainController.mainModel.openPrompt();
+                        break;
+                    case 3:
+                        setImportOtherError();
+                        mainController.mainModel.openPrompt();
+                        logError(false);
+                        break;
+                }
+            } else if (selected.equals(EXPORT_ENUM.getImportOperation())){
+                // 4 - export successful
+                if (chooseFilePath(mainStage, false) == 4) {
                     mainController.mainModel.openPrompt();
-                    break;
-                case 2:
-                    setInvalidFileFormat();
-                    mainController.mainModel.openPrompt();
-                    break;
-                case 3:
-                    setImportOtherError();
-                    mainController.mainModel.openPrompt();
-                    logError(false);
-                    break;
+                }
+            } else {
+                mainController.mainModel.hideRectangleModal();
+                mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
             }
-        } else if (selected.equals(Export.getImportOperation())){
-            // 4 - export successful
-            if (chooseFilePath(mainStage, false) == 4) {
-                mainController.mainModel.openPrompt();
-            }
-        } else {
             mainController.mainModel.hideRectangleModal();
-            mainController.importExportComboBox.setValue("Import/Export CSV");
+            mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
+            isAddingProductsFromImport = false;
         }
-        mainController.mainModel.hideRectangleModal();
-        mainController.importExportComboBox.setValue("Import/Export CSV");
-
-        isAddingProductsFromImport = false;
     }
 
     /**

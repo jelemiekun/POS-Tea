@@ -1,8 +1,9 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum ImportExportEnum {
-    Import("Import CSV"),
-    Export("Export CSV");
+    IMPORT_EXPORT_ENUM("Import/Export Menu"),
+    IMPORT_ENUM("Import Menu"),
+    EXPORT_ENUM("Export Menu");
 
     private final String importOperation;
 

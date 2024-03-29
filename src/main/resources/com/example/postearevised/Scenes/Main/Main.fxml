@@ -43,7 +43,7 @@
                         <Font name="Arial Bold" size="70.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="1595.0" layoutY="19.0" onMouseClicked="#dashboardNeedHelpClickedTouched" onTouchReleased="#dashboardNeedHelpClickedTouched" prefHeight="67.0" prefWidth="200.0">
+                  <AnchorPane layoutX="1595.0" layoutY="19.0" onKeyPressed="#dashboardNeedHelpPressedEnter" onMouseClicked="#dashboardNeedHelpClickedTouched" onTouchReleased="#dashboardNeedHelpClickedTouched" prefHeight="67.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -72,7 +72,7 @@
                               <ComboBox fx:id="dashboardComboBoxSecondSelection" onAction="#dashboardComboBoxSecondSelectionOnAction" prefWidth="235.0" />
                               <ComboBox fx:id="dashboardComboBoxThirdSelection" onAction="#dashboardComboBoxThirdSelectionOnAction" prefWidth="235.0" />
                               <ComboBox fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="235.0" />
-                              <AnchorPane fx:id="anchorPaneResetToToday" onMouseClicked="#anchorPaneDashboardResetToTodayClickedTouched" onTouchReleased="#anchorPaneDashboardResetToTodayClickedTouched" prefHeight="39.0" prefWidth="119.0" visible="false">
+                              <AnchorPane fx:id="anchorPaneResetToToday" focusTraversable="true" onKeyPressed="#anchorPaneResetToTodayPressedEnter" onMouseClicked="#anchorPaneDashboardResetToTodayClickedTouched" onTouchReleased="#anchorPaneDashboardResetToTodayClickedTouched" prefHeight="39.0" prefWidth="119.0" visible="false">
                                  <children>
                                     <Label layoutX="1.0" layoutY="9.0" text="Reset to today" textFill="#0000009a" underline="true">
                                        <font>
@@ -167,7 +167,7 @@
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
                                 <yAxis>
-                                  <NumberAxis minorTickCount="0" side="LEFT" tickLabelGap="5.0">
+                                  <NumberAxis minorTickCount="0" minorTickLength="10.0" side="LEFT" tickLabelGap="5.0" tickUnit="10.0">
                                        <tickLabelFont>
                                           <Font name="Arial" size="8.0" />
                                        </tickLabelFont></NumberAxis>
@@ -268,6 +268,150 @@
          </children></AnchorPane>
       <AnchorPane fx:id="anchorPaneMenu" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
+            <AnchorPane prefHeight="1050.0" prefWidth="1276.0">
+               <children>
+                  <AnchorPane prefHeight="140.0" prefWidth="1276.0">
+                     <children>
+                        <Label layoutX="53.0" layoutY="23.0" text="MENU">
+                           <font>
+                              <Font name="Arial Bold" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelMenuDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
+                           <font>
+                              <Font name="Arial" size="28.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="1010.0" layoutY="42.0" onKeyPressed="#menuEditProductPressedEnter" onMouseClicked="#menuEditProductClickedTouched" onTouchReleased="#menuEditProductClickedTouched" prefHeight="67.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/Menu/edit%20products.png" />
+                                 </image>
+                              </ImageView>
+                              <Label alignment="CENTER" layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Edit Product">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="58.0" layoutY="140.0" prefHeight="233.0" prefWidth="1163.0">
+                     <children>
+                        <Label text="Food Categories">
+                           <font>
+                              <Font name="Arial Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <FlowPane alignment="CENTER" hgap="50.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
+                           <children>
+                              <ImageView fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/all.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="imageViewMenuMilkTea" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuMilkTeaClicked" onTouchReleased="#imageViewMenuMilkTeaTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/milk%20tea.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="imageViewMenuCoolers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoolersClicked" onTouchReleased="#imageViewMenuCoolersTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/coolers.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="imageViewMenuCoffee" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoffeeClicked" onTouchReleased="#imageViewMenuCoffeeTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/coffee.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/ice%20candy%20cups.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Menu%20Categories/appetizer.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </FlowPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="58.0" layoutY="373.0" prefHeight="666.0" prefWidth="1190.0">
+                     <children>
+                        <Label fx:id="labelMenuCategorySelected" prefHeight="42.0" prefWidth="436.0" text="Menu">
+                           <font>
+                              <Font name="Arial Bold" size="36.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane layoutX="37.0" layoutY="63.0" prefHeight="530.0" prefWidth="1120.0">
+                           <content>
+                              <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="528.0" prefWidth="1100.0" vgap="50.0" />
+                           </content>
+                        </ScrollPane>
+                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" focusTraversable="true" layoutX="420.0" layoutY="300.0" onKeyPressed="#anchorPaneMenuIsEmptyPressedEnter" prefHeight="67.0" prefWidth="354.0">
+                           <children>
+                              <AnchorPane layoutX="2.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClickedTouched" onTouchReleased="#labelMenuIsEmptyClickedTouched" prefHeight="42.0" prefWidth="313.0">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <children>
+                                    <Label text="Add Products to Get Started" textFill="#3a7cff" underline="true">
+                                       <font>
+                                          <Font name="Arial" size="28.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <Label layoutX="51.0" layoutY="-2.0" text="Your Menu is Empty" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Arial" size="28.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <Label fx:id="labelMenuCategoryResultCounter" alignment="CENTER_RIGHT" layoutX="774.0" prefHeight="42.0" prefWidth="383.0" textFill="#8a8a8a">
+                           <font>
+                              <Font name="Arial" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelMenuCategoryUnavailableProductCounter" alignment="CENTER_RIGHT" layoutX="784.0" prefHeight="42.0" prefWidth="221.0" textAlignment="RIGHT" textFill="#8a8a8a">
+                           <font>
+                              <Font name="Arial" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
@@ -445,156 +589,12 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="1050.0" prefWidth="1276.0">
-               <children>
-                  <AnchorPane prefHeight="140.0" prefWidth="1276.0">
-                     <children>
-                        <Label layoutX="53.0" layoutY="23.0" text="MENU">
-                           <font>
-                              <Font name="Arial Bold" size="48.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelMenuDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
-                           <font>
-                              <Font name="Arial" size="28.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane layoutX="1010.0" layoutY="42.0" onMouseClicked="#menuEditProductClickedTouched" onTouchReleased="#menuEditProductClickedTouched" prefHeight="67.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Buttons/Menu/edit%20products.png" />
-                                 </image>
-                              </ImageView>
-                              <Label alignment="CENTER" layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Edit Product">
-                                 <font>
-                                    <Font name="Arial" size="16.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="58.0" layoutY="140.0" prefHeight="233.0" prefWidth="1163.0">
-                     <children>
-                        <Label text="Food Categories">
-                           <font>
-                              <Font name="Arial Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <FlowPane alignment="CENTER" hgap="50.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
-                           <children>
-                              <ImageView fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/all.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="imageViewMenuMilkTea" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuMilkTeaClicked" onTouchReleased="#imageViewMenuMilkTeaTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/milk%20tea.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="imageViewMenuCoolers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoolersClicked" onTouchReleased="#imageViewMenuCoolersTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/coolers.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="imageViewMenuCoffee" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoffeeClicked" onTouchReleased="#imageViewMenuCoffeeTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/coffee.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/ice%20candy%20cups.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                              <ImageView fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../../Medias/Icons/Menu%20Categories/appetizer.png" />
-                                 </image>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </ImageView>
-                           </children>
-                        </FlowPane>
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane layoutX="58.0" layoutY="373.0" prefHeight="666.0" prefWidth="1190.0">
-                     <children>
-                        <Label fx:id="labelMenuCategorySelected" prefHeight="42.0" prefWidth="436.0" text="Menu">
-                           <font>
-                              <Font name="Arial Bold" size="36.0" />
-                           </font>
-                        </Label>
-                        <ScrollPane layoutX="37.0" layoutY="63.0" prefHeight="530.0" prefWidth="1120.0">
-                           <content>
-                              <FlowPane fx:id="flowPaneMenu" hgap="70.0" prefHeight="528.0" prefWidth="1100.0" vgap="50.0" />
-                           </content>
-                        </ScrollPane>
-                        <AnchorPane fx:id="anchorPaneMenuIsEmpty" layoutX="420.0" layoutY="300.0" prefHeight="67.0" prefWidth="354.0">
-                           <children>
-                              <AnchorPane layoutX="2.0" layoutY="30.0" onMouseClicked="#labelMenuIsEmptyClickedTouched" onTouchReleased="#labelMenuIsEmptyClickedTouched" prefHeight="42.0" prefWidth="313.0">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <children>
-                                    <Label text="Add Products to Get Started" textFill="#3a7cff" underline="true">
-                                       <font>
-                                          <Font name="Arial" size="28.0" />
-                                       </font>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Label>
-                                 </children>
-                              </AnchorPane>
-                              <Label layoutX="51.0" layoutY="-2.0" text="Your Menu is Empty" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Arial" size="28.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </AnchorPane>
-                        <Label fx:id="labelMenuCategoryResultCounter" alignment="CENTER_RIGHT" layoutX="774.0" prefHeight="42.0" prefWidth="383.0" textFill="#8a8a8a">
-                           <font>
-                              <Font name="Arial" size="30.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="labelMenuCategoryUnavailableProductCounter" alignment="CENTER_RIGHT" layoutX="784.0" prefHeight="42.0" prefWidth="221.0" textAlignment="RIGHT" textFill="#8a8a8a">
-                           <font>
-                              <Font name="Arial" size="18.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
          </children></AnchorPane>
       <AnchorPane fx:id="anchorPaneOrderList" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
-                  <Label layoutX="53.0" layoutY="23.0" text="ORDER LIST">
+                  <Label layoutX="53.0" layoutY="23.0" text="ORDER QUEUE">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
@@ -708,11 +708,11 @@
             </AnchorPane>
             <AnchorPane layoutY="145.0" prefHeight="900.0" prefWidth="1833.0">
                <children>
-                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" onMouseClicked="#tableViewOrderHistoryClicked" onTouchReleased="#tableViewOrderHistoryTouched" prefHeight="807.0" prefWidth="1739.0">
+                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" onKeyPressed="#tableViewOrderHistoryPressedEnter" onMouseClicked="#tableViewOrderHistoryClicked" onTouchReleased="#tableViewOrderHistoryTouched" prefHeight="807.0" prefWidth="1739.0">
                     <columns>
                         <TableColumn fx:id="tableViewOrderHistoryColTransactionID" prefWidth="260.0" sortable="false" text="Transaction ID" />
                       <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="234.0" resizable="false" sortable="false" text="Customer Name" />
-                        <TableColumn fx:id="tableViewOrderHistoryColProductCategory" prefWidth="239.0" sortable="false" text="Category" />
+                        <TableColumn fx:id="tableViewOrderHistoryColProductCategory" prefWidth="239.0" sortable="false" text="Product Category" />
                       <TableColumn fx:id="tableViewOrderHistoryColProductName" prefWidth="274.0" resizable="false" sortable="false" text="Product Name" />
                         <TableColumn fx:id="tableViewOrderHistoryColQuantity" prefWidth="191.0" resizable="false" sortable="false" text="Quantity" />
                         <TableColumn fx:id="tableViewOrderHistoryColTotalPrice" prefWidth="238.0" resizable="false" sortable="false" text="Total Price" />
@@ -1015,7 +1015,7 @@
                               <ComboBox fx:id="importExportComboBox" layoutX="33.0" layoutY="23.0" onAction="#importExportOnAction" prefHeight="40.0" prefWidth="200.0" promptText="Import/Export CSV" />
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="tableProducts" layoutX="60.0" layoutY="139.0" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1200.0">
+                        <TableView fx:id="tableProducts" layoutX="60.0" layoutY="139.0" onKeyPressed="#tableProductsPressedEnter" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1200.0">
                           <columns>
                             <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="266.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
                             <TableColumn fx:id="tableProductsColProductName" prefWidth="514.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />
@@ -1487,7 +1487,7 @@
                                       <Image url="@../../Medias/Icons/Left%20Panel/order%20queue.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="12.0" layoutY="76.0" text="ORDER&#10;LIST" textAlignment="CENTER">
+                              <Label layoutX="12.0" layoutY="76.0" text="ORDER&#10;QUEUE" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>

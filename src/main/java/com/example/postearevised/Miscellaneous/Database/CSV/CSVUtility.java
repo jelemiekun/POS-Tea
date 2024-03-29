@@ -73,11 +73,11 @@ public class CSVUtility {
         File file;
 
         if (isImport) {
-            fileChooser.setTitle("Import Products CSV File");
+            fileChooser.setTitle("Import Menu File");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
             file = fileChooser.showOpenDialog(stage);
         } else {
-            fileChooser.setTitle("Save Products CSV File");
+            fileChooser.setTitle("Save Menu File");
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV Files", "*.csv"));
             fileChooser.setInitialFileName("products.csv");
             file = fileChooser.showSaveDialog(stage);
