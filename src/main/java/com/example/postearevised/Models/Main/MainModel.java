@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -241,6 +242,16 @@ public class MainModel {
         fade.play();
     }
 
+
+    public void setToolTips() {
+        Tooltip needHelpGettingStartedToolTip = new Tooltip("Go to system manual for guide");
+        
+
+
+
+        needHelpGettingStartedToolTip.setStyle("-fx-font-family: Arial; -fx-font-size: 14px;");
+        Tooltip.install(mainController.anchorDashboardPaneNeedHelpGettingStarted, needHelpGettingStartedToolTip);
+    }
 
 
     public boolean openPrompt() {

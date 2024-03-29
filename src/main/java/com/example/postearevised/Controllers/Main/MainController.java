@@ -111,6 +111,7 @@ public class MainController implements Initializable {
                 mainModel.createAndStartDaemonThreadForDateAndTime();
                 mainModel.setMainMenuIconSelected();
                 mainModel.setAnchorPane();
+                mainModel.setToolTips();
 
                 dashboardModel.setupDashboard();
 
@@ -321,6 +322,8 @@ public class MainController implements Initializable {
     /**
      * Dashboard
      */
+    @FXML
+    public AnchorPane anchorDashboardPaneNeedHelpGettingStarted;
     @FXML
     public Rectangle rectangleDashboardLegends1;
     @FXML

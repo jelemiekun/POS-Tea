@@ -33,9 +33,9 @@ public class PromptContents {
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
-        btnLeftImageReference = YES_BLACK_BUTTON;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
         btnCenterImageReference = OKAY_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
         btnLeftBoolean = false;
         btnCenterBoolean = true;
         btnRightBoolean = false;
@@ -50,12 +50,12 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = YES_BLACK_BUTTON;
-        btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
-        btnLeftBoolean = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = YES_BLACK_BUTTON;
+        btnLeftBoolean = false;
         btnCenterBoolean = false;
-        btnRightBoolean = false;
+        btnRightBoolean = true;
     }
 
     public static void setGoBackConfirmation() {
@@ -67,12 +67,12 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = YES_RED_BUTTON;
+        btnLeftImageReference = NO_BLACK_BUTTON;
         btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
-        btnLeftBoolean = true;
+        btnRightImageReference = YES_RED_BUTTON;
+        btnLeftBoolean = false;
         btnCenterBoolean = false;
-        btnRightBoolean = false;
+        btnRightBoolean = true;
     }
 
     public static void setAccountCreatedConfirmation() {
@@ -186,12 +186,12 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = YES_RED_BUTTON;
+        btnLeftImageReference = NO_BLACK_BUTTON;
         btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
-        btnLeftBoolean = true;
+        btnRightImageReference = YES_RED_BUTTON;
+        btnLeftBoolean = false;
         btnCenterBoolean = false;
-        btnRightBoolean = false;
+        btnRightBoolean = true;
     }
 
     public static void setAddEditProductBlankFields() {
@@ -288,12 +288,12 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = YES_RED_BUTTON;
-        btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
-        btnLeftBoolean = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = YES_RED_BUTTON;
+        btnLeftBoolean = false;
         btnCenterBoolean = false;
-        btnRightBoolean = false;
+        btnRightBoolean = true;
     }
 
     public static void setErrorDeleteRecord() {
@@ -509,12 +509,12 @@ public class PromptContents {
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
-        btnLeftImageReference = YES_BLACK_BUTTON;
-        btnCenterImageReference = NO_BLACK_BUTTON;
-        btnRightImageReference = NO_BLACK_BUTTON;
-        btnLeftBoolean = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = YES_BLACK_BUTTON;
+        btnLeftBoolean = false;
         btnCenterBoolean = false;
-        btnRightBoolean = false;
+        btnRightBoolean = true;
     }
 
     public static void setPaymentSuccessful(String change) {
