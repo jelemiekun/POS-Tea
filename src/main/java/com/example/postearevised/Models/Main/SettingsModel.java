@@ -123,6 +123,8 @@ public class SettingsModel {
                 mainController.rectangleSystemManual.setStroke(null);
                 break;
             case 3: // Edit Products
+                mainController.settingsEditProductGuideMessageClickTable.setVisible(showGuideMessagesReference);
+
                 editProductsInitializeTable();
                 editProductsCheckIfOrderIsOngoing();
                 refreshProductTable();
@@ -242,6 +244,9 @@ public class SettingsModel {
 
     private void cantEditProductsLabelVisibility() {
         mainController.labelSettingsEditProductsUnavailable.setVisible(orderIsOngoing);
+
+        if (orderIsOngoing && showGuideMessagesReference)
+            mainController.settingsEditProductGuideMessageClickTable.setVisible(false);
     }
 
     private void editProductsInitializeTable() {

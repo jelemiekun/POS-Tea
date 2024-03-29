@@ -570,6 +570,11 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
+            <Label fx:id="labelGuideMessagePleaseFillUp" layoutX="405.0" layoutY="15.0" text="Please fill up all forms" textFill="#616161" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <ComboBox fx:id="comboBoxCategories" layoutX="779.0" layoutY="569.0" onAction="#comboBoxCategoriesOnAction" prefHeight="50.0" prefWidth="210.0" promptText="Category" />
@@ -620,6 +625,11 @@
                   <Label fx:id="labelProductDescription" alignment="TOP_LEFT" layoutX="26.0" layoutY="24.0" prefHeight="89.0" prefWidth="748.0" text="Product Description" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Arial" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelGuideMessageDescription" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="516.0" layoutY="85.0" text="You can leave this field blank" textAlignment="RIGHT" textFill="#616161" visible="false">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
                </children>

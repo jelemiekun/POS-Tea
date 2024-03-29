@@ -471,6 +471,11 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
+                        <Label fx:id="menuGuideMessageBillsProductOrder" layoutX="141.0" layoutY="14.0" text="Click the order details to edit the item" textFill="#616161">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <Label layoutX="44.0" layoutY="580.0" text="-----------------------------------------------">
@@ -628,6 +633,11 @@
                         </Label>
                      </children>
                   </AnchorPane>
+                  <Label fx:id="orderQueueGuideMessageClickTable" layoutX="745.0" layoutY="106.0" text="Click the shape to view the order details" textFill="#616161">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane layoutY="140.0" prefHeight="908.0" prefWidth="1833.0">
@@ -704,6 +714,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
+                  <Label fx:id="orderHistoryGuideMessageDoubleClickTable" layoutX="726.0" layoutY="106.0" text="Double click the row to view order details" textFill="#616161">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane layoutY="145.0" prefHeight="900.0" prefWidth="1833.0">
@@ -1071,6 +1086,11 @@
                         <Label fx:id="labelSettingsEditProductsUnavailable" layoutX="265.0" layoutY="101.0" text="Product editing is currently unavailable due to ongoing orders in the menu." textFill="#ff3333" visible="false">
                            <font>
                               <Font name="Arial" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="settingsEditProductGuideMessageClickTable" layoutX="442.0" layoutY="108.0" text="Double click the row to view or edit product details" textFill="#616161">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Label>
                      </children></AnchorPane>

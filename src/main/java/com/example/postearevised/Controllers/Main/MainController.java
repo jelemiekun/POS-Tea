@@ -410,6 +410,8 @@ public class MainController implements Initializable {
      * Menu
      */
     @FXML
+    public Label menuGuideMessageBillsProductOrder;
+    @FXML
     public AnchorPane anchorPaneMenuIsEmptyInner;
     @FXML
     public AnchorPane anchorPaneMenuGoToEditProducts;
@@ -603,6 +605,8 @@ public class MainController implements Initializable {
      * Order queue
      */
     @FXML
+    public Label orderQueueGuideMessageClickTable;
+    @FXML
     public AnchorPane orderQueueAnchorPaneNoOrder;
     @FXML
     public FlowPane flowPaneOrderQueue;
@@ -618,6 +622,8 @@ public class MainController implements Initializable {
     /**
      *  Order History
      */
+    @FXML
+    public Label orderHistoryGuideMessageDoubleClickTable;
     @FXML
     public Label labelOrderHistoryDateAndTIme;
     @FXML
@@ -956,6 +962,8 @@ public class MainController implements Initializable {
     /**
      * Settings - Products
      */
+    @FXML
+    public Label settingsEditProductGuideMessageClickTable;
     @FXML
     public ComboBox<String> importExportComboBox;
     @FXML

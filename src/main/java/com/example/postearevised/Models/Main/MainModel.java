@@ -190,6 +190,26 @@ public class MainModel {
                 logout();
             }
         }
+
+        setGuideMessages(selectedPane);
+    }
+
+    private void setGuideMessages(int selectedPane) {
+        switch (selectedPane) {
+            case 1: // Menu
+                mainController.menuGuideMessageBillsProductOrder.setVisible(showGuideMessagesReference);
+                break;
+            case 2: // Dashboard
+                mainController.anchorDashboardPaneNeedHelpGettingStarted.setVisible(showGuideMessagesReference);
+                break;
+            case 3: // Order List
+                mainController.orderQueueGuideMessageClickTable.setVisible(showGuideMessagesReference);
+                break;
+            case 4: // Order History
+                mainController.orderHistoryGuideMessageDoubleClickTable.setVisible(showGuideMessagesReference);
+                break;
+                // settings ay nasa settingsModel openSelectedPane() na
+        }
     }
 
     public void showRectangleModal() {

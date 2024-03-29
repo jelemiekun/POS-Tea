@@ -551,6 +551,7 @@ public class ProductModel {
         referenceCategory = selected;
 
         enablePanesAfterComboBoxSelected();
+        showGuideMessageIfReferenceTrue();
     }
 
     private void enablePanesAfterComboBoxSelected() {
@@ -558,6 +559,11 @@ public class ProductModel {
         productController.anchorPaneBtnEditPhoto.setDisable(false);
         productController.textFieldProductName.setDisable(false);
         productController.textFieldProductDescription.setDisable(false);
+    }
+
+    private void showGuideMessageIfReferenceTrue() {
+        productController.labelGuideMessagePleaseFillUp.setVisible(showGuideMessagesReference);
+        productController.labelGuideMessageDescription.setVisible(showGuideMessagesReference);
     }
 
 
@@ -905,6 +911,8 @@ public class ProductModel {
             productController.anchorPaneIceCandyCups.setVisible(false);
             productController.anchorPaneAppetizer.setVisible(true);
         }
+
+        showGuideMessageIfReferenceTrue();
     }
 
     private void setEditProductsTexts() {

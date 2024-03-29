@@ -16,15 +16,7 @@ palitan recovery questions sa second phase ng forgot pass
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
 
-gawing * lahat ng static import
-
-css files ng 2 table mula kay abella
-
 may mag ppop up if may changes na nadetect sa directory
-
-ihhide yung accounts excel
-
-unahin muna helper messages
 
 codes ng account settings
 
@@ -71,6 +63,12 @@ new password cannot be the same as old password error
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
 i encrypt mga dapat i encreypt like pass
+
+gawing * lahat ng static import
+
+css files ng 2 table mula kay abella
+
+ihhide yung accounts excel
 
 
 ------------------MGA ITATANONG------------------
@@ -593,3 +591,5 @@ lagyan ng "INCOMPATIBLE SCREEN RESOLUTION." if nag run yung system sa medyo mali
 lagyan ng listener (esc, enter ganon) mga fxml
 
 GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
+
+unahin muna helper messages

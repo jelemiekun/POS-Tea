@@ -30,6 +30,10 @@ public class ProductController implements Initializable {
     }
 
     @FXML
+    public Label labelGuideMessagePleaseFillUp;
+    @FXML
+    public Label labelGuideMessageDescription;
+    @FXML
     public AnchorPane anchorPanePhoto;
     @FXML
     public AnchorPane anchorPaneProductNameWhole;
