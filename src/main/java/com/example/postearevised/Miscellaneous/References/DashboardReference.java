@@ -26,7 +26,7 @@ public class DashboardReference {
     }
 
     public static ObservableList<String> firstChoiceBoxObservableList = FXCollections.observableArrayList(
-            "Daily", "Weekly", "Monthly", "Annually"
+            "Daily", "Monthly", "Annually"
     );
 
     public static ObservableList<String> secondChoiceBoxObservableList = FXCollections.observableArrayList();
@@ -35,4 +35,14 @@ public class DashboardReference {
 
 
     public static ObservableList<Order> dashboardOrderObservableListReference = FXCollections.observableArrayList();
+
+
+    public static String[] dashboardGraphColors = {
+            "#0000FF",  // Blue
+            "#FFFF00",  // Yellow
+            "#FFA500",  // Orange
+            "#008000",  // Green
+            "#FF0000"   // Red
+    };
+
 }

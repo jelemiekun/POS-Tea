@@ -322,6 +322,20 @@ public class MainController implements Initializable {
      * Dashboard
      */
     @FXML
+    public Rectangle rectangleDashboardLegends1;
+    @FXML
+    public Rectangle rectangleDashboardLegends2;
+    @FXML
+    public Rectangle rectangleDashboardLegends3;
+    @FXML
+    public Rectangle rectangleDashboardLegends4;
+    @FXML
+    public Rectangle rectangleDashboardLegends5;
+    @FXML
+    public FlowPane flowPaneDashboardLegends;
+    @FXML
+    public AnchorPane anchorPaneResetToToday;
+    @FXML
     public Label labelDashBoardNoSalesRecordedGraph;
     @FXML
     public Label labelDashboardTotalRevenueTitle;

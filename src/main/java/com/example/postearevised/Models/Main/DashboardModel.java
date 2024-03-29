@@ -3,11 +3,13 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -116,6 +118,8 @@ public class DashboardModel {
 
     private void setUIIfEmpty(boolean isEmpty) {
         mainController.labelDashBoardNoSalesRecordedGraph.setVisible(isEmpty);
+        mainController.anchorPaneResetToToday.setVisible(!isEmpty);
+        mainController.flowPaneDashboardLegends.setVisible(!isEmpty);
         mainController.labelDashboardBarChartTitle.setVisible(!isEmpty);
         mainController.dashboardBarChart.setVisible(!isEmpty);
     }
@@ -369,6 +373,7 @@ public class DashboardModel {
         updateUITitles();
         updateUIRevenueCustomerAndOrder();
         updateUIBarChart();
+        updateUIBarChartLegends();
     }
 
     private void updateUITitles() {
@@ -407,36 +412,55 @@ public class DashboardModel {
         if (!dashboardOrderObservableListReference.isEmpty()) {
             List<XYChart.Series<String, Number>> seriesList = new ArrayList<>();
 
-            XYChart.Series<String, Number> milkTeaSeries = new XYChart.Series<>();
-            milkTeaSeries.setName("Milk Tea");
-            milkTeaSeries.getData().add(new XYChart.Data<>("", referenceMilkTeaCounter));
-            seriesList.add(milkTeaSeries);
+            for (int i = 0; i < 5; i++) {
+                XYChart.Series<String, Number> series = new XYChart.Series<>();
+                series.setName("");
 
-            XYChart.Series<String, Number> coolersSeries = new XYChart.Series<>();
-            coolersSeries.setName("Coolers");
-            coolersSeries.getData().add(new XYChart.Data<>("", referenceCoolersCounter));
-            seriesList.add(coolersSeries);
+                series.getData().add(new XYChart.Data<>("", getCountForIndex(i)));
 
-            XYChart.Series<String, Number> coffeeSeries = new XYChart.Series<>();
-            coffeeSeries.setName("Coffee");
-            coffeeSeries.getData().add(new XYChart.Data<>("", referenceCoffeeCounter));
-            seriesList.add(coffeeSeries);
-
-            XYChart.Series<String, Number> iceCandyCupsSeries = new XYChart.Series<>();
-            iceCandyCupsSeries.setName("Ice Candy Cups");
-            iceCandyCupsSeries.getData().add(new XYChart.Data<>("", referenceIceCandyCupsCounter));
-            seriesList.add(iceCandyCupsSeries);
-
-            XYChart.Series<String, Number> appetizerSeries = new XYChart.Series<>();
-            appetizerSeries.setName("Appetizers");
-            appetizerSeries.getData().add(new XYChart.Data<>("", referenceAppetizerCounter));
-            seriesList.add(appetizerSeries);
+                seriesList.add(series);
+            }
 
             mainController.dashboardBarChart.getData().addAll(seriesList);
-        } else {
 
+            int index = 0;
+            for (XYChart.Series<String, Number> series : mainController.dashboardBarChart.getData()) {
+                for (XYChart.Data<String, Number> data : series.getData()) {
+                    Node bar = data.getNode();
+                    if (bar != null) {
+                        bar.setStyle("-fx-bar-fill: " + dashboardGraphColors[index] + ";");
+                    }
+                    index++;
+                }
+            }
         }
     }
+
+    private int getCountForIndex(int index) {
+        switch (index) {
+            case 0:
+                return referenceMilkTeaCounter;
+            case 1:
+                return referenceCoolersCounter;
+            case 2:
+                return referenceCoffeeCounter;
+            case 3:
+                return referenceIceCandyCupsCounter;
+            case 4:
+                return referenceAppetizerCounter;
+            default:
+                return 0;
+        }
+    }
+
+    private void updateUIBarChartLegends() {
+        mainController.rectangleDashboardLegends1.setFill(Paint.valueOf(dashboardGraphColors[0]));
+        mainController.rectangleDashboardLegends2.setFill(Paint.valueOf(dashboardGraphColors[1]));
+        mainController.rectangleDashboardLegends3.setFill(Paint.valueOf(dashboardGraphColors[2]));
+        mainController.rectangleDashboardLegends4.setFill(Paint.valueOf(dashboardGraphColors[3]));
+        mainController.rectangleDashboardLegends5.setFill(Paint.valueOf(dashboardGraphColors[4]));
+    }
+
 
     private void updateUIBestSeller() {
         if (topTenProducts.isEmpty()) {
