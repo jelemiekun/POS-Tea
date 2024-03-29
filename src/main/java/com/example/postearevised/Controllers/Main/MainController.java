@@ -36,7 +36,7 @@ import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
-import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
+import static com.example.postearevised.Miscellaneous.Others.InvoiceGenerator.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -71,7 +71,7 @@ public class MainController implements Initializable {
             Thread t1 = new Thread(() -> {
                 doesProductCSVExist();
                 doesOrderHistoryCSVExist();
-                doesReceiptPathExist();
+                doesInvoicePathExist();
             });
 
             t1.start();

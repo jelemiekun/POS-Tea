@@ -12,8 +12,8 @@ import java.util.List;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
-public class ReceiptGenerator {
-    public static void doesReceiptPathExist() {
+public class InvoiceGenerator {
+    public static void doesInvoicePathExist() {
         File receiptPath = new File(DIRECTORY_PATH_RECEIPT);
 
         if (!receiptPath.exists()) {
@@ -27,7 +27,7 @@ public class ReceiptGenerator {
         }
     }
 
-    public static void generateReceipt(Order order, int invocationCount) {
+    public static void generateInvoice(Order order, int invocationCount) {
         if (invocationCount == 1 || invocationCount == 2) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
 
@@ -62,8 +62,8 @@ public class ReceiptGenerator {
 
             try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY, true)) {
                 writer.write(receiptContent);
-                generateReceipt(order, ++invocationCount);
-                System.out.println("Receipt generated successfully.");
+                generateInvoice(order, ++invocationCount);
+                System.out.println("Invoice generated successfully.");
             } catch (IOException e) {
                 errorMessage = e.getMessage();
                 logError(false);

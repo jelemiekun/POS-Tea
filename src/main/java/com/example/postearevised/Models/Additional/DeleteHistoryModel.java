@@ -28,9 +28,9 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryA
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class DeleteHistoryModel {
     private DeleteHistoryController deleteHistoryController;

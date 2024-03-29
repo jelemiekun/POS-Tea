@@ -43,6 +43,7 @@ import static com.example.postearevised.Miscellaneous.References.AccountReferenc
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class SettingsModel {
     private MainController mainController;

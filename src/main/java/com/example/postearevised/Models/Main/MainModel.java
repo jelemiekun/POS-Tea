@@ -24,8 +24,10 @@ import static com.example.postearevised.Miscellaneous.Others.NotificationContent
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.DateTimeFormatterReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class MainModel {
     private MainController mainController;

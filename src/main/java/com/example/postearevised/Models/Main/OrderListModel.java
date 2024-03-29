@@ -4,7 +4,6 @@ import com.example.postearevised.Controllers.Additional.ProductOrderListControll
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -23,8 +22,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -33,10 +30,10 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryA
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class OrderListModel {
     private MainController mainController;

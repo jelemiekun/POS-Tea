@@ -38,7 +38,8 @@ import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.Others.ReceiptGenerator.*;
+import static com.example.postearevised.Miscellaneous.Others.InvoiceGenerator.*;
+import static com.example.postearevised.Miscellaneous.References.DateTimeFormatterReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -46,6 +47,7 @@ import static com.example.postearevised.Miscellaneous.References.OrderQueueRefer
 import static com.example.postearevised.Miscellaneous.References.ProductOrderReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class MenuModel {
     private MainController mainController;
@@ -986,7 +988,7 @@ public class MenuModel {
                     mainController.mainModel.showNotification();
 
 
-                    generateReceipt(order, 1);
+                    generateInvoice(order, 1);
                     orderCancelledOrAddedToQueue(false);
                     clearFields();
                     incrementCustomerNumber();

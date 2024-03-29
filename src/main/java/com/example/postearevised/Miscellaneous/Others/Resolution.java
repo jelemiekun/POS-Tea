@@ -6,6 +6,9 @@ import java.io.IOException;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class Resolution {
+    public static boolean showResolutionTooLowMessage = false;
+    private static final int[] lowestUsableResolution = {1870, 1000};
+
     public static void setScreenResolution(boolean isMain, boolean isLogout) {
         isTaskBarHidden();
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
@@ -36,10 +39,15 @@ public class Resolution {
         System.out.println("Is taskbar hidden? " + taskbarHidden);
 
         setScreenResolution(screenWidth, screenHeight);
+        checkIfResolutionTooSmall(screenWidth, screenHeight);
     }
 
     private static void setScreenResolution(int screenWidth, int screenHeight) {
         screenResolution[0] = screenWidth;
         screenResolution[1] = screenHeight;
+    }
+
+    private static void checkIfResolutionTooSmall(int screenWidth, int screenHeight) {
+        showResolutionTooLowMessage = screenWidth < lowestUsableResolution[0] || screenHeight < lowestUsableResolution[1];
     }
 }

@@ -19,12 +19,14 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.SETTINGS_ENUM;
-import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.SystemManual;
+import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
+import static com.example.postearevised.Miscellaneous.References.DateTimeFormatterReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class DashboardModel {
     private MainController mainController;

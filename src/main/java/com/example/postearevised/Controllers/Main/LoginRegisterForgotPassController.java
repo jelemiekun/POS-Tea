@@ -3,6 +3,7 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.ForgotPassModel;
 import com.example.postearevised.Models.Main.LoginModel;
 import com.example.postearevised.Models.Main.RegisterModel;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,6 +68,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         setLoginAccountAndPasswordNoSpaceInputLimitListener();
 
         checkBoxRememberPassword.setSelected(true);
+
+        Platform.runLater(() -> {loginModel.checkIfResolutionIsTooLow();});
     }
 
     public void switchPane(int paneNumber) {
@@ -254,6 +257,12 @@ public class LoginRegisterForgotPassController implements Initializable {
         newStage.setScene(new Scene(root));
         newStage.showAndWait();
     }
+
+    /**
+     * Resolution too low
+     */
+    @FXML
+    public AnchorPane anchorPaneResolutionTooLow;
 
     /**
      * Login

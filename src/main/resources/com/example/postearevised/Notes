@@ -6,9 +6,11 @@ DEVIN AI
 
 paikliin product names sa resibo (ALISIN A E I O U)
 
-name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
-
 order receipt - update resibo content
+
+sa receipt, "First Name " + "M.I." lang lalabas, transaction,
+
+name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
 
 palitan recovery questions sa second phase ng forgot pass
 
@@ -34,10 +36,6 @@ if mag eedit or mag ddelete ng account, hihingin password
 
 pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
 
-sa receipt, "First Name " + "M.I." lang lalabas, transaction,
-
-GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
-
 MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 invoice pa sa order history
@@ -58,8 +56,6 @@ from executable jar file, gawing .exe yung system ( optional )
 
 ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
 
-lagyan ng "INCOMPATIBLE SCREEN RESOLUTION." if nag run yung system sa medyo maliit na resolution
-
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 itrim settings acount, sa register, at sa forgot password
@@ -74,9 +70,7 @@ new password cannot be the same as old password error
 
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
-i encrypt mga dapat i encreypt like like at pass
-
-lagyan ng listener (esc, enter ganon) mga fxml
+i encrypt mga dapat i encreypt like pass
 
 
 ------------------MGA ITATANONG------------------
@@ -593,3 +587,9 @@ i hide helper messeages sa settings
 may option na ion/off yung notification
 
 IF NASA ORDER LIST TAPOS NILOGOUT/INEXIT TAPOS PUMASOK ULIT, TAPOS NASA ORDER NA, NAGLOLOKO!!!
+
+lagyan ng "INCOMPATIBLE SCREEN RESOLUTION." if nag run yung system sa medyo maliit na resolution
+
+lagyan ng listener (esc, enter ganon) mga fxml
+
+GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO

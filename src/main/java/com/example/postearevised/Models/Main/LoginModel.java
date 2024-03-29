@@ -44,6 +44,11 @@ public class LoginModel {
         }
     }
 
+    public void checkIfResolutionIsTooLow() {
+        if (showResolutionTooLowMessage)
+            loginRegisterForgotPassController.anchorPaneResolutionTooLow.setVisible(true);
+    }
+
     private boolean confirmDeselectCheckbox() {
         setContinueLoginWithoutStayingIn();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
@@ -192,7 +197,7 @@ public class LoginModel {
                     System.gc();
                 }
 
-                if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAX_LIMIT_BEFORE_ASKING_TO_RESET_PASSWORD) {
+                if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
                     loginRegisterForgotPassController.loginAttemptCounter = 0;
                     setForgotPassword();
                     if (openPrompt()) {

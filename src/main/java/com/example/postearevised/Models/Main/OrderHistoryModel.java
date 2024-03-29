@@ -6,7 +6,6 @@ import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
@@ -31,11 +29,9 @@ import static com.example.postearevised.Miscellaneous.Enums.OrderHistorySortEnum
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.orderHistoryComboBoxStyle;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.toolTipStyle;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
-import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
