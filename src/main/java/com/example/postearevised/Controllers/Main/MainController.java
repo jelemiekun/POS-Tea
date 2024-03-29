@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -320,13 +319,19 @@ public class MainController implements Initializable {
      * Dashboard
      */
     @FXML
-    public ChoiceBox<String> dashboardChoiceBoxFirstSelection;
+    public Label labelDashboardTotalRevenueTitle;
     @FXML
-    public ChoiceBox<String> dashboardChoiceBoxSecondSelection;
+    public Label labelDashboardTotalCustomerTitle;
     @FXML
-    public ChoiceBox<String> dashboardChoiceBoxThirdSelection;
+    public Label labelDashboardTotalOrderTitle;
     @FXML
-    public ChoiceBox<String> dashboardChoiceBoxFourthSelection;
+    public ComboBox<String> dashboardComboBoxFirstSelection;
+    @FXML
+    public ComboBox<String> dashboardComboBoxSecondSelection;
+    @FXML
+    public ComboBox<String> dashboardComboBoxThirdSelection;
+    @FXML
+    public ComboBox<String> dashboardComboBoxFourthSelection;
     @FXML
     public BarChart<?, ?> dashboardBarChart;
     @FXML
@@ -341,6 +346,18 @@ public class MainController implements Initializable {
     public Label labelDashboardTotalOrder;
     @FXML
     public FlowPane flowPaneBestSeller;
+
+    @FXML
+    public void dashboardComboBoxFirstSelectionOnAction() {}
+
+    @FXML
+    public void dashboardComboBoxSecondSelectionOnAction() {}
+
+    @FXML
+    public void dashboardComboBoxThirdSelectionOnAction() {}
+
+    @FXML
+    public void dashboardComboBoxFourthSelectionOnAction() {}
 
     @FXML
     public void dashboardNeedHelpClickedTouched() {

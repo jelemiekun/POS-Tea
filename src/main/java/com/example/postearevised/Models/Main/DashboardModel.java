@@ -25,9 +25,36 @@ public class DashboardModel {
         this.mainController = mainController;
     }
 
+    public void setRefreshDashboardComboBoxOptions() {
+        setUpSelections();
+        refreshComboBox();
+    }
+
+    private void setUpSelections() {
+
+    }
+
+    private void refreshComboBox() {
+        mainController.dashboardComboBoxFirstSelection.getItems().clear();
+        mainController.dashboardComboBoxSecondSelection.getItems().clear();
+        mainController.dashboardComboBoxThirdSelection.getItems().clear();
+        mainController.dashboardComboBoxFourthSelection.getItems().clear();
+
+
+        mainController.dashboardComboBoxFirstSelection.setItems(firstChoiceBoxObservableList);
+        mainController.dashboardComboBoxSecondSelection.setItems(secondChoiceBoxObservableList);
+        mainController.dashboardComboBoxThirdSelection.setItems(thirdChoiceBoxObservableList);
+        mainController.dashboardComboBoxFourthSelection.setItems(fourthChoiceBoxObservableList);
+    }
+
     public void updateContents() {
         updateReferences();
         updateUIs();
+    }
+
+    public void updateAllTimeFavorites() {
+        updateReferenceAllTimeFavorites();
+        updateUIAllTimeFavorites();
     }
 
     private void updateReferences() {
@@ -35,7 +62,6 @@ public class DashboardModel {
         updateReferenceCustomer();
         updateReferenceOrder();
         updateReferenceCategories();
-        updateReferenceBestSeller();
     }
 
     private void updateReferenceRevenue() {
@@ -98,7 +124,7 @@ public class DashboardModel {
     }
 
 
-    private void updateReferenceBestSeller() {
+    private void updateReferenceAllTimeFavorites() {
         topTenProducts.clear();
 
         Map<String, ProductOrder> productTotalQuantities = orderHistoryObservableList.stream()
@@ -147,7 +173,6 @@ public class DashboardModel {
     private void updateUIs() {
         updateUIRevenueCustomerAndOrder();
         updateUIBarChart();
-        updateUIBestSeller();
     }
 
     private void updateUIRevenueCustomerAndOrder() {
@@ -160,7 +185,7 @@ public class DashboardModel {
 
     }
 
-    private void updateUIBestSeller() {
+    private void updateUIAllTimeFavorites() {
         mainController.flowPaneBestSeller.getChildren().clear();
 
         for (ProductOrder productOrder : topTenProducts) {
