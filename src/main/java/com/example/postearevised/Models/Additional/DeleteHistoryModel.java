@@ -73,7 +73,6 @@ public class DeleteHistoryModel {
     public void deleteOrdersByYear(int year) {
         List<Order> ordersToRemove = new ArrayList<>();
 
-        // Find orders with the specified year and add them to ordersToRemove list
         for (Order order : orderHistoryObservableList) {
             if (order.getDateAndTime().getYear() == year) {
                 ordersToRemove.add(order);
@@ -87,7 +86,6 @@ public class DeleteHistoryModel {
             openPrompt();
         }
 
-        // Perform any additional operations after removing orders
         checkRecord();
     }
 

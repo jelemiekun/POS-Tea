@@ -75,20 +75,17 @@ public class OrderListModel {
         anchorPane.setPrefSize(350, 500);
         System.out.println("line 88: " + order.getProductOrderObservableList().isEmpty());
 
-        // Create Rectangle
         Rectangle rectangle = new Rectangle(350, 500);
         rectangle.setFill(Color.WHITE);
         rectangle.setStroke(Color.BLACK);
         rectangle.setStrokeType(StrokeType.INSIDE);
 
-        // Add drop shadow to AnchorPane
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(5);
         dropShadow.setOffsetY(5);
         dropShadow.setColor(dropShadowColor);
         anchorPane.setEffect(dropShadow);
 
-        // Create Labels
         Label orderNumberLabel = new Label("Order Number: " + order.getOrderNumber());
         orderNumberLabel.setFont(Font.font("Arial", 24));
         AnchorPane.setTopAnchor(orderNumberLabel, 16.0);
@@ -99,7 +96,6 @@ public class OrderListModel {
         AnchorPane.setTopAnchor(customerNameLabel, 54.0);
         AnchorPane.setLeftAnchor(customerNameLabel, 16.0);
 
-        // Create inner AnchorPane
         AnchorPane innerAnchorPane = new AnchorPane();
         innerAnchorPane.setPrefSize(297, 260);
         innerAnchorPane.setOnMouseClicked(event -> orderContentClickedTouched(order, anchorPane));

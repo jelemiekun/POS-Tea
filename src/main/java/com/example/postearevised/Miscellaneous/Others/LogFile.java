@@ -23,34 +23,19 @@ public class LogFile {
 
     public static void logError(boolean openError) {
         try {
-            // Get current date and time
             SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
             String dateTime = dateFormat.format(new Date());
-
-            // Create a FileWriter object with append mode set to true
             FileWriter fileWriter = new FileWriter(ERROR_LOG_PATH, true);
-
-            // Create a BufferedWriter object
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-
-            // Write the date and time to the notepad
             bufferedWriter.write(dateTime);
             bufferedWriter.newLine();
-
-            // Write the error message to the notepad
             bufferedWriter.write("Error: " + errorMessage);
             bufferedWriter.newLine();
-
-            // Add two empty lines
             bufferedWriter.newLine();
-
-            // Close the BufferedWriter
             bufferedWriter.close();
 
-            // Inform the user
             System.out.println("Error written to notepad successfully!");
 
-            // Open the note pad
             if (openError)
                 Desktop.getDesktop().open(new File(ERROR_LOG_PATH));
         } catch (IOException e) {

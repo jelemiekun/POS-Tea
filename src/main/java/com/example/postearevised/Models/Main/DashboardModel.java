@@ -125,7 +125,6 @@ public class DashboardModel {
     }
 
     private void populateChoiceBoxLists() {
-        // Find the oldest order
         LocalDateTime oldestDateTime = LocalDateTime.MAX;
         for (Order order : orderHistoryObservableList) {
             LocalDateTime orderDateTime = order.getDateAndTime();
@@ -134,24 +133,20 @@ public class DashboardModel {
             }
         }
 
-        // Extract year, month, and day from the oldest date
         int oldestYear = oldestDateTime.getYear();
         int oldestMonth = oldestDateTime.getMonthValue();
         int oldestDay = oldestDateTime.getDayOfMonth();
 
-        // Get current date
         LocalDate currentDate = LocalDate.now();
         int currentYear = currentDate.getYear();
         int currentMonth = currentDate.getMonthValue();
         int currentDay = currentDate.getDayOfMonth();
 
-        // Populate secondChoiceBoxObservableList with years from oldestYear to currentYear
         secondChoiceBoxObservableList.clear();
         for (int year = oldestYear; year <= currentYear; year++) {
             secondChoiceBoxObservableList.add(String.valueOf(year));
         }
 
-        // Populate thirdChoiceBoxObservableList with months
         thirdChoiceBoxObservableList.clear();
         int startMonth = (oldestYear == currentYear) ? oldestMonth : 1;
         int endMonth = (oldestYear == currentYear) ? currentMonth : 12;
@@ -159,7 +154,6 @@ public class DashboardModel {
             thirdChoiceBoxObservableList.add(getMonthName(month));
         }
 
-        // Populate fourthChoiceBoxObservableList with days
         fourthChoiceBoxObservableList.clear();
         int startDay = (oldestYear == currentYear && oldestMonth == currentMonth) ? oldestDay : 1;
         int endDay = (oldestYear == currentYear && oldestMonth == currentMonth) ? currentDay : getDaysInMonth(currentYear, currentMonth);
@@ -215,7 +209,6 @@ public class DashboardModel {
         updateContents();
     }
 
-    // Method to get month name from month number
     private String getMonthName(int month) {
         return switch (month) {
             case 1 -> "January";
@@ -477,7 +470,6 @@ public class DashboardModel {
 
                 ImageView imageView;
 
-                System.out.println("Image Path: " + productOrder.getImagePath()); // Print out the image path
                 File productImage = new File(productOrder.getImagePath());
 
                 if (!productOrder.getImagePath().isEmpty()) {

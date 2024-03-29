@@ -846,7 +846,6 @@ public class MenuModel {
         mainController.mainModel.hideRectangleModal();
     }
 
-    // Event handlers
     private void anchorPaneProductsInOrderMinusQuantityOnAction(ProductOrder productOrder, Label labelQuantity, Label labelProductPrice, int price) {
         if (productOrder.getQuantity() > 1) {
             int newQuantity = productOrder.getQuantity();

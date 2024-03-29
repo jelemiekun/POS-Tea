@@ -75,10 +75,8 @@ public class ProductOrderListModel {
                 attributeCount++;
             }
 
-            // Adjust AnchorPane height based on the number of attributes
             productOrderAnchorPane.setPrefHeight(46 + (attributeCount * 30));
 
-            // Add the product order AnchorPane to the FlowPane
             productOrderListController.flowPaneProductOrders.getChildren().add(productOrderAnchorPane);
         }
     }
