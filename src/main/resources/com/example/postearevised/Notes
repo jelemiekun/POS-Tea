@@ -38,9 +38,11 @@ sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
 
-IF NASA ORDER LIST TAPOS NILOGOUT/INEXIT TAPOS PUMASOK ULIT, TAPOS NASA ORDER NA, NAGLOLOKO!!!
-
 MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
+
+invoice pa sa order history
+
+may time na nawawala yung imagepath sa orderlist or orderhistory ewan
 
 
 
@@ -589,3 +591,5 @@ helper messages
 i hide helper messeages sa settings
 
 may option na ion/off yung notification
+
+IF NASA ORDER LIST TAPOS NILOGOUT/INEXIT TAPOS PUMASOK ULIT, TAPOS NASA ORDER NA, NAGLOLOKO!!!

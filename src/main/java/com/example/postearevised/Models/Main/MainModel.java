@@ -243,6 +243,11 @@ public class MainModel {
     }
 
 
+    public void showScreenToSmall() {
+
+    }
+
+
     public void setToolTips() {
         // dashboard
         Tooltip dashboardNoSalesRecordedGraphAndAllTimeFavorites = new Tooltip("No Sales Recorded");
@@ -292,7 +297,7 @@ public class MainModel {
 
         Tooltip.install(mainController.comboBoxOrderHistory, orderHistoryComboBoxFilterBy);
 
-        //settings
+        // settings
         Tooltip settingsEditProductImportExportMenu = new Tooltip("Import/Export Menu");
         Tooltip settingsAppearanceLight = new Tooltip("Switch color light");
         Tooltip settingsAppearanceDark = new Tooltip("Switch color dark");
@@ -316,6 +321,13 @@ public class MainModel {
         Tooltip.install(mainController.settingsAppearanceRectangleOrange, settingsAppearanceOrange);
         Tooltip.install(mainController.settingsAppearanceRectangleYellow, settingsAppearanceYellow);
         Tooltip.install(mainController.settingsAppearanceRectangleGreen, settingsAppearanceGreen);
+
+        // left panel
+        Tooltip leftPanelProfileChangeUser = new Tooltip("Change user");
+
+        leftPanelProfileChangeUser.setStyle(toolTipStyle);
+
+        Tooltip.install(mainController.anchorPaneLeftProfile, leftPanelProfileChangeUser);
     }
 
 
