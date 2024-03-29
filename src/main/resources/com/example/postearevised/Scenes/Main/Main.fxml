@@ -159,7 +159,7 @@
                         <AnchorPane layoutY="319.0" prefHeight="500.0" prefWidth="1200.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="1200.0" />
-                              <BarChart fx:id="dashboardBarChart" layoutX="52.0" layoutY="24.0" prefHeight="453.0" prefWidth="1096.0" title="NO SALES RECORDED">
+                              <BarChart fx:id="dashboardBarChart" alternativeRowFillVisible="false" barGap="60.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="52.0" layoutY="83.0" prefHeight="394.0" prefWidth="1096.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -167,6 +167,11 @@
                                   <NumberAxis side="LEFT" />
                                 </yAxis>
                               </BarChart>
+                              <Label fx:id="labelDashboardBarChartTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="29.0" prefHeight="48.0" prefWidth="993.0" text="Top Selling Food Categories" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Arial" size="41.0" />
+                                 </font>
+                              </Label>
                            </children></AnchorPane>
                      </children>
                   </AnchorPane>

@@ -33,11 +33,8 @@ public class DashboardModel {
         setStyles();
         setFirstChoiceBox();
 
-        if (!orderHistoryObservableList.isEmpty()) {
+        if (!orderHistoryObservableList.isEmpty())
             setRefreshDashboardComboBoxOptions();
-        }
-
-        updateAllTimeFavorites();
     }
 
     public void resetToToday() {
@@ -350,11 +347,6 @@ public class DashboardModel {
     }
 
 
-
-
-
-
-
     private void updateUIs() {
         updateUITitles();
         updateUIRevenueCustomerAndOrder();
@@ -374,19 +366,19 @@ public class DashboardModel {
                 toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + mainController.dashboardComboBoxThirdSelection.getValue() + ")";
                 break;
             case "Annually":
-                toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + ")";
+                toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ")";
                 break;
         }
 
         mainController.labelDashboardTotalRevenueTitle.setText("TOTAL REVENUE " + toConcat.toUpperCase());
         mainController.labelDashboardTotalCustomerTitle.setText("TOTAL CUSTOMER " + toConcat.toUpperCase());
         mainController.labelDashboardTotalOrderTitle.setText("TOTAL ORDER " + toConcat.toUpperCase());
-        mainController.dashboardBarChart.setTitle("Top Selling Food Categories " + toConcat);
+        mainController.labelDashboardBarChartTitle.setText("Top Selling Food Categories " + toConcat);
 
     }
 
     private void updateUIRevenueCustomerAndOrder() {
-        mainController.labelDashboardTotalRevenue.setText(String.valueOf(referenceTotalRevenue));
+        mainController.labelDashboardTotalRevenue.setText("₱" + referenceTotalRevenue + ".00");
         mainController.labelDashboardTotalCustomer.setText(String.valueOf(referenceTotalCustomer));
         mainController.labelDashboardTotalOrder.setText(String.valueOf(referenceTotalOrder));
     }
@@ -394,36 +386,38 @@ public class DashboardModel {
     private void updateUIBarChart() {
         mainController.dashboardBarChart.getData().clear();
 
+        if (!dashboardOrderObservableListReference.isEmpty()) {
+            List<XYChart.Series<String, Number>> seriesList = new ArrayList<>();
 
+            XYChart.Series<String, Number> milkTeaSeries = new XYChart.Series<>();
+            milkTeaSeries.setName("Milk Tea");
+            milkTeaSeries.getData().add(new XYChart.Data<>("", referenceMilkTeaCounter));
+            seriesList.add(milkTeaSeries);
 
-        List<XYChart.Series<String, Number>> seriesList = new ArrayList<>();
+            XYChart.Series<String, Number> coolersSeries = new XYChart.Series<>();
+            coolersSeries.setName("Coolers");
+            coolersSeries.getData().add(new XYChart.Data<>("", referenceCoolersCounter));
+            seriesList.add(coolersSeries);
 
-        XYChart.Series<String, Number> milkTeaSeries = new XYChart.Series<>();
-        milkTeaSeries.setName("Milk Tea");
-        milkTeaSeries.getData().add(new XYChart.Data<>("Milk Tea", referenceMilkTeaCounter));
-        seriesList.add(milkTeaSeries);
+            XYChart.Series<String, Number> coffeeSeries = new XYChart.Series<>();
+            coffeeSeries.setName("Coffee");
+            coffeeSeries.getData().add(new XYChart.Data<>("", referenceCoffeeCounter));
+            seriesList.add(coffeeSeries);
 
-        XYChart.Series<String, Number> coolersSeries = new XYChart.Series<>();
-        coolersSeries.setName("Coolers");
-        coolersSeries.getData().add(new XYChart.Data<>("Coolers", referenceCoolersCounter));
-        seriesList.add(coolersSeries);
+            XYChart.Series<String, Number> iceCandyCupsSeries = new XYChart.Series<>();
+            iceCandyCupsSeries.setName("Ice Candy Cups");
+            iceCandyCupsSeries.getData().add(new XYChart.Data<>("", referenceIceCandyCupsCounter));
+            seriesList.add(iceCandyCupsSeries);
 
-        XYChart.Series<String, Number> coffeeSeries = new XYChart.Series<>();
-        coffeeSeries.setName("Coffee");
-        coffeeSeries.getData().add(new XYChart.Data<>("Coffee", referenceCoffeeCounter));
-        seriesList.add(coffeeSeries);
+            XYChart.Series<String, Number> appetizerSeries = new XYChart.Series<>();
+            appetizerSeries.setName("Appetizers");
+            appetizerSeries.getData().add(new XYChart.Data<>("", referenceAppetizerCounter));
+            seriesList.add(appetizerSeries);
 
-        XYChart.Series<String, Number> iceCandyCupsSeries = new XYChart.Series<>();
-        iceCandyCupsSeries.setName("Ice Candy Cups");
-        iceCandyCupsSeries.getData().add(new XYChart.Data<>("Ice Candy Cups", referenceIceCandyCupsCounter));
-        seriesList.add(iceCandyCupsSeries);
+            mainController.dashboardBarChart.getData().addAll(seriesList);
+        } else {
 
-        XYChart.Series<String, Number> appetizerSeries = new XYChart.Series<>();
-        appetizerSeries.setName("Appetizers");
-        appetizerSeries.getData().add(new XYChart.Data<>("Appetizers", referenceAppetizerCounter));
-        seriesList.add(appetizerSeries);
-
-        mainController.dashboardBarChart.getData().addAll(seriesList);
+        }
     }
 
     private void updateUIBestSeller() {

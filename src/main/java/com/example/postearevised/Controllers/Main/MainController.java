@@ -329,6 +329,8 @@ public class MainController implements Initializable {
     @FXML
     public Label labelDashboardTotalOrderTitle;
     @FXML
+    public Label labelDashboardBarChartTitle;
+    @FXML
     public ComboBox<String> dashboardComboBoxFirstSelection;
     @FXML
     public ComboBox<String> dashboardComboBoxSecondSelection;
