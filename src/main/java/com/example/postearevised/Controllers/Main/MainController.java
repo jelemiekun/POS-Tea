@@ -370,7 +370,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void anchorPaneDashboardResetToTodayClickedTouched() {}
+    public void anchorPaneDashboardResetToTodayClickedTouched() { dashboardModel.resetToToday(); }
 
     /**
      * Menu

@@ -44,5 +44,7 @@ public class GeneralReference {
     public static LocalDateTime localDateTime;
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy - hh:mm:ss a");
 
-    public static DateTimeFormatter dateOnlyFormatter = DateTimeFormatter.ofPattern("yyyy MMMM dd");
+    public static DateTimeFormatter yearMonthDayFormatter = DateTimeFormatter.ofPattern("yyyy MMMM dd");
+    public static DateTimeFormatter yearMonthFormatter = DateTimeFormatter.ofPattern("yyyy MMMM");
+    public static DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
 }

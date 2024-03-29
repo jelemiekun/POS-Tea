@@ -12,7 +12,6 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,8 +19,7 @@ import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.SETTING
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.SystemManual;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.dateOnlyFormatter;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.formatter;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 
 public class DashboardModel {
@@ -37,6 +35,13 @@ public class DashboardModel {
         if (!orderHistoryObservableList.isEmpty()) {
             setRefreshDashboardComboBoxOptions();
         }
+    }
+
+    public void resetToToday() {
+        setToToday();
+        mainController.dashboardComboBoxFirstSelection.setValue("Daily");
+        firstChoiceBoxOnAction();
+        updateContents();
     }
 
     private void setStyles() {
@@ -150,24 +155,42 @@ public class DashboardModel {
 
         switch (selected) {
             case "Daily":
-                String dateString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue();
+                String selectedYearMonthDayString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue();
 
                 for (Order order : orderHistoryObservableList) {
                     LocalDateTime dateTime = order.getDateAndTime();
 
-                    String formattedDateTime = dateTime.format(dateOnlyFormatter);
+                    String formattedYearMonthDayTime = dateTime.format(yearMonthDayFormatter);
 
-                    if (formattedDateTime.equals(dateString))
+                    if (formattedYearMonthDayTime.equals(selectedYearMonthDayString))
                         dashboardOrderObservableListReference.add(order);
                 }
-
-                System.out.println("line 164 " + dashboardOrderObservableListReference.size());
                 break;
             case "Weekly":
                 break;
             case "Monthly":
+                String selectedYearMonthString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue();
+
+                for (Order order : orderHistoryObservableList) {
+                    LocalDateTime dateTime = order.getDateAndTime();
+
+                    String formattedYearMonthTime = dateTime.format(yearMonthFormatter);
+
+                    if (formattedYearMonthTime.equals(selectedYearMonthString))
+                        dashboardOrderObservableListReference.add(order);
+                }
                 break;
             case "Annually":
+                String selectedYearString = mainController.dashboardComboBoxSecondSelection.getValue();
+
+                for (Order order : orderHistoryObservableList) {
+                    LocalDateTime dateTime = order.getDateAndTime();
+
+                    String formattedYearMonthTime = dateTime.format(yearFormatter);
+
+                    if (formattedYearMonthTime.equals(selectedYearString))
+                        dashboardOrderObservableListReference.add(order);
+                }
                 break;
         }
 
@@ -333,9 +356,25 @@ public class DashboardModel {
 
 
     private void updateUIs() {
+        updateUITitles();
         updateUIRevenueCustomerAndOrder();
         updateUIBarChart();
         updateUIBestSeller();
+    }
+
+    private void updateUITitles() {
+        String selected = mainController.dashboardComboBoxFirstSelection.getValue();
+
+        switch (selected) {
+            case "Daily":
+                break;
+            case "Weekly":
+                break;
+            case "Monthly":
+                break;
+            case "Annually":
+                break;
+        }
     }
 
     private void updateUIRevenueCustomerAndOrder() {
