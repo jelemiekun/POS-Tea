@@ -88,7 +88,7 @@ public class OrderHistoryModel {
         mainController.comboBoxOrderHistory.getItems().addAll(orderHistorySortByChoices);
         mainController.comboBoxOrderHistory.setStyle("-fx-font-family: Arial; -fx-font-size: 30px;");
 
-        mainController.comboBoxOrderHistory.setValue(CUSTOMER_NAME_ENUM.getTitle());
+        mainController.comboBoxOrderHistory.setValue(TRANSACTION_ID_ENUM.getTitle());
         getComboBoxValue();
     }
 
@@ -218,7 +218,7 @@ public class OrderHistoryModel {
             mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerCharactersOnly);
             mainController.textFieldOrderHistorySearch.textProperty().addListener(mainController.textFieldChangeListenerCharactersOnly);
 
-        } else if (searchBy.equals(DAY_ENUM.getTitle()) || searchBy.equals(YEAR_ENUM.getTitle())){
+        } else if (searchBy.equals(DAY_ENUM.getTitle()) || searchBy.equals(YEAR_ENUM.getTitle()) || searchBy.equals(TRANSACTION_ID_ENUM.getTitle())){
 
             mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerDigitsOnly);
             mainController.textFieldOrderHistorySearch.textProperty().removeListener(mainController.textFieldChangeListenerCharactersOnly);
@@ -234,6 +234,11 @@ public class OrderHistoryModel {
                 ObservableList<Order> filteredOrders = FXCollections.observableArrayList();
                 for (Order order : orderHistoryObservableList) {
                     switch (mainController.comboBoxOrderHistory.getValue()) {
+                        case "Transaction ID":
+                            if (order.getTransactionID().contains(stringToSearch.toLowerCase())) {
+                                filteredOrders.add(order);
+                            }
+                            break;
                         case "Customer Name":
                             if (order.getCustomerName().toLowerCase().contains(stringToSearch.toLowerCase())) {
                                 filteredOrders.add(order);

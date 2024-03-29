@@ -11,6 +11,7 @@ public class OrderHistoryReference {
     public static ObservableList<Order> orderHistoryObservableList = FXCollections.synchronizedObservableList(FXCollections.observableArrayList());
 
     public static final ObservableList<String> orderHistorySortByChoices = FXCollections.observableArrayList(
+            TRANSACTION_ID_ENUM.getTitle(),
             CUSTOMER_NAME_ENUM.getTitle(),
             FOOD_CATEGORY_ENUM.getTitle(),
             PRODUCT_NAME_ENUM.getTitle(),

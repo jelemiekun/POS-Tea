@@ -1,6 +1,7 @@
 package com.example.postearevised.Miscellaneous.Enums;
 
 public enum OrderHistorySortEnum {
+    TRANSACTION_ID_ENUM("Transaction ID"),
     CUSTOMER_NAME_ENUM("Customer Name"),
     FOOD_CATEGORY_ENUM("Food Category"),
     PRODUCT_NAME_ENUM("Product Name"),
