@@ -13,10 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -109,6 +106,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneForgotPass.setVisible(false);
                 registerModel.switchPane(1);
                 btnRegisterOnRegisterPane.requestFocus();
+                registerModel.setComboBoxRecoveryQuestion();
                 break;
             case 3: // Forgot Password
                 loginRegisterStage.setTitle(ForgotPassword.getName());
@@ -168,11 +166,24 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelConfirmPassword.setVisible(false);
         labelInvalidEmailOrPhoneNumber.setVisible(false);
         labelPasswordNotMatch.setVisible(false);
+
+
         registerFirstStepSubmittedOnce = false;
         registerFistStepProceed = false;
         labelName11.setVisible(false);
         labelName111.setVisible(false);
         labelConfirmPassword1.setVisible(false);
+        labelFillUpThisForm1.setVisible(false);
+        labelFillUpThisForm2.setVisible(false);
+        labelFillUpThisForm3.setVisible(false);
+        labelFillUpThisForm4.setVisible(false);
+        registerRecoveryQuestionComboBox1.setValue("");
+        registerRecoveryQuestionComboBox2.setValue("");
+        textFieldRecoveryQuestionAnswer1.setText("");
+        textFieldRecoveryQuestionAnswer2.setText("");
+        registerLastStepSubmittedOnce = false;
+        registerLastStepProceed = false;
+
 
         btnRegisterShowHidePassword1.setImage(hideImage);
         btnRegisterShowHidePassword2.setImage(hideImage);
@@ -495,6 +506,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean registerSubmittedOnce = false;
     public boolean registerFirstStepSubmittedOnce = false;
     public boolean registerFistStepProceed = false;
+    public boolean registerLastStepSubmittedOnce = false;
+    public boolean registerLastStepProceed = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
     @FXML
@@ -575,6 +588,56 @@ public class LoginRegisterForgotPassController implements Initializable {
     public Label labelName11;
     @FXML
     public Label labelName111;
+    @FXML
+    public AnchorPane anchorPaneRegisterRecoveryQuestions;
+    @FXML
+    public Label labelRegisterHeader;
+    @FXML
+    public Label labelFillUpThisForm1;
+    @FXML
+    public Label labelFillUpThisForm2;
+    @FXML
+    public Label labelFillUpThisForm3;
+    @FXML
+    public Label labelFillUpThisForm4;
+    @FXML
+    public ComboBox<String> registerRecoveryQuestionComboBox1;
+    @FXML
+    public ComboBox<String> registerRecoveryQuestionComboBox2;
+    @FXML
+    public TextField textFieldRecoveryQuestionAnswer1;
+    @FXML
+    public TextField textFieldRecoveryQuestionAnswer2;
+
+    @FXML
+    public void registerRecoveryQuestionComboBox1OnAction() {
+        registerModel.comboBox1OnAction();
+    }
+
+    @FXML
+    public void registerRecoveryQuestionComboBox2OnAction() {
+        registerModel.comboBox2OnAction();
+    }
+
+    @FXML
+    public void btnRegisterOnRegisterFinalBtnRegistrationClickedTouched() {
+        registerModel.registerFinalProcessOnAction();
+    }
+
+    @FXML
+    public void btnRegisterOnRegisterFinalBtnRegistrationPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            registerModel.registerFinalProcessOnAction();
+    }
+
+    @FXML
+    public void textFieldRecoveryQuestionAnswerTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            registerModel.registerFinalProcessOnAction();
+        } else {
+            registerModel.registerFinalProcessTyping();
+        }
+    }
 
     public final ChangeListener<String> RegisterAccountInputLimitListener = (observable, oldValue, newValue) -> {
         if (newValue.length() > INPUT_LIMIT_TO_ELEVEN) {

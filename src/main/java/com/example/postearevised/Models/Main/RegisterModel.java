@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController;
 import com.example.postearevised.Miscellaneous.Enums.StartPane;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -19,6 +21,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.registerRecoveryQuestionStyle;
 
 public class RegisterModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;
@@ -31,17 +34,37 @@ public class RegisterModel {
      * Register
      */
 
+    public void setComboBoxRecoveryQuestion() {
+        loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setItems(recoveryQuestionsObservableList);
+        loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setItems(recoveryQuestionsObservableList);
+
+        setComboBoxStyle();
+    }
+
+    private void setComboBoxStyle() {
+        loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setStyle(registerRecoveryQuestionStyle);
+        loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setStyle(registerRecoveryQuestionStyle);
+    }
+
     public void switchPane(int paneNumber) {
         switch (paneNumber) {
             case 1:
+                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(true);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
+                loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);
                 break;
             case 2:
+                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(true);
+                loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);
                 break;
             case 3:
+                loginRegisterForgotPassController.labelRegisterHeader.setText("To enhance security, select a question and answer. This information can also be used for account recovery.");
+                loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
+                loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
+                loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(true);
                 break;
         }
     }
@@ -146,7 +169,6 @@ public class RegisterModel {
         registerEmailOrPhoneNumber = loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim();
         registerNewPassword = loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.textFieldShowNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldNewPassword.getText().trim();
         registerConfirmNewPassword = loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldConfirmNewPassword.getText().trim();
-        System.out.println(registerGivenName);
     }
 
     private void setAccountDetailsVisibilities(boolean validEmailOrPhoneNumber, boolean passwordsMatch) {
@@ -179,19 +201,6 @@ public class RegisterModel {
                 loginRegisterForgotPassController.labelPasswordNotMatch.setVisible(false);
             }
         }
-
-        if (!registerNewPassword.isBlank()) {
-            if (isPasswordContainsName()) {
-                if (!registerGivenName.isBlank()) {
-                    loginRegisterForgotPassController.labelPassword.setText("*password can't include name");
-                    loginRegisterForgotPassController.labelPassword.setVisible(true);
-                } else {
-                    loginRegisterForgotPassController.labelPassword.setVisible(false);
-                }
-            } else {
-                loginRegisterForgotPassController.labelPassword.setVisible(false);
-            }
-        }
     }
 
     public void checkAccountInRegisterIfPhoneNumber() {
@@ -210,6 +219,58 @@ public class RegisterModel {
 
     public void disableLimitInput() {
         loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.textProperty().removeListener(loginRegisterForgotPassController.RegisterAccountInputLimitListener);
+    }
+
+    public void comboBox1OnAction() {
+        String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue();
+        if (selectedItem != null) {
+            loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setItems(FXCollections.observableArrayList(
+                    recoveryQuestionsObservableList.stream()
+                            .filter(question -> !question.equals(selectedItem))
+                            .collect(Collectors.toList())
+            ));
+        }
+    }
+
+    public void comboBox2OnAction() {
+        String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue();
+        if (selectedItem != null) {
+            loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setItems(FXCollections.observableArrayList(
+                    recoveryQuestionsObservableList.stream()
+                            .filter(question -> !question.equals(selectedItem))
+                            .collect(Collectors.toList())
+            ));
+        }
+    }
+
+    public void registerFinalProcessOnAction() {
+        submittedOnceLastProcess();
+        setLastProcessLabels();
+
+        if (loginRegisterForgotPassController.registerLastStepProceed)
+            readTAC();
+    }
+
+    private void submittedOnceLastProcess() {
+        loginRegisterForgotPassController.registerLastStepSubmittedOnce = true;
+    }
+
+    public void registerFinalProcessTyping() {
+        if (loginRegisterForgotPassController.registerLastStepSubmittedOnce) {
+            setLastProcessLabels();
+        }
+    }
+
+    private void setLastProcessLabels() {
+        loginRegisterForgotPassController.labelFillUpThisForm1.setVisible(loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue().isEmpty());
+        loginRegisterForgotPassController.labelFillUpThisForm2.setVisible(loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.getText().isEmpty());
+        loginRegisterForgotPassController.labelFillUpThisForm3.setVisible(loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue().isEmpty());
+        loginRegisterForgotPassController.labelFillUpThisForm4.setVisible(loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.getText().isEmpty());
+
+        loginRegisterForgotPassController.registerLastStepProceed = !loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue().isEmpty() &&
+                !loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.getText().isEmpty() &&
+                !loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue().isEmpty() &&
+                !loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.getText().isEmpty();
     }
 
     /**
@@ -342,25 +403,34 @@ public class RegisterModel {
         boolean allFieldsNotEmpty = notEmptyTextFields();
         boolean validEmailOrPhoneNumber = isValidEmailOrPhoneNumber();
         boolean passwordsMatch = passwordMatched();
-        boolean validName = isValidName();
-        boolean nameNotInPassword = !isPasswordContainsName();
         boolean notWeakPassword = !loginRegisterForgotPassController.registerIsWeakPassword;
 
 
         setAccountDetailsVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
-        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword && notWeakPassword) {
-            readTAC();
+        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && notWeakPassword) {
+            switchPane(3);
         }
     }
 
+    /**
+     *
+     *  ITO SA PHASE 4, IF VALID NA LAHAT, READTAC NA, TAPOS BAGANG REGISTER SUCCESS
+     *
+     */
     public void readTAC() {
         if (openTAC()) {
             if (loginRegisterForgotPassController.checkConnectivity()) {
-                openPromptRegisteredSuccess();
-                goToLogin();
+                if (createAccount()) {
+                    openPromptRegisteredSuccess();
+                    goToLogin();
+                }
             }
         }
+    }
+
+    private boolean createAccount() {
+        
     }
 
     private boolean isNewPasswordAndConfirmNewPasswordNotMatched(boolean passwordsMatch) {
@@ -373,14 +443,6 @@ public class RegisterModel {
 
     private boolean isAPhoneNumber() {
         return registerEmailOrPhoneNumber.matches(REGEX_FIRST_SIX_ARE_NUMBERS);
-    }
-
-    private boolean isPasswordContainsName() {
-        return registerNewPassword.contains(registerGivenName);
-    }
-
-    private boolean isValidName() {
-        return registerGivenName.length() >= 3 && registerGivenName.length() <= NAME_LIMIT && registerGivenName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
     }
 
     private boolean nameFieldNotHaveSpaces() {
