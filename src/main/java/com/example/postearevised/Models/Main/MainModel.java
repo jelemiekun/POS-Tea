@@ -36,7 +36,16 @@ public class MainModel {
     }
 
     public void setAccountDetails() {
+        mainController.textFieldAccountContact.setText(accountReference.getContact());
 
+        mainController.comboBoxSettingsQuestionOne.setValue(accountReference.getSecurityQuestionOne());
+        mainController.textFieldAccountQuestionOne.setText(accountReference.getSecurityQuestionOneAnswer());
+
+        mainController.comboBoxSettingsQuestionTwo.setValue(accountReference.getSecurityQuestionTwo());
+        mainController.textFieldAccountQuestionTwo.setText(accountReference.getSecurityQuestionTwoAnswer());
+
+        mainController.checkBoxSettingNotification.setSelected(accountReference.isShowNotification());
+        mainController.checkBoxSettingGuideMessages.setSelected(accountReference.isShowGuideMessages());
     }
 
     public void setDropShadow() {
@@ -201,16 +210,16 @@ public class MainModel {
     private void setGuideMessages(int selectedPane) {
         switch (selectedPane) {
             case 1: // Menu
-                mainController.menuGuideMessageBillsProductOrder.setVisible(showGuideMessagesReference);
+                mainController.menuGuideMessageBillsProductOrder.setVisible(mainController.checkBoxSettingGuideMessages.isSelected());
                 break;
             case 2: // Dashboard
-                mainController.anchorDashboardPaneNeedHelpGettingStarted.setVisible(showGuideMessagesReference);
+                mainController.anchorDashboardPaneNeedHelpGettingStarted.setVisible(mainController.checkBoxSettingGuideMessages.isSelected());
                 break;
             case 3: // Order List
-                mainController.orderQueueGuideMessageClickTable.setVisible(showGuideMessagesReference);
+                mainController.orderQueueGuideMessageClickTable.setVisible(mainController.checkBoxSettingGuideMessages.isSelected());
                 break;
             case 4: // Order History
-                mainController.orderHistoryGuideMessageDoubleClickTable.setVisible(showGuideMessagesReference);
+                mainController.orderHistoryGuideMessageDoubleClickTable.setVisible(mainController.checkBoxSettingGuideMessages.isSelected());
                 break;
                 // settings ay nasa settingsModel openSelectedPane() na
         }
@@ -226,7 +235,7 @@ public class MainModel {
 
 
     public void showNotification() {
-        if (showNotificationsReference) {
+        if (mainController.checkBoxSettingGuideMessages.isSelected()) {
             mainController.imageViewNotification.setImage(imageViewNotificationReference);
             mainController.labelNotificationHeader.setText(notificationHeaderReference);
             mainController.labelNotificationContent.setText(notificationContentReference);
