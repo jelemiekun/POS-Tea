@@ -4,8 +4,6 @@ DEVIN AI
 
 // akin
 
-LAGYAN NG ACCOUNT EMAIL/PHONE NUMBER ALREADY EXIST SA 2ND PHASE REGISTER
-
 paikliin product names sa resibo (ALISIN A E I O U)
 
 order receipt - update resibo content
@@ -13,8 +11,6 @@ order receipt - update resibo content
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
-
-palitan recovery questions sa second phase ng forgot pass
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
 
@@ -43,8 +39,6 @@ gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede
 
 // SA DULO NA TO
 
-AYUSIN DASHBOARD, IADJUST WIDTH NG ALL TIME FAVORITES
-
 from executable jar file, gawing .exe yung system ( optional )
 
 ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
@@ -59,17 +53,11 @@ dapat di gumagana editProduct if naka open csv
 
 DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
-new password cannot be the same as old password error
-
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
-
-i encrypt mga dapat i encreypt like pass
 
 gawing * lahat ng static import
 
 css files ng 2 table mula kay abella
-
-ihhide yung accounts excel
 
 may mag ppop up if may changes na nadetect sa directory
 
@@ -597,3 +585,15 @@ GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN K
 unahin muna helper messages
 
 may time na nawawala yung imagepath sa orderlist or orderhistory ewan
+
+AYUSIN DASHBOARD, IADJUST WIDTH NG ALL TIME FAVORITES
+
+palitan recovery questions sa second phase ng forgot pass
+
+LAGYAN NG ACCOUNT EMAIL/PHONE NUMBER ALREADY EXIST SA 2ND PHASE REGISTER
+
+ihhide yung accounts excel
+
+i encrypt mga dapat i encreypt like pass
+
+new password cannot be the same as old password error

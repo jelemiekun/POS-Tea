@@ -79,6 +79,22 @@ public class RegisterModel {
                 loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.setText(oldValue);
             }
         });
+
+        loginRegisterForgotPassController.textFieldForgotPassAnswer1.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldForgotPassAnswer1.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldForgotPassAnswer1.setText(oldValue);
+            }
+        });
+
+        loginRegisterForgotPassController.textFieldForgotPassAnswer2.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldForgotPassAnswer2.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldForgotPassAnswer2.setText(oldValue);
+            }
+        });
     }
 
     public void setComboBoxRecoveryQuestion() {

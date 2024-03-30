@@ -132,6 +132,8 @@ public class MainController implements Initializable {
 
 
                 fadeOutLoading();
+
+                dashboardModel.firstChoiceBoxOnAction();
             });
         }).start();
     }

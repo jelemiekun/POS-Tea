@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Font;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -488,8 +489,8 @@ public class DashboardModel {
 
             for (ProductOrder productOrder : topTenProducts) {
                 AnchorPane anchorPane = new AnchorPane();
-                anchorPane.setPrefWidth(441);
-                anchorPane.setPrefHeight(161);
+                anchorPane.setPrefWidth(533.0);
+                anchorPane.setPrefHeight(158.0);
 
                 ImageView imageView;
 
@@ -530,33 +531,33 @@ public class DashboardModel {
                 }
 
 
-                imageView.setFitWidth(141);
-                imageView.setFitHeight(85);
-                imageView.setLayoutX(29);
-                imageView.setLayoutY(52);
+                imageView.setFitWidth(150.0);
+                imageView.setFitHeight(115.0);
+                imageView.setLayoutX(23.0);
+                imageView.setLayoutY(23.0);
 
-                Label nameLabel = new Label(productOrder.getProductName());
-                nameLabel.setLayoutX(29);
-                nameLabel.setLayoutY(21);
-                nameLabel.setPrefWidth(365);
-                nameLabel.setPrefHeight(27);
-                nameLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 24;");
+                Label labelName = new Label(productOrder.getProductName());
+                labelName.setLayoutX(187.0);
+                labelName.setLayoutY(43.0);
+                labelName.setFont(new Font("Arial Bold", 20.0));
 
-                Label totalOrdersLabel = new Label("Total Orders:");
-                totalOrdersLabel.setLayoutX(273);
-                totalOrdersLabel.setLayoutY(74);
-                totalOrdersLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
+                Label labelCategory = new Label("(" + productOrder.getProductCategory() + ")");
+                labelCategory.setLayoutX(187.0);
+                labelCategory.setLayoutY(73.0);
+                labelCategory.setFont(new Font("Arial", 14.0));
 
-                Label ordersCountLabel = new Label(String.valueOf(productOrder.getQuantity()));
-                ordersCountLabel.setLayoutX(369);
-                ordersCountLabel.setLayoutY(74);
-                ordersCountLabel.setPrefWidth(64);
-                ordersCountLabel.setPrefHeight(23);
-                ordersCountLabel.setStyle("-fx-font-family: Arial; -fx-font-size: 20;");
-                ordersCountLabel.setAlignment(javafx.geometry.Pos.CENTER_RIGHT);
-                ordersCountLabel.setContentDisplay(javafx.scene.control.ContentDisplay.RIGHT);
+                Label labelTotalOrders = new Label("Total Orders:");
+                labelTotalOrders.setLayoutX(338.0);
+                labelTotalOrders.setLayoutY(67.0);
+                labelTotalOrders.setFont(new Font("Arial Bold", 16.0));
 
-                anchorPane.getChildren().addAll(imageView, nameLabel, totalOrdersLabel, ordersCountLabel);
+                Label labelOrderCounter = new Label(String.valueOf(productOrder.getQuantity()));
+                labelOrderCounter.setLayoutX(451.0);
+                labelOrderCounter.setLayoutY(65.0);
+                labelOrderCounter.setPrefWidth(70.0);
+                labelOrderCounter.setFont(new Font("Arial Bold", 22.0));
+
+                anchorPane.getChildren().addAll(imageView, labelName, labelCategory, labelTotalOrders, labelOrderCounter);
 
                 mainController.flowPaneBestSeller.getChildren().add(anchorPane);
             }
