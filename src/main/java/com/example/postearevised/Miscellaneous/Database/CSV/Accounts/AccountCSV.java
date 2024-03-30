@@ -22,8 +22,90 @@ import static com.example.postearevised.Miscellaneous.References.AccountReferenc
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 
 public class AccountCSV {
+    public static void doesStayLoggedInCSVExist() {
+        File stayLoggedInFile = new File(CSV_FILE_PATH_STAY_LOGGED_IN);
+
+        if (!stayLoggedInFile.exists()) {
+            System.out.println("Directory exists but no CSV file, will now create CSV: " + CSV_FILE_PATH_STAY_LOGGED_IN);
+            createStayLoggedInCSVFileIfNotExists();
+        } else {
+            System.out.println("CSV account file already exists: " + CSV_FILE_PATH_STAY_LOGGED_IN);
+            readStayLoggedInCSV();
+        }
+    }
+
+    public static void readStayLoggedInCSV() {
+        try (BufferedReader reader = new BufferedReader(new FileReader(CSV_FILE_PATH_STAY_LOGGED_IN))) {
+            int rowCount = 0;
+            String line;
+            String dataFirstColumnSecondRow = null;
+            String dataSecondColumnSecondRow = null;
+
+            while ((line = reader.readLine()) != null) {
+                String[] columns = line.split(",");
+                rowCount++;
+
+                if (rowCount == 2 && columns.length == 2) {
+                    dataFirstColumnSecondRow = columns[0];
+                    dataSecondColumnSecondRow = columns[1];
+                }
+            }
+
+            if (rowCount == 2) {
+                if (dataFirstColumnSecondRow != null && dataSecondColumnSecondRow != null) {
+                    loginAccount = dataFirstColumnSecondRow;
+                    loginPassword = dataSecondColumnSecondRow;
+                    directLogin = true;
+                } else {
+                    directLogin = false;
+                }
+            } else {
+                directLogin = false;
+            }
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(true);
+        }
+    }
+
+    private static void createStayLoggedInCSVFileIfNotExists() {
+        try (FileWriter writer = new FileWriter(CSV_FILE_PATH_STAY_LOGGED_IN, true)) {
+            writer.write("contact,password\n");
+            System.out.println("Creating stay logged in csv file: " + CSV_FILE_PATH_STAY_LOGGED_IN);
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            setErrorCreatingCSVFile();
+            openPrompt();
+        }
+    }
+
+    public static void inputIntoSecondRow(String account, String password) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_STAY_LOGGED_IN, true))) {
+            writer.write(account + "," + password + "\n");
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+    }
+
+    public static void loggedOutSoDeleteStayLoggedInDetails() {
+        File stayLoggedInFile = new File(CSV_FILE_PATH_STAY_LOGGED_IN);
+
+        if (stayLoggedInFile.exists() && stayLoggedInFile.delete()) {
+            createStayLoggedInCSVFileIfNotExists();
+        }
+    }
+
+
+
+
+
+
+
     public static void doesAccountCSVExist() {
         createDirectoryIfNotExists(DIRECTORY_PATH);
         createAccountCSVFileIfNotExists();
@@ -41,7 +123,7 @@ public class AccountCSV {
         }
     }
 
-    public static void createAccountCSVFile() {
+    private static void createAccountCSVFile() {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ACCOUNTS, true)) {
             writer.write("contact,password,securityQuestionOne,securityQuestionOneAnswer,securityQuestionTwo,securityQuestionTwoAnswer,firstNames,middleNames,lastNames,displayColor,isShowNotification,isShowGuideMessages\n");
             System.out.println("Creating account csv file: " + CSV_FILE_PATH_ACCOUNTS);

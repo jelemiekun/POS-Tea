@@ -3,11 +3,8 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.ForgotPassModel;
 import com.example.postearevised.Models.Main.LoginModel;
 import com.example.postearevised.Models.Main.RegisterModel;
-import com.example.postearevised.Objects.Account.Account;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,6 +35,7 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 
 public class LoginRegisterForgotPassController implements Initializable {
@@ -55,26 +53,50 @@ public class LoginRegisterForgotPassController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.gc();
 
-        doesAccountCSVExist();
+        Thread readCSVs = new Thread(() -> {
+            doesAccountCSVExist();
+            doesStayLoggedInCSVExist();
+        });
+
+        readCSVs.start();
+
+        try {
+            readCSVs.join();
+        } catch (InterruptedException e) {
+            errorMessage = e.getMessage();
+            logError(true);
+        }
 
         loginModel = new LoginModel();
+        registerModel = new RegisterModel();
+        forgotPassModel = new ForgotPassModel();
+
         loginModel.setLoginRegisterController(this);
+
+        Platform.runLater(() -> {
+            if (directLogin) {
+                textFieldAccount.setText(loginAccount);
+                textFieldPassword.setText(loginPassword);
+                loginModel.checkInputsBeforeLogin();
+            }
+        });
+
         loginModel.setPane();
         loginModel.setImageAndPasswordFieldAndCheckBox();
 
-        registerModel = new RegisterModel();
         registerModel.setLoginRegisterController(this);
         registerModel.setAttributes();
         registerModel.setNoSpaceTextFieldListeners();
 
-        forgotPassModel = new ForgotPassModel();
         forgotPassModel.setLoginRegisterController(this);
 
         setLoginAccountAndPasswordNoSpaceInputLimitListener();
 
         checkBoxRememberPassword.setSelected(true);
 
-        Platform.runLater(() -> {loginModel.checkIfResolutionIsTooLow();});
+        Platform.runLater(() -> {
+            loginModel.checkIfResolutionIsTooLow();
+        });
     }
 
     public void switchPane(int paneNumber) {

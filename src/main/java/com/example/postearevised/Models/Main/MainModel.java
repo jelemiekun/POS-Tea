@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -391,6 +392,8 @@ public class MainModel {
     }
 
     private void logout() {
+        deleteStayLoggedInData();
+
         mainController.loader = new FXMLLoader(getClass().getResource(LOGIN_ENUM.getURL()));
         try {
             mainController.root = mainController.loader.load();
@@ -408,6 +411,11 @@ public class MainModel {
         mainController.newStage.show();
         closeThisStage();
         System.gc();
+    }
+
+
+    private void deleteStayLoggedInData() {
+        loggedOutSoDeleteStayLoggedInDetails();
     }
 
 

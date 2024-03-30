@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.inputIntoSecondRow;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
@@ -196,6 +197,8 @@ public class LoginModel {
                 boolean proceed = checkCredentials();
 
                 if (proceed) {
+                    isStayLoggedIn();
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
                     Parent root = null;
                     try {
@@ -228,6 +231,13 @@ public class LoginModel {
             logError(false);
             setOutOfMemoryError();
             openPrompt();
+        }
+    }
+
+    private void isStayLoggedIn() {
+        if (!directLogin) {
+            if (loginRegisterForgotPassController.checkBoxRememberPassword.isSelected())
+                inputIntoSecondRow(loginAccount, loginPassword);
         }
     }
 

@@ -9,6 +9,7 @@ public class FileReference {
     public static String DIRECTORY_PATH_RECEIPT;
     public static String DIRECTORY_PATH_PRODUCT_IMAGES;
     public static String CSV_FILE_PATH_ACCOUNTS;
+    public static String CSV_FILE_PATH_STAY_LOGGED_IN;
     public static String CSV_FILE_PATH_PRODUCTS;
     public static String CSV_FILE_PATH_ORDER_QUEUE;
     public static String CSV_FILE_PATH_ORDER_HISTORY;
@@ -22,12 +23,12 @@ public class FileReference {
             // windows os
             DIRECTORY_PATH = System.getenv("APPDATA") + "\\POS_Tea";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts.csv";
+            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH + "\\stayLoggedInData.csv";
         } else {
             // other os
             DIRECTORY_PATH = System.getProperty("user.home") + "/POS_Tea";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts.csv";
-
-
+            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH + "/stayLoggedInData.csv";
         }
     }
 
