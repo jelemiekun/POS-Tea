@@ -11,4 +11,6 @@ public class RegexReference {
     public static final String REGEX_NAME_16_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS =  "^[A-Za-z][A-Za-z ]{0,15}$";
     public static final String REGEX_NAME_200_CHAR_NO_SPACE_IN_FRONT_NO_NUMBERS =  "^[A-Za-z][A-Za-z ]{0,199}$";
     public static final String REGEX_ORDER_HISTORY_SEARCH_256_LIMIT_NO_SPACE_IN_FRONT_NO_SPECIAL_CHARACTERS = "^(?!\\s)[a-zA-Z ]{1,256}$";
+    public static final String REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED = "^(?!\\s).*";
+
 }

@@ -38,6 +38,49 @@ public class RegisterModel {
      * Register
      */
 
+    public void setNoSpaceTextFieldListeners() {
+        loginRegisterForgotPassController.textFieldName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldName.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldName.setText(oldValue);
+            }
+        });
+
+        loginRegisterForgotPassController.textFieldMiddleName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldMiddleName.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldMiddleName.setText(oldValue);
+            }
+        });
+
+        loginRegisterForgotPassController.textFieldLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldLastName.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldLastName.setText(oldValue);
+            }
+        });
+
+
+        loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.setText(oldValue);
+            }
+        });
+
+        loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.setText(newValue);
+            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.setText(oldValue);
+            }
+        });
+    }
+
     public void setComboBoxRecoveryQuestion() {
         loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setItems(recoveryQuestionsObservableList);
         loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setItems(recoveryQuestionsObservableList);
@@ -214,6 +257,21 @@ public class RegisterModel {
             enableLimitInput();
         } else {
             disableLimitInput();
+        }
+    }
+
+    public void checkIfDuplicateAccount() {
+        if (loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().isEmpty()) {
+            loginRegisterForgotPassController.labelEmail.setVisible(false);
+        } else {
+            for (Account account : accountSet) {
+                if (account.getContact().equals(loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim())) {
+                    loginRegisterForgotPassController.labelEmail.setText("*account already exists");
+                    loginRegisterForgotPassController.labelEmail.setVisible(true);
+                } else {
+                    loginRegisterForgotPassController.labelEmail.setVisible(false);
+                }
+            }
         }
     }
 
@@ -453,6 +511,9 @@ public class RegisterModel {
     }
 
     private Account createAccount() {
+        if (registerSurName.isEmpty())
+            registerSurName = ".";
+
         ObservableList<String> firstNames = FXCollections.observableArrayList(registerGivenName);
         ObservableList<String> middleNames = FXCollections.observableArrayList(registerMiddleName);
         ObservableList<String> lastNames = FXCollections.observableArrayList(registerSurName);

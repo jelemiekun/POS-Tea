@@ -65,6 +65,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         registerModel = new RegisterModel();
         registerModel.setLoginRegisterController(this);
         registerModel.setAttributes();
+        registerModel.setNoSpaceTextFieldListeners();
 
         forgotPassModel = new ForgotPassModel();
         forgotPassModel.setLoginRegisterController(this);
@@ -836,6 +837,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         } else {
             registerModel.typing();
             registerModel.checkAccountInRegisterIfPhoneNumber();
+            registerModel.checkIfDuplicateAccount();
         }
     }
 
