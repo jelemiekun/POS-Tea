@@ -8,6 +8,7 @@ public class FileReference {
     public static final String DIRECTORY_PATH_CSV;
     public static final String DIRECTORY_PATH_RECEIPT;
     public static final String DIRECTORY_PATH_PRODUCT_IMAGES;
+    public static final String CSV_FILE_PATH_ACCOUNTS;
     public static final String CSV_FILE_PATH_PRODUCTS;
     public static final String CSV_FILE_PATH_ORDER_QUEUE;
     public static final String CSV_FILE_PATH_ORDER_HISTORY;
@@ -23,6 +24,7 @@ public class FileReference {
             DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts" + "\\" + accountReference;
             DIRECTORY_PATH_CSV = DIRECTORY_PATH_ACCOUNTS + "\\CSVs";
             DIRECTORY_PATH_RECEIPT = DIRECTORY_PATH_ACCOUNTS + "\\receipts";
+            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts.csv";
             CSV_FILE_PATH_PRODUCTS = DIRECTORY_PATH_CSV + "\\products.csv";
             CSV_FILE_PATH_ORDER_QUEUE = DIRECTORY_PATH_CSV + "\\orderQueue.csv";
             CSV_FILE_PATH_ORDER_HISTORY = DIRECTORY_PATH_CSV + "\\orderHistory.csv";
@@ -36,6 +38,7 @@ public class FileReference {
             DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts" + "/" + accountReference;
             DIRECTORY_PATH_CSV = DIRECTORY_PATH_ACCOUNTS + "/CSVs";
             DIRECTORY_PATH_RECEIPT = DIRECTORY_PATH_ACCOUNTS + "/receipts";
+            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts.csv";
             CSV_FILE_PATH_PRODUCTS = DIRECTORY_PATH_CSV + "/products.csv";
             CSV_FILE_PATH_ORDER_QUEUE = DIRECTORY_PATH_CSV + "/orderQueue.csv";
             CSV_FILE_PATH_ORDER_HISTORY = DIRECTORY_PATH_CSV + "/orderHistory.csv";

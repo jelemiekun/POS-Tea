@@ -14,7 +14,6 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 
 public class CSVUtility {
     public static void doesProductCSVExist() {
-        createDirectoryIfNotExists(DIRECTORY_PATH);
         createDirectoryIfNotExists(DIRECTORY_PATH_ACCOUNTS);
         createDirectoryIfNotExists(DIRECTORY_PATH_CSV);
         createDirectoryIfNotExists(DIRECTORY_PATH_PRODUCT_IMAGES);
@@ -34,7 +33,7 @@ public class CSVUtility {
         }
     }
 
-    private static void createDirectoryIfNotExists(String path) {
+    public static void createDirectoryIfNotExists(String path) {
         File directory = new File(path);
         if (!directory.exists()) {
             if (directory.mkdirs()) {

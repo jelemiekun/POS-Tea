@@ -1,10 +1,12 @@
 package com.example.postearevised.Miscellaneous.Database.CSV.Products;
 
+import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations;
 import com.example.postearevised.Objects.Products.*;
 
 import java.io.*;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorCreatingCSVFile;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
@@ -37,6 +39,8 @@ public class ProductsCSVOperations {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
+            setErrorCreatingCSVFile();
+            OrderHistoryAndOrderQueueCSVOperations.openPrompt();
         }
     }
 

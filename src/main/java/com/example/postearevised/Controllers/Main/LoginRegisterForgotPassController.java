@@ -28,6 +28,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
@@ -52,6 +53,8 @@ public class LoginRegisterForgotPassController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.gc();
+
+        doesAccountCSVExist();
 
         loginModel = new LoginModel();
         loginModel.setLoginRegisterController(this);

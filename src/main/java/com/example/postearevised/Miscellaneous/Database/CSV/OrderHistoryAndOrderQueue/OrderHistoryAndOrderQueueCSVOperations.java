@@ -46,6 +46,8 @@ public class OrderHistoryAndOrderQueueCSVOperations {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
+            setErrorCreatingCSVFile();
+            openPrompt();
         }
     }
 
