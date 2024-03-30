@@ -1,6 +1,7 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController;
+import com.example.postearevised.Objects.Account.Account;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -112,15 +113,28 @@ public class LoginModel {
 
     // If account is found
     private boolean checkCredentials() {
-        loginAccount = loginRegisterForgotPassController.textFieldAccount.getText();
-        loginPassword = loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.textFieldShowPassword.getText() : loginRegisterForgotPassController.textFieldPassword.getText();
-
-        if (loginAccount.equals(accountReference) && loginPassword.equals(passwordReference)) { // CHECK HERE SA DATABASE
+        if (accountExistsAndCorrectCredentials()) { // CHECK HERE SA DATABASE
             return true;
         } else {
             showIncorrectCredentials();
             return false;
         }
+    }
+
+    private boolean accountExistsAndCorrectCredentials() {
+        loginAccount = loginRegisterForgotPassController.textFieldAccount.getText();
+        loginPassword = loginRegisterForgotPassController.loginShowPassword ? loginRegisterForgotPassController.textFieldShowPassword.getText() : loginRegisterForgotPassController.textFieldPassword.getText();
+
+        for (Account account : accountSet) {
+            if (loginAccount.equals(account.getContact()) && loginPassword.equals(account.getPassword())) {
+
+                accountReference = account.getContact();
+
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void showIncorrectCredentials() {
