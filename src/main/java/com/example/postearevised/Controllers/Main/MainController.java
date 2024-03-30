@@ -831,13 +831,15 @@ public class MainController implements Initializable {
     @FXML
     public Label labelSettingsAccountEditFinishAccount;
     @FXML
+    public Label labelSettingsAccountEditFinishPassword;
+    @FXML
+    public Label labelSettingsAccountEditFinishSecurityQuestions;
+    @FXML
     public ImageView btnImageSettingsAccountRemoveName;
     @FXML
     public ComboBox<String> comboBoxAccountName;
     @FXML
     public TextField textFieldAccountContact;
-    @FXML
-    public TextField textFieldAccountOldPassword;
     @FXML
     public TextField textFieldAccountNewPassword;
     @FXML
@@ -851,17 +853,15 @@ public class MainController implements Initializable {
     @FXML
     public TextField textFieldAccountQuestionTwo;
     @FXML
-    public AnchorPane anchorPaneSettingsBtnEdit;
+    public AnchorPane anchorPaneSettingsBtnEditAccount;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnEditSecurityQuestions;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnEditPassword;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDelete;
     @FXML
     public ImageView imagePencilSettingsAccount1;
-    @FXML
-    public ImageView imagePencilSettingsAccount2;
-    @FXML
-    public ImageView imagePencilSettingsAccount3;
-    @FXML
-    public ImageView imagePencilSettingsAccount4;
     @FXML
     public ImageView imagePencilSettingsAccount5;
     @FXML
@@ -877,14 +877,22 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imagePencilSettingsAccount11;
     @FXML
-    public ImageView imageHideShowOldPasswordAccountSettings;
-    @FXML
     public ImageView imageHideShowNewPasswordAccountSettings;
     @FXML
     public ImageView imageHideShowConfirmNewPasswordAccountSettings;
 
     @FXML
+    public void anchorPaneSettingsBtnEditAccountClickedTouched() {
+
+    }
+
+    @FXML
     public void btnImageSettingsAccountRemoveNameClickedTouched() {
+
+    }
+
+    @FXML
+    public void anchorPaneSettingsBtnEditPasswordClickedTouched() {
 
     }
 
@@ -904,11 +912,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void imageHideShowOldPasswordAccountSettingsClickedTouched() {
-
-    }
-
-    @FXML
     public void imageHideShowNewPasswordAccountSettingsClickedTouched() {
 
     }
@@ -919,7 +922,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void anchorPaneSettingsBtnEditClickedTouched() {
+    public void anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched() {
 
     }
 

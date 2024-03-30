@@ -98,6 +98,10 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
                     try {
                         for (int i = 0; i < categories.length; i++) {
+                            imagePaths[i] = imagePaths[i].isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePaths[i];
+
+                            System.out.println("line 101 image path: " + imagePaths[i]);
+
                             ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], firstAttribute[i], secondAttribute[i], thirdAttribute[i], Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
                             productOrders.add(productOrder);
                         }

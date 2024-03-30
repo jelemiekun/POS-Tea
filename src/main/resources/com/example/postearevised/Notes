@@ -16,8 +16,6 @@ palitan recovery questions sa second phase ng forgot pass
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
 
-may mag ppop up if may changes na nadetect sa directory
-
 codes ng account settings
 
 full name sa name pero lalabas lang sa display is yung given name lang
@@ -31,8 +29,6 @@ pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwo
 MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 invoice pa sa order history
-
-may time na nawawala yung imagepath sa orderlist or orderhistory ewan
 
 
 
@@ -70,6 +66,7 @@ css files ng 2 table mula kay abella
 
 ihhide yung accounts excel
 
+may mag ppop up if may changes na nadetect sa directory
 
 ------------------MGA ITATANONG------------------
 
@@ -593,3 +590,5 @@ lagyan ng listener (esc, enter ganon) mga fxml
 GUMAWA NG VARIABLE NA MAX ATTEMPTS SA LAHAT PARA IYONG VARIABLE NALANG IIBAHIN KO
 
 unahin muna helper messages
+
+may time na nawawala yung imagepath sa orderlist or orderhistory ewan
