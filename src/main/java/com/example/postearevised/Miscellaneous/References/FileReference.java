@@ -4,12 +4,13 @@ import static com.example.postearevised.Miscellaneous.References.AccountReferenc
 
 public class FileReference {
     public static final String DIRECTORY_PATH;
+    public static final String DIRECTORY_PATH_SENSITIVE_DATA;
     public static String DIRECTORY_PATH_ACCOUNTS;
     public static String DIRECTORY_PATH_CSV;
     public static String DIRECTORY_PATH_RECEIPT;
     public static String DIRECTORY_PATH_PRODUCT_IMAGES;
-    public static String CSV_FILE_PATH_ACCOUNTS;
-    public static String CSV_FILE_PATH_STAY_LOGGED_IN;
+    public static final String CSV_FILE_PATH_ACCOUNTS;
+    public static final String CSV_FILE_PATH_STAY_LOGGED_IN;
     public static String CSV_FILE_PATH_PRODUCTS;
     public static String CSV_FILE_PATH_ORDER_QUEUE;
     public static String CSV_FILE_PATH_ORDER_HISTORY;
@@ -22,13 +23,15 @@ public class FileReference {
         if (osName.contains("win")) {
             // windows os
             DIRECTORY_PATH = System.getenv("APPDATA") + "\\POS_Tea";
-            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts.csv";
-            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH + "\\stayLoggedInData.csv";
+            DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "\\data";
+            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "\\accounts.csv";
+            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "\\stayLoggedInData.csv";
         } else {
             // other os
             DIRECTORY_PATH = System.getProperty("user.home") + "/POS_Tea";
-            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts.csv";
-            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH + "/stayLoggedInData.csv";
+            DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "/data";
+            CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "/accounts.csv";
+            CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "/stayLoggedInData.csv";
         }
     }
 

@@ -11,8 +11,12 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.*;
 import java.util.Arrays;
+import java.util.Base64;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -43,21 +47,23 @@ public class AccountCSV {
             String line;
             String dataFirstColumnSecondRow = null;
             String dataSecondColumnSecondRow = null;
+            String dataThirdColumnSecondRow = null;
 
             while ((line = reader.readLine()) != null) {
                 String[] columns = line.split(",");
                 rowCount++;
 
-                if (rowCount == 2 && columns.length == 2) {
+                if (rowCount == 2 && columns.length == 3) {
                     dataFirstColumnSecondRow = columns[0];
                     dataSecondColumnSecondRow = columns[1];
+                    dataThirdColumnSecondRow = columns[2];
                 }
             }
 
             if (rowCount == 2) {
-                if (dataFirstColumnSecondRow != null && dataSecondColumnSecondRow != null) {
+                if (dataFirstColumnSecondRow != null && dataSecondColumnSecondRow != null && dataThirdColumnSecondRow != null) {
                     loginAccount = dataFirstColumnSecondRow;
-                    loginPassword = dataSecondColumnSecondRow;
+                    loginPassword = decryptString(dataSecondColumnSecondRow, dataThirdColumnSecondRow);
                     directLogin = true;
                 } else {
                     directLogin = false;
@@ -73,7 +79,7 @@ public class AccountCSV {
 
     private static void createStayLoggedInCSVFileIfNotExists() {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_STAY_LOGGED_IN, true)) {
-            writer.write("contact,password\n");
+            writer.write("contact,password,key\n");
             System.out.println("Creating stay logged in csv file: " + CSV_FILE_PATH_STAY_LOGGED_IN);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -83,9 +89,9 @@ public class AccountCSV {
         }
     }
 
-    public static void inputIntoSecondRow(String account, String password) {
+    public static void inputIntoSecondRow(Account account) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(CSV_FILE_PATH_STAY_LOGGED_IN, true))) {
-            writer.write(account + "," + password + "\n");
+            writer.write(account.getContact() + "," + encryptString(account.getPassword(), account.getKey()) + "," + account.getKey()  + "\n");
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
@@ -108,8 +114,9 @@ public class AccountCSV {
 
     public static void doesAccountCSVExist() {
         createDirectoryIfNotExists(DIRECTORY_PATH);
+        createDirectoryIfNotExists(DIRECTORY_PATH_SENSITIVE_DATA);
         createAccountCSVFileIfNotExists();
-        // hideAccountCSV();
+        //hideAccountCSV();
     }
 
     private static void createAccountCSVFileIfNotExists() {
@@ -125,7 +132,7 @@ public class AccountCSV {
 
     private static void createAccountCSVFile() {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ACCOUNTS, true)) {
-            writer.write("contact,password,securityQuestionOne,securityQuestionOneAnswer,securityQuestionTwo,securityQuestionTwoAnswer,firstNames,middleNames,lastNames,displayColor,isShowNotification,isShowGuideMessages\n");
+            writer.write("contact,password,securityQuestionOne,securityQuestionOneAnswer,securityQuestionTwo,securityQuestionTwoAnswer,firstNames,middleNames,lastNames,displayColor,isShowNotification,isShowGuideMessages,key\n");
             System.out.println("Creating account csv file: " + CSV_FILE_PATH_ACCOUNTS);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -143,7 +150,7 @@ public class AccountCSV {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 12) {
+                if (parts.length == 13) {
                     ObservableList<String> observableListFirstNames = FXCollections.observableArrayList();
                     ObservableList<String> observableListMiddleNames = FXCollections.observableArrayList();
                     ObservableList<String> observableListLastNames = FXCollections.observableArrayList();
@@ -165,12 +172,13 @@ public class AccountCSV {
                     String displayColor = parts[9];
                     boolean isShowNotification = Boolean.parseBoolean(parts[10]);
                     boolean isShowGuideMessages = Boolean.parseBoolean(parts[11]);
+                    String key = parts[12];
 
-                    Account account = new Account(contact, password,
+                    Account account = new Account(contact, decryptString(password, key),
                             securityQuestionOne, securityQuestionOneAnswer,
                             securityQuestionTwo, securityQuestionTwoAnswer,
                             observableListFirstNames, observableListMiddleNames, observableListLastNames,
-                            displayColor, isShowNotification, isShowGuideMessages);
+                            displayColor, isShowNotification, isShowGuideMessages, key);
 
                     accountSet.add(account);
                 }
@@ -187,7 +195,7 @@ public class AccountCSV {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ACCOUNTS, true)) {
             StringBuilder sb = new StringBuilder();
             sb.append(account.getContact()).append(",");
-            sb.append(account.getPassword()).append(",");
+            sb.append(encryptString(account.getPassword(), account.getKey())).append(",");
             sb.append(account.getSecurityQuestionOne()).append(",");
             sb.append(account.getSecurityQuestionOneAnswer()).append(",");
             sb.append(account.getSecurityQuestionTwo()).append(",");
@@ -197,7 +205,8 @@ public class AccountCSV {
             sb.append(concatenateNames(account.getLastNames())).append(",");
             sb.append(account.getDisplayColor()).append(",");
             sb.append(account.isShowNotification()).append(",");
-            sb.append(account.isShowGuideMessages()).append("\n");
+            sb.append(account.isShowGuideMessages()).append(",");
+            sb.append(account.getKey()).append("\n");
 
             writer.write(sb.toString());
             return true;
@@ -238,7 +247,7 @@ public class AccountCSV {
                     StringBuilder sb = new StringBuilder();
 
                     sb.append(newAccount.getContact()).append(",");
-                    sb.append(newAccount.getPassword()).append(",");
+                    sb.append(encryptString(newAccount.getPassword(), newAccount.getKey())).append(",");
                     sb.append(newAccount.getSecurityQuestionOne()).append(",");
                     sb.append(newAccount.getSecurityQuestionOneAnswer()).append(",");
                     sb.append(newAccount.getSecurityQuestionTwo()).append(",");
@@ -248,7 +257,8 @@ public class AccountCSV {
                     sb.append(concatenateNames(newAccount.getLastNames())).append(",");
                     sb.append(newAccount.getDisplayColor()).append(",");
                     sb.append(newAccount.isShowNotification()).append(",");
-                    sb.append(newAccount.isShowGuideMessages()).append("\n");
+                    sb.append(newAccount.isShowGuideMessages()).append(",");
+                    sb.append(newAccount.getKey()).append("\n");
 
                     writer.write(sb.toString());
                 } else {
@@ -291,15 +301,44 @@ public class AccountCSV {
         newStage.showAndWait();
     }
 
+
+    public static String encryptString(String input, String key) {
+        try {
+            SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] encryptedBytes = cipher.doFinal(input.getBytes());
+            return Base64.getEncoder().encodeToString(encryptedBytes);
+        } catch (Exception e) {
+            errorMessage = e.getMessage();
+            logError(true);
+            return null;
+        }
+    }
+
+    public static String decryptString(String encryptedInput, String key) {
+        try {
+            SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedInput));
+            return new String(decryptedBytes);
+        } catch (Exception e) {
+            errorMessage = e.getMessage();
+            logError(true);
+            return null;
+        }
+    }
+
     private static void hideAccountCSV() {
         String osName = System.getProperty("os.name").toLowerCase();
         if (osName.contains("win")) {
             // windows os
-            File csvFile = new File(CSV_FILE_PATH_ACCOUNTS);
+            File csvFile = new File(DIRECTORY_PATH_SENSITIVE_DATA);
 
             if (csvFile.exists()) {
                 try {
-                    String[] cmd = {"cmd", "/c", "attrib", "+h", "+r", "+s", CSV_FILE_PATH_ACCOUNTS};
+                    String[] cmd = {"cmd", "/c", "attrib", "+h", "+r", "+s", DIRECTORY_PATH_SENSITIVE_DATA};
 
                     Process process = Runtime.getRuntime().exec(cmd);
                     process.waitFor();
@@ -312,9 +351,9 @@ public class AccountCSV {
             }
         } else {
             // other os
-            File csvFile = new File(DIRECTORY_PATH, ".accounts.csv");
+            File csvFile = new File(DIRECTORY_PATH_SENSITIVE_DATA, ".accounts.csv");
 
-            File hiddenCsvFile = new File(DIRECTORY_PATH, ".accounts.csv");
+            File hiddenCsvFile = new File(DIRECTORY_PATH_SENSITIVE_DATA, ".accounts.csv");
             if (csvFile.exists()) {
                 if (csvFile.renameTo(hiddenCsvFile)) {
                     System.out.println("Account csv hidden successfully.");

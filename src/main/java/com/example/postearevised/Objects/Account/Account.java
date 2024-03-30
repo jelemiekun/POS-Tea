@@ -3,7 +3,10 @@ package com.example.postearevised.Objects.Account;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.security.SecureRandom;
+
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 
 public class Account {
     private String contact;
@@ -18,6 +21,7 @@ public class Account {
     private String displayColor;
     private boolean isShowNotification;
     private boolean isShowGuideMessages;
+    private String key;
 
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames) {
         this.contact = contact;
@@ -32,9 +36,10 @@ public class Account {
         this.displayColor = LIGHT_ENUM.getColor();
         this.isShowNotification = true;
         this.isShowGuideMessages = true;
+        this.key = generateRandomKey();
     }
 
-    public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames, String displayColor, boolean isShowNotification, boolean isShowGuideMessages) {
+    public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames, String displayColor, boolean isShowNotification, boolean isShowGuideMessages, String key) {
         this.contact = contact;
         this.password = password;
         this.securityQuestionOne = securityQuestionOne;
@@ -47,6 +52,33 @@ public class Account {
         this.displayColor = displayColor;
         this.isShowNotification = isShowNotification;
         this.isShowGuideMessages = isShowGuideMessages;
+        this.key = key;
+    }
+
+    public static String generateRandomKey() {
+        // Choose a valid AES key length (128, 192, or 256 bits)
+        int keyLength = AES_LENGTH;
+
+        // Characters used for generating the key
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder sb = new StringBuilder(keyLength / 8); // Divide by 8 to convert bits to bytes
+        SecureRandom random = new SecureRandom();
+
+        for (int i = 0; i < keyLength / 8; i++) { // Divide by 8 to convert bits to bytes
+            int randomIndex = random.nextInt(chars.length());
+            sb.append(chars.charAt(randomIndex));
+        }
+
+        return sb.toString();
+    }
+
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getContact() {
@@ -149,7 +181,7 @@ public class Account {
         return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,
                 securityQuestionTwo, securityQuestionTwoAnswer, FXCollections.observableArrayList(firstNames),
                 FXCollections.observableArrayList(middleNames), FXCollections.observableArrayList(lastNames),
-                displayColor, isShowNotification, isShowGuideMessages);
+                displayColor, isShowNotification, isShowGuideMessages, key);
     }
 
 }

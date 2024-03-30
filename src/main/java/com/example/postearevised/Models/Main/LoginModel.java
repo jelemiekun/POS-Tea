@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.inputIntoSecondRow;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
@@ -115,7 +115,7 @@ public class LoginModel {
 
     // If account is found
     private boolean checkCredentials() {
-        if (accountExistsAndCorrectCredentials()) { // CHECK HERE SA DATABASE
+        if (accountExistsAndCorrectCredentials()) {
             return true;
         } else {
             showIncorrectCredentials();
@@ -237,7 +237,7 @@ public class LoginModel {
     private void isStayLoggedIn() {
         if (!directLogin) {
             if (loginRegisterForgotPassController.checkBoxRememberPassword.isSelected())
-                inputIntoSecondRow(loginAccount, loginPassword);
+                inputIntoSecondRow(accountReference);
         }
     }
 
