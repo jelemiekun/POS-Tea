@@ -92,6 +92,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorAccountCreation() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Error creating account";
+        promptContentText = "Creation failed. CSV in use or try again later.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setConfirmLogout() {
         setIsConfirmedToFalse();
 

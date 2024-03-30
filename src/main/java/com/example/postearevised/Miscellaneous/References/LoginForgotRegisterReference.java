@@ -35,7 +35,7 @@ public class LoginForgotRegisterReference {
             "What is the name of your favorite sports team?",
             "What was the first concert you attended?",
             "What is the name of your favorite musician or band?",
-            "What is the name of the company where you had your first job?",
+            "What is the name of your favorite restaurant?",
             "What is your favorite vacation destination?",
             "What is the name of your favorite childhood toy?",
             "What is the name of your favorite historical figure?"

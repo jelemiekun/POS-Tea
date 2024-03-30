@@ -2,8 +2,10 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController;
 import com.example.postearevised.Miscellaneous.Enums.StartPane;
+import com.example.postearevised.Objects.Account.Account;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,10 +15,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -222,26 +226,34 @@ public class RegisterModel {
     }
 
     public void comboBox1OnAction() {
-        String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue();
-        if (selectedItem != null) {
-            loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setItems(FXCollections.observableArrayList(
-                    recoveryQuestionsObservableList.stream()
-                            .filter(question -> !question.equals(selectedItem))
-                            .collect(Collectors.toList())
-            ));
+        if (!loginRegisterForgotPassController.isUpdatingComboBox) {
+            loginRegisterForgotPassController.isUpdatingComboBox = true;
+            String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.setItems(filteredList);
+            }
+            loginRegisterForgotPassController.isUpdatingComboBox = false;
         }
     }
 
     public void comboBox2OnAction() {
-        String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue();
-        if (selectedItem != null) {
-            loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setItems(FXCollections.observableArrayList(
-                    recoveryQuestionsObservableList.stream()
-                            .filter(question -> !question.equals(selectedItem))
-                            .collect(Collectors.toList())
-            ));
+        if (!loginRegisterForgotPassController.isUpdatingComboBox) {
+            loginRegisterForgotPassController.isUpdatingComboBox = true;
+            String selectedItem = loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.setItems(filteredList);
+            }
+            loginRegisterForgotPassController.isUpdatingComboBox = false;
         }
     }
+
+
 
     public void registerFinalProcessOnAction() {
         submittedOnceLastProcess();
@@ -421,7 +433,7 @@ public class RegisterModel {
     public void readTAC() {
         if (openTAC()) {
             if (loginRegisterForgotPassController.checkConnectivity()) {
-                if (createAccount()) {
+                if (isAccountCreationSuccess()) {
                     openPromptRegisteredSuccess();
                     goToLogin();
                 }
@@ -429,8 +441,33 @@ public class RegisterModel {
         }
     }
 
-    private boolean createAccount() {
-        
+    private boolean isAccountCreationSuccess() {
+        Account account = createAccount();
+        if (addAccountToAccountCSV(account)) {
+            addToAccountSet(account);
+            return true;
+        } else {
+            openPromptRegisterFailed();
+            return false;
+        }
+    }
+
+    private Account createAccount() {
+        ObservableList<String> firstNames = FXCollections.observableArrayList(registerGivenName);
+        ObservableList<String> middleNames = FXCollections.observableArrayList(registerMiddleName);
+        ObservableList<String> lastNames = FXCollections.observableArrayList(registerSurName);
+
+        return new Account(registerEmailOrPhoneNumber,
+                registerConfirmNewPassword,
+                loginRegisterForgotPassController.registerRecoveryQuestionComboBox1.getValue(),
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer1.getText().trim(),
+                loginRegisterForgotPassController.registerRecoveryQuestionComboBox2.getValue(),
+                loginRegisterForgotPassController.textFieldRecoveryQuestionAnswer2.getText().trim(),
+                firstNames, middleNames, lastNames);
+    }
+
+    private void addToAccountSet(Account account) {
+        accountSet.add(account);
     }
 
     private boolean isNewPasswordAndConfirmNewPasswordNotMatched(boolean passwordsMatch) {
@@ -603,6 +640,32 @@ public class RegisterModel {
         loginRegisterForgotPassController.toggleRectangleModal();
 
         setAccountCreatedConfirmation();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+
+        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+    }
+
+    private void openPromptRegisterFailed() {
+        loginRegisterForgotPassController.toggleRectangleModal();
+
+        setErrorAccountCreation();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {

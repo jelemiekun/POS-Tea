@@ -149,14 +149,14 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Register.jpeg" />
                     </image>
                 </ImageView>
-            <AnchorPane fx:id="anchorPaneRegisterBasicInfo" layoutX="510.0" layoutY="53.0" visible="false">
+            <AnchorPane fx:id="anchorPaneRegisterBasicInfo" layoutX="510.0" layoutY="53.0">
                <children>
                   <AnchorPane prefHeight="965.0" prefWidth="922.0">
                      <children>
@@ -431,7 +431,7 @@
                                     </FlowPane>
                                     <AnchorPane layoutX="451.0" layoutY="10.0" prefHeight="30.0" prefWidth="120.0">
                                        <children>
-                                          <Label fx:id="registerIndicator" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="85.0">
+                                          <Label fx:id="registerIndicator" alignment="CENTER_RIGHT" layoutX="-6.0" layoutY="5.0" prefHeight="17.0" prefWidth="85.0">
                                              <font>
                                                 <Font name="Arial Bold" size="18.0" />
                                              </font>
@@ -507,7 +507,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneRegisterRecoveryQuestions" layoutX="510.0" layoutY="53.0">
+            <AnchorPane fx:id="anchorPaneRegisterRecoveryQuestions" layoutX="510.0" layoutY="53.0" visible="false">
                <children>
                   <AnchorPane prefHeight="965.0" prefWidth="922.0">
                      <children>

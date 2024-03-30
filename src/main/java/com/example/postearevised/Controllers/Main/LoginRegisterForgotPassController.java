@@ -74,20 +74,6 @@ public class LoginRegisterForgotPassController implements Initializable {
         checkBoxRememberPassword.setSelected(true);
 
         Platform.runLater(() -> {loginModel.checkIfResolutionIsTooLow();});
-        //createAccount();
-    }
-
-    private void createAccount() {
-        ObservableList<String> firstNames = FXCollections.observableArrayList();
-        ObservableList<String> midNames = FXCollections.observableArrayList();
-        ObservableList<String> lastNames = FXCollections.observableArrayList();
-
-        firstNames.add("John");
-        midNames.add("Munsod");
-        lastNames.add("Eden");
-
-        Account account = new Account("admin", "admin", "talaga?", "oo", "weh?", "oo nga", firstNames, midNames, lastNames);
-        addAccountToAccountCSV(account);
     }
 
     public void switchPane(int paneNumber) {
@@ -183,6 +169,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         textFieldRecoveryQuestionAnswer2.setText("");
         registerLastStepSubmittedOnce = false;
         registerLastStepProceed = false;
+        isUpdatingComboBox = false;
 
 
         btnRegisterShowHidePassword1.setImage(hideImage);
@@ -497,8 +484,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     public AnchorPane anchorPaneRegisterAccountDetails;
     @FXML
     public AnchorPane anchorPaneRegisterBasicInfo;
-    @FXML
-    public AnchorPane anchorPaneRegister3;
     public boolean registerIsWeakPassword = false;
     public boolean iconsClicked = false;
     private boolean registerNameToolTipClicked = false;
@@ -510,6 +495,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     public boolean registerLastStepProceed = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
+    public boolean isUpdatingComboBox = false;
     @FXML
     public Label labelName1;
     @FXML
