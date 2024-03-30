@@ -828,16 +828,23 @@ public class MainController implements Initializable {
      * Settings - Accounts
      */
 
+    // Labels
     @FXML
-    public Label labelSettingsAccountEditFinishAccount;
+    public Label labelSettingsAccountEditFinishUsers;
     @FXML
-    public Label labelSettingsAccountEditFinishPassword;
+    public Label labelSettingsAccountEditFinishAccountDetails;
     @FXML
     public Label labelSettingsAccountEditFinishSecurityQuestions;
-    @FXML
-    public ImageView btnImageSettingsAccountRemoveName;
+
+    // Buttons and ComboBoxes
     @FXML
     public ComboBox<String> comboBoxAccountName;
+    @FXML
+    public TextField textFieldAccountGivenName;
+    @FXML
+    public TextField textFieldAccountMiddleName;
+    @FXML
+    public TextField textFieldAccountLastName;
     @FXML
     public TextField textFieldAccountContact;
     @FXML
@@ -852,16 +859,30 @@ public class MainController implements Initializable {
     public ComboBox<String> comboBoxSettingsQuestionTwo;
     @FXML
     public TextField textFieldAccountQuestionTwo;
+
+    // AnchorPanes
     @FXML
-    public AnchorPane anchorPaneSettingsBtnEditAccount;
+    public AnchorPane anchorPaneSettingsBtnAddUser;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnDeleteUser;
+    @FXML
+    public AnchorPane anchorPaneSettingsBtnEditUsers;
     @FXML
     public AnchorPane anchorPaneSettingsBtnEditSecurityQuestions;
     @FXML
-    public AnchorPane anchorPaneSettingsBtnEditPassword;
+    public AnchorPane anchorPaneSettingsBtnEditAccountDetails;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDelete;
+
+    // ImageViews
     @FXML
     public ImageView imagePencilSettingsAccount1;
+    @FXML
+    public ImageView imagePencilSettingsAccount2;
+    @FXML
+    public ImageView imagePencilSettingsAccount3;
+    @FXML
+    public ImageView imagePencilSettingsAccount4;
     @FXML
     public ImageView imagePencilSettingsAccount5;
     @FXML
@@ -881,18 +902,24 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imageHideShowConfirmNewPasswordAccountSettings;
 
+
     @FXML
-    public void anchorPaneSettingsBtnEditAccountClickedTouched() {
+    public void anchorPaneSettingsBtnAddUserClickedTouched() {
 
     }
 
     @FXML
-    public void btnImageSettingsAccountRemoveNameClickedTouched() {
+    public void anchorPaneSettingsBtnDeleteUserClickedTouched() {
 
     }
 
     @FXML
-    public void anchorPaneSettingsBtnEditPasswordClickedTouched() {
+    public void anchorPaneSettingsBtnEditUsersClickedTouched() {
+
+    }
+
+    @FXML
+    public void anchorPaneSettingsBtnEditAccountDetailsClickedTouched() {
 
     }
 
