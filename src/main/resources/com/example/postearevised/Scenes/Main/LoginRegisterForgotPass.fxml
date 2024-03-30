@@ -956,5 +956,23 @@
             </Label>
          </children>
       </AnchorPane>
+        <AnchorPane fx:id="anchorPaneLoading" prefHeight="1050.0" prefWidth="1920.0" visible="false">
+            <children>
+                <AnchorPane layoutX="550.0" layoutY="275.0" prefHeight="500.0" prefWidth="820.0">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="3.0" style="-fx-arc-width: 50px; -fx-arc-height: 50px;" width="820.0" />
+                        <ImageView fitHeight="258.0" fitWidth="221.0" layoutX="301.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../Medias/Icons/logo.png" />
+                            </image>
+                        </ImageView>
+                        <Label fx:id="labelLoading" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="349.0" prefHeight="80.0" prefWidth="776.0" text="Loading." textAlignment="CENTER">
+                            <font>
+                                <Font name="Arial" size="45.0" />
+                            </font>
+                        </Label>
+                    </children></AnchorPane>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

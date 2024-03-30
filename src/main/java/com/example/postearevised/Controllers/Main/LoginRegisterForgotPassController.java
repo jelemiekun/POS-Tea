@@ -3,6 +3,9 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.ForgotPassModel;
 import com.example.postearevised.Models.Main.LoginModel;
 import com.example.postearevised.Models.Main.RegisterModel;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
@@ -19,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -53,6 +57,9 @@ public class LoginRegisterForgotPassController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.gc();
 
+        anchorPaneLoading.setVisible(true);
+        loading();
+
         Thread readCSVs = new Thread(() -> {
             doesAccountCSVExist();
             doesStayLoggedInCSVExist();
@@ -78,6 +85,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 textFieldAccount.setText(loginAccount);
                 textFieldPassword.setText(loginPassword);
                 loginModel.checkInputsBeforeLogin();
+                fadeOutLoading();
             }
         });
 
@@ -96,7 +104,39 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         Platform.runLater(() -> {
             loginModel.checkIfResolutionIsTooLow();
+
+            fadeOutLoading();
         });
+    }
+
+    /**
+     * Loading
+     */
+
+    @FXML
+    public AnchorPane anchorPaneLoading;
+    @FXML
+    public Label labelLoading;
+    private Timeline loadingTimeline;
+    private void loading() {
+        loadingTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(0.5), event -> labelLoading.setText("Loading.")),
+                new KeyFrame(Duration.seconds(1), event -> labelLoading.setText("Loading..")),
+                new KeyFrame(Duration.seconds(1.5), event -> labelLoading.setText("Loading..."))
+        );
+        loadingTimeline.setCycleCount(Timeline.INDEFINITE);
+        loadingTimeline.play();
+    }
+
+    private void fadeOutLoading() {
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), anchorPaneLoading);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        fadeOut.setOnFinished(event -> {
+            anchorPaneLoading.setVisible(false);
+            loadingTimeline.stop();
+        });
+        fadeOut.play();
     }
 
     public void switchPane(int paneNumber) {

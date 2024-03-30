@@ -225,6 +225,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.labelName1.setVisible(registerGivenName.length() > NAME_LIMIT);
         loginRegisterForgotPassController.labelName.setVisible(registerGivenName.isBlank());
         loginRegisterForgotPassController.labelName.setText("*please fill up this form");
+        //loginRegisterForgotPassController.labelName.setVisible(accountExists());
         loginRegisterForgotPassController.labelEmail.setVisible(registerEmailOrPhoneNumber.isBlank());
         loginRegisterForgotPassController.labelPassword.setVisible(registerNewPassword.isBlank());
         loginRegisterForgotPassController.labelPassword.setText("*please fill up this form");
