@@ -91,8 +91,6 @@ public class AccountCSV {
                             displayColor, isShowNotification, isShowGuideMessages);
 
                     accountSet.add(account);
-
-                    System.out.println("Account " + account.getContact() + " added");
                 }
             }
         } catch (IOException e) {

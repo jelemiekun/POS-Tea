@@ -149,7 +149,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -273,7 +273,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                            <children>
-                              <ImageView fx:id="btnRegisterOnRegisterPane1" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="214.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPane1PressedEnter" onMouseClicked="#btnRegisterOnRegisterPane1Clicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnRegisterOnRegisterPane1" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPane1PressedEnter" onMouseClicked="#btnRegisterOnRegisterPane1Clicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched1" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/LoginRegister/next.png" />
                                  </image>
@@ -488,7 +488,7 @@
                         </AnchorPane>
                            <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                                <children>
-                                   <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="214.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
+                                   <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                            <Image url="@../../Medias/Buttons/LoginRegister/next.png" />
                                        </image>
@@ -622,7 +622,7 @@
 
             
             
-                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -774,7 +774,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -41,7 +41,7 @@ public class LoginModel {
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
             loginRegisterForgotPassController.toggleRectangleModal();
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
-//            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox()); // uncomment to if you need ng pop up sa pag deselect
+            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox());
             loginRegisterForgotPassController.toggleRectangleModal();
         }
     }

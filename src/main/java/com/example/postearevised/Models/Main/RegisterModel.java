@@ -492,6 +492,7 @@ public class RegisterModel {
         if (openTAC()) {
             if (loginRegisterForgotPassController.checkConnectivity()) {
                 if (isAccountCreationSuccess()) {
+                    loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
                     openPromptRegisteredSuccess();
                     goToLogin();
                 }
@@ -511,8 +512,7 @@ public class RegisterModel {
     }
 
     private Account createAccount() {
-        if (registerSurName.isEmpty())
-            registerSurName = ".";
+        registerMiddleName = registerMiddleName.isEmpty() ? "." : registerMiddleName;
 
         ObservableList<String> firstNames = FXCollections.observableArrayList(registerGivenName);
         ObservableList<String> middleNames = FXCollections.observableArrayList(registerMiddleName);

@@ -127,7 +127,6 @@ public class LoginRegisterForgotPassController implements Initializable {
         btnLoginShowHidePassword.setImage(hideImage);
         textFieldPassword.setVisible(true);
         textFieldShowPassword.setVisible(false);
-        checkBoxRememberPassword.setSelected(false);
 
         loginShowPassword = false;
 
@@ -470,7 +469,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void loginCheckBoxRememberPasswordAction() {
-        loginModel.checkBoxDeselected();
+//        loginModel.checkBoxDeselected();  // uncomment to if you need ng pop up sa pag deselect
     }
 
 
