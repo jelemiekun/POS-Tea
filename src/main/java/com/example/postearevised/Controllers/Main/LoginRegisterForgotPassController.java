@@ -28,6 +28,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.Key;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -106,6 +107,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneLogin.setVisible(false);
                 anchorPaneRegister.setVisible(true);
                 anchorPaneForgotPass.setVisible(false);
+                registerModel.switchPane(1);
                 btnRegisterOnRegisterPane.requestFocus();
                 break;
             case 3: // Forgot Password
@@ -153,6 +155,8 @@ public class LoginRegisterForgotPassController implements Initializable {
         // Register
         anchorPaneRegister.requestFocus();
         textFieldName.setText("");
+        textFieldMiddleName.setText("");
+        textFieldLastName.setText("");
         textFieldEmailOrPhoneNumber.setText("");
         textFieldNewPassword.setText("");
         textFieldShowNewPassword.setText("");
@@ -164,6 +168,11 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelConfirmPassword.setVisible(false);
         labelInvalidEmailOrPhoneNumber.setVisible(false);
         labelPasswordNotMatch.setVisible(false);
+        registerFirstStepSubmittedOnce = false;
+        registerFistStepProceed = false;
+        labelName11.setVisible(false);
+        labelName111.setVisible(false);
+        labelConfirmPassword1.setVisible(false);
 
         btnRegisterShowHidePassword1.setImage(hideImage);
         btnRegisterShowHidePassword2.setImage(hideImage);
@@ -469,11 +478,23 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    @FXML
+    public TextField textFieldMiddleName;
+    @FXML
+    public TextField textFieldLastName;
+    @FXML
+    public AnchorPane anchorPaneRegisterAccountDetails;
+    @FXML
+    public AnchorPane anchorPaneRegisterBasicInfo;
+    @FXML
+    public AnchorPane anchorPaneRegister3;
     public boolean registerIsWeakPassword = false;
     public boolean iconsClicked = false;
     private boolean registerNameToolTipClicked = false;
     private boolean registerPasswordToolTipClicked = false;
     public boolean registerSubmittedOnce = false;
+    public boolean registerFirstStepSubmittedOnce = false;
+    public boolean registerFistStepProceed = false;
     public boolean registerShowNewPassword;
     public boolean registerShowConfirmNewPassword;
     @FXML
@@ -545,6 +566,16 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public TextField textFieldName;
 
+    @FXML
+    public ImageView btnRegisterOnRegisterPane1;
+
+    @FXML
+    public Label labelConfirmPassword1;
+    @FXML
+    public Label labelName11;
+    @FXML
+    public Label labelName111;
+
     public final ChangeListener<String> RegisterAccountInputLimitListener = (observable, oldValue, newValue) -> {
         if (newValue.length() > INPUT_LIMIT_TO_ELEVEN) {
             textFieldEmailOrPhoneNumber.setText(oldValue);
@@ -552,6 +583,22 @@ public class LoginRegisterForgotPassController implements Initializable {
             textFieldEmailOrPhoneNumber.setText(oldValue);
         }
     };
+
+    @FXML
+    void btnRegisterOnRegisterPane1PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            registerModel.checkFirstStepFields();
+    }
+
+    @FXML
+    void btnRegisterOnRegisterPane1Clicked() {
+        registerModel.checkFirstStepFields();
+    }
+
+    @FXML
+    void btnRegisterOnRegisterPaneTouched1() {
+        registerModel.checkFirstStepFields();
+    }
 
     @FXML
     void registerBtnCloseClicked() {
@@ -562,6 +609,7 @@ public class LoginRegisterForgotPassController implements Initializable {
     void btnCloseTouched() {
         registerModel.close();
     }
+
 
     @FXML
     void btnRegisterOnRegisterPaneClicked() {
@@ -585,13 +633,25 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     @FXML
-    void textFieldNameTyping(KeyEvent event) {
+    void textFieldName1Typing(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
-            registerModel.registerAction();
+            registerModel.registerAction1();
         } else {
             labelName1.setVisible(false);
-            registerModel.typing();
+            registerModel.typingFirstStep();
         }
+    }
+
+    @FXML
+    public void emailFieldIcon1ClickedTouched() {
+        registerModel.selectMiddleName();
+        registerModel.iconsClicked();
+    }
+
+    @FXML
+    public void iconSurNameClickedTouched() {
+        registerModel.selectSurName();
+        registerModel.iconsClicked();
     }
 
     @FXML
@@ -674,13 +734,13 @@ public class LoginRegisterForgotPassController implements Initializable {
 
     @FXML
     void registerNameFieldIconClicked() {
-        registerModel.selectName();
+        registerModel.selectGivenName();
         registerModel.iconsClicked();
     }
 
     @FXML
     void registerNameFieldIconTouched() {
-        registerModel.selectName();
+        registerModel.selectGivenName();
         registerModel.iconsClicked();
     }
 

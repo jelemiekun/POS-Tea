@@ -31,6 +31,20 @@ public class RegisterModel {
      * Register
      */
 
+    public void switchPane(int paneNumber) {
+        switch (paneNumber) {
+            case 1:
+                loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(true);
+                loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
+                break;
+            case 2:
+                loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
+                loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(true);
+                break;
+            case 3:
+                break;
+        }
+    }
 
     public void iconsClicked() {
         loginRegisterForgotPassController.iconsClicked = true;
@@ -46,16 +60,75 @@ public class RegisterModel {
         });
     }
 
+    public void checkFirstStepFields() {
+        setAttributesFirstStep();
+        firstStepShowLabels();
+
+
+        if (loginRegisterForgotPassController.registerFistStepProceed)
+            switchPane(2);
+    }
+
     public void registerAction() {
         loginRegisterForgotPassController.registerSubmittedOnce = true;
         checkTextFields();
+    }
+
+    public void registerAction1() {
+        loginRegisterForgotPassController.registerFirstStepSubmittedOnce = true;
+        checkFirstStepFields();
+    }
+
+    public void typingFirstStep() {
+        setAttributesFirstStep();
+        if (loginRegisterForgotPassController.registerFirstStepSubmittedOnce) {
+            firstStepShowLabels();
+        }
+    }
+
+    public void firstStepShowLabels() {
+        boolean firstNameCheck = false;
+        boolean middleNameCheck = false;
+        boolean lastNameCheck = false;
+
+        if (registerGivenName.isEmpty()) {
+            loginRegisterForgotPassController.labelName11.setText("*please fill up this form");
+            loginRegisterForgotPassController.labelName11.setVisible(true);
+        } else if (!registerGivenName.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            loginRegisterForgotPassController.labelName11.setText("*please enter english alphabet only");
+            loginRegisterForgotPassController.labelName11.setVisible(true);
+        } else {
+            loginRegisterForgotPassController.labelName11.setVisible(false);
+            firstNameCheck = true;
+        }
+
+        if (!registerMiddleName.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            loginRegisterForgotPassController.labelName111.setText("*please enter english alphabet only");
+            loginRegisterForgotPassController.labelName111.setVisible(true);
+        } else {
+            loginRegisterForgotPassController.labelName111.setVisible(false);
+            middleNameCheck = true;
+        }
+
+        if (registerSurName.isEmpty()) {
+            loginRegisterForgotPassController.labelConfirmPassword1.setText("*please fill up this form");
+            loginRegisterForgotPassController.labelConfirmPassword1.setVisible(true);
+        } else if (!registerSurName.matches(REGEX_ENGLISH_ALPHABET_ONLY)) {
+            loginRegisterForgotPassController.labelConfirmPassword1.setText("*please enter english alphabet only");
+            loginRegisterForgotPassController.labelConfirmPassword1.setVisible(true);
+        } else {
+            loginRegisterForgotPassController.labelConfirmPassword1.setVisible(false);
+            lastNameCheck = true;
+        }
+
+        loginRegisterForgotPassController.registerFistStepProceed = firstNameCheck && middleNameCheck && lastNameCheck;
     }
 
     public void typing() {
         hideForgotPassVisibility();
         if (loginRegisterForgotPassController.registerSubmittedOnce) {
             setAttributes();
-            setVisibilities(isValidEmailOrPhoneNumber(), passwordMatched());
+            setAccountDetailsVisibilities(isValidEmailOrPhoneNumber(), passwordMatched());
         }
     }
 
@@ -63,17 +136,22 @@ public class RegisterModel {
         loginRegisterForgotPassController.labelRegisterPasswordLimitReached.setVisible(false);
     }
 
+    public void setAttributesFirstStep() {
+        registerGivenName = loginRegisterForgotPassController.textFieldName.getText().trim();
+        registerMiddleName = loginRegisterForgotPassController.textFieldMiddleName.getText().trim();
+        registerSurName = loginRegisterForgotPassController.textFieldLastName.getText().trim();
+    }
+
     public void setAttributes() {
-        registerName = loginRegisterForgotPassController.textFieldName.getText().trim();
         registerEmailOrPhoneNumber = loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim();
         registerNewPassword = loginRegisterForgotPassController.registerShowNewPassword ? loginRegisterForgotPassController.textFieldShowNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldNewPassword.getText().trim();
         registerConfirmNewPassword = loginRegisterForgotPassController.registerShowConfirmNewPassword ? loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText().trim() : loginRegisterForgotPassController.textFieldConfirmNewPassword.getText().trim();
-        System.out.println(registerName);
+        System.out.println(registerGivenName);
     }
 
-    private void setVisibilities(boolean validEmailOrPhoneNumber, boolean passwordsMatch) {
-        loginRegisterForgotPassController.labelName1.setVisible(registerName.length() > NAME_LIMIT);
-        loginRegisterForgotPassController.labelName.setVisible(registerName.isBlank());
+    private void setAccountDetailsVisibilities(boolean validEmailOrPhoneNumber, boolean passwordsMatch) {
+        loginRegisterForgotPassController.labelName1.setVisible(registerGivenName.length() > NAME_LIMIT);
+        loginRegisterForgotPassController.labelName.setVisible(registerGivenName.isBlank());
         loginRegisterForgotPassController.labelName.setText("*please fill up this form");
         loginRegisterForgotPassController.labelEmail.setVisible(registerEmailOrPhoneNumber.isBlank());
         loginRegisterForgotPassController.labelPassword.setVisible(registerNewPassword.isBlank());
@@ -102,28 +180,9 @@ public class RegisterModel {
             }
         }
 
-        if (!registerName.isBlank()) {
-            if (registerName.length() < 3 || registerName.length() > 20) {
-                loginRegisterForgotPassController.labelName.setText("*should be 3-20 characters long");
-                loginRegisterForgotPassController.labelName.setVisible(true);
-            } else {
-                if (!registerName.matches(REGEX_NAME)) {
-                    loginRegisterForgotPassController.labelName.setText("*must contain only English letters");
-                    loginRegisterForgotPassController.labelName.setVisible(true);
-                } else {
-                    if (!nameFieldNotHaveSpaces()) {
-                        loginRegisterForgotPassController.labelName.setText("*spaces at start/end not allowed");
-                        loginRegisterForgotPassController.labelName.setVisible(true);
-                    } else {
-                        loginRegisterForgotPassController.labelName.setVisible(false);
-                    }
-                }
-            }
-        }
-
         if (!registerNewPassword.isBlank()) {
             if (isPasswordContainsName()) {
-                if (!registerName.isBlank()) {
+                if (!registerGivenName.isBlank()) {
                     loginRegisterForgotPassController.labelPassword.setText("*password can't include name");
                     loginRegisterForgotPassController.labelPassword.setVisible(true);
                 } else {
@@ -288,7 +347,7 @@ public class RegisterModel {
         boolean notWeakPassword = !loginRegisterForgotPassController.registerIsWeakPassword;
 
 
-        setVisibilities(validEmailOrPhoneNumber, passwordsMatch);
+        setAccountDetailsVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
         if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && validName && nameNotInPassword && notWeakPassword) {
             readTAC();
@@ -317,23 +376,23 @@ public class RegisterModel {
     }
 
     private boolean isPasswordContainsName() {
-        return registerNewPassword.contains(registerName);
+        return registerNewPassword.contains(registerGivenName);
     }
 
     private boolean isValidName() {
-        return registerName.length() >= 3 && registerName.length() <= NAME_LIMIT && registerName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
+        return registerGivenName.length() >= 3 && registerGivenName.length() <= NAME_LIMIT && registerGivenName.matches(REGEX_NAME) && nameFieldNotHaveSpaces();
     }
 
     private boolean nameFieldNotHaveSpaces() {
-        return registerName.length() == loginRegisterForgotPassController.textFieldName.getText().length();
+        return registerGivenName.length() == loginRegisterForgotPassController.textFieldName.getText().length();
     }
 
     private boolean notEmptyTextFields() {
-        return !registerName.isBlank() && !registerEmailOrPhoneNumber.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
+        return !registerGivenName.isBlank() && !registerEmailOrPhoneNumber.isBlank() && !registerNewPassword.isBlank() && !registerConfirmNewPassword.isBlank();
     }
 
     private boolean exitAreFieldsEmpty() {
-        return !registerName.isBlank() || !registerEmailOrPhoneNumber.isBlank() || !registerNewPassword.isBlank() || !registerConfirmNewPassword.isBlank();
+        return !loginRegisterForgotPassController.textFieldName.getText().isBlank() || !loginRegisterForgotPassController.textFieldMiddleName.getText().isBlank() || !loginRegisterForgotPassController.textFieldLastName.getText().isBlank();
     }
 
     private boolean passwordMatched() {
@@ -380,9 +439,19 @@ public class RegisterModel {
      * Click Field Icons
      */
 
-    public void selectName() {
+    public void selectGivenName() {
         loginRegisterForgotPassController.textFieldName.requestFocus();
         loginRegisterForgotPassController.textFieldName.positionCaret(loginRegisterForgotPassController.textFieldName.getText().length());
+    }
+
+    public void selectMiddleName() {
+        loginRegisterForgotPassController.textFieldMiddleName.requestFocus();
+        loginRegisterForgotPassController.textFieldMiddleName.positionCaret(loginRegisterForgotPassController.textFieldMiddleName.getText().length());
+    }
+
+    public void selectSurName() {
+        loginRegisterForgotPassController.textFieldLastName.requestFocus();
+        loginRegisterForgotPassController.textFieldLastName.positionCaret(loginRegisterForgotPassController.textFieldLastName.getText().length());
     }
 
     public void selectEmail() {
@@ -496,6 +565,7 @@ public class RegisterModel {
 
     public void close() {
         setAttributes();
+        setAttributesFirstStep();
         if (exitAreFieldsEmpty()) {
             if (openPromptConfirmGoBack()) {
                 goToLogin();

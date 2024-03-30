@@ -148,177 +148,367 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Register.jpeg" />
                     </image>
                 </ImageView>
-                <AnchorPane layoutX="510.0" layoutY="53.0" prefHeight="965.0" prefWidth="922.0">
-                    <children>
+            <AnchorPane fx:id="anchorPaneRegisterBasicInfo" layoutX="510.0" layoutY="53.0">
+               <children>
+                  <AnchorPane prefHeight="965.0" prefWidth="922.0">
+                     <children>
                         <AnchorPane layoutX="190.0" layoutY="200.0" prefHeight="562.0" prefWidth="575.0">
-                            <children>
-                            <AnchorPane prefHeight="568.0" prefWidth="306.0">
-                                <children>
-                                    <Label fx:id="labelPasswordNotMatch" layoutX="4.0" layoutY="536.0" text="*Password does not match" textFill="#ff5a5a" visible="false">
-                                        <font>
-                                            <Font name="Microsoft Sans Serif" size="26.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="1.0" layoutY="5.0" text="Name">
-                                    <font>
-                                        <Font name="Arial Bold" size="34.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="1.0" layoutY="141.0" text="Contact">
-                                    <font>
-                                        <Font name="Arial Bold" size="34.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutX="1.0" layoutY="280.0" text="Password">
-                                    <font>
-                                        <Font name="Arial Bold" size="34.0" />
-                                    </font>
-                                </Label>
-                                <Label layoutY="422.0" text="Confirm Password">
-                                    <font>
-                                        <Font name="Arial Bold" size="34.0" />
-                                    </font>
-                                </Label>
-                            </children>
-                        </AnchorPane>
-                             <AnchorPane layoutX="313.0" prefHeight="568.0" prefWidth="262.0">
-                                 <children>
-                                     <Label fx:id="labelName" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*please fill up this form" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
-                                         <font>
-                                             <Font name="Arial" size="26.0" />
-                                         </font>
-                                     </Label>
-                                     <Label fx:id="labelEmail" layoutY="148.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
-                                         <font>
-                                             <Font name="Arial" size="26.0" />
-                                         </font>
-                                     </Label>
-                                     <Label fx:id="labelPassword" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="285.0" prefWidth="404.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
-                                         <font>
-                                             <Font name="Arial" size="26.0" />
-                                         </font>
-                                     </Label>
-                                     <Label fx:id="labelConfirmPassword" layoutY="420.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
-                                         <font>
-                                             <Font name="Arial" size="26.0" />
-                                         </font>
-                                     </Label>
-                              <Label fx:id="labelInvalidEmailOrPhoneNumber" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="148.0" prefHeight="31.0" prefWidth="259.0" text="*invalid number" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelRegisterPasswordLimitReached" alignment="CENTER_RIGHT" layoutX="-232.0" layoutY="295.0" prefHeight="31.0" prefWidth="504.0" text="*Password characters limit exceeded (128)." textFill="#ff5a5a" visible="false">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelName1" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*name characters limit exceeded (16)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                              </Label>
-                                 </children>
-                             </AnchorPane>
-                             <TextField fx:id="textFieldName" layoutY="50.0" onKeyPressed="#textFieldNameTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter name (ex. Juan)">
-                                 <font>
-                                     <Font name="Arial" size="33.0" />
-                                 </font>
-                             </TextField>
-                             <TextField fx:id="textFieldEmailOrPhoneNumber" layoutY="186.0" onKeyPressed="#textFieldEmailOrPhoneNumberTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter email or phone number">
-                                 <font>
-                                     <Font name="Arial" size="33.0" />
-                                 </font>
-                             </TextField>
-                             <PasswordField fx:id="textFieldNewPassword" layoutY="325.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password">
-                                 <font>
-                                     <Font name="Arial" size="33.0" />
-                                 </font>
-                             </PasswordField>
-                        <TextField fx:id="textFieldShowNewPassword" layoutY="325.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password" visible="false">
-                           <font>
-                              <Font name="Arial" size="33.0" />
-                           </font>
-                        </TextField>
-                        <ImageView fx:id="btnRegisterShowHidePassword1" fitHeight="33.0" fitWidth="29.0" layoutX="590.0" layoutY="340.0" onKeyPressed="#btnRegisterShowHidePassword1PressedEnter" onMouseClicked="#btnRegisterShowHidePassword1Clicked" onTouchReleased="#btnRegisterShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                           </image>
-                        </ImageView>
-                             <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
-                                 <font>
-                                     <Font name="Arial" size="33.0" />
-                                 </font>
-                             </PasswordField>
-                        <TextField fx:id="textFieldShowConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" visible="false">
-                           <font>
-                              <Font name="Arial" size="33.0" />
-                           </font>
-                        </TextField>
-                        <ImageView fx:id="btnRegisterShowHidePassword2" fitHeight="33.0" fitWidth="29.0" layoutX="590.0" layoutY="482.0" onKeyPressed="#btnRegisterShowHidePassword2PressedEnter" onMouseClicked="#btnRegisterShowHidePassword2Clicked" onTouchReleased="#btnRegisterShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                           <image>
-                              <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                           </image>
-                        </ImageView>
-                        <AnchorPane layoutY="392.0" prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <FlowPane prefHeight="8.0" prefWidth="575.0">
+                              <AnchorPane prefHeight="568.0" prefWidth="306.0">
                                  <children>
-                                    <Rectangle fx:id="registerRectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
-                                       <FlowPane.margin>
-                                          <Insets right="2.0" />
-                                       </FlowPane.margin>
-                                    </Rectangle>
-                                    <Rectangle fx:id="registerRectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
-                                       <FlowPane.margin>
-                                          <Insets right="2.0" />
-                                       </FlowPane.margin>
-                                    </Rectangle>
-                                    <Rectangle fx:id="registerRectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
-                                       <FlowPane.margin>
-                                          <Insets right="2.0" />
-                                       </FlowPane.margin>
-                                    </Rectangle>
-                                    <Rectangle fx:id="registerRectangle4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0" />
-                                 </children>
-                              </FlowPane>
-                              <AnchorPane layoutX="451.0" layoutY="10.0" prefHeight="30.0" prefWidth="120.0">
-                                 <children>
-                                    <Label fx:id="registerIndicator" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="85.0">
+                                    <Label fx:id="labelPasswordNotMatch1" layoutX="4.0" layoutY="536.0" text="*Password does not match" textFill="#ff5a5a" visible="false">
                                        <font>
-                                          <Font name="Arial Bold" size="18.0" />
+                                          <Font name="Microsoft Sans Serif" size="26.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fx:id="registerPasswordToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="85.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../../Medias/Icons/Register/information.png" />
-                                       </image>
-                                    </ImageView>
+                                    <Label layoutY="30.0" text="Given Name">
+                                       <font>
+                                          <Font name="Arial Bold" size="34.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="1.0" layoutY="210.0" text="Middle Name">
+                                       <font>
+                                          <Font name="Arial Bold" size="34.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutY="422.0" text="Surname">
+                                       <font>
+                                          <Font name="Arial Bold" size="34.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelPasswordNotMatch11" layoutX="14.0" layoutY="341.0" text="(Leave Blank If Not Applicable)" textFill="#aeaeae">
+                                       <font>
+                                          <Font name="Microsoft Sans Serif" size="18.0" />
+                                       </font>
+                                    </Label>
                                  </children>
                               </AnchorPane>
+                              <AnchorPane layoutX="313.0" prefHeight="568.0" prefWidth="262.0">
+                                 <children>
+                                    <Label fx:id="labelName11" alignment="CENTER_RIGHT" layoutX="-159.0" layoutY="42.0" prefHeight="31.0" prefWidth="421.0" text="*name characters limit exceeded (16)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelName111" alignment="CENTER_RIGHT" layoutX="-159.0" layoutY="219.0" prefHeight="31.0" prefWidth="421.0" text="*name characters limit exceeded (16)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelConfirmPassword1" alignment="CENTER_RIGHT" layoutX="-159.0" layoutY="420.0" prefHeight="31.0" prefWidth="421.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                                   <TextField fx:id="textFieldName" layoutY="90.0" onKeyPressed="#textFieldName1Typing" prefHeight="64.0" prefWidth="575.0" promptText="Enter First Name">
+                                       <font>
+                                           <Font name="Arial" size="33.0" />
+                                       </font>
+                                   </TextField>
+                              <TextField fx:id="textFieldMiddleName" layoutY="270.0" onKeyPressed="#textFieldName1Typing" prefHeight="64.0" prefWidth="575.0" promptText="Enter Middle Name">
+                                 <font>
+                                    <Font name="Arial" size="33.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="textFieldLastName" layoutY="467.0" onKeyPressed="#textFieldName1Typing" prefHeight="64.0" prefWidth="575.0" promptText="Enter Surname">
+                                 <font>
+                                    <Font name="Arial" size="33.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fx:id="registerNameToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="164.0" onMouseClicked="#registerNameToolTipClicked" onMouseEntered="#registerNameToolTipEntered" onMouseExited="#registerNameToolTipExited" onTouchReleased="#registerNameToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/information.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="registerNameToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="535.0" layoutY="116.0" onMouseClicked="#registerNameToolTipClicked" onMouseEntered="#registerNameToolTipEntered" onMouseExited="#registerNameToolTipExited" onTouchReleased="#registerNameToolTipTouched" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Medias/Icons/Register/information.png" />
-                           </image>
-                        </ImageView>
-                         </children>
-                     </AnchorPane>
-                  <AnchorPane layoutX="190.0" layoutY="17.0" prefHeight="200.0" prefWidth="579.0">
+                        <AnchorPane fx:id="emailFieldIcon1" layoutX="700.0" layoutY="470.0" onMouseClicked="#emailFieldIcon1ClickedTouched" onTouchReleased="#emailFieldIcon1ClickedTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <AnchorPane fx:id="nameFieldIcon" layoutX="700.0" layoutY="290.0" onMouseClicked="#registerNameFieldIconClicked" onTouchReleased="#registerNameFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/user.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <AnchorPane fx:id="iconSurName" layoutX="700.0" layoutY="667.0" onMouseClicked="#iconSurNameClickedTouched" onTouchReleased="#iconSurNameClickedTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/padlock.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
+                           <children>
+                              <ImageView fx:id="btnRegisterOnRegisterPane1" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPane1PressedEnter" onMouseClicked="#btnRegisterOnRegisterPane1Clicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched1" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
+                                 </image>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <ImageView fx:id="registerPasswordToolTipImage1" fitHeight="220.0" fitWidth="330.0" layoutX="757.0" layoutY="632.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="registerNameToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="760.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../Medias/ToolTip/name%20tooltip.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="anchorPaneRegisterAccountDetails" layoutX="510.0" layoutY="53.0" visible="false">
+               <children>
+                      <AnchorPane prefHeight="965.0" prefWidth="922.0">
+                          <children>
+                              <AnchorPane layoutX="190.0" layoutY="200.0" prefHeight="562.0" prefWidth="575.0">
+                                  <children>
+                                  <AnchorPane prefHeight="568.0" prefWidth="306.0">
+                                      <children>
+                                          <Label fx:id="labelPasswordNotMatch" layoutX="4.0" layoutY="536.0" text="*Password does not match" textFill="#ff5a5a" visible="false">
+                                              <font>
+                                                  <Font name="Microsoft Sans Serif" size="26.0" />
+                                          </font>
+                                      </Label>
+                                      <Label layoutY="30.0" text="Contact">
+                                          <font>
+                                              <Font name="Arial Bold" size="34.0" />
+                                          </font>
+                                      </Label>
+                                      <Label layoutY="210.0" text="Password">
+                                          <font>
+                                              <Font name="Arial Bold" size="34.0" />
+                                          </font>
+                                      </Label>
+                                      <Label layoutY="422.0" text="Confirm Password">
+                                          <font>
+                                              <Font name="Arial Bold" size="34.0" />
+                                          </font>
+                                      </Label>
+                                  </children>
+                              </AnchorPane>
+                                   <AnchorPane layoutX="313.0" prefHeight="568.0" prefWidth="262.0">
+                                       <children>
+                                           <Label fx:id="labelName" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*please fill up this form" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                               <font>
+                                                   <Font name="Arial" size="26.0" />
+                                               </font>
+                                           </Label>
+                                           <Label fx:id="labelEmail" layoutY="40.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                               <font>
+                                                   <Font name="Arial" size="26.0" />
+                                               </font>
+                                           </Label>
+                                           <Label fx:id="labelPassword" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="285.0" prefWidth="404.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                               <font>
+                                                   <Font name="Arial" size="26.0" />
+                                               </font>
+                                           </Label>
+                                           <Label fx:id="labelConfirmPassword" layoutY="420.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                               <font>
+                                                   <Font name="Arial" size="26.0" />
+                                               </font>
+                                           </Label>
+                                    <Label fx:id="labelInvalidEmailOrPhoneNumber" alignment="CENTER_RIGHT" layoutX="3.0" layoutY="148.0" prefHeight="31.0" prefWidth="259.0" text="*invalid number" textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelRegisterPasswordLimitReached" alignment="CENTER_RIGHT" layoutX="-232.0" layoutY="295.0" prefHeight="31.0" prefWidth="504.0" text="*Password characters limit exceeded (128)." textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelName1" alignment="CENTER_RIGHT" layoutX="-142.0" layoutY="14.0" prefHeight="31.0" prefWidth="404.0" text="*name characters limit exceeded (16)." textAlignment="RIGHT" textFill="#ff5a5a" visible="false">
+                                       <font>
+                                          <Font name="Arial" size="26.0" />
+                                       </font>
+                                    </Label>
+                                       </children>
+                                   </AnchorPane>
+                                   <TextField fx:id="textFieldEmailOrPhoneNumber" layoutY="90.0" onKeyPressed="#textFieldEmailOrPhoneNumberTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter email or phone number">
+                                       <font>
+                                           <Font name="Arial" size="33.0" />
+                                       </font>
+                                   </TextField>
+                                   <PasswordField fx:id="textFieldNewPassword" layoutY="270.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password">
+                                       <font>
+                                           <Font name="Arial" size="33.0" />
+                                       </font>
+                                   </PasswordField>
+                              <TextField fx:id="textFieldShowNewPassword" layoutY="270.0" onKeyPressed="#registerTextFieldPasswordTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Password" visible="false">
+                                 <font>
+                                    <Font name="Arial" size="33.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fx:id="btnRegisterShowHidePassword1" fitHeight="33.0" fitWidth="29.0" layoutX="590.0" layoutY="285.0" onKeyPressed="#btnRegisterShowHidePassword1PressedEnter" onMouseClicked="#btnRegisterShowHidePassword1Clicked" onTouchReleased="#btnRegisterShowHidePassword1Touched" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                 </image>
+                              </ImageView>
+                                   <PasswordField fx:id="textFieldConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0" promptText="Enter Confirm Password">
+                                       <font>
+                                           <Font name="Arial" size="33.0" />
+                                       </font>
+                                   </PasswordField>
+                              <TextField fx:id="textFieldShowConfirmNewPassword" layoutY="467.0" onKeyPressed="#registerTextFieldTyping" prefHeight="64.0" prefWidth="575.0">
+                                 <font>
+                                    <Font name="Arial" size="33.0" />
+                                 </font>
+                              </TextField>
+                              <ImageView fx:id="btnRegisterShowHidePassword2" fitHeight="33.0" fitWidth="29.0" layoutX="590.0" layoutY="482.0" onKeyPressed="#btnRegisterShowHidePassword2PressedEnter" onMouseClicked="#btnRegisterShowHidePassword2Clicked" onTouchReleased="#btnRegisterShowHidePassword2Touched" pickOnBounds="true" preserveRatio="true">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                 </image>
+                              </ImageView>
+                              <AnchorPane layoutY="340.0" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <FlowPane prefHeight="8.0" prefWidth="575.0">
+                                       <children>
+                                          <Rectangle fx:id="registerRectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
+                                             <FlowPane.margin>
+                                                <Insets right="2.0" />
+                                             </FlowPane.margin>
+                                          </Rectangle>
+                                          <Rectangle fx:id="registerRectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
+                                             <FlowPane.margin>
+                                                <Insets right="2.0" />
+                                             </FlowPane.margin>
+                                          </Rectangle>
+                                          <Rectangle fx:id="registerRectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0">
+                                             <FlowPane.margin>
+                                                <Insets right="2.0" />
+                                             </FlowPane.margin>
+                                          </Rectangle>
+                                          <Rectangle fx:id="registerRectangle4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="142.0" />
+                                       </children>
+                                    </FlowPane>
+                                    <AnchorPane layoutX="451.0" layoutY="10.0" prefHeight="30.0" prefWidth="120.0">
+                                       <children>
+                                          <Label fx:id="registerIndicator" alignment="CENTER_RIGHT" layoutX="1.0" layoutY="7.0" prefHeight="17.0" prefWidth="85.0">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ImageView fx:id="registerPasswordToolTip" fitHeight="30.0" fitWidth="30.0" layoutX="85.0" onMouseClicked="#registerPasswordToolTipClicked" onMouseEntered="#registerPasswordToolTipEntered" onMouseExited="#registerPasswordToolTipExited" onTouchReleased="#registerPasswordToolTipTouched" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../Medias/Icons/Register/information.png" />
+                                             </image>
+                                          </ImageView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </AnchorPane>
+                               </children>
+                           </AnchorPane>
+                        <AnchorPane fx:id="emailFieldIcon" layoutX="700.0" layoutY="290.0" onMouseClicked="#registerEmailFieldIconClicked" onTouchReleased="#registerEmailFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/mail.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <AnchorPane fx:id="newPasswordFieldIcon" layoutX="700.0" layoutY="470.0" onMouseClicked="#registerNewPasswordFieldIconClicked" onTouchReleased="#registerNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/padlock.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                        <AnchorPane fx:id="confirmNewPasswordFieldIcon" layoutX="700.0" layoutY="667.0" onMouseClicked="#registerConfirmNewPasswordFieldIconClicked" onTouchReleased="#registerConfirmNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
+                              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Medias/Icons/Register/padlock.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </AnchorPane>
+                           <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
+                               <children>
+                                   <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                           <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
+                                       </image>
+                                       <cursor>
+                                           <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                   </ImageView>
+                               </children>
+                           </AnchorPane>
+                       </children>
+                   </AnchorPane>
+                  <ImageView fx:id="registerPasswordToolTipImage" fitHeight="220.0" fitWidth="330.0" layoutX="757.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="700.0" layoutY="70.0">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="579.0">
                      <children>
                         <Label layoutX="58.0" layoutY="21.0" text="Register Form">
                            <font>
@@ -332,71 +522,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="nameFieldIcon" layoutX="700.0" layoutY="250.0" onMouseClicked="#registerNameFieldIconClicked" onTouchReleased="#registerNameFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
-                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Medias/Icons/Register/user.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </AnchorPane>
-                  <AnchorPane fx:id="emailFieldIcon" layoutX="700.0" layoutY="386.0" onMouseClicked="#registerEmailFieldIconClicked" onTouchReleased="#registerEmailFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
-                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Medias/Icons/Register/mail.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </AnchorPane>
-                  <AnchorPane fx:id="newPasswordFieldIcon" layoutX="700.0" layoutY="525.0" onMouseClicked="#registerNewPasswordFieldIconClicked" onTouchReleased="#registerNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
-                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Medias/Icons/Register/padlock.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </AnchorPane>
-                  <AnchorPane fx:id="confirmNewPasswordFieldIcon" layoutX="700.0" layoutY="667.0" onMouseClicked="#registerConfirmNewPasswordFieldIconClicked" onTouchReleased="#registerConfirmNewPasswordFieldIconTouched" prefHeight="64.0" prefWidth="64.0">
-                     <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" stroke="#0000006b" strokeType="INSIDE" width="64.0" />
-                        <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="15.0" layoutY="14.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../Medias/Icons/Register/padlock.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </AnchorPane>
-                     <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
-                         <children>
-                             <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                     <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
-                                 </image>
-                                 <cursor>
-                                     <Cursor fx:constant="HAND" />
-                                 </cursor>
-                             </ImageView>
-                         </children>
-                     </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="832.0" layoutY="41.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="640.0" layoutY="30.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -404,18 +530,8 @@
                              <Cursor fx:constant="HAND" />
                          </cursor>
                      </ImageView>
-                 </children>
-             </AnchorPane>
-            <ImageView fx:id="registerPasswordToolTipImage" fitHeight="220.0" fitWidth="330.0" layoutX="1267.0" layoutY="685.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
-               </image>
-            </ImageView>
-            <ImageView fx:id="registerNameToolTipImage" fitHeight="181.0" fitWidth="269.0" layoutX="1268.0" layoutY="402.0" pickOnBounds="true" preserveRatio="true" visible="false">
-               <image>
-                  <Image url="@../../Medias/ToolTip/name%20tooltip.png" />
-               </image>
-            </ImageView>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
 
