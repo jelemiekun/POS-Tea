@@ -1,9 +1,11 @@
 package com.example.postearevised.Miscellaneous.References;
 
+import com.example.postearevised.Objects.Account.Account;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class LoginForgotRegisterReference {
+    public static Account accountToForgotPass;
     public static String loginAccount = "";
     public static String loginPassword = "";
     public static String registerGivenName = "";

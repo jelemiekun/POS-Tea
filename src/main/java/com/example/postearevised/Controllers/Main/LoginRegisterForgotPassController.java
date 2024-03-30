@@ -202,14 +202,12 @@ public class LoginRegisterForgotPassController implements Initializable {
         // Forgot Password
         anchorPaneForgotPass1.requestFocus();
         textFieldForgotPass1.setText("");
-        textFieldForgotPass2.setText("");
         textFieldForgotPass31.setText("");
         textFieldForgotPass32.setText("");
         textFieldShowForgotPass31.setText("");
 
         textFieldShowForgotPass32.setText("");
         labelForgotPassInvalidAccount.setVisible(false);
-        labelIncorrectOTP.setVisible(false);
         labelNewPassword.setVisible(false);
         labelConfirmNewPassword.setVisible(false);
         labelNewPasswordNotMatch.setVisible(false);
@@ -476,6 +474,18 @@ public class LoginRegisterForgotPassController implements Initializable {
     /**
      * Register
      */
+    @FXML
+    public Label labelForgotPassQuestion1;
+    @FXML
+    public Label labelForgotPassQuestion2;
+    @FXML
+    public TextField textFieldForgotPassAnswer1;
+    @FXML
+    public TextField textFieldForgotPassAnswer2;
+    @FXML
+    public Label labelIncorrectAnswer1;
+    @FXML
+    public Label labelIncorrectAnswer2;
     @FXML
     public TextField textFieldMiddleName;
     @FXML
@@ -962,12 +972,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public ImageView btnForgotPass3Proceed;
     @FXML
-    public Label btnResendOTP;
-    @FXML
-    public Label labelCountdown;
-    @FXML
-    public Label labelResendOTPTitle;
-    @FXML
     public AnchorPane anchorPaneForgotPass;
     @FXML
     public AnchorPane anchorPaneForgotPass1;
@@ -988,8 +992,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     @FXML
     public TextField textFieldForgotPass1;
     @FXML
-    public TextField textFieldForgotPass2;
-    @FXML
     public PasswordField textFieldForgotPass31;
     @FXML
     public PasswordField textFieldForgotPass32;
@@ -997,8 +999,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     public TextField textFieldShowForgotPass31;
     @FXML
     public TextField textFieldShowForgotPass32;
-    @FXML
-    public Label labelIncorrectOTP;
     @FXML
     public Label labelForgotPassInvalidAccount;
     @FXML
@@ -1118,40 +1118,6 @@ public class LoginRegisterForgotPassController implements Initializable {
     void btnForgotPass2ProceedTouched() {
         if (checkConnectivity())
             forgotPassModel.checkPane2Input();
-    }
-
-    @FXML
-    void textFieldForgotPass2PressedEnter(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER)
-            forgotPassModel.checkPane2Input();
-        else
-            forgotPassModel.typing(ForgotPassword2.getPaneNumber());
-    }
-
-    @FXML
-    void ForgotBtnResendOTPClicked() {
-        if (functionalOTP) {
-            if (checkConnectivity())
-                forgotPassModel.countDownResendOTP();
-        }
-    }
-
-    @FXML
-    void ForgotBtnResendOTPTouched() {
-        if (functionalOTP) {
-            if (checkConnectivity())
-                forgotPassModel.countDownResendOTP();
-        }
-    }
-
-    @FXML
-    void ForgotBtnResendOTPPressedEnter(KeyEvent event) {
-        if (event.getCode() == KeyCode.ENTER) {
-            if (functionalOTP) {
-                if (checkConnectivity())
-                    forgotPassModel.countDownResendOTP();
-            }
-        }
     }
 
     @FXML

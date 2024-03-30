@@ -1,24 +1,21 @@
 package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.LoginRegisterForgotPassController;
-import javafx.application.Platform;
+import com.example.postearevised.Objects.Account.Account;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Random;
 
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -164,11 +161,19 @@ public class ForgotPassModel {
         setAttributes(ForgotPassword1.getPaneNumber());
         setVisibilities(ForgotPassword1.getPaneNumber());
 
-        if (isPane1InputsValid()) {
+        if (isPane1InputsValid())
+            searchForAccount();
+    }
+
+    private void searchForAccount() {
+        Account account = searchAndGetAccount();
+        if (account != null) {
+            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
+            accountToForgotPass = account;
             proceedPane2();
-            enableOTPInputTo4DigitsOnly();
-            countDownResendOTP();
-            System.out.println(forgotPassAccount);
+        } else {
+            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setText("Account not found!");
+            loginRegisterForgotPassController.labelForgotPassInvalidAccount.setVisible(true);
         }
     }
 
@@ -180,6 +185,15 @@ public class ForgotPassModel {
         return !forgotPassAccount.isBlank() && (forgotPassAccount.matches(REGEX_EMAIL) || forgotPassAccount.matches(REGEX_PHONE_NUMBER));
     }
 
+    private Account searchAndGetAccount() {
+        for (Account account : accountSet) {
+            if (account.getContact().equals(forgotPassAccount))
+                return account;
+        }
+
+        return null;
+    }
+
     private void proceedPane2() {
         loginRegisterForgotPassController.forgotPasswordSwitchPane(ForgotPassword2.getPaneNumber());
     }
@@ -188,33 +202,14 @@ public class ForgotPassModel {
      * Pane 2
      */
 
-    public void enableOTPInputTo4DigitsOnly() {
-        loginRegisterForgotPassController.textFieldForgotPass2.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches(REGEX_DIGITS_ONLY)) {
-                loginRegisterForgotPassController.textFieldForgotPass2.setText(oldValue);
-            } else if (newValue.length() > OTP_LENGTH) {
-                loginRegisterForgotPassController.textFieldForgotPass2.setText(oldValue);
-            }
-        });
-    }
-
-    private void generateOTP() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(9000) + 1000;
-        forgotPassGeneratedOTP = String.valueOf(randomNumber);
-        setAttributes(ForgotPassword2.getPaneNumber());
-        System.out.println(randomNumber);
-    }
-
     public void checkPane2Input() {
         pane2SubmittedOnce();
 
         setAttributes(ForgotPassword2.getPaneNumber());
         setVisibilities(ForgotPassword2.getPaneNumber());
 
-        if (isPane2InputsValid()) {
+        if (isPane2InputAnswersAreCorrect()) {
             proceedPane3();
-            setCountdownTimerTo1();
         }
     }
 
@@ -222,77 +217,13 @@ public class ForgotPassModel {
         loginRegisterForgotPassController.forgotPass2SubmittedOnce = true;
     }
 
-    private boolean isPane2InputsValid() {
+    private boolean isPane2InputAnswersAreCorrect() {
         String inputOTP = loginRegisterForgotPassController.textFieldForgotPass2.getText();
         return !inputOTP.isBlank() && inputOTP.equals(forgotPassOTP);
     }
 
     private void proceedPane3() {
         loginRegisterForgotPassController.forgotPasswordSwitchPane(ForgotPassword3.getPaneNumber());
-    }
-
-    public void countDownResendOTP() {
-        generateOTP();
-        setLabelsForCountdown();
-        setCountdownTimer();
-        countdown = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                int minutes = 3;
-                int seconds = 0;
-
-                for (int i = minutes; i >= 0; i--) {
-                    for (int j = seconds; j >= 0; j--) {
-                        int finalI = i;
-                        int finalJ = j;
-
-                        Platform.runLater(() -> loginRegisterForgotPassController.labelCountdown.setText(String.format("0%d:%02d", finalI, finalJ)));
-
-                        try {
-                            Thread.sleep(countdownTimer);
-                        } catch (InterruptedException e) {
-                            errorMessage = e.getMessage();
-                            logError(false);
-                        }
-
-                    }
-                    seconds = 59;
-                }
-
-                Platform.runLater(() -> countDownDone());
-            }
-        });
-
-        countdown.setDaemon(true);
-        countdown.start();
-    }
-
-    private void setCountdownTimer() {
-        countdownTimer = ONE_SECOND;
-    }
-
-    private void setCountdownTimerTo1() {
-        countdownTimer = FINISH_COUNTDOWN;
-    }
-
-    private void setLabelsForCountdown() {
-        loginRegisterForgotPassController.functionalOTP = false;
-        loginRegisterForgotPassController.labelResendOTPTitle.setText("Time Remaining: ");
-        loginRegisterForgotPassController.labelCountdown.setVisible(true);
-        //loginRegisterForgotPassController.btnResendOTP.setDisable(false);
-        loginRegisterForgotPassController.btnResendOTP.setTextFill(Color.web("#c3c3c3"));
-        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.DEFAULT);
-        loginRegisterForgotPassController.btnResendOTP.setFocusTraversable(true);
-        loginRegisterForgotPassController.btnForgotPass2Proceed.setFocusTraversable(true);
-    }
-
-    private void countDownDone() {
-        loginRegisterForgotPassController.functionalOTP = true;
-        loginRegisterForgotPassController.labelResendOTPTitle.setText("Didn't receive code?");
-        loginRegisterForgotPassController.labelCountdown.setVisible(false);
-        loginRegisterForgotPassController.btnResendOTP.setTextFill(Color.web("#000000"));
-        //loginRegisterForgotPassController.btnResendOTP.setDisable(false);
-        loginRegisterForgotPassController.btnResendOTP.setCursor(Cursor.HAND);
     }
 
 
@@ -492,10 +423,8 @@ public class ForgotPassModel {
             confirmGoBack = openPromptConfirmGoBack();
         }
 
-        if (confirmGoBack) {
+        if (confirmGoBack)
             loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
-            setCountdownTimerTo1();
-        }
 
         loginRegisterForgotPassController.toggleRectangleModal();
     }

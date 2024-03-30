@@ -697,7 +697,7 @@
                         <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Forgot%20Pass%202.jpeg" />
                      </image>
                   </ImageView>
-                  <AnchorPane layoutX="518.0" layoutY="214.0" prefHeight="637.0" prefWidth="829.0">
+                  <AnchorPane layoutX="529.0" layoutY="154.0" prefHeight="716.0" prefWidth="829.0">
                      <children>
                         <AnchorPane layoutX="55.0" layoutY="40.0" prefHeight="200.0" prefWidth="749.0">
                            <children>
@@ -706,51 +706,48 @@
                                     <Font name="Arial Black" size="50.0" />
                                  </font>
                               </Label>
-                              <Label alignment="CENTER" layoutX="52.0" layoutY="84.0" text="An OTP verification code has been sent to the provided &#10;account. Please check your inbox and enter the code &#10;below to verify your account." textAlignment="CENTER">
+                              <Label alignment="CENTER" layoutY="74.0" prefHeight="103.0" prefWidth="749.0" text="Please answer the following questions. If you answer these questions correctly, you will then be able to reset your password." textAlignment="CENTER" wrapText="true">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="148.0" layoutY="231.0" prefHeight="246.0" prefWidth="575.0">
+                        <AnchorPane layoutX="94.0" layoutY="223.0" prefHeight="324.0" prefWidth="672.0">
                            <children>
-                              <Label fx:id="labelIncorrectOTP" layoutX="3.0" layoutY="150.0" text="*OTP does not match!" textFill="#ff5a5a">
+                              <Label fx:id="labelForgotPassQuestion1" layoutX="2.0" layoutY="21.0" prefHeight="45.0" prefWidth="658.0" text="Question One" textAlignment="CENTER" wrapText="true">
+                                 <font>
+                                    <Font name="Arial" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textFieldForgotPassAnswer1" layoutY="76.0" prefHeight="59.0" prefWidth="672.0">
+                                 <font>
+                                    <Font name="Arial" size="32.0" />
+                                 </font>
+                              </TextField>
+                              <Label fx:id="labelIncorrectAnswer1" layoutX="551.0" layoutY="135.0" text="Incorrect!" textFill="#ff5a5a">
                                  <font>
                                     <Font name="Microsoft Sans Serif" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textFieldForgotPass2" layoutY="84.0" onKeyPressed="#textFieldForgotPass2PressedEnter" prefHeight="60.0" prefWidth="575.0" promptText="Enter 4 Digit OTP">
+                              <Label fx:id="labelForgotPassQuestion2" layoutX="2.0" layoutY="180.0" prefHeight="45.0" prefWidth="658.0" text="Question Two" textAlignment="CENTER" wrapText="true">
                                  <font>
-                                    <Font name="Microsoft Sans Serif" size="33.0" />
+                                    <Font name="Arial" size="26.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="textFieldForgotPassAnswer2" layoutY="235.0" prefHeight="59.0" prefWidth="672.0">
+                                 <font>
+                                    <Font name="Arial" size="32.0" />
                                  </font>
                               </TextField>
-                              <Label alignment="CENTER" layoutX="8.0" layoutY="30.0" text="Verify OTP" textAlignment="CENTER">
+                              <Label fx:id="labelIncorrectAnswer2" layoutX="551.0" layoutY="293.0" text="Incorrect!" textFill="#ff5a5a">
                                  <font>
-                                    <Font name="Arial Bold" size="32.0" />
+                                    <Font name="Microsoft Sans Serif" size="26.0" />
                                  </font>
-                              </Label>
-                              <Label fx:id="labelResendOTPTitle" alignment="CENTER" layoutX="8.0" layoutY="201.0" text="Time Remaining:" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="labelCountdown" alignment="CENTER" layoutX="209.0" layoutY="203.0" text="00:00" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="btnResendOTP" alignment="CENTER" layoutX="410.0" layoutY="201.0" onKeyPressed="#ForgotBtnResendOTPPressedEnter" onMouseClicked="#ForgotBtnResendOTPClicked" onTouchReleased="#ForgotBtnResendOTPTouched" text="Resend OTP" textAlignment="CENTER" underline="true">
-                                 <font>
-                                    <Font name="Arial" size="26.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="NONE" />
-                                 </cursor>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <AnchorPane layoutX="127.0" layoutY="486.0" prefHeight="102.0" prefWidth="575.0">
+                        <AnchorPane layoutX="127.0" layoutY="567.0" prefHeight="102.0" prefWidth="575.0">
                            <children>
                               <ImageView fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="13.0" onKeyPressed="#btnForgotPass2ProceedPressedEnter" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
