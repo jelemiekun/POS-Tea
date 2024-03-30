@@ -18,6 +18,11 @@ public class Account {
     private boolean isShowNotification;
     private boolean isShowGuideMessages;
 
+    public Account(String contact, String password) {
+        this.contact = contact;
+        this.password = password;
+    }
+
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames) {
         this.contact = contact;
         this.password = password;

@@ -16,6 +16,7 @@ import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
@@ -40,7 +41,7 @@ public class LoginModel {
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
             loginRegisterForgotPassController.toggleRectangleModal();
             loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(false);
-//            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox()); // uncomment to if need ng pop up sa pag deselect
+//            loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(!confirmDeselectCheckbox()); // uncomment to if you need ng pop up sa pag deselect
             loginRegisterForgotPassController.toggleRectangleModal();
         }
     }
@@ -129,6 +130,8 @@ public class LoginModel {
             if (loginAccount.equals(account.getContact()) && loginPassword.equals(account.getPassword())) {
 
                 accountReference = account.getContact();
+
+                setPaths();
 
                 return true;
             }
