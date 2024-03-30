@@ -18,11 +18,6 @@ public class Account {
     private boolean isShowNotification;
     private boolean isShowGuideMessages;
 
-    public Account(String contact, String password) {
-        this.contact = contact;
-        this.password = password;
-    }
-
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames) {
         this.contact = contact;
         this.password = password;
@@ -34,6 +29,8 @@ public class Account {
         this.middleNames = middleNames;
         this.lastNames = lastNames;
         this.displayColor = LIGHT_ENUM.getColor();
+        this.isShowNotification = true;
+        this.isShowGuideMessages = true;
     }
 
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames, String displayColor, boolean isShowNotification, boolean isShowGuideMessages) {

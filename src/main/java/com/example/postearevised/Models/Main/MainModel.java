@@ -35,6 +35,10 @@ public class MainModel {
         this.mainController = mainController;
     }
 
+    public void setAccountDetails() {
+
+    }
+
     public void setDropShadow() {
         DropShadow dropShadow = new DropShadow();
         dropShadow.setRadius(5);

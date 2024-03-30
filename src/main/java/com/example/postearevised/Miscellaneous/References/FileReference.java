@@ -34,7 +34,7 @@ public class FileReference {
     public static void setPaths() {
         String osName = System.getProperty("os.name").toLowerCase();
         if (osName.contains("win")) {
-            DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts" + "\\" + accountReference;
+            DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "\\accounts" + "\\" + accountContactReference;
             DIRECTORY_PATH_CSV = DIRECTORY_PATH_ACCOUNTS + "\\CSVs";
             DIRECTORY_PATH_RECEIPT = DIRECTORY_PATH_ACCOUNTS + "\\receipts";
             CSV_FILE_PATH_PRODUCTS = DIRECTORY_PATH_CSV + "\\products.csv";
@@ -45,7 +45,7 @@ public class FileReference {
             TEXT_PATH_ORDER_RECEIPT_STORE_COPY = DIRECTORY_PATH_RECEIPT + "\\storeReceipt.txt";
             ERROR_LOG_PATH = DIRECTORY_PATH_ACCOUNTS + "\\error_log.txt";
         } else {
-            DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts" + "/" + accountReference;
+            DIRECTORY_PATH_ACCOUNTS = DIRECTORY_PATH + "/accounts" + "/" + accountContactReference;
             DIRECTORY_PATH_CSV = DIRECTORY_PATH_ACCOUNTS + "/CSVs";
             DIRECTORY_PATH_RECEIPT = DIRECTORY_PATH_ACCOUNTS + "/receipts";
             CSV_FILE_PATH_PRODUCTS = DIRECTORY_PATH_CSV + "/products.csv";

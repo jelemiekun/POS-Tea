@@ -107,6 +107,7 @@ public class MainController implements Initializable {
                 anchorPaneLeftPanel.setVisible(true);
                 anchorPaneDashboard.setVisible(true);
 
+                mainModel.setAccountDetails();
                 mainModel.setDropShadow();
                 mainModel.createAndStartDaemonThreadForDateAndTime();
                 mainModel.setMainMenuIconSelected();

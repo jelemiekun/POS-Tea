@@ -584,4 +584,38 @@ public class PromptContents {
         btnCenterBoolean = false;
         btnRightBoolean = false;
     }
+
+    public static void setErrorReadingAccountFromCSV() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Account CSV read error";
+        promptContentText = "Failed to read account from CSV. Ensure correct format & accessibility.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorHidingAccountCSV() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Failed to hide account CSV";
+        promptContentText = "Failed to hide account CSV. Ensure correct format & accessibility.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
 }

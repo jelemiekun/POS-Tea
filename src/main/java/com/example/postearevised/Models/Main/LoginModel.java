@@ -129,7 +129,8 @@ public class LoginModel {
         for (Account account : accountSet) {
             if (loginAccount.equals(account.getContact()) && loginPassword.equals(account.getPassword())) {
 
-                accountReference = account.getContact();
+                accountContactReference = account.getContact();
+                accountReference = account;
 
                 setPaths();
 

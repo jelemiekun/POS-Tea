@@ -3,8 +3,11 @@ package com.example.postearevised.Controllers.Main;
 import com.example.postearevised.Models.Main.ForgotPassModel;
 import com.example.postearevised.Models.Main.LoginModel;
 import com.example.postearevised.Models.Main.RegisterModel;
+import com.example.postearevised.Objects.Account.Account;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -73,6 +76,20 @@ public class LoginRegisterForgotPassController implements Initializable {
         checkBoxRememberPassword.setSelected(true);
 
         Platform.runLater(() -> {loginModel.checkIfResolutionIsTooLow();});
+        //createAccount();
+    }
+
+    private void createAccount() {
+        ObservableList<String> firstNames = FXCollections.observableArrayList();
+        ObservableList<String> midNames = FXCollections.observableArrayList();
+        ObservableList<String> lastNames = FXCollections.observableArrayList();
+
+        firstNames.add("John");
+        midNames.add("Munsod");
+        lastNames.add("Eden");
+
+        Account account = new Account("admin", "admin", "talaga?", "oo", "weh?", "oo nga", firstNames, midNames, lastNames);
+        addAccountToAccountCSV(account);
     }
 
     public void switchPane(int paneNumber) {
