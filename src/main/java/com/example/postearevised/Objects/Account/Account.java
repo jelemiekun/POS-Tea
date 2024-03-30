@@ -1,5 +1,6 @@
 package com.example.postearevised.Objects.Account;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
@@ -143,4 +144,12 @@ public class Account {
     public void setShowGuideMessages(boolean showGuideMessages) {
         isShowGuideMessages = showGuideMessages;
     }
+
+    public Account copy() {
+        return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,
+                securityQuestionTwo, securityQuestionTwoAnswer, FXCollections.observableArrayList(firstNames),
+                FXCollections.observableArrayList(middleNames), FXCollections.observableArrayList(lastNames),
+                displayColor, isShowNotification, isShowGuideMessages);
+    }
+
 }

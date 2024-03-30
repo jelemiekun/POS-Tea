@@ -690,7 +690,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass2" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -720,7 +720,7 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textFieldForgotPassAnswer1" layoutY="76.0" prefHeight="59.0" prefWidth="672.0">
+                              <TextField fx:id="textFieldForgotPassAnswer1" layoutY="76.0" onKeyPressed="#textFieldForgotPassAnswer1PressedEnter" prefHeight="59.0" prefWidth="672.0">
                                  <font>
                                     <Font name="Arial" size="32.0" />
                                  </font>
@@ -735,7 +735,7 @@
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="textFieldForgotPassAnswer2" layoutY="235.0" prefHeight="59.0" prefWidth="672.0">
+                              <TextField fx:id="textFieldForgotPassAnswer2" layoutY="235.0" onKeyPressed="#textFieldForgotPassAnswer2PressedEnter" prefHeight="59.0" prefWidth="672.0">
                                  <font>
                                     <Font name="Arial" size="32.0" />
                                  </font>
@@ -771,7 +771,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -811,7 +811,7 @@
                                           <Font name="Microsoft Sans Serif" size="26.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelNewPassword" layoutX="358.0" layoutY="35.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                    <Label fx:id="labelNewPassword" alignment="CENTER_RIGHT" layoutX="145.0" layoutY="35.0" prefHeight="31.0" prefWidth="475.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
                                        <font>
                                           <Font name="Microsoft Sans Serif" size="26.0" />
                                        </font>

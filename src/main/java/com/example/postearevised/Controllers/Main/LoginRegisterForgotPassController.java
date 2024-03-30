@@ -211,6 +211,12 @@ public class LoginRegisterForgotPassController implements Initializable {
         labelNewPassword.setVisible(false);
         labelConfirmNewPassword.setVisible(false);
         labelNewPasswordNotMatch.setVisible(false);
+        labelForgotPassQuestion1.setText("Question One");
+        labelForgotPassQuestion2.setText("Quesiton Two");
+        textFieldForgotPassAnswer1.setText("");
+        textFieldForgotPassAnswer2.setText("");
+        labelIncorrectAnswer1.setVisible(false);
+        labelIncorrectAnswer2.setVisible(false);
 
         textFieldForgotPass31.setVisible(true);
         textFieldForgotPass32.setVisible(true);
@@ -1031,6 +1037,7 @@ public class LoginRegisterForgotPassController implements Initializable {
                 anchorPaneForgotPass1.requestFocus();
                 break;
             case 5:
+                forgotPassModel.setRecoveryQuestions();
                 anchorPaneForgotPass1.setVisible(false);
                 anchorPaneForgotPass2.setVisible(true);
                 anchorPaneForgotPass3.setVisible(false);
@@ -1118,6 +1125,24 @@ public class LoginRegisterForgotPassController implements Initializable {
     void btnForgotPass2ProceedTouched() {
         if (checkConnectivity())
             forgotPassModel.checkPane2Input();
+    }
+
+    @FXML
+    void textFieldForgotPassAnswer1PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            forgotPassModel.checkPane2Input();
+        } else {
+            forgotPassModel.typing(ForgotPassword2.getPaneNumber());
+        }
+    }
+
+    @FXML
+    void textFieldForgotPassAnswer2PressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            forgotPassModel.checkPane2Input();
+        } else {
+            forgotPassModel.typing(ForgotPassword2.getPaneNumber());
+        }
     }
 
     @FXML

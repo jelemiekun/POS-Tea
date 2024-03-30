@@ -109,6 +109,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorResettingPassword() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Error resetting password";
+        promptContentText = "Operation failed. CSV in use or try again later.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setConfirmLogout() {
         setIsConfirmedToFalse();
 

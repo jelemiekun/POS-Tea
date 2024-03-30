@@ -137,7 +137,7 @@ public class AccountCSV {
         return sb.toString();
     }
 
-    private static boolean updateAccountToAccountCSV(Account oldAccount, Account newAccount) {
+    public static boolean updateAccountToAccountCSV(Account oldAccount, Account newAccount) {
         try {
             File inputFile = new File(CSV_FILE_PATH_ACCOUNTS);
             File tempFile = new File("temp.csv");
