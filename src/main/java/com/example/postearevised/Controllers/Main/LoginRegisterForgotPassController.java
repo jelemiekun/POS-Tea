@@ -610,6 +610,16 @@ public class LoginRegisterForgotPassController implements Initializable {
     public TextField textFieldRecoveryQuestionAnswer1;
     @FXML
     public TextField textFieldRecoveryQuestionAnswer2;
+    @FXML
+    public ImageView btnGoBackRegister;
+
+    @FXML
+    public void btnGoBackRegisterClickedTouched() {
+        if (anchorPaneRegisterAccountDetails.isVisible())
+            registerModel.switchPane(1);
+        else if (anchorPaneRegisterRecoveryQuestions.isVisible())
+            registerModel.switchPane(2);
+    }
 
     @FXML
     public void registerRecoveryQuestionComboBox1OnAction() {

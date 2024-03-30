@@ -96,18 +96,21 @@ public class RegisterModel {
     public void switchPane(int paneNumber) {
         switch (paneNumber) {
             case 1:
+                loginRegisterForgotPassController.btnGoBackRegister.setVisible(false);
                 loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(true);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);
                 break;
             case 2:
+                loginRegisterForgotPassController.btnGoBackRegister.setVisible(true);
                 loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(true);
                 loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);
                 break;
             case 3:
+                loginRegisterForgotPassController.btnGoBackRegister.setVisible(true);
                 loginRegisterForgotPassController.labelRegisterHeader.setText("To enhance security, select a question and answer. This information can also be used for account recovery.");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
@@ -264,15 +267,22 @@ public class RegisterModel {
         if (loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().isEmpty()) {
             loginRegisterForgotPassController.labelEmail.setVisible(false);
         } else {
-            for (Account account : accountSet) {
-                if (account.getContact().equals(loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim())) {
-                    loginRegisterForgotPassController.labelEmail.setText("*account already exists");
-                    loginRegisterForgotPassController.labelEmail.setVisible(true);
-                } else {
-                    loginRegisterForgotPassController.labelEmail.setVisible(false);
-                }
+            if (accountExists()) {
+                loginRegisterForgotPassController.labelEmail.setText("*account already exists");
+                loginRegisterForgotPassController.labelEmail.setVisible(true);
+            } else {
+                loginRegisterForgotPassController.labelEmail.setVisible(false);
             }
+
         }
+    }
+
+    private boolean accountExists() {
+        for (Account account : accountSet) {
+            if (account.getContact().equals(loginRegisterForgotPassController.textFieldEmailOrPhoneNumber.getText().trim()))
+                return true;
+        }
+        return false;
     }
 
     private void enableLimitInput() {
@@ -474,11 +484,15 @@ public class RegisterModel {
         boolean validEmailOrPhoneNumber = isValidEmailOrPhoneNumber();
         boolean passwordsMatch = passwordMatched();
         boolean notWeakPassword = !loginRegisterForgotPassController.registerIsWeakPassword;
+        boolean notExistingAccount = !accountExists();
+
+        if (!notExistingAccount)
+            loginRegisterForgotPassController.labelEmail.setVisible(true);
 
 
         setAccountDetailsVisibilities(validEmailOrPhoneNumber, passwordsMatch);
 
-        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && notWeakPassword) {
+        if (allFieldsNotEmpty && validEmailOrPhoneNumber && passwordsMatch && notWeakPassword && notExistingAccount) {
             switchPane(3);
         }
     }

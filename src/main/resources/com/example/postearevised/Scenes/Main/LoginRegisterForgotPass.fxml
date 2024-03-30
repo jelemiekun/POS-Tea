@@ -149,7 +149,7 @@
               <!-- register -->
 
       
-        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
+        <AnchorPane fx:id="anchorPaneRegister" layoutY="-23.0" onMouseClicked="#anchorPaneRegisterClicked" prefHeight="1080.0" prefWidth="1950.0">
             <children>
                 <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -587,9 +587,9 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="700.0" layoutY="70.0">
+            <AnchorPane layoutX="532.0" layoutY="70.0" prefWidth="853.0">
                <children>
-                  <AnchorPane layoutX="-56.0" prefHeight="200.0" prefWidth="704.0">
+                  <AnchorPane layoutX="98.0" prefHeight="200.0" prefWidth="704.0">
                      <children>
                         <Label layoutX="120.0" layoutY="20.0" text="Register Form">
                            <font>
@@ -603,7 +603,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="640.0" layoutY="30.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="794.0" layoutY="30.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -611,6 +611,14 @@
                              <Cursor fx:constant="HAND" />
                          </cursor>
                      </ImageView>
+                  <ImageView fx:id="btnGoBackRegister" fitHeight="59.0" fitWidth="64.0" layoutX="47.0" layoutY="30.0" onMouseClicked="#btnGoBackRegisterClickedTouched" onTouchReleased="#btnGoBackRegisterClickedTouched" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Medias/Buttons/LoginRegister/back.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>
@@ -622,7 +630,7 @@
 
             
             
-                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0">
+                  <AnchorPane fx:id="anchorPaneForgotPass" layoutY="-23.0" onMouseClicked="#anchorPaneForgotClicked" prefHeight="1080.0" prefWidth="1950.0" visible="false">
          <children>
             <AnchorPane fx:id="anchorPaneForgotPass1" prefHeight="1080.0" prefWidth="1950.0">
                <children>
@@ -771,7 +779,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0">
+            <AnchorPane fx:id="anchorPaneForgotPass3" prefHeight="1080.0" prefWidth="1950.0" visible="false">
                <children>
                   <ImageView fitHeight="1080.0" fitWidth="1950.0" pickOnBounds="true" preserveRatio="true">
                      <image>
