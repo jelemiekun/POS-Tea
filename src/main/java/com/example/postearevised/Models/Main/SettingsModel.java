@@ -593,6 +593,7 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsBtnDelete.setDisable(false);
                 break;
         }
+        mainController.anchorPaneSettingsAccount.requestFocus();
     }
 
     /**
@@ -878,6 +879,9 @@ public class SettingsModel {
             }
         }
 
+        if (mainController.labelSettingsAccountEditFinishAccountDetails.getText().equals("FINISH EDITING"))
+            mainController.accountDetailsSubmittedOnce = true;
+
         boolean proceed = checkPane2Changes();
 
         if (proceed && !mainController.textFieldAccountContact.isDisabled()) {
@@ -905,6 +909,7 @@ public class SettingsModel {
                 mainController.labelSettingsAccountEditFinishAccountDetails.setText("FINISH EDITING");
 
             mainController.detectChangesAccountDetails = false;
+            mainController.accountDetailsSubmittedOnce = false;
         }
     }
 
@@ -922,6 +927,7 @@ public class SettingsModel {
                         dataTasks();
                         clearFieldsPasswordTexts();
                         disableOtherAccountEditButtons(5);
+                        mainController.accountDetailsSubmittedOnce = false;
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
@@ -934,6 +940,8 @@ public class SettingsModel {
                     if (!maxAttemptLimitReached) {
                         setErrorFailedToUpdateAccountUserCancelled();
                         mainController.mainModel.openPrompt();
+                        clearFieldsPasswordTexts();
+                        revertToOldValuesPane2();
                         maxAttemptLimitReached = false;
                     }
                     clearFieldsPasswordTexts();
@@ -965,41 +973,68 @@ public class SettingsModel {
         }
 
         setVisibilitiesPane2();
-
-        System.out.println("line 969 " + proceed);
         return proceed;
     }
 
     private void setVisibilitiesPane2() {
-        String account = mainController.textFieldAccountContact.getText().trim();
-        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
-        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+        if (mainController.accountDetailsSubmittedOnce) {
+            String account = mainController.textFieldAccountContact.getText().trim();
+            String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+            String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
 
-        boolean willChangeAccount = !oldAccountReference.getContact().equals(account);
-        boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
+            boolean willChangeAccount = !oldAccountReference.getContact().equals(account);
+            boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
 
-        if (willChangePass && willChangeAccount) {
-            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
-            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
-            mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+            mainController.labelSettingsFillUpThisForm8.setText("*password does not match");
 
-            mainController.labelSettingsFillUpThisForm3.setVisible(!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL));
-        } else if (willChangeAccount) {
-            mainController.labelSettingsFillUpThisForm3.setVisible(!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL));
-        } else if (willChangePass) {
-            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
-            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
-            mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
-        }
+            if (willChangePass && willChangeAccount) {
+                mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
+                mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
+                mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
 
-        if (!willChangePass) {
-            mainController.labelSettingsFillUpThisForm6.setVisible(false);
-            mainController.labelSettingsFillUpThisForm7.setVisible(false);
-            mainController.labelSettingsFillUpThisForm8.setVisible(false);
+                if (account.isEmpty()) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                } else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                }
+            } else if (willChangeAccount) {
+                if (account.isEmpty()) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                } else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                }
+            } else if (willChangePass) {
+                mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
+                mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
+                mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+            }
+
+            if (!willChangePass) {
+                mainController.labelSettingsFillUpThisForm6.setVisible(false);
+                mainController.labelSettingsFillUpThisForm7.setVisible(false);
+                mainController.labelSettingsFillUpThisForm8.setVisible(false);
+            }
+
+            if (!willChangeAccount) {
+                mainController.labelSettingsFillUpThisForm3.setVisible(false);
+            }
+
+            if (!willChangeAccount && !willChangePass) {
+                mainController.detectChangesAccountDetails = false;
+            }
         }
     }
 
     public void accountDetailsTyping() {
+        String contact = mainController.textFieldAccountContact.getText().trim();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+
+        mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
         setVisibilitiesPane2();
     }
 
@@ -1022,6 +1057,8 @@ public class SettingsModel {
     }
 
     private void revertToOldValuesPane2() {
+        mainController.accountDetailsSubmittedOnce = false;
+
         accountReference.setContact(oldAccountReference.getContact());
         accountReference.setPassword(oldAccountReference.getPassword());
 
