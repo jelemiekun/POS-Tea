@@ -682,6 +682,8 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
+                    setComboBoxToDefault();
+                    setNameToEditedName(saveEditedNameIndex());
                     int index = revertToOldValuesPane1(oldAccount);
                     mainController.mainModel.populateFullNamesObservableList();
                     setComboBoxNameToOldValue(index);
@@ -689,9 +691,12 @@ public class SettingsModel {
                 }
             }
         } else {
-            mainController.comboBoxAccountName.setValue(fullNames.get(0));
             return true;
         }
+    }
+
+    private void setComboBoxToDefault() {
+        mainController.comboBoxAccountName.setValue(fullNames.get(0));
     }
 
     private boolean requiredFieldsNotBlank() {
