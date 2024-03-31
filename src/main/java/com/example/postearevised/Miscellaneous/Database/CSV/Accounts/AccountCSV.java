@@ -116,7 +116,7 @@ public class AccountCSV {
         createDirectoryIfNotExists(DIRECTORY_PATH);
         createDirectoryIfNotExists(DIRECTORY_PATH_SENSITIVE_DATA);
         createAccountCSVFileIfNotExists();
-        //hideAccountCSV();
+        hideAccountCSV();
     }
 
     private static void createAccountCSVFileIfNotExists() {

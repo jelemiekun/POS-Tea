@@ -744,7 +744,7 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -1537,7 +1537,7 @@
                         <Image url="@../../Medias/Icons/logo.png" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="Name" textAlignment="CENTER">
+                  <Label fx:id="labelProfileName" alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="Name" textAlignment="CENTER">
                      <font>
                         <Font name="Rockwell Extra Bold" size="15.0" />
                      </font></Label>

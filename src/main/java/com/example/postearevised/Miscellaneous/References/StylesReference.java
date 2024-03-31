@@ -20,4 +20,6 @@ public class StylesReference {
     public static final String orderHistoryComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 30px;";
     public static final String settingEditProductImportExportComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 18px;";
     public static final String registerRecoveryQuestionStyle = "-fx-font-size: 22px; -fx-font-family: Arial;";
+    public static final String settingsAccountNameComboBoxStyle = "-fx-font-size: 20px; -fx-font-family: Arial;";
+    public static final String settingsAccountQuestionsComboBoxStyle = "-fx-font-size: 24px; -fx-font-family: Arial;";
 }

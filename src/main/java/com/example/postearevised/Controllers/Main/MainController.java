@@ -37,6 +37,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.InvoiceGenerator.*;
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.DashboardReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -127,6 +128,8 @@ public class MainController implements Initializable {
                 
                 settingsModel.setVideo();
                 settingsModel.populateComboBoxImportExport();
+                settingsModel.setSettingsAccountStyle();
+                settingsModel.setSettingsAccount();
 
                 isAddingProductsFromImport = false;
 
@@ -144,6 +147,7 @@ public class MainController implements Initializable {
         clearOrderHistoryReferences();
         clearOrderQueueReferences();
         clearDashBoardReferences();
+        fullNames.clear();
     }
 
     /**
@@ -196,6 +200,8 @@ public class MainController implements Initializable {
     public FXMLLoader loader;
     public Parent root;
     public Stage newStage;
+    @FXML
+    public Label labelProfileName;
     @FXML
     public AnchorPane anchorPaneLeftProfile;
     @FXML
@@ -831,6 +837,14 @@ public class MainController implements Initializable {
      * Settings - Accounts
      */
 
+    // Boolean Reference
+
+    public boolean editUsers = false;
+    public boolean editAccount = false;
+    public boolean editSecurityQuestions = false;
+    public boolean isUpdatingComboBox = false;
+
+
     // Labels
     @FXML
     public Label labelSettingsAccountEditFinishUsers;
@@ -918,27 +932,35 @@ public class MainController implements Initializable {
 
     @FXML
     public void anchorPaneSettingsBtnEditUsersClickedTouched() {
-
+        editUsers = !editUsers;
+        settingsModel.setSettingsAccountPane1(editUsers);
     }
 
     @FXML
     public void anchorPaneSettingsBtnEditAccountDetailsClickedTouched() {
+        editAccount = !editAccount;
+        settingsModel.setSettingsAccountPane2(editAccount);
+    }
 
+    @FXML
+    public void anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched() {
+        editSecurityQuestions = !editSecurityQuestions;
+        settingsModel.setSettingsAccountPane3(editSecurityQuestions);
     }
 
     @FXML
     public void comboBoxAccountNameOnAction() {
-
+        settingsModel.comboBoxNameOnAction();
     }
 
     @FXML
     public void comboBoxSettingsQuestionOneOnAction() {
-
+        settingsModel.comboBoxQuestionOneOnAction();
     }
 
     @FXML
     public void comboBoxSettingsQuestionTwoOnAction() {
-
+        settingsModel.comboBoxQuestionTwoOnAction();
     }
 
     @FXML
@@ -948,11 +970,6 @@ public class MainController implements Initializable {
 
     @FXML
     public void imageHideShowConfirmNewPasswordAccountSettingsClickedTouched() {
-
-    }
-
-    @FXML
-    public void anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched() {
 
     }
 

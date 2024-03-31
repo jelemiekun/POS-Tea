@@ -5,6 +5,7 @@ import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -30,6 +31,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
@@ -42,6 +44,7 @@ import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.recoveryQuestionsObservableList;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
@@ -93,6 +96,8 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsEditProducts.setVisible(false);
                 mainController.anchorPaneSettingsSystemManual.setVisible(false);
 
+                mainController.anchorPaneSettingsAccount.requestFocus();
+
 
 
                 mainController.rectangleAccount.setStroke(Color.BLACK);
@@ -104,12 +109,14 @@ public class SettingsModel {
                 mainController.rectangleTAC.setStroke(null);
                 mainController.rectangleSystemManual.setStroke(null);
                 break;
-            case 2: // Display
+            case 2: // Appearance
                 mainController.anchorPaneSettingsAccount.setVisible(false);
                 mainController.anchorPaneSettingsDisplay.setVisible(true);
                 mainController.anchorPaneSettingsTAC.setVisible(false);
                 mainController.anchorPaneSettingsEditProducts.setVisible(false);
                 mainController.anchorPaneSettingsSystemManual.setVisible(false);
+
+                mainController.anchorPaneSettingsDisplay.requestFocus();
 
 
 
@@ -135,6 +142,8 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsTAC.setVisible(false);
                 mainController.anchorPaneSettingsSystemManual.setVisible(false);
 
+                mainController.anchorPaneSettingsEditProducts.requestFocus();
+
 
 
                 mainController.rectangleEditProducts.setStroke(Color.BLACK);
@@ -152,6 +161,8 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsEditProducts.setVisible(false);
                 mainController.anchorPaneSettingsTAC.setVisible(true);
                 mainController.anchorPaneSettingsSystemManual.setVisible(false);
+
+                mainController.anchorPaneSettingsTAC.requestFocus();
 
 
 
@@ -171,6 +182,8 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsEditProducts.setVisible(false);
                 mainController.anchorPaneSettingsSystemManual.setVisible(true);
 
+
+                mainController.anchorPaneSettingsSystemManual.requestFocus();
 
 
                 mainController.rectangleSystemManual.setStroke(Color.BLACK);
@@ -479,6 +492,140 @@ public class SettingsModel {
             Tooltip settingsEditProduct = new Tooltip("No product in menu");
             settingsEditProduct.setStyle(toolTipStyle);
             Tooltip.install(placeholderLabel, settingsEditProduct);
+        }
+    }
+
+    /**
+     * Account
+     */
+    public void comboBoxNameOnAction() {
+        String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
+        int index = -1;
+
+        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+            String firstName = getFirstWord(accountReference.getFirstNames().get(i));
+            if (selectedName.equals(firstName))
+                index = i;
+        }
+
+        if (index != -1) {
+            setLeftPanelProfileName(index);
+            setFirstMiddleLastNameTextFields(index);
+        }
+    }
+
+    private String getFirstWord(String value) {
+        String[] words = value.split("\\s+");
+        return words[0];
+    }
+
+    private void setFirstMiddleLastNameTextFields(int index) {
+        mainController.textFieldAccountGivenName.setText(accountReference.getFirstNames().get(index));
+        mainController.textFieldAccountMiddleName.setText(accountReference.getMiddleNames().get(index));
+        mainController.textFieldAccountLastName.setText(accountReference.getLastNames().get(index));
+    }
+
+    private void setLeftPanelProfileName(int index) {
+        mainController.labelProfileName.setText(getFirstWord(accountReference.getFirstNames().get(index)));
+    }
+
+    public void setSettingsAccountStyle() {
+        mainController.comboBoxAccountName.setStyle(settingsAccountNameComboBoxStyle);
+        mainController.comboBoxSettingsQuestionOne.setStyle(settingsAccountQuestionsComboBoxStyle);
+        mainController.comboBoxSettingsQuestionTwo.setStyle(settingsAccountQuestionsComboBoxStyle);
+    }
+
+    public void setSettingsAccount() {
+        setSettingsAccountPane1(false);
+        setSettingsAccountPane2(false);
+        setSettingsAccountPane3(false);
+    }
+
+    public void setSettingsAccountPane1(boolean isShow) {
+        mainController.imagePencilSettingsAccount1.setVisible(isShow);
+        mainController.imagePencilSettingsAccount2.setVisible(isShow);
+        mainController.imagePencilSettingsAccount3.setVisible(isShow);
+        mainController.imagePencilSettingsAccount4.setVisible(isShow);
+
+        mainController.textFieldAccountGivenName.setDisable(!isShow);
+        mainController.textFieldAccountMiddleName.setDisable(!isShow);
+        mainController.textFieldAccountLastName.setDisable(!isShow);
+
+        if (isShow)
+            mainController.comboBoxAccountName.getItems().add(" + Add User...");
+        else
+            mainController.comboBoxAccountName.getItems().remove(" + Add User...");
+
+        mainController.anchorPaneSettingsBtnAddUser.setVisible(isShow);
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
+
+        if (!isShow)
+            mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
+        else
+            mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
+    }
+
+    public void setSettingsAccountPane2(boolean isShow) {
+        mainController.imagePencilSettingsAccount5.setVisible(isShow);
+        mainController.imagePencilSettingsAccount6.setVisible(isShow);
+        mainController.imagePencilSettingsAccount7.setVisible(isShow);
+
+        mainController.textFieldAccountContact.setDisable(!isShow);
+        mainController.textFieldAccountNewPassword.setDisable(!isShow);
+        mainController.textFieldAccountConfirmNewPassword.setDisable(!isShow);
+
+        mainController.imageHideShowNewPasswordAccountSettings.setVisible(isShow);
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(isShow);
+
+        if (!isShow)
+            mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+        else
+            mainController.labelSettingsAccountEditFinishAccountDetails.setText("FINISH EDITING");
+    }
+
+    public void setSettingsAccountPane3(boolean isShow) {
+        mainController.imagePencilSettingsAccount8.setVisible(isShow);
+        mainController.imagePencilSettingsAccount9.setVisible(isShow);
+        mainController.imagePencilSettingsAccount10.setVisible(isShow);
+        mainController.imagePencilSettingsAccount11.setVisible(isShow);
+
+        mainController.comboBoxSettingsQuestionOne.setDisable(!isShow);
+        mainController.textFieldAccountQuestionOne.setDisable(!isShow);
+        mainController.comboBoxSettingsQuestionTwo.setDisable(!isShow);
+        mainController.textFieldAccountQuestionTwo.setDisable(!isShow);
+
+        if (!isShow)
+            mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
+        else
+            mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("FINISH EDITING");
+    }
+
+
+    public void comboBoxQuestionOneOnAction() {
+        if (!mainController.isUpdatingComboBox) {
+            mainController.isUpdatingComboBox = true;
+            String selectedItem = mainController.comboBoxSettingsQuestionOne.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                mainController.comboBoxSettingsQuestionTwo.setItems(filteredList);
+            }
+            mainController.isUpdatingComboBox = false;
+        }
+    }
+
+    public void comboBoxQuestionTwoOnAction() {
+        if (!mainController.isUpdatingComboBox) {
+            mainController.isUpdatingComboBox = true;
+            String selectedItem = mainController.comboBoxSettingsQuestionTwo.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                mainController.comboBoxSettingsQuestionOne.setItems(filteredList);
+            }
+            mainController.isUpdatingComboBox = false;
         }
     }
 

@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
-import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.Others.Resolution.setScreenResolution;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.DateTimeFormatterReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
@@ -47,6 +47,18 @@ public class MainModel {
 
         mainController.checkBoxSettingNotification.setSelected(accountReference.isShowNotification());
         mainController.checkBoxSettingGuideMessages.setSelected(accountReference.isShowGuideMessages());
+
+        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+            String firstName = accountReference.getFirstNames().get(i);
+            String middleName = accountReference.getMiddleNames().get(i).isEmpty() ? " " : accountReference.getMiddleNames().get(i);
+            String lastName = accountReference.getLastNames().get(i);
+
+            String isDefault = i == 0 ? " (Default)" : "";
+            fullNames.add(firstName + " " + middleName + " " + lastName + isDefault);
+        }
+
+        mainController.comboBoxAccountName.setItems(fullNames);
+        mainController.comboBoxAccountName.setValue(fullNames.get(0));
     }
 
     public void setDropShadow() {
@@ -64,34 +76,26 @@ public class MainModel {
     }
 
     public void setAnchorPane() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                openSelectedPane(DASHBOARD_ENUM.getPaneNumber());
-            }
-        });
+        Platform.runLater(() -> openSelectedPane(DASHBOARD_ENUM.getPaneNumber()));
     }
 
     public void createAndStartDaemonThreadForDateAndTime() {
-        Thread daemonThreadForDateAndTime = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    localDateTime = LocalDateTime.now();
-                    String formattedDateTime = localDateTime.format(formatter);
+        Thread daemonThreadForDateAndTime = new Thread(() -> {
+            while (true) {
+                localDateTime = LocalDateTime.now();
+                String formattedDateTime = localDateTime.format(formatter);
 
-                    Platform.runLater(() -> {
-                        mainController.labelDashboardDateAndTIme.setText(formattedDateTime);
-                        mainController.labelMenuDateAndTIme.setText(formattedDateTime);
-                        mainController.labelOrderQueueDateAndTIme.setText(formattedDateTime);
-                        mainController.labelOrderHistoryDateAndTIme.setText(formattedDateTime);
-                    });
-                    try {
-                        Thread.sleep(ONE_SECOND);
-                    } catch (InterruptedException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
-                    }
+                Platform.runLater(() -> {
+                    mainController.labelDashboardDateAndTIme.setText(formattedDateTime);
+                    mainController.labelMenuDateAndTIme.setText(formattedDateTime);
+                    mainController.labelOrderQueueDateAndTIme.setText(formattedDateTime);
+                    mainController.labelOrderHistoryDateAndTIme.setText(formattedDateTime);
+                });
+                try {
+                    Thread.sleep(ONE_SECOND);
+                } catch (InterruptedException e) {
+                    errorMessage = e.getMessage();
+                    logError(false);
                 }
             }
         });
@@ -254,9 +258,7 @@ public class MainModel {
                 FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), mainController.anchorPaneNotification);
                 fadeOut.setFromValue(1.0);
                 fadeOut.setToValue(0.0);
-                fadeOut.setOnFinished(fadeFinishedEvent -> {
-                    mainController.anchorPaneNotification.setVisible(false);
-                });
+                fadeOut.setOnFinished(fadeFinishedEvent -> mainController.anchorPaneNotification.setVisible(false));
                 fadeOut.play();
             });
             timeline.getKeyFrames().add(key);
