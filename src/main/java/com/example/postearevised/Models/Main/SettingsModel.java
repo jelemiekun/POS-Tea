@@ -534,6 +534,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm6.setVisible(false);
         mainController.labelSettingsFillUpThisForm7.setVisible(false);
         mainController.labelSettingsFillUpThisForm8.setVisible(false);
+        mainController.labelSettingsFillUpThisForm9.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -779,7 +780,21 @@ public class SettingsModel {
     }
 
     private boolean usersRequiredFieldsNotBlank() {
-        return !mainController.textFieldAccountGivenName.getText().trim().isEmpty() && !mainController.textFieldAccountLastName.getText().trim().isEmpty();
+        return !mainController.textFieldAccountGivenName.getText().trim().isEmpty() && !mainController.textFieldAccountLastName.getText().trim().isEmpty() && nameNotExist();
+    }
+
+    private boolean nameNotExist() {
+        String fullName = mainController.textFieldAccountGivenName.getText().trim() + " " + mainController.textFieldAccountMiddleName.getText().trim() + " " + mainController.textFieldAccountLastName.getText().trim();
+
+        for (String existingName : fullNames) {
+            if (existingName.contains(" (Default)"))
+                existingName = existingName.replace(" (Default)", "").trim();
+
+            System.out.println("line 790 " + fullName + ", " + existingName);
+            if (existingName.equals(fullName))
+                return false;
+        }
+        return true;
     }
 
     public void accountUsersTyping() {
@@ -788,6 +803,8 @@ public class SettingsModel {
 
         mainController.labelSettingsFillUpThisForm1.setVisible(givenName.isEmpty());
         mainController.labelSettingsFillUpThisForm2.setVisible(lastName.isEmpty());
+
+        mainController.labelSettingsFillUpThisForm9.setVisible(!nameNotExist());
     }
 
     private int revertToOldValuesPane1() {

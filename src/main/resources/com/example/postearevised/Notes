@@ -22,15 +22,11 @@ lagyan ng notifs yung iba pa
 
 if mag cchange email, bawal sa existing na.
 
-BAWAL DUPLICATE ADDING NAME
-
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 may mag ppop up if may changes na nadetect sa directory
 
-ayusin logic ng putanginang change password na yan
-
-password strength indicator sa change pass
+password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS
 
 
 
@@ -610,3 +606,7 @@ css files ng themes tapos code ng mag iiba iba display theme
 delete account dapat paganahin
 
 gawing * lahat ng static import
+
+ayusin logic ng putanginang change password na yan
+
+BAWAL DUPLICATE ADDING NAME
