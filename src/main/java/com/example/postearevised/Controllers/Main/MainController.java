@@ -28,7 +28,6 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -1014,6 +1013,15 @@ public class MainController implements Initializable {
     @FXML
     public void anchorPaneSettingsBtnDeleteClickedTouched() {
 
+    }
+
+    @FXML
+    void textFieldRecoveryQuestionTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched();
+        } else {
+            settingsModel.accountRecoveryQuestionsTyping();
+        }
     }
 
     /**

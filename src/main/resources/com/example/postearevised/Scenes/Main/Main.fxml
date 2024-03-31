@@ -1000,7 +1000,7 @@
                                                          </font>
                                                       </Label>
                                                       <ComboBox fx:id="comboBoxSettingsQuestionOne" layoutY="51.0" onAction="#comboBoxSettingsQuestionOneOnAction" prefHeight="47.0" prefWidth="720.0" />
-                                                      <TextField fx:id="textFieldAccountQuestionOne" layoutY="127.0" prefHeight="43.0" prefWidth="720.0">
+                                                      <TextField fx:id="textFieldAccountQuestionOne" layoutY="127.0" onKeyPressed="#textFieldRecoveryQuestionTyping" prefHeight="43.0" prefWidth="720.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
@@ -1015,7 +1015,7 @@
                                                          </font>
                                                       </Label>
                                                       <ComboBox fx:id="comboBoxSettingsQuestionTwo" layoutY="51.0" onAction="#comboBoxSettingsQuestionTwoOnAction" prefHeight="47.0" prefWidth="720.0" />
-                                                      <TextField fx:id="textFieldAccountQuestionTwo" layoutY="127.0" prefWidth="720.0">
+                                                      <TextField fx:id="textFieldAccountQuestionTwo" layoutY="127.0" onKeyPressed="#textFieldRecoveryQuestionTyping" prefWidth="720.0">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>

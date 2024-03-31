@@ -7,6 +7,7 @@ import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -624,6 +625,10 @@ public class SettingsModel {
 
         boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
 
+        if (proceed && !mainController.textFieldAccountGivenName.isDisabled()) {
+            disableOtherAccountEditButtons(5);
+        }
+
         if (proceed) {
             mainController.imagePencilSettingsAccount1.setVisible(isShow);
             mainController.imagePencilSettingsAccount2.setVisible(isShow);
@@ -862,6 +867,10 @@ public class SettingsModel {
 
         boolean proceed = checkPane2Changes();
 
+        if (proceed && !mainController.textFieldAccountContact.isDisabled()) {
+            disableOtherAccountEditButtons(5);
+        }
+
         if (proceed) {
             mainController.imagePencilSettingsAccount5.setVisible(isShow);
             mainController.imagePencilSettingsAccount6.setVisible(isShow);
@@ -1021,28 +1030,162 @@ public class SettingsModel {
      * Account - Recovery Questions
      */
     public void setSettingsAccountPane3(boolean isShow) {
-        if (isShow) {
-            disableOtherAccountEditButtons(3);
-            oldAccountReference = accountReference.copy();
-        } else {
+        if (mainController.comboBoxSettingsQuestionOne.isDisabled()) {
+            if (isShow) {
+                disableOtherAccountEditButtons(3);
+                oldAccountReference = accountReference.copy();
+            } else {
+                disableOtherAccountEditButtons(5);
+            }
+        }
+
+        boolean proceed = checkPane3Changes();
+
+        if (proceed && !mainController.comboBoxSettingsQuestionOne.isDisabled()) {
             disableOtherAccountEditButtons(5);
         }
 
+        if (proceed) {
+            mainController.imagePencilSettingsAccount8.setVisible(isShow);
+            mainController.imagePencilSettingsAccount9.setVisible(isShow);
+            mainController.imagePencilSettingsAccount10.setVisible(isShow);
+            mainController.imagePencilSettingsAccount11.setVisible(isShow);
 
-        mainController.imagePencilSettingsAccount8.setVisible(isShow);
-        mainController.imagePencilSettingsAccount9.setVisible(isShow);
-        mainController.imagePencilSettingsAccount10.setVisible(isShow);
-        mainController.imagePencilSettingsAccount11.setVisible(isShow);
+            mainController.comboBoxSettingsQuestionOne.setDisable(!isShow);
+            mainController.textFieldAccountQuestionOne.setDisable(!isShow);
+            mainController.comboBoxSettingsQuestionTwo.setDisable(!isShow);
+            mainController.textFieldAccountQuestionTwo.setDisable(!isShow);
 
-        mainController.comboBoxSettingsQuestionOne.setDisable(!isShow);
-        mainController.textFieldAccountQuestionOne.setDisable(!isShow);
-        mainController.comboBoxSettingsQuestionTwo.setDisable(!isShow);
-        mainController.textFieldAccountQuestionTwo.setDisable(!isShow);
+            if (!isShow)
+                mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
+            else
+                mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("FINISH EDITING");
 
-        if (!isShow)
-            mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
-        else
-            mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("FINISH EDITING");
+            mainController.detectChangesRecoveryQuestion = false;
+        }
+    }
+
+    private boolean checkPane3Changes() {
+        if (mainController.detectChangesRecoveryQuestion) {
+            if (changesAreValidRecoveryQuestions()) {
+                if (saveChanges(3)) {
+                    accountEditingProceed = false;
+
+                    getRecoveryQuestionsChanges();
+
+                    if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
+                        setRecoveryQuestionsNewValue();
+                        disableOtherAccountEditButtons(5);
+                        return true;
+                    } else {
+                        setErrorFailedToUpdateAccountToCSV();
+                        mainController.mainModel.openPrompt();
+                        revertBackRecoveryQuestions();
+                        return false;
+                    }
+                } else {
+                    if (!maxAttemptLimitReached) {
+                        setErrorFailedToUpdateAccountUserCancelled();
+                        mainController.mainModel.openPrompt();
+                        maxAttemptLimitReached = false;
+                    }
+                    revertBackRecoveryQuestions();
+                    return true;
+                }
+            } else {
+                // invalid answers
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    private void getRecoveryQuestionsChanges() {
+        accountReference.setSecurityQuestionOne(mainController.comboBoxSettingsQuestionOne.getValue());
+        accountReference.setSecurityQuestionOneAnswer(mainController.textFieldAccountQuestionOne.getText().trim());
+        accountReference.setSecurityQuestionTwo(mainController.comboBoxSettingsQuestionTwo.getValue());
+        accountReference.setSecurityQuestionTwoAnswer(mainController.textFieldAccountQuestionTwo.getText().trim());
+    }
+
+    private void revertBackRecoveryQuestions() {
+        accountReference.setSecurityQuestionOne(oldAccountReference.getSecurityQuestionOne());
+        accountReference.setSecurityQuestionOneAnswer(oldAccountReference.getSecurityQuestionOneAnswer());
+        accountReference.setSecurityQuestionTwo(oldAccountReference.getSecurityQuestionTwo());
+        accountReference.setSecurityQuestionTwoAnswer(oldAccountReference.getSecurityQuestionTwoAnswer());
+
+        mainController.comboBoxSettingsQuestionOne.setValue(accountReference.getSecurityQuestionOne());
+        mainController.textFieldAccountQuestionOne.setText(accountReference.getSecurityQuestionOneAnswer());
+        mainController.comboBoxSettingsQuestionTwo.setValue(accountReference.getSecurityQuestionTwo());
+        mainController.textFieldAccountQuestionTwo.setText(accountReference.getSecurityQuestionTwoAnswer());
+
+        disableOtherAccountEditButtons(5);
+    }
+
+    private boolean changesAreValidRecoveryQuestions() {
+        boolean changedQuestionOne = !oldAccountReference.getSecurityQuestionOne().equals(mainController.comboBoxSettingsQuestionOne.getValue());
+        boolean changedQuestionTwo = !oldAccountReference.getSecurityQuestionTwo().equals(mainController.comboBoxSettingsQuestionTwo.getValue());
+        boolean changedAnswerOne = !oldAccountReference.getSecurityQuestionOneAnswer().equals(mainController.textFieldAccountQuestionOne.getText().trim());
+        boolean changedAnswerTwo = !oldAccountReference.getSecurityQuestionTwoAnswer().equals(mainController.textFieldAccountQuestionTwo.getText().trim());
+        boolean firstAnswerNotBlank = !mainController.textFieldAccountQuestionOne.getText().trim().isEmpty();
+        boolean secondAnswerNotBlank = !mainController.textFieldAccountQuestionTwo.getText().trim().isEmpty();
+
+        mainController.labelSettingsFillUpThisForm4.setVisible(!firstAnswerNotBlank);
+        mainController.labelSettingsFillUpThisForm5.setVisible(!secondAnswerNotBlank);
+
+        System.out.println("line 1132 " + changedQuestionOne + ", " + changedQuestionTwo + ", " + changedAnswerOne + ", " + changedAnswerTwo + ", " + firstAnswerNotBlank + ", " + secondAnswerNotBlank);
+        return changedQuestionOne || changedQuestionTwo || changedAnswerOne || changedAnswerTwo || (firstAnswerNotBlank && secondAnswerNotBlank);
+    }
+
+    private void setRecoveryQuestionsNewValue() {
+        mainController.comboBoxSettingsQuestionOne.setValue(accountReference.getSecurityQuestionOne());
+        mainController.textFieldAccountQuestionOne.setText(accountReference.getSecurityQuestionOneAnswer());
+        mainController.comboBoxSettingsQuestionTwo.setValue(accountReference.getSecurityQuestionTwo());
+        mainController.textFieldAccountQuestionTwo.setText(accountReference.getSecurityQuestionTwoAnswer());
+    }
+
+    public void comboBoxQuestionOneOnAction() {
+        if (!mainController.isUpdatingComboBox) {
+            mainController.isUpdatingComboBox = true;
+            String selectedItem = mainController.comboBoxSettingsQuestionOne.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                mainController.comboBoxSettingsQuestionTwo.setItems(filteredList);
+            }
+            mainController.isUpdatingComboBox = false;
+        }
+
+        if (oldAccountReference != null)
+            mainController.detectChangesRecoveryQuestion = !oldAccountReference.getSecurityQuestionOne().equals(mainController.comboBoxSettingsQuestionOne.getValue());
+    }
+
+    public void comboBoxQuestionTwoOnAction() {
+        if (!mainController.isUpdatingComboBox) {
+            mainController.isUpdatingComboBox = true;
+            String selectedItem = mainController.comboBoxSettingsQuestionTwo.getValue();
+            if (selectedItem != null) {
+                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
+                        .filter(question -> !question.equals(selectedItem))
+                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
+                mainController.comboBoxSettingsQuestionOne.setItems(filteredList);
+            }
+            mainController.isUpdatingComboBox = false;
+        }
+
+        if (oldAccountReference != null)
+            mainController.detectChangesRecoveryQuestion = !oldAccountReference.getSecurityQuestionTwo().equals(mainController.comboBoxSettingsQuestionTwo.getValue());
+    }
+
+    public void accountRecoveryQuestionsTyping() {
+        boolean firstAnswerNotBlank = !mainController.textFieldAccountQuestionOne.getText().trim().isEmpty();
+        boolean secondAnswerNotBlank = !mainController.textFieldAccountQuestionTwo.getText().trim().isEmpty();
+
+        mainController.labelSettingsFillUpThisForm4.setVisible(!firstAnswerNotBlank);
+        mainController.labelSettingsFillUpThisForm5.setVisible(!secondAnswerNotBlank);
+
+        mainController.detectChangesRecoveryQuestion = firstAnswerNotBlank || secondAnswerNotBlank;
     }
 
     private boolean saveChanges(int operationNumber) { // 1 - users, 2 - account, 3 - recovery questions, 4 account deletion
@@ -1085,35 +1228,6 @@ public class SettingsModel {
         newStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
         return accountEditingProceed;
-    }
-
-
-    public void comboBoxQuestionOneOnAction() {
-        if (!mainController.isUpdatingComboBox) {
-            mainController.isUpdatingComboBox = true;
-            String selectedItem = mainController.comboBoxSettingsQuestionOne.getValue();
-            if (selectedItem != null) {
-                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
-                        .filter(question -> !question.equals(selectedItem))
-                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
-                mainController.comboBoxSettingsQuestionTwo.setItems(filteredList);
-            }
-            mainController.isUpdatingComboBox = false;
-        }
-    }
-
-    public void comboBoxQuestionTwoOnAction() {
-        if (!mainController.isUpdatingComboBox) {
-            mainController.isUpdatingComboBox = true;
-            String selectedItem = mainController.comboBoxSettingsQuestionTwo.getValue();
-            if (selectedItem != null) {
-                ObservableList<String> filteredList = recoveryQuestionsObservableList.stream()
-                        .filter(question -> !question.equals(selectedItem))
-                        .collect(Collectors.toCollection(FXCollections::observableArrayList));
-                mainController.comboBoxSettingsQuestionOne.setItems(filteredList);
-            }
-            mainController.isUpdatingComboBox = false;
-        }
     }
 
     /**
