@@ -613,11 +613,13 @@ public class SettingsModel {
     }
 
     public void setSettingsAccountPane1(boolean isShow) {
-        if (isShow) {
-            disableOtherAccountEditButtons(1);
-            oldAccountReference = accountReference.copy();
-        } else {
-            disableOtherAccountEditButtons(5);
+        if (mainController.textFieldAccountGivenName.isDisabled()) {
+            if (isShow) {
+                disableOtherAccountEditButtons(1);
+                oldAccountReference = accountReference.copy();
+            } else {
+                disableOtherAccountEditButtons(5);
+            }
         }
 
         boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
@@ -721,6 +723,7 @@ public class SettingsModel {
                             mainController.mainModel.populateFullNamesObservableList();
                             setNameToEditedName(index);
                         }
+                        disableOtherAccountEditButtons(5);
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
@@ -749,6 +752,7 @@ public class SettingsModel {
         int index = revertToOldValuesPane1();
         mainController.mainModel.populateFullNamesObservableList();
         setComboBoxNameToOldValue(index);
+        disableOtherAccountEditButtons(5);
     }
 
     private void setComboBoxToDefault() {
@@ -847,11 +851,13 @@ public class SettingsModel {
      */
 
     public void setSettingsAccountPane2(boolean isShow) {
-        if (isShow) {
-            disableOtherAccountEditButtons(2);
-            oldAccountReference = accountReference.copy();
-        } else {
-            disableOtherAccountEditButtons(5);
+        if (mainController.textFieldAccountContact.isDisabled()) {
+            if (isShow) {
+                disableOtherAccountEditButtons(2);
+                oldAccountReference = accountReference.copy();
+            } else {
+                disableOtherAccountEditButtons(5);
+            }
         }
 
         boolean proceed = checkPane2Changes();
@@ -883,7 +889,6 @@ public class SettingsModel {
     private boolean checkPane2Changes() {
         if (mainController.detectChangesAccountDetails) {
             if (!accountDetailsRequiredFieldsNotBlank()) {
-                System.out.println("line 884");
                 return false;
             } else {
                 if (saveChanges(2)) {
@@ -894,6 +899,7 @@ public class SettingsModel {
                     if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
                         dataTasks();
                         clearFieldsPasswordTexts();
+                        disableOtherAccountEditButtons(5);
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
@@ -918,16 +924,26 @@ public class SettingsModel {
         }
     }
 
+    private boolean accountDetailsRequiredFieldsNotBlank() {
+        boolean willChangeAccount = !oldAccountReference.getContact().equals(mainController.textFieldAccountContact.getText().trim());
+
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+
+        System.out.println("line 926 " + newPassword.isEmpty());
+        System.out.println("line 927" + confirmNewPassword.isEmpty());
+        boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
+
+        return willChangeAccount || willChangePass;
+    }
+
     private void dataTasks() {
         loggedOutSoDeleteStayLoggedInDetails();
         inputIntoSecondRow(accountReference);
 
-        File oldFolder = new File(DIRECTORY_PATH_ACCOUNTS);
-
         String newFolderName = accountReference.getContact();
-
+        File oldFolder = new File(DIRECTORY_PATH_ACCOUNTS);
         File newFolder = new File(oldFolder.getParent(), newFolderName);
-
         if (oldFolder.exists() && oldFolder.isDirectory())
             oldFolder.renameTo(newFolder);
     }
@@ -946,8 +962,12 @@ public class SettingsModel {
 
         mainController.textFieldAccountNewPassword.setVisible(false);
         mainController.textFieldAccountConfirmNewPassword.setVisible(false);
-        mainController.imageHideShowNewPasswordAccountSettings.setImage(SHOW_IMAGE);
-        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(SHOW_IMAGE);
+        mainController.passwordFieldAccountNewPassword.setVisible(true);
+        mainController.passwordFieldAccountConfirmNewPassword.setVisible(true);
+        mainController.imageHideShowNewPasswordAccountSettings.setImage(HIDE_IMAGE);
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(HIDE_IMAGE);
+
+        disableOtherAccountEditButtons(5);
     }
 
     private void getAccountDetailsChanges() {
@@ -958,23 +978,13 @@ public class SettingsModel {
         accountReference.setPassword(newPassword);
     }
 
-    private boolean accountDetailsRequiredFieldsNotBlank() {
-        boolean willChangeAccount = !oldAccountReference.getContact().equals(accountReference.getContact());
-        boolean validContact = !willChangeAccount || mainController.textFieldAccountContact.getText().matches(REGEX_PHONE_NUMBER) || mainController.textFieldAccountContact.getText().matches(REGEX_EMAIL);
-
-        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
-        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
-
-        return validContact;
-    }
-
     public void accountDetailsTyping() {
         String contact = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
         String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
 
         mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
-        System.out.println(mainController.detectChangesAccountDetails);
+        System.out.println("line 979 " + !oldAccountReference.getContact().equals(contact) + ", " + !newPassword.isEmpty() + ", " + !confirmNewPassword.isEmpty());
     }
 
 
