@@ -22,11 +22,9 @@ lagyan ng notifs yung iba pa
 
 if mag cchange email, bawal sa existing na.
 
-lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
-
-may mag ppop up if may changes na nadetect sa directory
-
 password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS
+
+lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 
 
@@ -37,6 +35,8 @@ password strength indicator sa change pass at ayusin indicators, ayusin din pag 
 from executable jar file, gawing .exe yung system ( optional )
 
 ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
+
+may mag ppop up if may changes na nadetect sa directory
 
 papacheck lahat lahat ng texts sa system sa non ict-teacher
 
