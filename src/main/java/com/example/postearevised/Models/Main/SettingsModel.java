@@ -541,6 +541,8 @@ public class SettingsModel {
         mainController.textFieldAccountGivenName.setPromptText("Enter First Name");
         mainController.textFieldAccountMiddleName.setPromptText("Enter Middle Name");
         mainController.textFieldAccountLastName.setPromptText("Enter Surname");
+
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
     }
 
     private String getFirstWord(String value) {
@@ -572,7 +574,7 @@ public class SettingsModel {
     }
 
     public void setSettingsAccountPane1(boolean isShow) {
-        boolean proceed = checkPane1Changes();
+        boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
 
         if (proceed) {
             mainController.imagePencilSettingsAccount1.setVisible(isShow);
@@ -599,9 +601,11 @@ public class SettingsModel {
 
             mainController.detectChangesUsers = false;
         }
+
+        mainController.anchorPaneSettingsAccount.requestFocus();
     }
 
-    private boolean checkPane1Changes() {
+    private boolean checkPane1Changes(boolean isAdd) {
         if (mainController.detectChangesUsers) {
             Account oldAccount = accountReference.copy();
 
@@ -611,8 +615,14 @@ public class SettingsModel {
                 getChanges();
 
                 if (updateAccountToAccountCSV(oldAccount, accountReference)) {
-                    mainController.mainModel.populateFullNamesObservableList();
-                    setNameToNewlyAddedName();
+                    if (isAdd) {
+                        mainController.mainModel.populateFullNamesObservableList();
+                        setNameToNewlyAddedName();
+                    } else {
+                        int index = saveEditedNameIndex();
+                        mainController.mainModel.populateFullNamesObservableList();
+                        setNameToEditedName(index);
+                    }
                     return true;
                 } else {
                     setErrorFailedToUpdateAccountToCSV();
@@ -685,6 +695,23 @@ public class SettingsModel {
 
     private void setNameToNewlyAddedName() {
         mainController.comboBoxAccountName.setValue(fullNames.get(fullNames.size() - 1));
+    }
+
+    private int saveEditedNameIndex() {
+        String selectedName = mainController.comboBoxAccountName.getValue();
+
+        int index = -1;
+
+        for (int i = 0; i < fullNames.size() ; i++) {
+            if (selectedName.equals(fullNames.get(i)))
+                index = i;
+        }
+
+        return index;
+    }
+
+    private void setNameToEditedName(int index) {
+        mainController.comboBoxAccountName.setValue(fullNames.get(index));
     }
 
     public void setSettingsAccountPane2(boolean isShow) {
