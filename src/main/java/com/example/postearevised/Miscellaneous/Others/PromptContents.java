@@ -704,6 +704,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorSettingStyles() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Failed to change system style.";
+        promptContentText = "Failed to update the new selected display style to the CSV file. Close other apps using file & retry.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorSettingStylesUnknownColor() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Failed to change system style.";
+        promptContentText = "Failed to update the new selected display style because system receive or detected an unknown color. Please try again.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setDeleteAccount1() {
         setIsConfirmedToFalse();
 

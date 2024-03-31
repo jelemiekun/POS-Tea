@@ -106,7 +106,7 @@ public class MainController implements Initializable {
 
 
             Platform.runLater(() -> {
-                settingsModel.setStyles(accountReference.getDisplayColor());
+                settingsModel.setStyles(accountReference.getDisplayColor(), false);
 
                 anchorPaneLeftPanel.setVisible(true);
                 anchorPaneDashboard.setVisible(true);
@@ -1037,22 +1037,22 @@ public class MainController implements Initializable {
 
 
     @FXML
-    void settingsAppearanceRectangleLightClickedTouched() { settingsModel.setStyles(LIGHT_ENUM.getColor()); }
+    void settingsAppearanceRectangleLightClickedTouched() { settingsModel.setStyles(LIGHT_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleDarkClickedTouched() { settingsModel.setStyles(DARK_ENUM.getColor()); }
+    void settingsAppearanceRectangleDarkClickedTouched() { settingsModel.setStyles(DARK_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleRedClickedTouched() { settingsModel.setStyles(RED_ENUM.getColor()); }
+    void settingsAppearanceRectangleRedClickedTouched() { settingsModel.setStyles(RED_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleOrangeClickedTouched() { settingsModel.setStyles(ORANGE_ENUM.getColor()); }
+    void settingsAppearanceRectangleOrangeClickedTouched() { settingsModel.setStyles(ORANGE_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleYellowClickedTouched() { settingsModel.setStyles(YELLOW_ENUM.getColor()); }
+    void settingsAppearanceRectangleYellowClickedTouched() { settingsModel.setStyles(YELLOW_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleGreenClickedTouched() { settingsModel.setStyles(GREEN_ENUM.getColor()); }
+    void settingsAppearanceRectangleGreenClickedTouched() { settingsModel.setStyles(GREEN_ENUM.getColor(), true); }
 
     @FXML
     public void checkBoxSettingNotificationOnAction() {

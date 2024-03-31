@@ -179,8 +179,8 @@ public class AccountCSV {
                     String key = parts[12];
 
                     Account account = new Account(contact, decryptString(password, key),
-                            securityQuestionOne, securityQuestionOneAnswer,
-                            securityQuestionTwo, securityQuestionTwoAnswer,
+                            securityQuestionOne, decryptString(securityQuestionOneAnswer, key),
+                            securityQuestionTwo, decryptString(securityQuestionTwoAnswer, key),
                             observableListFirstNames, observableListMiddleNames, observableListLastNames,
                             displayColor, isShowNotification, isShowGuideMessages, key);
 
@@ -201,9 +201,9 @@ public class AccountCSV {
             sb.append(account.getContact()).append(",");
             sb.append(encryptString(account.getPassword(), account.getKey())).append(",");
             sb.append(account.getSecurityQuestionOne()).append(",");
-            sb.append(account.getSecurityQuestionOneAnswer()).append(",");
+            sb.append(encryptString(account.getSecurityQuestionOneAnswer(), account.getKey())).append(",");
             sb.append(account.getSecurityQuestionTwo()).append(",");
-            sb.append(account.getSecurityQuestionTwoAnswer()).append(",");
+            sb.append(encryptString(account.getSecurityQuestionTwoAnswer(), account.getKey())).append(",");
             sb.append(concatenateNames(account.getFirstNames())).append(",");
             sb.append(concatenateNames(account.getMiddleNames())).append(",");
             sb.append(concatenateNames(account.getLastNames())).append(",");
@@ -254,9 +254,9 @@ public class AccountCSV {
                     sb.append(newAccount.getContact()).append(",");
                     sb.append(encryptString(newAccount.getPassword(), newAccount.getKey())).append(",");
                     sb.append(newAccount.getSecurityQuestionOne()).append(",");
-                    sb.append(newAccount.getSecurityQuestionOneAnswer()).append(",");
+                    sb.append(encryptString(newAccount.getSecurityQuestionOneAnswer(), newAccount.getKey())).append(",");
                     sb.append(newAccount.getSecurityQuestionTwo()).append(",");
-                    sb.append(newAccount.getSecurityQuestionTwoAnswer()).append(",");
+                    sb.append(encryptString(newAccount.getSecurityQuestionTwoAnswer(), newAccount.getKey())).append(",");
                     sb.append(concatenateNames(newAccount.getFirstNames())).append(",");
                     sb.append(concatenateNames(newAccount.getMiddleNames())).append(",");
                     sb.append(concatenateNames(newAccount.getLastNames())).append(",");

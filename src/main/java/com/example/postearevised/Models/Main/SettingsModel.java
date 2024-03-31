@@ -4,6 +4,7 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
+import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -32,12 +33,14 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExportEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
@@ -1254,23 +1257,51 @@ public class SettingsModel {
      * Appearance
      */
 
-    public void setStyles(String styles) {
-        switch (styles) {
-            case "light":
-                break;
-            case "dark":
-                break;
-            case "red":
-                break;
-            case "orange":
-                break;
-            case "yellow":
-                break;
-            case "green":
-                break;
-        }
+    public void setStyles(String styles, boolean isNotFromImport) {
+        String cssURL = "";
 
-        System.out.println("abang ng css line 1273 : " + styles);
+        Account oldAccount = accountReference.copy();
+        accountReference.setDisplayColor(styles);
+
+        boolean proceed = true;
+
+        if (isNotFromImport)
+            proceed = updateAccountToAccountCSV(oldAccount, accountReference);
+
+        if (proceed) {
+            switch (styles) {
+                case "light":
+                    cssURL = LIGHT_ENUM.getCssURL();
+                    break;
+                case "dark":
+                    cssURL = DARK_ENUM.getCssURL();
+                    break;
+                case "red":
+                    cssURL = RED_ENUM.getCssURL();
+                    break;
+                case "orange":
+                    cssURL = ORANGE_ENUM.getCssURL();
+                    break;
+                case "yellow":
+                    cssURL = YELLOW_ENUM.getCssURL();
+                    break;
+                case "green":
+                    cssURL = GREEN_ENUM.getCssURL();
+                    break;
+                default:
+                    setErrorSettingStylesUnknownColor();
+                    mainController.mainModel.openPrompt();
+                    cssURL = LIGHT_ENUM.getCssURL();
+                    break;
+            }
+
+            //mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssURL)).toExternalForm());
+            System.out.println("abang ng css line 1287 : " + styles);
+        } else {
+            accountReference.setDisplayColor(oldAccount.getDisplayColor());
+            setErrorSettingStyles();
+            mainController.mainModel.openPrompt();
+        }
     }
 
     public void notificationOnAction() {

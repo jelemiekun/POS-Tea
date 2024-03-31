@@ -22,8 +22,6 @@ itrim settings acount, sa register, at sa forgot password PATI SA ACCOUNT TAPOS 
 
 css files ng 2 table mula kay abella
 
-css files ng themes tapos code ng mag iiba iba display theme
-
 system manual VID AT ACCORDIONS
 
 
@@ -602,3 +600,5 @@ if mag eedit or mag ddelete ng account, hihingin password
 pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
 
 gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede haha
+
+css files ng themes tapos code ng mag iiba iba display theme
