@@ -545,6 +545,41 @@ public class SettingsModel {
         });
     }
 
+    private void disableOtherAccountEditButtons(int notToDisable) {
+        switch (notToDisable) {
+            case 1:
+                mainController.anchorPaneSettingsBtnEditUsers.setDisable(false);
+                mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
+                mainController.anchorPaneSettingsBtnDelete.setDisable(true);
+                break;
+            case 2:
+                mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(false);
+                mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
+                mainController.anchorPaneSettingsBtnDelete.setDisable(true);
+                break;
+            case 3:
+                mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(false);
+                mainController.anchorPaneSettingsBtnDelete.setDisable(true);
+                break;
+            case 4:
+                mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
+                mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
+                mainController.anchorPaneSettingsBtnDelete.setDisable(false);
+                break;
+            case 5:
+                mainController.anchorPaneSettingsBtnEditUsers.setDisable(false);
+                mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(false);
+                mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(false);
+                mainController.anchorPaneSettingsBtnDelete.setDisable(false);
+                break;
+        }
+    }
+
     /**
      * Account - USERS
      */
@@ -577,8 +612,12 @@ public class SettingsModel {
     }
 
     public void setSettingsAccountPane1(boolean isShow) {
-        if (isShow)
+        if (isShow) {
+            disableOtherAccountEditButtons(1);
             oldAccountReference = accountReference.copy();
+        } else {
+            disableOtherAccountEditButtons(5);
+        }
 
         boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
 
@@ -802,6 +841,14 @@ public class SettingsModel {
      */
 
     public void setSettingsAccountPane2(boolean isShow) {
+        if (isShow) {
+            disableOtherAccountEditButtons(2);
+            oldAccountReference = accountReference.copy();
+        } else {
+            disableOtherAccountEditButtons(5);
+        }
+
+
         mainController.imagePencilSettingsAccount5.setVisible(isShow);
         mainController.imagePencilSettingsAccount6.setVisible(isShow);
         mainController.imagePencilSettingsAccount7.setVisible(isShow);
@@ -820,6 +867,14 @@ public class SettingsModel {
     }
 
     public void setSettingsAccountPane3(boolean isShow) {
+        if (isShow) {
+            disableOtherAccountEditButtons(3);
+            oldAccountReference = accountReference.copy();
+        } else {
+            disableOtherAccountEditButtons(5);
+        }
+
+
         mainController.imagePencilSettingsAccount8.setVisible(isShow);
         mainController.imagePencilSettingsAccount9.setVisible(isShow);
         mainController.imagePencilSettingsAccount10.setVisible(isShow);
