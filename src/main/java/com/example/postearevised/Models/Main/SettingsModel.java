@@ -150,6 +150,8 @@ public class SettingsModel {
 
                 mainController.anchorPaneSettingsEditProducts.requestFocus();
 
+                setOrderIsOnGoing();
+
 
 
                 mainController.rectangleEditProducts.setStroke(Color.BLACK);
@@ -202,6 +204,12 @@ public class SettingsModel {
                 mainController.rectangleTAC.setStroke(null);
                 break;
         }
+    }
+
+    private void setOrderIsOnGoing() {
+        mainController.anchorPaneEditProduct.setDisable(orderIsOngoing);
+        mainController.anchorPaneAddProduct.setDisable(orderIsOngoing);
+        mainController.importExportComboBox.setDisable(orderIsOngoing);
     }
 
     public void populateComboBoxImportExport() {

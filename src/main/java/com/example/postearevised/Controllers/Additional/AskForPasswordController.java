@@ -50,26 +50,37 @@ public class AskForPasswordController implements Initializable {
         switch (headerTitle) {
             case "Edit Users":
                 labelHeaderTitle.setText(USERS_ENUM.getHeaderTitle());
-                normalPane.setVisible(true);
-                deletePane.setVisible(false);
+                normalPane();
                 break;
             case "Edit Account Details":
                 labelHeaderTitle.setText(ACCOUNT_DETAILS_ENUM.getHeaderTitle());
-                normalPane.setVisible(true);
-                deletePane.setVisible(false);
+                normalPane();
                 break;
             case "Edit Questions":
                 labelHeaderTitle.setText(RECOVERY_QUESTIONS_ENUM.getHeaderTitle());
-                normalPane.setVisible(true);
-                deletePane.setVisible(false);
+                normalPane();
                 break;
             case "Delete Account":
                 labelHeaderTitle.setText(DELETE_ACCOUNT_ENUM.getHeaderTitle());
-                normalPane.setVisible(false);
-                deletePane.setVisible(true);
+                deletePane();
                 break;
         }
     }
+
+    private void normalPane() {
+        labelIncorrect.setLayoutX(82);
+        labelIncorrect.setLayoutY(143);
+        normalPane.setVisible(true);
+        deletePane.setVisible(false);
+    }
+
+    private void deletePane() {
+        labelIncorrect.setLayoutX(136);
+        labelIncorrect.setLayoutY(194);
+        normalPane.setVisible(false);
+        deletePane.setVisible(true);
+    }
+
     @FXML
     void btnDoneClickedTouched() {
         check();
@@ -79,6 +90,17 @@ public class AskForPasswordController implements Initializable {
     void btnDonePressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             check();
+    }
+
+    @FXML
+    void btnCancelEntered(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            closeThisStage();
+    }
+
+    @FXML
+    void btnCancelClickedTouched() {
+        closeThisStage();
     }
 
     private void check() {

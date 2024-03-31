@@ -1047,6 +1047,10 @@ public class MainController implements Initializable {
      * Settings - Products
      */
     @FXML
+    public AnchorPane anchorPaneEditProduct;
+    @FXML
+    public AnchorPane anchorPaneAddProduct;
+    @FXML
     public Label settingsEditProductGuideMessageClickTable;
     @FXML
     public ComboBox<String> importExportComboBox;

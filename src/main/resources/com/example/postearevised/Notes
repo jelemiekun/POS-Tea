@@ -16,8 +16,6 @@ MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 invoice pa sa order history
 
-gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede haha
-
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 itrim settings acount, sa register, at sa forgot password PATI SA ACCOUNT TAPOS LISTENERS NILA
@@ -602,3 +600,5 @@ sec questions pede pa mapalitan
 if mag eedit or mag ddelete ng account, hihingin password
 
 pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
+
+gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede haha
