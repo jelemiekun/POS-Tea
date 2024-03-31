@@ -504,7 +504,8 @@ public class SettingsModel {
      */
     public void comboBoxNameOnAction() {
         if (mainController.comboBoxAccountName.getValue() != null) {
-            mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Default)"));
+            if (!mainController.textFieldAccountGivenName.isDisabled())
+                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Default)"));
 
             if (!mainController.comboBoxAccountName.getValue().equals(addUser)) {
                 String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
@@ -524,6 +525,10 @@ public class SettingsModel {
                 addAUser();
             }
         }
+    }
+
+    public void deleteSelectedName() {
+        
     }
 
     private void addAUser() {
@@ -598,8 +603,10 @@ public class SettingsModel {
 
     private boolean checkPane1Changes() {
         if (mainController.detectChangesUsers) {
+            Account oldAccount = accountReference.copy();
+
             if (saveChanges(1)) {
-                Account oldAccount = accountReference.copy();
+                accountEditingProceed = false;
 
                 getChanges();
 
@@ -618,12 +625,35 @@ public class SettingsModel {
                     mainController.mainModel.openPrompt();
                     maxAttemptLimitReached = false;
                 }
-                // REVERT BACK SA DATING VALUE!
-                return false;
+                int index = revertToOldValuesPane1(oldAccount);
+                mainController.mainModel.populateFullNamesObservableList();
+                setComboBoxNameToOldValue(index);
+                return true;
             }
         } else {
             return true;
         }
+    }
+
+    private int revertToOldValuesPane1(Account oldAccount) {
+        String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
+        int index = -1;
+
+        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+            String firstName = getFirstWord(accountReference.getFirstNames().get(i));
+            if (selectedName.equals(firstName))
+                index = i;
+        }
+
+        mainController.textFieldAccountGivenName.setText(oldAccount.getFirstNames().get(index));
+        mainController.textFieldAccountMiddleName.setText(oldAccount.getMiddleNames().get(index));
+        mainController.textFieldAccountLastName.setText(oldAccount.getLastNames().get(index));
+
+        return index;
+    }
+
+    private void setComboBoxNameToOldValue(int index) {
+        mainController.comboBoxAccountName.setValue(fullNames.get(index));
     }
 
     private void getChanges() {

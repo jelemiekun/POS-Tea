@@ -930,7 +930,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void anchorPaneSettingsBtnDeleteUserClickedTouched() {
-
+        settingsModel.deleteSelectedName();
     }
 
     @FXML
