@@ -28,6 +28,8 @@ lagyan search sa edit products, wala nang filter by, rekta search by product nam
 
 may mag ppop up if may changes na nadetect sa directory
 
+ayusin logic ng putanginang change password na yan
+
 
 
 
@@ -604,7 +606,5 @@ gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede
 css files ng themes tapos code ng mag iiba iba display theme
 
 delete account dapat paganahin
-
-ayusin logic ng putanginang change password na yan
 
 gawing * lahat ng static import
