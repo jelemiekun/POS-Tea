@@ -531,6 +531,9 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm3.setVisible(false);
         mainController.labelSettingsFillUpThisForm4.setVisible(false);
         mainController.labelSettingsFillUpThisForm5.setVisible(false);
+        mainController.labelSettingsFillUpThisForm6.setVisible(false);
+        mainController.labelSettingsFillUpThisForm7.setVisible(false);
+        mainController.labelSettingsFillUpThisForm8.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -924,7 +927,6 @@ public class SettingsModel {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
                         revertToOldValuesPane2();
-                        clearFieldsPasswordTexts();
                         return false;
                     }
                 } else {
@@ -933,7 +935,6 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
-                    clearFieldsPasswordTexts();
                     revertToOldValuesPane2();
                     return true;
                 }
@@ -944,16 +945,28 @@ public class SettingsModel {
     }
 
     private boolean accountDetailsRequiredFieldsNotBlank() {
+        boolean proceed = false;
+
         boolean willChangeAccount = !oldAccountReference.getContact().equals(mainController.textFieldAccountContact.getText().trim());
 
+        String account = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
         String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
 
-        System.out.println("line 926 " + newPassword.isEmpty());
-        System.out.println("line 927" + confirmNewPassword.isEmpty());
         boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
 
-        return willChangeAccount || willChangePass;
+        if (willChangePass && willChangeAccount) {
+            proceed = newPassword.equals(confirmNewPassword) && (account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL));
+
+            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
+            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
+        } else if (willChangeAccount) {
+            proceed = account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL); // CHECK IF VALID YUNG EMAIL DITO
+        } else if (willChangePass) {
+            proceed = newPassword.equals(confirmNewPassword);
+        }
+
+        return proceed;
     }
 
     private void dataTasks() {
@@ -977,14 +990,25 @@ public class SettingsModel {
     private void revertToOldValuesPane2() {
         accountReference.setContact(oldAccountReference.getContact());
         accountReference.setPassword(oldAccountReference.getPassword());
-        mainController.textFieldAccountContact.setText(accountReference.getContact());
 
         mainController.textFieldAccountNewPassword.setVisible(false);
         mainController.textFieldAccountConfirmNewPassword.setVisible(false);
+
         mainController.passwordFieldAccountNewPassword.setVisible(true);
         mainController.passwordFieldAccountConfirmNewPassword.setVisible(true);
+
+        mainController.textFieldAccountContact.setDisable(true);
+        mainController.passwordFieldAccountNewPassword.setDisable(true);
+        mainController.passwordFieldAccountConfirmNewPassword.setDisable(true);
+
+        mainController.textFieldAccountContact.setText(accountReference.getContact());
+        mainController.passwordFieldAccountNewPassword.setText("");
+        mainController.passwordFieldAccountConfirmNewPassword.setText("");
+
         mainController.imageHideShowNewPasswordAccountSettings.setImage(HIDE_IMAGE);
         mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(HIDE_IMAGE);
+
+        mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
 
         disableOtherAccountEditButtons(5);
     }
