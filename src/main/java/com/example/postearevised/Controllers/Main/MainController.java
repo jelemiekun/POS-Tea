@@ -838,6 +838,7 @@ public class MainController implements Initializable {
     public boolean detectChangesRecoveryQuestion = false;
     public boolean showNewPassword = false;
     public boolean showConfirmNewPassword = false;
+    public boolean accountDetailsSubmittedOnce = false;
 
 
     // Labels

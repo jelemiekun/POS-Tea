@@ -926,6 +926,7 @@ public class SettingsModel {
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
+                        clearFieldsPasswordTexts();
                         revertToOldValuesPane2();
                         return false;
                     }
@@ -935,6 +936,7 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
+                    clearFieldsPasswordTexts();
                     revertToOldValuesPane2();
                     return true;
                 }
@@ -947,26 +949,58 @@ public class SettingsModel {
     private boolean accountDetailsRequiredFieldsNotBlank() {
         boolean proceed = false;
 
-        boolean willChangeAccount = !oldAccountReference.getContact().equals(mainController.textFieldAccountContact.getText().trim());
-
         String account = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
         String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
 
+        boolean willChangeAccount = !oldAccountReference.getContact().equals(account);
         boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
 
         if (willChangePass && willChangeAccount) {
             proceed = newPassword.equals(confirmNewPassword) && (account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL));
-
-            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
-            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
         } else if (willChangeAccount) {
-            proceed = account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL); // CHECK IF VALID YUNG EMAIL DITO
+            proceed = account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL);
         } else if (willChangePass) {
             proceed = newPassword.equals(confirmNewPassword);
         }
 
+        setVisibilitiesPane2();
+
+        System.out.println("line 969 " + proceed);
         return proceed;
+    }
+
+    private void setVisibilitiesPane2() {
+        String account = mainController.textFieldAccountContact.getText().trim();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+
+        boolean willChangeAccount = !oldAccountReference.getContact().equals(account);
+        boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
+
+        if (willChangePass && willChangeAccount) {
+            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
+            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
+            mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+
+            mainController.labelSettingsFillUpThisForm3.setVisible(!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL));
+        } else if (willChangeAccount) {
+            mainController.labelSettingsFillUpThisForm3.setVisible(!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL));
+        } else if (willChangePass) {
+            mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
+            mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
+            mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+        }
+
+        if (!willChangePass) {
+            mainController.labelSettingsFillUpThisForm6.setVisible(false);
+            mainController.labelSettingsFillUpThisForm7.setVisible(false);
+            mainController.labelSettingsFillUpThisForm8.setVisible(false);
+        }
+    }
+
+    public void accountDetailsTyping() {
+        setVisibilitiesPane2();
     }
 
     private void dataTasks() {
@@ -1019,15 +1053,6 @@ public class SettingsModel {
 
         accountReference.setContact(contact);
         accountReference.setPassword(newPassword);
-    }
-
-    public void accountDetailsTyping() {
-        String contact = mainController.textFieldAccountContact.getText().trim();
-        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
-        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
-
-        mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
-        System.out.println("line 979 " + !oldAccountReference.getContact().equals(contact) + ", " + !newPassword.isEmpty() + ", " + !confirmNewPassword.isEmpty());
     }
 
 
