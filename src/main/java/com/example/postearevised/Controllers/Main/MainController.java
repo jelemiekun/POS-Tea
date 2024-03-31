@@ -32,6 +32,7 @@ import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
@@ -105,6 +106,8 @@ public class MainController implements Initializable {
 
 
             Platform.runLater(() -> {
+                settingsModel.setStyles(accountReference.getDisplayColor());
+
                 anchorPaneLeftPanel.setVisible(true);
                 anchorPaneDashboard.setVisible(true);
 
@@ -1031,6 +1034,25 @@ public class MainController implements Initializable {
     public Rectangle settingsAppearanceRectangleYellow;
     @FXML
     public Rectangle settingsAppearanceRectangleGreen;
+
+
+    @FXML
+    void settingsAppearanceRectangleLightClickedTouched() { settingsModel.setStyles(LIGHT_ENUM.getColor()); }
+
+    @FXML
+    void settingsAppearanceRectangleDarkClickedTouched() { settingsModel.setStyles(DARK_ENUM.getColor()); }
+
+    @FXML
+    void settingsAppearanceRectangleRedClickedTouched() { settingsModel.setStyles(RED_ENUM.getColor()); }
+
+    @FXML
+    void settingsAppearanceRectangleOrangeClickedTouched() { settingsModel.setStyles(ORANGE_ENUM.getColor()); }
+
+    @FXML
+    void settingsAppearanceRectangleYellowClickedTouched() { settingsModel.setStyles(YELLOW_ENUM.getColor()); }
+
+    @FXML
+    void settingsAppearanceRectangleGreenClickedTouched() { settingsModel.setStyles(GREEN_ENUM.getColor()); }
 
     @FXML
     public void checkBoxSettingNotificationOnAction() {

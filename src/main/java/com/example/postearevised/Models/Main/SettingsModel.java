@@ -1254,6 +1254,25 @@ public class SettingsModel {
      * Appearance
      */
 
+    public void setStyles(String styles) {
+        switch (styles) {
+            case "light":
+                break;
+            case "dark":
+                break;
+            case "red":
+                break;
+            case "orange":
+                break;
+            case "yellow":
+                break;
+            case "green":
+                break;
+        }
+
+        System.out.println("abang ng css line 1273 : " + styles);
+    }
+
     public void notificationOnAction() {
         mainController.flowPaneNotification.setVisible(mainController.checkBoxSettingNotification.isSelected());
     }
