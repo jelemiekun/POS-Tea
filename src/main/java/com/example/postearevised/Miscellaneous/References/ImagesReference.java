@@ -6,6 +6,11 @@ import java.util.Objects;
 
 public class ImagesReference {
     /**
+     * Show/Hide Password
+     */
+    public static final Image SHOW_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Show Password.png")));
+    public static final Image HIDE_IMAGE = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/LoginRegister/Hide Password.png")));
+    /**
      * Prompt Buttons
      */
     public static final Image OKAY_GREEN_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));

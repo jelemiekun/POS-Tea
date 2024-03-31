@@ -28,6 +28,7 @@ import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
@@ -845,6 +846,8 @@ public class MainController implements Initializable {
     public boolean detectChangesUsers = false;
     public boolean detectChangesAccountDetails = false;
     public boolean detectChangesRecoveryQuestion = false;
+    public boolean showNewPassword = false;
+    public boolean showConfirmNewPassword = false;
 
 
     // Labels
@@ -870,6 +873,10 @@ public class MainController implements Initializable {
     public TextField textFieldAccountNewPassword;
     @FXML
     public TextField textFieldAccountConfirmNewPassword;
+    @FXML
+    public PasswordField passwordFieldAccountNewPassword;
+    @FXML
+    public PasswordField passwordFieldAccountConfirmNewPassword;
     @FXML
     public ComboBox<String> comboBoxSettingsQuestionOne;
     @FXML
@@ -942,6 +949,15 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    void settingsAccountDetailsTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            anchorPaneSettingsBtnEditAccountDetailsClickedTouched();
+        } else {
+            settingsModel.accountDetailsTyping();
+        }
+    }
+
+    @FXML
     void comboBoxAccountNamePressedEnter(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
             anchorPaneSettingsBtnEditUsersClickedTouched();
@@ -987,12 +1003,12 @@ public class MainController implements Initializable {
 
     @FXML
     public void imageHideShowNewPasswordAccountSettingsClickedTouched() {
-
+        settingsModel.toggleNewPasswordField();
     }
 
     @FXML
     public void imageHideShowConfirmNewPasswordAccountSettingsClickedTouched() {
-
+        settingsModel.toggleConfirmNewPasswordField();
     }
 
     @FXML

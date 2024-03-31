@@ -4,7 +4,6 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
-import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -702,14 +701,14 @@ public class SettingsModel {
 
     private boolean checkPane1Changes(boolean isAdd) {
         if (mainController.detectChangesUsers) {
-            if (!requiredFieldsNotBlank()) {
+            if (!usersRequiredFieldsNotBlank()) {
                 return false;
             } else {
 
                 if (saveChanges(1)) {
                     accountEditingProceed = false;
 
-                    getChanges();
+                    getUsersChanges();
 
                     if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
                         if (isAdd) {
@@ -724,6 +723,7 @@ public class SettingsModel {
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
+                        revertBackUsers();
                         return false;
                     }
                 } else {
@@ -732,11 +732,7 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
-                    setComboBoxToDefault();
-                    setNameToEditedName(getComboBoxNameIndex());
-                    int index = revertToOldValuesPane1();
-                    mainController.mainModel.populateFullNamesObservableList();
-                    setComboBoxNameToOldValue(index);
+                    revertBackUsers();
                     return true;
                 }
             }
@@ -745,11 +741,19 @@ public class SettingsModel {
         }
     }
 
+    private void revertBackUsers() {
+        setComboBoxToDefault();
+        setNameToEditedName(getComboBoxNameIndex());
+        int index = revertToOldValuesPane1();
+        mainController.mainModel.populateFullNamesObservableList();
+        setComboBoxNameToOldValue(index);
+    }
+
     private void setComboBoxToDefault() {
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
     }
 
-    private boolean requiredFieldsNotBlank() {
+    private boolean usersRequiredFieldsNotBlank() {
         return !mainController.textFieldAccountGivenName.getText().trim().isEmpty() && !mainController.textFieldAccountLastName.getText().trim().isEmpty();
     }
 
@@ -786,7 +790,7 @@ public class SettingsModel {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
     }
 
-    private void getChanges() {
+    private void getUsersChanges() {
         String textFieldFirstName = mainController.textFieldAccountGivenName.getText().trim();
         String textFieldMiddleName = mainController.textFieldAccountMiddleName.getText().trim().isEmpty() ? "" : mainController.textFieldAccountMiddleName.getText().trim();
         String textFieldLastName = mainController.textFieldAccountLastName.getText().trim();
@@ -848,24 +852,141 @@ public class SettingsModel {
             disableOtherAccountEditButtons(5);
         }
 
+        boolean proceed = checkPane2Changes();
 
-        mainController.imagePencilSettingsAccount5.setVisible(isShow);
-        mainController.imagePencilSettingsAccount6.setVisible(isShow);
-        mainController.imagePencilSettingsAccount7.setVisible(isShow);
+        if (proceed) {
+            mainController.imagePencilSettingsAccount5.setVisible(isShow);
+            mainController.imagePencilSettingsAccount6.setVisible(isShow);
+            mainController.imagePencilSettingsAccount7.setVisible(isShow);
 
-        mainController.textFieldAccountContact.setDisable(!isShow);
-        mainController.textFieldAccountNewPassword.setDisable(!isShow);
-        mainController.textFieldAccountConfirmNewPassword.setDisable(!isShow);
+            mainController.textFieldAccountContact.setDisable(!isShow);
+            mainController.textFieldAccountNewPassword.setDisable(!isShow);
+            mainController.textFieldAccountConfirmNewPassword.setDisable(!isShow);
 
-        mainController.imageHideShowNewPasswordAccountSettings.setVisible(isShow);
-        mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(isShow);
+            mainController.passwordFieldAccountNewPassword.setDisable(!isShow);
+            mainController.passwordFieldAccountConfirmNewPassword.setDisable(!isShow);
 
-        if (!isShow)
-            mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
-        else
-            mainController.labelSettingsAccountEditFinishAccountDetails.setText("FINISH EDITING");
+            mainController.imageHideShowNewPasswordAccountSettings.setVisible(isShow);
+            mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(isShow);
+
+            if (!isShow)
+                mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+            else
+                mainController.labelSettingsAccountEditFinishAccountDetails.setText("FINISH EDITING");
+
+            mainController.detectChangesAccountDetails = false;
+        }
     }
 
+    private boolean checkPane2Changes() {
+        if (mainController.detectChangesAccountDetails) {
+            if (!accountDetailsRequiredFieldsNotBlank()) {
+                System.out.println("line 884");
+                return false;
+            } else {
+                if (saveChanges(2)) {
+                    accountEditingProceed = false;
+
+                    getAccountDetailsChanges();
+
+                    if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
+                        clearFieldsPasswordTexts();
+                        return true;
+                    } else {
+                        setErrorFailedToUpdateAccountToCSV();
+                        mainController.mainModel.openPrompt();
+                        revertToOldValuesPane2();
+                        clearFieldsPasswordTexts();
+                        return false;
+                    }
+                } else {
+                    if (!maxAttemptLimitReached) {
+                        setErrorFailedToUpdateAccountUserCancelled();
+                        mainController.mainModel.openPrompt();
+                        maxAttemptLimitReached = false;
+                    }
+                    clearFieldsPasswordTexts();
+                    revertToOldValuesPane2();
+                    return true;
+                }
+            }
+        } else {
+            System.out.println("line 914");
+            return true;
+        }
+    }
+
+    private void clearFieldsPasswordTexts() {
+        mainController.textFieldAccountNewPassword.setText("");
+        mainController.textFieldAccountConfirmNewPassword.setText("");
+        mainController.passwordFieldAccountNewPassword.setText("");
+        mainController.passwordFieldAccountConfirmNewPassword.setText("");
+    }
+
+    private void revertToOldValuesPane2() {
+        accountReference.setContact(oldAccountReference.getContact());
+        accountReference.setPassword(oldAccountReference.getPassword());
+        mainController.textFieldAccountContact.setText(accountReference.getContact());
+
+        mainController.textFieldAccountNewPassword.setVisible(false);
+        mainController.textFieldAccountConfirmNewPassword.setVisible(false);
+        mainController.imageHideShowNewPasswordAccountSettings.setImage(SHOW_IMAGE);
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(SHOW_IMAGE);
+    }
+
+    private void getAccountDetailsChanges() {
+        String contact = mainController.textFieldAccountContact.getText().trim();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText() : mainController.passwordFieldAccountNewPassword.getText();
+
+        accountReference.setContact(contact);
+        accountReference.setPassword(newPassword);
+    }
+
+    private boolean accountDetailsRequiredFieldsNotBlank() {
+        return false;
+    }
+
+    public void accountDetailsTyping() {
+        String contact = mainController.textFieldAccountContact.getText().trim();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText() : mainController.passwordFieldAccountNewPassword.getText();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText() : mainController.passwordFieldAccountConfirmNewPassword.getText();
+
+        mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || newPassword.isEmpty() || confirmNewPassword.isEmpty();
+    }
+
+
+    public void toggleNewPasswordField() {
+        mainController.showNewPassword = !mainController.showNewPassword;
+
+        mainController.imageHideShowNewPasswordAccountSettings.setImage(mainController.showNewPassword ? SHOW_IMAGE : HIDE_IMAGE);
+        mainController.textFieldAccountNewPassword.setVisible(mainController.showNewPassword);
+        mainController.passwordFieldAccountNewPassword.setVisible(!mainController.showNewPassword);
+
+        if (mainController.showNewPassword) {
+            mainController.textFieldAccountNewPassword.setText(mainController.passwordFieldAccountNewPassword.getText());
+        } else {
+            mainController.passwordFieldAccountNewPassword.setText(mainController.textFieldAccountNewPassword.getText());
+        }
+    }
+
+    public void toggleConfirmNewPasswordField() {
+        mainController.showConfirmNewPassword = !mainController.showConfirmNewPassword;
+
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(mainController.showConfirmNewPassword ? SHOW_IMAGE : HIDE_IMAGE);
+        mainController.textFieldAccountConfirmNewPassword.setVisible(mainController.showConfirmNewPassword);
+        mainController.passwordFieldAccountConfirmNewPassword.setVisible(!mainController.showConfirmNewPassword);
+
+        if (mainController.showConfirmNewPassword) {
+            mainController.textFieldAccountConfirmNewPassword.setText(mainController.passwordFieldAccountConfirmNewPassword.getText());
+        } else {
+            mainController.passwordFieldAccountConfirmNewPassword.setText(mainController.textFieldAccountConfirmNewPassword.getText());
+        }
+    }
+
+
+    /**
+     * Account - Recovery Questions
+     */
     public void setSettingsAccountPane3(boolean isShow) {
         if (isShow) {
             disableOtherAccountEditButtons(3);

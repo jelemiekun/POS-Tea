@@ -8,6 +8,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -827,7 +828,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="329.0" prefHeight="26.0" prefWidth="188.0" text="Middle Name">
+                                                <Label layoutX="292.0" layoutY="329.0" prefHeight="26.0" prefWidth="188.0" text="Surname">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -881,6 +882,16 @@
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
                                                 </Label>
+                                                <ImageView fx:id="imagePencilSettingsAccount5" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label layoutX="292.0" layoutY="101.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
+                                                   <font>
+                                                      <Font name="Arial" size="22.0" />
+                                                   </font>
+                                                </Label>
                                                 <ImageView fx:id="imagePencilSettingsAccount6" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
@@ -891,19 +902,6 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="180.0" prefWidth="436.0">
-                                                   <font>
-                                                      <Font name="Arial" size="24.0" />
-                                                   </font>
-                                                </TextField>
-                                                <ImageView fx:id="imageHideShowNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="1030.0" layoutY="180.0" onMouseClicked="#imageHideShowNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
-                                                   </image>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                </ImageView>
                                                 <ImageView fx:id="imagePencilSettingsAccount7" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
@@ -914,14 +912,47 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountConfirmNewPassword" layoutX="580.0" layoutY="259.0" prefWidth="436.0">
+                                                <TextField fx:id="textFieldAccountContact" layoutX="580.0" layoutY="93.0" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <ImageView fx:id="imageHideShowConfirmNewPasswordAccountSettings" fitHeight="35.0" fitWidth="35.0" layoutX="1030.0" layoutY="259.0" onMouseClicked="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                <PasswordField fx:id="passwordFieldAccountNewPassword" layoutX="580.0" layoutY="180.0" onKeyPressed="#settingsAccountDetailsTyping" prefHeight="43.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </PasswordField>
+                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="180.0" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0" visible="false">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <PasswordField fx:id="passwordFieldAccountConfirmNewPassword" layoutX="580.0" layoutY="259.0" onKeyPressed="#settingsAccountDetailsTyping" prefHeight="43.0" prefWidth="436.0">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </PasswordField>
+                                                <TextField fx:id="textFieldAccountConfirmNewPassword" layoutX="580.0" layoutY="259.0" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0" visible="false">
+                                                   <font>
+                                                      <Font name="Arial" size="24.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Label fx:id="labelSettingsFillUpThisForm3" layoutX="1030.0" layoutY="105.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fx:id="imageHideShowNewPasswordAccountSettings" fitHeight="30.0" fitWidth="30.0" layoutX="1030.0" layoutY="187.0" onMouseClicked="#imageHideShowNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../Medias/Buttons/LoginRegister/Hide%20Password.png" />
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="imageHideShowConfirmNewPasswordAccountSettings" fitHeight="30.0" fitWidth="30.0" layoutX="1030.0" layoutY="266.0" onMouseClicked="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" onTouchReleased="#imageHideShowConfirmNewPasswordAccountSettingsClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../Medias/Buttons/LoginRegister/Show%20Password.png" />
                                                    </image>
                                                    <cursor>
                                                       <Cursor fx:constant="HAND" />
@@ -944,26 +975,6 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </AnchorPane>
-                                                <ImageView fx:id="imagePencilSettingsAccount5" fitHeight="35.0" fitWidth="35.0" layoutX="252.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
-                                                   </image>
-                                                </ImageView>
-                                                <Label layoutX="292.0" layoutY="101.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
-                                                   <font>
-                                                      <Font name="Arial" size="22.0" />
-                                                   </font>
-                                                </Label>
-                                                <TextField fx:id="textFieldAccountContact" layoutX="580.0" layoutY="93.0" prefWidth="436.0">
-                                                   <font>
-                                                      <Font name="Arial" size="24.0" />
-                                                   </font>
-                                                </TextField>
-                                                <Label fx:id="labelSettingsFillUpThisForm3" layoutX="1030.0" layoutY="105.0" text="*please fill up this form" textFill="#ff4e4e">
-                                                   <font>
-                                                      <Font name="Arial" size="18.0" />
-                                                   </font>
-                                                </Label>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
