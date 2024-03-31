@@ -985,7 +985,7 @@ public class MenuModel {
                     }
 
                     setOrderAddedToOrderQueue();
-                    mainController.mainModel.showNotification();
+                    mainController.mainModel.generateNotification();
 
 
                     generateInvoice(order, 1);

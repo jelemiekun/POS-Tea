@@ -12,7 +12,6 @@ public class AccountReference {
     public static Account oldAccountReference;
     public static Set<Account> accountSet = new HashSet<>();
     public static String accountContactReference = "";
-    public static boolean showNotificationsReference = true;
     public static boolean showGuideMessagesReference = true;
     public static ObservableList<String> fullNames = FXCollections.observableArrayList();
 }

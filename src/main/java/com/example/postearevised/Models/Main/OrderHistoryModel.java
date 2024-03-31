@@ -373,7 +373,7 @@ public class OrderHistoryModel {
 
         if (holdCurrentOrderHistorySize != orderHistoryObservableList.size()) {
             setDeleteHistorySuccess();
-            mainController.mainModel.showNotification();
+            mainController.mainModel.generateNotification();
         }
 
         refreshOrderHistoryTable();

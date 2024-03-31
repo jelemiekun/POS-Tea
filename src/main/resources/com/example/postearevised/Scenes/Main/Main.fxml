@@ -745,7 +745,7 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -1717,33 +1717,6 @@
             <Cursor fx:constant="WAIT" />
          </cursor>
       </AnchorPane>
-      <AnchorPane fx:id="anchorPaneNotification" layoutX="728.0" layoutY="24.0" prefHeight="120.0" prefWidth="550.0" visible="false">
-         <children>
-            <Rectangle arcHeight="1500.0" arcWidth="5.0" fill="#000000d9" height="120.0" stroke="TRANSPARENT" strokeType="INSIDE" width="550.0" />
-            <AnchorPane prefHeight="120.0" prefWidth="120.0">
-               <children>
-                  <ImageView fx:id="imageViewNotification" fitHeight="70.0" fitWidth="70.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Medias/Icons/Notifications/information%20white.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutX="120.0" prefHeight="120.0" prefWidth="430.0">
-               <children>
-                  <Label fx:id="labelNotificationHeader" layoutY="18.0" text="Header" textFill="WHITE">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="labelNotificationContent" layoutX="1.0" layoutY="65.0" text="Content" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+      <FlowPane fx:id="flowPaneNotification" layoutX="728.0" layoutY="16.0" prefHeight="1.0" prefWidth="550.0" vgap="20.0" />
     </children>
 </AnchorPane>

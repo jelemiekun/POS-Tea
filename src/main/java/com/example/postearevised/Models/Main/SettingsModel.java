@@ -7,7 +7,6 @@ import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -328,7 +327,7 @@ public class SettingsModel {
 
         if (addingProductSuccess) {
             setAddProductSuccess();
-            mainController.mainModel.showNotification();
+            mainController.mainModel.generateNotification();
 
             addingProductSuccess = false;
         }
@@ -399,7 +398,7 @@ public class SettingsModel {
 
         if (editingProductSuccess) {
             setEditProductSuccess();
-            mainController.mainModel.showNotification();
+            mainController.mainModel.generateNotification();
 
             editingProductSuccess = false;
         }
@@ -465,7 +464,7 @@ public class SettingsModel {
 
                         if (deletingProductSuccess) {
                             setDeleteProductSuccess();
-                            mainController.mainModel.showNotification();
+                            mainController.mainModel.generateNotification();
 
                             deletingProductSuccess = false;
                         }
@@ -1248,7 +1247,7 @@ public class SettingsModel {
      */
 
     public void notificationOnAction() {
-        showNotificationsReference = mainController.checkBoxSettingNotification.isSelected();
+        mainController.flowPaneNotification.setVisible(mainController.checkBoxSettingNotification.isSelected());
     }
 
     public void guideMessagesOnAction() {

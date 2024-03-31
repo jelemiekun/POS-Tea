@@ -8,8 +8,14 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -247,47 +253,68 @@ public class MainModel {
     }
 
 
-    public void showNotification() {
-        if (mainController.checkBoxSettingGuideMessages.isSelected()) {
-            mainController.imageViewNotification.setImage(imageViewNotificationReference);
-            mainController.labelNotificationHeader.setText(notificationHeaderReference);
-            mainController.labelNotificationContent.setText(notificationContentReference);
+    public void generateNotification() {
+        AnchorPane anchorPaneNotification = new AnchorPane();
+        anchorPaneNotification.setPrefSize(550, 120);
 
-            mainController.anchorPaneNotification.setVisible(false);
-            mainController.anchorPaneNotification.setVisible(true);
-            mainController.anchorPaneNotification.setOpacity(0);
+        Rectangle overlay = new Rectangle(550, 120);
+        overlay.setArcHeight(1500);
+        overlay.setArcWidth(5);
+        overlay.setFill(Color.rgb(0, 0, 0, 0.85));
 
-            FadeTransition fadeIn = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
-            fadeIn.setFromValue(0.0);
-            fadeIn.setToValue(1.0);
-            Timeline timeline = new Timeline();
-            KeyFrame key = new KeyFrame(Duration.seconds(2.5), event -> {
-                FadeTransition fadeOut = new FadeTransition(Duration.seconds(1), mainController.anchorPaneNotification);
-                fadeOut.setFromValue(1.0);
-                fadeOut.setToValue(0.0);
-                fadeOut.setOnFinished(fadeFinishedEvent -> mainController.anchorPaneNotification.setVisible(false));
-                fadeOut.play();
-            });
-            timeline.getKeyFrames().add(key);
-            fadeIn.play();
-            timeline.play();
-        }
+        ImageView imageViewNotification = new ImageView(imageViewNotificationReference);
+        imageViewNotification.setFitWidth(70);
+        imageViewNotification.setFitHeight(70);
+        imageViewNotification.setLayoutX(25);
+        imageViewNotification.setLayoutY(25);
+
+        AnchorPane contentPane = new AnchorPane();
+        contentPane.setLayoutX(120);
+        contentPane.setPrefSize(430, 120);
+
+        Label labelNotificationHeader = new Label(notificationHeaderReference);
+        labelNotificationHeader.setLayoutY(18);
+        labelNotificationHeader.setTextFill(Color.WHITE);
+        labelNotificationHeader.setStyle("-fx-font-size: 28;");
+
+        Label labelNotificationContent = new Label(notificationContentReference);
+        labelNotificationContent.setLayoutX(1);
+        labelNotificationContent.setLayoutY(65);
+        labelNotificationContent.setTextFill(Color.WHITE);
+        labelNotificationContent.setStyle("-fx-font-size: 18;");
+
+        contentPane.getChildren().addAll(labelNotificationHeader, labelNotificationContent);
+
+        anchorPaneNotification.getChildren().addAll(overlay, imageViewNotification, contentPane);
+
+        mainController.flowPaneNotification.getChildren().add(anchorPaneNotification);
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), anchorPaneNotification);
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(2), anchorPaneNotification);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+
+        fadeIn.setOnFinished(event -> {
+            new java.util.Timer().schedule(
+                    new java.util.TimerTask() {
+                        @Override
+                        public void run() {
+                            fadeOut.play();
+                        }
+                    },
+                    2500
+            );
+        });
+
+        fadeOut.setOnFinished(event -> {
+            mainController.flowPaneNotification.getChildren().remove(anchorPaneNotification);
+        });
+
+        fadeIn.play();
     }
-
-    public void showNotificationLoader(boolean isShow) {
-        mainController.anchorPaneNotification.setVisible(true);
-        mainController.anchorPaneNotification.setOpacity(isShow ? 0.0 : 1.0);
-
-        FadeTransition fade = new FadeTransition(Duration.seconds(.2), mainController.anchorPaneNotification);
-        fade.setFromValue(isShow ? 0.0 : 1.0);
-        fade.setToValue(isShow ? 1.0 : 0.0);
-        if (!isShow) {
-            fade.setOnFinished(event -> mainController.anchorPaneNotification.setVisible(false));
-        }
-
-        fade.play();
-    }
-
 
     public void showScreenToSmall() {
 

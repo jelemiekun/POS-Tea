@@ -180,26 +180,14 @@ public class MainController implements Initializable {
     }
 
     /**
-     * Notification
-     */
-
-    @FXML
-    public ImageView imageViewNotification;
-    @FXML
-    public Label labelNotificationHeader;
-    @FXML
-    public Label labelNotificationContent;
-    @FXML
-    public AnchorPane anchorPaneNotification;
-
-
-    /**
      * Main
      */
 
     public FXMLLoader loader;
     public Parent root;
     public Stage newStage;
+    @FXML
+    public FlowPane flowPaneNotification;
     @FXML
     public Label labelProfileName;
     @FXML
