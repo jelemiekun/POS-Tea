@@ -500,7 +500,7 @@ public class SettingsModel {
     }
 
     /**
-     * Account
+     * Account - USERS
      */
     public void comboBoxNameOnAction() {
         if (mainController.comboBoxAccountName.getValue() != null) {
@@ -582,6 +582,8 @@ public class SettingsModel {
             mainController.imagePencilSettingsAccount3.setVisible(isShow);
             mainController.imagePencilSettingsAccount4.setVisible(isShow);
 
+            mainController.labelMiddleNameOptional.setVisible(isShow);
+
             mainController.textFieldAccountGivenName.setDisable(!isShow);
             mainController.textFieldAccountMiddleName.setDisable(!isShow);
             mainController.textFieldAccountLastName.setDisable(!isShow);
@@ -607,42 +609,60 @@ public class SettingsModel {
 
     private boolean checkPane1Changes(boolean isAdd) {
         if (mainController.detectChangesUsers) {
-            Account oldAccount = accountReference.copy();
-
-            if (saveChanges(1)) {
-                accountEditingProceed = false;
-
-                getChanges();
-
-                if (updateAccountToAccountCSV(oldAccount, accountReference)) {
-                    if (isAdd) {
-                        mainController.mainModel.populateFullNamesObservableList();
-                        setNameToNewlyAddedName();
-                    } else {
-                        int index = saveEditedNameIndex();
-                        mainController.mainModel.populateFullNamesObservableList();
-                        setNameToEditedName(index);
-                    }
-                    return true;
-                } else {
-                    setErrorFailedToUpdateAccountToCSV();
-                    mainController.mainModel.openPrompt();
-                    return false;
-                }
+            if (requiredFieldsNotBlank()) {
+                return false;
             } else {
-                if (!maxAttemptLimitReached) {
-                    setErrorFailedToUpdateAccountUserCancelled();
-                    mainController.mainModel.openPrompt();
-                    maxAttemptLimitReached = false;
+                Account oldAccount = accountReference.copy();
+
+                if (saveChanges(1)) {
+                    accountEditingProceed = false;
+
+                    getChanges();
+
+                    if (updateAccountToAccountCSV(oldAccount, accountReference)) {
+                        if (isAdd) {
+                            mainController.mainModel.populateFullNamesObservableList();
+                            setNameToNewlyAddedName();
+                        } else {
+                            int index = saveEditedNameIndex();
+                            mainController.mainModel.populateFullNamesObservableList();
+                            setNameToEditedName(index);
+                        }
+                        return true;
+                    } else {
+                        setErrorFailedToUpdateAccountToCSV();
+                        mainController.mainModel.openPrompt();
+                        return false;
+                    }
+                } else {
+                    if (!maxAttemptLimitReached) {
+                        setErrorFailedToUpdateAccountUserCancelled();
+                        mainController.mainModel.openPrompt();
+                        maxAttemptLimitReached = false;
+                    }
+                    int index = revertToOldValuesPane1(oldAccount);
+                    mainController.mainModel.populateFullNamesObservableList();
+                    setComboBoxNameToOldValue(index);
+                    return true;
                 }
-                int index = revertToOldValuesPane1(oldAccount);
-                mainController.mainModel.populateFullNamesObservableList();
-                setComboBoxNameToOldValue(index);
-                return true;
             }
         } else {
             return true;
         }
+    }
+
+    private boolean requiredFieldsNotBlank() {
+        return accountUsersTyping();
+    }
+
+    public boolean accountUsersTyping() {
+        String givenName = mainController.textFieldAccountGivenName.getText().trim();
+        String lastName = mainController.textFieldAccountLastName.getText().trim();
+
+        mainController.settingsFillUpThisForm1.setVisible(givenName.isEmpty());
+        mainController.settingsFillUpThisForm2.setVisible(lastName.isEmpty());
+
+        return !givenName.isEmpty() && !lastName.isEmpty();
     }
 
     private int revertToOldValuesPane1(Account oldAccount) {
@@ -713,6 +733,12 @@ public class SettingsModel {
     private void setNameToEditedName(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
     }
+
+
+
+    /**
+     * Account - Account Details
+     */
 
     public void setSettingsAccountPane2(boolean isShow) {
         mainController.imagePencilSettingsAccount5.setVisible(isShow);

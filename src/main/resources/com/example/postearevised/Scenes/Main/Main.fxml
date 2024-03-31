@@ -854,9 +854,19 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </AnchorPane>
-                                                <Label layoutX="1031.0" layoutY="264.0" text="Label">
+                                                <Label fx:id="labelMiddleNameOptional" layoutX="1031.0" layoutY="264.0" text="(Optional)" textFill="#a4a4a4">
                                                    <font>
-                                                      <Font name="Arial" size="12.0" />
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="settingsFillUpThisForm1" layoutX="1031.0" layoutY="193.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="settingsFillUpThisForm2" layoutX="1031.0" layoutY="333.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
                                              </children>
@@ -949,6 +959,11 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
+                                                <Label fx:id="settingsFillUpThisForm3" layoutX="1030.0" layoutY="105.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
@@ -1033,6 +1048,16 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </AnchorPane>
+                                                <Label fx:id="settingsFillUpThisForm4" layoutX="1030.0" layoutY="269.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="settingsFillUpThisForm5" layoutX="1030.0" layoutY="472.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />

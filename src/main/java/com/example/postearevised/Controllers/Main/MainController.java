@@ -915,6 +915,18 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imagePencilSettingsAccount11;
     @FXML
+    public Label settingsFillUpThisForm1;
+    @FXML
+    public Label settingsFillUpThisForm2;
+    @FXML
+    public Label settingsFillUpThisForm3;
+    @FXML
+    public Label settingsFillUpThisForm4;
+    @FXML
+    public Label settingsFillUpThisForm5;
+    @FXML
+    public Label labelMiddleNameOptional;
+    @FXML
     public ImageView imageHideShowNewPasswordAccountSettings;
     @FXML
     public ImageView imageHideShowConfirmNewPasswordAccountSettings;
@@ -925,6 +937,7 @@ public class MainController implements Initializable {
             anchorPaneSettingsBtnEditUsersClickedTouched();
         } else {
             detectChangesUsers = true;
+            settingsModel.accountUsersTyping();
         }
     }
 
