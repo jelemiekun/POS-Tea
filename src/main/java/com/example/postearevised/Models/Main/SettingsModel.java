@@ -24,6 +24,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -44,11 +45,12 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.FileReference.DIRECTORY_PATH_ACCOUNTS;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
-import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
@@ -890,6 +892,7 @@ public class SettingsModel {
                     getAccountDetailsChanges();
 
                     if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
+                        dataTasks();
                         clearFieldsPasswordTexts();
                         return true;
                     } else {
@@ -911,9 +914,22 @@ public class SettingsModel {
                 }
             }
         } else {
-            System.out.println("line 914");
             return true;
         }
+    }
+
+    private void dataTasks() {
+        loggedOutSoDeleteStayLoggedInDetails();
+        inputIntoSecondRow(accountReference);
+
+        File oldFolder = new File(DIRECTORY_PATH_ACCOUNTS);
+
+        String newFolderName = accountReference.getContact();
+
+        File newFolder = new File(oldFolder.getParent(), newFolderName);
+
+        if (oldFolder.exists() && oldFolder.isDirectory())
+            oldFolder.renameTo(newFolder);
     }
 
     private void clearFieldsPasswordTexts() {
@@ -943,15 +959,22 @@ public class SettingsModel {
     }
 
     private boolean accountDetailsRequiredFieldsNotBlank() {
-        return false;
+        boolean willChangeAccount = !oldAccountReference.getContact().equals(accountReference.getContact());
+        boolean validContact = !willChangeAccount || mainController.textFieldAccountContact.getText().matches(REGEX_PHONE_NUMBER) || mainController.textFieldAccountContact.getText().matches(REGEX_EMAIL);
+
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+
+        return validContact;
     }
 
     public void accountDetailsTyping() {
         String contact = mainController.textFieldAccountContact.getText().trim();
-        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText() : mainController.passwordFieldAccountNewPassword.getText();
-        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText() : mainController.passwordFieldAccountConfirmNewPassword.getText();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
 
-        mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || newPassword.isEmpty() || confirmNewPassword.isEmpty();
+        mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
+        System.out.println(mainController.detectChangesAccountDetails);
     }
 
 
