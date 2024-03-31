@@ -217,7 +217,7 @@ public class AccountCSV {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-            // error creating account
+            setErrorCreatingAccount();
             openPrompt();
             return false;
         }
@@ -283,6 +283,50 @@ public class AccountCSV {
             return false;
         }
     }
+
+
+    public static boolean deleteAccountFromCSV(Account accountToDelete) {
+        try {
+            File inputFile = new File(CSV_FILE_PATH_ACCOUNTS);
+            File tempFile = new File("temp.csv");
+
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+
+            String line;
+            String accountDetailsToDelete = accountToDelete.getContact();
+
+            while ((line = reader.readLine()) != null) {
+                String[] fields = line.split(",");
+                String accountDetails = fields[0];
+
+                if (!accountDetails.equals(accountDetailsToDelete)) {
+                    writer.write(line);
+                    writer.newLine();
+                }
+            }
+            writer.close();
+            reader.close();
+
+            if (!inputFile.delete()) {
+                System.out.println("Could not delete the original file.");
+                return false;
+            }
+            if (!tempFile.renameTo(inputFile)) {
+                System.out.println("Could not rename the temporary file.");
+                return false;
+            }
+
+            System.out.println("Account deleted successfully.");
+            return true;
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(true);
+            return false;
+        }
+    }
+
+
 
     private static void openPrompt() {
         FXMLLoader loader = new FXMLLoader(OrderHistoryAndOrderQueueCSVOperations.class.getResource(EXIT_CONFIRMATION_ENUM.getURL()));

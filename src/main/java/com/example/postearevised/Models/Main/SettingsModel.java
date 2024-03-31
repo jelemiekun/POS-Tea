@@ -1241,16 +1241,26 @@ public class SettingsModel {
     }
 
     public void deleteAccountProcess() {
+        disableOtherAccountEditButtons(4);
         setDeleteAccount1();
         if (mainController.mainModel.openPrompt()) {
             if (saveChanges(4)) {
                 setDeleteAccount2();
                 if (mainController.mainModel.openPrompt()) {
-                    setDeleteAccount3AccountDeleted();
-                    mainController.mainModel.openPrompt();
+                    if (deleteAccountFromCSV(accountReference)) {
+                        setDeleteAccount3AccountDeleted();
+                        mainController.mainModel.openPrompt();
+                        mainController.mainModel.logOutAccountDeleted(); // LOGOUT
+                        accountSet.remove(accountReference);
+                    } else {
+                        setErrorAccountDeletion();
+                        mainController.mainModel.openPrompt();
+                    }
                 }
             }
         }
+
+        disableOtherAccountEditButtons(5);
     }
 
     /**

@@ -428,6 +428,10 @@ public class MainModel {
         return isConfirmed;
     }
 
+    public void logOutAccountDeleted() {
+        logout();
+    }
+
     private void logout() {
         deleteStayLoggedInData();
 

@@ -16,13 +16,21 @@ MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 invoice pa sa order history
 
-lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
-
 itrim settings acount, sa register, at sa forgot password PATI SA ACCOUNT TAPOS LISTENERS NILA
 
-css files ng 2 table mula kay abella
+display css styles
 
 system manual VID AT ACCORDIONS
+
+lagyan ng notifs yung iba pa
+
+if mag cchange email, bawal sa existing na.
+
+BAWAL DUPLICATE ADDING NAME
+
+lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
+
+may mag ppop up if may changes na nadetect sa directory
 
 
 
@@ -41,10 +49,6 @@ dapat di gumagana editProduct if naka open csv
 DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
-
-gawing * lahat ng static import
-
-may mag ppop up if may changes na nadetect sa directory
 
 ------------------MGA ITATANONG------------------
 
@@ -602,3 +606,9 @@ pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwo
 gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede haha
 
 css files ng themes tapos code ng mag iiba iba display theme
+
+delete account dapat paganahin
+
+ayusin logic ng putanginang change password na yan
+
+gawing * lahat ng static import

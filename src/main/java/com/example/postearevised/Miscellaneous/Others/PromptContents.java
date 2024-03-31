@@ -738,6 +738,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorCreatingAccount() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Failed to create account.";
+        promptContentText = "Failed to create an account. Please try again later.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorAccountDeletion() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Failed to delete account.";
+        promptContentText = "Failed to delete the account. Please try again later.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setDeleteAccount1() {
         setIsConfirmedToFalse();
 
