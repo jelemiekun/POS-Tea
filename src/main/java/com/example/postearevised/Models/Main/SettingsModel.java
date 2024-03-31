@@ -791,7 +791,7 @@ public class SettingsModel {
                 existingName = existingName.replace(" (Default)", "").trim();
 
             System.out.println("line 790 " + fullName + ", " + existingName);
-            if (existingName.equals(fullName))
+            if (existingName.equalsIgnoreCase(fullName))
                 return false;
         }
         return true;
