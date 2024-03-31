@@ -915,15 +915,15 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imagePencilSettingsAccount11;
     @FXML
-    public Label settingsFillUpThisForm1;
+    public Label labelSettingsFillUpThisForm1;
     @FXML
-    public Label settingsFillUpThisForm2;
+    public Label labelSettingsFillUpThisForm2;
     @FXML
-    public Label settingsFillUpThisForm3;
+    public Label labelSettingsFillUpThisForm3;
     @FXML
-    public Label settingsFillUpThisForm4;
+    public Label labelSettingsFillUpThisForm4;
     @FXML
-    public Label settingsFillUpThisForm5;
+    public Label labelSettingsFillUpThisForm5;
     @FXML
     public Label labelMiddleNameOptional;
     @FXML
@@ -939,6 +939,12 @@ public class MainController implements Initializable {
             detectChangesUsers = true;
             settingsModel.accountUsersTyping();
         }
+    }
+
+    @FXML
+    void comboBoxAccountNamePressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            anchorPaneSettingsBtnEditUsersClickedTouched();
     }
 
     @FXML

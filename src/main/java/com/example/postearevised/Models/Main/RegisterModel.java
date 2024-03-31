@@ -42,7 +42,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.textFieldName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 loginRegisterForgotPassController.textFieldName.setText(newValue);
-            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
                 loginRegisterForgotPassController.textFieldName.setText(oldValue);
             }
         });
@@ -50,7 +50,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.textFieldMiddleName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 loginRegisterForgotPassController.textFieldMiddleName.setText(newValue);
-            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
                 loginRegisterForgotPassController.textFieldMiddleName.setText(oldValue);
             }
         });
@@ -58,7 +58,7 @@ public class RegisterModel {
         loginRegisterForgotPassController.textFieldLastName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.isEmpty()) {
                 loginRegisterForgotPassController.textFieldLastName.setText(newValue);
-            } else if (!newValue.matches(REGEX_CAN_CONTAIN_ANYTHING_EXCEPT_SPACE_FIRST_CHARACTER_IS_NOT_ALLOWED)) {
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
                 loginRegisterForgotPassController.textFieldLastName.setText(oldValue);
             }
         });

@@ -49,6 +49,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.RegexReference.REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
@@ -500,9 +501,55 @@ public class SettingsModel {
     }
 
     /**
+     * Account
+     */
+    public void setSettingsAccount() {
+        setSettingsAccountPane1(false);
+        setSettingsAccountPane2(false);
+        setSettingsAccountPane3(false);
+        setOthersSettingsAccountPane();
+
+        setSettingsAccountPane1TextFieldListeners();
+    }
+
+    private void setOthersSettingsAccountPane() {
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+        mainController.labelSettingsFillUpThisForm1.setVisible(false);
+        mainController.labelSettingsFillUpThisForm2.setVisible(false);
+        mainController.labelSettingsFillUpThisForm3.setVisible(false);
+        mainController.labelSettingsFillUpThisForm4.setVisible(false);
+        mainController.labelSettingsFillUpThisForm5.setVisible(false);
+    }
+
+    private void setSettingsAccountPane1TextFieldListeners() {
+        mainController.textFieldAccountGivenName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                mainController.textFieldAccountGivenName.setText(newValue);
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
+                mainController.textFieldAccountGivenName.setText(oldValue);
+            }
+        });
+        mainController.textFieldAccountMiddleName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                mainController.textFieldAccountMiddleName.setText(newValue);
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
+                mainController.textFieldAccountMiddleName.setText(oldValue);
+            }
+        });
+        mainController.textFieldAccountLastName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.isEmpty()) {
+                mainController.textFieldAccountLastName.setText(newValue);
+            } else if (!newValue.matches(REGEX_ENGLISH_ALPHABET_ONLY_NO_SPACE_IN_FRONT)) {
+                mainController.textFieldAccountLastName.setText(oldValue);
+            }
+        });
+    }
+
+    /**
      * Account - USERS
      */
     public void comboBoxNameOnAction() {
+        setOthersSettingsAccountPane();
         if (mainController.comboBoxAccountName.getValue() != null) {
             if (!mainController.textFieldAccountGivenName.isDisabled())
                 mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Default)"));
@@ -524,6 +571,42 @@ public class SettingsModel {
             } else {
                 addAUser();
             }
+        }
+
+        mainController.detectChangesUsers = false;
+    }
+
+    public void setSettingsAccountPane1(boolean isShow) {
+        boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
+
+        if (proceed) {
+            mainController.imagePencilSettingsAccount1.setVisible(isShow);
+            mainController.imagePencilSettingsAccount2.setVisible(isShow);
+            mainController.imagePencilSettingsAccount3.setVisible(isShow);
+            mainController.imagePencilSettingsAccount4.setVisible(isShow);
+
+            mainController.labelMiddleNameOptional.setVisible(isShow);
+
+            mainController.textFieldAccountGivenName.setDisable(!isShow);
+            mainController.textFieldAccountMiddleName.setDisable(!isShow);
+            mainController.textFieldAccountLastName.setDisable(!isShow);
+
+            if (isShow)
+                fullNames.add(addUser);
+            else
+                fullNames.remove(addUser);
+
+            if (!mainController.comboBoxAccountName.getValue().contains("(Default)"))
+                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
+
+            if (!isShow)
+                mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
+            else
+                mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
+
+            mainController.detectChangesUsers = false;
+
+            mainController.anchorPaneSettingsAccount.requestFocus();
         }
     }
 
@@ -566,50 +649,9 @@ public class SettingsModel {
         mainController.comboBoxSettingsQuestionTwo.setStyle(settingsAccountQuestionsComboBoxStyle);
     }
 
-    public void setSettingsAccount() {
-        setSettingsAccountPane1(false);
-        setSettingsAccountPane2(false);
-        setSettingsAccountPane3(false);
-        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
-    }
-
-    public void setSettingsAccountPane1(boolean isShow) {
-        boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
-
-        if (proceed) {
-            mainController.imagePencilSettingsAccount1.setVisible(isShow);
-            mainController.imagePencilSettingsAccount2.setVisible(isShow);
-            mainController.imagePencilSettingsAccount3.setVisible(isShow);
-            mainController.imagePencilSettingsAccount4.setVisible(isShow);
-
-            mainController.labelMiddleNameOptional.setVisible(isShow);
-
-            mainController.textFieldAccountGivenName.setDisable(!isShow);
-            mainController.textFieldAccountMiddleName.setDisable(!isShow);
-            mainController.textFieldAccountLastName.setDisable(!isShow);
-
-            if (isShow)
-                fullNames.add(addUser);
-            else
-                fullNames.remove(addUser);
-
-            if (!mainController.comboBoxAccountName.getValue().contains("(Default)"))
-                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
-
-            if (!isShow)
-                mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
-            else
-                mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
-
-            mainController.detectChangesUsers = false;
-        }
-
-        mainController.anchorPaneSettingsAccount.requestFocus();
-    }
-
     private boolean checkPane1Changes(boolean isAdd) {
         if (mainController.detectChangesUsers) {
-            if (requiredFieldsNotBlank()) {
+            if (!requiredFieldsNotBlank()) {
                 return false;
             } else {
                 Account oldAccount = accountReference.copy();
@@ -647,22 +689,21 @@ public class SettingsModel {
                 }
             }
         } else {
+            mainController.comboBoxAccountName.setValue(fullNames.get(0));
             return true;
         }
     }
 
     private boolean requiredFieldsNotBlank() {
-        return accountUsersTyping();
+        return !mainController.textFieldAccountGivenName.getText().trim().isEmpty() && !mainController.textFieldAccountLastName.getText().trim().isEmpty();
     }
 
-    public boolean accountUsersTyping() {
+    public void accountUsersTyping() {
         String givenName = mainController.textFieldAccountGivenName.getText().trim();
         String lastName = mainController.textFieldAccountLastName.getText().trim();
 
-        mainController.settingsFillUpThisForm1.setVisible(givenName.isEmpty());
-        mainController.settingsFillUpThisForm2.setVisible(lastName.isEmpty());
-
-        return !givenName.isEmpty() && !lastName.isEmpty();
+        mainController.labelSettingsFillUpThisForm1.setVisible(givenName.isEmpty());
+        mainController.labelSettingsFillUpThisForm2.setVisible(lastName.isEmpty());
     }
 
     private int revertToOldValuesPane1(Account oldAccount) {

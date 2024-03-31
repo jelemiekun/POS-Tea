@@ -774,7 +774,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" prefHeight="49.0" prefWidth="436.0" />
+                                                <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
                                                 <AnchorPane fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
@@ -859,12 +859,12 @@
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="settingsFillUpThisForm1" layoutX="1031.0" layoutY="193.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm1" layoutX="1031.0" layoutY="193.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="settingsFillUpThisForm2" layoutX="1031.0" layoutY="333.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm2" layoutX="1031.0" layoutY="333.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
@@ -959,7 +959,7 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <Label fx:id="settingsFillUpThisForm3" layoutX="1030.0" layoutY="105.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm3" layoutX="1030.0" layoutY="105.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
@@ -1048,12 +1048,12 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </AnchorPane>
-                                                <Label fx:id="settingsFillUpThisForm4" layoutX="1030.0" layoutY="269.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm4" layoutX="1030.0" layoutY="269.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="settingsFillUpThisForm5" layoutX="1030.0" layoutY="472.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm5" layoutX="1030.0" layoutY="472.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
