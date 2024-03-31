@@ -9,6 +9,7 @@ import java.util.Set;
 
 public class AccountReference {
     public static Account accountReference;
+    public static Account oldAccountReference;
     public static Set<Account> accountSet = new HashSet<>();
     public static String accountContactReference = "";
     public static boolean showNotificationsReference = true;

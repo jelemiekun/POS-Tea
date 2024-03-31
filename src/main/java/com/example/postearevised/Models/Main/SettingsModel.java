@@ -577,6 +577,9 @@ public class SettingsModel {
     }
 
     public void setSettingsAccountPane1(boolean isShow) {
+        if (isShow)
+            oldAccountReference = accountReference.copy();
+
         boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
 
         if (proceed) {
@@ -611,7 +614,16 @@ public class SettingsModel {
     }
 
     public void deleteSelectedName() {
-        
+        int index = getComboBoxNameIndex();
+
+        accountReference.getFirstNames().remove(index);
+        accountReference.getMiddleNames().remove(index);
+        accountReference.getLastNames().remove(index);
+
+        mainController.mainModel.populateFullNamesObservableList();
+        setComboBoxToDefault();
+
+        mainController.detectChangesUsers = true;
     }
 
     private void addAUser() {
@@ -654,19 +666,18 @@ public class SettingsModel {
             if (!requiredFieldsNotBlank()) {
                 return false;
             } else {
-                Account oldAccount = accountReference.copy();
 
                 if (saveChanges(1)) {
                     accountEditingProceed = false;
 
                     getChanges();
 
-                    if (updateAccountToAccountCSV(oldAccount, accountReference)) {
+                    if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
                         if (isAdd) {
                             mainController.mainModel.populateFullNamesObservableList();
                             setNameToNewlyAddedName();
                         } else {
-                            int index = saveEditedNameIndex();
+                            int index = getComboBoxNameIndex();
                             mainController.mainModel.populateFullNamesObservableList();
                             setNameToEditedName(index);
                         }
@@ -683,8 +694,8 @@ public class SettingsModel {
                         maxAttemptLimitReached = false;
                     }
                     setComboBoxToDefault();
-                    setNameToEditedName(saveEditedNameIndex());
-                    int index = revertToOldValuesPane1(oldAccount);
+                    setNameToEditedName(getComboBoxNameIndex());
+                    int index = revertToOldValuesPane1();
                     mainController.mainModel.populateFullNamesObservableList();
                     setComboBoxNameToOldValue(index);
                     return true;
@@ -711,7 +722,11 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm2.setVisible(lastName.isEmpty());
     }
 
-    private int revertToOldValuesPane1(Account oldAccount) {
+    private int revertToOldValuesPane1() {
+        accountReference.getFirstNames().setAll(oldAccountReference.getFirstNames());
+        accountReference.getMiddleNames().setAll(oldAccountReference.getMiddleNames());
+        accountReference.getLastNames().setAll(oldAccountReference.getLastNames());
+
         String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
         int index = -1;
 
@@ -721,9 +736,9 @@ public class SettingsModel {
                 index = i;
         }
 
-        mainController.textFieldAccountGivenName.setText(oldAccount.getFirstNames().get(index));
-        mainController.textFieldAccountMiddleName.setText(oldAccount.getMiddleNames().get(index));
-        mainController.textFieldAccountLastName.setText(oldAccount.getLastNames().get(index));
+        mainController.textFieldAccountGivenName.setText(oldAccountReference.getFirstNames().get(index));
+        mainController.textFieldAccountMiddleName.setText(oldAccountReference.getMiddleNames().get(index));
+        mainController.textFieldAccountLastName.setText(oldAccountReference.getLastNames().get(index));
 
         return index;
     }
@@ -763,7 +778,7 @@ public class SettingsModel {
         mainController.comboBoxAccountName.setValue(fullNames.get(fullNames.size() - 1));
     }
 
-    private int saveEditedNameIndex() {
+    private int getComboBoxNameIndex() {
         String selectedName = mainController.comboBoxAccountName.getValue();
 
         int index = -1;
