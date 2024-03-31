@@ -21,6 +21,7 @@ import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 
@@ -75,7 +76,7 @@ public class AskForPasswordController implements Initializable {
         }
         attempts++;
 
-        if (attempts == 5) {
+        if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
             maxAttemptLimitReached = true;
             setErrorChangingPasswordMaximumAttemptReached();
             openPromptMaximumAttemptReached();
