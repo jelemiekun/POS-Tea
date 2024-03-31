@@ -1012,7 +1012,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void anchorPaneSettingsBtnDeleteClickedTouched() {
-
+        settingsModel.deleteAccountProcess();
     }
 
     @FXML

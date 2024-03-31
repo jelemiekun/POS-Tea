@@ -10,19 +10,7 @@ order receipt - update resibo content
 
 sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
-name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
-
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
-
-codes ng account settings
-
-full name sa name pero lalabas lang sa display is yung given name lang
-
-sec questions pede pa mapalitan
-
-if mag eedit or mag ddelete ng account, hihingin password
-
-pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME
 
 MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
@@ -30,8 +18,15 @@ invoice pa sa order history
 
 gawing dynamic (flowpane, tas add anchorpane nalang) yung notif para marami pede haha
 
+lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
+itrim settings acount, sa register, at sa forgot password PATI SA ACCOUNT TAPOS LISTENERS NILA
 
+css files ng 2 table mula kay abella
+
+css files ng themes tapos code ng mag iiba iba display theme
+
+system manual VID AT ACCORDIONS
 
 
 
@@ -43,10 +38,6 @@ from executable jar file, gawing .exe yung system ( optional )
 
 ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
 
-lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
-
-itrim settings acount, sa register, at sa forgot password
-
 papacheck lahat lahat ng texts sa system sa non ict-teacher
 
 dapat di gumagana editProduct if naka open csv
@@ -56,8 +47,6 @@ DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
 
 gawing * lahat ng static import
-
-css files ng 2 table mula kay abella
 
 may mag ppop up if may changes na nadetect sa directory
 
@@ -601,3 +590,15 @@ new password cannot be the same as old password error
 dapat bawal duplicate full name
 
 if may nakaselect na isang edit, hindi clikcable yung iba
+
+name sa upper left, ilalagay na talaga pero selection lang. tapos sa settings, dropdown na add/remove
+
+codes ng account settings
+
+full name sa name pero lalabas lang sa display is yung given name lang
+
+sec questions pede pa mapalitan
+
+if mag eedit or mag ddelete ng account, hihingin password
+
+pag nag add ng name, hihingin password, pag sinave ulit, manghihingi ulit passwor. BASTA KAPAG ACCOUNT MODIFICATION MANGHIHINGI PASSWORD, MAY ADDITIONAL PASSWORD CONFIRMATION LANG SA PAG ADD NG NAME

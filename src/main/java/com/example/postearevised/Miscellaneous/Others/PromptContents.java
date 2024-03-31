@@ -703,4 +703,55 @@ public class PromptContents {
         btnCenterBoolean = false;
         btnRightBoolean = false;
     }
+
+    public static void setDeleteAccount1() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Delete account?";
+        promptContentText = "Do you want to delete your account?";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = YES_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = true;
+    }
+
+    public static void setDeleteAccount2() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Confirm Account Deletion";
+        promptContentText = "This action cannot be undone. All data associated with this account will be permanently deleted. Continue deleting your account?";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = CANCEL_CAPS_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = DELETE_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = true;
+    }
+
+    public static void setDeleteAccount3AccountDeleted() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = TRIANGLE_RED_ICON;
+        promptHeaderText = "Account Successfully Deleted.";
+        promptContentText = "Click 'OKAY' to continue to log-in.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = DELETE_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
 }

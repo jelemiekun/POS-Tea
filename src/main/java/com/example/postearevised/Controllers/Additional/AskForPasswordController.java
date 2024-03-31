@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -30,6 +31,12 @@ public class AskForPasswordController implements Initializable {
     private int attempts = 0;
 
     @FXML
+    private AnchorPane normalPane;
+
+    @FXML
+    private AnchorPane deletePane;
+
+    @FXML
     private Label labelHeaderTitle;
 
     @FXML
@@ -43,15 +50,23 @@ public class AskForPasswordController implements Initializable {
         switch (headerTitle) {
             case "Edit Users":
                 labelHeaderTitle.setText(USERS_ENUM.getHeaderTitle());
+                normalPane.setVisible(true);
+                deletePane.setVisible(false);
                 break;
             case "Edit Account Details":
                 labelHeaderTitle.setText(ACCOUNT_DETAILS_ENUM.getHeaderTitle());
+                normalPane.setVisible(true);
+                deletePane.setVisible(false);
                 break;
             case "Edit Questions":
                 labelHeaderTitle.setText(RECOVERY_QUESTIONS_ENUM.getHeaderTitle());
+                normalPane.setVisible(true);
+                deletePane.setVisible(false);
                 break;
             case "Delete Account":
                 labelHeaderTitle.setText(DELETE_ACCOUNT_ENUM.getHeaderTitle());
+                normalPane.setVisible(false);
+                deletePane.setVisible(true);
                 break;
         }
     }

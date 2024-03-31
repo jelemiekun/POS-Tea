@@ -1230,6 +1230,19 @@ public class SettingsModel {
         return accountEditingProceed;
     }
 
+    public void deleteAccountProcess() {
+        setDeleteAccount1();
+        if (mainController.mainModel.openPrompt()) {
+            if (saveChanges(4)) {
+                setDeleteAccount2();
+                if (mainController.mainModel.openPrompt()) {
+                    setDeleteAccount3AccountDeleted();
+                    mainController.mainModel.openPrompt();
+                }
+            }
+        }
+    }
+
     /**
      * Appearance
      */

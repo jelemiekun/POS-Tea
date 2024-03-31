@@ -24,6 +24,7 @@ public class ImagesReference {
     public static final Image ADD_ANYWAY_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/add anyway.png")));;
     public static final Image CANCEL_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel.png")));;
     public static final Image CONTINUE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/continue.png")));;
+    public static final Image CANCEL_CAPS_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel caps.png")));;
 
 
     /**
