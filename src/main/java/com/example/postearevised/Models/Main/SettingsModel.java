@@ -4,6 +4,7 @@ import com.example.postearevised.Controllers.Additional.ProductController;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
+import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,8 +34,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExportEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
@@ -44,8 +47,9 @@ import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.recoveryQuestionsObservableList;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
+import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class SettingsModel {
@@ -83,7 +87,7 @@ public class SettingsModel {
     }
 
     public void setPane() {
-        openSelectedPane(Account.getPaneNumber());
+        openSelectedPane(SETTINGS_PANE_ACCOUNT_ENUM.getPaneNumber());
     }
 
     public void openSelectedPane(int paneNumber) {
@@ -499,19 +503,39 @@ public class SettingsModel {
      * Account
      */
     public void comboBoxNameOnAction() {
-        String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
-        int index = -1;
+        if (mainController.comboBoxAccountName.getValue() != null) {
+            mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Default)"));
 
-        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
-            String firstName = getFirstWord(accountReference.getFirstNames().get(i));
-            if (selectedName.equals(firstName))
-                index = i;
-        }
+            if (!mainController.comboBoxAccountName.getValue().equals(addUser)) {
+                String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
+                int index = -1;
 
-        if (index != -1) {
-            setLeftPanelProfileName(index);
-            setFirstMiddleLastNameTextFields(index);
+                for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+                    String firstName = getFirstWord(accountReference.getFirstNames().get(i));
+                    if (selectedName.equals(firstName))
+                        index = i;
+                }
+
+                if (index != -1) {
+                    setLeftPanelProfileName(index);
+                    setFirstMiddleLastNameTextFields(index);
+                }
+            } else {
+                addAUser();
+            }
         }
+    }
+
+    private void addAUser() {
+        mainController.comboBoxAccountName.setValue(addUser);
+
+        mainController.textFieldAccountGivenName.setText("");
+        mainController.textFieldAccountMiddleName.setText("");
+        mainController.textFieldAccountLastName.setText("");
+
+        mainController.textFieldAccountGivenName.setPromptText("Enter First Name");
+        mainController.textFieldAccountMiddleName.setPromptText("Enter Middle Name");
+        mainController.textFieldAccountLastName.setPromptText("Enter Surname");
     }
 
     private String getFirstWord(String value) {
@@ -539,30 +563,98 @@ public class SettingsModel {
         setSettingsAccountPane1(false);
         setSettingsAccountPane2(false);
         setSettingsAccountPane3(false);
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
     }
 
     public void setSettingsAccountPane1(boolean isShow) {
-        mainController.imagePencilSettingsAccount1.setVisible(isShow);
-        mainController.imagePencilSettingsAccount2.setVisible(isShow);
-        mainController.imagePencilSettingsAccount3.setVisible(isShow);
-        mainController.imagePencilSettingsAccount4.setVisible(isShow);
+        boolean proceed = checkPane1Changes();
 
-        mainController.textFieldAccountGivenName.setDisable(!isShow);
-        mainController.textFieldAccountMiddleName.setDisable(!isShow);
-        mainController.textFieldAccountLastName.setDisable(!isShow);
+        if (proceed) {
+            mainController.imagePencilSettingsAccount1.setVisible(isShow);
+            mainController.imagePencilSettingsAccount2.setVisible(isShow);
+            mainController.imagePencilSettingsAccount3.setVisible(isShow);
+            mainController.imagePencilSettingsAccount4.setVisible(isShow);
 
-        if (isShow)
-            mainController.comboBoxAccountName.getItems().add(" + Add User...");
-        else
-            mainController.comboBoxAccountName.getItems().remove(" + Add User...");
+            mainController.textFieldAccountGivenName.setDisable(!isShow);
+            mainController.textFieldAccountMiddleName.setDisable(!isShow);
+            mainController.textFieldAccountLastName.setDisable(!isShow);
 
-        mainController.anchorPaneSettingsBtnAddUser.setVisible(isShow);
-        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
+            if (isShow)
+                fullNames.add(addUser);
+            else
+                fullNames.remove(addUser);
 
-        if (!isShow)
-            mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
-        else
-            mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
+            if (!mainController.comboBoxAccountName.getValue().contains("(Default)"))
+                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
+
+            if (!isShow)
+                mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
+            else
+                mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
+
+            mainController.detectChangesUsers = false;
+        }
+    }
+
+    private boolean checkPane1Changes() {
+        if (mainController.detectChangesUsers) {
+            if (saveChanges(1)) {
+                Account oldAccount = accountReference.copy();
+
+                getChanges();
+
+                if (updateAccountToAccountCSV(oldAccount, accountReference)) {
+                    mainController.mainModel.populateFullNamesObservableList();
+                    setNameToNewlyAddedName();
+                    return true;
+                } else {
+                    setErrorFailedToUpdateAccountToCSV();
+                    mainController.mainModel.openPrompt();
+                    return false;
+                }
+            } else {
+                if (!maxAttemptLimitReached) {
+                    setErrorFailedToUpdateAccountUserCancelled();
+                    mainController.mainModel.openPrompt();
+                    maxAttemptLimitReached = false;
+                }
+                // REVERT BACK SA DATING VALUE!
+                return false;
+            }
+        } else {
+            return true;
+        }
+    }
+
+    private void getChanges() {
+        String textFieldFirstName = mainController.textFieldAccountGivenName.getText().trim();
+        String textFieldMiddleName = mainController.textFieldAccountMiddleName.getText().trim().isEmpty() ? "" : mainController.textFieldAccountMiddleName.getText().trim();
+        String textFieldLastName = mainController.textFieldAccountLastName.getText().trim();
+
+        if (mainController.comboBoxAccountName.getValue().equals(addUser)) {
+            accountReference.getFirstNames().add(textFieldFirstName);
+            accountReference.getMiddleNames().add(textFieldMiddleName);
+            accountReference.getLastNames().add(textFieldLastName);
+        } else {
+            String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
+            int index = -1;
+
+            for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+                String firstName = getFirstWord(accountReference.getFirstNames().get(i));
+                if (selectedName.equals(firstName))
+                    index = i;
+            }
+
+            if (index != -1) {
+                accountReference.getFirstNames().set(index, textFieldFirstName);
+                accountReference.getMiddleNames().set(index, textFieldMiddleName);
+                accountReference.getLastNames().set(index, textFieldLastName);
+            }
+        }
+    }
+
+    private void setNameToNewlyAddedName() {
+        mainController.comboBoxAccountName.setValue(fullNames.get(fullNames.size() - 1));
     }
 
     public void setSettingsAccountPane2(boolean isShow) {
@@ -598,6 +690,48 @@ public class SettingsModel {
             mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
         else
             mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("FINISH EDITING");
+    }
+
+    private boolean saveChanges(int operationNumber) { // 1 - users, 2 - account, 3 - recovery questions, 4 account deletion
+        switch (operationNumber) {
+            case 1:
+                headerTitle = USERS_ENUM.getHeaderTitle();
+                break;
+            case 2:
+                headerTitle = ACCOUNT_DETAILS_ENUM.getHeaderTitle();
+                break;
+            case 3:
+                headerTitle = RECOVERY_QUESTIONS_ENUM.getHeaderTitle();
+                break;
+            case 4:
+                headerTitle = DELETE_ACCOUNT_ENUM.getHeaderTitle();
+                break;
+        }
+        return openAskForPasswordFXML();
+    }
+
+    private boolean openAskForPasswordFXML() {
+        mainController.mainModel.showRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        Stage newStage = new Stage();
+
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+        newStage.setTitle(ASK_FOR_PASSWORD.getTITLE());
+        newStage.setResizable(false);
+        newStage.getIcons().add(SYSTEM_LOGO);
+        newStage.setScene(new Scene(root));
+        newStage.showAndWait();
+        mainController.mainModel.hideRectangleModal();
+        return accountEditingProceed;
     }
 
 

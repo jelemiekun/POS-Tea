@@ -567,6 +567,6 @@ public class DashboardModel {
 
     public void goToSystemManual() {
         mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
-        mainController.settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+        mainController.settingsModel.openSelectedPane(SETTINGS_PANE_SYSTEM_MANUAL_ENUM.getPaneNumber());
     }
 }

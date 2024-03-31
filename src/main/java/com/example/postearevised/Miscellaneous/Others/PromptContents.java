@@ -126,6 +126,57 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setErrorFailedToUpdateAccountToCSV() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Edit Failed!";
+        promptContentText = "Operation failed. CSV in use or try again later.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorFailedToUpdateAccountUserCancelled() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Edit Failed!";
+        promptContentText = "Operation was cancelled by the user.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setErrorChangingPasswordMaximumAttemptReached() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Maximum attempt reached!";
+        promptContentText = "Maximum attempt limit reached. Please try again.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_GREEN_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_GREEN_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setConfirmLogout() {
         setIsConfirmedToFalse();
 

@@ -48,17 +48,24 @@ public class MainModel {
         mainController.checkBoxSettingNotification.setSelected(accountReference.isShowNotification());
         mainController.checkBoxSettingGuideMessages.setSelected(accountReference.isShowGuideMessages());
 
+        populateFullNamesObservableList();
+
+        mainController.comboBoxAccountName.setValue(fullNames.get(0));
+    }
+
+    public void populateFullNamesObservableList() {
+        fullNames.clear();
+
         for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
             String firstName = accountReference.getFirstNames().get(i);
-            String middleName = accountReference.getMiddleNames().get(i).isEmpty() ? " " : accountReference.getMiddleNames().get(i);
+            String middleName = accountReference.getMiddleNames().get(i).isEmpty() || accountReference.getMiddleNames().get(i).equals(".") ? "" : accountReference.getMiddleNames().get(i);
             String lastName = accountReference.getLastNames().get(i);
 
             String isDefault = i == 0 ? " (Default)" : "";
             fullNames.add(firstName + " " + middleName + " " + lastName + isDefault);
-        }
 
-        mainController.comboBoxAccountName.setItems(fullNames);
-        mainController.comboBoxAccountName.setValue(fullNames.get(0));
+            mainController.comboBoxAccountName.setItems(fullNames);
+        }
     }
 
     public void setDropShadow() {

@@ -165,6 +165,10 @@ public class AccountCSV {
                     String[] middleNames = parts[7].split("/");
                     String[] lastNames = parts[8].split("/");
 
+                    for (int i = 0; i < firstNames.length; i++) {
+                        middleNames[i] = middleNames[i].isEmpty() || middleNames[i].equals(".") ? "" : middleNames[i];
+                    }
+
                     observableListFirstNames.addAll(Arrays.asList(firstNames));
                     observableListMiddleNames.addAll(Arrays.asList(middleNames));
                     observableListLastNames.addAll(Arrays.asList(lastNames));
@@ -222,6 +226,7 @@ public class AccountCSV {
     private static String concatenateNames(ObservableList<String> names) {
         StringBuilder sb = new StringBuilder();
         for (String name : names) {
+            name = name.isEmpty() ? "." : name;
             sb.append(name).append("/");
         }
 

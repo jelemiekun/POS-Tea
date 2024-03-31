@@ -775,14 +775,14 @@
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" prefHeight="49.0" prefWidth="436.0" />
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnAddUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnAddUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnAddUserClickedTouched">
+                                                <AnchorPane fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
-                                                            <Image url="@../../Medias/Buttons/OrderButtons/pay.png" />
+                                                            <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
                                                          </image>
                                                       </ImageView>
-                                                      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="3.0" prefHeight="42.0" prefWidth="142.0" text="ADD USER" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                                      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="3.0" prefHeight="42.0" prefWidth="142.0" text="DELETE USER" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                                          <font>
                                                             <Font name="Arial Black" size="16.0" />
                                                          </font>
@@ -802,7 +802,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountGivenName" layoutX="580.0" layoutY="182.0" prefWidth="436.0">
+                                                <TextField fx:id="textFieldAccountGivenName" layoutX="580.0" layoutY="182.0" onKeyPressed="#settingsUsersTyping" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
@@ -817,7 +817,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountMiddleName" layoutX="580.0" layoutY="251.0" prefWidth="436.0">
+                                                <TextField fx:id="textFieldAccountMiddleName" layoutX="580.0" layoutY="251.0" onKeyPressed="#settingsUsersTyping" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
@@ -832,7 +832,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField fx:id="textFieldAccountLastName" layoutX="580.0" layoutY="321.0" prefWidth="436.0">
+                                                <TextField fx:id="textFieldAccountLastName" layoutX="580.0" layoutY="321.0" onKeyPressed="#settingsUsersTyping" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
@@ -845,23 +845,6 @@
                                                          </image>
                                                       </ImageView>
                                                       <Label fx:id="labelSettingsAccountEditFinishUsers" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="200.0" text="EDIT USERS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-                                                         <font>
-                                                            <Font name="Arial Black" size="16.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                   <cursor>
-                                                      <Cursor fx:constant="HAND" />
-                                                   </cursor>
-                                                </AnchorPane>
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="165.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
-                                                   <children>
-                                                      <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
-                                                         <image>
-                                                            <Image url="@../../Medias/Buttons/OrderButtons/cancel.png" />
-                                                         </image>
-                                                      </ImageView>
-                                                      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="3.0" prefHeight="42.0" prefWidth="142.0" text="DELETE USER" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                                                          <font>
                                                             <Font name="Arial Black" size="16.0" />
                                                          </font>

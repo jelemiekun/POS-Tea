@@ -739,7 +739,6 @@ public class MainController implements Initializable {
     /**
      * Settings
      */
-
     @FXML
     public AnchorPane anchorPaneSettingsDropShadow;
     @FXML
@@ -785,52 +784,52 @@ public class MainController implements Initializable {
 
     @FXML
     void anchorPaneSettingsAccountClicked() {
-        settingsModel.openSelectedPane(Account.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_ACCOUNT_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsAccountTouched() {
-        settingsModel.openSelectedPane(Account.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_ACCOUNT_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsDisplayClicked() {
-        settingsModel.openSelectedPane(Display.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_APPEARANCE_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsDisplayTouched() {
-        settingsModel.openSelectedPane(Display.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_APPEARANCE_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsTACClicked() {
-        settingsModel.openSelectedPane(TAC.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_TAC_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsTACTouched() {
-        settingsModel.openSelectedPane(TAC.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_TAC_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsEditProductsClicked() {
-        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_EDIT_PRODUCT_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsEditProductsTouched() {
-        settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_EDIT_PRODUCT_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsSystemManualClicked() {
-        settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_SYSTEM_MANUAL_ENUM.getPaneNumber());
     }
 
     @FXML
     void anchorPaneSettingsSystemManualTouched() {
-        settingsModel.openSelectedPane(SystemManual.getPaneNumber());
+        settingsModel.openSelectedPane(SETTINGS_PANE_SYSTEM_MANUAL_ENUM.getPaneNumber());
     }
 
     /**
@@ -843,6 +842,9 @@ public class MainController implements Initializable {
     public boolean editAccount = false;
     public boolean editSecurityQuestions = false;
     public boolean isUpdatingComboBox = false;
+    public boolean detectChangesUsers = false;
+    public boolean detectChangesAccountDetails = false;
+    public boolean detectChangesRecoveryQuestion = false;
 
 
     // Labels
@@ -878,8 +880,6 @@ public class MainController implements Initializable {
     public TextField textFieldAccountQuestionTwo;
 
     // AnchorPanes
-    @FXML
-    public AnchorPane anchorPaneSettingsBtnAddUser;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDeleteUser;
     @FXML
@@ -919,10 +919,13 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imageHideShowConfirmNewPasswordAccountSettings;
 
-
     @FXML
-    public void anchorPaneSettingsBtnAddUserClickedTouched() {
-
+    void settingsUsersTyping(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            anchorPaneSettingsBtnEditUsersClickedTouched();
+        } else {
+            detectChangesUsers = true;
+        }
     }
 
     @FXML

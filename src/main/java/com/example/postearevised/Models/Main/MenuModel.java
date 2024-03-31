@@ -71,7 +71,7 @@ public class MenuModel {
 
     public void goToEditProducts() {
         mainController.mainModel.openSelectedPane(SETTINGS_ENUM.getPaneNumber());
-        mainController.settingsModel.openSelectedPane(EditProducts.getPaneNumber());
+        mainController.settingsModel.openSelectedPane(SETTINGS_PANE_EDIT_PRODUCT_ENUM.getPaneNumber());
     }
 
     public void checkIfIsMenuEmpty() {
