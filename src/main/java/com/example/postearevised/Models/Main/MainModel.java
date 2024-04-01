@@ -77,7 +77,33 @@ public class MainModel {
 
             mainController.comboBoxAccountName.setItems(fullNames);
         }
+
+
+
+        usersNames.clear();
+
+        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
+            String firstPart = getFirstWord(accountReference.getFirstNames().get(i));
+            String secondPart = accountReference.getMiddleNames().get(i).isEmpty() ? getFirstCharacter(accountReference.getLastNames().get(i)) : getFirstCharacter(accountReference.getMiddleNames().get(i));
+
+            usersNames.add(firstPart + " " + secondPart + ".");
+
+            mainController.comboBoxLeftPanelUsers.setItems(usersNames);
+        }
     }
+
+    public String getFirstWord(String input) {
+        String[] words = input.split("\\s+");
+        return words[0];
+    }
+    public static String getFirstCharacter(String input) {
+        if (input != null && !input.isEmpty()) {
+            return input.substring(0, 1);
+        } else {
+            return "";
+        }
+    }
+
 
     public void setDropShadow() {
         DropShadow dropShadow = new DropShadow();

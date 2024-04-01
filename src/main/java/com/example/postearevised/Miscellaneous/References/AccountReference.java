@@ -14,4 +14,5 @@ public class AccountReference {
     public static String accountContactReference = "";
     public static boolean showGuideMessagesReference = true;
     public static ObservableList<String> fullNames = FXCollections.observableArrayList();
+    public static ObservableList<String> usersNames = FXCollections.observableArrayList();
 }

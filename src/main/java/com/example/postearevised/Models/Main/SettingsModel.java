@@ -730,7 +730,7 @@ public class SettingsModel {
     }
 
     private void setLeftPanelProfileName(int index) {
-        mainController.labelProfileName.setText(getFirstWord(accountReference.getFirstNames().get(index)));
+        mainController.labelProfileName.setText(usersNames.get(index));
     }
 
     public void setSettingsAccountStyle() {
@@ -799,6 +799,7 @@ public class SettingsModel {
 
     private void setComboBoxToDefault() {
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(0));
     }
 
     private boolean usersRequiredFieldsNotBlank() {
@@ -852,6 +853,7 @@ public class SettingsModel {
 
     private void setComboBoxNameToOldValue(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(index));
     }
 
     private void getUsersChanges() {
@@ -883,6 +885,7 @@ public class SettingsModel {
 
     private void setNameToNewlyAddedName() {
         mainController.comboBoxAccountName.setValue(fullNames.get(fullNames.size() - 1));
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(usersNames.size() - 1));
     }
 
     private int getComboBoxNameIndex() {
@@ -900,6 +903,7 @@ public class SettingsModel {
 
     private void setNameToEditedName(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(index));
     }
 
 

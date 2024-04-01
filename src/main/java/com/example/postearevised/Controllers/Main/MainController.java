@@ -151,6 +151,7 @@ public class MainController implements Initializable {
         clearOrderQueueReferences();
         clearDashBoardReferences();
         fullNames.clear();
+        usersNames.clear();
     }
 
     /**
@@ -189,6 +190,8 @@ public class MainController implements Initializable {
     public FXMLLoader loader;
     public Parent root;
     public Stage newStage;
+    @FXML
+    public ComboBox<String> comboBoxLeftPanelUsers;
     @FXML
     public FlowPane flowPaneNotification;
     @FXML
