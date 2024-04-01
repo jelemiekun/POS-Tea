@@ -1,0 +1,62 @@
+.root{
+-fx-background-color:#120a1f;
+
+}
+.animate {
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+
+
+.animate:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+
+}
+.rectangle{
+-fx-fill: #180f2d;
+-fx-border-color:white;
+-fx-stroke:black;
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+}
+.rectangle2{
+-fx-stroke:black;
+-fx-fill: #180f2d;
+}
+
+.combobox{
+-fx-padding:10px;
+-fx-background-color:#180f2d;
+-fx-text-fill:white;
+
+
+}
+.combobox .list-cell{
+ -fx-text-fill: white;
+
+}
+#label2{
+-fx-text-fill:black;
+}
+.FlowPane{
+-fx-background-color: #180f2d;
+}
+.ScrollPane{
+-fx-background-color: #180f2d;
+-fx-border-width:1px;
+-fx-border-color:black;
+}
+.FlowPane1{
+-fx-background-color: ebeaf3;
+}
+.label{
+-fx-text-fill:white;
+
+}
+.barchart{
+-fx-background-color:transparent;
+}
+.totalreven{
+-fx-image: url("/src/main/resources/com/example/postearevised/Medias/Icons/Left Panel/dashboard.png");
+}

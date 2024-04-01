@@ -1,0 +1,61 @@
+.root{
+-fx-background-color:white;
+
+}
+.animate {
+    -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+
+
+.animate:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+
+}
+.rectangle{
+-fx-fill: #ebeaf3;
+-fx-border-color:white;
+-fx-stroke:black;
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.1), 10.0,0.0,0.0,10.0);
+}
+.rectangle2{
+-fx-stroke:black;
+-fx-fill: white;
+}
+
+.combobox{
+-fx-padding:10px;
+-fx-background-color:#ebeaf3;
+-fx-text-fill:black;
+
+}
+.combobox .list-cell{
+ -fx-text-fill: black;
+
+}
+.FlowPane{
+-fx-background-color: #ebeaf3;
+}
+.FlowPane.label{
+-fx-text-fill:white;
+}
+.ScrollPane{
+-fx-background-color: #ebeaf3;
+-fx-border-width:1px;
+-fx-border-color:black;
+}
+.ScrollPane.label{
+-fx-text-fill:white;
+}
+.FlowPane1{
+-fx-background-color: ebeaf3;
+}
+.label{
+-fx-text-fill:black;
+
+}
+#anchorPaneOrderListNoOrders{
+-fx-background-color:#ebeaf3;
+}
