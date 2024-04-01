@@ -171,12 +171,19 @@ public class DashboardModel {
 
         switch (selected) {
             case "Daily":
-                String selectedYearMonthDayString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue();
+                String day = mainController.dashboardComboBoxFourthSelection.getValue();
+
+                if (day.length() == 1)
+                    day = "0" + mainController.dashboardComboBoxFourthSelection.getValue();
+
+                String selectedYearMonthDayString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + day;
 
                 for (Order order : orderHistoryObservableList) {
                     LocalDateTime dateTime = order.getDateAndTime();
 
                     String formattedYearMonthDayTime = dateTime.format(yearMonthDayFormatter);
+
+                    System.out.println("line 181 " + formattedYearMonthDayTime + ", " + selectedYearMonthDayString);
 
                     if (formattedYearMonthDayTime.equals(selectedYearMonthDayString))
                         dashboardOrderObservableListReference.add(order);
