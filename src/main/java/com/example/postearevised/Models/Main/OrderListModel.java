@@ -16,8 +16,6 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
@@ -34,6 +32,7 @@ import java.util.List;
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
@@ -50,8 +49,12 @@ public class OrderListModel {
     public void setProductOrderListController(ProductOrderListController productOrderListController) { this.productOrderListController = productOrderListController; }
 
     public void readImportedOrders() {
-        for (Order order : orderQueueObservableList) {
-            orderListOperationStartsHere(order);
+        if (!orderQueueObservableList.isEmpty()) {
+            setOrderQueueImported();
+            mainController.mainModel.generateNotification();
+            for (Order order : orderQueueObservableList) {
+                orderListOperationStartsHere(order);
+            }
         }
     }
 
@@ -241,6 +244,7 @@ public class OrderListModel {
             if (openPrompt(order)) {
                 addOrderToOrderHistory(order);
                 removeOrderToOrderQueue(order, anchorPaneToDelete);
+                notification();
 
                 updateOrderQueueLabelsAndPane();
             }
@@ -248,6 +252,11 @@ public class OrderListModel {
             setErrorAddingOrderToCSV();
             mainController.mainModel.openPrompt();
         }
+    }
+
+    private void notification() {
+        setOrderCompleted();
+        mainController.mainModel.generateNotification();
     }
 
     private boolean openPrompt(Order order) {

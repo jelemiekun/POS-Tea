@@ -50,4 +50,40 @@ public class NotificationContents {
         notificationHeaderReference = "Order cancelled";
         notificationContentReference = "Your order has been cancelled.";
     }
+
+    public static void setOrderCompleted() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Order Completed";
+        notificationContentReference = "Your order has been successfully completed.";
+    }
+
+    public static void setOrderQueueImported() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Imported Order Detected";
+        notificationContentReference = "An imported order has been detected in the order queue.";
+    }
+
+    public static void setExportMenuSuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Menu Export Successful";
+        notificationContentReference = "The menu has been successfully exported.";
+    }
+
+    public static void setImportMenuSuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Menu Import Successful";
+        notificationContentReference = "The menu has been successfully imported.";
+    }
+
+    public static void setImportMenuUnsuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Menu Import Failed";
+        notificationContentReference = "There was an error while importing the menu.";
+    }
+
+    public static void setImportExportCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Operation Canceled";
+        notificationContentReference = "The menu import/export operation was canceled by the user.";
+    }
 }

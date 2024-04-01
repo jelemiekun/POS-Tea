@@ -231,27 +231,40 @@ public class SettingsModel {
             if (selected == null) {
                 mainController.mainModel.hideRectangleModal();
                 mainController.importExportComboBox.setValue(IMPORT_EXPORT_ENUM.getImportOperation());
+                setImportExportCancelled();
+                mainController.mainModel.generateNotification();
             } else if (selected.equals(IMPORT_ENUM.getImportOperation())) {
                 switch (chooseFilePath(mainStage, true)) {
                     // -1 - some product already exists, 0 - do nothing, 1 - successful, 2 - invalid file format, 3 - other unexpected errors, open notepad contains error message
                     case 1:
                         setImportSuccessful();
                         mainController.mainModel.openPrompt();
+                        setImportMenuSuccessful();
+                        mainController.mainModel.generateNotification();
                         break;
                     case 2:
                         setInvalidFileFormat();
                         mainController.mainModel.openPrompt();
+                        setImportMenuUnsuccessful();
+                        mainController.mainModel.generateNotification();
                         break;
                     case 3:
                         setImportOtherError();
                         mainController.mainModel.openPrompt();
                         logError(false);
+                        setImportMenuUnsuccessful();
+                        mainController.mainModel.generateNotification();
                         break;
+                    case 4: // there's a problem in category csv column
+                        setImportMenuUnsuccessful();
+                        mainController.mainModel.generateNotification();
                 }
             } else if (selected.equals(EXPORT_ENUM.getImportOperation())){
                 // 4 - export successful
                 if (chooseFilePath(mainStage, false) == 4) {
                     mainController.mainModel.openPrompt();
+                    setExportMenuSuccessful();
+                    mainController.mainModel.generateNotification();
                 }
             } else {
                 mainController.mainModel.hideRectangleModal();

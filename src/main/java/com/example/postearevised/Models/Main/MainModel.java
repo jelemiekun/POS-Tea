@@ -6,16 +6,21 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -279,8 +284,14 @@ public class MainModel {
 
         Label labelNotificationContent = new Label(notificationContentReference);
         labelNotificationContent.setLayoutX(1);
-        labelNotificationContent.setLayoutY(65);
+        labelNotificationContent.setLayoutY(46);
         labelNotificationContent.setTextFill(Color.WHITE);
+        labelNotificationContent.setWrapText(true);
+        labelNotificationContent.setPrefWidth(420);
+        labelNotificationContent.setPrefHeight(70);
+        labelNotificationContent.setContentDisplay(ContentDisplay.LEFT);
+        labelNotificationContent.setTextAlignment(TextAlignment.LEFT);
+        labelNotificationContent.setAlignment(Pos.CENTER_LEFT);
         labelNotificationContent.setStyle("-fx-font-size: 18;");
 
         contentPane.getChildren().addAll(labelNotificationHeader, labelNotificationContent);

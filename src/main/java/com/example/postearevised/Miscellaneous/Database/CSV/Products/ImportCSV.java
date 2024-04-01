@@ -63,8 +63,9 @@ public class ImportCSV {
                         if (!isValidCategory(productCategory)) {
                             repeatCategory = false;
                             setErrorAddingProductCategory();
+
                             if (!openPrompt())
-                                return 0;
+                                return 4;
                         }
                     }
                 }
