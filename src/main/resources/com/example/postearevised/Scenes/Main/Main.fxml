@@ -990,12 +990,17 @@
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="labelSettingsFillUpThisForm8" layoutX="580.0" layoutY="319.0" text="*please fill up this form" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm8" layoutX="582.0" layoutY="310.0" text="*please fill up this form" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="labelSettingsFillUpThisForm10" layoutX="580.0" layoutY="149.0" text="*account already exists" textFill="#ff4e4e">
+                                                <Label fx:id="labelSettingsFillUpThisForm10" layoutX="580.0" layoutY="144.0" text="*account already exists" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial" size="18.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelSettingsFillUpThisForm11" layoutX="580.0" layoutY="231.0" text="*old password cannot be the same as new password" textFill="#ff4e4e">
                                                    <font>
                                                       <Font name="Arial" size="18.0" />
                                                    </font>

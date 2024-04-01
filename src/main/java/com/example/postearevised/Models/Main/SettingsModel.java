@@ -535,6 +535,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm8.setVisible(false);
         mainController.labelSettingsFillUpThisForm9.setVisible(false);
         mainController.labelSettingsFillUpThisForm10.setVisible(false);
+        mainController.labelSettingsFillUpThisForm11.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -972,7 +973,7 @@ public class SettingsModel {
     }
 
     private boolean accountDetailsRequiredFieldsNotBlank() {
-        boolean proceed = false;
+        boolean proceed = true;
 
         String account = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
@@ -990,7 +991,8 @@ public class SettingsModel {
         }
 
         setVisibilitiesPane2();
-        return proceed && newAccountNotExists();
+        System.out.println("line 994 " + proceed + ", " + newAccountNotExists() + ", " + newPasswordNotTheSameAsOldOne());
+        return proceed && newAccountNotExists() && newPasswordNotTheSameAsOldOne();
     }
 
     private void setVisibilitiesPane2() {
@@ -1007,39 +1009,48 @@ public class SettingsModel {
             if (willChangePass && willChangeAccount) {
                 mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
                 mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
-                mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+
+                if (!mainController.labelSettingsFillUpThisForm7.isVisible() && !mainController.labelSettingsFillUpThisForm11.isVisible())
+                    mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
 
                 if (account.isEmpty()) {
                     mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
                     mainController.labelSettingsFillUpThisForm3.setVisible(true);
                 }
-//                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
-//                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
-//                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
-//                }
+                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                }
+                mainController.labelSettingsFillUpThisForm11.setVisible(!newPasswordNotTheSameAsOldOne());
             } else if (willChangeAccount) {
                 if (account.isEmpty()) {
                     mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
                     mainController.labelSettingsFillUpThisForm3.setVisible(true);
                 }
-//                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
-//                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
-//                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
-//                }
+                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+                }
             } else if (willChangePass) {
                 mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
                 mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
-                mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+
+                if (!mainController.labelSettingsFillUpThisForm7.isVisible() && !mainController.labelSettingsFillUpThisForm11.isVisible())
+                    mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
+
+                mainController.labelSettingsFillUpThisForm11.setVisible(!newPasswordNotTheSameAsOldOne());
             }
 
             if (!willChangePass) {
                 mainController.labelSettingsFillUpThisForm6.setVisible(false);
                 mainController.labelSettingsFillUpThisForm7.setVisible(false);
                 mainController.labelSettingsFillUpThisForm8.setVisible(false);
+                mainController.labelSettingsFillUpThisForm11.setVisible(false);
             }
 
             if (!willChangeAccount) {
                 mainController.labelSettingsFillUpThisForm3.setVisible(false);
+                mainController.labelSettingsFillUpThisForm10.setVisible(false);
             }
 
             if (!willChangeAccount && !willChangePass) {
@@ -1071,6 +1082,12 @@ public class SettingsModel {
         }
 
         return true;
+    }
+
+    private boolean newPasswordNotTheSameAsOldOne() {
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+
+        return !accountReference.getPassword().equals(newPassword);
     }
 
     private void dataTasks() {
