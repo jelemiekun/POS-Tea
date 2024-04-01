@@ -12,8 +12,6 @@ MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 
 invoice pa sa order history
 
-itrim settings acount, sa register, at sa forgot password PATI SA ACCOUNT TAPOS LISTENERS NILA
-
 display css styles
 
 system manual VID AT ACCORDIONS
@@ -49,6 +47,8 @@ dapat di gumagana editProduct if naka open csv
 DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
 
 lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
+
+DOUBLE CHECK IF NATRIM  settings acount, sa register, at sa forgot password PATI SA ACCOUNT 
 
 ------------------MGA ITATANONG------------------
 
