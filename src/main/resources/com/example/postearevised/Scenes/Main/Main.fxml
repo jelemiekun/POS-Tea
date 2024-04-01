@@ -1005,6 +1005,44 @@
                                                       <Font name="Arial" size="18.0" />
                                                    </font>
                                                 </Label>
+                                                <AnchorPane fx:id="anchorPanePasswordIndicator" layoutX="581.0" layoutY="235.0" prefHeight="21.0" prefWidth="435.0">
+                                                   <children>
+                                                      <FlowPane prefHeight="8.0" prefWidth="435.0">
+                                                         <children>
+                                                            <Rectangle fx:id="passwordRectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="107.0">
+                                                               <FlowPane.margin>
+                                                                  <Insets right="2.0" />
+                                                               </FlowPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle fx:id="passwordRectangle2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="107.0">
+                                                               <FlowPane.margin>
+                                                                  <Insets right="2.0" />
+                                                               </FlowPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle fx:id="passwordRectangle3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="107.0">
+                                                               <FlowPane.margin>
+                                                                  <Insets right="2.0" />
+                                                               </FlowPane.margin>
+                                                            </Rectangle>
+                                                            <Rectangle fx:id="passwordRectangle4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="8.0" stroke="#0000006b" strokeType="INSIDE" width="107.0" />
+                                                         </children>
+                                                      </FlowPane>
+                                                      <AnchorPane layoutX="315.0" layoutY="11.0" prefHeight="17.0" prefWidth="120.0">
+                                                         <children>
+                                                            <Label fx:id="passwordIndicator" alignment="CENTER_RIGHT" layoutX="6.0" prefHeight="17.0" prefWidth="85.0">
+                                                               <font>
+                                                                  <Font name="Arial Bold" size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ImageView fx:id="passwordToolTip" fitHeight="17.0" fitWidth="20.0" layoutX="98.0" onMouseClicked="#passwordToolTipClickedTouched" onMouseEntered="#passwordToolTipEntered" onMouseExited="#passwordToolTipExited" onTouchReleased="#passwordToolTipClickedTouched" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../../Medias/Icons/Register/information.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                      </AnchorPane>
+                                                   </children>
+                                                </AnchorPane>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />

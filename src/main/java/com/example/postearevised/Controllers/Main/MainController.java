@@ -850,6 +850,16 @@ public class MainController implements Initializable {
     public boolean accountDetailsSubmittedOnce = false;
 
 
+    @FXML
+    public Rectangle passwordRectangle1;
+    @FXML
+    public Rectangle passwordRectangle2;
+    @FXML
+    public Rectangle passwordRectangle3;
+    @FXML
+    public Rectangle passwordRectangle4;
+
+
     // Labels
     @FXML
     public Label labelSettingsAccountEditFinishUsers;
@@ -857,6 +867,8 @@ public class MainController implements Initializable {
     public Label labelSettingsAccountEditFinishAccountDetails;
     @FXML
     public Label labelSettingsAccountEditFinishSecurityQuestions;
+    @FXML
+    public Label passwordIndicator;
 
     // Buttons and ComboBoxes
     @FXML
@@ -897,6 +909,8 @@ public class MainController implements Initializable {
     public AnchorPane anchorPaneSettingsBtnEditAccountDetails;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDelete;
+    @FXML
+    public AnchorPane anchorPanePasswordIndicator;
 
     // ImageViews
     @FXML
@@ -921,6 +935,8 @@ public class MainController implements Initializable {
     public ImageView imagePencilSettingsAccount10;
     @FXML
     public ImageView imagePencilSettingsAccount11;
+    @FXML
+    public ImageView passwordToolTip;
     @FXML
     public Label labelSettingsFillUpThisForm1;
     @FXML
@@ -949,6 +965,21 @@ public class MainController implements Initializable {
     public ImageView imageHideShowNewPasswordAccountSettings;
     @FXML
     public ImageView imageHideShowConfirmNewPasswordAccountSettings;
+
+    @FXML
+    void passwordToolTipClickedTouched() {
+
+    }
+
+    @FXML
+    void passwordToolTipEntered() {
+
+    }
+
+    @FXML
+    void passwordToolTipExited() {
+
+    }
 
     @FXML
     void settingsUsersTyping(KeyEvent event) {
