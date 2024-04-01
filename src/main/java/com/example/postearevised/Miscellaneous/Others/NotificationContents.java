@@ -86,4 +86,41 @@ public class NotificationContents {
         notificationHeaderReference = "Operation Canceled";
         notificationContentReference = "The menu import/export operation was canceled by the user.";
     }
+
+    public static void setAccountUsersSuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Users Updated Successfully";
+        notificationContentReference = "The account users have been successfully updated.";
+    }
+
+    public static void setAccountDetailsEditSuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Edit Successful";
+        notificationContentReference = "The account details have been successfully updated.";
+    }
+
+    public static void setRecoveryQuestionEditSuccessful() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Edit Successful";
+        notificationContentReference = "The recovery questions have been successfully updated.";
+    }
+
+    public static void setAccountUsersUpdateFailed() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Users Update Failed";
+        notificationContentReference = "There was an error while updating the account users.";
+    }
+
+    public static void setAccountDetailsEditFailed() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Edit Failed";
+        notificationContentReference = "There was an error while updating the account details.";
+    }
+
+    public static void setRecoveryQuestionEditFailed() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Recovery Question Edit Failed";
+        notificationContentReference = "There was an error while updating the recovery questions.";
+    }
+
 }

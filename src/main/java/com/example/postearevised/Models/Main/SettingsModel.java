@@ -758,11 +758,15 @@ public class SettingsModel {
                             mainController.mainModel.populateFullNamesObservableList();
                             setNameToEditedName(index);
                         }
+                        setAccountUsersSuccessful();
+                        mainController.mainModel.generateNotification();
                         disableOtherAccountEditButtons(5);
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
+                        setAccountUsersUpdateFailed();
+                        mainController.mainModel.generateNotification();
                         revertBackUsers();
                         return false;
                     }
@@ -772,6 +776,8 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
+                    setAccountUsersUpdateFailed();
+                    mainController.mainModel.generateNotification();
                     revertBackUsers();
                     return true;
                 }
@@ -958,12 +964,16 @@ public class SettingsModel {
                     if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
                         dataTasks();
                         clearFieldsPasswordTexts();
+                        setAccountDetailsEditSuccessful();
+                        mainController.mainModel.generateNotification();
                         disableOtherAccountEditButtons(5);
                         mainController.accountDetailsSubmittedOnce = false;
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
+                        setAccountDetailsEditFailed();
+                        mainController.mainModel.generateNotification();
                         clearFieldsPasswordTexts();
                         revertToOldValuesPane2();
                         return false;
@@ -976,6 +986,8 @@ public class SettingsModel {
                         revertToOldValuesPane2();
                         maxAttemptLimitReached = false;
                     }
+                    setAccountDetailsEditFailed();
+                    mainController.mainModel.generateNotification();
                     clearFieldsPasswordTexts();
                     revertToOldValuesPane2();
                     return true;
@@ -1244,11 +1256,15 @@ public class SettingsModel {
 
                     if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
                         setRecoveryQuestionsNewValue();
+                        setRecoveryQuestionEditSuccessful();
+                        mainController.mainModel.generateNotification();
                         disableOtherAccountEditButtons(5);
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
                         mainController.mainModel.openPrompt();
+                        setRecoveryQuestionEditFailed();
+                        mainController.mainModel.generateNotification();
                         revertBackRecoveryQuestions();
                         return false;
                     }
@@ -1258,6 +1274,8 @@ public class SettingsModel {
                         mainController.mainModel.openPrompt();
                         maxAttemptLimitReached = false;
                     }
+                    setRecoveryQuestionEditFailed();
+                    mainController.mainModel.generateNotification();
                     revertBackRecoveryQuestions();
                     return true;
                 }
