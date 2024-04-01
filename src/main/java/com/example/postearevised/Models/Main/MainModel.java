@@ -468,7 +468,8 @@ public class MainModel {
 
         System.out.println("line 460 " + firstName);
 
-        mainController.settingsModel.setLeftPanelProfileName(index);
+        if (index != -1)
+            mainController.settingsModel.setLeftPanelProfileName(index);
     }
 
     public boolean openPrompt() {

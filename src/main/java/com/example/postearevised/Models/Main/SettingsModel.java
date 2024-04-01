@@ -730,8 +730,8 @@ public class SettingsModel {
     }
 
     public void setLeftPanelProfileName(int index) {
-        mainController.labelProfileName.setText(usersNames.get(index));
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
+        mainController.labelProfileName.setText(usersNames.get(index));
     }
 
     public void setSettingsAccountStyle() {
