@@ -117,6 +117,7 @@ public class MainController implements Initializable {
                 mainModel.setMainMenuIconSelected();
                 mainModel.setAnchorPane();
                 mainModel.setToolTips();
+                mainModel.setComboBoxUsers();
 
                 dashboardModel.setupDashboard();
 
@@ -319,7 +320,12 @@ public class MainController implements Initializable {
 
     @FXML
     void anchorPaneLeftProfileClickedTouched() {
-        
+        mainModel.toggleComboBoxUsers();
+    }
+
+    @FXML
+    void comboBoxLeftPanelUsersOnAction() {
+        mainModel.comboBoxLeftPanelUsersOnAction();
     }
 
     /**

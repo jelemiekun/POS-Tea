@@ -1713,7 +1713,7 @@
             <Line endX="22.0" layoutX="48.0" layoutY="138.0" startX="-30.5" />
             </children>
         </AnchorPane>
-      <ComboBox fx:id="comboBoxLeftPanelUsers" layoutX="85.0" layoutY="75.0" prefWidth="150.0" />
+      <ComboBox fx:id="comboBoxLeftPanelUsers" layoutX="87.0" layoutY="65.0" onAction="#comboBoxLeftPanelUsersOnAction" prefWidth="150.0" visible="false" />
       <Rectangle fx:id="rectangleModal" arcHeight="5.0" arcWidth="5.0" fill="#0000008c" height="1050.0" stroke="#0000008c" strokeType="INSIDE" visible="false" width="1920.0" />
       <AnchorPane fx:id="anchorPaneLoading" prefHeight="1050.0" prefWidth="1920.0" visible="false">
          <children>

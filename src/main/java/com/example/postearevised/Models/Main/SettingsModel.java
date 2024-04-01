@@ -718,7 +718,7 @@ public class SettingsModel {
         mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
     }
 
-    private String getFirstWord(String value) {
+    public String getFirstWord(String value) {
         String[] words = value.split("\\s+");
         return words[0];
     }
@@ -729,8 +729,9 @@ public class SettingsModel {
         mainController.textFieldAccountLastName.setText(accountReference.getLastNames().get(index));
     }
 
-    private void setLeftPanelProfileName(int index) {
+    public void setLeftPanelProfileName(int index) {
         mainController.labelProfileName.setText(usersNames.get(index));
+        mainController.comboBoxAccountName.setValue(fullNames.get(index));
     }
 
     public void setSettingsAccountStyle() {

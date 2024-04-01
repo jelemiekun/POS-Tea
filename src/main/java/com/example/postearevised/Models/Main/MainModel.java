@@ -443,6 +443,33 @@ public class MainModel {
         Tooltip.install(mainController.anchorPaneLeftProfile, leftPanelProfileChangeUser);
     }
 
+    public void setComboBoxUsers() {
+        mainController.comboBoxLeftPanelUsers.setStyle("-fx-combo-box-popup-button-visible: false;" + dashboardComboBoxStyle);
+    }
+
+    public void toggleComboBoxUsers() {
+        if (mainController.comboBoxLeftPanelUsers.isShowing())
+            mainController.comboBoxLeftPanelUsers.hide();
+        else
+            mainController.comboBoxLeftPanelUsers.show();
+    }
+
+    public void comboBoxLeftPanelUsersOnAction() {
+        String firstName = "";
+        int index = -1;
+
+        if (mainController.comboBoxLeftPanelUsers.getValue() != null)
+            firstName = mainController.settingsModel.getFirstWord(mainController.comboBoxLeftPanelUsers.getValue());
+
+        for (int i = 0; i < usersNames.size(); i++) {
+            if (usersNames.get(i).startsWith(firstName))
+                index = i;
+        }
+
+        System.out.println("line 460 " + firstName);
+
+        mainController.settingsModel.setLeftPanelProfileName(index);
+    }
 
     public boolean openPrompt() {
         showRectangleModal();
