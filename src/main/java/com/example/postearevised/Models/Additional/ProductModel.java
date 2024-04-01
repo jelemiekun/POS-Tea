@@ -474,6 +474,7 @@ public class ProductModel {
         productController.labelDescriptionWordCounter.setVisible(true);
         productController.anchorPaneBtnEditPhoto.setVisible(true);
         productController.comboBoxCategories.setVisible(true);
+        productController.labelPleaseSelectProductCategoryFirst.setVisible(true);
 
         productController.anchorPaneBottomHalf.setVisible(false);
         productController.labelProductName.setVisible(false);
@@ -551,6 +552,7 @@ public class ProductModel {
 
         enablePanesAfterComboBoxSelected();
         showGuideMessageIfReferenceTrue();
+        productController.labelPleaseSelectProductCategoryFirst.setVisible(false);
     }
 
     private void enablePanesAfterComboBoxSelected() {

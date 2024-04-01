@@ -29,6 +29,9 @@ public class ProductController implements Initializable {
         productModel.setDropShadow();
     }
 
+
+    @FXML
+    public Label labelPleaseSelectProductCategoryFirst;
     @FXML
     public Label labelGuideMessagePleaseFillUp;
     @FXML

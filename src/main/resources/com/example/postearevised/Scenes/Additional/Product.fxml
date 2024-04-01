@@ -714,5 +714,10 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Label fx:id="labelPleaseSelectProductCategoryFirst" alignment="CENTER" layoutX="260.0" layoutY="700.0" prefHeight="89.0" prefWidth="483.0" text="Please select product category first" textAlignment="CENTER" visible="false" wrapText="true">
+         <font>
+            <Font name="Arial Bold" size="28.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
