@@ -6,18 +6,23 @@ import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -91,6 +96,10 @@ public class OrderListModel {
 
         Label customerNameLabel = new Label("Customer Name: " + order.getCustomerName());
         customerNameLabel.setFont(Font.font("Arial", 24));
+        customerNameLabel.setPrefWidth(320);
+        customerNameLabel.setAlignment(Pos.CENTER_LEFT);
+        customerNameLabel.setContentDisplay(ContentDisplay.LEFT);
+        customerNameLabel.setTextAlignment(TextAlignment.LEFT);
         AnchorPane.setTopAnchor(customerNameLabel, 54.0);
         AnchorPane.setLeftAnchor(customerNameLabel, 16.0);
 
@@ -108,6 +117,7 @@ public class OrderListModel {
         for (ProductOrder productOrder : productOrders) {
             if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                 Label productNameLabel = new Label(productOrder.getProductName());
+                productNameLabel.setPrefWidth(240);
                 productNameLabel.setFont(Font.font("Arial", 22));
                 AnchorPane.setTopAnchor(productNameLabel, labelTop);
                 AnchorPane.setLeftAnchor(productNameLabel, 16.0);

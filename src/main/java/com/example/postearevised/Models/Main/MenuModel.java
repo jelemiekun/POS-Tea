@@ -9,21 +9,26 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -48,6 +53,8 @@ import static com.example.postearevised.Miscellaneous.References.ProductOrderRef
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
+import static javafx.geometry.Pos.CENTER;
+import static javafx.geometry.Pos.TOP_LEFT;
 
 public class MenuModel {
     private MainController mainController;
@@ -343,6 +350,10 @@ public class MenuModel {
         Label label = new Label(productName);
         label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
         label.setTextFill(Color.WHITE);
+        label.setPrefWidth(290);
+        label.setPrefHeight(100);
+        label.setAlignment(TOP_LEFT);
+        label.setWrapText(true);
         label.setEffect(setDropShadowRightDown());
 
         Label labelPrice = new Label();
@@ -402,6 +413,9 @@ public class MenuModel {
         Label label = new Label(productName);
         label.setFont(Font.font("Arial", FontWeight.BOLD, 28));
         label.setTextFill(Color.WHITE);
+        label.setPrefWidth(290);
+        label.setPrefHeight(100);
+        label.setAlignment(TOP_LEFT);
         label.setEffect(setDropShadowRightDown());
 
         Label labelUnavailable = new Label("This product is unavailable");
@@ -711,6 +725,7 @@ public class MenuModel {
             Label labelProductName = new Label(productOrder.getProductName());
             labelProductName.setLayoutX(104.0);
             labelProductName.setLayoutY(1.0);
+            labelProductName.setPrefWidth(100);
             labelProductName.setFont(new javafx.scene.text.Font("Arial", 24.0));
             innerAnchorPane.getChildren().add(labelProductName);
 
@@ -733,15 +748,23 @@ public class MenuModel {
 
             Label labelProductPrice = productOrder.getLabelPrice();
             labelProductPrice.setText("₱" + (productOrder.getTotalAmount()) + ".00");
-            labelProductPrice.setLayoutX(355.0);
+            labelProductPrice.setLayoutX(340.0);
             labelProductPrice.setLayoutY(43.0);
+            labelProductPrice.setPrefWidth(90);
+            labelProductPrice.setTextAlignment(TextAlignment.CENTER);
+            labelProductPrice.setAlignment(CENTER);
+            labelProductPrice.setContentDisplay(ContentDisplay.CENTER);
             labelProductPrice.setFont(new javafx.scene.text.Font("Arial", 18.0));
             anchorPane.getChildren().add(labelProductPrice);
 
             Label labelQuantity = productOrder.getLabelQuantity();
             labelQuantity.setText(String.valueOf(productOrder.getQuantity()));
-            labelQuantity.setLayoutX(290.0);
+            labelQuantity.setLayoutX(278.0);
             labelQuantity.setLayoutY(45.0);
+            labelQuantity.setTextAlignment(TextAlignment.CENTER);
+            labelQuantity.setAlignment(CENTER);
+            labelQuantity.setPrefWidth(30);
+            labelQuantity.setContentDisplay(ContentDisplay.CENTER);
             labelQuantity.setFont(new javafx.scene.text.Font("Arial", 19.0));
             anchorPane.getChildren().add(labelQuantity);
 

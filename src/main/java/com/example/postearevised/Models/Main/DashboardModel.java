@@ -403,7 +403,21 @@ public class DashboardModel {
     }
 
     private void updateUIRevenueCustomerAndOrder() {
-        mainController.labelDashboardTotalRevenue.setText("₱" + referenceTotalRevenue + ".00");
+        String numberStr = String.valueOf(referenceTotalRevenue);
+        int length = numberStr.length();
+        StringBuilder formattedNumber = new StringBuilder();
+
+        // Append digits to the StringBuilder in reverse order
+        for (int i = length - 1; i >= 0; i--) {
+            formattedNumber.insert(0, numberStr.charAt(i));
+
+            // Insert a comma every three digits except for the first digit
+            if ((length - i) % 3 == 0 && i != 0) {
+                formattedNumber.insert(0, ",");
+            }
+        }
+
+        mainController.labelDashboardTotalRevenue.setText("₱" + formattedNumber + ".00");
         mainController.labelDashboardTotalCustomer.setText(String.valueOf(referenceTotalCustomer));
         mainController.labelDashboardTotalOrder.setText(String.valueOf(referenceTotalOrder));
     }
@@ -543,7 +557,7 @@ public class DashboardModel {
 
                 Label labelName = new Label(productOrder.getProductName());
                 labelName.setLayoutX(187.0);
-                labelName.setLayoutY(43.0);
+                labelName.setLayoutY(39.0);
                 labelName.setFont(new Font("Arial Bold", 20.0));
 
                 Label labelCategory = new Label("(" + productOrder.getProductCategory() + ")");

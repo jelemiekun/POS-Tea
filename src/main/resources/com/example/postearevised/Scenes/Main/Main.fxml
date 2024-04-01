@@ -93,7 +93,7 @@
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="36.0" prefWidth="245.0" text="₱0.00" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="105.0" prefHeight="37.0" prefWidth="253.0" text="₱0.00" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -115,7 +115,7 @@
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="27.0" prefWidth="245.0" text="0" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -139,7 +139,7 @@
                                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="105.0" prefHeight="27.0" prefWidth="245.0" text="0" textAlignment="CENTER">
+                                          <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -491,7 +491,7 @@
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="290.0" layoutY="5.0" prefHeight="31.0" prefWidth="168.0" text="₱00.00">
+                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="209.0" layoutY="5.0" prefHeight="31.0" prefWidth="249.0" text="₱00.00">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>

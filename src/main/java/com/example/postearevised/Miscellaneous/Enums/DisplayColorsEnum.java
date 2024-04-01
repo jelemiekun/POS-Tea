@@ -4,8 +4,8 @@ public enum DisplayColorsEnum {
 
     // element.setId("ID");
 
-    LIGHT_ENUM("light", ""), //    /com/example/postearevised/Scenes/Main/Lightmode.css
-    DARK_ENUM("dark", ""), //     /com/example/postearevised/Scenes/Main/Darkmode.css
+    LIGHT_ENUM("light", ""), //    /com/example/postearevised//Lightmode.css
+    DARK_ENUM("dark", ""), //     /com/example/postearevised/Darkmode.css
     RED_ENUM("red", ""),
     ORANGE_ENUM("orange", ""),
     YELLOW_ENUM("yellow", ""),

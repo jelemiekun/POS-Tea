@@ -18,8 +18,6 @@ lagyan ng notifs yung iba pa
 
 password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
 
-lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
-
 add option na pede mag reset sa kaliwa ng available names, select lang
 
 lagyan ng comma every 3 digits sa total revenue
@@ -31,6 +29,8 @@ new pass cant be d same as old pass sa settings account
 
 
 // SA DULO NA TO
+
+lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
 from executable jar file, gawing .exe yung system ( optional )
 

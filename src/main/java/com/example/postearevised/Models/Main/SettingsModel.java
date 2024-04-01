@@ -1121,10 +1121,6 @@ public class SettingsModel {
         mainController.passwordFieldAccountNewPassword.setVisible(true);
         mainController.passwordFieldAccountConfirmNewPassword.setVisible(true);
 
-        mainController.textFieldAccountContact.setDisable(true);
-        mainController.passwordFieldAccountNewPassword.setDisable(true);
-        mainController.passwordFieldAccountConfirmNewPassword.setDisable(true);
-
         mainController.textFieldAccountContact.setText(accountReference.getContact());
         mainController.passwordFieldAccountNewPassword.setText("");
         mainController.passwordFieldAccountConfirmNewPassword.setText("");
@@ -1132,8 +1128,11 @@ public class SettingsModel {
         mainController.imageHideShowNewPasswordAccountSettings.setImage(HIDE_IMAGE);
         mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(HIDE_IMAGE);
 
-        mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+        mainController.textFieldAccountContact.setDisable(true);
+        mainController.passwordFieldAccountNewPassword.setDisable(true);
+        mainController.passwordFieldAccountConfirmNewPassword.setDisable(true);
 
+        mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
         disableOtherAccountEditButtons(5);
     }
 
