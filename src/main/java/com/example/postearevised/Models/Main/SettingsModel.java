@@ -6,6 +6,7 @@ import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -968,6 +969,14 @@ public class SettingsModel {
                         mainController.mainModel.generateNotification();
                         disableOtherAccountEditButtons(5);
                         mainController.accountDetailsSubmittedOnce = false;
+                        Platform.runLater(() -> {
+                            dataTasks();
+                            clearFieldsPasswordTexts();
+                            setAccountDetailsEditSuccessful();
+                            mainController.mainModel.generateNotification();
+                            disableOtherAccountEditButtons(5);
+                            mainController.accountDetailsSubmittedOnce = false;
+                        });
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();

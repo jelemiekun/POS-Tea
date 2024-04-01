@@ -89,7 +89,7 @@ public class NotificationContents {
 
     public static void setAccountUsersSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Users Updated Successfully";
+        notificationHeaderReference = "Users Updated Successfully";
         notificationContentReference = "The account users have been successfully updated.";
     }
 

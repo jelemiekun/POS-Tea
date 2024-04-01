@@ -14,8 +14,6 @@ display css styles
 
 system manual VID AT ACCORDIONS
 
-lagyan ng notifs yung iba pa
-
 password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
 
 add option na pede mag reset sa kaliwa ng available names, select lang
@@ -620,3 +618,5 @@ MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
 lagyan ng comma every 3 digits sa total revenue
 
 new pass cant be d same as old pass sa settings account
+
+lagyan ng notifs yung iba pa
