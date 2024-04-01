@@ -5,6 +5,7 @@ import com.example.postearevised.Objects.Account.Account;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -175,8 +176,12 @@ public class LoginModel {
 
         if (loginRegisterForgotPassController.loginShowPassword) {
             loginRegisterForgotPassController.textFieldShowPassword.setText(loginRegisterForgotPassController.textFieldPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnLoginShowHidePassword, showPasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnLoginShowHidePassword, hidePasswordToolTip);
         } else {
             loginRegisterForgotPassController.textFieldPassword.setText(loginRegisterForgotPassController.textFieldShowPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnLoginShowHidePassword, hidePasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnLoginShowHidePassword, showPasswordToolTip);
         }
 
         loginRegisterForgotPassController.anchorPaneLogin.requestFocus();

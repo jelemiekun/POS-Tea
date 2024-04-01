@@ -26,7 +26,6 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.Key;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -98,7 +97,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         forgotPassModel.setLoginRegisterController(this);
 
-        setLoginAccountAndPasswordNoSpaceInputLimitListener();
+        setLoginAccountAndPasswordNoSpaceInputLimitListenerAndToolTip();
 
         checkBoxRememberPassword.setSelected(true);
 
@@ -196,7 +195,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         loginlabelPasswordLimitReached.setVisible(false);
 
-        setLoginAccountAndPasswordNoSpaceInputLimitListener();
+        setLoginAccountAndPasswordNoSpaceInputLimitListenerAndToolTip();
 
         // Register
         anchorPaneRegister.requestFocus();
@@ -405,7 +404,7 @@ public class LoginRegisterForgotPassController implements Initializable {
         }
     };
 
-    void setLoginAccountAndPasswordNoSpaceInputLimitListener() {
+    void setLoginAccountAndPasswordNoSpaceInputLimitListenerAndToolTip() {
         textFieldAccount.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(" ")) {
                 textFieldAccount.setText(oldValue);
@@ -433,6 +432,12 @@ public class LoginRegisterForgotPassController implements Initializable {
                 loginlabelPasswordLimitReached.setVisible(true);
             }
         });
+
+        Tooltip.install(btnLoginShowHidePassword, showPasswordToolTip);
+        Tooltip.install(btnRegisterShowHidePassword1, showPasswordToolTip);
+        Tooltip.install(btnRegisterShowHidePassword2, showPasswordToolTip);
+        Tooltip.install(btnForgotPassShowHidePassword1, showPasswordToolTip);
+        Tooltip.install(btnForgotPassShowHidePassword2, showPasswordToolTip);
     }
 
     @FXML

@@ -5,6 +5,7 @@ import com.example.postearevised.Objects.Account.Account;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -17,6 +18,8 @@ import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.hidePasswordToolTip;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.showPasswordToolTip;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
@@ -428,8 +431,12 @@ public class ForgotPassModel {
 
         if (loginRegisterForgotPassController.forgotPassShowNewPassword) {
             loginRegisterForgotPassController.textFieldShowForgotPass31.setText(loginRegisterForgotPassController.textFieldForgotPass31.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnForgotPassShowHidePassword1, showPasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnForgotPassShowHidePassword1, hidePasswordToolTip);
         } else {
             loginRegisterForgotPassController.textFieldForgotPass31.setText(loginRegisterForgotPassController.textFieldShowForgotPass31.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnForgotPassShowHidePassword1, hidePasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnForgotPassShowHidePassword1, showPasswordToolTip);
         }
 
         loginRegisterForgotPassController.btnForgotPass3Proceed.requestFocus();
@@ -446,8 +453,12 @@ public class ForgotPassModel {
 
         if (loginRegisterForgotPassController.forgotPassShowConfirmNewPassword) {
             loginRegisterForgotPassController.textFieldShowForgotPass32.setText(loginRegisterForgotPassController.textFieldForgotPass32.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnForgotPassShowHidePassword2, showPasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnForgotPassShowHidePassword2, hidePasswordToolTip);
         } else {
             loginRegisterForgotPassController.textFieldForgotPass32.setText(loginRegisterForgotPassController.textFieldShowForgotPass32.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnForgotPassShowHidePassword2, hidePasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnForgotPassShowHidePassword2, showPasswordToolTip);
         }
 
         loginRegisterForgotPassController.btnForgotPass3Proceed.requestFocus();

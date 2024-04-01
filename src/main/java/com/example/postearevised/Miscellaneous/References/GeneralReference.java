@@ -3,6 +3,7 @@ package com.example.postearevised.Miscellaneous.References;
 import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 
 public class GeneralReference {
@@ -23,4 +24,6 @@ public class GeneralReference {
     public static Thread countdown;
     public static Product editOrShowSelectedProduct;
     public static boolean isAddingProductsFromImport = true;
+    public static Tooltip showPasswordToolTip = new Tooltip("Show password");
+    public static Tooltip hidePasswordToolTip = new Tooltip("Hide password");
 }

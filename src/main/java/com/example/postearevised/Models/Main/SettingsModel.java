@@ -1113,28 +1113,36 @@ public class SettingsModel {
     public void toggleNewPasswordField() {
         mainController.showNewPassword = !mainController.showNewPassword;
 
-        mainController.imageHideShowNewPasswordAccountSettings.setImage(mainController.showNewPassword ? SHOW_IMAGE : HIDE_IMAGE);
+        mainController.imageHideShowNewPasswordAccountSettings.setImage(mainController.showNewPassword ? HIDE_IMAGE : SHOW_IMAGE);
         mainController.textFieldAccountNewPassword.setVisible(mainController.showNewPassword);
         mainController.passwordFieldAccountNewPassword.setVisible(!mainController.showNewPassword);
 
         if (mainController.showNewPassword) {
             mainController.textFieldAccountNewPassword.setText(mainController.passwordFieldAccountNewPassword.getText());
+            Tooltip.uninstall(mainController.imageHideShowNewPasswordAccountSettings, showPasswordToolTip);
+            Tooltip.install(mainController.imageHideShowNewPasswordAccountSettings, hidePasswordToolTip);
         } else {
             mainController.passwordFieldAccountNewPassword.setText(mainController.textFieldAccountNewPassword.getText());
+            Tooltip.uninstall(mainController.imageHideShowNewPasswordAccountSettings, hidePasswordToolTip);
+            Tooltip.install(mainController.imageHideShowNewPasswordAccountSettings, showPasswordToolTip);
         }
     }
 
     public void toggleConfirmNewPasswordField() {
         mainController.showConfirmNewPassword = !mainController.showConfirmNewPassword;
 
-        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(mainController.showConfirmNewPassword ? SHOW_IMAGE : HIDE_IMAGE);
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setImage(mainController.showConfirmNewPassword ? HIDE_IMAGE : SHOW_IMAGE);
         mainController.textFieldAccountConfirmNewPassword.setVisible(mainController.showConfirmNewPassword);
         mainController.passwordFieldAccountConfirmNewPassword.setVisible(!mainController.showConfirmNewPassword);
 
         if (mainController.showConfirmNewPassword) {
             mainController.textFieldAccountConfirmNewPassword.setText(mainController.passwordFieldAccountConfirmNewPassword.getText());
+            Tooltip.uninstall(mainController.imageHideShowConfirmNewPasswordAccountSettings, showPasswordToolTip);
+            Tooltip.install(mainController.imageHideShowConfirmNewPasswordAccountSettings, hidePasswordToolTip);
         } else {
             mainController.passwordFieldAccountConfirmNewPassword.setText(mainController.textFieldAccountConfirmNewPassword.getText());
+            Tooltip.uninstall(mainController.imageHideShowConfirmNewPasswordAccountSettings, hidePasswordToolTip);
+            Tooltip.install(mainController.imageHideShowConfirmNewPasswordAccountSettings, showPasswordToolTip);
         }
     }
 

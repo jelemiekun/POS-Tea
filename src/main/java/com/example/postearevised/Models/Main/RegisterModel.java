@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -603,8 +604,12 @@ public class RegisterModel {
 
         if (loginRegisterForgotPassController.registerShowNewPassword) {
             loginRegisterForgotPassController.textFieldShowNewPassword.setText(loginRegisterForgotPassController.textFieldNewPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnRegisterShowHidePassword1, showPasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnRegisterShowHidePassword1, hidePasswordToolTip);
         } else {
             loginRegisterForgotPassController.textFieldNewPassword.setText(loginRegisterForgotPassController.textFieldShowNewPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnRegisterShowHidePassword1, hidePasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnRegisterShowHidePassword1, showPasswordToolTip);
         }
 
         loginRegisterForgotPassController.btnRegisterOnRegisterPane.requestFocus();
@@ -619,8 +624,12 @@ public class RegisterModel {
 
         if (loginRegisterForgotPassController.registerShowConfirmNewPassword) {
             loginRegisterForgotPassController.textFieldShowConfirmNewPassword.setText(loginRegisterForgotPassController.textFieldConfirmNewPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnRegisterShowHidePassword2, showPasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnRegisterShowHidePassword2, hidePasswordToolTip);
         } else {
             loginRegisterForgotPassController.textFieldConfirmNewPassword.setText(loginRegisterForgotPassController.textFieldShowConfirmNewPassword.getText());
+            Tooltip.uninstall(loginRegisterForgotPassController.btnRegisterShowHidePassword2, hidePasswordToolTip);
+            Tooltip.install(loginRegisterForgotPassController.btnRegisterShowHidePassword2, showPasswordToolTip);
         }
 
         loginRegisterForgotPassController.btnRegisterOnRegisterPane.requestFocus();

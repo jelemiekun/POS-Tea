@@ -395,6 +395,9 @@ public class MainModel {
         Tooltip.install(mainController.settingsAppearanceRectangleYellow, settingsAppearanceYellow);
         Tooltip.install(mainController.settingsAppearanceRectangleGreen, settingsAppearanceGreen);
 
+        Tooltip.install(mainController.imageHideShowNewPasswordAccountSettings, showPasswordToolTip);
+        Tooltip.install(mainController.imageHideShowConfirmNewPasswordAccountSettings, showPasswordToolTip);
+
         // left panel
         Tooltip leftPanelProfileChangeUser = new Tooltip("Change user");
 

@@ -1,6 +1,8 @@
 package com.example.postearevised.Miscellaneous.References;
 
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class FileReference {
     public static final String DIRECTORY_PATH;
@@ -33,6 +35,9 @@ public class FileReference {
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "/accounts.csv";
             CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "/stayLoggedInData.csv";
         }
+
+        showPasswordToolTip.setStyle(toolTipStyle);
+        hidePasswordToolTip.setStyle(toolTipStyle);
     }
 
     public static void setPaths() {
