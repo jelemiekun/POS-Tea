@@ -116,7 +116,7 @@ public class OrderListModel {
 
         ObservableList<ProductOrder> productOrders = order.getProductOrderObservableList();
         double labelTop = 0.0;
-        final double maxHeight = 260;
+        final double maxHeight = 245;
         for (ProductOrder productOrder : productOrders) {
             if (notExceedLabelTop(innerAnchorPane, labelTop, maxHeight)) {
                 Label productNameLabel = new Label(productOrder.getProductName());

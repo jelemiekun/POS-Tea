@@ -51,7 +51,7 @@ public class ProductOrderListModel {
             if (!productOrder.getThirdAttribute().isEmpty() && !productOrder.getThirdAttribute().equals(".")) {
                 Label firstAttributeLabel = new Label("- " + productOrder.getThirdAttribute());
                 firstAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(firstAttributeLabel, 230.0);
+                AnchorPane.setLeftAnchor(firstAttributeLabel, 270.0);
                 AnchorPane.setTopAnchor(firstAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(firstAttributeLabel);
                 attributeCount++;
@@ -60,7 +60,7 @@ public class ProductOrderListModel {
             if (!productOrder.getFirstAttribute().isEmpty() && !productOrder.getFirstAttribute().equals(".")) {
                 Label secondAttributeLabel = new Label("- " + productOrder.getFirstAttribute());
                 secondAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(secondAttributeLabel, 230.0);
+                AnchorPane.setLeftAnchor(secondAttributeLabel, 270.0);
                 AnchorPane.setTopAnchor(secondAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(secondAttributeLabel);
                 attributeCount++;
@@ -69,7 +69,7 @@ public class ProductOrderListModel {
             if (!productOrder.getSecondAttribute().isEmpty() && !productOrder.getSecondAttribute().equals(".")) {
                 Label thirdAttributeLabel = new Label("- " + productOrder.getSecondAttribute());
                 thirdAttributeLabel.setFont(new Font("Arial", 18));
-                AnchorPane.setLeftAnchor(thirdAttributeLabel, 230.0);
+                AnchorPane.setLeftAnchor(thirdAttributeLabel, 270.0);
                 AnchorPane.setTopAnchor(thirdAttributeLabel, 13.0 + (attributeCount * 30));
                 productOrderAnchorPane.getChildren().add(thirdAttributeLabel);
                 attributeCount++;

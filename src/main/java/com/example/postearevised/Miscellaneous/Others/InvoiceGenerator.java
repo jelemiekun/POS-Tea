@@ -65,7 +65,7 @@ public class InvoiceGenerator {
                 writer.write(receiptContent);
 
                 if (invocationCount == 1)
-                    return "\"" + receiptContent + "\"";
+                    return receiptContent;
 
                 generateInvoice(order, ++invocationCount);
                 System.out.println("Invoice generated successfully.");

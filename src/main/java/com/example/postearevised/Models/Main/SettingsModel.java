@@ -551,6 +551,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm9.setVisible(false);
         mainController.labelSettingsFillUpThisForm10.setVisible(false);
         mainController.labelSettingsFillUpThisForm11.setVisible(false);
+        mainController.anchorPanePasswordIndicator.setDisable(true);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -916,9 +917,11 @@ public class SettingsModel {
     public void setSettingsAccountPane2(boolean isShow) {
         if (mainController.textFieldAccountContact.isDisabled()) {
             if (isShow) {
+                mainController.anchorPanePasswordIndicator.setDisable(false);
                 disableOtherAccountEditButtons(2);
                 oldAccountReference = accountReference.copy();
             } else {
+                mainController.anchorPanePasswordIndicator.setDisable(true);
                 disableOtherAccountEditButtons(5);
             }
         }
@@ -929,6 +932,7 @@ public class SettingsModel {
         boolean proceed = checkPane2Changes();
 
         if (proceed && !mainController.textFieldAccountContact.isDisabled()) {
+            mainController.anchorPanePasswordIndicator.setDisable(true);
             disableOtherAccountEditButtons(5);
         }
 
@@ -954,6 +958,7 @@ public class SettingsModel {
 
             mainController.detectChangesAccountDetails = false;
             mainController.accountDetailsSubmittedOnce = false;
+            mainController.anchorPanePasswordIndicator.setDisable(true);
         }
     }
 
