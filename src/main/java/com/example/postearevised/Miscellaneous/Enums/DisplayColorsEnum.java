@@ -4,12 +4,12 @@ public enum DisplayColorsEnum {
 
     // element.setId("ID");
 
-    LIGHT_ENUM("light", ""), //    /com/example/postearevised//Lightmode.css
-    DARK_ENUM("dark", ""), //     /com/example/postearevised/Darkmode.css
-    RED_ENUM("red", ""),
-    ORANGE_ENUM("orange", ""),
-    YELLOW_ENUM("yellow", ""),
-    GREEN_ENUM("green", "");
+    LIGHT_ENUM("light", "/com/example/postearevised/Styles/Lightmode.css"),
+    DARK_ENUM("dark", "/com/example/postearevised/Styles/Darkmode.css"),
+    RED_ENUM("red", "/com/example/postearevised/Styles/Lightmode.css"),
+    ORANGE_ENUM("orange", "/com/example/postearevised/Styles/Lightmode.css"),
+    YELLOW_ENUM("yellow", "/com/example/postearevised/Styles/Lightmode.css"),
+    GREEN_ENUM("green", "/com/example/postearevised/Styles/Lightmode.css");
 
     private final String color;
     private final String cssURL;
