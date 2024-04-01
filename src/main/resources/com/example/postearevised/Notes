@@ -8,8 +8,6 @@ sa receipt, "First Name " + "M.I." lang lalabas, transaction,
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
 
-MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
-
 invoice pa sa order history
 
 display css styles
@@ -620,3 +618,5 @@ palitan "send otp" button sa forgot pass na continue
 if nasa pinaka baba na, dapat enabled na yung accept button sa reigsre
 
 if mag cchange email, bawal sa existing na.
+
+MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
