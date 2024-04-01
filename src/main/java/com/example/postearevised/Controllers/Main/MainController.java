@@ -931,6 +931,8 @@ public class MainController implements Initializable {
     @FXML
     public Label labelSettingsFillUpThisForm9;
     @FXML
+    public Label labelSettingsFillUpThisForm10;
+    @FXML
     public Label labelMiddleNameOptional;
     @FXML
     public ImageView imageHideShowNewPasswordAccountSettings;

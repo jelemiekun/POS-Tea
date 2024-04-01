@@ -33,7 +33,6 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
@@ -535,6 +534,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm7.setVisible(false);
         mainController.labelSettingsFillUpThisForm8.setVisible(false);
         mainController.labelSettingsFillUpThisForm9.setVisible(false);
+        mainController.labelSettingsFillUpThisForm10.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -990,7 +990,7 @@ public class SettingsModel {
         }
 
         setVisibilitiesPane2();
-        return proceed;
+        return proceed && newAccountNotExists();
     }
 
     private void setVisibilitiesPane2() {
@@ -1012,18 +1012,20 @@ public class SettingsModel {
                 if (account.isEmpty()) {
                     mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
                     mainController.labelSettingsFillUpThisForm3.setVisible(true);
-                } else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
-                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
-                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
                 }
+//                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+//                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+//                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+//                }
             } else if (willChangeAccount) {
                 if (account.isEmpty()) {
                     mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
                     mainController.labelSettingsFillUpThisForm3.setVisible(true);
-                } else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
-                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
-                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
                 }
+//                else if (!account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || !account.matches(REGEX_EMAIL)) {
+//                    mainController.labelSettingsFillUpThisForm3.setText("*invalid email or phone number");
+//                    mainController.labelSettingsFillUpThisForm3.setVisible(true);
+//                }
             } else if (willChangePass) {
                 mainController.labelSettingsFillUpThisForm6.setVisible(newPassword.isEmpty());
                 mainController.labelSettingsFillUpThisForm7.setVisible(confirmNewPassword.isEmpty());
@@ -1043,6 +1045,8 @@ public class SettingsModel {
             if (!willChangeAccount && !willChangePass) {
                 mainController.detectChangesAccountDetails = false;
             }
+
+            mainController.labelSettingsFillUpThisForm10.setVisible(!newAccountNotExists());
         }
     }
 
@@ -1053,6 +1057,20 @@ public class SettingsModel {
 
         mainController.detectChangesAccountDetails = !oldAccountReference.getContact().equals(contact) || !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
         setVisibilitiesPane2();
+    }
+
+    private boolean newAccountNotExists() {
+        String contact = mainController.textFieldAccountContact.getText().trim();
+
+        List<Account> accountCopyList = new ArrayList<>(accountSet);
+        accountCopyList.remove(accountReference);
+
+        for (Account account : accountCopyList) {
+            if (account.getContact().equals(contact))
+                return false;
+        }
+
+        return true;
     }
 
     private void dataTasks() {
