@@ -3,6 +3,7 @@ package com.example.postearevised.Models.Main;
 import com.example.postearevised.Controllers.Main.MainController;
 import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
@@ -96,11 +97,13 @@ public class DashboardModel {
                 String selected = mainController.dashboardComboBoxFirstSelection.getValue();
 
                 switch (selected) {
-                    case "Daily", "Weekly":
+                    case "Daily":
                         mainController.dashboardComboBoxSecondSelection.setVisible(true);
                         mainController.dashboardComboBoxThirdSelection.setVisible(true);
                         mainController.dashboardComboBoxFourthSelection.setVisible(true);
                         break;
+//                    case "Weekly":
+//                        break;
                     case "Monthly":
                         mainController.dashboardComboBoxSecondSelection.setVisible(true);
                         mainController.dashboardComboBoxThirdSelection.setVisible(true);
@@ -114,6 +117,16 @@ public class DashboardModel {
                 }
 
                 updateDashboardOrderObservableListReference(selected);
+                Platform.runLater(() -> {
+                    Platform.runLater(() -> {
+                        updateDashboardOrderObservableListReference(selected);
+                        Platform.runLater(() -> {
+                            Platform.runLater(() -> {
+                                updateDashboardOrderObservableListReference(selected);
+                            });
+                        });
+                    });
+                });
             } else {
                 setUIIfEmpty(true);
             }
@@ -187,8 +200,8 @@ public class DashboardModel {
                         dashboardOrderObservableListReference.add(order);
                 }
                 break;
-            case "Weekly":
-                break;
+//            case "Weekly":
+//                break;
             case "Monthly":
                 String selectedYearMonthString = mainController.dashboardComboBoxSecondSelection.getValue() + " " + mainController.dashboardComboBoxThirdSelection.getValue();
 
@@ -384,9 +397,11 @@ public class DashboardModel {
         String toConcat = "";
 
         switch (selected) {
-            case "Daily", "Weekly":
+            case "Daily":
                 toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + mainController.dashboardComboBoxThirdSelection.getValue() + " " + mainController.dashboardComboBoxFourthSelection.getValue() + ")";
                 break;
+//            case "Weekly":
+//                break;
             case "Monthly":
                 toConcat = "(" + mainController.dashboardComboBoxSecondSelection.getValue() + ", " + mainController.dashboardComboBoxThirdSelection.getValue() + ")";
                 break;
