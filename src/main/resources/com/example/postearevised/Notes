@@ -28,11 +28,7 @@ lagyan search sa edit products, wala nang filter by, rekta search by product nam
 
 add option na pede mag reset sa kaliwa ng available names, select lang
 
-palitan "send otp" button sa forgot pass na continue
-
 lagyan ng comma every 3 digits sa total revenue
-
-if nasa pinaka baba na, dapat enabled na yung accept button sa reigsre
 
 
 
@@ -618,3 +614,7 @@ gawing * lahat ng static import
 ayusin logic ng putanginang change password na yan
 
 BAWAL DUPLICATE ADDING NAME
+
+palitan "send otp" button sa forgot pass na continue
+
+if nasa pinaka baba na, dapat enabled na yung accept button sa reigsre

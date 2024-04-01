@@ -670,9 +670,9 @@
                         </ImageView>
                         <AnchorPane layoutX="177.0" layoutY="373.0" prefHeight="151.0" prefWidth="475.0">
                            <children>
-                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="112.0" layoutY="38.0" onKeyPressed="#btnForgotPass1ProceedPressedEnter" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="108.0" layoutY="38.0" onKeyPressed="#btnForgotPass1ProceedPressedEnter" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../Medias/Buttons/ForgotPassword/send%20otp.png" />
+                                    <Image url="@../../Medias/Buttons/continue.png" />
                                  </image>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />

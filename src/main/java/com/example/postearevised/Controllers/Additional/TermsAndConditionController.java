@@ -34,10 +34,6 @@ public class TermsAndConditionController implements Initializable {
                 btnAccept.setDisable(false);
                 btnAccept.setImage(acceptEnabled);
 
-            } else {
-                btnAccept.setCursor(Cursor.DEFAULT);
-                btnAccept.setDisable(true);
-                btnAccept.setPickOnBounds(false);
             }
         });
     }
