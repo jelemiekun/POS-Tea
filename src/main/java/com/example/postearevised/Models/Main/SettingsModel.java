@@ -33,6 +33,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
@@ -1451,7 +1452,9 @@ public class SettingsModel {
                     break;
             }
 
-            //mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssURL)).toExternalForm());
+            mainStage.getScene().getStylesheets().clear();
+
+            mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssURL)).toExternalForm());
             System.out.println("abang ng css line 1287 : " + styles);
         } else {
             accountReference.setDisplayColor(oldAccount.getDisplayColor());
