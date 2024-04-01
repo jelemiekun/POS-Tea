@@ -183,8 +183,6 @@ public class DashboardModel {
 
                     String formattedYearMonthDayTime = dateTime.format(yearMonthDayFormatter);
 
-                    System.out.println("line 181 " + formattedYearMonthDayTime + ", " + selectedYearMonthDayString);
-
                     if (formattedYearMonthDayTime.equals(selectedYearMonthDayString))
                         dashboardOrderObservableListReference.add(order);
                 }
