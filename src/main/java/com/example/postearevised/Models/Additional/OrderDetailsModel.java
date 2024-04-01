@@ -1,10 +1,13 @@
 package com.example.postearevised.Models.Additional;
 
 import com.example.postearevised.Controllers.Additional.OrderDetailsController;
+import com.example.postearevised.Objects.Order.Order;
 import com.example.postearevised.Objects.Order.ProductOrder;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -152,5 +155,15 @@ public class OrderDetailsModel {
                 }
             }
         });
+    }
+
+    public void setReorderToFalse() {
+        orderDetailsController.tableViewRecordDetailsAmountPaid.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsChange.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsFoodCategories.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsProductDetails.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsProductPrice.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsQuantity.setReorderable(false);
+        orderDetailsController.tableViewRecordDetailsTotalAmount.setReorderable(false);
     }
 }

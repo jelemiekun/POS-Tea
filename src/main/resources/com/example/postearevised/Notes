@@ -20,10 +20,6 @@ password strength indicator sa change pass at ayusin indicators, ayusin din pag 
 
 add option na pede mag reset sa kaliwa ng available names, select lang
 
-lagyan ng comma every 3 digits sa total revenue
-
-new pass cant be d same as old pass sa settings account
-
 
 
 
@@ -620,3 +616,7 @@ if nasa pinaka baba na, dapat enabled na yung accept button sa reigsre
 if mag cchange email, bawal sa existing na.
 
 MGA WALA PANG TOOLTIP, REG, FORGOT PASS.  SETTINGS ACC, SETTINGS SYSTEM MANUAL
+
+lagyan ng comma every 3 digits sa total revenue
+
+new pass cant be d same as old pass sa settings account

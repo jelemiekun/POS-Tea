@@ -75,6 +75,8 @@ public class OrderDetailsController implements Initializable {
         orderDetailsModel.setHeader();
         orderDetailsModel.setTable();
 
+        orderDetailsModel.setReorderToFalse();
+
         orderDetailsModel.requestFocusOnMainAnchorPane();
     }
 
