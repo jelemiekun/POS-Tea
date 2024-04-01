@@ -23,7 +23,7 @@
                         <Image url="@../../Medias/Backgrounds/LoginRegisterResetPass/Login.jpeg" />
                     </image>
                 </ImageView>
-            <Label alignment="CENTER" focusTraversable="false" layoutX="152.0" layoutY="685.0" text="A cup of Bru day a day, makes the&#10;bad day away" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" focusTraversable="false" layoutX="152.0" layoutY="685.0" text="A cup of Bru day a day, makes the&#10;bad day away" textAlignment="CENTER" textFill="WHITE" visible="false">
                <font>
                   <Font name="Arial Black" size="31.0" />
                </font>
