@@ -27,7 +27,7 @@ public class InvoiceGenerator {
         }
     }
 
-    public static void generateInvoice(Order order, int invocationCount) {
+    public static String generateInvoice(Order order, int invocationCount) {
         if (invocationCount == 1 || invocationCount == 2) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
 
@@ -57,11 +57,16 @@ public class InvoiceGenerator {
             receiptContentBuilder.append("Amount Paid: ₱").append(order.getAmountPaid()).append("\n");
             receiptContentBuilder.append("Change: ₱").append(order.getChange()).append("\n");
             receiptContentBuilder.append("Mode of Payment: ").append(order.getModeOfPayment()).append("\n\n\n");
+            receiptContentBuilder.append("*EndOfInvoice*").append("\n");
 
             String receiptContent = receiptContentBuilder.toString();
 
             try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY, true)) {
                 writer.write(receiptContent);
+
+                if (invocationCount == 1)
+                    return "\"" + receiptContent + "\"";
+
                 generateInvoice(order, ++invocationCount);
                 System.out.println("Invoice generated successfully.");
             } catch (IOException e) {
@@ -69,6 +74,7 @@ public class InvoiceGenerator {
                 logError(false);
             }
         }
+        return "";
     }
 
 }

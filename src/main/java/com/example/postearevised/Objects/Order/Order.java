@@ -14,6 +14,21 @@ public class Order {
     private final String modeOfPayment;
     private LocalDateTime dateAndTime;
     private String transactionID;
+    private String invoice;
+
+    public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
+                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID, String invoice) {
+        this.productOrderObservableList = productOrderObservableList;
+        this.customerName = customerName;
+        this.orderNumber = orderNumber;
+        this.totalPrice = totalPrice;
+        this.amountPaid = amountPaid;
+        this.change = change;
+        this.modeOfPayment = modeOfPayment;
+        this.dateAndTime = dateAndTime;
+        this.transactionID = transactionID;
+        this.invoice = invoice;
+    }
 
     public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
                  int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID) {
@@ -26,15 +41,24 @@ public class Order {
         this.modeOfPayment = modeOfPayment;
         this.dateAndTime = dateAndTime;
         this.transactionID = transactionID;
+        this.invoice = "";
     }
 
     public ObservableList<ProductOrder> getProductOrderObservableList() {
         return productOrderObservableList;
     }
 
+    public void setInvoice(String invoice) {
+        this.invoice = invoice;
+    }
+
     public void setProductOrderObservableList(ObservableList<ProductOrder> productOrderObservableList) {
         this.productOrderObservableList = productOrderObservableList;
         System.out.println("Bagong pinasang productOrderObsableList: " + productOrderObservableList.size());
+    }
+
+    public String getInvoice() {
+        return invoice;
     }
 
     public String getTransactionID() { return transactionID; }

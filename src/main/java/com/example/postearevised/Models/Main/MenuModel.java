@@ -992,6 +992,7 @@ public class MenuModel {
             if (mainController.mainModel.openPrompt()) {
                 setReferenceOrderNumber();
                 Order order = makeOrder();
+                order.setInvoice(generateInvoice(order, 1));
                 if (addOrderToCSV(order, true)) {
                     setPaymentSuccessful(String.valueOf(referenceChange));
                     boolean dump = mainController.mainModel.openPrompt();
@@ -1015,8 +1016,6 @@ public class MenuModel {
                     setOrderAddedToOrderQueue();
                     mainController.mainModel.generateNotification();
 
-
-                    generateInvoice(order, 1);
                     orderCancelledOrAddedToQueue(false);
                     clearFields();
                     incrementCustomerNumber();

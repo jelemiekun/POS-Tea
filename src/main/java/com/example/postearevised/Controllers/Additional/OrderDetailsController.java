@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -65,6 +62,9 @@ public class OrderDetailsController implements Initializable {
     @FXML
     public ScrollPane scrollPaneMain;
 
+    @FXML
+    public TextArea textAreaInvoice;
+
 
     public ObservableList<Order> selectedOrder = FXCollections.observableArrayList();
     private OrderDetailsModel orderDetailsModel;
@@ -83,6 +83,7 @@ public class OrderDetailsController implements Initializable {
 
         orderDetailsModel.setHeader();
         orderDetailsModel.setTable();
+        orderDetailsModel.setTextArea();
 
         orderDetailsModel.setReorderToFalse();
         orderDetailsModel.requestFocusOnMainAnchorPane();

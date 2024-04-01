@@ -107,9 +107,9 @@
                               <Font name="Arial Bold" size="40.0" />
                            </font>
                         </Label>
-                        <TextArea editable="false" layoutX="70.0" layoutY="87.0" prefHeight="634.0" prefWidth="1058.0" text="TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT">
+                        <TextArea fx:id="textAreaInvoice" editable="false" layoutX="70.0" layoutY="87.0" prefHeight="634.0" prefWidth="1058.0" text="TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT&#10;TEMPLATE FOR RECEIPT">
                            <font>
-                              <Font name="Monospaced Regular" size="45.0" />
+                              <Font name="Monospaced Regular" size="32.0" />
                            </font>
                         </TextArea>
                      </children>

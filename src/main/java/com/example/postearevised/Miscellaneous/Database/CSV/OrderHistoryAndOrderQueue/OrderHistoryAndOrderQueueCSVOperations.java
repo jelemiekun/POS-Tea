@@ -13,7 +13,9 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -29,8 +31,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
     public static void createOrderHistoryCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            // Write column headers to the CSV file
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,invoice\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -42,7 +43,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
     public static void createOrderQueueCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,invoice\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -79,14 +80,14 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
         String filePath = isOrderQueue ? CSV_FILE_PATH_ORDER_QUEUE : CSV_FILE_PATH_ORDER_HISTORY;
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            // Read and ignore the header
-            reader.readLine();
+        try (Scanner scanner = new Scanner(new File(filePath))) {
+            scanner.nextLine();
 
-            String line;
-            while ((line = reader.readLine()) != null) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
                 String[] parts = line.split(",");
-                if (parts.length >= 15) {
+
+                if (parts.length >= 17) {
                     String customerName = parts[0];
                     int orderNumber = Integer.parseInt(parts[1]);
                     ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
@@ -102,9 +103,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     try {
                         for (int i = 0; i < categories.length; i++) {
                             imagePaths[i] = imagePaths[i].isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePaths[i];
-
                             System.out.println("line 101 image path: " + imagePaths[i]);
-
                             ProductOrder productOrder = new ProductOrder(names[i], categories[i], null, imagePaths[i], firstAttribute[i], secondAttribute[i], thirdAttribute[i], Integer.parseInt(totalAmounts[i]), Integer.parseInt(quantities[i]));
                             productOrders.add(productOrder);
                         }
@@ -122,8 +121,20 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     LocalDateTime dateAndTime = LocalDateTime.parse(temporaryLocalDateAndTime);
                     String transactionID = parts[15];
                     transactionID = deFormatString(transactionID);
+                    StringBuilder invoiceBuilder = new StringBuilder();
+                    while (scanner.hasNextLine()) {
+                        String invoiceLine = scanner.nextLine();
+                        if (invoiceLine.trim().equals("*EndOfInvoice*")) {
+                            break;
+                        }
+                        invoiceBuilder.append(invoiceLine).append("\n");
+                    }
+                    String invoice = invoiceBuilder.toString().trim();
 
-                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID);
+
+
+
+                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID, invoice);
                     orders.add(order);
                 }
             }
@@ -211,6 +222,15 @@ public class OrderHistoryAndOrderQueueCSVOperations {
             }
 
             sb.append(formatString(order.getTransactionID())).append(",");
+
+            String[] invoiceLines = order.getInvoice().split("\n");
+            for (int i = 0; i < invoiceLines.length; i++) {
+                sb.append(invoiceLines[i]);
+                if (i < invoiceLines.length - 1) {
+                    sb.append("\n");
+                }
+            }
+
             sb.append("\n");
 
             writer.write(sb.toString());

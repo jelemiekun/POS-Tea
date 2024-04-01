@@ -21,6 +21,20 @@ public class OrderDetailsModel {
         this.orderDetailsController = orderDetailsController;
     }
 
+    public void setHeader() {
+        orderDetailsController.labelTransactionID.setText(selectedOrderDetails.getTransactionID());
+
+        orderDetailsController.labelOrderNumber.setText(String.valueOf(selectedOrderDetails.getOrderNumber()));
+        orderDetailsController.labelOrderCustomerName.setText(selectedOrderDetails.getCustomerName());
+
+        LocalDateTime dateTime = selectedOrderDetails.getDateAndTime();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy | hh:mm:ss a");
+        String formattedDateTime = dateTime.format(formatter);
+        orderDetailsController.labelOrderDateAndTime.setText(formattedDateTime);
+
+        orderDetailsController.labelOrderModeOfPayment.setText(selectedOrderDetails.getModeOfPayment());
+    }
+
     public void setTable() {
         orderDetailsController.tableViewRecordDetails.setItems(orderDetailsController.selectedOrder);
         orderDetailsController.tableViewRecordDetailsFoodCategories.setCellValueFactory(cellData -> {
@@ -130,18 +144,8 @@ public class OrderDetailsModel {
         orderDetailsController.tableViewRecordDetails.setSelectionModel(null);
     }
 
-    public void setHeader() {
-        orderDetailsController.labelTransactionID.setText(selectedOrderDetails.getTransactionID());
-
-        orderDetailsController.labelOrderNumber.setText(String.valueOf(selectedOrderDetails.getOrderNumber()));
-        orderDetailsController.labelOrderCustomerName.setText(selectedOrderDetails.getCustomerName());
-
-        LocalDateTime dateTime = selectedOrderDetails.getDateAndTime();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy | hh:mm:ss a");
-        String formattedDateTime = dateTime.format(formatter);
-        orderDetailsController.labelOrderDateAndTime.setText(formattedDateTime);
-
-        orderDetailsController.labelOrderModeOfPayment.setText(selectedOrderDetails.getModeOfPayment());
+    public void setTextArea() {
+        orderDetailsController.textAreaInvoice.setText(selectedOrderDetails.getInvoice());
     }
 
     public void requestFocusOnMainAnchorPane() {
