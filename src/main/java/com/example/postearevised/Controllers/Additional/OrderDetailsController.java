@@ -2,11 +2,13 @@ package com.example.postearevised.Controllers.Additional;
 
 import com.example.postearevised.Models.Additional.OrderDetailsModel;
 import com.example.postearevised.Objects.Order.Order;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
@@ -60,6 +62,9 @@ public class OrderDetailsController implements Initializable {
     @FXML
     public TableColumn<Order, String> tableViewRecordDetailsTotalAmount;
 
+    @FXML
+    public ScrollPane scrollPaneMain;
+
 
     public ObservableList<Order> selectedOrder = FXCollections.observableArrayList();
     private OrderDetailsModel orderDetailsModel;
@@ -69,6 +74,10 @@ public class OrderDetailsController implements Initializable {
         orderDetailsModel = new OrderDetailsModel();
         orderDetailsModel.setOrderDetailsController(this);
 
+        Platform.runLater(() -> {
+            scrollPaneMain.setVvalue(0);
+        });
+
         selectedOrder.clear();
         selectedOrder.add(selectedOrderDetails);
 
@@ -76,7 +85,6 @@ public class OrderDetailsController implements Initializable {
         orderDetailsModel.setTable();
 
         orderDetailsModel.setReorderToFalse();
-
         orderDetailsModel.requestFocusOnMainAnchorPane();
     }
 
