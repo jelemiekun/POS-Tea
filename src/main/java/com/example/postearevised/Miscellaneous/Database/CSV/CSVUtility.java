@@ -94,4 +94,17 @@ public class CSVUtility {
         }
         return -1;
     }
+
+    public static String formatString(String input) {
+        return input.substring(0, 4) + "x" +
+                input.substring(4, 6) + "x" +
+                input.substring(6, 8) + "x" +
+                input.substring(8, 10) + "x" +
+                input.substring(10, 12) + "x" +
+                input.substring(12);
+    }
+
+    public static String deFormatString(String input) {
+        return input.replace("x", "");
+    }
 }

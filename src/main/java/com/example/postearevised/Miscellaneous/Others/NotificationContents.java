@@ -44,4 +44,10 @@ public class NotificationContents {
         notificationHeaderReference = "Product Deleted";
         notificationContentReference = "Deletion Successful";
     }
+
+    public static void setOrderCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Order cancelled";
+        notificationContentReference = "Your order has been cancelled.";
+    }
 }

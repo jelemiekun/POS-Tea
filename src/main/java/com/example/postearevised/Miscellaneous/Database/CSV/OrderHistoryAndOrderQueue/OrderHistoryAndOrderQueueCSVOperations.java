@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -116,8 +117,11 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     int amountPaid = Integer.parseInt(parts[10]);
                     int change = Integer.parseInt(parts[11]);
                     String modeOfPayment = parts[12];
-                    LocalDateTime dateAndTime = LocalDateTime.parse(parts[13]);
+                    String temporaryLocalDateAndTime = parts[13];
+                    temporaryLocalDateAndTime = deFormatString(temporaryLocalDateAndTime);
+                    LocalDateTime dateAndTime = LocalDateTime.parse(temporaryLocalDateAndTime);
                     String transactionID = parts[15];
+                    transactionID = deFormatString(transactionID);
 
                     Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID);
                     orders.add(order);
@@ -197,7 +201,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 sb.append(amountPaid).append(",");
                 sb.append(change).append(",");
                 sb.append(modeOfPayment).append(",");
-                sb.append(dateAndTime).append(",");
+                sb.append(formatString(String.valueOf(dateAndTime))).append(",");
 
                 StringBuilder imagePathBuilder = new StringBuilder();
                 for (ProductOrder productOrder : productOrders) {
@@ -206,7 +210,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 sb.append(imagePathBuilder).append(",");
             }
 
-            sb.append(order.getTransactionID()).append(",");
+            sb.append(formatString(order.getTransactionID())).append(",");
             sb.append("\n");
 
             writer.write(sb.toString());
@@ -240,7 +244,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 for (Order order : orderListToDelete) {
                     if (fields.length >= 4 &&
                             fields[0].equals(order.getCustomerName()) &&
-                            fields[13].equals(String.valueOf(order.getDateAndTime()))) {
+                            fields[13].equals(formatString(String.valueOf(order.getDateAndTime())))) {
                         deleteRow = true;
                         break;
                     }

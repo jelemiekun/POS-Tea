@@ -956,6 +956,11 @@ public class MenuModel {
             proceed = mainController.mainModel.openPrompt();
         }
 
+        if (isCancel && proceed) {
+            setOrderCancelled();
+            mainController.mainModel.generateNotification();
+        }
+
         if (proceed) {
             clearProductOrderReferences();
             noOrderSelected();
