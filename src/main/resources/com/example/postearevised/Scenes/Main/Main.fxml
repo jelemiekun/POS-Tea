@@ -29,17 +29,17 @@
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
-                  <Label layoutX="53.0" layoutY="23.0" text="DASHBOARD">
+                  <Label id="dashboardlabels" layoutX="53.0" layoutY="23.0" text="DASHBOARD">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelDashboardDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
+                  <Label id="dashboardlabels" fx:id="labelDashboardDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="631.0" layoutY="30.0" text="EATS BRU DAYS">
+                  <Label id="dashboardlabels" layoutX="631.0" layoutY="30.0" text="EATS BRU DAYS">
                      <font>
                         <Font name="Arial Bold" size="70.0" />
                      </font>
@@ -69,10 +69,10 @@
                      <children>
                         <FlowPane alignment="CENTER_LEFT" hgap="33.0" prefHeight="70.0" prefWidth="1140.0">
                            <children>
-                              <ComboBox fx:id="dashboardComboBoxFirstSelection" onAction="#dashboardComboBoxFirstSelectionOnAction" prefWidth="220.0" />
-                              <ComboBox fx:id="dashboardComboBoxSecondSelection" onAction="#dashboardComboBoxSecondSelectionOnAction" prefWidth="220.0" />
-                              <ComboBox fx:id="dashboardComboBoxThirdSelection" onAction="#dashboardComboBoxThirdSelectionOnAction" prefWidth="220.0" />
-                              <ComboBox fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="220.0" />
+                              <ComboBox id="comboboxesdb" fx:id="dashboardComboBoxFirstSelection" onAction="#dashboardComboBoxFirstSelectionOnAction" prefWidth="220.0" />
+                              <ComboBox id="comboboxesdb" fx:id="dashboardComboBoxSecondSelection" onAction="#dashboardComboBoxSecondSelectionOnAction" prefWidth="220.0" />
+                              <ComboBox id="comboboxesdb" fx:id="dashboardComboBoxThirdSelection" onAction="#dashboardComboBoxThirdSelectionOnAction" prefWidth="220.0" />
+                              <ComboBox id="comboboxesdb" fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="220.0" />
                               <AnchorPane fx:id="anchorPaneResetToToday" focusTraversable="true" onKeyPressed="#anchorPaneResetToTodayPressedEnter" onMouseClicked="#anchorPaneDashboardResetToTodayClickedTouched" onTouchReleased="#anchorPaneDashboardResetToTodayClickedTouched" prefHeight="39.0" prefWidth="119.0" visible="false">
                                  <children>
                                     <Label layoutX="1.0" layoutY="9.0" text="Reset to today" textFill="#0000009a" underline="true">
@@ -90,10 +90,10 @@
                            <children>
                               <AnchorPane prefHeight="195.0" prefWidth="350.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+                                    <Rectangle id="totalrevenuebox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="105.0" prefHeight="37.0" prefWidth="253.0" text="₱0.00" textAlignment="CENTER">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalRevenue" alignment="CENTER" contentDisplay="CENTER" layoutX="117.0" layoutY="105.0" prefHeight="37.0" prefWidth="253.0" text="₱0.00" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -103,7 +103,7 @@
                                                 <Image url="@../../Medias/Icons/Dashboard/Bank.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="labelDashboardTotalRevenueTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL REVENUE" textAlignment="CENTER" wrapText="true">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalRevenueTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL REVENUE" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -112,10 +112,10 @@
                                  </children></AnchorPane>
                               <AnchorPane prefHeight="195.0" prefWidth="350.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+                                    <Rectangle id="totalcustomerbox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalCustomer" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -125,7 +125,7 @@
                                                 <Image url="@../../Medias/Icons/Dashboard/Account.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="labelDashboardTotalCustomerTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL CUSTOMER" textAlignment="CENTER" wrapText="true">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalCustomerTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL CUSTOMER" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -136,10 +136,10 @@
                               </AnchorPane>
                               <AnchorPane prefHeight="195.0" prefWidth="350.0">
                                  <children>
-                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
+                                    <Rectangle id="totalorderbox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="195.0" stroke="BLACK" strokeType="INSIDE" width="370.0" />
                                     <AnchorPane prefHeight="195.0" prefWidth="370.0">
                                        <children>
-                                          <Label fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalOrder" alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="105.0" prefHeight="37.0" prefWidth="260.0" text="0" textAlignment="CENTER">
                                              <font>
                                                 <Font name="Arial" size="32.0" />
                                              </font>
@@ -149,7 +149,7 @@
                                                 <Image url="@../../Medias/Icons/Dashboard/Account.png" />
                                              </image>
                                           </ImageView>
-                                          <Label fx:id="labelDashboardTotalOrderTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL ORDER" textAlignment="CENTER" wrapText="true">
+                                          <Label id="dashboardlabels" fx:id="labelDashboardTotalOrderTitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="370.0" text="TOTAL ORDER" textAlignment="CENTER" wrapText="true">
                                              <font>
                                                 <Font name="Arial" size="18.0" />
                                              </font>
@@ -162,8 +162,8 @@
                         </FlowPane>
                         <AnchorPane layoutY="305.0" prefHeight="513.0" prefWidth="1140.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="513.0" stroke="BLACK" strokeType="INSIDE" width="1140.0" />
-                              <Label fx:id="labelDashboardBarChartTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="16.0" prefHeight="48.0" prefWidth="1060.0" text="Top Selling Food Categories" textAlignment="CENTER" visible="false">
+                              <Rectangle id="barchartbox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="513.0" stroke="BLACK" strokeType="INSIDE" width="1140.0" />
+                              <Label id="dashboardlabels" fx:id="labelDashboardBarChartTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="42.0" layoutY="16.0" prefHeight="48.0" prefWidth="1060.0" text="Top Selling Food Categories" textAlignment="CENTER" visible="false">
                                  <font>
                                     <Font name="Arial" size="41.0" />
                                  </font>
@@ -179,7 +179,7 @@
                                        </tickLabelFont></NumberAxis>
                                 </yAxis>
                               </BarChart>
-                              <Label fx:id="labelDashBoardNoSalesRecordedGraph" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="144.0" prefHeight="225.0" prefWidth="960.0" text="No Sales Recorded" textAlignment="CENTER" visible="false">
+                              <Label id="dashboardlabels" fx:id="labelDashBoardNoSalesRecordedGraph" alignment="CENTER" contentDisplay="CENTER" layoutX="92.0" layoutY="144.0" prefHeight="225.0" prefWidth="960.0" text="No Sales Recorded" textAlignment="CENTER" visible="false">
                                  <font>
                                     <Font name="Arial" size="78.0" />
                                  </font>
@@ -189,7 +189,7 @@
                                     <AnchorPane prefHeight="35.0" prefWidth="200.0">
                                        <children>
                                           <Rectangle fx:id="rectangleDashboardLegends1" arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="20.0" layoutX="14.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="20.0" />
-                                          <Label layoutX="43.0" layoutY="8.0" text="Milk Tea">
+                                          <Label id="dashboardlabels" layoutX="43.0" layoutY="8.0" text="Milk Tea">
                                              <font>
                                                 <Font name="Arial" size="16.0" />
                                              </font>
@@ -199,7 +199,7 @@
                                     <AnchorPane prefHeight="35.0" prefWidth="200.0">
                                        <children>
                                           <Rectangle fx:id="rectangleDashboardLegends2" arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="20.0" layoutX="14.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="20.0" />
-                                          <Label layoutX="43.0" layoutY="8.0" text="Coolers">
+                                          <Label id="dashboardlabels" layoutX="43.0" layoutY="8.0" text="Coolers">
                                              <font>
                                                 <Font name="Arial" size="16.0" />
                                              </font>
@@ -209,7 +209,7 @@
                                     <AnchorPane prefHeight="35.0" prefWidth="180.0">
                                        <children>
                                           <Rectangle fx:id="rectangleDashboardLegends3" arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="20.0" layoutX="14.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="20.0" />
-                                          <Label layoutX="43.0" layoutY="8.0" text="Coffee">
+                                          <Label id="dashboardlabels" layoutX="43.0" layoutY="8.0" text="Coffee">
                                              <font>
                                                 <Font name="Arial" size="16.0" />
                                              </font>
@@ -219,7 +219,7 @@
                                     <AnchorPane prefHeight="35.0" prefWidth="200.0">
                                        <children>
                                           <Rectangle fx:id="rectangleDashboardLegends4" arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="20.0" layoutX="14.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="20.0" />
-                                          <Label layoutX="43.0" layoutY="8.0" text="Ice Candy Cups">
+                                          <Label id="dashboardlabels" layoutX="43.0" layoutY="8.0" text="Ice Candy Cups">
                                              <font>
                                                 <Font name="Arial" size="16.0" />
                                              </font>
@@ -229,7 +229,7 @@
                                     <AnchorPane prefHeight="35.0" prefWidth="200.0">
                                        <children>
                                           <Rectangle fx:id="rectangleDashboardLegends5" arcHeight="5.0" arcWidth="5.0" fill="#d0d0d0" height="20.0" layoutX="14.0" layoutY="8.0" stroke="WHITE" strokeType="INSIDE" width="20.0" />
-                                          <Label layoutX="43.0" layoutY="8.0" text="Appetizer">
+                                          <Label id="dashboardlabels" layoutX="43.0" layoutY="8.0" text="Appetizer">
                                              <font>
                                                 <Font name="Arial" size="16.0" />
                                              </font>
@@ -243,21 +243,21 @@
                   </AnchorPane>
                   <AnchorPane layoutX="1237.0" layoutY="14.0" prefHeight="818.0" prefWidth="572.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="815.0" stroke="BLACK" strokeType="INSIDE" width="550.0" />
-                        <AnchorPane prefHeight="95.0" prefWidth="550.0">
+                        <Rectangle id="alltimefavorites" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="815.0" stroke="BLACK" strokeType="INSIDE" width="550.0" />
+                        <AnchorPane id="alltimefavorites" prefHeight="95.0" prefWidth="550.0">
                            <children>
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutY="27.0" prefHeight="42.0" prefWidth="550.0" text="ALL TIME FAVORITES" textAlignment="CENTER">
+                              <Label id="dashboardlabels" alignment="CENTER" contentDisplay="CENTER" layoutY="27.0" prefHeight="42.0" prefWidth="550.0" text="ALL TIME FAVORITES" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial Bold" size="36.0" />
                                  </font></Label>
                            </children>
                         </AnchorPane>
-                        <ScrollPane layoutY="94.0" prefWidth="550.0" style="-fx-background-color: white; -fx-border-width: 1px; -fx-border-color: black;">
+                        <ScrollPane id="Scrollpanedashboard" layoutY="94.0" prefWidth="550.0">
                            <content>
-                              <FlowPane fx:id="flowPaneBestSeller" prefHeight="720.0" prefWidth="532.0" style="-fx-background-color: white;" />
+                              <FlowPane id="Flowpanedashboard" fx:id="flowPaneBestSeller" prefHeight="720.0" prefWidth="532.0" />
                            </content>
                         </ScrollPane>
-                        <Label fx:id="labelDashBoardNoSalesBestSeller" layoutX="150.0" layoutY="410.0" text="No Sales Recorded" visible="false">
+                        <Label id="dashboardlabels" fx:id="labelDashBoardNoSalesBestSeller" layoutX="150.0" layoutY="410.0" text="No Sales Recorded" visible="false">
                            <font>
                               <Font name="Arial" size="28.0" />
                            </font>
@@ -273,12 +273,12 @@
                <children>
                   <AnchorPane prefHeight="140.0" prefWidth="1276.0">
                      <children>
-                        <Label layoutX="53.0" layoutY="23.0" text="MENU">
+                        <Label id="menulabels" layoutX="53.0" layoutY="23.0" text="MENU">
                            <font>
                               <Font name="Arial Bold" size="48.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMenuDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
+                        <Label id="menulabels" fx:id="labelMenuDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
                            <font>
                               <Font name="Arial" size="28.0" />
                            </font>
@@ -290,7 +290,7 @@
                                     <Image url="@../../Medias/Buttons/Menu/edit%20products.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Edit Product">
+                              <Label id="menueditproducts" alignment="CENTER" layoutX="58.0" layoutY="10.0" prefHeight="47.0" prefWidth="128.0" text="Edit Product">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>
@@ -304,14 +304,14 @@
                   </AnchorPane>
                   <AnchorPane layoutX="58.0" layoutY="140.0" prefHeight="233.0" prefWidth="1163.0">
                      <children>
-                        <Label text="Food Categories">
+                        <Label id="menulabels" text="Food Categories">
                            <font>
                               <Font name="Arial Bold" size="36.0" />
                            </font>
                         </Label>
                         <FlowPane alignment="CENTER" hgap="50.0" layoutY="52.0" prefHeight="167.0" prefWidth="1163.0">
                            <children>
-                              <ImageView fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuAll" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAllClicked" onTouchReleased="#imageViewMenuAllTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/all.png" />
                                  </image>
@@ -319,7 +319,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="imageViewMenuMilkTea" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuMilkTeaClicked" onTouchReleased="#imageViewMenuMilkTeaTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuMilkTea" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuMilkTeaClicked" onTouchReleased="#imageViewMenuMilkTeaTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/milk%20tea.png" />
                                  </image>
@@ -327,7 +327,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="imageViewMenuCoolers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoolersClicked" onTouchReleased="#imageViewMenuCoolersTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuCoolers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoolersClicked" onTouchReleased="#imageViewMenuCoolersTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/coolers.png" />
                                  </image>
@@ -335,7 +335,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="imageViewMenuCoffee" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoffeeClicked" onTouchReleased="#imageViewMenuCoffeeTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuCoffee" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuCoffeeClicked" onTouchReleased="#imageViewMenuCoffeeTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/coffee.png" />
                                  </image>
@@ -343,7 +343,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuIceCandyCups" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuIceCandyCupsClicked" onTouchReleased="#imageViewMenuIceCandyCupsTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/ice%20candy%20cups.png" />
                                  </image>
@@ -351,7 +351,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="foodcategorybuttons" fx:id="imageViewMenuAppetizers" fitHeight="150.0" fitWidth="150.0" onMouseClicked="#imageViewMenuAppetizersClicked" onTouchReleased="#imageViewMenuAppetizersTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Menu%20Categories/appetizer.png" />
                                  </image>
@@ -365,7 +365,7 @@
                   </AnchorPane>
                   <AnchorPane layoutX="58.0" layoutY="373.0" prefHeight="666.0" prefWidth="1190.0">
                      <children>
-                        <Label fx:id="labelMenuCategorySelected" prefHeight="42.0" prefWidth="436.0" text="Menu">
+                        <Label id="menulabels" fx:id="labelMenuCategorySelected" prefHeight="42.0" prefWidth="436.0" text="Menu">
                            <font>
                               <Font name="Arial Bold" size="36.0" />
                            </font>
@@ -415,20 +415,20 @@
             </AnchorPane>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
+                  <Rectangle id="menulabels" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
                   <AnchorPane layoutX="40.0" layoutY="14.0" prefHeight="115.0" prefWidth="478.0">
                      <children>
-                        <Label layoutX="27.0" layoutY="28.0" text="Customer No.:">
+                        <Label id="menulabels" layoutX="27.0" layoutY="28.0" text="Customer No.:">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="27.0" layoutY="65.0" text="Customer Name:">
+                        <Label id="menulabels" layoutX="27.0" layoutY="65.0" text="Customer Name:">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="28.0" prefHeight="31.0" prefWidth="168.0" text="1">
+                        <Label id="menulabels" fx:id="labelCustomerNumber" alignment="CENTER_RIGHT" layoutX="288.0" layoutY="28.0" prefHeight="31.0" prefWidth="168.0" text="1">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
@@ -454,25 +454,25 @@
                         </Label>
                         <AnchorPane layoutX="13.0" layoutY="35.0" prefHeight="36.0" prefWidth="436.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="WHITE" strokeType="INSIDE" width="436.0" />
-                              <Label layoutX="90.0" layoutY="9.0" text="Order Details" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="358.0" layoutY="9.0" prefWidth="70.0" text="Price" />
-                              <Label layoutX="271.0" layoutY="9.0" text="Quantity" />
+                              <Rectangle id="rectanglebills" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="35.0" stroke="WHITE" strokeType="INSIDE" width="436.0" />
+                              <Label id="menulbilllabel" layoutX="90.0" layoutY="9.0" text="Order Details" />
+                              <Label id="menulbilllabel" alignment="CENTER" contentDisplay="CENTER" layoutX="358.0" layoutY="9.0" prefWidth="70.0" text="Price" />
+                              <Label id="menulbilllabel" layoutX="271.0" layoutY="9.0" text="Quantity" />
                               <Line endX="-40.0" endY="47.0" layoutX="374.0" layoutY="-12.0" startX="-40.0" startY="12.0" visible="false" />
                               <Line endX="-40.0" endY="47.0" layoutX="292.0" layoutY="-11.0" startX="-40.0" startY="12.0" visible="false" />
                            </children>
                         </AnchorPane>
-                        <ScrollPane layoutX="12.0" layoutY="75.0" prefHeight="368.0" prefWidth="451.0">
+                        <ScrollPane id="Scrollpanemenu" layoutX="12.0" layoutY="75.0" prefHeight="368.0" prefWidth="451.0">
                           <content>
-                              <FlowPane fx:id="flowPaneOrdersSelected" prefHeight="365.0" prefWidth="433.0" />
+                              <FlowPane id="Flowpanemenu" fx:id="flowPaneOrdersSelected" prefHeight="365.0" prefWidth="433.0" />
                           </content>
                         </ScrollPane>
-                        <Label fx:id="labelNoOrdersSelected" layoutX="126.0" layoutY="237.0" text="No Orders Selected">
+                        <Label id="noorderselected" fx:id="labelNoOrdersSelected" layoutX="126.0" layoutY="237.0" text="No Orders Selected">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="menuGuideMessageBillsProductOrder" layoutX="141.0" layoutY="14.0" text="Click the order details to edit the item" textFill="#616161">
+                        <Label id="menuguide" fx:id="menuGuideMessageBillsProductOrder" layoutX="141.0" layoutY="14.0" text="Click the order details to edit the item" textFill="#616161">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -486,24 +486,24 @@
                   </Label>
                   <AnchorPane layoutX="40.0" layoutY="610.0" prefHeight="368.0" prefWidth="473.0">
                      <children>
-                        <Label layoutX="35.0" layoutY="5.0" text="Total Amount">
+                        <Label id="menulabels" layoutX="35.0" layoutY="5.0" text="Total Amount">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="209.0" layoutY="5.0" prefHeight="31.0" prefWidth="249.0" text="₱00.00">
+                        <Label id="menulabels" fx:id="labelMenuTotalPrice" alignment="CENTER_RIGHT" layoutX="209.0" layoutY="5.0" prefHeight="31.0" prefWidth="249.0" text="₱00.00">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
                         </Label>
                         <AnchorPane fx:id="anchorPaneHideHalfRightPanel" layoutY="56.0" prefHeight="309.0" prefWidth="473.0" visible="false">
                            <children>
-                              <Label layoutX="35.0" layoutY="-7.0" text="Enter Amount:">
+                              <Label id="menulabels" layoutX="35.0" layoutY="-7.0" text="Enter Amount:">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="35.0" layoutY="63.0" text="Payment Method">
+                              <Label id="menulabels" layoutX="35.0" layoutY="63.0" text="Payment Method">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -559,17 +559,17 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <Label layoutX="3.0" layoutY="23.0" text="-----------------------------------------------">
+                              <Label id="menulabels" layoutX="3.0" layoutY="23.0" text="-----------------------------------------------">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="355.0" layoutY="-1.0" text="₱">
+                              <Label id="menulabels" layoutX="355.0" layoutY="-1.0" text="₱">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="labelMenuNoModeOfPayment" layoutX="235.0" layoutY="63.0" text="*select mode of payment" textFill="#ff2020" visible="false">
+                              <Label id="menulabels" fx:id="labelMenuNoModeOfPayment" layoutX="235.0" layoutY="63.0" text="*select mode of payment" textFill="#ff2020" visible="false">
                                  <font>
                                     <Font name="Arial" size="20.0" />
                                  </font>
@@ -579,14 +579,14 @@
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font></TextField>
-                              <Label fx:id="labelSelectModeOfPayment" layoutX="35.0" layoutY="117.0" text="Select Mode Of Payment">
+                              <Label id="menulabels" fx:id="labelSelectModeOfPayment" layoutX="35.0" layoutY="117.0" text="Select Mode Of Payment">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <Label fx:id="labelMenuNoAmount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="31.0" prefHeight="23.0" prefWidth="325.0" text="*input amount" textAlignment="RIGHT" textFill="#ff2020" visible="false">
+                        <Label id="menulabels" fx:id="labelMenuNoAmount" alignment="CENTER_RIGHT" layoutX="133.0" layoutY="31.0" prefHeight="23.0" prefWidth="325.0" text="*input amount" textAlignment="RIGHT" textFill="#ff2020" visible="false">
                            <font>
                               <Font name="Arial" size="20.0" />
                            </font>
@@ -600,41 +600,41 @@
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
-                  <Label layoutX="53.0" layoutY="23.0" text="ORDER QUEUE">
+                  <Label id="orderqueuelabels" layoutX="53.0" layoutY="23.0" text="ORDER QUEUE">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderQueueDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
+                  <Label id="orderqueuelabels" fx:id="labelOrderQueueDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
                   </Label>
                   <AnchorPane layoutX="1428.0" layoutY="21.0" prefHeight="115.0" prefWidth="354.0">
                      <children>
-                        <Label layoutY="17.0" prefHeight="41.0" prefWidth="268.0" text="Order in Queue:">
+                        <Label id="orderqueuelabels" layoutY="17.0" prefHeight="41.0" prefWidth="268.0" text="Order in Queue:">
                            <font>
                               <Font name="Arial" size="35.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelOrderQueueOrderInQueue" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="17.0" prefHeight="41.0" prefWidth="66.0" text="0">
+                        <Label id="orderqueuelabels" fx:id="labelOrderQueueOrderInQueue" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="17.0" prefHeight="41.0" prefWidth="66.0" text="0">
                            <font>
                               <Font name="Arial" size="35.0" />
                            </font>
                         </Label>
-                        <Label layoutX="62.0" layoutY="60.0" prefHeight="41.0" prefWidth="190.0" text="Total Order:" visible="false">
+                        <Label id="orderqueuelabels" layoutX="62.0" layoutY="60.0" prefHeight="41.0" prefWidth="190.0" text="Total Order:" visible="false">
                            <font>
                               <Font name="Arial" size="35.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelOrderQueueTotalOrder" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="60.0" prefHeight="41.0" prefWidth="66.0" text="0" visible="false">
+                        <Label id="orderqueuelabels" fx:id="labelOrderQueueTotalOrder" alignment="CENTER_RIGHT" layoutX="258.0" layoutY="60.0" prefHeight="41.0" prefWidth="66.0" text="0" visible="false">
                            <font>
                               <Font name="Arial" size="35.0" />
                            </font>
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Label fx:id="orderQueueGuideMessageClickTable" layoutX="745.0" layoutY="106.0" text="Click the shape to view the order details" textFill="#616161">
+                  <Label id="orderqueueguide" fx:id="orderQueueGuideMessageClickTable" layoutX="745.0" layoutY="106.0" text="Click the shape to view the order details" textFill="#616161">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -643,17 +643,17 @@
             </AnchorPane>
             <AnchorPane layoutY="140.0" prefHeight="908.0" prefWidth="1833.0">
                <children>
-                  <ScrollPane layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
+                  <ScrollPane id="Scrollpaneorderqueue" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
                      <content>
                         <FlowPane fx:id="flowPaneOrderQueue" hgap="85.0" prefHeight="811.0" prefWidth="1655.0" vgap="85.0" />
                      </content>
                   </ScrollPane>
-                  <AnchorPane fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
+                  <AnchorPane id="orderqueueanchor" fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
                      <children>
                         <AnchorPane fx:id="orderQueueAnchorPaneNoOrder" prefHeight="500.0" prefWidth="350.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
-                              <Label layoutX="94.0" layoutY="157.0" text="NO&#10;ORDER" textAlignment="CENTER">
+                              <Rectangle id="orderqueuebox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
+                              <Label id="orderqueuelabels" layoutX="94.0" layoutY="157.0" text="NO&#10;ORDER" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="45.0" />
                                  </font>
@@ -674,7 +674,7 @@
                         <AnchorPane prefWidth="544.0">
                            <children>
                               <ComboBox fx:id="comboBoxOrderHistory" layoutX="149.0" onAction="#comboBoxOrderHistoryOnAction" prefHeight="51.0" prefWidth="390.0" />
-                              <Label layoutX="33.0" layoutY="8.0" text="Filter by">
+                              <Label id="orderhistorylabels" layoutX="33.0" layoutY="8.0" text="Filter by">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -683,7 +683,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="31.0" layoutY="68.0">
                            <children>
-                              <Label layoutX="12.0" layoutY="10.0" text="Search">
+                              <Label id="orderhistorylabels" layoutX="12.0" layoutY="10.0" text="Search">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -697,12 +697,12 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <Label layoutX="53.0" layoutY="23.0" text="ORDER HISTORY">
+                  <Label id="orderhistorylabels" layoutX="53.0" layoutY="23.0" text="ORDER HISTORY">
                      <font>
                         <Font name="Arial Bold" size="48.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelOrderHistoryDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
+                  <Label id="orderhistorylabels" fx:id="labelOrderHistoryDateAndTIme" layoutX="55.0" layoutY="75.0" prefHeight="41.0" prefWidth="848.0" text="Date And Time Here">
                      <font>
                         <Font name="Arial" size="28.0" />
                      </font>
@@ -715,7 +715,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ImageView>
-                  <Label fx:id="orderHistoryGuideMessageDoubleClickTable" layoutX="726.0" layoutY="106.0" text="Double click the row to view order details" textFill="#616161">
+                  <Label id="orderhistoryguide" fx:id="orderHistoryGuideMessageDoubleClickTable" layoutX="726.0" layoutY="106.0" text="Double click the row to view order details" textFill="#616161">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
@@ -724,7 +724,7 @@
             </AnchorPane>
             <AnchorPane layoutY="145.0" prefHeight="900.0" prefWidth="1833.0">
                <children>
-                  <TableView fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" onKeyPressed="#tableViewOrderHistoryPressedEnter" onMouseClicked="#tableViewOrderHistoryClicked" onTouchReleased="#tableViewOrderHistoryTouched" prefHeight="807.0" prefWidth="1739.0">
+                  <TableView id="orderhistorytable" fx:id="tableViewOrderHistory" layoutX="47.0" layoutY="19.0" onKeyPressed="#tableViewOrderHistoryPressedEnter" onMouseClicked="#tableViewOrderHistoryClicked" onTouchReleased="#tableViewOrderHistoryTouched" prefHeight="807.0" prefWidth="1739.0">
                     <columns>
                         <TableColumn fx:id="tableViewOrderHistoryColTransactionID" prefWidth="260.0" sortable="false" text="Transaction ID" />
                       <TableColumn fx:id="tableViewOrderHistoryColCustomerName" prefWidth="234.0" resizable="false" sortable="false" text="Customer Name" />
@@ -1621,7 +1621,7 @@
       </AnchorPane>
         <AnchorPane fx:id="anchorPaneLeftPanel" onMouseClicked="#anchorPaneLeftPanelRequestFocus" onTouchReleased="#anchorPaneLeftPanelRequestFocus" prefHeight="1081.0" prefWidth="86.0">
             <children>
-                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1081.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="86.0" />
+                <Rectangle id="rectangle1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1081.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="86.0" />
             <AnchorPane fx:id="anchorPaneLeftProfile" layoutX="1.0" layoutY="9.0" onMouseClicked="#anchorPaneLeftProfileClickedTouched" onTouchReleased="#anchorPaneLeftProfileClickedTouched" prefHeight="132.0" prefWidth="85.0">
                <children>
                   <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
@@ -1629,7 +1629,7 @@
                         <Image url="@../../Medias/Icons/logo.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="labelProfileName" alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="Name" textAlignment="CENTER">
+                  <Label id="leftpanellabel" fx:id="labelProfileName" alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="Name" textAlignment="CENTER">
                      <font>
                         <Font name="Rockwell Extra Bold" size="14.0" />
                      </font></Label>
@@ -1642,12 +1642,12 @@
                <children>
                       <AnchorPane fx:id="iconAnchorPaneDashboard" onMouseClicked="#anchorPaneDashBoardClicked" onTouchReleased="#anchorPaneDashboardTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fx:id="mainDashboardIcon" fitHeight="70.0" fitWidth="70.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainDashboardIcon" fitHeight="70.0" fitWidth="70.0" layoutX="6.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/dashboard.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="11.0" layoutY="84.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
+                              <Label id="leftpanellabel" layoutX="11.0" layoutY="84.0" text="DASH&#10;BOARD&#10;" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
@@ -1659,12 +1659,12 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneMenu" layoutY="120.0" onMouseClicked="#anchorPaneMenuClicked" onTouchReleased="#anchorPaneMenuTouched" prefHeight="105.0" prefWidth="85.0">
                           <children>
-                              <Label layoutX="17.0" layoutY="84.0" text="MENU">
+                              <Label id="leftpanellabel" layoutX="17.0" layoutY="84.0" text="MENU">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
                               </Label>
-                              <ImageView fx:id="mainMenuIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainMenuIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/Menu%20button.png" />
                                   </image>
@@ -1676,12 +1676,12 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneOrderList" layoutY="230.0" onMouseClicked="#anchorPaneOrderListClicked" onTouchReleased="#anchorPaneOrderListTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fx:id="mainOrderListIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainOrderListIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/order%20queue.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="12.0" layoutY="76.0" text="ORDER&#10;QUEUE" textAlignment="CENTER">
+                              <Label id="leftpanellabel" layoutX="12.0" layoutY="76.0" text="ORDER&#10;QUEUE" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
@@ -1693,12 +1693,12 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneOrderHistory" layoutY="350.0" onMouseClicked="#anchorPaneOrderHistoryClicked" onTouchReleased="#anchorPaneOrderHistoryTouched" prefHeight="115.0" prefWidth="85.0">
                           <children>
-                              <ImageView fx:id="mainOrderHistoryIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainOrderHistoryIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/order%20history.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="4.0" layoutY="76.0" text="ORDER&#10;HISTORY" textAlignment="CENTER">
+                              <Label id="leftpanellabel" layoutX="4.0" layoutY="76.0" text="ORDER&#10;HISTORY" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="15.0" />
                                   </font>
@@ -1714,12 +1714,12 @@
                <children>
                       <AnchorPane fx:id="iconAnchorPaneSettings" layoutX="1.0" onMouseClicked="#anchorPaneSettingsClicked" onTouchReleased="#anchorPaneSettingsTouched" prefHeight="95.0" prefWidth="85.0">
                           <children>
-                              <ImageView fx:id="mainSettingsIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainSettingsIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/settings.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="6.0" layoutY="75.0" text="SETTINGS" textAlignment="CENTER">
+                              <Label id="leftpanellabel" layoutX="6.0" layoutY="75.0" text="SETTINGS" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="13.0" />
                                   </font>
@@ -1731,12 +1731,12 @@
                       </AnchorPane>
                       <AnchorPane fx:id="iconAnchorPaneLogout" layoutY="98.0" onMouseClicked="#anchorPaneLogoutClicked" onTouchReleased="#anchorPaneLogoutTouched" prefHeight="105.0" prefWidth="85.0">
                           <children>
-                              <ImageView fx:id="mainLogoutIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="leftpanelbuttons" fx:id="mainLogoutIcon" fitHeight="70.0" fitWidth="70.0" layoutX="8.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                                   <image>
                                       <Image url="@../../Medias/Icons/Left%20Panel/Logout%20button.png" />
                                   </image>
                               </ImageView>
-                              <Label layoutX="12.0" layoutY="83.0" text="LOGOUT" textAlignment="CENTER">
+                              <Label id="leftpanellabel" layoutX="12.0" layoutY="83.0" text="LOGOUT" textAlignment="CENTER">
                                   <font>
                                       <Font name="Rockwell Extra Bold" size="13.0" />
                                   </font>

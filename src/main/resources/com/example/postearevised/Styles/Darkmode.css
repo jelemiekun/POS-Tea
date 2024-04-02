@@ -85,6 +85,7 @@
 -fx-text-fill:black;
 }
 #comboboxesdb .list-cell{
+ -fx-background-color:#383838;
  -fx-text-fill: white;
 }
 
@@ -156,10 +157,10 @@
 -fx-text-fill:black;
 }
 #noorderselected{
--fx-text-fill:black;
+-fx-text-fill:white;
 }
 #menulbilllabel{
--fx-text-fill:white;
+-fx-text-fill:black;
 }
 
 /*=================================================================================orderqueue==========================================================================*/
