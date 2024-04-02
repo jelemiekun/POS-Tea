@@ -264,7 +264,15 @@ public class OrderHistoryAndOrderQueueCSVOperations {
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line;
 
+            boolean deleting = false;
+
             while ((line = reader.readLine()) != null) {
+                if (line.contains("*EndOfInvoice*"))
+                    break;
+
+                if (deleting)
+                    continue;
+
                 String[] fields = line.split(",");
                 boolean deleteRow = false;
 
@@ -277,10 +285,13 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     }
                 }
 
-                if (!deleteRow) {
-                    writer.write(line);
-                    writer.newLine();
+                if (deleteRow) {
+                    deleting = true;
+                    continue;
                 }
+
+                writer.write(line);
+                writer.newLine();
             }
 
             reader.close();
@@ -299,21 +310,19 @@ public class OrderHistoryAndOrderQueueCSVOperations {
             File originalFile = new File(filePath);
             if (!tempFile.renameTo(originalFile)) {
                 System.out.println("Failed to rename temporary file to original file");
-                if (tempFile.exists() && !tempFile.delete()) {
+                if (tempFile.exists() && !tempFile.delete())
                     System.err.println("Failed to delete temporary file.");
-                }
                 return false;
             }
-
 
             success = true;
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(false);
-            if (tempFile.exists() && !tempFile.delete()) {
+            if (tempFile.exists() && !tempFile.delete())
                 System.err.println("Failed to delete temporary file.");
-            }
         }
         return success;
     }
+
 }
