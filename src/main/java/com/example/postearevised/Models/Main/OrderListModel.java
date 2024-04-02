@@ -193,6 +193,7 @@ public class OrderListModel {
         imageView.setCursor(Cursor.HAND);
         AnchorPane.setTopAnchor(imageView, 431.0);
         AnchorPane.setLeftAnchor(imageView, 95.0);
+        imageView.setId("menuproducthover");
 
         anchorPane.getChildren().addAll(rectangle, orderNumberLabel, customerNameLabel, innerAnchorPane, imageView);
 

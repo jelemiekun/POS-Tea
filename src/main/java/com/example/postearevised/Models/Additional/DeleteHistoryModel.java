@@ -94,6 +94,7 @@ public class DeleteHistoryModel {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefSize(660, 50);
         anchorPane.setCursor(Cursor.HAND);
+        anchorPane.setId("menuproducthover");
 
         Rectangle rectangle = new Rectangle();
         rectangle.setWidth(660);

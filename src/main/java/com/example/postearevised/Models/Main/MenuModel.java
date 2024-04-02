@@ -695,7 +695,7 @@ public class MenuModel {
 
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setLayoutX(10.0);
-            anchorPane.setPrefWidth(435.0);
+            anchorPane.setPrefWidth(434.0);
             anchorPane.setPrefHeight(116.0);
 
             Rectangle rectangle = new Rectangle();
