@@ -14,10 +14,11 @@ public class Order {
     private final String modeOfPayment;
     private LocalDateTime dateAndTime;
     private String transactionID;
+    private final String cashierName;
     private String invoice;
 
     public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
-                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID, String invoice) {
+                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID, String cashierName, String invoice) {
         this.productOrderObservableList = productOrderObservableList;
         this.customerName = customerName;
         this.orderNumber = orderNumber;
@@ -27,11 +28,12 @@ public class Order {
         this.modeOfPayment = modeOfPayment;
         this.dateAndTime = dateAndTime;
         this.transactionID = transactionID;
+        this.cashierName = cashierName;
         this.invoice = invoice;
     }
 
     public Order(ObservableList<ProductOrder> productOrderObservableList, String customerName, int orderNumber,
-                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID) {
+                 int totalPrice, int amountPaid, int change, String modeOfPayment, LocalDateTime dateAndTime, String transactionID, String cashierName) {
         this.productOrderObservableList = productOrderObservableList;
         this.customerName = customerName;
         this.orderNumber = orderNumber;
@@ -41,6 +43,7 @@ public class Order {
         this.modeOfPayment = modeOfPayment;
         this.dateAndTime = dateAndTime;
         this.transactionID = transactionID;
+        this.cashierName = cashierName;
         this.invoice = "";
     }
 
@@ -52,14 +55,11 @@ public class Order {
         this.invoice = invoice;
     }
 
-    public void setProductOrderObservableList(ObservableList<ProductOrder> productOrderObservableList) {
-        this.productOrderObservableList = productOrderObservableList;
-        System.out.println("Bagong pinasang productOrderObsableList: " + productOrderObservableList.size());
-    }
-
     public String getInvoice() {
         return invoice;
     }
+
+    public String getCashierName() { return cashierName; }
 
     public String getTransactionID() { return transactionID; }
 

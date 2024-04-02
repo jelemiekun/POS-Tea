@@ -1091,13 +1091,14 @@ public class MenuModel {
         ObservableList<ProductOrder> copyList = FXCollections.observableArrayList(referenceProductOrderObservableList);
 
         int change = referenceAmountPaid - referenceTotalPrice;
+        String cashierName = mainController.labelProfileName.getText().trim();
 
         referenceChange = change;
         LocalDateTime orderDateAndTime = getOrderDateAndTime();
         String transactionID = orderDateAndTime.format(transactionIDFormatter);
 
         return new Order(copyList, referenceCustomerName, referenceOrderNumber,
-                referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, orderDateAndTime, transactionID);
+                referenceTotalPrice, referenceAmountPaid, change, referenceModeOfPayment, orderDateAndTime, transactionID, cashierName);
     }
 
     private void addToOrderQueue(Order order) {

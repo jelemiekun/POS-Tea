@@ -31,7 +31,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
     public static void createOrderHistoryCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,invoice\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,cashierName,invoice\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -43,7 +43,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
     public static void createOrderQueueCSVFile(String filePath) {
         try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,invoice\n");
+            writer.write("customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,cashierName,invoice\n");
             System.out.println("Creating order history csv file: " + filePath);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -87,7 +87,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
 
-                if (parts.length >= 17) {
+                if (parts.length >= 18) {
                     String customerName = parts[0];
                     int orderNumber = Integer.parseInt(parts[1]);
                     ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
@@ -121,6 +121,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     LocalDateTime dateAndTime = LocalDateTime.parse(temporaryLocalDateAndTime);
                     String transactionID = parts[15];
                     transactionID = deFormatString(transactionID);
+                    String cashierName = parts[16];
                     StringBuilder invoiceBuilder = new StringBuilder();
                     if (scanner.hasNextLine()) {
                         invoiceBuilder.append(scanner.nextLine()).append("\n");
@@ -138,7 +139,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
 
 
 
-                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID, invoice);
+                    Order order = new Order(productOrders, customerName, orderNumber, totalPrice, amountPaid, change, modeOfPayment, dateAndTime, transactionID, cashierName, invoice);
                     orders.add(order);
                 }
             }
@@ -225,7 +226,9 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 sb.append(imagePathBuilder).append(",");
             }
 
+            System.out.println("line 229 " + order.getTransactionID());
             sb.append(formatString(order.getTransactionID())).append(",");
+            sb.append(order.getCashierName()).append(",");
 
             String[] invoiceLines = order.getInvoice().split("\n");
             for (int i = 0; i < invoiceLines.length; i++) {
