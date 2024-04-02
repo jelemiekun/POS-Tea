@@ -89,11 +89,11 @@ public class InvoiceGenerator {
 
             String receiptContent = receiptContentBuilder.toString();
 
-            try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY, true)) {
+            try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY/*, true*/)) {
                 writer.write(receiptContent);
 
-                if (invocationCount == 1)
-                    printPOSReceipt(receiptContent);
+                //if (invocationCount == 1)
+                    //printPOSReceipt(receiptContent);
 
                 generateInvoice(order, ++invocationCount);
                 System.out.println("Invoice generated successfully.");
