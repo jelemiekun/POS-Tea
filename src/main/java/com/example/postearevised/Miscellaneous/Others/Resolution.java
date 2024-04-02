@@ -2,7 +2,9 @@ package com.example.postearevised.Miscellaneous.Others;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.Objects;
 
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
@@ -14,7 +16,13 @@ public class Resolution {
         isTaskBarHidden();
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setHeight(screenResolution[1]);
+        setStageStyle(isLogout);
         System.out.println(screenResolution[0] + "x" + screenResolution[1]);
+    }
+
+    public static void setStageStyle(boolean isLogout) {
+        (isLogout ? loginFromMainSceneStage : loginRegisterStage).getScene().getStylesheets().clear();
+        (isLogout ? loginFromMainSceneStage : loginRegisterStage).getScene().getStylesheets().add(Objects.requireNonNull(Resolution.class.getResource(LIGHT_ENUM.getCssURL())).toExternalForm());
     }
 
     private static void isTaskBarHidden() {

@@ -103,7 +103,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                        <ImageView fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="264.0" layoutY="624.0" onKeyPressed="#btnLoginPressedEnter" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="menuproducthover" fx:id="btnLogin" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="264.0" layoutY="624.0" onKeyPressed="#btnLoginPressedEnter" onMouseClicked="#btnLoginClicked" onTouchReleased="#btnLoginTouched" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Medias/Buttons/LoginRegister/Login.png" />
                             </image>
@@ -273,7 +273,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                            <children>
-                              <ImageView fx:id="btnRegisterOnRegisterPane1" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPane1PressedEnter" onMouseClicked="#btnRegisterOnRegisterPane1Clicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched1" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="menuproducthover" fx:id="btnRegisterOnRegisterPane1" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPane1PressedEnter" onMouseClicked="#btnRegisterOnRegisterPane1Clicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched1" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/LoginRegister/next.png" />
                                  </image>
@@ -488,7 +488,7 @@
                         </AnchorPane>
                            <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                                <children>
-                                   <ImageView fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
+                                   <ImageView id="menuproducthover" fx:id="btnRegisterOnRegisterPane" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="181.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterPanePressedEnter" onMouseClicked="#btnRegisterOnRegisterPaneClicked" onTouchReleased="#btnRegisterOnRegisterPaneTouched" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                            <Image url="@../../Medias/Buttons/LoginRegister/next.png" />
                                        </image>
@@ -573,7 +573,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="163.0" layoutY="741.0" prefHeight="170.0" prefWidth="620.0">
                            <children>
-                              <ImageView fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterFinalBtnRegistrationPressedEnter" onMouseClicked="#btnRegisterOnRegisterFinalBtnRegistrationClickedTouched" onTouchReleased="#btnRegisterOnRegisterFinalBtnRegistrationClickedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="menuproducthover" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="151.0" layoutY="47.0" onKeyPressed="#btnRegisterOnRegisterFinalBtnRegistrationPressedEnter" onMouseClicked="#btnRegisterOnRegisterFinalBtnRegistrationClickedTouched" onTouchReleased="#btnRegisterOnRegisterFinalBtnRegistrationClickedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/LoginRegister/Register.png" />
                                  </image>
@@ -603,7 +603,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                     <ImageView fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="794.0" layoutY="30.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
+                     <ImageView id="menuproducthover" fx:id="btnCloseRegister" fitHeight="45.0" fitWidth="45.0" layoutX="794.0" layoutY="30.0" onMouseClicked="#registerBtnCloseClicked" onTouchReleased="#btnCloseTouched" pickOnBounds="true" preserveRatio="true">
                          <image>
                              <Image url="@../../Medias/Buttons/close.png" />
                          </image>
@@ -611,7 +611,7 @@
                              <Cursor fx:constant="HAND" />
                          </cursor>
                      </ImageView>
-                  <ImageView fx:id="btnGoBackRegister" fitHeight="59.0" fitWidth="64.0" layoutX="47.0" layoutY="30.0" onMouseClicked="#btnGoBackRegisterClickedTouched" onTouchReleased="#btnGoBackRegisterClickedTouched" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="menuproducthover" fx:id="btnGoBackRegister" fitHeight="59.0" fitWidth="64.0" layoutX="47.0" layoutY="30.0" onMouseClicked="#btnGoBackRegisterClickedTouched" onTouchReleased="#btnGoBackRegisterClickedTouched" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Medias/Buttons/LoginRegister/back.png" />
                      </image>
@@ -660,7 +660,7 @@
                               </Label>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="btnCloseForgotPass1" fitHeight="45.0" fitWidth="45.0" layoutX="740.0" layoutY="40.0" onMouseClicked="#btnCloseForgotPass1Clicked" onTouchReleased="#btnCloseForgotPass1Touched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="menuproducthover" fx:id="btnCloseForgotPass1" fitHeight="45.0" fitWidth="45.0" layoutX="740.0" layoutY="40.0" onMouseClicked="#btnCloseForgotPass1Clicked" onTouchReleased="#btnCloseForgotPass1Touched" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Medias/Buttons/close.png" />
                            </image>
@@ -670,7 +670,7 @@
                         </ImageView>
                         <AnchorPane layoutX="177.0" layoutY="373.0" prefHeight="151.0" prefWidth="475.0">
                            <children>
-                              <ImageView fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="108.0" layoutY="38.0" onKeyPressed="#btnForgotPass1ProceedPressedEnter" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="menuproducthover" fx:id="btnForgotPass1Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="108.0" layoutY="38.0" onKeyPressed="#btnForgotPass1ProceedPressedEnter" onMouseClicked="#btnForgotPass1ProceedClicked" onTouchReleased="#btnForgotPass1ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/continue.png" />
                                  </image>
@@ -757,7 +757,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="127.0" layoutY="567.0" prefHeight="102.0" prefWidth="575.0">
                            <children>
-                              <ImageView fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="13.0" onKeyPressed="#btnForgotPass2ProceedPressedEnter" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="menuproducthover" fx:id="btnForgotPass2Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="13.0" onKeyPressed="#btnForgotPass2ProceedPressedEnter" onMouseClicked="#btnForgotPass2ProceedClicked" onTouchReleased="#btnForgotPass2ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/ForgotPassword/continue.png" />
                                  </image>
@@ -767,7 +767,7 @@
                               </ImageView>
                            </children>
                         </AnchorPane>
-                        <ImageView fx:id="btnCloseForgotPass2" fitHeight="45.0" fitWidth="45.0" layoutX="740.0" layoutY="40.0" onMouseClicked="#btnCloseForgotPass2Clicked" onTouchReleased="#btnCloseForgotPass2Touched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="menuproducthover" fx:id="btnCloseForgotPass2" fitHeight="45.0" fitWidth="45.0" layoutX="740.0" layoutY="40.0" onMouseClicked="#btnCloseForgotPass2Clicked" onTouchReleased="#btnCloseForgotPass2Touched" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Medias/Buttons/close.png" />
                            </image>
@@ -924,7 +924,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="127.0" layoutY="561.0" prefHeight="95.0" prefWidth="575.0">
                            <children>
-                              <ImageView fx:id="btnForgotPass3Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="10.0" onKeyPressed="#btnForgotPass3ProceedPressedEnter" onMouseClicked="#btnForgotPass3ProceedClicked" onTouchReleased="#btnForgotPass3ProceedTouched" pickOnBounds="true" preserveRatio="true">
+                              <ImageView id="menuproducthover" fx:id="btnForgotPass3Proceed" fitHeight="76.0" fitWidth="389.0" focusTraversable="true" layoutX="163.0" layoutY="10.0" onKeyPressed="#btnForgotPass3ProceedPressedEnter" onMouseClicked="#btnForgotPass3ProceedClicked" onTouchReleased="#btnForgotPass3ProceedTouched" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Buttons/ForgotPassword/reset.png" />
                                  </image>

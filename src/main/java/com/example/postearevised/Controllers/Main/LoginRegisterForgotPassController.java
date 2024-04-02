@@ -104,6 +104,7 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         Platform.runLater(() -> {
             loginModel.checkIfResolutionIsTooLow();
+            anchorPaneLogin.requestFocus();
 
             fadeOutLoading();
         });
