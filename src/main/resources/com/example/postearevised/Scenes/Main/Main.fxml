@@ -1292,7 +1292,7 @@
                                                    <children>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleLight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleLightClickedTouched" onTouchReleased="#settingsAppearanceRectangleLightClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleLight" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched1" onTouchReleased="#settingsAppearanceRectangleClickedTouched1" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <effect>
                                                                   <InnerShadow />
                                                                </effect>
@@ -1305,11 +1305,19 @@
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
                                                             </Label>
+                                                            <Label fx:id="labelAppearanceInUse1" layoutX="167.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched1" onTouchReleased="#settingsAppearanceRectangleClickedTouched1" text="In Use">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Label>
                                                          </children>
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleDark" arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleDarkClickedTouched" onTouchReleased="#settingsAppearanceRectangleDarkClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleDark" arcHeight="5.0" arcWidth="5.0" fill="#282828" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched2" onTouchReleased="#settingsAppearanceRectangleClickedTouched2" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1319,11 +1327,19 @@
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
                                                             </Label>
+                                                            <Label fx:id="labelAppearanceInUse2" layoutX="167.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched2" onTouchReleased="#settingsAppearanceRectangleClickedTouched2" text="In Use" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Label>
                                                          </children>
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleRed" arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleRedClickedTouched" onTouchReleased="#settingsAppearanceRectangleRedClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleRed" arcHeight="5.0" arcWidth="5.0" fill="#c61f32" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched3" onTouchReleased="#settingsAppearanceRectangleClickedTouched3" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1333,11 +1349,19 @@
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
                                                             </Label>
+                                                            <Label fx:id="labelAppearanceInUse3" layoutX="166.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched3" onTouchReleased="#settingsAppearanceRectangleClickedTouched3" text="In Use" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Label>
                                                          </children>
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleOrange" arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleOrangeClickedTouched" onTouchReleased="#settingsAppearanceRectangleOrangeClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleOrange" arcHeight="5.0" arcWidth="5.0" fill="#f68323" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched4" onTouchReleased="#settingsAppearanceRectangleClickedTouched4" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1347,11 +1371,19 @@
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
                                                             </Label>
+                                                            <Label fx:id="labelAppearanceInUse4" layoutX="167.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched4" onTouchReleased="#settingsAppearanceRectangleClickedTouched4" text="In Use" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Label>
                                                          </children>
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleYellow" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleYellowClickedTouched" onTouchReleased="#settingsAppearanceRectangleYellowClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleYellow" arcHeight="5.0" arcWidth="5.0" fill="YELLOW" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched5" onTouchReleased="#settingsAppearanceRectangleClickedTouched5" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1361,11 +1393,19 @@
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
                                                             </Label>
+                                                            <Label fx:id="labelAppearanceInUse5" layoutX="166.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched5" onTouchReleased="#settingsAppearanceRectangleClickedTouched5" text="In Use">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </Label>
                                                          </children>
                                                       </AnchorPane>
                                                       <AnchorPane prefHeight="249.0" prefWidth="390.0">
                                                          <children>
-                                                            <Rectangle fx:id="settingsAppearanceRectangleGreen" arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleGreenClickedTouched" onTouchReleased="#settingsAppearanceRectangleGreenClickedTouched" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
+                                                            <Rectangle fx:id="settingsAppearanceRectangleGreen" arcHeight="5.0" arcWidth="5.0" fill="#009000" height="174.0" layoutX="27.0" layoutY="61.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched6" onTouchReleased="#settingsAppearanceRectangleClickedTouched6" stroke="BLACK" strokeType="INSIDE" style="-fx-stroke: black;" width="340.0">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
@@ -1374,6 +1414,14 @@
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
+                                                            </Label>
+                                                            <Label fx:id="labelAppearanceInUse6" layoutX="166.0" layoutY="132.0" onMouseClicked="#settingsAppearanceRectangleClickedTouched6" onTouchReleased="#settingsAppearanceRectangleClickedTouched6" text="In Use" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
                                                             </Label>
                                                          </children>
                                                       </AnchorPane>

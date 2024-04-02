@@ -1087,25 +1087,37 @@ public class MainController implements Initializable {
     public Rectangle settingsAppearanceRectangleYellow;
     @FXML
     public Rectangle settingsAppearanceRectangleGreen;
+    @FXML
+    public Label labelAppearanceInUse1;
+    @FXML
+    public Label labelAppearanceInUse2;
+    @FXML
+    public Label labelAppearanceInUse3;
+    @FXML
+    public Label labelAppearanceInUse4;
+    @FXML
+    public Label labelAppearanceInUse5;
+    @FXML
+    public Label labelAppearanceInUse6;
 
 
     @FXML
-    void settingsAppearanceRectangleLightClickedTouched() { settingsModel.setStyles(LIGHT_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched1() { settingsModel.setStyles(LIGHT_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleDarkClickedTouched() { settingsModel.setStyles(DARK_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched2() { settingsModel.setStyles(DARK_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleRedClickedTouched() { settingsModel.setStyles(RED_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched3() { settingsModel.setStyles(RED_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleOrangeClickedTouched() { settingsModel.setStyles(ORANGE_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched4() { settingsModel.setStyles(ORANGE_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleYellowClickedTouched() { settingsModel.setStyles(YELLOW_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched5() { settingsModel.setStyles(YELLOW_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleGreenClickedTouched() { settingsModel.setStyles(GREEN_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched6() { settingsModel.setStyles(GREEN_ENUM.getColor(), true); }
 
     @FXML
     public void checkBoxSettingNotificationOnAction() {

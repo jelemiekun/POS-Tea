@@ -1504,11 +1504,73 @@ public class SettingsModel {
             mainStage.getScene().getStylesheets().clear();
 
             mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());
-            System.out.println("abang ng css line 1287 : " + styles);
+
+            hideNotInUseLabelInAppearance(styles);
         } else {
             accountReference.setDisplayColor(oldAccount.getDisplayColor());
             setErrorSettingStyles();
             mainController.mainModel.openPrompt();
+        }
+    }
+
+    private void hideNotInUseLabelInAppearance(String colorInUse) {
+        switch (colorInUse) {
+            case "light":
+                mainController.labelAppearanceInUse1.setVisible(true);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
+            case "dark":
+                mainController.labelAppearanceInUse1.setVisible(false);
+                mainController.labelAppearanceInUse2.setVisible(true);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
+            case "red":
+                mainController.labelAppearanceInUse1.setVisible(false);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(true);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
+            case "orange":
+                mainController.labelAppearanceInUse1.setVisible(false);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(true);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
+            case "yellow":
+                mainController.labelAppearanceInUse1.setVisible(false);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(true);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
+            case "green":
+                mainController.labelAppearanceInUse1.setVisible(false);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(true);
+                break;
+            default:
+                mainController.labelAppearanceInUse1.setVisible(true);
+                mainController.labelAppearanceInUse2.setVisible(false);
+                mainController.labelAppearanceInUse3.setVisible(false);
+                mainController.labelAppearanceInUse4.setVisible(false);
+                mainController.labelAppearanceInUse5.setVisible(false);
+                mainController.labelAppearanceInUse6.setVisible(false);
+                break;
         }
     }
 
