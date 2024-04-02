@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import static com.example.postearevised.Miscellaneous.Others.InvoicePrinter.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 
@@ -30,10 +31,7 @@ public class InvoiceGenerator {
 
     public static String generateInvoice(Order order, int invocationCount) {
         if (invocationCount == 1 || invocationCount == 2) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss a");
             List<ProductOrder> productOrders = order.getProductOrderObservableList();
-
-            String formattedDateTime = order.getDateAndTime().format(formatter);
 
             StringBuilder receiptContentBuilder = new StringBuilder();
 
@@ -85,7 +83,9 @@ public class InvoiceGenerator {
             receiptContentBuilder.append("        THANK YOU FOR PURCHASING        \n");
             receiptContentBuilder.append("                                        \n");
             receiptContentBuilder.append("                                        \n");
-            receiptContentBuilder.append("*EndOfInvoice*").append("\n");
+
+            if (invocationCount == 1)
+                receiptContentBuilder.append("*EndOfInvoice*").append("\n");
 
             String receiptContent = receiptContentBuilder.toString();
 
@@ -93,10 +93,12 @@ public class InvoiceGenerator {
                 writer.write(receiptContent);
 
                 if (invocationCount == 1)
-                    return receiptContent;
+                    printPOSReceipt(receiptContent);
 
                 generateInvoice(order, ++invocationCount);
                 System.out.println("Invoice generated successfully.");
+
+                return receiptContent;
             } catch (IOException e) {
                 errorMessage = e.getMessage();
                 logError(false);
