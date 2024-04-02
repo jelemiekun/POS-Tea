@@ -72,7 +72,7 @@ public class InvoiceGenerator {
             receiptContentBuilder.append("CASH ENTERED").append(formatAmountEntered(order.getAmountPaid())).append("\n");
             receiptContentBuilder.append("CHANGE").append(formatAmountChange(order.getChange())).append("\n");
             receiptContentBuilder.append("----------------------------------------\n");
-            //receiptContentBuilder.append("CASHIER: ").append("SHET DI KO NASTORE NAME NG CASHIER SA ORDER").append("\n");
+            receiptContentBuilder.append("CASHIER: ").append("SHET I FORGOT").append(calculateSpacesCashier("SHET I FORGOT")).append("\n");
             receiptContentBuilder.append("CUSTOMER NO. ").append(order.getOrderNumber()).append(calculateSpacesCustomerNumber(String.valueOf(order.getOrderNumber()))).append("\n");
             receiptContentBuilder.append("CUSTOMER NAME: ").append(order.getCustomerName()).append(calculateSpacesCustomerName(order.getCustomerName())).append("\n");
             receiptContentBuilder.append("Mode of payment: ").append(order.getModeOfPayment()).append(calculateSpacesModeOfPayment(order.getModeOfPayment())).append("\n");

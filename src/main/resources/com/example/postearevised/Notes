@@ -1,18 +1,8 @@
 ------------------TO DO------------------
 
-paikliin product names sa resibo (ALISIN A E I O U)
-
-order receipt - update resibo content
-
-sa receipt, "First Name " + "M.I." lang lalabas, transaction,
-
-display css styles
-
 system manual VID AT ACCORDIONS
 
 password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
-
-kunin lahat ng stages/scene ng ibang fxml para maconnect yung ccss id
 
 
 // SA DULO NA TO
@@ -621,3 +611,13 @@ UPDATE CSV NG ACCOUNT, DAPAT MASSAVE RESIBO HAHA TANGINA
 invoice pa sa order history
 
 PALITAN BG PHOTO NG LOGIN/REG/FORGOT PASS
+
+paikliin product names sa resibo (ALISIN A E I O U) ( hindi na ginawa )
+
+order receipt - update resibo content
+
+sa receipt, "First Name " + "M.I." lang lalabas, transaction,
+
+display css styles
+
+kunin lahat ng stages/scene ng ibang fxml para maconnect yung ccss id
