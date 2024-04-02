@@ -25,7 +25,7 @@
 
 <AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Main.MainController">
     <children>
-      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" onMouseClicked="#anchorPaneDashboardRequestFocus" onTouchReleased="#anchorPaneDashboardRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" onMouseClicked="#anchorPaneDashboardRequestFocus" onTouchReleased="#anchorPaneDashboardRequestFocus" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
@@ -415,7 +415,7 @@
             </AnchorPane>
             <AnchorPane fx:id="anchorPaneRightPanel" layoutX="1275.0" prefHeight="1050.0" prefWidth="558.0">
                <children>
-                  <Rectangle id="menulabels" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
+                  <Rectangle id="menurightpanel" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="1050.0" layoutY="-1.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="0.0" width="558.0" />
                   <AnchorPane layoutX="40.0" layoutY="14.0" prefHeight="115.0" prefWidth="478.0">
                      <children>
                         <Label id="menulabels" layoutX="27.0" layoutY="28.0" text="Customer No.:">
@@ -653,7 +653,7 @@
                         <AnchorPane fx:id="orderQueueAnchorPaneNoOrder" prefHeight="500.0" prefWidth="350.0">
                            <children>
                               <Rectangle id="orderqueuebox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="BLACK" strokeType="INSIDE" width="350.0" />
-                              <Label id="orderqueuelabels" layoutX="94.0" layoutY="157.0" text="NO&#10;ORDER" textAlignment="CENTER">
+                              <Label layoutX="94.0" layoutY="157.0" text="NO&#10;ORDER" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="45.0" />
                                  </font>
@@ -745,22 +745,22 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
-                        <AnchorPane layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
+                        <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
                               <ScrollPane prefHeight="850.0" prefWidth="1322.0" style="-fx-background-color: white;">
                                 <content>
                                     <FlowPane prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
-                                          <AnchorPane prefHeight="411.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground1" prefHeight="411.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="140.0" layoutY="44.0" text="Users">
+                                                <Label id="settinglabel" layoutX="140.0" layoutY="44.0" text="Users">
                                                    <font>
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
@@ -770,13 +770,13 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="109.0" prefHeight="26.0" prefWidth="188.0" text="Name">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="109.0" prefHeight="26.0" prefWidth="188.0" text="Name">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
+                                                <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -798,7 +798,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="190.0" prefHeight="26.0" prefWidth="188.0" text="Given Name">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="190.0" prefHeight="26.0" prefWidth="188.0" text="Given Name">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -813,7 +813,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="259.0" prefHeight="26.0" prefWidth="188.0" text="Middle Name">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="259.0" prefHeight="26.0" prefWidth="188.0" text="Middle Name">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -828,7 +828,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="329.0" prefHeight="26.0" prefWidth="188.0" text="Surname">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="329.0" prefHeight="26.0" prefWidth="188.0" text="Surname">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -880,9 +880,9 @@
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="404.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground1" prefHeight="404.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="138.0" layoutY="38.0" text="Account Details">
+                                                <Label id="settinglabel" layoutX="138.0" layoutY="38.0" text="Account Details">
                                                    <font>
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
@@ -892,7 +892,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="109.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="109.0" prefHeight="26.0" prefWidth="188.0" text="Contact">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -902,7 +902,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="188.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="188.0" prefHeight="26.0" prefWidth="188.0" text="New Password">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -912,7 +912,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <Label layoutX="292.0" layoutY="267.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
+                                                <Label id="settinglabel" layoutX="292.0" layoutY="267.0" prefHeight="26.0" prefWidth="253.0" text="Confirm New Password">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -1048,21 +1048,21 @@
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane prefHeight="620.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground" prefHeight="620.0" prefWidth="1300.0">
                                              <children>
-                                                <Label layoutX="140.0" text="Security Questions">
+                                                <Label id="settinglabel" layoutX="140.0" text="Security Questions">
                                                    <font>
                                                       <Font name="Arial Bold" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="140.0" layoutY="58.0" prefHeight="26.0" prefWidth="490.0" text="Set your security questions for account recovery.">
+                                                <Label id="settinglabel" layoutX="140.0" layoutY="58.0" prefHeight="26.0" prefWidth="490.0" text="Set your security questions for account recovery.">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
                                                 <AnchorPane layoutX="300.0" layoutY="132.0" prefHeight="170.0" prefWidth="720.0">
                                                    <children>
-                                                      <Label prefHeight="26.0" prefWidth="188.0" text="Question 1">
+                                                      <Label id="settinglabel" prefHeight="26.0" prefWidth="188.0" text="Question 1">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
@@ -1077,7 +1077,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane layoutX="300.0" layoutY="336.0" prefWidth="720.0">
                                                    <children>
-                                                      <Label prefHeight="26.0" prefWidth="188.0" text="Question 2">
+                                                      <Label id="settinglabel" prefHeight="26.0" prefWidth="188.0" text="Question 2">
                                                          <font>
                                                             <Font name="Arial" size="22.0" />
                                                          </font>
@@ -1149,7 +1149,7 @@
                                                       <Font name="Arial" size="28.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="140.0" layoutY="90.0" text="Once you deleted your account, there is no going back. Please be certain.">
+                                                <Label id="settinglabel" layoutX="140.0" layoutY="90.0" text="Once you deleted your account, there is no going back. Please be certain.">
                                                    <font>
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
@@ -1181,8 +1181,8 @@
                         </AnchorPane>
                         <AnchorPane fx:id="anchorPaneAccountTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="607.0" layoutY="25.0" text="Account">
+                              <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
+                              <Label id="settinglabel" layoutX="607.0" layoutY="25.0" text="Account">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -1191,12 +1191,12 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
-                        <AnchorPane fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
+                        <AnchorPane id="settingbackground1" fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="602.0" layoutY="25.0" text="Products">
+                              <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
+                              <Label id="settinglabel" layoutX="602.0" layoutY="25.0" text="Products">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -1204,7 +1204,7 @@
                               <ComboBox fx:id="importExportComboBox" layoutX="60.0" layoutY="23.0" onAction="#importExportOnAction" prefHeight="40.0" prefWidth="230.0" promptText="Import/Export CSV" />
                            </children>
                         </AnchorPane>
-                        <TableView fx:id="tableProducts" layoutX="60.0" layoutY="139.0" onKeyPressed="#tableProductsPressedEnter" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1200.0">
+                        <TableView id="settingtable" fx:id="tableProducts" layoutX="60.0" layoutY="139.0" onKeyPressed="#tableProductsPressedEnter" onMouseClicked="#tableViewProductsClicked" onTouchReleased="#tableViewProductsTouched" prefHeight="680.0" prefWidth="1200.0">
                           <columns>
                             <TableColumn fx:id="tableProductsColImage" editable="false" prefWidth="266.0" resizable="false" sortable="false" style="-fx-alignment: center; -fx-padding: 5px 0;" text="Image" />
                             <TableColumn fx:id="tableProductsColProductName" prefWidth="514.0" resizable="false" style="-fx-padding: 5px 0 5px 10px; -fx-text-alignment: center;" text="Product Name" />
@@ -1215,7 +1215,7 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <AnchorPane fx:id="anchorPaneAddProduct" layoutX="1047.0" layoutY="846.0" onMouseClicked="#settingsAddProductClicked" onTouchReleased="#settingsAddProductTouched" prefHeight="63.0" prefWidth="207.0">
+                        <AnchorPane id="settingbackground1" fx:id="anchorPaneAddProduct" layoutX="1047.0" layoutY="846.0" onMouseClicked="#settingsAddProductClicked" onTouchReleased="#settingsAddProductTouched" prefHeight="63.0" prefWidth="207.0">
                            <children>
                               <ImageView fitHeight="64.0" fitWidth="220.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -1268,22 +1268,22 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane prefHeight="850.0" prefWidth="1320.0" style="-fx-background-color: white;">
+                              <ScrollPane prefHeight="850.0" prefWidth="1320.0">
                                 <content>
-                                    <FlowPane prefHeight="848.0" prefWidth="1318.0" style="-fx-background-color: white;">
+                                    <FlowPane id="settingbackground1" prefHeight="848.0" prefWidth="1318.0">
                                        <children>
-                                          <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1302.0">
+                                          <AnchorPane id="settingbackground1" layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="618.0" prefWidth="1302.0">
                                              <children>
-                                                <Label layoutX="88.0" layoutY="31.0" text="Display">
+                                                <Label id="settinglabel" layoutX="88.0" layoutY="31.0" text="Display">
                                                    <font>
                                                       <Font name="Arial Bold" size="36.0" />
                                                    </font>
                                                 </Label>
-                                                <Label layoutX="88.0" layoutY="85.0" text="Change background theme">
+                                                <Label id="settinglabel" layoutX="88.0" layoutY="85.0" text="Change background theme">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
@@ -1300,7 +1300,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Light" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Light" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1314,7 +1314,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Dark" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Dark" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1328,7 +1328,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Red" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Red" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1342,7 +1342,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Orange" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1356,7 +1356,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Yellow" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Yellow" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1370,7 +1370,7 @@
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </Rectangle>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Green" textAlignment="CENTER">
+                                                            <Label id="settinglabel" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="393.0" text="Green" textAlignment="CENTER">
                                                                <font>
                                                                   <Font name="Arial" size="36.0" />
                                                                </font>
@@ -1381,16 +1381,16 @@
                                                 </FlowPane>
                                              </children>
                                           </AnchorPane>
-                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
+                                        <AnchorPane id="settingbackground1" minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="1302.0">
                                              <children>
-                                                <Label layoutX="86.0" layoutY="38.0" text="Notification and Guide Message">
+                                                <Label id="settinglabel" layoutX="86.0" layoutY="38.0" text="Notification and Guide Message">
                                                    <font>
                                                       <Font name="Arial Bold" size="36.0" />
                                                    </font>
                                                 </Label>
                                                 <AnchorPane layoutX="86.0" layoutY="93.0" prefHeight="38.0" prefWidth="1130.0">
                                                    <children>
-                                                      <Label layoutY="6.0" text="Show Notifications">
+                                                      <Label id="settinglabel" layoutY="6.0" text="Show Notifications">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
@@ -1404,7 +1404,7 @@
                                                 </AnchorPane>
                                                 <AnchorPane layoutX="86.0" layoutY="147.0" prefHeight="38.0" prefWidth="1130.0">
                                                    <children>
-                                                      <Label layoutY="6.0" text="Show Guide Messages">
+                                                      <Label id="settinglabel" layoutY="6.0" text="Show Guide Messages">
                                                          <font>
                                                             <Font name="Arial" size="24.0" />
                                                          </font>
@@ -1425,8 +1425,8 @@
                            </children></AnchorPane>
                         <AnchorPane fx:id="anchorPaneDisplayTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="580.0" layoutY="25.0" text="Appearance" textAlignment="CENTER">
+                              <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
+                              <Label id="settinglabel" layoutX="580.0" layoutY="25.0" text="Appearance" textAlignment="CENTER">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -1435,13 +1435,13 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
-                        <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
+                        <AnchorPane id="settingbackground1" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane prefHeight="850.0" prefWidth="1320.0" style="-fx-background-color: white;">
+                              <ScrollPane prefHeight="850.0" prefWidth="1320.0">
                                  <content>
-                                    <FlowPane alignment="TOP_CENTER" prefHeight="954.0" prefWidth="1305.0" style="-fx-background-color: white;">
+                                    <FlowPane alignment="TOP_CENTER" prefHeight="954.0" prefWidth="1305.0">
                                        <children>
                                           <AnchorPane prefHeight="621.0" prefWidth="1305.0">
                                              <children>
@@ -1460,8 +1460,8 @@
                         </AnchorPane>
                         <AnchorPane fx:id="anchorPaneSystemManualTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="558.0" layoutY="25.0" text="System Manual">
+                              <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
+                              <Label id="settinglabel" layoutX="558.0" layoutY="25.0" text="System Manual">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -1470,12 +1470,12 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
-                              <Label layoutX="513.0" layoutY="25.0" text="Terms And Conditions">
+                              <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
+                              <Label id="settinglabel" layoutX="513.0" layoutY="25.0" text="Terms And Conditions">
                                  <font>
                                     <Font name="Arial" size="30.0" />
                                  </font>
@@ -1495,18 +1495,18 @@
                   </AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsDropShadow" prefHeight="937.0" prefWidth="344.0">
                      <children>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="935.0" layoutX="1.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
-                        <AnchorPane layoutY="159.0" prefHeight="556.0" prefWidth="350.0">
+                        <Rectangle id="leftpanelsettings" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="935.0" layoutX="1.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                        <AnchorPane id="leftpanelsettings" layoutY="159.0" prefHeight="556.0" prefWidth="350.0">
                            <children>
-                              <AnchorPane fx:id="anchorPaneSettingsAccountLeftPanel" onMouseClicked="#anchorPaneSettingsAccountClicked" onTouchReleased="#anchorPaneSettingsAccountTouched" prefHeight="95.0" prefWidth="353.0">
+                              <AnchorPane id="settingbuttons" fx:id="anchorPaneSettingsAccountLeftPanel" onMouseClicked="#anchorPaneSettingsAccountClicked" onTouchReleased="#anchorPaneSettingsAccountTouched" prefHeight="95.0" prefWidth="353.0">
                                  <children>
-                                    <Rectangle fx:id="rectangleAccount" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <Rectangle id="settingbox" fx:id="rectangleAccount" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
                                     <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/Settings/Account.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="27.0" text="Account">
+                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Account">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1516,15 +1516,15 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane fx:id="anchorPaneSettingsEditProductsLeftPanel" layoutY="115.0" onMouseClicked="#anchorPaneSettingsEditProductsClicked" onTouchReleased="#anchorPaneSettingsEditProductsTouched" prefHeight="95.0" prefWidth="353.0">
+                              <AnchorPane id="settingbuttons" fx:id="anchorPaneSettingsEditProductsLeftPanel" layoutY="115.0" onMouseClicked="#anchorPaneSettingsEditProductsClicked" onTouchReleased="#anchorPaneSettingsEditProductsTouched" prefHeight="95.0" prefWidth="353.0">
                                  <children>
-                                    <Rectangle fx:id="rectangleEditProducts" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <Rectangle id="settingbox" fx:id="rectangleEditProducts" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
                                     <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/Settings/Edit%20products.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="27.0" text="Edit Products">
+                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Edit Products">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1534,15 +1534,15 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane fx:id="anchorPaneSettingsDisplayLeftPanel" layoutY="231.0" onMouseClicked="#anchorPaneSettingsDisplayClicked" onTouchReleased="#anchorPaneSettingsDisplayTouched" prefHeight="95.0" prefWidth="353.0">
+                              <AnchorPane id="settingbuttons" fx:id="anchorPaneSettingsDisplayLeftPanel" layoutY="231.0" onMouseClicked="#anchorPaneSettingsDisplayClicked" onTouchReleased="#anchorPaneSettingsDisplayTouched" prefHeight="95.0" prefWidth="353.0">
                                  <children>
-                                    <Rectangle fx:id="rectangleDisplay" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <Rectangle id="settingbox" fx:id="rectangleDisplay" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
                                     <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/Settings/Display.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="27.0" text="Appearance">
+                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Appearance">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1552,15 +1552,15 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane fx:id="anchorPaneSettingsTACLeftPanel" layoutY="461.0" onMouseClicked="#anchorPaneSettingsTACClicked" onTouchReleased="#anchorPaneSettingsTACTouched" prefHeight="95.0" prefWidth="353.0">
+                              <AnchorPane id="settingbuttons" fx:id="anchorPaneSettingsTACLeftPanel" layoutY="461.0" onMouseClicked="#anchorPaneSettingsTACClicked" onTouchReleased="#anchorPaneSettingsTACTouched" prefHeight="95.0" prefWidth="353.0">
                                  <children>
-                                    <Rectangle fx:id="rectangleTAC" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <Rectangle id="settingbox" fx:id="rectangleTAC" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
                                     <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/Settings/Terms%20and%20conditions.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="100.0" layoutY="5.0" text="Terms and&#10;Conditions">
+                                    <Label id="settinglabel" layoutX="100.0" layoutY="5.0" text="Terms and&#10;Conditions">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1570,15 +1570,15 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane fx:id="anchorPaneSettingsSystemManualLeftPanel" layoutY="350.0" onMouseClicked="#anchorPaneSettingsSystemManualClicked" onTouchReleased="#anchorPaneSettingsSystemManualTouched" prefHeight="95.0" prefWidth="353.0">
+                              <AnchorPane id="settingbuttons" fx:id="anchorPaneSettingsSystemManualLeftPanel" layoutY="350.0" onMouseClicked="#anchorPaneSettingsSystemManualClicked" onTouchReleased="#anchorPaneSettingsSystemManualTouched" prefHeight="95.0" prefWidth="353.0">
                                  <children>
-                                    <Rectangle fx:id="rectangleSystemManual" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
+                                    <Rectangle id="settingbox" fx:id="rectangleSystemManual" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="353.0" />
                                     <ImageView fitHeight="69.0" fitWidth="64.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../../Medias/Icons/Settings/System%20manual.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="93.0" layoutY="27.0" text="System Manual">
+                                    <Label id="settinglabel" layoutX="93.0" layoutY="27.0" text="System Manual">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1597,13 +1597,13 @@
                         </Label>
                         <AnchorPane layoutY="2.0" prefHeight="95.0" prefWidth="350.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
+                              <Rectangle id="settingbox" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="350.0" />
                               <ImageView fitHeight="63.0" fitWidth="62.0" layoutX="73.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Icons/Settings/settings.png" />
                                  </image>
                               </ImageView>
-                              <Label layoutX="149.0" layoutY="27.0" text="Settings">
+                              <Label id="settinglabel" layoutX="149.0" layoutY="27.0" text="Settings">
                                  <font>
                                     <Font name="Arial" size="36.0" />
                                  </font>
