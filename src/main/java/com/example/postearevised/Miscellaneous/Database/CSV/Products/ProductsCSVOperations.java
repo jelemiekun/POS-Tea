@@ -166,7 +166,7 @@ public class ProductsCSVOperations {
                     sb.append(",");
                     sb.append(",");
 
-                    sb.append(appetizer.getPrice());
+                    sb.append(appetizer.getPrice()).append("\n");
                     break;
                 default:
                     // Handle if category is not recognized

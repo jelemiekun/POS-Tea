@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.termsAndConditionStage;
@@ -40,7 +41,7 @@ public class TermsAndConditionController implements Initializable {
 
             }
         });
-        Platform.runLater(() -> {termsAndConditionStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
+        Platform.runLater(() -> {termsAndConditionStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_ENUM.getCssURL())).toExternalForm());});
     }
 
     @FXML

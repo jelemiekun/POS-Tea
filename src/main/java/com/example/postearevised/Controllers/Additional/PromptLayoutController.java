@@ -11,6 +11,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
@@ -50,7 +51,11 @@ public class PromptLayoutController implements Initializable {
         btnRight.setImage(btnRightImageReference);
 
         imageView.setImage(iconImageReference);
-        Platform.runLater(() -> {promptStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
+
+        if (cssUsing == null)
+            Platform.runLater(() -> {promptStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_ENUM.getCssURL())).toExternalForm());});
+        else
+            Platform.runLater(() -> {promptStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
     @FXML

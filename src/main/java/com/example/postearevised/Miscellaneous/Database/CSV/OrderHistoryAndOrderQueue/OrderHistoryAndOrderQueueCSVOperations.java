@@ -122,6 +122,9 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                     String transactionID = parts[15];
                     transactionID = deFormatString(transactionID);
                     StringBuilder invoiceBuilder = new StringBuilder();
+                    if (scanner.hasNextLine()) {
+                        invoiceBuilder.append(scanner.nextLine()).append("\n");
+                    }
                     while (scanner.hasNextLine()) {
                         String invoiceLine = scanner.nextLine();
                         if (invoiceLine.trim().equals("*EndOfInvoice*")) {
@@ -129,6 +132,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                         }
                         invoiceBuilder.append(invoiceLine).append("\n");
                     }
+
                     String invoice = invoiceBuilder.toString().trim();
 
 
