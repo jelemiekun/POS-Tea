@@ -14,6 +14,8 @@ public class StylesReference {
 
         return labelDropShadowRightDown;
     }
+
+    public static String cssUsing;
     public static final Color dropShadowColor = Color.rgb(150,150,150);
     public static final String toolTipStyle = "-fx-font-family: Arial; -fx-font-size: 14px;";
     public static final String dashboardComboBoxStyle = "-fx-font-family: Arial; -fx-font-size: 18px;";

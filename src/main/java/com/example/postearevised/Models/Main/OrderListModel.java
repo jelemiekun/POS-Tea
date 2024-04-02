@@ -37,6 +37,7 @@ import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.productOrderListStage;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class OrderListModel {
@@ -216,20 +217,20 @@ public class OrderListModel {
             logError(false);
         }
 
-        Stage newStage = new Stage();
-        newStage.setTitle(PRODUCT_ORDER_LIST.getTITLE());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        productOrderListStage = new Stage();
+        productOrderListStage.setTitle(PRODUCT_ORDER_LIST.getTITLE());
+        productOrderListStage.setScene(new Scene(root));
+        productOrderListStage.getIcons().add(SYSTEM_LOGO);
+        productOrderListStage.setResizable(false);
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        productOrderListStage.initModality(Modality.WINDOW_MODAL);
+        productOrderListStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductOrderListController productOrderListController = loader.getController();
         productOrderListController.setOrderAndAnchorPane(order);
         productOrderListController.setContents();
 
-        newStage.showAndWait();
+        productOrderListStage.showAndWait();
 
         if (orderDone) {
             mainController.mainModel.hideRectangleModal();

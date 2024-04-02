@@ -1,5 +1,6 @@
 package com.example.postearevised.Controllers.Additional;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
@@ -25,6 +27,8 @@ import static com.example.postearevised.Miscellaneous.References.AccountReferenc
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class AskForPasswordController implements Initializable {
 
@@ -65,6 +69,7 @@ public class AskForPasswordController implements Initializable {
                 deletePane();
                 break;
         }
+        Platform.runLater(() -> {askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
     private void normalPane() {
@@ -130,16 +135,16 @@ public class AskForPasswordController implements Initializable {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(labelHeaderTitle.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(labelHeaderTitle.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
     }
 
     private void closeThisStage() {

@@ -1,5 +1,6 @@
 package com.example.postearevised.Controllers.Additional;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
@@ -13,6 +14,9 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
+import static com.example.postearevised.Miscellaneous.References.StageReference.termsAndConditionStage;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class TermsAndConditionController implements Initializable {
     private final Image acceptEnabled = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png")));
@@ -36,6 +40,7 @@ public class TermsAndConditionController implements Initializable {
 
             }
         });
+        Platform.runLater(() -> {termsAndConditionStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
     @FXML

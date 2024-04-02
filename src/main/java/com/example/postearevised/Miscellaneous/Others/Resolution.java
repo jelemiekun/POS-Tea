@@ -4,6 +4,7 @@ import java.awt.*;
 import java.io.IOException;
 
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
 public class Resolution {
     public static boolean showResolutionTooLowMessage = false;

@@ -13,10 +13,11 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.EXIT_CONFIRMATION_ENUM;
-import static com.example.postearevised.Miscellaneous.Others.PromptContents.setErrorPrintingError;
-import static com.example.postearevised.Miscellaneous.References.FileReference.ERROR_LOG_PATH;
-import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.FileReference.*;
+import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
 public class LogFile {
     public static String errorMessage;
@@ -55,12 +56,12 @@ public class LogFile {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
     }
 }

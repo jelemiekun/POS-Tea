@@ -26,7 +26,8 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
-import static com.example.postearevised.Miscellaneous.References.StylesReference.registerRecoveryQuestionStyle;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class RegisterModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;
@@ -696,16 +697,16 @@ public class RegisterModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
 
         loginRegisterForgotPassController.toggleRectangleModal();
 
@@ -722,15 +723,15 @@ public class RegisterModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        termsAndConditionStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        termsAndConditionStage.initModality(Modality.WINDOW_MODAL);
+        termsAndConditionStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(TERMS_AND_CONDITION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        termsAndConditionStage.setTitle(TERMS_AND_CONDITION_ENUM.getTITLE());
+        termsAndConditionStage.setResizable(false);
+        termsAndConditionStage.setScene(new Scene(root));
+        termsAndConditionStage.showAndWait();
 
         loginRegisterForgotPassController.toggleRectangleModal();
 
@@ -749,16 +750,16 @@ public class RegisterModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
 
         loginRegisterForgotPassController.toggleRectangleModal();
     }
@@ -775,16 +776,16 @@ public class RegisterModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
 
         loginRegisterForgotPassController.toggleRectangleModal();
     }

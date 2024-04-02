@@ -7,10 +7,6 @@ import javafx.scene.control.Tooltip;
 import javafx.stage.Stage;
 
 public class GeneralReference {
-    public static Stage mainStage;
-    public static Stage loginRegisterStage;
-    public static Stage loginFromMainSceneStage;
-    public static Stage productStage;
     public static final String SAMPLE_VIDEO_PATH = "/com/example/postearevised/Medias/Video/Sample Video.mp4";
     public static final ObservableList<String> modeOfPaymentChoices = FXCollections.observableArrayList("Cash", "GCash", "Maya", "Others");
     public static final int AES_LENGTH = 256;

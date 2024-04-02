@@ -36,6 +36,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ProductCategories.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
@@ -546,19 +547,19 @@ public class MenuModel {
             logError(false);
         }
 
-        Stage newStage = new Stage();
-        newStage.setTitle(PRODUCT_ENUM.getTITLE());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        productStage = new Stage();
+        productStage.setTitle(PRODUCT_ENUM.getTITLE());
+        productStage.setScene(new Scene(root));
+        productStage.getIcons().add(SYSTEM_LOGO);
+        productStage.setResizable(false);
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        productStage.initModality(Modality.WINDOW_MODAL);
+        productStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
         productController.productModel.setSelectedProduct();
 
-        newStage.showAndWait();
+        productStage.showAndWait();
 
         checkIfAddingProductToOrderSuccess(product);
         clearSelectedProductReference();
@@ -865,19 +866,19 @@ public class MenuModel {
             logError(false);
         }
 
-        Stage newStage = new Stage();
-        newStage.setTitle(PRODUCT_ENUM.getTITLE());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        productStage = new Stage();
+        productStage.setTitle(PRODUCT_ENUM.getTITLE());
+        productStage.setScene(new Scene(root));
+        productStage.getIcons().add(SYSTEM_LOGO);
+        productStage.setResizable(false);
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        productStage.initModality(Modality.WINDOW_MODAL);
+        productStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
         productController.productModel.setEditOrderProduct();
 
-        newStage.showAndWait();
+        productStage.showAndWait();
 
         mainController.mainModel.hideRectangleModal();
     }

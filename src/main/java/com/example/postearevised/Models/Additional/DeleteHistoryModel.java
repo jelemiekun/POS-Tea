@@ -30,6 +30,7 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class DeleteHistoryModel {
@@ -168,16 +169,16 @@ public class DeleteHistoryModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(deleteHistoryController.labelOrderHistoryEmpty.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(deleteHistoryController.labelOrderHistoryEmpty.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
         return isConfirmed;
     }
     private void setDeleteVisible() {

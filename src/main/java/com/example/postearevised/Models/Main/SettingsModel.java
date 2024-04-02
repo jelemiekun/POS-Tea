@@ -49,7 +49,7 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
-import static com.example.postearevised.Miscellaneous.References.FileReference.DIRECTORY_PATH_ACCOUNTS;
+import static com.example.postearevised.Miscellaneous.References.FileReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
@@ -57,6 +57,7 @@ import static com.example.postearevised.Miscellaneous.References.ProductReferenc
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
 public class SettingsModel {
     private MainController mainController;
@@ -334,21 +335,19 @@ public class SettingsModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
-        newStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        productStage = new Stage();
+        productStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
+        productStage.setScene(new Scene(root));
+        productStage.getIcons().add(SYSTEM_LOGO);
+        productStage.setResizable(false);
 
-        productStage = newStage;
-
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        productStage.initModality(Modality.WINDOW_MODAL);
+        productStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
         productController.productModel.setAddProduct();
 
-        newStage.showAndWait();
+        productStage.showAndWait();
 
         if (addingProductSuccess) {
             setAddProductSuccess();
@@ -405,21 +404,19 @@ public class SettingsModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
-        newStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        productStage = new Stage();
+        productStage.setTitle(ProductEnum.PRODUCT_ENUM.getTitle());
+        productStage.setScene(new Scene(root));
+        productStage.getIcons().add(SYSTEM_LOGO);
+        productStage.setResizable(false);
 
-        productStage = newStage;
-
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        productStage.initModality(Modality.WINDOW_MODAL);
+        productStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
         ProductController productController = loader.getController();
         productController.productModel.setEditProduct();
 
-        newStage.showAndWait();
+        productStage.showAndWait();
 
         if (editingProductSuccess) {
             setEditProductSuccess();
@@ -1423,16 +1420,16 @@ public class SettingsModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        askForPasswordStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+        askForPasswordStage.initModality(Modality.WINDOW_MODAL);
+        askForPasswordStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
 
-        newStage.setTitle(ASK_FOR_PASSWORD.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        askForPasswordStage.setTitle(ASK_FOR_PASSWORD.getTITLE());
+        askForPasswordStage.setResizable(false);
+        askForPasswordStage.getIcons().add(SYSTEM_LOGO);
+        askForPasswordStage.setScene(new Scene(root));
+        askForPasswordStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
         return accountEditingProceed;
     }
@@ -1502,9 +1499,11 @@ public class SettingsModel {
                     break;
             }
 
+            cssUsing = cssURL;
+
             mainStage.getScene().getStylesheets().clear();
 
-            mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssURL)).toExternalForm());
+            mainStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());
             System.out.println("abang ng css line 1287 : " + styles);
         } else {
             accountReference.setDisplayColor(oldAccount.getDisplayColor());

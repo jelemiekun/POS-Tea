@@ -11,9 +11,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
+import static com.example.postearevised.Miscellaneous.References.StageReference.orderDetailsStage;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class OrderDetailsController implements Initializable {
 
@@ -87,6 +91,7 @@ public class OrderDetailsController implements Initializable {
 
         orderDetailsModel.setReorderToFalse();
         orderDetailsModel.requestFocusOnMainAnchorPane();
+        Platform.runLater(() -> {orderDetailsStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
     @FXML

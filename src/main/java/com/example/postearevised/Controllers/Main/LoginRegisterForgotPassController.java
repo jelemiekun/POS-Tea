@@ -31,6 +31,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
 import static com.example.postearevised.Miscellaneous.Others.Internet.*;
@@ -338,16 +339,16 @@ public class LoginRegisterForgotPassController implements Initializable {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
     }
 
     /**

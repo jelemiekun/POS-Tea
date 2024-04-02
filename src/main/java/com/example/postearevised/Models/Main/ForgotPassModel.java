@@ -23,6 +23,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
 
 public class ForgotPassModel {
     private LoginRegisterForgotPassController loginRegisterForgotPassController;
@@ -493,16 +494,16 @@ public class ForgotPassModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
         return isConfirmed;
     }
 
@@ -517,16 +518,16 @@ public class ForgotPassModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
         loginRegisterForgotPassController.toggleRectangleModal();
     }
 
@@ -540,16 +541,16 @@ public class ForgotPassModel {
             errorMessage = e.getMessage();
             logError(false);
         }
-        Stage newStage = new Stage();
+        promptStage = new Stage();
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
 
-        newStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
-        newStage.setResizable(false);
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setScene(new Scene(root));
-        newStage.showAndWait();
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
 
         loginRegisterForgotPassController.switchPane(Login.getPaneNumber());
     }

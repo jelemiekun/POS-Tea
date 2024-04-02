@@ -1,6 +1,7 @@
 package com.example.postearevised.Controllers.Additional;
 
 import com.example.postearevised.Models.Additional.ProductModel;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,7 +16,11 @@ import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static com.example.postearevised.Miscellaneous.References.StageReference.productStage;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class ProductController implements Initializable {
     public ProductModel productModel;
@@ -27,6 +32,7 @@ public class ProductController implements Initializable {
         productModel.setImageView();
         productModel.initializedHideElements();
         productModel.setDropShadow();
+        Platform.runLater(() -> {productStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
 

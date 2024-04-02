@@ -1,5 +1,6 @@
 package com.example.postearevised.Controllers.Additional;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -7,9 +8,13 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
+import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class PromptLayoutController implements Initializable {
 
@@ -45,6 +50,7 @@ public class PromptLayoutController implements Initializable {
         btnRight.setImage(btnRightImageReference);
 
         imageView.setImage(iconImageReference);
+        Platform.runLater(() -> {promptStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
     }
 
     @FXML

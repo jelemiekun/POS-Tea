@@ -32,6 +32,7 @@ import static com.example.postearevised.Miscellaneous.Others.NotificationContent
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
 public class OrderHistoryModel {
     private MainController mainController;
@@ -361,16 +362,16 @@ public class OrderHistoryModel {
             logError(false);
         }
 
-        Stage newStage = new Stage();
-        newStage.setTitle(DELETE_HISTORY.getTITLE());
-        newStage.setScene(new Scene(root));
-        newStage.getIcons().add(SYSTEM_LOGO);
-        newStage.setResizable(false);
+        deleteHistoryStage = new Stage();
+        deleteHistoryStage.setTitle(DELETE_HISTORY.getTITLE());
+        deleteHistoryStage.setScene(new Scene(root));
+        deleteHistoryStage.getIcons().add(SYSTEM_LOGO);
+        deleteHistoryStage.setResizable(false);
 
-        newStage.initModality(Modality.WINDOW_MODAL);
-        newStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
+        deleteHistoryStage.initModality(Modality.WINDOW_MODAL);
+        deleteHistoryStage.initOwner(mainController.anchorPaneSettings.getScene().getWindow());
 
-        newStage.showAndWait();
+        deleteHistoryStage.showAndWait();
         mainController.mainModel.hideRectangleModal();
 
         if (holdCurrentOrderHistorySize != orderHistoryObservableList.size()) {
@@ -394,16 +395,16 @@ public class OrderHistoryModel {
                 errorMessage = e.getMessage();
                 logError(false);
             }
-            Stage newStage = new Stage();
+            orderDetailsStage = new Stage();
 
-            newStage.initModality(Modality.WINDOW_MODAL);
-            newStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+            orderDetailsStage.initModality(Modality.WINDOW_MODAL);
+            orderDetailsStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
 
-            newStage.setTitle(ORDER_DETAILS.getTITLE());
-            newStage.setResizable(false);
-            newStage.getIcons().add(SYSTEM_LOGO);
-            newStage.setScene(new Scene(root));
-            newStage.showAndWait();
+            orderDetailsStage.setTitle(ORDER_DETAILS.getTITLE());
+            orderDetailsStage.setResizable(false);
+            orderDetailsStage.getIcons().add(SYSTEM_LOGO);
+            orderDetailsStage.setScene(new Scene(root));
+            orderDetailsStage.showAndWait();
 
             mainController.mainModel.hideRectangleModal();
 

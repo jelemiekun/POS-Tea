@@ -50,7 +50,7 @@
                   </ScrollPane>
                   <AnchorPane layoutX="42.0" layoutY="548.0" prefHeight="82.0" prefWidth="532.0">
                      <children>
-                        <ImageView fx:id="btnDecline" fitHeight="60.0" fitWidth="294.0" layoutY="11.0" onMouseClicked="#btnDeclineClicked" onTouchReleased="#btnDeclineTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="menuproducthover" fx:id="btnDecline" fitHeight="60.0" fitWidth="294.0" layoutY="11.0" onMouseClicked="#btnDeclineClicked" onTouchReleased="#btnDeclineTouched" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Medias/Buttons/TAC/decline.png" />
                            </image>
@@ -58,7 +58,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fx:id="btnAccept" disable="true" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
+                        <ImageView id="menuproducthover" fx:id="btnAccept" disable="true" fitHeight="60.0" fitWidth="160.0" layoutX="372.0" layoutY="11.0" onMouseClicked="#btnAcceptClicked" onTouchReleased="#btnAcceptTouched" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../Medias/Buttons/TAC/accept%20disabled.png" />
                            </image>
