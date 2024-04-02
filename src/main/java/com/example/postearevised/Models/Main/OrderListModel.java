@@ -85,6 +85,7 @@ public class OrderListModel {
         rectangle.setFill(Color.WHITE);
         rectangle.setStroke(Color.BLACK);
         rectangle.setStrokeType(StrokeType.INSIDE);
+        rectangle.setId("orderqueuebox");
 
         DropShadow dropShadow = new DropShadow();
         dropShadow.setOffsetX(5);

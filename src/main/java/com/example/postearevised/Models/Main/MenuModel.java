@@ -346,6 +346,7 @@ public class MenuModel {
 
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setCursor(Cursor.HAND);
+        anchorPane.setId("menuproducthover");
 
         Label label = new Label(productName);
         label.setFont(Font.font("Arial", FontWeight.BOLD, 28));

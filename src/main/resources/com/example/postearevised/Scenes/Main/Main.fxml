@@ -25,7 +25,7 @@
 
 <AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Main.MainController">
     <children>
-      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" onMouseClicked="#anchorPaneDashboardRequestFocus" onTouchReleased="#anchorPaneDashboardRequestFocus" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneDashboard" layoutX="86.0" onMouseClicked="#anchorPaneDashboardRequestFocus" onTouchReleased="#anchorPaneDashboardRequestFocus" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane prefHeight="140.0" prefWidth="1833.0">
                <children>
@@ -75,7 +75,7 @@
                               <ComboBox id="comboboxesdb" fx:id="dashboardComboBoxFourthSelection" onAction="#dashboardComboBoxFourthSelectionOnAction" prefWidth="220.0" />
                               <AnchorPane fx:id="anchorPaneResetToToday" focusTraversable="true" onKeyPressed="#anchorPaneResetToTodayPressedEnter" onMouseClicked="#anchorPaneDashboardResetToTodayClickedTouched" onTouchReleased="#anchorPaneDashboardResetToTodayClickedTouched" prefHeight="39.0" prefWidth="119.0" visible="false">
                                  <children>
-                                    <Label layoutX="1.0" layoutY="9.0" text="Reset to today" textFill="#0000009a" underline="true">
+                                    <Label id="dashboardlabels" layoutX="1.0" layoutY="9.0" text="Reset to today" textFill="#0000009a" underline="true">
                                        <font>
                                           <Font name="Arial" size="18.0" />
                                        </font></Label>
@@ -168,7 +168,7 @@
                                     <Font name="Arial" size="41.0" />
                                  </font>
                               </Label>
-                              <BarChart fx:id="dashboardBarChart" alternativeRowFillVisible="false" barGap="60.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="23.0" layoutY="65.0" legendVisible="false" prefHeight="426.0" prefWidth="1096.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false" visible="false">
+                              <BarChart fx:id="dashboardBarChart" alternativeRowFillVisible="false" animated="false" barGap="60.0" categoryGap="0.0" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="23.0" layoutY="65.0" legendVisible="false" prefHeight="426.0" prefWidth="1096.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false" visible="false">
                                 <xAxis>
                                   <CategoryAxis side="BOTTOM" />
                                 </xAxis>
@@ -579,7 +579,7 @@
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font></TextField>
-                              <Label id="menulabels" fx:id="labelSelectModeOfPayment" layoutX="35.0" layoutY="117.0" text="Select Mode Of Payment">
+                              <Label fx:id="labelSelectModeOfPayment" layoutX="35.0" layoutY="117.0" text="Select Mode Of Payment">
                                  <font>
                                     <Font name="Arial" size="26.0" />
                                  </font>
@@ -645,10 +645,10 @@
                <children>
                   <ScrollPane id="Scrollpaneorderqueue" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
                      <content>
-                        <FlowPane fx:id="flowPaneOrderQueue" hgap="85.0" prefHeight="811.0" prefWidth="1655.0" vgap="85.0" />
+                        <FlowPane id="orderqueueanchor" fx:id="flowPaneOrderQueue" hgap="85.0" prefHeight="811.0" prefWidth="1655.0" vgap="85.0" />
                      </content>
                   </ScrollPane>
-                  <AnchorPane id="orderqueueanchor" fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
+                  <AnchorPane id="Scrollpaneorderqueue" fx:id="anchorPaneOrderListNoOrders" layoutX="79.0" prefHeight="830.0" prefWidth="1676.0">
                      <children>
                         <AnchorPane fx:id="orderQueueAnchorPaneNoOrder" prefHeight="500.0" prefWidth="350.0">
                            <children>
@@ -745,12 +745,12 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1268,7 +1268,7 @@
                            </font>
                         </Label>
                      </children></AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1439,11 +1439,11 @@
                      <children>
                         <AnchorPane id="settingbackground1" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane prefHeight="850.0" prefWidth="1320.0">
+                              <ScrollPane id="settingbackground1" prefHeight="850.0" prefWidth="1320.0">
                                  <content>
-                                    <FlowPane alignment="TOP_CENTER" prefHeight="954.0" prefWidth="1305.0">
+                                    <FlowPane id="settingbackground1" alignment="TOP_CENTER" prefHeight="954.0" prefWidth="1305.0">
                                        <children>
-                                          <AnchorPane prefHeight="621.0" prefWidth="1305.0">
+                                          <AnchorPane id="settingbackground1" prefHeight="621.0" prefWidth="1305.0">
                                              <children>
                                                 <MediaView fx:id="systemVideoPlayer" fitHeight="550.0" fitWidth="1150.0" layoutX="80.0" layoutY="35.0" />
                                              </children>
@@ -1458,7 +1458,7 @@
                               </ScrollPane>
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="anchorPaneSystemManualTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
+                        <AnchorPane id="settingbackground1" fx:id="anchorPaneSystemManualTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
                               <Rectangle id="settingheader" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="84.0" layoutY="1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1322.0" />
                               <Label id="settinglabel" layoutX="558.0" layoutY="25.0" text="System Manual">

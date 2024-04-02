@@ -574,22 +574,26 @@ public class DashboardModel {
                 labelName.setLayoutX(187.0);
                 labelName.setLayoutY(39.0);
                 labelName.setFont(new Font("Arial Bold", 20.0));
+                labelName.setId("dashboardlabels");
 
                 Label labelCategory = new Label("(" + productOrder.getProductCategory() + ")");
                 labelCategory.setLayoutX(187.0);
                 labelCategory.setLayoutY(73.0);
                 labelCategory.setFont(new Font("Arial", 14.0));
+                labelCategory.setId("dashboardlabels");
 
                 Label labelTotalOrders = new Label("Total Orders:");
                 labelTotalOrders.setLayoutX(338.0);
                 labelTotalOrders.setLayoutY(67.0);
                 labelTotalOrders.setFont(new Font("Arial Bold", 16.0));
+                labelTotalOrders.setId("dashboardlabels");
 
                 Label labelOrderCounter = new Label(String.valueOf(productOrder.getQuantity()));
                 labelOrderCounter.setLayoutX(451.0);
                 labelOrderCounter.setLayoutY(65.0);
                 labelOrderCounter.setPrefWidth(70.0);
                 labelOrderCounter.setFont(new Font("Arial Bold", 22.0));
+                labelOrderCounter.setId("dashboardlabels");
 
                 anchorPane.getChildren().addAll(imageView, labelName, labelCategory, labelTotalOrders, labelOrderCounter);
 

@@ -51,6 +51,7 @@ public class InvoiceGenerator {
                         .append(", ").append(productOrder.getFirstAttribute())
                         .append(", ").append(productOrder.getSecondAttribute()).append("\n");
                 receiptContentBuilder.append("Price: ").append(productOrder.getTotalAmount()).append("\n\n");
+
             }
 
             receiptContentBuilder.append("\nTotal Price: ₱").append(order.getTotalPrice()).append("\n");

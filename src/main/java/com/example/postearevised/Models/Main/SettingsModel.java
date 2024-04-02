@@ -518,6 +518,7 @@ public class SettingsModel {
             placeholderLabel.setAlignment(Pos.CENTER);
             placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+            placeholderLabel.setId("settinglabel");
             mainController.tableProducts.setPlaceholder(placeholderLabel);
 
             Tooltip settingsEditProduct = new Tooltip("No product in menu");

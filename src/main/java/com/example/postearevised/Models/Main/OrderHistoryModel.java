@@ -310,6 +310,7 @@ public class OrderHistoryModel {
                         placeholderLabel.setAlignment(Pos.CENTER);
                         placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
                         placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+                        placeholderLabel.setId("orderhistorylabels");
                         mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
                     } else {
                         mainController.tableViewOrderHistory.setItems(filteredOrders);
@@ -332,6 +333,7 @@ public class OrderHistoryModel {
             placeholderLabel.setAlignment(Pos.CENTER);
             placeholderLabel.setContentDisplay(ContentDisplay.CENTER);
             placeholderLabel.setTextAlignment(TextAlignment.CENTER);
+            placeholderLabel.setId("orderhistorylabels");
             mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
 
             Tooltip orderHistoryEmpty = new Tooltip("Empty order history");

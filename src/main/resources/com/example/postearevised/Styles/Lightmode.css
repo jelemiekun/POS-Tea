@@ -129,6 +129,14 @@
     -fx-scale-y: 1.1;
 }
 
+#menuproducthover{
+}
+
+#menuproducthover:hover{
+-fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
 #menurightpanel{
 -fx-fill: #ebeaf3;
 }
