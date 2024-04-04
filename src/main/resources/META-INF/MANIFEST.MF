@@ -1,3 +1,6 @@
 Manifest-Version: 1.0
+MIDlet-Name: POSTea
+MIDlet-Version: 1.0
+MIDlet-Vendor: POSTea
 Main-Class: com.example.postearevised.Main
 
