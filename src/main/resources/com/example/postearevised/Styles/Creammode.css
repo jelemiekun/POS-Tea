@@ -1,0 +1,385 @@
+
+#root{
+-fx-background-color:white;
+}
+
+/*==============================================================================================leftpanel=======================================================================*/
+#leftpanellabel{
+-fx-text-fill:black;
+}
+#rectangle1{
+-fx-fill:#fff3cf;
+}
+#leftpanelbuttons{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#leftpanelbuttons:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+/*
+#dashboardicon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#dashboardicon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#menuicon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#menuicon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#orderqueueicon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#orderqueueicon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#orderhistoryicon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#orderhistoryicon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#settingsicon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#settingsicon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#logouticon{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#logouticon:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+*/
+
+
+/*==================================================================================================dashboard================================================================================*/
+
+#comboboxesdb{
+-fx-padding:10px;
+-fx-background-color:#fff3cf;
+-fx-text-fill:black;
+}
+#comboboxesdb .list-cell{
+-fx-background-color:#fff3cf;
+ -fx-text-fill: black;
+}
+#totalrevenuebox{
+-fx-fill: #fff3cf;
+}
+#totalcustomerbox{
+-fx-fill: #fff3cf;
+}
+#totalorderbox{
+-fx-fill: #fff3cf;
+}
+#barchartbox{
+-fx-fill: #fff3cf;
+}
+#Flowpanedashboard{
+-fx-background-color: #fff3cf;
+}
+#Scrollpanedashboard{
+-fx-background-color: #fff3cf;
+-fx-border-width:1px;
+-fx-border-color:black;
+}
+#dashboardlabels{
+-fx-text-fill:black;
+}
+}
+#needhelpgettingstarted{
+-fx-text-fill:black;
+}
+#alltimefavorites{
+-fx-fill:white;
+}
+
+
+/*========================================================================================menu=================================================================================*/
+#foodcategorybuttons{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+#foodcategorybuttons:hover{
+-fx-effect: dropShadow(three-pass-box, rgba(0,0,0,1), 10.0,0.0,0.0,10.0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#menuproducthover{
+}
+
+#menuproducthover:hover{
+-fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+#menurightpanel{
+-fx-fill: #fff3cf;
+}
+#menulabels{
+-fx-text-fill:black;
+}
+#rectanglebills{
+-fx-fill: white;
+}
+#Flowpanemenu{
+-fx-background-color: #fff3cf;
+}
+#Scrollpanemenu{
+-fx-background-color: #fff3cf;
+-fx-border-width:1px;
+-fx-border-color:black;
+}
+#menuguide{
+-fx-text-fill:#616161;
+}
+#menulbilllabel{
+-fx-text-fill:black;
+}
+#menueditproducts{
+-fx-text-fill:black;
+}
+#noorderselected{
+-fx-text-fill:black;
+}
+
+/*=================================================================================orderqueue==========================================================================*/
+#orderqueuebox{
+-fx-fill: white;
+-fx-arc-width:100px;
+-fx-arc-height:100px;
+}
+#orderqueueanchor{
+-fx-background-color:#fff3cf;
+}
+#orderqueuelabels{
+-fx-text-fill:black;
+}
+#orderqueueguide{
+-fx-text-fill:#616161;
+}
+#Scrollpaneorderqueue{
+-fx-background-color: #fff3cf;
+-fx-border-width:1px;
+-fx-border-color:black;
+}
+#noqueue{
+-fx-text-fill:black;
+}
+
+/*=================================================================================orderhistory==========================================================================*/
+
+#orderhistorylabels{
+-fx-text-fill:black;
+}
+#orderhistoryguide{
+-fx-text-fill:#616161;
+}
+#orderhistorytable{
+   -fx-background-color: white;
+   -fx-background-radius:20px;
+   -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+
+#orderhistorytable:focused{
+    -fx-background-color: transparent;
+
+}
+
+#orderhistorytable .column-header-background{
+    -fx-background-color: #fff3cf;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding:20px;
+
+
+}
+
+#orderhistorytable .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-text-size:20px;
+
+}
+
+#orderhistorytable .column-header {
+    -fx-background-color: transparent;
+
+}
+
+#orderhistorytable .table-cell{
+    -fx-text-fill: black;
+}
+.table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px 0; /* Adjust padding height as needed */
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0; /* Setting border width to 1 pixel at the bottom */
+    -fx-border-color: black; /* You can adjust the color of the border as needed */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-cell-border-color, transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px 0; /* Adjust padding height as needed */
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0; /* Setting border width to 1 pixel at the bottom */
+    -fx-border-color: black; /* You can adjust the color of the border as needed */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+/*=================================================================================Settings==========================================================================*/
+#settingheader{
+    -fx-fill:#fff3cf;
+}
+
+#settingbackground{
+    -fx-fill:white;
+}
+
+#settingguide{
+    -fx-text-fill:#616161;
+}
+#leftpanelsettings{
+    -fx-fill: #fff3cf;
+}
+#settingbox{
+    -fx-fill:#fff3cf ;
+}
+#settingbuttons{
+    -fx-background-color: transparent;
+}
+
+#settingbuttons:hover  {
+    -fx-background-color: white;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+
+    transition: -fx-background-color 0.5s ease,
+                -fx-scale-x 0.5s ease,
+                -fx-scale-y 0.5s ease;
+}
+#settinglabel{
+    -fx-text-fill:black;
+}
+#settingtable{
+   -fx-background-color: white;
+   -fx-background-radius:20px;
+   -fx-effect: dropShadow(three-pass-box, rgba(0,0,0,0.2), 10.0,0.0,0.0,10.0, rgba(245, 40, 145, 0.8), 10.0,0.0,0.0,10.0);
+}
+
+#settingtable:focused{
+    -fx-background-color: transparent;
+
+}
+
+#settingtable .column-header-background{
+    -fx-background-color: #fff3cf;
+    -fx-background-radius: 7px 7px 0px 0px;
+    -fx-padding:20px;
+
+
+}
+
+#settingtable .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-text-size:20px;
+
+}
+
+#settingtable .column-header {
+    -fx-background-color: transparent;
+
+}
+
+#settingtable .table-cell{
+    -fx-text-fill: black;
+}
+.table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px 0; /* Adjust padding height as needed */
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0; /* Setting border width to 1 pixel at the bottom */
+    -fx-border-color: black; /* You can adjust the color of the border as needed */
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-cell-border-color, transparent;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 10px 0; /* Adjust padding height as needed */
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0; /* Setting border width to 1 pixel at the bottom */
+    -fx-border-color: black; /* You can adjust the color of the border as needed */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: white;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+#settingbackground1{
+-fx-background-color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

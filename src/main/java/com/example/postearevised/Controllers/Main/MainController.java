@@ -1108,13 +1108,13 @@ public class MainController implements Initializable {
     void settingsAppearanceRectangleClickedTouched2() { settingsModel.setStyles(DARK_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleClickedTouched3() { settingsModel.setStyles(RED_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched3() { settingsModel.setStyles(BEIGE_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleClickedTouched4() { settingsModel.setStyles(ORANGE_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched4() { settingsModel.setStyles(BLUE_ENUM.getColor(), true); }
 
     @FXML
-    void settingsAppearanceRectangleClickedTouched5() { settingsModel.setStyles(YELLOW_ENUM.getColor(), true); }
+    void settingsAppearanceRectangleClickedTouched5() { settingsModel.setStyles(CREAM_ENUM.getColor(), true); }
 
     @FXML
     void settingsAppearanceRectangleClickedTouched6() { settingsModel.setStyles(GREEN_ENUM.getColor(), true); }

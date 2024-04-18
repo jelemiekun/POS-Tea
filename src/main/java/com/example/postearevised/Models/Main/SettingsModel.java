@@ -1480,14 +1480,14 @@ public class SettingsModel {
                 case "dark":
                     cssURL = DARK_ENUM.getCssURL();
                     break;
-                case "red":
-                    cssURL = RED_ENUM.getCssURL();
+                case "beige":
+                    cssURL = BEIGE_ENUM.getCssURL();
                     break;
-                case "orange":
-                    cssURL = ORANGE_ENUM.getCssURL();
+                case "blue":
+                    cssURL = BLUE_ENUM.getCssURL();
                     break;
-                case "yellow":
-                    cssURL = YELLOW_ENUM.getCssURL();
+                case "cream":
+                    cssURL = CREAM_ENUM.getCssURL();
                     break;
                 case "green":
                     cssURL = GREEN_ENUM.getCssURL();
@@ -1531,7 +1531,7 @@ public class SettingsModel {
                 mainController.labelAppearanceInUse5.setVisible(false);
                 mainController.labelAppearanceInUse6.setVisible(false);
                 break;
-            case "red":
+            case "beige":
                 mainController.labelAppearanceInUse1.setVisible(false);
                 mainController.labelAppearanceInUse2.setVisible(false);
                 mainController.labelAppearanceInUse3.setVisible(true);
@@ -1539,7 +1539,7 @@ public class SettingsModel {
                 mainController.labelAppearanceInUse5.setVisible(false);
                 mainController.labelAppearanceInUse6.setVisible(false);
                 break;
-            case "orange":
+            case "blue":
                 mainController.labelAppearanceInUse1.setVisible(false);
                 mainController.labelAppearanceInUse2.setVisible(false);
                 mainController.labelAppearanceInUse3.setVisible(false);
@@ -1547,7 +1547,7 @@ public class SettingsModel {
                 mainController.labelAppearanceInUse5.setVisible(false);
                 mainController.labelAppearanceInUse6.setVisible(false);
                 break;
-            case "yellow":
+            case "cream":
                 mainController.labelAppearanceInUse1.setVisible(false);
                 mainController.labelAppearanceInUse2.setVisible(false);
                 mainController.labelAppearanceInUse3.setVisible(false);
