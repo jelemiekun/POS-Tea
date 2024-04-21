@@ -359,6 +359,9 @@
 #buttons{
 -fx-text-fill: white;
 }
+#settinglabel1{
+    -fx-text-fill:white;
+}
 
 
 

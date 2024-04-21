@@ -355,6 +355,9 @@
 #settingbackground1{
 -fx-background-color:#191919;
 }
+#settinglabel1{
+    -fx-text-fill:white;
+}
 
 
 

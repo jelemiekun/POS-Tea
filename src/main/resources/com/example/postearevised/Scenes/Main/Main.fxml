@@ -1554,7 +1554,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Account.png" />
                                        </image>
                                     </ImageView>
-                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Account">
+                                    <Label id="settinglabel1" layoutX="100.0" layoutY="27.0" text="Account">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1572,7 +1572,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Edit%20products.png" />
                                        </image>
                                     </ImageView>
-                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Edit Products">
+                                    <Label id="settinglabel1" layoutX="100.0" layoutY="27.0" text="Edit Products">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1590,7 +1590,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Display.png" />
                                        </image>
                                     </ImageView>
-                                    <Label id="settinglabel" layoutX="100.0" layoutY="27.0" text="Appearance">
+                                    <Label id="settinglabel1" layoutX="100.0" layoutY="27.0" text="Appearance">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1608,7 +1608,7 @@
                                           <Image url="@../../Medias/Icons/Settings/Terms%20and%20conditions.png" />
                                        </image>
                                     </ImageView>
-                                    <Label id="settinglabel" layoutX="100.0" layoutY="5.0" text="Terms and&#10;Conditions">
+                                    <Label id="settinglabel1" layoutX="100.0" layoutY="5.0" text="Terms and&#10;Conditions">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1626,7 +1626,7 @@
                                           <Image url="@../../Medias/Icons/Settings/System%20manual.png" />
                                        </image>
                                     </ImageView>
-                                    <Label id="settinglabel" layoutX="93.0" layoutY="27.0" text="System Manual">
+                                    <Label id="settinglabel1" layoutX="93.0" layoutY="27.0" text="System Manual">
                                        <font>
                                           <Font name="Arial" size="36.0" />
                                        </font>
@@ -1638,7 +1638,7 @@
                               </AnchorPane>
                            </children>
                         </AnchorPane>
-                        <Label layoutX="109.0" layoutY="32.0" text="Settings">
+                        <Label id="settinglabel1" layoutX="109.0" layoutY="32.0" text="Settings">
                            <font>
                               <Font name="Arial" size="36.0" />
                            </font>
