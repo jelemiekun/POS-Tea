@@ -71,6 +71,7 @@ public class MainModel {
     }
 
     private void inputPasswordForThisUser() {
+        accountEditingProceed = false;
         do {
             mainController.mainModel.showRectangleModal();
             headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
@@ -98,7 +99,30 @@ public class MainModel {
     }
 
     private void selectUser() {
-        System.out.println("Select user");
+        do {
+            mainController.mainModel.showRectangleModal();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(SELECT_USER_ENUM.getURL()));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
+            selectUserStage = new Stage();
+
+            selectUserStage.initModality(Modality.WINDOW_MODAL);
+            selectUserStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+            selectUserStage.setTitle(SELECT_USER_ENUM.getTITLE());
+            selectUserStage.setResizable(false);
+            selectUserStage.getIcons().add(SYSTEM_LOGO);
+            selectUserStage.setScene(new Scene(root));
+            selectUserStage.showAndWait();
+            mainController.mainModel.hideRectangleModal();
+        } while (!userSelectedSuccess);
+
+        populateFullNamesObservableList();
     }
 
     public void populateFullNamesObservableList() {
@@ -345,17 +369,7 @@ public class MainModel {
         labelNotificationHeader.setTextFill(Color.WHITE);
         labelNotificationHeader.setStyle("-fx-font-size: 28;");
 
-        Label labelNotificationContent = new Label(notificationContentReference);
-        labelNotificationContent.setLayoutX(1);
-        labelNotificationContent.setLayoutY(46);
-        labelNotificationContent.setTextFill(Color.WHITE);
-        labelNotificationContent.setWrapText(true);
-        labelNotificationContent.setPrefWidth(420);
-        labelNotificationContent.setPrefHeight(70);
-        labelNotificationContent.setContentDisplay(ContentDisplay.LEFT);
-        labelNotificationContent.setTextAlignment(TextAlignment.LEFT);
-        labelNotificationContent.setAlignment(Pos.CENTER_LEFT);
-        labelNotificationContent.setStyle("-fx-font-size: 18;");
+        Label labelNotificationContent = getLabelNotificationContent();
 
         contentPane.getChildren().addAll(labelNotificationHeader, labelNotificationContent);
 
@@ -371,23 +385,34 @@ public class MainModel {
         fadeOut.setFromValue(1);
         fadeOut.setToValue(0);
 
-        fadeIn.setOnFinished(event -> {
-            new java.util.Timer().schedule(
-                    new java.util.TimerTask() {
-                        @Override
-                        public void run() {
-                            fadeOut.play();
-                        }
-                    },
-                    2500
-            );
-        });
+        fadeIn.setOnFinished(event -> new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        fadeOut.play();
+                    }
+                },
+                2500
+        ));
 
-        fadeOut.setOnFinished(event -> {
-            mainController.flowPaneNotification.getChildren().remove(anchorPaneNotification);
-        });
+        fadeOut.setOnFinished(event -> mainController.flowPaneNotification.getChildren().remove(anchorPaneNotification));
 
         fadeIn.play();
+    }
+
+    private static Label getLabelNotificationContent() {
+        Label labelNotificationContent = new Label(notificationContentReference);
+        labelNotificationContent.setLayoutX(1);
+        labelNotificationContent.setLayoutY(46);
+        labelNotificationContent.setTextFill(Color.WHITE);
+        labelNotificationContent.setWrapText(true);
+        labelNotificationContent.setPrefWidth(420);
+        labelNotificationContent.setPrefHeight(70);
+        labelNotificationContent.setContentDisplay(ContentDisplay.LEFT);
+        labelNotificationContent.setTextAlignment(TextAlignment.LEFT);
+        labelNotificationContent.setAlignment(Pos.CENTER_LEFT);
+        labelNotificationContent.setStyle("-fx-font-size: 18;");
+        return labelNotificationContent;
     }
 
     public void showScreenToSmall() {

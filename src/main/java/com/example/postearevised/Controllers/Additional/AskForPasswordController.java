@@ -1,6 +1,9 @@
 package com.example.postearevised.Controllers.Additional;
 
+import com.example.postearevised.Objects.Account.Account;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,6 +22,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.updateAccountToAccountCSV;
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
@@ -26,6 +30,7 @@ import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
+import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.accountToForgotPass;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
@@ -134,6 +139,22 @@ public class AskForPasswordController implements Initializable {
         check();
     }
 
+    private boolean isUpdatingPasswordSuccess() {
+        Account oldAccount = accountReference.copy();
+
+        String passwordFieldText = passwordField.getText().trim();
+
+        if (!(accountReference.getUserPasswords() == null)) {
+            accountReference.getUserPasswords().add(passwordFieldText);
+        } else {
+            ObservableList<String> password = FXCollections.observableArrayList();
+            password.add(passwordFieldText);
+            accountReference.setUserPasswords(password);
+        }
+
+        return updateAccountToAccountCSV(oldAccount, accountReference);
+    }
+
     private void check() {
         if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
             if (passwordField.getText().equals(accountReference.getPassword())) {
@@ -155,7 +176,13 @@ public class AskForPasswordController implements Initializable {
             if (!passwordField.getText().isEmpty()) {
                 setUserConfirmPassword();
                 if ((openPrompt())) {
-                    System.out.println("meow");
+                    if (!isUpdatingPasswordSuccess()) {
+                        setErrorFailedToUpdateAccountToCSV();
+                        openPrompt();
+                    } else {
+                        accountEditingProceed = true;
+                        closeThisStage();
+                    }
                 }
             } else {
                 labelIncorrect.setVisible(true);

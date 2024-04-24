@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" onMouseClicked="#anchorPaneRequestFocus" onTouchPressed="#anchorPaneRequestFocus" prefHeight="134.0" prefWidth="386.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.SelectUserController">
+   <children>
+      <Label layoutX="133.0" layoutY="29.0" text="Select User:">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxUsers" layoutX="58.0" layoutY="67.0" onAction="#comboBoxUsersOnAction" prefHeight="25.0" prefWidth="270.0" />
+   </children>
+</AnchorPane>

@@ -813,7 +813,6 @@ public class SettingsModel {
             if (existingName.contains(" (Default)"))
                 existingName = existingName.replace(" (Default)", "").trim();
 
-            System.out.println("line 790 " + fullName + ", " + existingName);
             if (existingName.equalsIgnoreCase(fullName))
                 return false;
         }

@@ -9,6 +9,7 @@ public class StageReference {
 
 
     public static Stage askForPasswordStage;
+    public static Stage selectUserStage;
     public static Stage deleteHistoryStage;
     public static Stage orderDetailsStage;
     public static Stage productStage;

@@ -268,6 +268,15 @@ public class AccountCSV {
         return sb.toString();
     }
 
+    private static String concatenatePasswords(ObservableList<String> passwords, String key) {
+        StringBuilder sb = new StringBuilder();
+        for (String password: passwords) {
+            sb.append(encryptString(password, key)).append("/");
+        }
+
+        return sb.toString();
+    }
+
     public static boolean updateAccountToAccountCSV(Account oldAccount, Account newAccount) {
         try {
             File inputFile = new File(CSV_FILE_PATH_ACCOUNTS);
@@ -299,7 +308,7 @@ public class AccountCSV {
                     sb.append(newAccount.isShowNotification()).append(",");
                     sb.append(newAccount.isShowGuideMessages()).append(",");
                     sb.append(newAccount.getKey()).append(",");
-                    sb.append(newAccount.getUserPasswords()).append("\n");
+                    sb.append(concatenatePasswords(newAccount.getUserPasswords(), newAccount.getKey())).append("\n");
 
                     writer.write(sb.toString());
                 } else {

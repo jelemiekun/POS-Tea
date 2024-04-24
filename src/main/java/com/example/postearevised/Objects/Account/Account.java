@@ -195,6 +195,10 @@ public class Account {
         isShowGuideMessages = showGuideMessages;
     }
 
+    public void setUserPasswords(ObservableList<String> userPasswords) {
+        this.userPasswords = userPasswords;
+    }
+
     public ObservableList<String> getUserPasswords() {
         return userPasswords;
     }

@@ -12,7 +12,8 @@ public enum ScenesEnum {
     PRODUCT_ORDER_LIST("Order Summary", "/com/example/postearevised/Scenes/Additional/ProductOrderList.fxml"),
     DELETE_HISTORY("Delete History", "/com/example/postearevised/Scenes/Additional/DeleteHistory.fxml"),
     ORDER_DETAILS("Order Details", "/com/example/postearevised/Scenes/Additional/OrderDetails.fxml"),
-    ASK_FOR_PASSWORD("Save Changes", "/com/example/postearevised/Scenes/Additional/AskForPassword.fxml");
+    ASK_FOR_PASSWORD("Save Changes", "/com/example/postearevised/Scenes/Additional/AskForPassword.fxml"),
+    SELECT_USER_ENUM("Select User", "/com/example/postearevised/Scenes/Additional/SelectUser.fxml");
 
     private final String TITLE;
     private final String URL;

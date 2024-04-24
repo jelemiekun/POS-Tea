@@ -7,4 +7,5 @@ public class SettingsReference {
 
     public static boolean accountEditingProceed = false;
     public static boolean maxAttemptLimitReached = false;
+    public static boolean userSelectedSuccess = false;
 }
