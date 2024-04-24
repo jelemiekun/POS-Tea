@@ -28,7 +28,7 @@ import static com.example.postearevised.Miscellaneous.References.GeneralReferenc
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
-import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
+import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
 public class AskForPasswordController implements Initializable {
 
@@ -41,6 +41,9 @@ public class AskForPasswordController implements Initializable {
     private AnchorPane deletePane;
 
     @FXML
+    private AnchorPane btnDonePassword;
+
+    @FXML
     private Label labelHeaderTitle;
 
     @FXML
@@ -51,25 +54,32 @@ public class AskForPasswordController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        switch (headerTitle) {
-            case "Edit Users":
-                labelHeaderTitle.setText(USERS_ENUM.getHeaderTitle());
-                normalPane();
-                break;
-            case "Edit Account Details":
-                labelHeaderTitle.setText(ACCOUNT_DETAILS_ENUM.getHeaderTitle());
-                normalPane();
-                break;
-            case "Edit Questions":
-                labelHeaderTitle.setText(RECOVERY_QUESTIONS_ENUM.getHeaderTitle());
-                normalPane();
-                break;
-            case "Delete Account":
-                labelHeaderTitle.setText(DELETE_ACCOUNT_ENUM.getHeaderTitle());
-                deletePane();
-                break;
-        }
-        Platform.runLater(() -> {askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
+        Platform.runLater(() -> {
+            switch (headerTitle) {
+                case "Edit Users":
+                    labelHeaderTitle.setText(USERS_ENUM.getHeaderTitle());
+                    normalPane();
+                    break;
+                case "Edit Account Details":
+                    labelHeaderTitle.setText(ACCOUNT_DETAILS_ENUM.getHeaderTitle());
+                    normalPane();
+                    break;
+                case "Edit Questions":
+                    labelHeaderTitle.setText(RECOVERY_QUESTIONS_ENUM.getHeaderTitle());
+                    normalPane();
+                    break;
+                case "Delete Account":
+                    labelHeaderTitle.setText(DELETE_ACCOUNT_ENUM.getHeaderTitle());
+                    deletePane();
+                    break;
+                case "User":
+                    labelHeaderTitle.setText(USERS_SELECTION_ENUM.getHeaderTitle());
+                    userPane();
+                    break;
+            }
+
+            askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());
+        });
     }
 
     private void normalPane() {
@@ -84,6 +94,11 @@ public class AskForPasswordController implements Initializable {
         labelIncorrect.setLayoutY(194);
         normalPane.setVisible(false);
         deletePane.setVisible(true);
+    }
+
+    private void userPane() {
+        labelIncorrect.setText("Password for this user must not be blank!");
+        btnDonePassword.setVisible(true);
     }
 
     @FXML
@@ -108,25 +123,47 @@ public class AskForPasswordController implements Initializable {
         closeThisStage();
     }
 
-    private void check() {
-        if (passwordField.getText().equals(accountReference.getPassword())) {
-            accountEditingProceed = true;
-            closeThisStage();
-        } else {
-            passwordField.setText("");
-            labelIncorrect.setVisible(true);
-        }
-        attempts++;
+    @FXML
+    void btnDonePasswordPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            check();
+    }
 
-        if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-            maxAttemptLimitReached = true;
-            setErrorChangingPasswordMaximumAttemptReached();
-            openPromptMaximumAttemptReached();
-            closeThisStage();
+    @FXML
+    void btnDonePasswordClickedTouched() {
+        check();
+    }
+
+    private void check() {
+        if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
+            if (passwordField.getText().equals(accountReference.getPassword())) {
+                accountEditingProceed = true;
+                closeThisStage();
+            } else {
+                passwordField.setText("");
+                labelIncorrect.setVisible(true);
+            }
+            attempts++;
+
+            if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                maxAttemptLimitReached = true;
+                setErrorChangingPasswordMaximumAttemptReached();
+                openPrompt();
+                closeThisStage();
+            }
+        } else {
+            if (!passwordField.getText().isEmpty()) {
+                setUserConfirmPassword();
+                if ((openPrompt())) {
+                    System.out.println("meow");
+                }
+            } else {
+                labelIncorrect.setVisible(true);
+            }
         }
     }
 
-    private void openPromptMaximumAttemptReached() {
+    private boolean openPrompt() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
         try {
@@ -145,6 +182,8 @@ public class AskForPasswordController implements Initializable {
         promptStage.getIcons().add(SYSTEM_LOGO);
         promptStage.setScene(new Scene(root));
         promptStage.showAndWait();
+
+        return isConfirmed;
     }
 
     private void closeThisStage() {

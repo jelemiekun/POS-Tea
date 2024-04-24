@@ -141,6 +141,8 @@ public class MainController implements Initializable {
                 fadeOutLoading();
 
                 dashboardModel.firstChoiceBoxOnAction();
+
+                mainModel.checkIfNewAccount();
             });
         }).start();
     }

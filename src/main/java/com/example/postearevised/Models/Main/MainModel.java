@@ -2,8 +2,6 @@ package com.example.postearevised.Models.Main;
 
 import com.example.postearevised.Controllers.Main.MainController;
 import javafx.animation.FadeTransition;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -13,11 +11,8 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
 import javafx.scene.effect.DropShadow;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.TextAlignment;
@@ -29,9 +24,11 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
+import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.MainPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
+import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.Others.NotificationContents.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -63,6 +60,45 @@ public class MainModel {
         populateFullNamesObservableList();
 
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
+    }
+
+    public void checkIfNewAccount() {
+        if (accountReference.getUserPasswords() == null) {
+            inputPasswordForThisUser();
+        } else {
+            selectUser();
+        }
+    }
+
+    private void inputPasswordForThisUser() {
+        do {
+            mainController.mainModel.showRectangleModal();
+            headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
+            askForPasswordStage = new Stage();
+
+            askForPasswordStage.initModality(Modality.WINDOW_MODAL);
+            askForPasswordStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+            askForPasswordStage.setTitle("Input Password");
+            askForPasswordStage.setResizable(false);
+            askForPasswordStage.getIcons().add(SYSTEM_LOGO);
+            askForPasswordStage.setScene(new Scene(root));
+            askForPasswordStage.showAndWait();
+            mainController.mainModel.hideRectangleModal();
+
+        } while (!accountEditingProceed);
+    }
+
+    private void selectUser() {
+        System.out.println("Select user");
     }
 
     public void populateFullNamesObservableList() {

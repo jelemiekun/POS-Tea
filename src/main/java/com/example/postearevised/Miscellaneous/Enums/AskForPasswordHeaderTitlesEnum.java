@@ -4,7 +4,8 @@ public enum AskForPasswordHeaderTitlesEnum {
     USERS_ENUM("Edit Users"),
     ACCOUNT_DETAILS_ENUM("Edit Account Details"),
     RECOVERY_QUESTIONS_ENUM("Edit Questions"),
-    DELETE_ACCOUNT_ENUM("Delete Account");
+    DELETE_ACCOUNT_ENUM("Delete Account"),
+    USERS_SELECTION_ENUM("User");
 
     private final String headerTitle;
 

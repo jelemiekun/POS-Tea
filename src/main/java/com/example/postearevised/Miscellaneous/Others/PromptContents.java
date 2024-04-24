@@ -92,6 +92,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setUserConfirmPassword() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Confirm Password";
+        promptContentText = "Click 'yes' to confirm password.";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_GREEN_BUTTON;
+        btnRightImageReference = YES_BLACK_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
     public static void setErrorAccountCreation() {
         setIsConfirmedToFalse();
 

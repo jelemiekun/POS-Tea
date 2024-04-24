@@ -106,12 +106,6 @@ public class AccountCSV {
         }
     }
 
-
-
-
-
-
-
     public static void doesAccountCSVExist() {
         createDirectoryIfNotExists(DIRECTORY_PATH);
         createDirectoryIfNotExists(DIRECTORY_PATH_SENSITIVE_DATA);
@@ -132,7 +126,7 @@ public class AccountCSV {
 
     private static void createAccountCSVFile() {
         try (FileWriter writer = new FileWriter(CSV_FILE_PATH_ACCOUNTS, true)) {
-            writer.write("contact,password,securityQuestionOne,securityQuestionOneAnswer,securityQuestionTwo,securityQuestionTwoAnswer,firstNames,middleNames,lastNames,displayColor,isShowNotification,isShowGuideMessages,key\n");
+            writer.write("contact,password,securityQuestionOne,securityQuestionOneAnswer,securityQuestionTwo,securityQuestionTwoAnswer,firstNames,middleNames,lastNames,displayColor,isShowNotification,isShowGuideMessages,key,userPasswords\n");
             System.out.println("Creating account csv file: " + CSV_FILE_PATH_ACCOUNTS);
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -183,6 +177,47 @@ public class AccountCSV {
                             securityQuestionTwo, decryptString(securityQuestionTwoAnswer, key),
                             observableListFirstNames, observableListMiddleNames, observableListLastNames,
                             displayColor, isShowNotification, isShowGuideMessages, key);
+
+                    accountSet.add(account);
+                } else if (parts.length == 14){
+                    ObservableList<String> observableListFirstNames = FXCollections.observableArrayList();
+                    ObservableList<String> observableListMiddleNames = FXCollections.observableArrayList();
+                    ObservableList<String> observableListLastNames = FXCollections.observableArrayList();
+                    ObservableList<String> observableListUserPasswords = FXCollections.observableArrayList();
+
+                    String contact = parts[0];
+                    String password = parts[1];
+                    String securityQuestionOne = parts[2];
+                    String securityQuestionOneAnswer = parts[3];
+                    String securityQuestionTwo = parts[4];
+                    String securityQuestionTwoAnswer = parts[5];
+                    String[] firstNames = parts[6].split("/");
+                    String[] middleNames = parts[7].split("/");
+                    String[] lastNames = parts[8].split("/");
+
+                    for (int i = 0; i < firstNames.length; i++) {
+                        middleNames[i] = middleNames[i].isEmpty() || middleNames[i].equals(".") ? "" : middleNames[i];
+                    }
+
+                    observableListFirstNames.addAll(Arrays.asList(firstNames));
+                    observableListMiddleNames.addAll(Arrays.asList(middleNames));
+                    observableListLastNames.addAll(Arrays.asList(lastNames));
+
+                    String displayColor = parts[9];
+                    boolean isShowNotification = Boolean.parseBoolean(parts[10]);
+                    boolean isShowGuideMessages = Boolean.parseBoolean(parts[11]);
+                    String key = parts[12];
+                    String[] userPasswords = parts[13].split("/");
+
+                    for (String userPassword : userPasswords) {
+                        observableListUserPasswords.add(decryptString(userPassword, key));
+                    }
+
+                    Account account = new Account(contact, decryptString(password, key),
+                            securityQuestionOne, decryptString(securityQuestionOneAnswer, key),
+                            securityQuestionTwo, decryptString(securityQuestionTwoAnswer, key),
+                            observableListFirstNames, observableListMiddleNames, observableListLastNames,
+                            displayColor, isShowNotification, isShowGuideMessages, key, observableListUserPasswords);
 
                     accountSet.add(account);
                 }
@@ -263,7 +298,8 @@ public class AccountCSV {
                     sb.append(newAccount.getDisplayColor()).append(",");
                     sb.append(newAccount.isShowNotification()).append(",");
                     sb.append(newAccount.isShowGuideMessages()).append(",");
-                    sb.append(newAccount.getKey()).append("\n");
+                    sb.append(newAccount.getKey()).append(",");
+                    sb.append(newAccount.getUserPasswords()).append("\n");
 
                     writer.write(sb.toString());
                 } else {

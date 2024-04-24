@@ -22,6 +22,7 @@ public class Account {
     private boolean isShowNotification;
     private boolean isShowGuideMessages;
     private String key;
+    private ObservableList<String> userPasswords;
 
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames) {
         this.contact = contact;
@@ -37,6 +38,23 @@ public class Account {
         this.isShowNotification = true;
         this.isShowGuideMessages = true;
         this.key = generateRandomKey();
+    }
+
+    public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames, String displayColor, boolean isShowNotification, boolean isShowGuideMessages, String key, ObservableList<String> userPasswords) {
+        this.contact = contact;
+        this.password = password;
+        this.securityQuestionOne = securityQuestionOne;
+        this.securityQuestionOneAnswer = securityQuestionOneAnswer;
+        this.securityQuestionTwo = securityQuestionTwo;
+        this.securityQuestionTwoAnswer = securityQuestionTwoAnswer;
+        this.firstNames = firstNames;
+        this.middleNames = middleNames;
+        this.lastNames = lastNames;
+        this.displayColor = displayColor;
+        this.isShowNotification = isShowNotification;
+        this.isShowGuideMessages = isShowGuideMessages;
+        this.key = key;
+        this.userPasswords = userPasswords;
     }
 
     public Account(String contact, String password, String securityQuestionOne, String securityQuestionOneAnswer, String securityQuestionTwo, String securityQuestionTwoAnswer, ObservableList<String> firstNames, ObservableList<String> middleNames, ObservableList<String> lastNames, String displayColor, boolean isShowNotification, boolean isShowGuideMessages, String key) {
@@ -177,11 +195,15 @@ public class Account {
         isShowGuideMessages = showGuideMessages;
     }
 
+    public ObservableList<String> getUserPasswords() {
+        return userPasswords;
+    }
+
     public Account copy() {
         return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,
                 securityQuestionTwo, securityQuestionTwoAnswer, FXCollections.observableArrayList(firstNames),
                 FXCollections.observableArrayList(middleNames), FXCollections.observableArrayList(lastNames),
-                displayColor, isShowNotification, isShowGuideMessages, key);
+                displayColor, isShowNotification, isShowGuideMessages, key, userPasswords);
     }
 
 }
