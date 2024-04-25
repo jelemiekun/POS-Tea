@@ -750,12 +750,12 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1493,7 +1493,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane fx:id="ap1" layoutY="85.0" prefHeight="848.0" prefWidth="1305.0">
                            <children>
