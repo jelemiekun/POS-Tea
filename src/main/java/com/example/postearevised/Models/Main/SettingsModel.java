@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -27,9 +28,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -1645,16 +1648,92 @@ public class SettingsModel {
      */
 
     public void setVideo() {
-        URL videoUrl = getClass().getResource(SAMPLE_VIDEO_PATH);
-        if (videoUrl == null) {
-            System.err.println("Video file not found: " + SAMPLE_VIDEO_PATH);
-            return;
-        }
+        mainController.ap1.getStylesheets().add(Objects.requireNonNull(getClass().getResource("/com/example/postearevised/Styles/SystemManual/Style.css")).toExternalForm());
 
-        Media media = new Media(videoUrl.toExternalForm());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/play.png");
+        Image play = new Image(inputStream);
+        mainController.playPauseBtn.setImage(play);
+        mainController.playPauseBtn.getStyleClass().add("control-btn");
 
-        mainController.systemVideoPlayer.setMediaPlayer(mediaPlayer);
+        mainController.playPauseVid.setImage(play);
+        mainController.playPauseVid.setVisible(false);
+        ColorAdjust colorAdjust1 = new ColorAdjust();
+        colorAdjust1.setBrightness(1);
+        colorAdjust1.setSaturation(0);
+        mainController.playPauseVid.setEffect(colorAdjust1);
+        mainController.playPauseVid.getStyleClass().add("control-vid");
+
+        InputStream inputStream1 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/reset.png");
+        Image reset = new Image(inputStream1);
+        mainController.resetBtn.setImage(reset);
+        mainController.resetBtn.getStyleClass().add("control-btn");
+
+        File file = new File("src/main/resources/com/example/postearevised/Medias/System Manual/SystemManual.mp4");
+
+        mainController.media = new Media(file.toURI().toString());
+        mainController.mediaPlayer = new MediaPlayer(mainController.media);
+
+        mainController.mediaView.setMediaPlayer(mainController.mediaPlayer);
+
+        mainController.mediaPlayer.currentTimeProperty().addListener(((ObservableValue, oldValue, newValue) -> {
+            mainController.slider.setValue(newValue.toSeconds());
+
+            int currentTimeSeconds = (int) newValue.toSeconds();
+            int currentMins = currentTimeSeconds / 60;
+            int currentSecs = currentTimeSeconds % 60;
+
+            int totalDurationSeconds = (int) mainController.media.getDuration().toSeconds();
+            int totalMins = totalDurationSeconds / 60;
+            int totalSecs = totalDurationSeconds % 60;
+
+            String formattedCurrentTime = String.format("%02d:%02d", currentMins, currentSecs);
+            String formattedTotalDuration = String.format("%02d:%02d", totalMins, totalSecs);
+
+            mainController.timeDuration.setText( formattedCurrentTime + " / " + formattedTotalDuration);
+        }));
+
+        mainController.mediaPlayer.setOnReady(() -> {
+            Duration totalDuration = mainController.media.getDuration();
+            mainController.slider.setMax(totalDuration.toSeconds());
+
+            int totalSeconds = (int) Math.round(totalDuration.toSeconds());
+            int mins = totalSeconds / 60;
+            int secs = totalSeconds % 60;
+
+            String formattedDuration = String.format("%02d:%02d", mins, secs);
+            mainController.timeDuration.setText("00:00 / " + formattedDuration);
+        });
+
+        mainController.mediaPlayer.setOnEndOfMedia(() -> {
+            mainController.playPauseVid.setImage(reset);
+            mainController.videoEnded = true;
+            mainController.resetBtn.setFitWidth(22);
+            mainController.resetBtn.setFitHeight(22);
+        });
+
+        mainController.mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
+            if (!mainController.mediaPlayer.getMedia().getDuration().equals(Duration.UNKNOWN) && newValue.equals(Duration.ZERO)) {
+                mainController.videoEnded = false;
+                mainController.playMedia();
+                mainController.resetBtn.setFitWidth(18);
+                mainController.resetBtn.setFitHeight(18);
+            }
+        });
+
+        mainController.slider.setOnMousePressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+        mainController.slider.setOnMouseDragged(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+        mainController.slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.doubleValue() != mainController.slider.getMax()) {
+                mainController.resetBtn.setFitWidth(18);
+                mainController.resetBtn.setFitHeight(18);
+                mainController.videoEnded = false;
+                InputStream inputStream2 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
+                Image pause = new Image(inputStream2);
+                mainController.playPauseVid.setImage(pause);
+            }
+        });
     }
 
 }
