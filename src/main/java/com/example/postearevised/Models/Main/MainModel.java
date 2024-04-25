@@ -123,9 +123,15 @@ public class MainModel {
             mainController.mainModel.hideRectangleModal();
         } while (!userSelectedSuccess);
 
+        selectedAUser();
+    }
+
+    private void selectedAUser() {
         populateFullNamesObservableList();
         mainController.labelProfileName.setText(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
+        mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+        mainController.labelSettingsOnlyAdmin.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
     }
 
     public void populateFullNamesObservableList() {
@@ -544,8 +550,8 @@ public class MainModel {
                 //mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
             }
 
-            mainController.
-            if (mainController.comboBoxAccountName.getValue().contains())
+            mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+            mainController.labelSettingsOnlyAdmin.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
         }
     }
 

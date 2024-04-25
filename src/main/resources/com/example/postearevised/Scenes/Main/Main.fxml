@@ -756,7 +756,7 @@
                            <children>
                               <ScrollPane prefHeight="850.0" prefWidth="1322.0" style="-fx-background-color: white;">
                                 <content>
-                                    <FlowPane prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
+                                    <FlowPane fx:id="anchorPaneSettingsAccountInner" prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
                                           <AnchorPane id="settingbackground1" prefHeight="404.0" prefWidth="1300.0">
                                              <children>
@@ -921,6 +921,11 @@
                                                       </AnchorPane>
                                                    </children>
                                                 </AnchorPane>
+                                                <Label fx:id="labelSettingsOnlyAdmin" layoutX="516.0" layoutY="37.0" text="Only administrators are allowed to change account details" textFill="#ff4e4e">
+                                                   <font>
+                                                      <Font name="Arial Bold" size="28.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                              <padding>
                                                 <Insets left="150.0" />
@@ -1037,7 +1042,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="comboBoxAccountName" disable="true" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
+                                                <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
                                                 <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">

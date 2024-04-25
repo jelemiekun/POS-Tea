@@ -916,6 +916,9 @@ public class MainController implements Initializable {
     @FXML
     public AnchorPane anchorPanePasswordIndicator;
 
+    @FXML
+    public FlowPane anchorPaneSettingsAccountInner;
+
     // ImageViews
     @FXML
     public ImageView imagePencilSettingsAccount1;
@@ -965,6 +968,8 @@ public class MainController implements Initializable {
     public Label labelSettingsFillUpThisForm10;
     @FXML
     public Label labelSettingsFillUpThisForm11;
+    @FXML
+    public Label labelSettingsOnlyAdmin;
     @FXML
     public Label labelMiddleNameOptional;
     public Label labelNewUserPassword;
