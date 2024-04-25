@@ -412,10 +412,15 @@ public class AccountCSV {
 
     public static String decryptString(String encryptedInput, String key) {
         try {
+            if (encryptedInput == null || key == null) {
+                return null;
+            }
+
             SecretKey secretKey = new SecretKeySpec(key.getBytes(), "AES");
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
             byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedInput));
+            System.out.println(new String(decryptedBytes));
             return new String(decryptedBytes);
         } catch (Exception e) {
             errorMessage = e.getMessage();

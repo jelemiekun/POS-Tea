@@ -1020,7 +1020,7 @@
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane id="settingbackground1" prefHeight="411.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsAccountUsers" prefHeight="411.0" prefWidth="1300.0">
                                              <children>
                                                 <Label id="settinglabel" layoutX="140.0" layoutY="44.0" text="Users">
                                                    <font>

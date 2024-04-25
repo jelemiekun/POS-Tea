@@ -898,8 +898,11 @@ public class MainController implements Initializable {
     public ComboBox<String> comboBoxSettingsQuestionTwo;
     @FXML
     public TextField textFieldAccountQuestionTwo;
+    public PasswordField passwordFieldAccountNewUser;
 
     // AnchorPanes
+    @FXML
+    public AnchorPane anchorPaneSettingsAccountUsers;
     @FXML
     public AnchorPane anchorPaneSettingsBtnDeleteUser;
     @FXML
@@ -937,6 +940,8 @@ public class MainController implements Initializable {
     @FXML
     public ImageView imagePencilSettingsAccount11;
     @FXML
+    public ImageView imagePencilSettingsAccount12;
+    @FXML
     public ImageView passwordToolTip;
     @FXML
     public Label labelSettingsFillUpThisForm1;
@@ -962,6 +967,9 @@ public class MainController implements Initializable {
     public Label labelSettingsFillUpThisForm11;
     @FXML
     public Label labelMiddleNameOptional;
+    public Label labelNewUserPassword;
+
+
     @FXML
     public ImageView imageHideShowNewPasswordAccountSettings;
     @FXML
@@ -983,7 +991,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void settingsUsersTyping(KeyEvent event) {
+    public void settingsUsersTyping(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER) {
             anchorPaneSettingsBtnEditUsersClickedTouched();
         } else {

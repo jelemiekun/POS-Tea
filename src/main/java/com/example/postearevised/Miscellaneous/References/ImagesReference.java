@@ -89,4 +89,10 @@ public class ImagesReference {
     public static final Image milkTeasCategorySelected = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/Menu Categories/milk tea selected.png")));
 
     public static final Image productUnavailable = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Icons/not available.png")));
+
+
+    /**
+     * Pencil
+     */
+    public static final Image pencil = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Add or Edit Product/Pencil.png")));
 }

@@ -16,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -607,6 +609,7 @@ public class SettingsModel {
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(false);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(false);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(false);
+                removeAdditionalElements();
                 break;
         }
         mainController.anchorPaneSettingsAccount.requestFocus();
@@ -657,6 +660,7 @@ public class SettingsModel {
 
         if (proceed && !mainController.textFieldAccountGivenName.isDisabled()) {
             disableOtherAccountEditButtons(5);
+            mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
         }
 
         if (proceed) {
@@ -696,9 +700,12 @@ public class SettingsModel {
         accountReference.getFirstNames().remove(index);
         accountReference.getMiddleNames().remove(index);
         accountReference.getLastNames().remove(index);
+        accountReference.getUserPasswords().remove(index);
 
         mainController.mainModel.populateFullNamesObservableList();
         setComboBoxToDefault();
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+        mainController.comboBoxAccountName.getItems().add(addUser);
 
         mainController.detectChangesUsers = true;
     }
@@ -715,6 +722,43 @@ public class SettingsModel {
         mainController.textFieldAccountLastName.setPromptText("Enter Surname");
 
         mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+
+        addAUserAdditionalElements();
+    }
+
+    private void addAUserAdditionalElements() {
+        mainController.labelNewUserPassword = new Label();
+        mainController.labelNewUserPassword.setText("User Password");
+        mainController.labelNewUserPassword.setLayoutX(292.0);
+        mainController.labelNewUserPassword.setLayoutY(399.0);
+        mainController.labelNewUserPassword.setPrefHeight(26.0);
+        mainController.labelNewUserPassword.setPrefWidth(188.0);
+        mainController.labelNewUserPassword.setFont(new Font("Arial", 22.0));
+
+        mainController.passwordFieldAccountNewUser = new PasswordField();
+        mainController.passwordFieldAccountNewUser.setLayoutX(580.0);
+        mainController.passwordFieldAccountNewUser.setLayoutY(391.0);
+        mainController.passwordFieldAccountNewUser.setPrefWidth(386.0);
+        mainController.passwordFieldAccountNewUser.setOnKeyPressed(event -> {
+            mainController.settingsUsersTyping(event);
+        });
+        mainController.passwordFieldAccountNewUser.setFont(new Font("Arial", 24.0));
+
+        mainController.imagePencilSettingsAccount12 = new ImageView();
+        mainController.imagePencilSettingsAccount12.setFitHeight(35.0);
+        mainController.imagePencilSettingsAccount12.setFitWidth(35.0);
+        mainController.imagePencilSettingsAccount12.setLayoutX(252.0);
+        mainController.imagePencilSettingsAccount12.setLayoutY(396.0);
+        mainController.imagePencilSettingsAccount12.setPickOnBounds(true);
+        mainController.imagePencilSettingsAccount12.setPreserveRatio(true);
+
+        mainController.imagePencilSettingsAccount12.setImage(pencil);
+
+        mainController.anchorPaneSettingsAccountUsers.getChildren().addAll(mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.imagePencilSettingsAccount12);
+    }
+
+    private void removeAdditionalElements() {
+        mainController.anchorPaneSettingsAccountUsers.getChildren().removeAll(mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.imagePencilSettingsAccount12);
     }
 
     public String getFirstWord(String value) {
@@ -740,6 +784,7 @@ public class SettingsModel {
     }
 
     private boolean checkPane1Changes(boolean isAdd) {
+        System.out.println("line 787 " + mainController.detectChangesUsers);
         if (mainController.detectChangesUsers) {
             if (!usersRequiredFieldsNotBlank()) {
                 return false;
@@ -762,6 +807,7 @@ public class SettingsModel {
                         setAccountUsersSuccessful();
                         mainController.mainModel.generateNotification();
                         disableOtherAccountEditButtons(5);
+                        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
                         return true;
                     } else {
                         setErrorFailedToUpdateAccountToCSV();
@@ -859,11 +905,13 @@ public class SettingsModel {
         String textFieldFirstName = mainController.textFieldAccountGivenName.getText().trim();
         String textFieldMiddleName = mainController.textFieldAccountMiddleName.getText().trim().isEmpty() ? "" : mainController.textFieldAccountMiddleName.getText().trim();
         String textFieldLastName = mainController.textFieldAccountLastName.getText().trim();
+        String textFieldUserPassword = mainController.passwordFieldAccountNewUser.getText().trim();
 
         if (mainController.comboBoxAccountName.getValue().equals(addUser)) {
             accountReference.getFirstNames().add(textFieldFirstName);
             accountReference.getMiddleNames().add(textFieldMiddleName);
             accountReference.getLastNames().add(textFieldLastName);
+            accountReference.getUserPasswords().add(textFieldUserPassword);
         } else {
             String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
             int index = -1;
