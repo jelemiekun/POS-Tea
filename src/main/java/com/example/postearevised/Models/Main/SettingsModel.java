@@ -635,9 +635,15 @@ public class SettingsModel {
                 }
 
                 if (index != -1) {
-                    setLeftPanelProfileName(index);
+                    //setLeftPanelProfileName(index);
                     setFirstMiddleLastNameTextFields(index);
                 }
+
+                if (mainController.comboBoxAccountName.getValue().contains("Admin")) {
+                    mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+                }
+
+                removeAdditionalElements();
             } else {
                 addAUser();
             }
@@ -674,6 +680,7 @@ public class SettingsModel {
             mainController.textFieldAccountGivenName.setDisable(!isShow);
             mainController.textFieldAccountMiddleName.setDisable(!isShow);
             mainController.textFieldAccountLastName.setDisable(!isShow);
+            mainController.comboBoxAccountName.setDisable(!isShow);
 
             if (isShow)
                 fullNames.add(addUser);

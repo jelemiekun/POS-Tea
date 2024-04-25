@@ -1037,7 +1037,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
+                                                <ComboBox fx:id="comboBoxAccountName" disable="true" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
                                                 <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">

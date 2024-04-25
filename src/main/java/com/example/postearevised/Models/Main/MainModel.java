@@ -124,7 +124,7 @@ public class MainModel {
         } while (!userSelectedSuccess);
 
         populateFullNamesObservableList();
-        mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
     }
 
     public void populateFullNamesObservableList() {
