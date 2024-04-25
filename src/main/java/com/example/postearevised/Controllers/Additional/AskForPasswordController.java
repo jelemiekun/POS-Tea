@@ -54,6 +54,9 @@ public class AskForPasswordController implements Initializable {
     private Label labelIncorrect;
 
     @FXML
+    private Label labelPassForThisUser;
+
+    @FXML
     private PasswordField passwordField;
 
     @Override
@@ -101,6 +104,7 @@ public class AskForPasswordController implements Initializable {
     }
 
     private void userPane() {
+        labelPassForThisUser.setVisible(true);
         labelIncorrect.setText("Password for this user must not be blank!");
         btnDonePassword.setVisible(true);
     }
@@ -192,7 +196,7 @@ public class AskForPasswordController implements Initializable {
                 String thisUserPassword = accountReference.getUserPasswords().get(userIndex);
                 String inputPassword = passwordField.getText().trim();
 
-                if (thisUserPassword.equals(inputPassword)) {
+                if (inputPassword.equals(thisUserPassword)) {
                     userSelectedSuccess = true;
                     closeThisStage();
                 } else {
@@ -201,6 +205,8 @@ public class AskForPasswordController implements Initializable {
                 }
             }
         }
+
+        passwordField.setText("");
     }
 
     private boolean openPrompt() {

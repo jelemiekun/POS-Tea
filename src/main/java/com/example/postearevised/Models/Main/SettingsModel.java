@@ -797,48 +797,43 @@ public class SettingsModel {
 
     private boolean checkPane1Changes(boolean isAdd) {
         if (mainController.detectChangesUsers) {
-            if (!usersRequiredFieldsNotBlank()) {
-                return false;
-            } else {
+            if (saveChanges(1)) {
+                accountEditingProceed = false;
 
-                if (saveChanges(1)) {
-                    accountEditingProceed = false;
+                getUsersChanges();
 
-                    getUsersChanges();
-
-                    if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
-                        if (isAdd) {
-                            mainController.mainModel.populateFullNamesObservableList();
-                            setNameToNewlyAddedName();
-                        } else {
-                            int index = getComboBoxNameIndex();
-                            mainController.mainModel.populateFullNamesObservableList();
-                            setNameToEditedName(index);
-                        }
-                        setAccountUsersSuccessful();
-                        mainController.mainModel.generateNotification();
-                        disableOtherAccountEditButtons(5);
-                        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
-                        return true;
+                if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
+                    if (isAdd) {
+                        mainController.mainModel.populateFullNamesObservableList();
+                        setNameToNewlyAddedName();
                     } else {
-                        setErrorFailedToUpdateAccountToCSV();
-                        mainController.mainModel.openPrompt();
-                        setAccountUsersUpdateFailed();
-                        mainController.mainModel.generateNotification();
-                        revertBackUsers();
-                        return false;
+                        int index = getComboBoxNameIndex();
+                        mainController.mainModel.populateFullNamesObservableList();
+                        setNameToEditedName(index);
                     }
+                    setAccountUsersSuccessful();
+                    mainController.mainModel.generateNotification();
+                    disableOtherAccountEditButtons(5);
+                    mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+                    return true;
                 } else {
-                    if (!maxAttemptLimitReached) {
-                        setErrorFailedToUpdateAccountUserCancelled();
-                        mainController.mainModel.openPrompt();
-                        maxAttemptLimitReached = false;
-                    }
+                    setErrorFailedToUpdateAccountToCSV();
+                    mainController.mainModel.openPrompt();
                     setAccountUsersUpdateFailed();
                     mainController.mainModel.generateNotification();
                     revertBackUsers();
-                    return true;
+                    return false;
                 }
+            } else {
+                if (!maxAttemptLimitReached) {
+                    setErrorFailedToUpdateAccountUserCancelled();
+                    mainController.mainModel.openPrompt();
+                    maxAttemptLimitReached = false;
+                }
+                setAccountUsersUpdateFailed();
+                mainController.mainModel.generateNotification();
+                revertBackUsers();
+                return true;
             }
         } else {
             return true;
@@ -856,7 +851,7 @@ public class SettingsModel {
 
     private void setComboBoxToDefault() {
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
-        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(0));
+        mainController.labelProfileName.setText(usersNames.get(0));
     }
 
     private boolean usersRequiredFieldsNotBlank() {
@@ -909,14 +904,18 @@ public class SettingsModel {
 
     private void setComboBoxNameToOldValue(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
-        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(index));
+        mainController.labelProfileName.setText(usersNames.get(index));
     }
 
     private void getUsersChanges() {
         String textFieldFirstName = mainController.textFieldAccountGivenName.getText().trim();
         String textFieldMiddleName = mainController.textFieldAccountMiddleName.getText().trim().isEmpty() ? "" : mainController.textFieldAccountMiddleName.getText().trim();
         String textFieldLastName = mainController.textFieldAccountLastName.getText().trim();
-        String textFieldUserPassword = mainController.passwordFieldAccountNewUser.getText().trim();
+        String textFieldUserPassword;
+        if (mainController.passwordFieldAccountNewUser != null)
+            textFieldUserPassword = mainController.passwordFieldAccountNewUser.getText().trim();
+        else
+            textFieldUserPassword = "";
 
         if (mainController.comboBoxAccountName.getValue().equals(addUser)) {
             accountReference.getFirstNames().add(textFieldFirstName);
@@ -943,7 +942,7 @@ public class SettingsModel {
 
     private void setNameToNewlyAddedName() {
         mainController.comboBoxAccountName.setValue(fullNames.get(fullNames.size() - 1));
-        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(usersNames.size() - 1));
+        //mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(usersNames.size() - 1));
     }
 
     private int getComboBoxNameIndex() {
@@ -961,7 +960,7 @@ public class SettingsModel {
 
     private void setNameToEditedName(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
-        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(index));
+        mainController.labelProfileName.setText(usersNames.get(index));
     }
 
 

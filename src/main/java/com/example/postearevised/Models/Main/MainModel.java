@@ -96,7 +96,9 @@ public class MainModel {
         } while (!accountEditingProceed);
 
         populateFullNamesObservableList();
+        mainController.labelProfileName.setText(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
+        mainController.labelSettingsOnlyAdmin.setVisible(false);
     }
 
     private void selectUser() {
@@ -123,10 +125,6 @@ public class MainModel {
             mainController.mainModel.hideRectangleModal();
         } while (!userSelectedSuccess);
 
-        selectedAUser();
-    }
-
-    private void selectedAUser() {
         populateFullNamesObservableList();
         mainController.labelProfileName.setText(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
