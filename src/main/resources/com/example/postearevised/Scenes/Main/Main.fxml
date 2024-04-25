@@ -1677,7 +1677,7 @@
                         <Image url="@../../Medias/Icons/logo.png" />
                      </image>
                   </ImageView>
-                  <Label id="leftpanellabel" fx:id="labelProfileName" alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="Name" textAlignment="CENTER">
+                  <Label id="leftpanellabel" fx:id="labelProfileName" alignment="CENTER" contentDisplay="CENTER" layoutY="92.0" prefHeight="17.0" prefWidth="85.0" text="User" textAlignment="CENTER">
                      <font>
                         <Font name="Rockwell Extra Bold" size="14.0" />
                      </font></Label>

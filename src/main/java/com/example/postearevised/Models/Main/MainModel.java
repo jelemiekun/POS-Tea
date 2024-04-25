@@ -530,10 +530,17 @@ public class MainModel {
                 index = i;
         }
 
-        System.out.println("line 460 " + firstName);
-
-        if (index != -1)
-            mainController.settingsModel.setLeftPanelProfileName(index);
+        if (index != -1) {
+            userIndexCopy = userIndex;
+            System.out.println(index + " 535");
+            if (!mainController.settingsModel.setLeftPanelProfileNameConfirmPassword(index)) {
+                mainController.settingsModel.setLeftPanelProfileName(index);
+            } else {
+                System.out.println("line 539");
+                userIndex = userIndexCopy;
+                mainController.settingsModel.setLeftPanelProfileName(userIndex);
+            }
+        }
     }
 
     public boolean openPrompt() {

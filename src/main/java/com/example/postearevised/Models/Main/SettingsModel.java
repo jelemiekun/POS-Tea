@@ -772,9 +772,16 @@ public class SettingsModel {
         mainController.textFieldAccountLastName.setText(accountReference.getLastNames().get(index));
     }
 
+    public boolean setLeftPanelProfileNameConfirmPassword(int index) {
+        userIndex = index;
+        isInputPasswordExistingUser = true;
+        return saveChanges(5);
+    }
+
     public void setLeftPanelProfileName(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
         mainController.labelProfileName.setText(usersNames.get(index));
+        System.out.println("line 784  " + usersNames.get(index));
     }
 
     public void setSettingsAccountStyle() {
@@ -1452,6 +1459,9 @@ public class SettingsModel {
                 break;
             case 4:
                 headerTitle = DELETE_ACCOUNT_ENUM.getHeaderTitle();
+                break;
+            case 5:
+                headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
                 break;
         }
         return openAskForPasswordFXML();

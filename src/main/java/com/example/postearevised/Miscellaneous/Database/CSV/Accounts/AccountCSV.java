@@ -2,7 +2,6 @@ package com.example.postearevised.Miscellaneous.Database.CSV.Accounts;
 
 import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations;
 import com.example.postearevised.Objects.Account.Account;
-import com.example.postearevised.Objects.Products.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;

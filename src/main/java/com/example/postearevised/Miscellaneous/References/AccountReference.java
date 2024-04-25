@@ -16,4 +16,5 @@ public class AccountReference {
     public static ObservableList<String> fullNames = FXCollections.observableArrayList();
     public static ObservableList<String> usersNames = FXCollections.observableArrayList();
     public static int userIndex;
+    public static int userIndexCopy;
 }
