@@ -380,7 +380,7 @@ public class SettingsModel {
             } catch (IOException e) {
                 errorMessage = e.getMessage();
                 logError(false);
-                System.out.println("Failed to delete the photo: " + e.getMessage());
+                System.err.println("Failed to delete the photo: " + e.getMessage());
             }
         }
     }
@@ -772,8 +772,7 @@ public class SettingsModel {
         mainController.textFieldAccountLastName.setText(accountReference.getLastNames().get(index));
     }
 
-    public boolean setLeftPanelProfileNameConfirmPassword(int index) {
-        userIndex = index;
+    public boolean setLeftPanelProfileNameConfirmPassword() {
         isInputPasswordExistingUser = true;
         return saveChanges(5);
     }
@@ -781,7 +780,6 @@ public class SettingsModel {
     public void setLeftPanelProfileName(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
         mainController.labelProfileName.setText(usersNames.get(index));
-        System.out.println("line 784  " + usersNames.get(index));
     }
 
     public void setSettingsAccountStyle() {
@@ -791,7 +789,6 @@ public class SettingsModel {
     }
 
     private boolean checkPane1Changes(boolean isAdd) {
-        System.out.println("line 787 " + mainController.detectChangesUsers);
         if (mainController.detectChangesUsers) {
             if (!usersRequiredFieldsNotBlank()) {
                 return false;
@@ -1088,7 +1085,6 @@ public class SettingsModel {
         }
 
         setVisibilitiesPane2();
-        System.out.println("line 994 " + proceed + ", " + newAccountNotExists() + ", " + newPasswordNotTheSameAsOldOne());
         return proceed && newAccountNotExists() && newPasswordNotTheSameAsOldOne();
     }
 
@@ -1391,7 +1387,6 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm4.setVisible(!firstAnswerNotBlank);
         mainController.labelSettingsFillUpThisForm5.setVisible(!secondAnswerNotBlank);
 
-        System.out.println("line 1132 " + changedQuestionOne + ", " + changedQuestionTwo + ", " + changedAnswerOne + ", " + changedAnswerTwo + ", " + firstAnswerNotBlank + ", " + secondAnswerNotBlank);
         return changedQuestionOne || changedQuestionTwo || changedAnswerOne || changedAnswerTwo || (firstAnswerNotBlank && secondAnswerNotBlank);
     }
 

@@ -419,7 +419,6 @@ public class AccountCSV {
             Cipher cipher = Cipher.getInstance("AES");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
             byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encryptedInput));
-            System.out.println(new String(decryptedBytes));
             return new String(decryptedBytes);
         } catch (Exception e) {
             errorMessage = e.getMessage();

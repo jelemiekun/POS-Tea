@@ -46,7 +46,6 @@ public class ForgotPassModel {
                 if (loginRegisterForgotPassController.forgotPass1SubmittedOnce) {
                     setAttributes(ForgotPassword1.getPaneNumber());
                     setVisibilities(ForgotPassword1.getPaneNumber());
-                    System.out.println(forgotPassAccount);
                 }
                 break;
             case 5:
@@ -444,9 +443,7 @@ public class ForgotPassModel {
     }
 
     public void togglePasswordField2() {
-        System.out.println(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
         loginRegisterForgotPassController.forgotPassShowConfirmNewPassword = !loginRegisterForgotPassController.forgotPassShowConfirmNewPassword;
-        System.out.println(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);
 
         loginRegisterForgotPassController.btnForgotPassShowHidePassword2.setImage(loginRegisterForgotPassController.forgotPassShowConfirmNewPassword ? loginRegisterForgotPassController.showImage : loginRegisterForgotPassController.hideImage);
         loginRegisterForgotPassController.textFieldForgotPass32.setVisible(!loginRegisterForgotPassController.forgotPassShowConfirmNewPassword);

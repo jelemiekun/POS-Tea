@@ -31,7 +31,6 @@ public class Product {
             this.productName = (productName.isBlank() || productName.isEmpty()) ? "" : productName;
             this.productDescription = (productDescription.isBlank() || productDescription.isEmpty()) ? "" : productDescription;
             this.category = category;
-            System.out.println(imagePath);
             this.imagePath = imagePath.isEmpty() ? "/com/example/postearevised/Product Media/no image/no image.png" : imagePath;
             if (imagePath.isEmpty()) {
                 this.image = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Product Media/no image/no image.png")));
@@ -105,7 +104,6 @@ public class Product {
                             this.checkBox.setSelected(oldValue);
                             setErrorEditProduct();
                             ProductReference.openPrompt();
-                            System.out.println("di gumagana 61");
                             isAddingProductsFromImport = false;
                         }
                     } else {

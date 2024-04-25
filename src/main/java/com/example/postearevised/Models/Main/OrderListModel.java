@@ -182,8 +182,6 @@ public class OrderListModel {
             labelTop += 20.0;
         }
 
-        System.out.println(labelTop);
-
         ImageView imageView = new ImageView();
         imageView.setImage(ORDER_QUEUE_DONE_BUTTON);
         imageView.setFitWidth(167);

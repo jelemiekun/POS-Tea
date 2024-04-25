@@ -192,14 +192,12 @@ public class AskForPasswordController implements Initializable {
                 String thisUserPassword = accountReference.getUserPasswords().get(userIndex);
                 String inputPassword = passwordField.getText().trim();
 
-                System.out.println(thisUserPassword + "line 195");
                 if (thisUserPassword.equals(inputPassword)) {
                     userSelectedSuccess = true;
                     closeThisStage();
                 } else {
                     labelIncorrect.setText("Incorrect password!");
                     labelIncorrect.setVisible(true);
-                    System.out.println("meow meow");
                 }
             }
         }
