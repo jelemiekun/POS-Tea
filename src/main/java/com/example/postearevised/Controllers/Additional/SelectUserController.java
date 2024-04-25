@@ -16,9 +16,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.USERS_SELECTION_ENUM;
-import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.ASK_FOR_PASSWORD;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.errorMessage;
-import static com.example.postearevised.Miscellaneous.Others.LogFile.logError;
+import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.SYSTEM_LOGO;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
@@ -33,31 +32,32 @@ public class SelectUserController implements Initializable {
     private ComboBox<String> comboBoxUsers;
 
     @FXML
-    void comboBoxUsersOnAction() {
-        userIndex = comboBoxUsers.getSelectionModel().getSelectedIndex();
-        headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
-        isInputPasswordExistingUser = true;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            errorMessage = e.getMessage();
-            logError(false);
-        }
-        askForPasswordStage = new Stage();
+    void btnSelectUser() {
+        if (!comboBoxUsers.getValue().equals("Select user")) {
+            userIndex = comboBoxUsers.getSelectionModel().getSelectedIndex();
+            headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
+            isInputPasswordExistingUser = true;
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                errorMessage = e.getMessage();
+                logError(false);
+            }
+            askForPasswordStage = new Stage();
 
-        askForPasswordStage.initModality(Modality.WINDOW_MODAL);
-        askForPasswordStage.initOwner(anchorPane.getScene().getWindow());
+            askForPasswordStage.initModality(Modality.WINDOW_MODAL);
+            askForPasswordStage.initOwner(anchorPane.getScene().getWindow());
 
-        askForPasswordStage.setTitle("Input Password");
-        askForPasswordStage.setResizable(false);
-        askForPasswordStage.getIcons().add(SYSTEM_LOGO);
-        askForPasswordStage.setScene(new Scene(root));
-        askForPasswordStage.showAndWait();
+            askForPasswordStage.setTitle("Input Password");
+            askForPasswordStage.setResizable(false);
+            askForPasswordStage.getIcons().add(SYSTEM_LOGO);
+            askForPasswordStage.setScene(new Scene(root));
+            askForPasswordStage.showAndWait();
 
-        if (userSelectedSuccess)
             closeThisStage();
+        }
     }
 
     @Override
@@ -74,7 +74,7 @@ public class SelectUserController implements Initializable {
 
             comboBoxUsers.setItems(fullNames);
         }
-
+        comboBoxUsers.setValue("Select user");
         Platform.runLater(this::anchorPaneRequestFocus);
     }
 

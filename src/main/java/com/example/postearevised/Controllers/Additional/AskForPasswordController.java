@@ -166,6 +166,7 @@ public class AskForPasswordController implements Initializable {
             attempts++;
 
             if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                userSelectedSuccess = false;
                 maxAttemptLimitReached = true;
                 setErrorChangingPasswordMaximumAttemptReached();
                 openPrompt();
