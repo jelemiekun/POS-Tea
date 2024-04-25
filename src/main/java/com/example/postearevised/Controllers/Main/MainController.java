@@ -133,7 +133,6 @@ public class MainController implements Initializable {
                 settingsModel.setVideo();
                 settingsModel.populateComboBoxImportExport();
                 settingsModel.setSettingsAccountStyle();
-                settingsModel.setSettingsAccount();
 
                 isAddingProductsFromImport = false;
 

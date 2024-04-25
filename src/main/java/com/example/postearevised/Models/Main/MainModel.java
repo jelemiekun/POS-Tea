@@ -56,10 +56,6 @@ public class MainModel {
 
         mainController.checkBoxSettingNotification.setSelected(accountReference.isShowNotification());
         mainController.checkBoxSettingGuideMessages.setSelected(accountReference.isShowGuideMessages());
-
-        populateFullNamesObservableList();
-
-        mainController.comboBoxAccountName.setValue(fullNames.get(0));
     }
 
     public void checkIfNewAccount() {
@@ -68,10 +64,12 @@ public class MainModel {
         } else {
             selectUser();
         }
+        mainController.settingsModel.setSettingsAccount();
     }
 
     private void inputPasswordForThisUser() {
         accountEditingProceed = false;
+        isInputPasswordExistingUser = false;
         do {
             mainController.mainModel.showRectangleModal();
             headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
@@ -96,6 +94,9 @@ public class MainModel {
             mainController.mainModel.hideRectangleModal();
 
         } while (!accountEditingProceed);
+
+        populateFullNamesObservableList();
+        mainController.comboBoxAccountName.setValue(fullNames.get(0));
     }
 
     private void selectUser() {
@@ -123,6 +124,7 @@ public class MainModel {
         } while (!userSelectedSuccess);
 
         populateFullNamesObservableList();
+        mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
     }
 
     public void populateFullNamesObservableList() {
@@ -133,7 +135,7 @@ public class MainModel {
             String middleName = accountReference.getMiddleNames().get(i).isEmpty() || accountReference.getMiddleNames().get(i).equals(".") ? "" : accountReference.getMiddleNames().get(i);
             String lastName = accountReference.getLastNames().get(i);
 
-            String isDefault = i == 0 ? " (Default)" : "";
+            String isDefault = i == 0 ? " (Admin)" : "";
             fullNames.add(firstName + " " + middleName + " " + lastName + isDefault);
 
             mainController.comboBoxAccountName.setItems(fullNames);

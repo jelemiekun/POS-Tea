@@ -676,7 +676,7 @@ public class SettingsModel {
             else
                 fullNames.remove(addUser);
 
-            if (!mainController.comboBoxAccountName.getValue().contains("(Default)"))
+            if (!mainController.comboBoxAccountName.getValue().contains("(Admin)"))
                 mainController.anchorPaneSettingsBtnDeleteUser.setVisible(isShow);
 
             if (!isShow)
@@ -810,8 +810,8 @@ public class SettingsModel {
         String fullName = mainController.textFieldAccountGivenName.getText().trim() + " " + mainController.textFieldAccountMiddleName.getText().trim() + " " + mainController.textFieldAccountLastName.getText().trim();
 
         for (String existingName : fullNames) {
-            if (existingName.contains(" (Default)"))
-                existingName = existingName.replace(" (Default)", "").trim();
+            if (existingName.contains(" (Admin)"))
+                existingName = existingName.replace(" (Admin)", "").trim();
 
             if (existingName.equalsIgnoreCase(fullName))
                 return false;

@@ -30,7 +30,6 @@ import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
-import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.accountToForgotPass;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
@@ -173,19 +172,32 @@ public class AskForPasswordController implements Initializable {
                 closeThisStage();
             }
         } else {
-            if (!passwordField.getText().isEmpty()) {
-                setUserConfirmPassword();
-                if ((openPrompt())) {
-                    if (!isUpdatingPasswordSuccess()) {
-                        setErrorFailedToUpdateAccountToCSV();
-                        openPrompt();
-                    } else {
-                        accountEditingProceed = true;
-                        closeThisStage();
+            if (!isInputPasswordExistingUser) {
+                if (!passwordField.getText().isEmpty()) {
+                    setUserConfirmPassword();
+                    if ((openPrompt())) {
+                        if (!isUpdatingPasswordSuccess()) {
+                            setErrorFailedToUpdateAccountToCSV();
+                            openPrompt();
+                        } else {
+                            accountEditingProceed = true;
+                            closeThisStage();
+                        }
                     }
+                } else {
+                    labelIncorrect.setVisible(true);
                 }
             } else {
-                labelIncorrect.setVisible(true);
+                String thisUserPassword = accountReference.getUserPasswords().get(userIndex);
+                String inputPassword = passwordField.getText().trim();
+
+                if (thisUserPassword.equals(inputPassword)) {
+                    userSelectedSuccess = true;
+                    closeThisStage();
+                } else {
+                    labelIncorrect.setText("Incorrect password!");
+                    labelIncorrect.setVisible(true);
+                }
             }
         }
     }
