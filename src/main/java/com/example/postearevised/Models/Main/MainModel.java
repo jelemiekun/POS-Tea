@@ -134,10 +134,14 @@ public class MainModel {
     }
 
     public void setAccountAndProductAnchorPaneIfAdmin() {
-        mainController.labelSettingsOnlyAdmin.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
-        mainController.labelSettingsOnlyAdmin1.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
-        mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
-        mainController.anchorPaneSettingsEditProductsInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+        String userName = mainController.comboBoxAccountName.getValue().trim();
+
+        mainController.labelSettingsOnlyAdmin.setVisible(!userName.contains("Admin"));
+        mainController.labelSettingsOnlyAdmin1.setVisible(!userName.contains("Admin"));
+        mainController.anchorPaneSettingsAccountInner.setDisable(!userName.contains("Admin"));
+        mainController.anchorPaneSettingsEditProductsInner.setDisable(!userName.contains("Admin"));
+        mainController.importExportComboBox.setDisable(!userName.contains("Admin"));
+        mainController.btnOrderHistoryDelete.setVisible(userName.contains("Admin"));
     }
 
     public void populateFullNamesObservableList() {

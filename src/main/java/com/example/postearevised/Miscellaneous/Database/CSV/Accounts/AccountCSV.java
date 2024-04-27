@@ -206,7 +206,7 @@ public class AccountCSV {
                     boolean isShowNotification = Boolean.parseBoolean(parts[10]);
                     boolean isShowGuideMessages = Boolean.parseBoolean(parts[11]);
                     String key = parts[12];
-                    String[] userPasswords = parts[13].split("/");
+                    String[] userPasswords = parts[13].split("///");
 
                     for (String userPassword : userPasswords) {
                         observableListUserPasswords.add(decryptString(userPassword, key));
@@ -270,7 +270,7 @@ public class AccountCSV {
     private static String concatenatePasswords(ObservableList<String> passwords, String key) {
         StringBuilder sb = new StringBuilder();
         for (String password: passwords) {
-            sb.append(encryptString(password, key)).append("/");
+            sb.append(encryptString(password, key)).append("///");
         }
 
         return sb.toString();

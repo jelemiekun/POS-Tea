@@ -633,6 +633,8 @@ public class MainController implements Initializable {
      *  Order History
      */
     @FXML
+    public ImageView btnOrderHistoryDelete;
+    @FXML
     public Label orderHistoryGuideMessageDoubleClickTable;
     @FXML
     public Label labelOrderHistoryDateAndTIme;
