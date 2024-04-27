@@ -117,16 +117,10 @@ public class DashboardModel {
                 }
 
                 updateDashboardOrderObservableListReference(selected);
-                Platform.runLater(() -> {
-                    Platform.runLater(() -> {
-                        updateDashboardOrderObservableListReference(selected);
-                        Platform.runLater(() -> {
-                            Platform.runLater(() -> {
-                                updateDashboardOrderObservableListReference(selected);
-                            });
-                        });
-                    });
-                });
+                Platform.runLater(() -> Platform.runLater(() -> {
+                    updateDashboardOrderObservableListReference(selected);
+                    Platform.runLater(() -> Platform.runLater(() -> updateDashboardOrderObservableListReference(selected)));
+                }));
             } else {
                 setUIIfEmpty(true);
             }
@@ -558,7 +552,7 @@ public class DashboardModel {
                             errorMessage = e.getMessage();
                             logError(false);
                         }
-                        imageView = new ImageView(new Image(fileUrl));
+                        imageView = new ImageView(new Image(Objects.requireNonNull(fileUrl)));
                     }
                 } else {
                     imageView = new ImageView(new Image("/com/example/postearevised/Product Media/no image/no image.png"));

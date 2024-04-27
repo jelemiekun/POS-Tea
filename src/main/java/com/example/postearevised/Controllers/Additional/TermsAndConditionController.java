@@ -15,9 +15,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.termsAndConditionStage;
-import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
 public class TermsAndConditionController implements Initializable {
     private final Image acceptEnabled = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png")));
@@ -26,9 +24,6 @@ public class TermsAndConditionController implements Initializable {
     public ScrollPane scrollPane;
     @FXML
     private ImageView btnAccept;
-
-    @FXML
-    private ImageView btnDecline;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,7 +36,7 @@ public class TermsAndConditionController implements Initializable {
 
             }
         });
-        Platform.runLater(() -> {termsAndConditionStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_ENUM.getCssURL())).toExternalForm());});
+        Platform.runLater(() -> termsAndConditionStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(LIGHT_ENUM.getCssURL())).toExternalForm()));
     }
 
     @FXML

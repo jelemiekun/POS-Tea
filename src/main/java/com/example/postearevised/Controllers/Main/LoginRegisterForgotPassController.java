@@ -1026,7 +1026,6 @@ public class LoginRegisterForgotPassController implements Initializable {
      * Forgot Password
      */
     public boolean forgotIsWeakPassword = false;
-    public boolean functionalOTP = false;
     private boolean forgotPasswordToolTipClicked = false;
     public boolean forgotPass1SubmittedOnce = false;
     public boolean forgotPass2SubmittedOnce = false;

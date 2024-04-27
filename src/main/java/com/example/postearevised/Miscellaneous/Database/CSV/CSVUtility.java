@@ -58,7 +58,7 @@ public class CSVUtility {
         } else {
             if (filePath.contains("products")) {
                 System.out.println("CSV products file already exists: " + filePath);
-                int i = importProductsFromCSV(filePath, false);
+                importProductsFromCSV(filePath, false);
             } else if (filePath.contains("orderQueue")) {
                 System.out.println("CSV products file already exists: " + filePath);
                 importOrdersFromCSV(true);

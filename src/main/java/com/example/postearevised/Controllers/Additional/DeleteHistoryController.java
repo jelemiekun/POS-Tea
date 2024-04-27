@@ -5,8 +5,6 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 
 import java.net.URL;
@@ -14,7 +12,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.setDeleteRecord;
-import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.deleteHistoryStage;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 
@@ -40,7 +37,7 @@ public class DeleteHistoryController implements Initializable {
         deleteHistoryModel.setDeleteHistoryController(this);
         deleteHistoryModel.checkRecord();
         deleteHistoryModel.setEmptyLabel();
-        Platform.runLater(() -> {deleteHistoryStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());});
+        Platform.runLater(() -> deleteHistoryStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm()));
     }
 
     @FXML

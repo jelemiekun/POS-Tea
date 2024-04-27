@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.cssUsing;
 

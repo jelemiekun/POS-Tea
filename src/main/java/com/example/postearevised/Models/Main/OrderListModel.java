@@ -262,7 +262,7 @@ public class OrderListModel {
 
     private boolean openPrompt(Order order) {
         setOrderSuccessful(String.valueOf(order.getOrderNumber()), order.getCustomerName());
-        boolean dump = mainController.mainModel.openPrompt();
+        mainController.mainModel.openPrompt();
         return true;
     }
 

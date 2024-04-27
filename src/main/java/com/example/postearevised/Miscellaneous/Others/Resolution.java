@@ -1,7 +1,6 @@
 package com.example.postearevised.Miscellaneous.Others;
 
 import java.awt.*;
-import java.io.IOException;
 import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;

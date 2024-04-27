@@ -238,12 +238,12 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void anchorPaneBtnDoneClicked(MouseEvent event) {
+    void anchorPaneBtnDoneClicked() {
         productModel.addEditProductAddOrder();
     }
 
     @FXML
-    void anchorPaneBtnDoneTouched(TouchEvent event) {
+    void anchorPaneBtnDoneTouched() {
         productModel.addEditProductAddOrder();
     }
 
@@ -267,32 +267,32 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void anchorPaneEditPhotoClicked(MouseEvent event) {
+    void anchorPaneEditPhotoClicked() {
 
     }
 
     @FXML
-    void anchorPaneEditPhotoTouched(TouchEvent event) {
+    void anchorPaneEditPhotoTouched() {
 
     }
 
     @FXML
-    void anchorPaneRemovePhotoClicked(MouseEvent event) {
+    void anchorPaneRemovePhotoClicked() {
         productModel.removePhoto();
     }
 
     @FXML
-    void anchorPaneRemovePhotoTouched(TouchEvent event) {
+    void anchorPaneRemovePhotoTouched() {
         productModel.removePhoto();
     }
 
     @FXML
-    void anchorPaneUploadPhotoClicked(MouseEvent event) {
+    void anchorPaneUploadPhotoClicked() {
         productModel.uploadPhoto();
     }
 
     @FXML
-    void anchorPaneUploadPhotoTouched(TouchEvent event) {
+    void anchorPaneUploadPhotoTouched() {
         productModel.uploadPhoto();
     }
 
@@ -302,12 +302,12 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void btnEditProductDescriptionClicked(MouseEvent event) {
+    void btnEditProductDescriptionClicked() {
 
     }
 
     @FXML
-    void btnEditProductDescriptionTouched(TouchEvent event) {
+    void btnEditProductDescriptionTouched() {
 
     }
 
@@ -322,12 +322,12 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void coffeeRadioBtnColdClicked(ActionEvent event) {
+    void coffeeRadioBtnColdClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coffeeRadioBtnHotClicked(ActionEvent event) {
+    void coffeeRadioBtnHotClicked() {
         productModel.updateToggleGroups();
     }
 
@@ -337,40 +337,40 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void comboBoxCategoriesOnAction(ActionEvent event) {
+    void comboBoxCategoriesOnAction() {
         productModel.comboBoxValueSelected();
     }
 
     @FXML
-    void coolersRadioBtnLargeClicked(ActionEvent event) {
+    void coolersRadioBtnLargeClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coolersRadioBtnMediumClicked(ActionEvent event) {
+    void coolersRadioBtnMediumClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coolersRadioBtnSmallClicked(ActionEvent event) {
+    void coolersRadioBtnSmallClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coolersRadioBtnTeaBaseClicked(ActionEvent event) {
+    void coolersRadioBtnTeaBaseClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coolersRadioBtnWaterBaseClicked(ActionEvent event) {
+    void coolersRadioBtnWaterBaseClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void coolersRadioBtnAddOnsOneClicked(ActionEvent event) { productModel.updateToggleGroups(); }
+    void coolersRadioBtnAddOnsOneClicked() { productModel.updateToggleGroups(); }
 
     @FXML
-    void coolersRadioBtnAddOnsTwoClicked(ActionEvent event) { productModel.updateToggleGroups(); }
+    void coolersRadioBtnAddOnsTwoClicked() { productModel.updateToggleGroups(); }
 
     @FXML
     void coolersTextFieldLargePriceTyping(InputMethodEvent event) {
@@ -393,37 +393,37 @@ public class ProductController implements Initializable {
     }
 
     @FXML
-    void milkTeaRadioBtnAddOnsOneClicked(ActionEvent event) {
+    void milkTeaRadioBtnAddOnsOneClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnAddOnsTwoClicked(ActionEvent event) {
+    void milkTeaRadioBtnAddOnsTwoClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnLargeClicked(ActionEvent event) {
+    void milkTeaRadioBtnLargeClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnMediumClicked(ActionEvent event) {
+    void milkTeaRadioBtnMediumClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnSmallClicked(ActionEvent event) {
+    void milkTeaRadioBtnSmallClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnTeaBaseClicked(ActionEvent event) {
+    void milkTeaRadioBtnTeaBaseClicked() {
         productModel.updateToggleGroups();
     }
 
     @FXML
-    void milkTeaRadioBtnWaterBaseClicked(ActionEvent event) {
+    void milkTeaRadioBtnWaterBaseClicked() {
         productModel.updateToggleGroups();
     }
 

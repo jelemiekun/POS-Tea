@@ -37,7 +37,7 @@ public class ProductOrderListModel {
             AnchorPane.setLeftAnchor(productNameLabel, 90.0);
             AnchorPane.setTopAnchor(productNameLabel, 13.0);
 
-            Label quantityLabel = new Label(String.valueOf(productOrder.getQuantity()) + "x");
+            Label quantityLabel = new Label(productOrder.getQuantity() + "x");
             quantityLabel.setFont(new Font("Arial", 20));
             quantityLabel.setAlignment(Pos.CENTER_RIGHT);
             quantityLabel.setContentDisplay(ContentDisplay.RIGHT);

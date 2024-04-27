@@ -9,7 +9,6 @@ import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,8 +19,6 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Line;
@@ -925,7 +922,7 @@ public class MenuModel {
         int totalAmount = productOrder.getQuantity() * price;
 
         productOrder.setTotalAmount(totalAmount);
-        label.setText("₱" + ((int) productOrder.getTotalAmount()) + ".00");
+        label.setText("₱" + (productOrder.getTotalAmount()) + ".00");
     }
 
     private void updateTotalAmountOfOrder() {
@@ -997,14 +994,9 @@ public class MenuModel {
                 order.setInvoice(generateInvoice(order, 1));
                 if (addOrderToCSV(order, true)) {
                     setPaymentSuccessful(String.valueOf(referenceChange));
-                    boolean dump = mainController.mainModel.openPrompt();
+                    mainController.mainModel.openPrompt();
 
-                    Thread t1 = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            addToOrderQueue(order);
-                        }
-                    });
+                    Thread t1 = new Thread(() -> addToOrderQueue(order));
 
                     t1.start();
 
@@ -1103,12 +1095,7 @@ public class MenuModel {
 
     private void addToOrderQueue(Order order) {
         orderQueueObservableList.add(order);
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                invokeOrderListStartsHereMethod(order);
-            }
-        });
+        Platform.runLater(() -> invokeOrderListStartsHereMethod(order));
     }
     private LocalDateTime getOrderDateAndTime() {
         return LocalDateTime.now();

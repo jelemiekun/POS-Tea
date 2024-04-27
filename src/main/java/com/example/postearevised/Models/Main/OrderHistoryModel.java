@@ -163,21 +163,19 @@ public class OrderHistoryModel {
         });
         mainController.tableViewOrderHistoryColDateAndTime.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDateAndTime()));
 
-        mainController.tableViewOrderHistoryColDateAndTime.setCellFactory(column -> {
-            return new TableCell<Order, LocalDateTime>() {
-                @Override
-                protected void updateItem(LocalDateTime item, boolean empty) {
-                    super.updateItem(item, empty);
+        mainController.tableViewOrderHistoryColDateAndTime.setCellFactory(column -> new TableCell<>() {
+            @Override
+            protected void updateItem(LocalDateTime item, boolean empty) {
+                super.updateItem(item, empty);
 
-                    if (empty || item == null) {
-                        setText(null);
-                    } else {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm:ss a", Locale.ENGLISH);
-                        String formattedDateTime = item.format(formatter);
-                        setText(formattedDateTime);
-                    }
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy, hh:mm:ss a", Locale.ENGLISH);
+                    String formattedDateTime = item.format(formatter);
+                    setText(formattedDateTime);
                 }
-            };
+            }
         });
 
         mainController.tableViewOrderHistory.setRowFactory(tv -> {

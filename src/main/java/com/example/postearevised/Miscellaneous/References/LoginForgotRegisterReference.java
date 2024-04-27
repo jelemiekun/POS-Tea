@@ -7,7 +7,6 @@ import javafx.collections.ObservableList;
 public class LoginForgotRegisterReference {
     public static Account accountToForgotPass;
     public static boolean directLogin = false;
-    public static String[] stayLoggedInDetails = new String[2];
 
 
 
@@ -20,8 +19,6 @@ public class LoginForgotRegisterReference {
     public static String registerNewPassword = "";
     public static String registerConfirmNewPassword = "";
     public static String forgotPassAccount = "";
-    public static String forgotPassGeneratedOTP = "";
-    public static String forgotPassOTP = "";
     public static String forgotPassNewPassword = "";
     public static String forgotPassConfirmNewPassword = "";
 

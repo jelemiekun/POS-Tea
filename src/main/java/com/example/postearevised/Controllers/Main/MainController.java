@@ -534,82 +534,82 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void imageViewMenuAllClicked(MouseEvent event) {
+    public void imageViewMenuAllClicked() {
         menuModel.switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuAllTouched(TouchEvent event) {
+    public void imageViewMenuAllTouched() {
         menuModel.switchCategory(ALL_PRODUCT_CATEGORY_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuMilkTeaClicked(MouseEvent event) {
+    public void imageViewMenuMilkTeaClicked() {
         menuModel.switchCategory(MILK_TEA_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuMilkTeaTouched(TouchEvent event) {
+    public void imageViewMenuMilkTeaTouched() {
         menuModel.switchCategory(MILK_TEA_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuCoolersClicked(MouseEvent event) {
+    public void imageViewMenuCoolersClicked() {
         menuModel.switchCategory(COOLERS_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuCoolersTouched(TouchEvent event) {
+    public void imageViewMenuCoolersTouched() {
         menuModel.switchCategory(COOLERS_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuCoffeeClicked(MouseEvent event) {
+    public void imageViewMenuCoffeeClicked() {
         menuModel.switchCategory(COFFEE_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuCoffeeTouched(TouchEvent event) {
+    public void imageViewMenuCoffeeTouched() {
         menuModel.switchCategory(COFFEE_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuIceCandyCupsClicked(MouseEvent event) {
+    public void imageViewMenuIceCandyCupsClicked() {
         menuModel.switchCategory(ICE_CANDY_CUPS_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuIceCandyCupsTouched(TouchEvent event) {
+    public void imageViewMenuIceCandyCupsTouched() {
         menuModel.switchCategory(ICE_CANDY_CUPS_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuAppetizersClicked(MouseEvent event) {
+    public void imageViewMenuAppetizersClicked() {
         menuModel.switchCategory(APPETIZERS_ENUM.getNumber());
     }
 
     @FXML
-    public void imageViewMenuAppetizersTouched(TouchEvent event) {
+    public void imageViewMenuAppetizersTouched() {
         menuModel.switchCategory(APPETIZERS_ENUM.getNumber());
     }
 
     @FXML
-    public void menuPaymentCancelClicked(MouseEvent event) {
+    public void menuPaymentCancelClicked() {
         menuModel.orderCancelledOrAddedToQueue(true);
     }
 
     @FXML
-    public void menuPaymentCancelTouched(TouchEvent event) {
+    public void menuPaymentCancelTouched() {
         menuModel.orderCancelledOrAddedToQueue(true);
     }
 
     @FXML
-    public void menuPaymentPayClicked(MouseEvent event) {
+    public void menuPaymentPayClicked() {
         menuModel.payClicked();
     }
 
     @FXML
-    public void menuPaymentPayTouched(TouchEvent event) {
+    public void menuPaymentPayTouched() {
         menuModel.payClicked();
     }
 
@@ -691,32 +691,32 @@ public class MainController implements Initializable {
     };
 
     @FXML
-    public void btnHistoryTableRefreshClicked(MouseEvent event) {
+    public void btnHistoryTableRefreshClicked() {
         orderHistoryModel.refreshOrderHistoryBtn();
     }
 
     @FXML
-    public void btnHistoryTableRefreshTouched(TouchEvent event) {
+    public void btnHistoryTableRefreshTouched() {
         orderHistoryModel.refreshOrderHistoryBtn();
     }
 
     @FXML
-    void textFieldOrderHistorySearchTyping(KeyEvent event) {
+    void textFieldOrderHistorySearchTyping() {
 
     }
 
     @FXML
-    void comboBoxOrderHistoryOnAction(ActionEvent event) {
+    void comboBoxOrderHistoryOnAction() {
         orderHistoryModel.getComboBoxValue();
     }
 
     @FXML
-    void btnOrderHistoryDeleteClicked(MouseEvent event) {
+    void btnOrderHistoryDeleteClicked() {
         orderHistoryModel.orderHistoryDeleteBin();
     }
 
     @FXML
-    void btnOrderHistoryDeleteTouched(TouchEvent event) {
+    void btnOrderHistoryDeleteTouched() {
         orderHistoryModel.orderHistoryDeleteBin();
     }
 
@@ -1195,13 +1195,13 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void settingsDeleteProductClicked(MouseEvent event) {
+    public void settingsDeleteProductClicked() {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }
 
     @FXML
-    public void settingsDeleteProductTouched(TouchEvent event) {
+    public void settingsDeleteProductTouched() {
         if (!orderIsOngoing)
             settingsModel.deleteSelectedProductsProcess();
     }
@@ -1231,17 +1231,17 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void btnProductTableRefreshTouched(TouchEvent event) {
+    public void btnProductTableRefreshTouched() {
         settingsModel.refreshProductTable();
     }
 
     @FXML
-    public void btnProductTableRefreshClicked(MouseEvent event) {
+    public void btnProductTableRefreshClicked() {
         settingsModel.refreshProductTable();
     }
 
     @FXML
-    void importExportOnAction(ActionEvent event) {
+    void importExportOnAction() {
         settingsModel.comboBoxValueSelected();
     }
 

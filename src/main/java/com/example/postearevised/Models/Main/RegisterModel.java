@@ -143,12 +143,7 @@ public class RegisterModel {
     }
 
     public void disableIconsClicked() {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                loginRegisterForgotPassController.iconsClicked = false;
-            }
-        });
+        Platform.runLater(() -> loginRegisterForgotPassController.iconsClicked = false);
     }
 
     public void checkFirstStepFields() {

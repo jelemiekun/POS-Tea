@@ -14,17 +14,17 @@ public class ImagesReference {
      * Prompt Buttons
      */
     public static final Image OKAY_GREEN_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay green.png")));
-    public static final Image OKAY_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay black.png")));;
+    public static final Image OKAY_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/okay black.png")));
     public static final Image NO_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/no.png")));
     public static final Image YES_RED_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes.png")));
     public static final Image YES_BLACK_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/yes black.png")));
     public static final Image LOG_OUT_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/log out.png")));
     public static final Image STAY_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/Logout/stay.png")));
     public static final Image DELETE_RED_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/delete red.png")));
-    public static final Image ADD_ANYWAY_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/add anyway.png")));;
-    public static final Image CANCEL_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel.png")));;
-    public static final Image CONTINUE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/continue.png")));;
-    public static final Image CANCEL_CAPS_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel caps.png")));;
+    public static final Image ADD_ANYWAY_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/add anyway.png")));
+    public static final Image CANCEL_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel.png")));
+    public static final Image CONTINUE_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/continue.png")));
+    public static final Image CANCEL_CAPS_BUTTON = new Image(Objects.requireNonNull(GeneralReference.class.getResourceAsStream("/com/example/postearevised/Medias/Buttons/cancel caps.png")));
 
 
     /**
