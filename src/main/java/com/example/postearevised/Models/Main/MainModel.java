@@ -128,8 +128,15 @@ public class MainModel {
         populateFullNamesObservableList();
         mainController.labelProfileName.setText(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
-        mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+
+        setAccountAndProductAnchorPaneIfAdmin();
+    }
+
+    public void setAccountAndProductAnchorPaneIfAdmin() {
         mainController.labelSettingsOnlyAdmin.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+        mainController.labelSettingsOnlyAdmin1.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+        mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+        mainController.anchorPaneSettingsEditProductsInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
     }
 
     public void populateFullNamesObservableList() {
@@ -548,8 +555,7 @@ public class MainModel {
                 //mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
             }
 
-            mainController.anchorPaneSettingsAccountInner.setDisable(!mainController.comboBoxAccountName.getValue().contains("Admin"));
-            mainController.labelSettingsOnlyAdmin.setVisible(!mainController.comboBoxAccountName.getValue().contains("Admin"));
+            setAccountAndProductAnchorPaneIfAdmin();
         }
     }
 

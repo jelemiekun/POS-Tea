@@ -749,6 +749,8 @@ public class MainController implements Initializable {
     @FXML
     public AnchorPane anchorPaneSettingsEditProducts;
     @FXML
+    public AnchorPane anchorPaneSettingsEditProductsInner;
+    @FXML
     public AnchorPane anchorPaneSettingsTAC;
     @FXML
     public AnchorPane anchorPaneSettingsSystemManual;
@@ -970,6 +972,8 @@ public class MainController implements Initializable {
     public Label labelSettingsFillUpThisForm11;
     @FXML
     public Label labelSettingsOnlyAdmin;
+    @FXML
+    public Label labelSettingsOnlyAdmin1;
     @FXML
     public Label labelMiddleNameOptional;
     public Label labelNewUserPassword;
