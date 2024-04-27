@@ -99,6 +99,7 @@ public class MainModel {
         mainController.labelProfileName.setText(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
         mainController.labelSettingsOnlyAdmin.setVisible(false);
+        mainController.labelSettingsOnlyAdmin1.setVisible(false);
     }
 
     private void selectUser() {
