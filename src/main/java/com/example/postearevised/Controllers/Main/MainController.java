@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -22,13 +23,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.scene.media.MediaView;
 import javafx.util.Duration;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
@@ -1243,5 +1250,110 @@ public class MainController implements Initializable {
      */
 
     @FXML
-    public MediaView systemVideoPlayer;
+    public AnchorPane anchorPaneSettingsSystemManualInner;
+    @FXML
+    public TextFlow menuText1;
+    @FXML
+    public TextFlow menuText2;
+    @FXML
+    public TextFlow menuText3;
+    @FXML
+    public TextFlow menuText4;
+    @FXML
+    public TextFlow menuText5;
+    @FXML
+    public TextFlow menuText6;
+    @FXML
+    public TextFlow menuText7;
+    @FXML
+    public TextFlow menuText8;
+    @FXML
+    public TextFlow menuText9;
+    @FXML
+    public TextFlow menuText10;
+    @FXML
+    public TextFlow menuText11;
+    @FXML
+    public TextFlow menuText12;
+    @FXML
+    public TextFlow orderQueueText1;
+    @FXML
+    public TextFlow orderHistoryText1;
+    @FXML
+    public TextFlow dashboardText1;
+
+    @FXML
+    public HBox menuHBox1;
+    @FXML
+    public MediaView mediaView;
+    @FXML
+    public Slider slider;
+    @FXML
+    public ImageView playPauseBtn;
+    @FXML
+    public ImageView playPauseVid;
+    @FXML
+    public ImageView resetBtn;
+    @FXML
+    public Label timeDuration;
+
+    public Media media;
+    public MediaPlayer mediaPlayer;
+    public boolean isPlayed = false;
+    public Timeline timeline;
+    public boolean videoEnded = false;
+
+    @FXML
+    private void sliderPressed()  {
+        mediaPlayer.seek(Duration.seconds(slider.getValue()));
+    }
+
+    @FXML
+    public void playMedia() {
+        if (!isPlayed) {
+            InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
+            Image pause = new Image(Objects.requireNonNull(inputStream));
+            playPauseBtn.setImage(pause);
+            playPauseVid.setImage(pause);
+            playPauseVid.setVisible(true);
+            settingsModel.playPauseDuration();
+            mediaPlayer.play();
+            isPlayed = true;
+        } else {
+            InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/play.png");
+            Image play = new Image(Objects.requireNonNull(inputStream));
+            playPauseBtn.setImage(play);
+            playPauseVid.setImage(play);
+            playPauseVid.setVisible(true);
+            settingsModel.playPauseDuration();
+            mediaPlayer.pause();
+            isPlayed = false;
+        }
+    }
+
+    @FXML
+    public void resetMedia() {
+        mediaPlayer.seek(Duration.seconds(0.0));
+        mediaPlayer.play();
+    }
+
+    @FXML
+    public void vidHoverEnt() {
+        playPauseVid.setVisible(true);
+    }
+
+    @FXML
+    public void vidHoverExt() {
+        playPauseVid.setVisible(false);
+    }
+
+    @FXML
+    public void vidControl() {
+        if (videoEnded) {
+            resetMedia();
+        }
+        else {
+            playMedia();
+        }
+    }
 }

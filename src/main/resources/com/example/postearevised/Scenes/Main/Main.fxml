@@ -5,23 +5,28 @@
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1050.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Main.MainController">
     <children>
@@ -750,7 +755,7 @@
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
                         <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -758,7 +763,7 @@
                                 <content>
                                     <FlowPane fx:id="anchorPaneSettingsAccountInner" prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
-                                          <AnchorPane id="settingbackground1" prefHeight="404.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground1" prefHeight="409.0" prefWidth="1300.0">
                                              <children>
                                                 <Label id="settinglabel" layoutX="138.0" layoutY="38.0" text="Account Details">
                                                    <font>
@@ -841,7 +846,7 @@
                                                       <Cursor fx:constant="HAND" />
                                                    </cursor>
                                                 </ImageView>
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnEditAccountDetails" layoutX="1000.0" layoutY="338.0" onMouseClicked="#anchorPaneSettingsBtnEditAccountDetailsClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditAccountDetailsClickedTouched">
+                                                <AnchorPane id="menuproducthover" fx:id="anchorPaneSettingsBtnEditAccountDetails" layoutX="1000.0" layoutY="338.0" onMouseClicked="#anchorPaneSettingsBtnEditAccountDetailsClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditAccountDetailsClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -988,7 +993,7 @@
                                                       <Image url="@../../Medias/Add%20or%20Edit%20Product/Pencil.png" />
                                                    </image>
                                                 </ImageView>
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnEditSecurityQuestions" layoutX="1000.0" layoutY="540.0" onMouseClicked="#anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched">
+                                                <AnchorPane id="menuproducthover" fx:id="anchorPaneSettingsBtnEditSecurityQuestions" layoutX="1000.0" layoutY="540.0" onMouseClicked="#anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditSecurityQuestionsClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -1020,7 +1025,7 @@
                                                 <Insets left="150.0" />
                                              </padding>
                                           </AnchorPane>
-                                          <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsAccountUsers" prefHeight="411.0" prefWidth="1300.0">
+                                          <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsAccountUsers" prefHeight="500.0" prefWidth="1300.0">
                                              <children>
                                                 <Label id="settinglabel" layoutX="140.0" layoutY="44.0" text="Users">
                                                    <font>
@@ -1038,7 +1043,7 @@
                                                    </font>
                                                 </Label>
                                                 <ComboBox fx:id="comboBoxAccountName" layoutX="580.0" layoutY="110.0" onAction="#comboBoxAccountNameOnAction" onKeyPressed="#comboBoxAccountNamePressedEnter" prefHeight="49.0" prefWidth="436.0" />
-                                                <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
+                                                <AnchorPane id="menuproducthover" fx:id="anchorPaneSettingsBtnDeleteUser" layoutX="1031.0" layoutY="111.0" onMouseClicked="#anchorPaneSettingsBtnDeleteUserClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteUserClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="47.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -1100,7 +1105,7 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnEditUsers" layoutX="1002.0" layoutY="390.0" onMouseClicked="#anchorPaneSettingsBtnEditUsersClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditUsersClickedTouched">
+                                                <AnchorPane id="menuproducthover" fx:id="anchorPaneSettingsBtnEditUsers" layoutX="1002.0" layoutY="390.0" onMouseClicked="#anchorPaneSettingsBtnEditUsersClickedTouched" onTouchReleased="#anchorPaneSettingsBtnEditUsersClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -1155,7 +1160,7 @@
                                                       <Font name="Arial" size="22.0" />
                                                    </font>
                                                 </Label>
-                                                <AnchorPane fx:id="anchorPaneSettingsBtnDelete" layoutX="1000.0" layoutY="136.0" onMouseClicked="#anchorPaneSettingsBtnDeleteClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteClickedTouched">
+                                                <AnchorPane id="menuproducthover" fx:id="anchorPaneSettingsBtnDelete" layoutX="1000.0" layoutY="136.0" onMouseClicked="#anchorPaneSettingsBtnDeleteClickedTouched" onTouchReleased="#anchorPaneSettingsBtnDeleteClickedTouched">
                                                    <children>
                                                       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                                          <image>
@@ -1197,7 +1202,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsEditProducts" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" style="-fx-border-color: black;" visible="false">
                      <children>
                         <AnchorPane id="settingbackground1" fx:id="anchorPaneProductsTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>
@@ -1283,7 +1288,7 @@
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" style="-fx-border-color: black;">
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1500,25 +1505,305 @@
                   </AnchorPane>
                   <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
                      <children>
-                        <AnchorPane id="settingbackground1" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
+                        <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManualInner" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane id="settingbackground1" prefHeight="850.0" prefWidth="1320.0">
-                                 <content>
-                                    <FlowPane id="settingbackground1" alignment="TOP_CENTER" prefHeight="954.0" prefWidth="1305.0">
-                                       <children>
-                                          <AnchorPane id="settingbackground1" prefHeight="621.0" prefWidth="1305.0">
+                              <AnchorPane fx:id="ap1" layoutX="-2.0" layoutY="-2.0" prefHeight="850.0" prefWidth="1322.0" style="-fx-border-color: black;">
+                                 <children>
+                                    <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="2.0" prefHeight="850.0" prefWidth="1322.0">
+                                       <content>
+                                          <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="835.0" prefWidth="1319.0" vgap="30.0">
                                              <children>
-                                                <MediaView fx:id="systemVideoPlayer" fitHeight="550.0" fitWidth="1150.0" layoutX="80.0" layoutY="35.0" />
+                                                <AnchorPane fx:id="mediaAnchorPane" minHeight="0.0" minWidth="0.0" onMousePressed="#sliderPressed" prefHeight="492.0" prefWidth="1190.0">
+                                                   <children>
+                                                      <MediaView fx:id="mediaView" fitHeight="420.0" fitWidth="750.0" layoutX="225.0" layoutY="10.0" nodeOrientation="INHERIT" onMouseClicked="#playMedia" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </MediaView>
+                                                      <HBox alignment="CENTER_LEFT" layoutX="203.0" layoutY="446.0" prefHeight="49.0" prefWidth="602.0" spacing="20.0">
+                                                         <children>
+                                                            <ImageView fx:id="playPauseBtn" fitHeight="15.0" fitWidth="15.0" onMouseClicked="#playMedia" pickOnBounds="true" preserveRatio="true">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </ImageView>
+                                                            <ImageView fx:id="resetBtn" fitHeight="18.0" fitWidth="18.0" onMouseClicked="#resetMedia" pickOnBounds="true" preserveRatio="true">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </ImageView>
+                                                            <Label fx:id="timeDuration" text="00:00 / 00:00">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="20.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <ImageView fx:id="playPauseVid" fitHeight="100.0" fitWidth="100.0" layoutX="552.0" layoutY="170.0" onMouseClicked="#vidControl" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt" pickOnBounds="true" preserveRatio="true">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                      <HBox alignment="CENTER" layoutX="200.0" layoutY="434.0" prefHeight="25.0" prefWidth="800.0">
+                                                         <children>
+                                                            <Slider fx:id="slider" HBox.hgrow="ALWAYS" />
+                                                         </children>
+                                                      </HBox>
+                                                   </children>
+                                                </AnchorPane>
+                                                <Accordion prefHeight="288.0" prefWidth="1200.0">
+                                                   <panes>
+                                                      <TitledPane fx:id="menu" text="MENU">
+                                                         <content>
+                                                            <FlowPane fx:id="flowPaneMenuManual" alignment="CENTER">
+                                                               <children>
+                                                                  <Accordion fx:id="contentAccordionMenu" prefHeight="268.0" prefWidth="1100.0">
+                                                                     <panes>
+                                                                        <TitledPane prefHeight="492.0" prefWidth="1015.0" text="How to Add Product?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent1" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane prefHeight="229.0" prefWidth="948.0" text="How to edit the existing product?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER" prefHeight="200.0">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent2" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane text="How to disable the product if it is not available? and how to enable the product if it is disabled?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent3" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText3" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="155.0" text="How to Delete Product?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent4" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText4" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="225.0" text="How to make an Order?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent5" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText5" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="526.0" text="How to add Customer Name?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent6" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText6" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="596.0" text="How to use Payment Method?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent7" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText7" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="10.0" layoutY="498.0" text="How to manually transfer Local Database?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <Accordion fx:id="winMacLin">
+                                                                                       <panes>
+                                                                                          <TitledPane text="Windows">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="windowsContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="menuText101" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0">
+                                                                                                               <children>
+                                                                                                                  <HBox fx:id="menuHBox1" prefHeight="1.0" prefWidth="200.0" />
+                                                                                                               </children>
+                                                                                                            </TextFlow>
+                                                                                                            <TextFlow fx:id="menuText10" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane layoutX="10.0" layoutY="10.0" text="macOS">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="macosContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="menuText11" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane layoutX="10.0" layoutY="71.0" text="Linux">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="linuxContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="menuText12" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                       </panes>
+                                                                                    </Accordion>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="381.0" text="How to Export Menu?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent8" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText8" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="673.0" text="How to Import Menu?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent9" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="menuText9" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                     </panes>
+                                                                  </Accordion>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane prefHeight="10.0" text="ORDER QUEUE">
+                                                         <content>
+                                                            <FlowPane prefHeight="10.0" prefWidth="1186.0">
+                                                               <children>
+                                                                  <AnchorPane prefHeight="10.0" prefWidth="200.0">
+                                                                     <children>
+                                                                        <Accordion fx:id="contentAccordionOrderQueue" prefHeight="10.0" prefWidth="1100.0">
+                                                                           <panes>
+                                                                              <TitledPane contentDisplay="CENTER" prefHeight="492.0" prefWidth="1015.0" text="How to use Order Queue?">
+                                                                                 <content>
+                                                                                    <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="10.0">
+                                                                                       <children>
+                                                                                          <AnchorPane fx:id="orderQueueContent1" prefHeight="10.0" prefWidth="1003.0">
+                                                                                             <children>
+                                                                                                <TextFlow fx:id="orderQueueText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                             </children>
+                                                                                          </AnchorPane>
+                                                                                       </children>
+                                                                                    </FlowPane>
+                                                                                 </content>
+                                                                              </TitledPane>
+                                                                           </panes>
+                                                                        </Accordion>
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane text="ORDER HISTORY">
+                                                         <content>
+                                                            <FlowPane alignment="TOP_CENTER">
+                                                               <children>
+                                                                  <AnchorPane fx:id="orderHistoryContent1" prefHeight="70.0" prefWidth="1131.0">
+                                                                     <children>
+                                                                        <TextFlow fx:id="orderHistoryText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane layoutX="10.0" layoutY="10.0" text="DASHBOARD">
+                                                         <content>
+                                                            <FlowPane alignment="TOP_CENTER">
+                                                               <children>
+                                                                  <AnchorPane fx:id="dashboardContent1" prefHeight="10.0" prefWidth="1131.0">
+                                                                     <children>
+                                                                        <TextFlow fx:id="dashboardText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                   </panes>
+                                                </Accordion>
                                              </children>
-                                          </AnchorPane>
-                                          <ImageView fitHeight="4270.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../Medias/Backgrounds/System%20Manual.jpg" />
-                                             </image></ImageView>
-                                       </children>
-                                    </FlowPane>
-                                 </content>
-                              </ScrollPane>
+                                          </FlowPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </AnchorPane>
                         <AnchorPane id="settingbackground1" fx:id="anchorPaneSystemManualTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
@@ -1533,7 +1818,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsTAC" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" style="-fx-border-color: black;" visible="false">
                      <children>
                         <AnchorPane fx:id="anchorPaneTACTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
                            <children>

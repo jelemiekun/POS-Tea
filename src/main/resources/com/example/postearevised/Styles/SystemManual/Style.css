@@ -1,0 +1,408 @@
+/* COLOR BLACK 000000A9*/
+.root {
+    -fx-background-color: white;
+}
+
+#mediaAnchorPane {
+    -fx-border-width: 0 3 3 3;
+    -fx-border-color:black;
+    -fx-border-radius: 0 0 10 10;
+}
+
+.slider {
+    -fx-cursor: hand;
+}
+
+.slider .thumb {
+    -fx-background-color: gray;
+    -fx-padding: 5;
+}
+
+.slider .track {
+    -fx-background-radius: 0;
+    -fx-border-color:black;
+    -fx-border-width: 0.8;
+}
+
+.control-vid {
+    -fx-opacity: 0.5;
+}
+
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+.flow-pane {
+    -fx-background-color:white;
+    -fx-alignment: center;
+}
+
+.accordion {
+    -fx-padding: 0 0 15 0;
+}
+
+.titled-pane {
+    -fx-padding: 5px;
+}
+
+.titled-pane .title {
+    -fx-padding: 10 0 10 0; /* Add left padding to move the text to the left */
+    -fx-border-radius: 10;
+    -fx-border-width: 3px;
+    -fx-border-color: black;
+    -fx-background-color: white;
+    -fx-alignment: center;
+    -fx-background-insets: 3;
+}
+
+.titled-pane .title .text {
+    -fx-fill: black;
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+}
+
+.titled-pane .title .arrow-button  .arrow {
+    -fx-padding: 7px;
+    -fx-background-color: black;
+    -fx-translate-x: 40px; /* Adjust the distance from the left edge */
+    -fx-shape: "M 0 0 L 10 10 L 20 0 L 15 0 L 10 5 L 5 0 Z"; /* Downward arrow shape */
+    -fx-effect: null; /* Remove shadow */
+}
+
+.titled-pane .content {
+    -fx-border-width: 0 2 2 2;
+    -fx-border-color: black;
+    -fx-background-color:white;
+    -fx-border-radius: 0 0 10 10;
+    -fx-translate-y: -7;
+}
+
+/*MENU*/
+
+#contentAccordionMenu .titled-pane .title {
+    -fx-padding: 10 0 10 0; /* Add left padding to move the text to the left */
+    -fx-border-radius: 10;
+    -fx-border-width: 2px; /* Add bottom border */
+    -fx-border-color: black;
+    -fx-background-color: transparent;
+    -fx-background-insets: 3;
+    -fx-alignment: top_left;
+}
+
+#contentAccordionMenu .titled-pane .title .text{
+    -fx-font-size: 18;
+    -fx-fill: black;
+    -fx-translate-x: 20px;
+}
+
+#contentAccordionMenu .titled-pane .title .arrow-button .arrow {
+    -fx-shape: none;
+    -fx-background-color: transparent;
+}
+
+#contentAccordionMenu .titled-pane .content {
+    -fx-padding: 0 0 -10 0;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-radius: 0;
+}
+
+#manualContent1{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent2{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent3{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent4{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent5{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent6{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent7{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent8{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#manualContent9{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#winMacLin {
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 10 0;
+}
+
+#windowsContent{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#macosContent{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+#linuxContent{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+
+/*ORDER QUEUE*/
+
+#contentAccordionOrderQueue .titled-pane .title {
+    -fx-padding: 10 0 10 0; /* Add left padding to move the text to the left */
+    -fx-border-radius: 10;
+    -fx-border-width: 2px; /* Add bottom border */
+    -fx-border-color: black;
+    -fx-background-color: transparent;
+    -fx-background-insets: 3;
+    -fx-alignment: top_left;
+}
+
+#contentAccordionOrderQueue .titled-pane .title .text{
+    -fx-font-size: 18;
+    -fx-fill: black;
+    -fx-translate-x: 20px;
+}
+
+#contentAccordionOrderQueue .titled-pane .title .arrow-button .arrow {
+    -fx-shape: none;
+    -fx-background-color: transparent;
+}
+
+#contentAccordionOrderQueue .titled-pane .content {
+    -fx-padding: 0 0 -10 0;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-radius: 0;
+}
+
+#orderQueueContent1{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+/*ORDER HISTORY*/
+
+#orderHistoryContent1{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 30 0;
+}
+
+/*DASHBOARD*/
+
+#dashboardContent1{
+    -fx-translate-y: -5;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: black;
+    -fx-border-radius: 0 0 10 10;
+    -fx-padding: 0 0 5 0;
+    }
+
+/*HOVERS*/
+
+.titled-pane .title:hover {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+    -fx-background-insets:3;
+}
+
+.titled-pane .title:hover .text {
+    -fx-fill: white;
+}
+
+.titled-pane .title:hover .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+.slider:hover .thumb {
+    -fx-background-color:red;
+    -fx-padding: 7;
+}
+
+.control-btn:hover {
+    -fx-opacity: 0.4;
+}
+
+/*MENU HOVERS*/
+
+#contentAccordionMenu .titled-pane .title:hover {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+}
+
+#contentAccordionMenu .titled-pane .title:hover .text {
+    -fx-fill: white;
+}
+
+#contentAccordionMenu .titled-pane .title:hover .arrow-button .arrow {
+    -fx-background-color: transparent;
+}
+
+/*ORDER QUEUE HOVERS*/
+
+#contentAccordionOrderQueue .titled-pane .title:hover {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+}
+
+#contentAccordionOrderQueue .titled-pane .title:hover .text {
+    -fx-fill: white;
+}
+
+#contentAccordionOrderQueue .titled-pane .title:hover .arrow-button .arrow {
+    -fx-background-color: transparent;
+
+}
+
+/*PRESSED*/
+
+.titled-pane .title:pressed {
+    -fx-border-color: black;
+    -fx-background-color: white;
+}
+
+.titled-pane .title:pressed .text {
+    -fx-fill: black;
+}
+
+.titled-pane .title:pressed .arrow-button  .arrow {
+    -fx-background-color: black;
+}
+
+/*MENU PRESSED*/
+
+#contentAccordionMenu .titled-pane .title:pressed {
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+#contentAccordionMenu .titled-pane .title:pressed .text {
+    -fx-fill: black;
+}
+
+#contentAccordionMenu .titled-pane .title:pressed .arrow-button .arrow {
+    -fx-background-color: transparent;
+}
+
+/*ORDER QUEUE PRESSED*/
+
+#contentAccordionOrderQueue .titled-pane .title:pressed {
+    -fx-background-color: white;
+    -fx-border-color: black;
+}
+
+#contentAccordionOrderQueue .titled-pane .title:pressed .text {
+    -fx-fill: black;
+}
+
+#contentAccordionOrderQueue .titled-pane .title:pressed .arrow-button .arrow {
+    -fx-background-color: transparent;
+}
+
+.slider:pressed .thumb {
+    -fx-background-color:red;
+    -fx-padding: 5;
+}
+
+/*FOCUSED*/
+
+.titled-pane:focused .title {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+}
+
+ .titled-pane:focused .title .text{
+    -fx-fill: white;
+}
+
+.titled-pane:focused .title .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+#contentAccordionMenu .titled-pane:focused .title {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+}
+
+#contentAccordionMenu .titled-pane:focused .title .text{
+    -fx-fill: white;
+}
+
+#contentAccordionOrderQueue .titled-pane:focused .title {
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: white;
+}
+
+#contentAccordionOrderQueue .titled-pane:focused .title .text{
+    -fx-fill: white;
+}
