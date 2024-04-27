@@ -1679,15 +1679,15 @@ public class SettingsModel {
             mainController.slider.setValue(newValue.toSeconds());
 
             int currentTimeSeconds = (int) newValue.toSeconds();
-            int currentMins = currentTimeSeconds / 60;
+            int currentMinutes = currentTimeSeconds / 60;
             int currentSecs = currentTimeSeconds % 60;
 
             int totalDurationSeconds = (int) mainController.media.getDuration().toSeconds();
-            int totalMins = totalDurationSeconds / 60;
+            int totalMinutes = totalDurationSeconds / 60;
             int totalSecs = totalDurationSeconds % 60;
 
-            String formattedCurrentTime = String.format("%02d:%02d", currentMins, currentSecs);
-            String formattedTotalDuration = String.format("%02d:%02d", totalMins, totalSecs);
+            String formattedCurrentTime = String.format("%02d:%02d", currentMinutes, currentSecs);
+            String formattedTotalDuration = String.format("%02d:%02d", totalMinutes, totalSecs);
 
             mainController.timeDuration.setText( formattedCurrentTime + " / " + formattedTotalDuration);
         }));
@@ -1697,10 +1697,10 @@ public class SettingsModel {
             mainController.slider.setMax(totalDuration.toSeconds());
 
             int totalSeconds = (int) Math.round(totalDuration.toSeconds());
-            int mins = totalSeconds / 60;
+            int minutes = totalSeconds / 60;
             int secs = totalSeconds % 60;
 
-            String formattedDuration = String.format("%02d:%02d", mins, secs);
+            String formattedDuration = String.format("%02d:%02d", minutes, secs);
             mainController.timeDuration.setText("00:00 / " + formattedDuration);
         });
 
@@ -2062,7 +2062,7 @@ public class SettingsModel {
         Text menu32 = new Text("Cash ");
         menu32.setStyle("-fx-font-weight: bold;");
         Text menu33 = new Text("or ");
-        Text menu34 = new Text("Gcash ");
+        Text menu34 = new Text("GCash ");
         menu34.setStyle("-fx-font-weight: bold;");
         Text menu35 = new Text("as a payment method.");
 
@@ -2108,7 +2108,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2126,7 +2126,7 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
@@ -2145,7 +2145,7 @@ public class SettingsModel {
         Text num1 = new Text("1. ");
         num1.setStyle("-fx-font-weight: bold;");
         Text menu11 = new Text("Press ");
-        Text menu12 = new Text("(    Command + Spacebar   ).");
+        Text menu12 = new Text("(    Command + Space bar   ).");
         menu12.setStyle("-fx-font-weight: bold;");
 
         Text num2 = new Text("\n\n2. ");
@@ -2168,7 +2168,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea  ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2186,7 +2186,7 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
@@ -2226,7 +2226,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2244,7 +2244,7 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
