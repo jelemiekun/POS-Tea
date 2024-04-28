@@ -110,6 +110,8 @@ public class AccountCSV {
         createDirectoryIfNotExists(DIRECTORY_PATH_SENSITIVE_DATA);
         createAccountCSVFileIfNotExists();
         hideAccountCSV();
+
+        makeACopyOfPDFIfNotExists();
     }
 
     private static void createAccountCSVFileIfNotExists() {

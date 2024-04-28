@@ -48,8 +48,6 @@ public class FileReference {
 
         showPasswordToolTip.setStyle(toolTipStyle);
         hidePasswordToolTip.setStyle(toolTipStyle);
-
-        makeACopyOfPDF();
     }
 
     public static void setPaths() {
@@ -79,12 +77,12 @@ public class FileReference {
         }
     }
 
-    private static void makeACopyOfPDF() {
+    public static void makeACopyOfPDFIfNotExists() {
         File pdfFile = new File(DIRECTORY_SYSTEM_MANUAL_PDF);
 
         if (!pdfFile.exists()) {
             try {
-                Path sourcePath = Paths.get("System Manual.pdf");
+                Path sourcePath = Paths.get("/com/example/postearevised/System Manual.pdf");
                 Path destinationDirectory = Paths.get(DIRECTORY_PATH);
                 Files.copy(sourcePath, destinationDirectory.resolve(sourcePath.getFileName()));
             } catch (IOException e) {
