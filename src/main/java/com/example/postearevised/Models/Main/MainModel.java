@@ -552,16 +552,14 @@ public class MainModel {
         if (index != -1) {
             userIndexCopy = userIndex;
             userIndex = index;
-            System.out.println("line 536 " + userIndexCopy + ", " + userIndex);
-            if (!mainController.settingsModel.setLeftPanelProfileNameConfirmPassword()) {
+            if (mainController.settingsModel.setLeftPanelProfileNameConfirmPassword()) {
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
             } else {
                 userIndex = userIndexCopy;
-                System.out.println("line 541 " + userIndexCopy + ", " + userIndex);
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
                 //mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
             }
-
+            mainController.leftPanelCounter++;
             setAccountAndProductAnchorPaneIfAdmin();
         }
     }
