@@ -138,6 +138,9 @@ public class MainModel {
 
         setAccountAndProductAnchorPaneIfAdmin();
         mainController.leftPanelCounter++;
+
+        setWelcomeUser();
+        mainController.mainModel.generateNotification();
     }
 
     public void setAccountAndProductAnchorPaneIfAdmin() {

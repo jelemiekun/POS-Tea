@@ -135,4 +135,10 @@ public class NotificationContents {
         notificationHeaderReference = "Switching user failed";
         notificationContentReference = "Switching to user " + usersNames.get(userIndex) + " failed.";
     }
+
+    public static void setWelcomeUser() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Welcome back!";
+        notificationContentReference = "Welcome back, user " + usersNames.get(userIndex) + "!";
+    }
 }
