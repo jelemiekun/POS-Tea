@@ -1975,7 +1975,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </AnchorPane>
-                              <AnchorPane id="menuproducthover" focusTraversable="true" layoutX="1186.0" layoutY="24.0" onKeyPressed="#anchorPaneRetakeTourPressedEnter" onMouseClicked="#anchorPaneOpenInPDFClickedTouched" onTouchReleased="#anchorPaneRetakeTourClickedTouched" prefHeight="39.0" prefWidth="109.0">
+                              <AnchorPane id="menuproducthover" focusTraversable="true" layoutX="1186.0" layoutY="24.0" onKeyPressed="#anchorPaneRetakeTourPressedEnter" onMouseClicked="#anchorPaneRetakeTourClickedTouched" onTouchReleased="#anchorPaneRetakeTourClickedTouched" prefHeight="39.0" prefWidth="109.0">
                                  <children>
                                     <Label id="dashboardlabels" layoutX="8.0" layoutY="9.0" text="Retake tour" textFill="#0000009a" underline="true">
                                        <font>
