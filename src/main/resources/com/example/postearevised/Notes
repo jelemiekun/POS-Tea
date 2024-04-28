@@ -2,6 +2,13 @@
 
 password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
 
+it requires 16:9 product ratio in order for the image not to be strectched.
+
+can accept long string inputs but its not recommended, if its too long, it will show as "..."
+
+as much as possible make the product name short
+
+SYSTEM TOUR
 
 // SA DULO NA TO
 
@@ -26,8 +33,6 @@ DOUBLE CHECK IF NATRIM  settings acount, sa register, at sa forgot password PATI
 ------------------MGA ITATANONG------------------
 
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
-
-i inform si seller na as much as possible paki iklian ng mga names dahil li
 
 TANUNGIN SI SELLER IF MAS PREFER NA ILALAGAY REFERENCE NUMBER IF GCASH OR CARD ANG MODE OF PAYMENT.
 
@@ -61,23 +66,6 @@ tanong namin sa seller kung ilang products lalabas sa all time favs
 
 ------------------FUNCTIONS / DESIGNS------------------
 
-gawing red border ng confirm password if mali
-
-login remember me
-
-lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag clicked, don na mag ffunction
-
-pagkaclick ng button, mag lloading sya, ngayon yung button, dapat design nya parang clicked na habang nag lloading
-
-lagyan design/indicator yung mata sa login if naka traversible haha
-
-pag exit confirmation, mawawala yung icon (gagawing same color ng background)
-
-Done
-
-darker green yung done
-
-account register successful
 
 
 
@@ -166,9 +154,6 @@ DFD, MAWAWALA NA YUNG "MARK ORDER AS DONE" at "GEnerate order". AFTER NG STEP 3,
 
 
 -----------------RESEARCH SCOPE AND DELI------------------
-it requires 16:9 product ratio in order for the image not to be strectched.
-
-can accept long string inputs but its not recommended, if its too long, it will show as "..."
 
 
 
@@ -622,3 +607,23 @@ video sa system manual // lomboy & austria
 KUNIN SARILING BAR STICKS SA BARGRAPH TAPOS PALITAN NG COLORS, TAPOS GUMAWA NG SARILING LEGENDS NG GRAPH SA BABA NG GRAPH
 
 IF sa pag import, dumoble and coolers, advised na irestart ang program since sign yon ng out of memory na ang program at mataas ang chance magkaroon ng unexpected behaviors
+
+gawing red border ng confirm password if mali
+
+login remember me
+
+lagyan ng feel na napipindot yung buttons, pag pressed, parang napipindot, pag clicked, don na mag ffunction
+
+pagkaclick ng button, mag lloading sya, ngayon yung button, dapat design nya parang clicked na habang nag lloading
+
+lagyan design/indicator yung mata sa login if naka traversible haha
+
+pag exit confirmation, mawawala yung icon (gagawing same color ng background)
+
+Done
+
+darker green yung done
+
+account register successful
+
+i inform si seller na as much as possible paki iklian ng mga names dahil li
