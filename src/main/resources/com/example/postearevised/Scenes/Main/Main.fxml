@@ -1988,6 +1988,11 @@
                               </ImageView>
                            </content>
                         </ScrollPane>
+                        <Label fx:id="labelLastUpdated" layoutX="60.0" layoutY="109.0" text="Last updated Date" textFill="#868686">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
                      </children>
                   </AnchorPane>
                   <AnchorPane fx:id="anchorPaneSettingsDropShadow" prefHeight="937.0" prefWidth="344.0">

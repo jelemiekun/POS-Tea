@@ -21,7 +21,7 @@
                         <Font name="Microsoft Sans Serif" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="120.0" layoutY="62.0" text="Last updated February 23, 2024" textFill="#868686">
+                  <Label fx:id="labelLastUpdated" layoutX="120.0" layoutY="62.0" text="Last updated Date" textFill="#868686">
                      <font>
                         <Font name="Microsoft Sans Serif" size="18.0" />
                      </font>

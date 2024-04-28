@@ -18,4 +18,5 @@ public class GeneralReference {
     public static boolean isAddingProductsFromImport = true;
     public static Tooltip showPasswordToolTip = new Tooltip("Show password");
     public static Tooltip hidePasswordToolTip = new Tooltip("Hide password");
+    public static final String TERMS_AND_CONDITIONS_LAST_UPDATE = "April 28, 2024";
 }

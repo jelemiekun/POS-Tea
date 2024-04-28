@@ -127,6 +127,7 @@ public class MainController implements Initializable {
                 mainModel.setAnchorPane();
                 mainModel.setToolTips();
                 mainModel.setComboBoxUsers();
+                mainModel.setTermsAndConditionsLastUpdated();
 
                 dashboardModel.setupDashboard();
 
@@ -1395,4 +1396,11 @@ public class MainController implements Initializable {
             playMedia();
         }
     }
+
+    /**
+     * Settings - Terms And Conditions
+     */
+
+    @FXML
+    public Label labelLastUpdated;
 }

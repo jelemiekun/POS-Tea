@@ -548,6 +548,10 @@ public class MainModel {
         mainController.comboBoxLeftPanelUsers.setStyle("-fx-combo-box-popup-button-visible: false;" + dashboardComboBoxStyle);
     }
 
+    public void setTermsAndConditionsLastUpdated() {
+        mainController.labelLastUpdated.setText("Last updated " + TERMS_AND_CONDITIONS_LAST_UPDATE);
+    }
+
     public void toggleComboBoxUsers() {
         if (mainController.comboBoxLeftPanelUsers.isShowing())
             mainController.comboBoxLeftPanelUsers.hide();

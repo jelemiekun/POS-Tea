@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,9 +14,10 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
-import static com.example.postearevised.Miscellaneous.References.StageReference.termsAndConditionStage;
+import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
+import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 
 public class TermsAndConditionController implements Initializable {
     private final Image acceptEnabled = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/com/example/postearevised/Medias/Buttons/TAC/accept enabled.png")));
@@ -24,9 +26,13 @@ public class TermsAndConditionController implements Initializable {
     public ScrollPane scrollPane;
     @FXML
     private ImageView btnAccept;
+    @FXML
+    private Label labelLastUpdated;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        labelLastUpdated.setText("Last updated " + TERMS_AND_CONDITIONS_LAST_UPDATE);
+
         scrollPane.vvalueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.doubleValue() == scrollPane.getVmax()) {
                 scrolledToTheBottom = true;
