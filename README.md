@@ -21,7 +21,11 @@ FEATURES
 - These features of the POS-Tea system can be used to add products and delete products.
 
 INSTALLATION
-- Not yet applicable.
+- Users will need to download the application from the developers’ GDrive.
+- Extract the files. To use the application, users must first download and extract the file. To proceed, open the extracted folder.
+- Run the JDK 21. Once the file has been extracted, a pop-up window will open. To proceed, click the yes button continuously.
+- Open the POS-tea Jar File. After successfully running the jdk, users can access the system by selecting the previously downloaded POS-Tea Jar file.
 
 CONTACT
-- Phone number reference: 09855489116
+- Email address: jeremieeden1946@gmail.com
+- Phone number: 09855489116
