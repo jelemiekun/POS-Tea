@@ -218,6 +218,11 @@ public class SettingsModel {
                 mainController.rectangleTAC.setStroke(null);
                 break;
         }
+
+        if (paneNumber != 5) {
+            mainController.isPlayed = true;
+            mainController.playMedia();
+        }
     }
 
     private void setOrderIsOnGoing() {

@@ -344,6 +344,9 @@ public class MainModel {
                 break;
         }
 
+        mainController.isPlayed = true;
+        mainController.playMedia();
+
         if (logout) {
             setConfirmLogout();
             if (openPrompt()) {
