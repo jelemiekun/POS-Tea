@@ -552,10 +552,12 @@ public class MainModel {
         if (index != -1) {
             userIndexCopy = userIndex;
             userIndex = index;
+            accountEditingProceed = false;
             if (mainController.settingsModel.setLeftPanelProfileNameConfirmPassword()) {
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
             } else {
                 userIndex = userIndexCopy;
+                mainController.leftPanelCounter++;
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
                 //mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
             }
