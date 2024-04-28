@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.effect.DropShadow;
@@ -33,6 +34,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -1672,6 +1674,26 @@ public class SettingsModel {
     /**
      * System Manual
      */
+
+    public void openInPDF() {
+        System.out.println("line 1679 " + DIRECTORY_SYSTEM_MANUAL_PDF);
+        File systemManualPDF = new File(DIRECTORY_SYSTEM_MANUAL_PDF);
+
+        if (!systemManualPDF.exists()) {
+            setSystemManualPDFNotFound();
+            mainController.mainModel.openPrompt();
+            return;
+        }
+
+        try {
+            Desktop.getDesktop().open(systemManualPDF);
+        } catch (IOException e) {
+            setSystemManualPDFErrorReading();
+            mainController.mainModel.openPrompt();
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+    }
 
     public void setVideo() {
         InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/play.png");

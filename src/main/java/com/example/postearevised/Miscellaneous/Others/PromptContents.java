@@ -755,6 +755,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setSystemManualPDFNotFound() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "File not found!";
+        promptContentText = "There was an error while opening System Manual.pdf\nIt might have been deleted or removed from the original file path.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = DELETE_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
+    public static void setSystemManualPDFErrorReading() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "Cannot read file!";
+        promptContentText = "There was an error while opening System Manual.pdf\nIt might have been deleted or removed from the original file path.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = DELETE_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setErrorCreatingAccount() {
         setIsConfirmedToFalse();
 

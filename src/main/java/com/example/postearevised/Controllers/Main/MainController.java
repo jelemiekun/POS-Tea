@@ -1271,7 +1271,6 @@ public class MainController implements Initializable {
     /**
      * Settings - System Manual
      */
-
     @FXML
     public AnchorPane anchorPaneSettingsSystemManualInner;
     @FXML
@@ -1395,6 +1394,17 @@ public class MainController implements Initializable {
         else {
             playMedia();
         }
+    }
+
+    @FXML
+    public void anchorPaneOpenInPDFPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            anchorPaneOpenInPDFClickedTouched();
+    }
+
+    @FXML
+    public void anchorPaneOpenInPDFClickedTouched() {
+        settingsModel.openInPDF();
     }
 
     /**
