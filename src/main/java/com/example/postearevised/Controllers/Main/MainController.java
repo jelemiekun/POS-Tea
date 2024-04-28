@@ -1420,6 +1420,17 @@ public class MainController implements Initializable {
         mainModel.startTour();
     }
 
+    @FXML
+    void labelContactADeveloperPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            labelContactADeveloperClickedTouched();
+    }
+
+    @FXML
+    void labelContactADeveloperClickedTouched() {
+        settingsModel.openContactDeveloper();
+    }
+
     /**
      * Settings - Terms And Conditions
      */

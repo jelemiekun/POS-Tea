@@ -13,7 +13,8 @@ public enum ScenesEnum {
     DELETE_HISTORY("Delete History", "/com/example/postearevised/Scenes/Additional/DeleteHistory.fxml"),
     ORDER_DETAILS("Order Details", "/com/example/postearevised/Scenes/Additional/OrderDetails.fxml"),
     ASK_FOR_PASSWORD("Save Changes", "/com/example/postearevised/Scenes/Additional/AskForPassword.fxml"),
-    SELECT_USER_ENUM("Select User", "/com/example/postearevised/Scenes/Additional/SelectUser.fxml");
+    SELECT_USER_ENUM("Select User", "/com/example/postearevised/Scenes/Additional/SelectUser.fxml"),
+    CONTACT_A_DEVELOPER("Contact a developer", "/com/example/postearevised/Scenes/Additional/ContactDeveloper.fxml");
 
     private final String TITLE;
     private final String URL;

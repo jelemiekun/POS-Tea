@@ -353,10 +353,15 @@ public class LoginRegisterForgotPassController implements Initializable {
     }
 
     /**
-     * Resolution too low
+     * Resolution too low and Contact Developer
      */
     @FXML
     public AnchorPane anchorPaneResolutionTooLow;
+
+    @FXML
+    void labelContactADeveloperClickedTouched() {
+        loginModel.openContactDeveloper();
+    }
 
     /**
      * Login

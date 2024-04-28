@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane" onMouseClicked="#anchorPaneRequestFocus" onTouchPressed="#anchorPaneRequestFocus" prefHeight="420.0" prefWidth="565.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.postearevised.Controllers.Additional.ContactDeveloperController">
+   <children>
+      <Label layoutX="131.0" layoutY="142.0" text="Contact a developer">
+         <font>
+            <Font name="Arial Bold" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="104.0" fitWidth="106.0" layoutX="231.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Medias/Icons/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="56.0" layoutY="220.0" text="Email">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="56.0" layoutY="301.0" text="Phone Number">
+         <font>
+            <Font name="Arial" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textFieldEmail" editable="false" layoutX="56.0" layoutY="254.0" prefHeight="33.0" prefWidth="297.0" style="-fx-text-fill: black;" text="jeremieeden1946@gmail.com">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="textFieldPhone" editable="false" layoutX="56.0" layoutY="336.0" prefHeight="33.0" prefWidth="297.0" style="-fx-text-fill: black;" text="09855489116">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="364.0" layoutY="254.0" mnemonicParsing="false" onAction="#btnCopyEmail" prefHeight="33.0" prefWidth="148.0" text="Copy to clipboard">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Button layoutX="364.0" layoutY="336.0" mnemonicParsing="false" onAction="#btnCopyPhone" prefHeight="33.0" prefWidth="148.0" text="Copy to clipboard">
+         <font>
+            <Font name="Arial" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="labelEmailCopied" layoutX="406.0" layoutY="229.0" text="COPIED" visible="false">
+         <font>
+            <Font name="Arial Italic" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelPhoneCopied" layoutX="407.0" layoutY="312.0" text="COPIED" visible="false">
+         <font>
+            <Font name="Arial Italic" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

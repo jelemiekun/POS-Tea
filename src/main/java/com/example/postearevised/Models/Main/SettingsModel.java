@@ -1675,6 +1675,30 @@ public class SettingsModel {
      * System Manual
      */
 
+    public void openContactDeveloper() {
+        mainController.mainModel.showRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(CONTACT_A_DEVELOPER.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        promptStage = new Stage();
+
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+        promptStage.setTitle(CONTACT_A_DEVELOPER.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
+
+        mainController.mainModel.hideRectangleModal();
+    }
+
     public void openInPDF() {
         File systemManualPDF = new File(DIRECTORY_SYSTEM_MANUAL_PDF);
 
@@ -1692,6 +1716,9 @@ public class SettingsModel {
             errorMessage = e.getMessage();
             logError(false);
         }
+
+        mainController.isPlayed = true;
+        mainController.playMedia();
     }
 
     public void setVideo() {

@@ -247,6 +247,30 @@ public class LoginModel {
         }
     }
 
+    public void openContactDeveloper() {
+        loginRegisterForgotPassController.toggleRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(CONTACT_A_DEVELOPER.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        promptStage = new Stage();
+
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(loginRegisterForgotPassController.labelName.getScene().getWindow());
+
+        promptStage.setTitle(CONTACT_A_DEVELOPER.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        promptStage.showAndWait();
+
+        loginRegisterForgotPassController.toggleRectangleModal();
+    }
+
     private boolean openPrompt() {
         loginRegisterForgotPassController.toggleRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));

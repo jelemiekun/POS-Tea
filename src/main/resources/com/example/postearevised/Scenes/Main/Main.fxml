@@ -751,7 +751,7 @@
                   </ImageView>
                </children></AnchorPane>
          </children></AnchorPane>
-      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0" visible="false">
+      <AnchorPane fx:id="anchorPaneSettings" layoutX="86.0" prefHeight="1050.0" prefWidth="1833.0">
          <children>
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
@@ -1504,7 +1504,7 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManual" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsSystemManualInner" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1963,30 +1963,46 @@
                                     <Font name="Arial" size="30.0" />
                                  </font>
                               </Label>
-                              <AnchorPane id="menuproducthover" focusTraversable="true" layoutX="1042.0" layoutY="24.0" onKeyPressed="#anchorPaneOpenInPDFPressedEnter" onMouseClicked="#anchorPaneOpenInPDFClickedTouched" onTouchReleased="#anchorPaneOpenInPDFClickedTouched" prefHeight="39.0" prefWidth="119.0">
+                              <FlowPane alignment="CENTER_RIGHT" hgap="15.0" layoutX="849.0" layoutY="24.0" prefHeight="39.0" prefWidth="451.0">
                                  <children>
-                                    <Label id="dashboardlabels" layoutX="7.0" layoutY="9.0" text="Open in PDF" textFill="#0000009a" underline="true">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
+                                    <AnchorPane id="menuproducthover" focusTraversable="true" onKeyPressed="#anchorPaneOpenInPDFPressedEnter" onMouseClicked="#anchorPaneOpenInPDFClickedTouched" onTouchReleased="#anchorPaneOpenInPDFClickedTouched" prefHeight="39.0" prefWidth="119.0">
+                                       <children>
+                                          <Label id="dashboardlabels" layoutX="7.0" layoutY="9.0" text="Open in PDF" textFill="#0000009a" underline="true">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </AnchorPane>
+                                    <AnchorPane id="menuproducthover" focusTraversable="true" onKeyPressed="#anchorPaneRetakeTourPressedEnter" onMouseClicked="#anchorPaneRetakeTourClickedTouched" onTouchReleased="#anchorPaneRetakeTourClickedTouched" prefHeight="39.0" prefWidth="109.0">
+                                       <children>
+                                          <Label id="dashboardlabels" layoutX="8.0" layoutY="9.0" text="Retake tour" textFill="#0000009a" underline="true">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </AnchorPane>
+                                    <AnchorPane id="menuproducthover" focusTraversable="true" onKeyPressed="#labelContactADeveloperPressedEnter" onMouseClicked="#labelContactADeveloperClickedTouched" onTouchReleased="#labelContactADeveloperClickedTouched" prefHeight="39.0" prefWidth="180.0">
+                                       <children>
+                                          <Label id="dashboardlabels" layoutX="8.0" layoutY="9.0" text="Contact a developer" textFill="#0000009a" underline="true">
+                                             <font>
+                                                <Font name="Arial" size="18.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </AnchorPane>
                                  </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </AnchorPane>
-                              <AnchorPane id="menuproducthover" focusTraversable="true" layoutX="1186.0" layoutY="24.0" onKeyPressed="#anchorPaneRetakeTourPressedEnter" onMouseClicked="#anchorPaneRetakeTourClickedTouched" onTouchReleased="#anchorPaneRetakeTourClickedTouched" prefHeight="39.0" prefWidth="109.0">
-                                 <children>
-                                    <Label id="dashboardlabels" layoutX="8.0" layoutY="9.0" text="Retake tour" textFill="#0000009a" underline="true">
-                                       <font>
-                                          <Font name="Arial" size="18.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </AnchorPane>
+                              </FlowPane>
                            </children>
                         </AnchorPane>
                      </children>
