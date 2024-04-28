@@ -1830,7 +1830,7 @@ public class SettingsModel {
         menu28.setStyle("-fx-font-weight: bold;");
         Text menu29 = new Text("(Coffee) of the product.");
 
-        Text note = new Text("\nNote: ");
+        Text note = new Text("\n\nNote: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text(" The product/s in the ");
         Text note2 = new Text("Ice Candy Cups ");
@@ -1971,7 +1971,7 @@ public class SettingsModel {
         queue42.setStyle("-fx-font-weight: bold;");
         Text queue43 = new Text("button if the order is done preparing/making.");
 
-        Text note = new Text("\nNote: ");
+        Text note = new Text("\n\nNote: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("The ");
         Text note2 = new Text("Order Queue ");
@@ -2073,14 +2073,21 @@ public class SettingsModel {
         mainController.accountText3.getChildren().addAll(account31,account32,account33,account34);
         mainController.accountText3.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
 
-        Text account41 = new Text("1. click the edit user’s button.\n\n");
-        Text account42 = new Text("2. click the dropdown button in the name and select Add user.\n\n");
-        Text account43 = new Text("3. fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
-        Text account44 = new Text("4. after filling up the information click finish editing.\n\n");
-        Text account45 = new Text("5. for security reasons type in your current password and click done.");
+        Text account41 = new Text("1. Click the edit user’s button.\n\n");
+        Text account42 = new Text("2. Click the dropdown button in the name and select Add user.\n\n");
+        Text account43 = new Text("3. Fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
+        Text account44 = new Text("4. After filling up the information click finish editing.\n\n");
+        Text account45 = new Text("5. For security reasons type in your current password and click done.");
 
         mainController.accountText4.getChildren().addAll(account41,account42,account43,account44,account45);
         mainController.accountText4.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+
+        Text account51 = new Text("1. Click the store's photo or the user name on the upper left.\n\n");
+        Text account52 = new Text("2. Select the user you want to switch to.\n\n");
+        Text account53 = new Text("3. Type this user's password.");
+
+        mainController.accountText5.getChildren().addAll(account51,account52,account53);
+        mainController.accountText5.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
     }
 
     public void updateAppearanceSettings() {
@@ -2123,7 +2130,7 @@ public class SettingsModel {
         num3.setStyle("-fx-font-weight: bold;");
         Text menu31 = new Text("Choose which category the product belongs to.");
 
-        Text note = new Text("\nNote: ");
+        Text note = new Text("\n\nNote: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("You cannot proceed to add ");
         Text note2 = new Text("Name, Description, Price, and Photo ");
@@ -2275,7 +2282,7 @@ public class SettingsModel {
         Text menu13 = new Text("+   R   ).");
         menu13.setStyle("-fx-font-weight: bold;");
 
-        Text num2 = new Text("\n\n2. ");
+        Text num2 = new Text("\n\n\n2. ");
         num2.setStyle("-fx-font-weight: bold;");
         Text menu21 = new Text("Run ");
         menu21.setStyle("-fx-font-weight: bold;");
@@ -2295,7 +2302,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2313,13 +2320,13 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
-        mainController.menuHbox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13);
-        mainController.menuHbox1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
-        mainController.menuHbox1.setAlignment(Pos.CENTER_LEFT);
+        mainController.menuHBox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13);
+        mainController.menuHBox1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
+        mainController.menuHBox1.setAlignment(Pos.CENTER_LEFT);
         mainController.editProductsText10.getChildren().addAll(num2,menu21,menu22,menu23,
                 num3,menu31,menu32,
                 num4,menu41,menu42,menu43,menu44,
@@ -2355,7 +2362,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea  ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2373,7 +2380,7 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
@@ -2413,7 +2420,7 @@ public class SettingsModel {
         Text menu42 = new Text("POS_Tea ");
         menu42.setStyle("-fx-font-weight: bold;");
         Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flashdrive.");
+        Text menu44 = new Text("flash drive.");
         menu44.setStyle("-fx-font-weight: bold;");
 
         Text num5 = new Text("\n\n5. ");
@@ -2431,7 +2438,7 @@ public class SettingsModel {
         Text menu62 = new Text("POS_Tea ");
         menu62.setStyle("-fx-font-weight: bold;");
         Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flashdrive ");
+        Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
         Text menu65 = new Text("the then paste it.");
 
@@ -2518,7 +2525,7 @@ public class SettingsModel {
         num5.setStyle("-fx-font-weight: bold;");
         Text menu51 = new Text("Find the file and select the file to import.");
 
-        Text note = new Text("\nNote: ");
+        Text note = new Text("\n\nNote: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("The file must be an ");
         Text note2 = new Text("Excel File.");

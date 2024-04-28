@@ -1732,6 +1732,19 @@
                                                                                                             </FlowPane>
                                                                                                          </content>
                                                                                                       </TitledPane>
+                                                                                                      <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to switch user?">
+                                                                                                         <content>
+                                                                                                            <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                               <children>
+                                                                                                                  <AnchorPane fx:id="accountContent5" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                     <children>
+                                                                                                                        <TextFlow fx:id="accountText5" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                     </children>
+                                                                                                                  </AnchorPane>
+                                                                                                               </children>
+                                                                                                            </FlowPane>
+                                                                                                         </content>
+                                                                                                      </TitledPane>
                                                                                                    </panes>
                                                                                                 </Accordion>
                                                                                              </children>
@@ -1826,7 +1839,7 @@
                                                                                                                            <children>
                                                                                                                               <TextFlow fx:id="editProductsText101" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0">
                                                                                                                                  <children>
-                                                                                                                                    <HBox fx:id="menuHbox1" prefHeight="1.0" prefWidth="200.0" />
+                                                                                                                                    <HBox fx:id="menuHBox1" prefHeight="1.0" prefWidth="200.0" />
                                                                                                                                  </children>
                                                                                                                               </TextFlow>
                                                                                                                               <TextFlow fx:id="editProductsText10" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />

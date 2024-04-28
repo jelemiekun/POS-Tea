@@ -2,6 +2,7 @@ package com.example.postearevised.Miscellaneous.Others;
 
 import javafx.scene.image.Image;
 
+import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 
 public class NotificationContents {
@@ -123,4 +124,15 @@ public class NotificationContents {
         notificationContentReference = "There was an error while updating the recovery questions.";
     }
 
+    public static void setSwitchUserSuccess() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Switched user";
+        notificationContentReference = "User " + usersNames.get(userIndex) + " is now operating the system.";
+    }
+
+    public static void setSwitchUserFailed() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Switching user failed";
+        notificationContentReference = "Switching to user " + usersNames.get(userIndex) + " failed.";
+    }
 }

@@ -166,7 +166,7 @@ public class MainModel {
 
         for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
             String firstPart = getFirstWord(accountReference.getFirstNames().get(i));
-            String secondPart = accountReference.getMiddleNames().get(i).isEmpty() ? getFirstCharacter(accountReference.getLastNames().get(i)) : getFirstCharacter(accountReference.getMiddleNames().get(i));
+            String secondPart = getFirstCharacter(accountReference.getLastNames().get(i));
 
             usersNames.add(firstPart + " " + secondPart + ".");
 
@@ -555,7 +555,11 @@ public class MainModel {
             accountEditingProceed = false;
             if (mainController.settingsModel.setLeftPanelProfileNameConfirmPassword()) {
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
+                setSwitchUserSuccess();
+                mainController.mainModel.generateNotification();
             } else {
+                setSwitchUserFailed();
+                mainController.mainModel.generateNotification();
                 userIndex = userIndexCopy;
                 mainController.leftPanelCounter++;
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);

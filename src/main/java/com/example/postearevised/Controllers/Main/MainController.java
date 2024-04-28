@@ -8,7 +8,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -1296,12 +1295,14 @@ public class MainController implements Initializable {
     @FXML
     public TextFlow accountText4;
     @FXML
+    public TextFlow accountText5;
+    @FXML
     public TextFlow appearanceText1;
     @FXML
     public TextFlow appearanceText2;
 
     @FXML
-    public HBox menuHbox1;
+    public HBox menuHBox1;
     @FXML
     public MediaView mediaView;
     @FXML
