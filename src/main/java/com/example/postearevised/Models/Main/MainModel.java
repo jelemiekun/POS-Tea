@@ -64,7 +64,11 @@ public class MainModel {
         } else {
             selectUser();
         }
-        mainController.settingsModel.setSettingsAccount();
+
+        if (mainController.loggedIn) {
+            if (mainController.comboBoxAccountName.getValue() != null)
+                mainController.settingsModel.setSettingsAccount();
+        }
     }
 
     private void inputPasswordForThisUser() {
@@ -120,6 +124,7 @@ public class MainModel {
 
     private void selectUser() {
         do {
+            mainController.selectUserCounter++;
             mainController.mainModel.showRectangleModal();
             FXMLLoader loader = new FXMLLoader(getClass().getResource(SELECT_USER_ENUM.getURL()));
             Parent root = null;
@@ -140,17 +145,38 @@ public class MainModel {
             selectUserStage.setScene(new Scene(root));
             selectUserStage.showAndWait();
             mainController.mainModel.hideRectangleModal();
+
+            if (!userSelectedSuccess && mainController.selectUserCounter % MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS == 0) {
+                if (logOutFromUserSelect()) {
+                    userSelectedSuccess = true;
+                    mainController.loggedIn = false;
+                }
+            }
         } while (!userSelectedSuccess);
 
-        populateFullNamesObservableList();
-        mainController.labelProfileName.setText(usersNames.get(userIndex));
-        mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
+        if (mainController.loggedIn) {
+            populateFullNamesObservableList();
+            mainController.labelProfileName.setText(usersNames.get(userIndex));
+            mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
 
-        setAccountAndProductAnchorPaneIfAdmin();
-        mainController.leftPanelCounter++;
+            setAccountAndProductAnchorPaneIfAdmin();
+            mainController.leftPanelCounter++;
 
-        setWelcomeUser();
-        mainController.mainModel.generateNotification();
+            setWelcomeUser();
+            mainController.mainModel.generateNotification();
+
+            userSelectedSuccess = false;
+            mainController.loggedIn = true;
+        } else {
+            userSelectedSuccess = false;
+            mainController.loggedIn = true;
+            logout();
+        }
+    }
+
+    private boolean logOutFromUserSelect() {
+        setLogOutFromUserSelect();
+        return openPrompt();
     }
 
     public void setAccountAndProductAnchorPaneIfAdmin() {

@@ -215,6 +215,8 @@ public class MainController implements Initializable {
      * Main
      */
 
+    public boolean loggedIn = true;
+    public int selectUserCounter = 0;
     public int leftPanelCounter = 1;
     public FXMLLoader loader;
     public Parent root;

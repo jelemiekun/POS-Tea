@@ -244,7 +244,6 @@ public class AskForPasswordController implements Initializable {
                 }
             }
         } else {
-            System.out.println("line 247 " + accountReference.getPassword());
             if (passwordField.getText().equals(accountReference.getPassword())) {
                 accountEditingProceed = true;
                 closeThisStage();

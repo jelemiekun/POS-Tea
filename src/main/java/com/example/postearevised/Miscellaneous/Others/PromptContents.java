@@ -211,6 +211,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setLogOutFromUserSelect() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Forgot password?";
+        promptContentText = "Press 'Log out' to contact developer to reset your password, or press 'Stay' to keep trying.";
+        promptBtnLeftVisible = true;
+        promptBtnCenterVisible = false;
+        promptBtnRightVisible = true;
+        btnLeftImageReference = LOG_OUT_BUTTON;
+        btnCenterImageReference = LOG_OUT_BUTTON;
+        btnRightImageReference = STAY_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = false;
+        btnRightBoolean = false;
+    }
+
     public static void setResetPasswordSuccessfully() {
         setIsConfirmedToFalse();
 

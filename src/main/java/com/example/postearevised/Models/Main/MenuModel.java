@@ -1025,7 +1025,6 @@ public class MenuModel {
     private void incrementCustomerNumber() {
         Platform.runLater(() -> {
             mainController.labelCustomerNumber.setText(String.valueOf(orderHistoryObservableList.size() + orderQueueObservableList.size() + 1));
-            System.out.println("Menu model 717: " + orderHistoryObservableList.size() + orderQueueObservableList.size() + 1);
         });
     }
 

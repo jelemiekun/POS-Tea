@@ -1676,7 +1676,6 @@ public class SettingsModel {
      */
 
     public void openInPDF() {
-        System.out.println("line 1679 " + DIRECTORY_SYSTEM_MANUAL_PDF);
         File systemManualPDF = new File(DIRECTORY_SYSTEM_MANUAL_PDF);
 
         if (!systemManualPDF.exists()) {
