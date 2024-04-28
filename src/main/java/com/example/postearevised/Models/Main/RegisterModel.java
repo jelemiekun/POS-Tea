@@ -115,14 +115,14 @@ public class RegisterModel {
         switch (paneNumber) {
             case 1:
                 loginRegisterForgotPassController.btnGoBackRegister.setVisible(false);
-                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
+                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register.\n" + "This user will serve as your admin user.");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(true);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);
                 break;
             case 2:
                 loginRegisterForgotPassController.btnGoBackRegister.setVisible(true);
-                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register");
+                loginRegisterForgotPassController.labelRegisterHeader.setText("Kindly fill in this form to Register.\n" + "This user will serve as your admin user.");
                 loginRegisterForgotPassController.anchorPaneRegisterBasicInfo.setVisible(false);
                 loginRegisterForgotPassController.anchorPaneRegisterAccountDetails.setVisible(true);
                 loginRegisterForgotPassController.anchorPaneRegisterRecoveryQuestions.setVisible(false);

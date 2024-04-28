@@ -70,6 +70,7 @@ public class MainModel {
     private void inputPasswordForThisUser() {
         accountEditingProceed = false;
         isInputPasswordExistingUser = false;
+        registerAdminPassword = true;
         do {
             mainController.mainModel.showRectangleModal();
             headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
@@ -106,6 +107,11 @@ public class MainModel {
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
         mainController.labelSettingsOnlyAdmin.setVisible(false);
         mainController.labelSettingsOnlyAdmin1.setVisible(false);
+
+        setWelcomeAdmin();
+        mainController.mainModel.generateNotification();
+
+        // START NG TOUR HERE NA FUNCTION
     }
 
     private void selectUser() {

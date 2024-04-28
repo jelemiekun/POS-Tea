@@ -141,4 +141,10 @@ public class NotificationContents {
         notificationHeaderReference = "Welcome back!";
         notificationContentReference = "Welcome back, user " + usersNames.get(userIndex) + "!";
     }
+
+    public static void setWelcomeAdmin() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account setup!";
+        notificationContentReference = "Let's get started by touring you through the system.";
+    }
 }

@@ -50,6 +50,9 @@ public class AskForPasswordController implements Initializable {
     private AnchorPane btnDonePassword;
 
     @FXML
+    private Label labelPasswordAsk;
+
+    @FXML
     private Label labelHeaderTitle;
 
     @FXML
@@ -82,10 +85,12 @@ public class AskForPasswordController implements Initializable {
                     deletePane();
                     break;
                 case "User":
-                    labelHeaderTitle.setText(USERS_SELECTION_ENUM.getHeaderTitle());
                     userPane();
                     break;
             }
+
+            passwordField.setVisible(true);
+            labelPasswordAsk.setVisible(true);
 
             askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());
         });
@@ -106,6 +111,14 @@ public class AskForPasswordController implements Initializable {
     }
 
     private void userPane() {
+        if (registerAdminPassword) {
+            labelHeaderTitle.setText("Admin registration");
+            labelPassForThisUser.setText("Register a password for this admin user.");
+        } else {
+            labelHeaderTitle.setText(USERS_SELECTION_ENUM.getHeaderTitle());
+            labelPassForThisUser.setText("Enter password for this user.");
+        }
+
         labelPassForThisUser.setVisible(true);
         labelIncorrect.setText("Password for this user must not be blank!");
         btnDonePassword.setVisible(true);
@@ -164,24 +177,32 @@ public class AskForPasswordController implements Initializable {
     }
 
     private void check() {
-        if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
-            if (passwordField.getText().equals(accountReference.getPassword())) {
-                accountEditingProceed = true;
-                closeThisStage();
-            } else {
-                passwordField.setText("");
-                labelIncorrect.setVisible(true);
-            }
-            attempts++;
+        boolean isSwitching = true;
 
-            if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                userSelectedSuccess = false;
-                maxAttemptLimitReached = true;
-                setErrorChangingPasswordMaximumAttemptReached();
-                openPrompt();
-                closeThisStage();
+        if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
+            if (!labelIncorrect.getText().equals("Incorrect password!")) {
+                if (passwordField.getText().equals(accountReference.getPassword())) {
+                    accountEditingProceed = true;
+                    closeThisStage();
+                } else {
+                    passwordField.setText("");
+                    labelIncorrect.setVisible(true);
+                }
+                attempts++;
+
+                if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                    userSelectedSuccess = false;
+                    maxAttemptLimitReached = true;
+                    setErrorChangingPasswordMaximumAttemptReached();
+                    openPrompt();
+                    closeThisStage();
+                }
+
+                isSwitching = false;
             }
-        } else {
+        }
+
+        if (isSwitching) {
             if (!isInputPasswordExistingUser) {
                 if (!passwordField.getText().isEmpty()) {
                     setUserConfirmPassword();
@@ -198,6 +219,8 @@ public class AskForPasswordController implements Initializable {
                     labelIncorrect.setVisible(true);
                 }
             } else {
+                userPane();
+
                 if (passwordField.getText().equals(userPassword)) {
                     accountEditingProceed = true;
                     userSelectedSuccess = true;
@@ -216,7 +239,6 @@ public class AskForPasswordController implements Initializable {
                     openPrompt();
                     closeThisStage();
                 }
-                userPane();
             }
         }
 

@@ -540,7 +540,7 @@
                                           <Font name="Arial" size="26.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelFillUpThisForm3" alignment="CENTER_RIGHT" layoutX="-93.0" layoutY="310.0" prefHeight="31.0" prefWidth="421.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                    <Label fx:id="labelFillUpThisForm3" alignment="CENTER_RIGHT" layoutX="-93.0" layoutY="310.0" prefHeight="31.0" prefWidth="421.0" text="*please select a question" textFill="#ff5a5a" visible="false">
                                        <font>
                                           <Font name="Arial" size="26.0" />
                                        </font>
@@ -550,7 +550,7 @@
                                           <Font name="Arial" size="26.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelFillUpThisForm1" alignment="CENTER_RIGHT" layoutX="-93.0" layoutY="30.0" prefHeight="31.0" prefWidth="421.0" text="*please fill up this form" textFill="#ff5a5a" visible="false">
+                                    <Label fx:id="labelFillUpThisForm1" alignment="CENTER_RIGHT" layoutX="-93.0" layoutY="30.0" prefHeight="31.0" prefWidth="421.0" text="*please select a question" textFill="#ff5a5a" visible="false">
                                        <font>
                                           <Font name="Arial" size="26.0" />
                                        </font>
@@ -596,7 +596,7 @@
                               <Font name="Arial Black" size="60.0" />
                            </font>
                         </Label>
-                        <Label fx:id="labelRegisterHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="109.0" prefHeight="76.0" prefWidth="680.0" text="Kindly fill in this form to Register" textAlignment="CENTER" wrapText="true">
+                        <Label fx:id="labelRegisterHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="109.0" prefHeight="76.0" prefWidth="680.0" text="Kindly fill in this form to Register.&#10;This user will serve as your admin user." textAlignment="CENTER" wrapText="true">
                            <font>
                               <Font name="Arial" size="26.0" />
                            </font>
