@@ -374,8 +374,7 @@ public class MainModel {
                 break;
         }
 
-        mainController.isPlayed = true;
-        mainController.playMedia();
+        mainController.settingsModel.pauseVideo();
 
         if (logout) {
             setConfirmLogout();

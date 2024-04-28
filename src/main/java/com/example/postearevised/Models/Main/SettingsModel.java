@@ -222,8 +222,7 @@ public class SettingsModel {
         }
 
         if (paneNumber != 5) {
-            mainController.isPlayed = true;
-            mainController.playMedia();
+            pauseVideo();
         }
     }
 
@@ -1676,6 +1675,8 @@ public class SettingsModel {
      */
 
     public void openContactDeveloper() {
+        pauseVideo();
+
         mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(CONTACT_A_DEVELOPER.getURL()));
         Parent root = null;
@@ -1700,6 +1701,7 @@ public class SettingsModel {
     }
 
     public void openInPDF() {
+        pauseVideo();
         File systemManualPDF = new File(DIRECTORY_SYSTEM_MANUAL_PDF);
 
         if (!systemManualPDF.exists()) {
@@ -1716,7 +1718,9 @@ public class SettingsModel {
             errorMessage = e.getMessage();
             logError(false);
         }
+    }
 
+    public void pauseVideo() {
         mainController.isPlayed = true;
         mainController.playMedia();
     }
