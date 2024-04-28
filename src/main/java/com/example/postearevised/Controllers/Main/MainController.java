@@ -1407,6 +1407,17 @@ public class MainController implements Initializable {
         settingsModel.openInPDF();
     }
 
+    @FXML
+    public void anchorPaneRetakeTourPressedEnter(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER)
+            anchorPaneRetakeTourClickedTouched();
+    }
+
+    @FXML
+    public void anchorPaneRetakeTourClickedTouched() {
+        mainModel.startTour();
+    }
+
     /**
      * Settings - Terms And Conditions
      */

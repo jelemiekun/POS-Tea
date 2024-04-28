@@ -111,7 +111,11 @@ public class MainModel {
         setWelcomeAdmin();
         mainController.mainModel.generateNotification();
 
-        // START NG TOUR HERE NA FUNCTION
+        startTour();
+    }
+
+    public void startTour() {
+        System.out.println("Tour");
     }
 
     private void selectUser() {
