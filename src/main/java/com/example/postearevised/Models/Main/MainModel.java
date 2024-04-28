@@ -131,6 +131,7 @@ public class MainModel {
         mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
 
         setAccountAndProductAnchorPaneIfAdmin();
+        mainController.leftPanelCounter++;
     }
 
     public void setAccountAndProductAnchorPaneIfAdmin() {
@@ -142,7 +143,7 @@ public class MainModel {
         mainController.anchorPaneSettingsEditProductsInner.setDisable(!userName.contains("Admin"));
         mainController.importExportComboBox.setDisable(!userName.contains("Admin"));
         mainController.btnOrderHistoryDelete.setVisible(userName.contains("Admin"));
-        Platform.runLater(() -> mainController.comboBoxLeftPanelUsers.getSelectionModel().clearSelection());
+        Platform.runLater(() -> mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex)));
     }
 
     public void populateFullNamesObservableList() {
