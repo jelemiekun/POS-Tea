@@ -411,7 +411,7 @@ public class RegisterModel {
     }
 
     private int checkFair() {
-        if (registerNewPassword.length() < 8) return -1; // Password length is less than 8 characters
+        if (registerNewPassword.length() < 8) return -1;
 
         int criteriaMet = 0;
         if (registerNewPassword.matches(".*[A-Z].*")) criteriaMet++;

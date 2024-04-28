@@ -74,15 +74,13 @@ public class Account {
     }
 
     public static String generateRandomKey() {
-        // Choose a valid AES key length (128, 192, or 256 bits)
         int keyLength = AES_LENGTH;
 
-        // Characters used for generating the key
         String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        StringBuilder sb = new StringBuilder(keyLength / 8); // Divide by 8 to convert bits to bytes
+        StringBuilder sb = new StringBuilder(keyLength / 8);
         SecureRandom random = new SecureRandom();
 
-        for (int i = 0; i < keyLength / 8; i++) { // Divide by 8 to convert bits to bytes
+        for (int i = 0; i < keyLength / 8; i++) {
             int randomIndex = random.nextInt(chars.length());
             sb.append(chars.charAt(randomIndex));
         }

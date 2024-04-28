@@ -434,7 +434,6 @@ public class ProductModel {
             if (!referenceImagePath.startsWith("/com") || referenceImagePath.contains("no image.png")) {
                 Path photoPath = Path.of(referenceImagePath);
                 try {
-                    // Attempt to delete the photo
                     Files.delete(photoPath);
                     System.out.println("Photo deleted successfully!");
                 } catch (IOException e) {

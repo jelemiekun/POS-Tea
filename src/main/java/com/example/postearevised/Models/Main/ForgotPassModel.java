@@ -342,7 +342,7 @@ public class ForgotPassModel {
     }
 
     private int checkFair() {
-        if (forgotPassNewPassword.length() < 8) return -1; // Password length is less than 8 characters
+        if (forgotPassNewPassword.length() < 8) return -1;
 
         int criteriaMet = 0;
         if (forgotPassNewPassword.matches(".*[A-Z].*")) criteriaMet++;

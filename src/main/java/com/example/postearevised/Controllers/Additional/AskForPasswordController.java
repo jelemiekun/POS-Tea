@@ -178,6 +178,8 @@ public class AskForPasswordController implements Initializable {
     }
 
     private void check() {
+        attempts++;
+
         if (!headerTitle.equals("Delete Account")) {
             boolean isSwitching = true;
 
@@ -197,8 +199,6 @@ public class AskForPasswordController implements Initializable {
                             passwordField.setText("");
                             labelIncorrect.setVisible(true);
                         }
-                        attempts++;
-
                     }
 
                     isSwitching = false;
@@ -239,8 +239,6 @@ public class AskForPasswordController implements Initializable {
                             labelIncorrect.setText("Incorrect password!");
                             labelIncorrect.setVisible(true);
                         }
-
-                        attempts++;
                     }
                 }
             }
@@ -259,7 +257,6 @@ public class AskForPasswordController implements Initializable {
                     passwordField.setText("");
                     labelIncorrect.setVisible(true);
                 }
-                attempts++;
             }
         }
 

@@ -411,11 +411,8 @@ public class DashboardModel {
         int length = numberStr.length();
         StringBuilder formattedNumber = new StringBuilder();
 
-        // Append digits to the StringBuilder in reverse order
         for (int i = length - 1; i >= 0; i--) {
             formattedNumber.insert(0, numberStr.charAt(i));
-
-            // Insert a comma every three digits except for the first digit
             if ((length - i) % 3 == 0 && i != 0) {
                 formattedNumber.insert(0, ",");
             }

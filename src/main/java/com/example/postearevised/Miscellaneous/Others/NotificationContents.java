@@ -127,7 +127,7 @@ public class NotificationContents {
     public static void setAccountDetailsEditFailedCancelled() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Account Edit Failed";
-        notificationContentReference = "Operation was cancelled by the user..";
+        notificationContentReference = "Operation was cancelled by the user.";
     }
 
     public static void setRecoveryQuestionEditFailed() {

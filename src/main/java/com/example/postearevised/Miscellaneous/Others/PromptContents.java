@@ -879,7 +879,7 @@ public class PromptContents {
 
         iconImageReference = TRIANGLE_RED_ICON;
         promptHeaderText = "Account Successfully Deleted.";
-        promptContentText = "Click 'OKAY' to continue.";
+        promptContentText = "Redirecting you to login page...";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;

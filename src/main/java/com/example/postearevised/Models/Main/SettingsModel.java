@@ -7,6 +7,7 @@ import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
 import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -390,7 +391,6 @@ public class SettingsModel {
         if (!referenceImagePath.isBlank() && !referenceImagePath.isEmpty()) {
             Path photoPath = Path.of(referenceImagePath);
             try {
-                // Attempt to delete the photo
                 Files.delete(photoPath);
                 System.out.println("Photo deleted successfully!");
             } catch (IOException e) {
@@ -1167,7 +1167,6 @@ public class SettingsModel {
             proceed = isValidPassword;
         }
 
-        // Set visibility and return result
         setVisibilitiesPane2();
         return proceed && newAccountNotExists() && newPasswordNotTheSameAsOldOne();
     }
@@ -1428,6 +1427,7 @@ public class SettingsModel {
                         setRecoveryQuestionEditFailed();
                         mainController.mainModel.generateNotification();
                         revertBackRecoveryQuestions();
+                        Platform.runLater(this::revertBackRecoveryQuestions);
                         return false;
                     }
                 } else {
@@ -1439,6 +1439,7 @@ public class SettingsModel {
                     setRecoveryQuestionEditFailed();
                     mainController.mainModel.generateNotification();
                     revertBackRecoveryQuestions();
+                    Platform.runLater(this::revertBackRecoveryQuestions);
                     return true;
                 }
             } else {
@@ -1462,6 +1463,9 @@ public class SettingsModel {
         accountReference.setSecurityQuestionOneAnswer(oldAccountReference.getSecurityQuestionOneAnswer());
         accountReference.setSecurityQuestionTwo(oldAccountReference.getSecurityQuestionTwo());
         accountReference.setSecurityQuestionTwoAnswer(oldAccountReference.getSecurityQuestionTwoAnswer());
+
+        mainController.comboBoxSettingsQuestionOne.setValue("");
+        mainController.comboBoxSettingsQuestionTwo.setValue("");
 
         mainController.comboBoxSettingsQuestionOne.setValue(accountReference.getSecurityQuestionOne());
         mainController.textFieldAccountQuestionOne.setText(accountReference.getSecurityQuestionOneAnswer());
@@ -1583,6 +1587,8 @@ public class SettingsModel {
     }
 
     public void deleteAccountProcess() {
+        boolean isCancelled = true;
+
         disableOtherAccountEditButtons(4);
         setDeleteAccount1();
         if (mainController.mainModel.openPrompt()) {
@@ -1591,9 +1597,8 @@ public class SettingsModel {
                 if (mainController.mainModel.openPrompt()) {
                     if (deleteAccountFromCSV(accountReference) && deleteAccountFolder()) {
                         setDeleteAccount3AccountDeleted();
-                        mainController.mainModel.openPrompt();
-                        mainController.mainModel.logOutAccountDeleted(); // LOGOUT
-                        accountSet.remove(accountReference);
+                        openPromptAccountDeleted();
+                        isCancelled = false;
                     } else {
                         setErrorAccountDeletion();
                         mainController.mainModel.openPrompt();
@@ -1602,10 +1607,41 @@ public class SettingsModel {
             }
         }
 
-        setAccountDeletionCancelled();
-        mainController.mainModel.generateNotification();
+        if (isCancelled) {
+            setAccountDeletionCancelled();
+            mainController.mainModel.generateNotification();
 
-        disableOtherAccountEditButtons(5);
+            disableOtherAccountEditButtons(5);
+        }
+    }
+
+    private void openPromptAccountDeleted() {
+        mainController.mainModel.showRectangleModal();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        promptStage = new Stage();
+
+        promptStage.initModality(Modality.WINDOW_MODAL);
+        promptStage.initOwner(mainController.anchorPaneMenu.getScene().getWindow());
+
+        promptStage.setTitle(EXIT_CONFIRMATION_ENUM.getTITLE());
+        promptStage.setResizable(false);
+        promptStage.getIcons().add(SYSTEM_LOGO);
+        promptStage.setScene(new Scene(root));
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(event -> {
+            mainController.mainModel.logOutAccountDeleted();
+            accountSet.remove(accountReference);
+        });
+        delay.play();
+        promptStage.showAndWait();
+        mainController.mainModel.hideRectangleModal();
     }
 
     private boolean deleteAccountFolder() {
