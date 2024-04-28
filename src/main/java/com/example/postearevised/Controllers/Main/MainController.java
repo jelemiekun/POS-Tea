@@ -336,11 +336,8 @@ public class MainController implements Initializable {
     void comboBoxLeftPanelUsersOnAction() {
         leftPanelCounter++;
 
-        if (leftPanelCounter % 2 == 0) {
+        if (leftPanelCounter % 2 == 0)
             mainModel.comboBoxLeftPanelUsersOnAction();
-        }
-
-        System.out.println(leftPanelCounter + " line 343");
     }
 
     /**
