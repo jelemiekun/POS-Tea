@@ -97,7 +97,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Confirm Password";
-        promptContentText = "Click 'yes' to confirm password.";
+        promptContentText = "Click 'yes' to confirm registration of password for the admin user.\nNOTE: THIS CANNOT BE CHANGED.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;

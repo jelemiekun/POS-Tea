@@ -95,8 +95,14 @@ public class MainModel {
 
         } while (!accountEditingProceed);
 
+        doneFirstUserRegistration();
+    }
+
+    private void doneFirstUserRegistration() {
         populateFullNamesObservableList();
         mainController.labelProfileName.setText(usersNames.get(userIndex));
+        mainController.leftPanelCounter++;
+        mainController.comboBoxLeftPanelUsers.setValue(usersNames.get(userIndex));
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
         mainController.labelSettingsOnlyAdmin.setVisible(false);
         mainController.labelSettingsOnlyAdmin1.setVisible(false);

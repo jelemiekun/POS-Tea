@@ -808,24 +808,22 @@ public class SettingsModel {
                 getUsersChanges();
 
                 if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
-                    if (isAdd) {
-                        mainController.mainModel.populateFullNamesObservableList();
-                        setNameToNewlyAddedName();
-                    } else {
-                        int index = getComboBoxNameIndex();
-                        mainController.mainModel.populateFullNamesObservableList();
-                        setNameToEditedName(index);
-                    }
                     setAccountUsersSuccessful();
                     mainController.mainModel.generateNotification();
+
+                    mainController.mainModel.populateFullNamesObservableList();
+                    setNameToNewlyAddedName();
+
                     disableOtherAccountEditButtons(5);
                     mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
                     return true;
                 } else {
                     setErrorFailedToUpdateAccountToCSV();
                     mainController.mainModel.openPrompt();
+
                     setAccountUsersUpdateFailed();
                     mainController.mainModel.generateNotification();
+
                     revertBackUsers();
                     return false;
                 }
@@ -847,10 +845,8 @@ public class SettingsModel {
 
     private void revertBackUsers() {
         setComboBoxToDefault();
-        setNameToEditedName(getComboBoxNameIndex());
-        int index = revertToOldValuesPane1();
         mainController.mainModel.populateFullNamesObservableList();
-        setComboBoxNameToOldValue(index);
+        setComboBoxNameToOldValue(revertToOldValuesPane1());
         disableOtherAccountEditButtons(5);
     }
 
@@ -907,11 +903,6 @@ public class SettingsModel {
         return index;
     }
 
-    private void setComboBoxNameToOldValue(int index) {
-        mainController.comboBoxAccountName.setValue(fullNames.get(index));
-        mainController.labelProfileName.setText(usersNames.get(index));
-    }
-
     private void getUsersChanges() {
         String textFieldFirstName = mainController.textFieldAccountGivenName.getText().trim();
         String textFieldMiddleName = mainController.textFieldAccountMiddleName.getText().trim().isEmpty() ? "" : mainController.textFieldAccountMiddleName.getText().trim();
@@ -963,11 +954,10 @@ public class SettingsModel {
         return index;
     }
 
-    private void setNameToEditedName(int index) {
+    private void setComboBoxNameToOldValue(int index) {
         mainController.comboBoxAccountName.setValue(fullNames.get(index));
         mainController.labelProfileName.setText(usersNames.get(index));
     }
-
 
 
     /**

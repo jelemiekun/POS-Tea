@@ -36,6 +36,8 @@ import static com.example.postearevised.Miscellaneous.References.StylesReference
 
 public class AskForPasswordController implements Initializable {
 
+    private String userPassword = "";
+
     private int attempts = 0;
 
     @FXML
@@ -107,6 +109,9 @@ public class AskForPasswordController implements Initializable {
         labelPassForThisUser.setVisible(true);
         labelIncorrect.setText("Password for this user must not be blank!");
         btnDonePassword.setVisible(true);
+
+        if (accountReference.getUserPasswords() != null)
+            userPassword = accountReference.getUserPasswords().get(userIndex);
     }
 
     @FXML
@@ -193,8 +198,7 @@ public class AskForPasswordController implements Initializable {
                     labelIncorrect.setVisible(true);
                 }
             } else {
-
-                if (passwordField.getText().equals(accountReference.getUserPasswords().get(userIndex))) {
+                if (passwordField.getText().equals(userPassword)) {
                     accountEditingProceed = true;
                     userSelectedSuccess = true;
                     closeThisStage();
@@ -212,6 +216,7 @@ public class AskForPasswordController implements Initializable {
                     openPrompt();
                     closeThisStage();
                 }
+                userPane();
             }
         }
 
