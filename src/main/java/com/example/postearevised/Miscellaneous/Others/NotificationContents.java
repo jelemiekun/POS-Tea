@@ -124,6 +124,12 @@ public class NotificationContents {
         notificationContentReference = "There was an error while updating the recovery questions.";
     }
 
+    public static void setAccountDeletionCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Operation Cancelled";
+        notificationContentReference = "Account deletion was unsuccessful.";
+    }
+
     public static void setSwitchUserSuccess() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Switched user";

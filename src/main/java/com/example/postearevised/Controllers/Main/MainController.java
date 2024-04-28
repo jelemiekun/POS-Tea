@@ -36,6 +36,9 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
@@ -150,6 +153,13 @@ public class MainController implements Initializable {
                 mainModel.checkIfNewAccount();
             });
         }).start();
+
+        ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+        executorService.schedule(() -> {
+            if (!loadingCompleted) {
+                System.out.println("Loading not completed after 10 seconds.");
+            }
+        }, 10, TimeUnit.SECONDS);
     }
 
     private void clearAllReferences() {
@@ -165,11 +175,18 @@ public class MainController implements Initializable {
     /**
      * Loading
      */
+
     @FXML
     public AnchorPane anchorPaneLoading;
+
     @FXML
     public Label labelLoading;
+
     private Timeline loadingTimeline;
+
+    private boolean loadingCompleted = false;
+
+
     private void loading() {
         loadingTimeline = new Timeline(
                 new KeyFrame(Duration.seconds(0.5), event -> labelLoading.setText("Loading.")),
@@ -181,6 +198,8 @@ public class MainController implements Initializable {
     }
 
     private void fadeOutLoading() {
+        loadingCompleted = true;
+
         FadeTransition fadeOut = new FadeTransition(Duration.millis(1200), anchorPaneLoading);
         fadeOut.setFromValue(1.0);
         fadeOut.setToValue(0.0);

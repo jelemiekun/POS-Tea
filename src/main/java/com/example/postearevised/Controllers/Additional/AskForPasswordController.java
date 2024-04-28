@@ -141,11 +141,12 @@ public class AskForPasswordController implements Initializable {
     @FXML
     void btnCancelEntered(KeyEvent event) {
         if (event.getCode() == KeyCode.ENTER)
-            closeThisStage();
+            btnCancelClickedTouched();
     }
 
     @FXML
     void btnCancelClickedTouched() {
+        accountEditingProceed = false;
         closeThisStage();
     }
 
@@ -177,68 +178,88 @@ public class AskForPasswordController implements Initializable {
     }
 
     private void check() {
-        boolean isSwitching = true;
+        if (!headerTitle.equals("Delete Account")) {
+            boolean isSwitching = true;
 
-        if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
-            if (!labelIncorrect.getText().equals("Incorrect password!")) {
-                if (passwordField.getText().equals(accountReference.getPassword())) {
-                    accountEditingProceed = true;
-                    closeThisStage();
-                } else {
-                    passwordField.setText("");
-                    labelIncorrect.setVisible(true);
+            if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
+                if (!labelIncorrect.getText().equals("Incorrect password!")) {
+                    if (passwordField.getText().equals(accountReference.getPassword())) {
+                        accountEditingProceed = true;
+                        closeThisStage();
+                    } else {
+                        passwordField.setText("");
+                        labelIncorrect.setVisible(true);
+                    }
+                    attempts++;
+
+                    if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                        userSelectedSuccess = false;
+                        maxAttemptLimitReached = true;
+                        setErrorChangingPasswordMaximumAttemptReached();
+                        openPrompt();
+                        closeThisStage();
+                    }
+
+                    isSwitching = false;
                 }
-                attempts++;
-
-                if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                    userSelectedSuccess = false;
-                    maxAttemptLimitReached = true;
-                    setErrorChangingPasswordMaximumAttemptReached();
-                    openPrompt();
-                    closeThisStage();
-                }
-
-                isSwitching = false;
             }
-        }
 
-        if (isSwitching) {
-            if (!isInputPasswordExistingUser) {
-                if (!passwordField.getText().isEmpty()) {
-                    setUserConfirmPassword();
-                    if ((openPrompt())) {
-                        if (!isUpdatingPasswordSuccess()) {
-                            setErrorFailedToUpdateAccountToCSV();
-                            openPrompt();
-                        } else {
-                            accountEditingProceed = true;
-                            closeThisStage();
+            if (isSwitching) {
+                if (!isInputPasswordExistingUser) {
+                    if (!passwordField.getText().isEmpty()) {
+                        setUserConfirmPassword();
+                        if ((openPrompt())) {
+                            if (!isUpdatingPasswordSuccess()) {
+                                setErrorFailedToUpdateAccountToCSV();
+                                openPrompt();
+                            } else {
+                                accountEditingProceed = true;
+                                closeThisStage();
+                            }
                         }
+                    } else {
+                        labelIncorrect.setVisible(true);
                     }
                 } else {
-                    labelIncorrect.setVisible(true);
+                    userPane();
+
+                    if (passwordField.getText().equals(userPassword)) {
+                        accountEditingProceed = true;
+                        userSelectedSuccess = true;
+                        closeThisStage();
+                    } else {
+                        labelIncorrect.setText("Incorrect password!");
+                        labelIncorrect.setVisible(true);
+                    }
+
+                    attempts++;
+
+                    if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                        userSelectedSuccess = false;
+                        maxAttemptLimitReached = true;
+                        setErrorChangingPasswordMaximumAttemptReached();
+                        openPrompt();
+                        closeThisStage();
+                    }
                 }
+            }
+        } else {
+            System.out.println("line 247 " + accountReference.getPassword());
+            if (passwordField.getText().equals(accountReference.getPassword())) {
+                accountEditingProceed = true;
+                closeThisStage();
             } else {
-                userPane();
+                passwordField.setText("");
+                labelIncorrect.setVisible(true);
+            }
+            attempts++;
 
-                if (passwordField.getText().equals(userPassword)) {
-                    accountEditingProceed = true;
-                    userSelectedSuccess = true;
-                    closeThisStage();
-                } else {
-                    labelIncorrect.setText("Incorrect password!");
-                    labelIncorrect.setVisible(true);
-                }
-
-                attempts++;
-
-                if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                    userSelectedSuccess = false;
-                    maxAttemptLimitReached = true;
-                    setErrorChangingPasswordMaximumAttemptReached();
-                    openPrompt();
-                    closeThisStage();
-                }
+            if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                userSelectedSuccess = false;
+                maxAttemptLimitReached = true;
+                setErrorChangingPasswordMaximumAttemptReached();
+                openPrompt();
+                closeThisStage();
             }
         }
 

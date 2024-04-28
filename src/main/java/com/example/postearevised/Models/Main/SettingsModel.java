@@ -1512,6 +1512,9 @@ public class SettingsModel {
             }
         }
 
+        setAccountDeletionCancelled();
+        mainController.mainModel.generateNotification();
+        
         disableOtherAccountEditButtons(5);
     }
 
