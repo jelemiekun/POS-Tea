@@ -27,4 +27,5 @@ INSTALLATION
 - Open the POS-tea Jar File. After successfully running the jdk, users can access the system by selecting the previously downloaded POS-Tea Jar file.
 
 CONTACT
-- Phone number reference: 09855489116
+- Email address: jeremieeden1946@gmail.com
+- Phone number: 09855489116
