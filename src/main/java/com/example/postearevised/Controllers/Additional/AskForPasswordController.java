@@ -98,7 +98,7 @@ public class AskForPasswordController implements Initializable {
 
     private void normalPane() {
         labelIncorrect.setLayoutX(82);
-        labelIncorrect.setLayoutY(143);
+        labelIncorrect.setLayoutY(160);
         normalPane.setVisible(true);
         deletePane.setVisible(false);
     }
@@ -183,21 +183,22 @@ public class AskForPasswordController implements Initializable {
 
             if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
                 if (!labelIncorrect.getText().equals("Incorrect password!")) {
-                    if (passwordField.getText().equals(accountReference.getPassword())) {
-                        accountEditingProceed = true;
-                        closeThisStage();
-                    } else {
-                        passwordField.setText("");
-                        labelIncorrect.setVisible(true);
-                    }
-                    attempts++;
-
                     if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
                         userSelectedSuccess = false;
                         maxAttemptLimitReached = true;
                         setErrorChangingPasswordMaximumAttemptReached();
                         openPrompt();
                         closeThisStage();
+                    } else {
+                        if (passwordField.getText().equals(accountReference.getPassword())) {
+                            accountEditingProceed = true;
+                            closeThisStage();
+                        } else {
+                            passwordField.setText("");
+                            labelIncorrect.setVisible(true);
+                        }
+                        attempts++;
+
                     }
 
                     isSwitching = false;
@@ -222,43 +223,43 @@ public class AskForPasswordController implements Initializable {
                     }
                 } else {
                     userPane();
-
-                    if (passwordField.getText().equals(userPassword)) {
-                        accountEditingProceed = true;
-                        userSelectedSuccess = true;
-                        closeThisStage();
-                    } else {
-                        labelIncorrect.setText("Incorrect password!");
-                        labelIncorrect.setVisible(true);
-                    }
-
-                    attempts++;
-
                     if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
                         userSelectedSuccess = false;
                         maxAttemptLimitReached = true;
                         setErrorChangingPasswordMaximumAttemptReached();
                         openPrompt();
                         closeThisStage();
+                    } else {
+                        if (passwordField.getText().equals(userPassword)) {
+                            accountEditingProceed = true;
+                            userSelectedSuccess = true;
+                            closeThisStage();
+                        } else {
+                            labelIncorrect.setLayoutY(148);
+                            labelIncorrect.setText("Incorrect password!");
+                            labelIncorrect.setVisible(true);
+                        }
+
+                        attempts++;
                     }
                 }
             }
         } else {
-            if (passwordField.getText().equals(accountReference.getPassword())) {
-                accountEditingProceed = true;
-                closeThisStage();
-            } else {
-                passwordField.setText("");
-                labelIncorrect.setVisible(true);
-            }
-            attempts++;
-
             if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
                 userSelectedSuccess = false;
                 maxAttemptLimitReached = true;
                 setErrorChangingPasswordMaximumAttemptReached();
                 openPrompt();
                 closeThisStage();
+            } else {
+                if (passwordField.getText().equals(accountReference.getPassword())) {
+                    accountEditingProceed = true;
+                    closeThisStage();
+                } else {
+                    passwordField.setText("");
+                    labelIncorrect.setVisible(true);
+                }
+                attempts++;
             }
         }
 

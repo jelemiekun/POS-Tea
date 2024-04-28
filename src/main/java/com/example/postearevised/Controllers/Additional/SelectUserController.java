@@ -34,6 +34,7 @@ public class SelectUserController implements Initializable {
     @FXML
     void btnSelectUser() {
         if (!comboBoxUsers.getValue().equals("Select user")) {
+            accountEditingProceed = false;
             userIndex = comboBoxUsers.getSelectionModel().getSelectedIndex();
             headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
             isInputPasswordExistingUser = true;

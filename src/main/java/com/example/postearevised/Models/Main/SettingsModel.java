@@ -48,6 +48,7 @@ import java.util.stream.Collectors;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
@@ -62,6 +63,8 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.*
 import static com.example.postearevised.Miscellaneous.References.GeneralReference.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.LoginForgotRegisterReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.OrderQueueReference.*;
 import static com.example.postearevised.Miscellaneous.References.ProductReference.*;
 import static com.example.postearevised.Miscellaneous.References.RegexReference.*;
 import static com.example.postearevised.Miscellaneous.References.SettingsReference.*;
@@ -565,6 +568,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm10.setVisible(false);
         mainController.labelSettingsFillUpThisForm11.setVisible(false);
         mainController.anchorPanePasswordIndicator.setDisable(true);
+        mainController.labelMiddleNameOptional.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -592,6 +596,7 @@ public class SettingsModel {
     }
 
     private void disableOtherAccountEditButtons(int notToDisable) {
+        setOthersSettingsAccountPane();
         switch (notToDisable) {
             case 1:
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(false);
@@ -1028,43 +1033,15 @@ public class SettingsModel {
 
                     getAccountDetailsChanges();
 
-                    if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
-                        dataTasks();
-                        clearFieldsPasswordTexts();
-                        setAccountDetailsEditSuccessful();
-                        mainController.mainModel.generateNotification();
-                        disableOtherAccountEditButtons(5);
-                        mainController.accountDetailsSubmittedOnce = false;
-                        Platform.runLater(() -> {
-                            dataTasks();
-                            clearFieldsPasswordTexts();
-                            setAccountDetailsEditSuccessful();
-                            mainController.mainModel.generateNotification();
-                            disableOtherAccountEditButtons(5);
-                            mainController.accountDetailsSubmittedOnce = false;
-                        });
+                    if (updateAccountToAccountCSV(oldAccountReference, accountReference) && updatePhotosCSV(oldAccountReference, accountReference)) {
+                        editAccountDetailsSuccess();
                         return true;
                     } else {
-                        setErrorFailedToUpdateAccountToCSV();
-                        mainController.mainModel.openPrompt();
-                        setAccountDetailsEditFailed();
-                        mainController.mainModel.generateNotification();
-                        clearFieldsPasswordTexts();
-                        revertToOldValuesPane2();
+                        editAccountDetailsFailedCSV();
                         return false;
                     }
                 } else {
-                    if (!maxAttemptLimitReached) {
-                        setErrorFailedToUpdateAccountUserCancelled();
-                        mainController.mainModel.openPrompt();
-                        clearFieldsPasswordTexts();
-                        revertToOldValuesPane2();
-                        maxAttemptLimitReached = false;
-                    }
-                    setAccountDetailsEditFailed();
-                    mainController.mainModel.generateNotification();
-                    clearFieldsPasswordTexts();
-                    revertToOldValuesPane2();
+                    editAccountDetailsFailedIncorrectPassword();
                     return true;
                 }
             }
@@ -1073,9 +1050,104 @@ public class SettingsModel {
         }
     }
 
-    private boolean accountDetailsRequiredFieldsNotBlank() {
-        boolean proceed = true;
+    private void editAccountDetailsSuccess() {
+        dataTasks();
+        updateDirectoryFilePaths();
+        disableEditAccountDetails();
+        Platform.runLater(() -> {
+            dataTasks();
+            clearFieldsPasswordTexts();
+            setAccountDetailsEditSuccessful();
+            mainController.mainModel.generateNotification();
+            disableOtherAccountEditButtons(5);
+            mainController.accountDetailsSubmittedOnce = false;
+            updateDirectoryFilePaths();
+            mainController.textFieldAccountContact.setDisable(true);
+            mainController.textFieldAccountNewPassword.setDisable(true);
+            mainController.textFieldAccountConfirmNewPassword.setDisable(true);
+            mainController.imagePencilSettingsAccount5.setVisible(false);
+            mainController.imagePencilSettingsAccount6.setVisible(false);
+            mainController.imagePencilSettingsAccount7.setVisible(false);
+            mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(false);
+            mainController.imageHideShowNewPasswordAccountSettings.setVisible(false);
+            mainController.anchorPanePasswordIndicator.setVisible(true);
+            mainController.anchorPanePasswordIndicator.setDisable(true);
+            mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+        });
+        updateDirectoryFilePaths();
+        clearFieldsPasswordTexts();
+        disableEditAccountDetails();
+    }
 
+    private void disableEditAccountDetails() {
+        clearFieldsPasswordTexts();
+        disableOtherAccountEditButtons(5);
+        mainController.accountDetailsSubmittedOnce = false;
+        mainController.textFieldAccountContact.setDisable(true);
+        mainController.textFieldAccountNewPassword.setDisable(true);
+        mainController.textFieldAccountConfirmNewPassword.setDisable(true);
+        mainController.imagePencilSettingsAccount5.setVisible(false);
+        mainController.imagePencilSettingsAccount6.setVisible(false);
+        mainController.imagePencilSettingsAccount7.setVisible(false);
+        mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(false);
+        mainController.imageHideShowNewPasswordAccountSettings.setVisible(false);
+        mainController.anchorPanePasswordIndicator.setVisible(true);
+        mainController.anchorPanePasswordIndicator.setDisable(true);
+        mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+    }
+
+    private void editAccountDetailsFailedCSV() {
+        setErrorFailedToUpdateAccountToCSV();
+        mainController.mainModel.openPrompt();
+        setAccountDetailsEditFailed();
+        mainController.mainModel.generateNotification();
+        Platform.runLater(() -> {
+            clearFieldsPasswordTexts();
+            revertToOldValuesPane2();
+            disableEditAccountDetails();
+            mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+        });
+    }
+
+    private void editAccountDetailsFailedIncorrectPassword() {
+        if (!maxAttemptLimitReached) {
+            setErrorFailedToUpdateAccountUserCancelled();
+            mainController.mainModel.openPrompt();
+            Platform.runLater(() -> {
+                setAccountDetailsEditFailedCancelled();
+                mainController.mainModel.generateNotification();
+                clearFieldsPasswordTexts();
+                revertToOldValuesPane2();
+                disableEditAccountDetails();
+                mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+                maxAttemptLimitReached = false;
+            });
+            maxAttemptLimitReached = false;
+        } else {
+            setAccountDetailsEditFailedMaxLimitReached();
+            mainController.mainModel.generateNotification();
+            Platform.runLater(() -> {
+                clearFieldsPasswordTexts();
+                revertToOldValuesPane2();
+                disableEditAccountDetails();
+                mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+                maxAttemptLimitReached = false;
+            });
+            maxAttemptLimitReached = false;
+        }
+    }
+
+    private void updateDirectoryFilePaths() {
+        accountContactReference = accountReference.getContact();
+        setPaths();
+
+        orderHistoryObservableList.clear();
+        orderQueueObservableList.clear();
+        importOrdersFromCSV(true);
+        importOrdersFromCSV(false);
+    }
+
+    private boolean accountDetailsRequiredFieldsNotBlank() {
         String account = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
         String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
@@ -1083,14 +1155,19 @@ public class SettingsModel {
         boolean willChangeAccount = !oldAccountReference.getContact().equals(account);
         boolean willChangePass = !newPassword.isEmpty() || !confirmNewPassword.isEmpty();
 
+        boolean isValidAccount = account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL);
+        boolean isValidPassword = newPassword.equals(confirmNewPassword);
+
+        boolean proceed = true;
         if (willChangePass && willChangeAccount) {
-            proceed = newPassword.equals(confirmNewPassword) && (account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL));
+            proceed = isValidAccount && isValidPassword;
         } else if (willChangeAccount) {
-            proceed = account.matches(REGEX_PHONE_NUMBER_ELEVEN_DIGIT) || account.matches(REGEX_EMAIL);
+            proceed = isValidAccount;
         } else if (willChangePass) {
-            proceed = newPassword.equals(confirmNewPassword);
+            proceed = isValidPassword;
         }
 
+        // Set visibility and return result
         setVisibilitiesPane2();
         return proceed && newAccountNotExists() && newPasswordNotTheSameAsOldOne();
     }
@@ -1122,6 +1199,9 @@ public class SettingsModel {
                     mainController.labelSettingsFillUpThisForm3.setVisible(true);
                 }
                 mainController.labelSettingsFillUpThisForm11.setVisible(!newPasswordNotTheSameAsOldOne());
+
+                if (mainController.labelSettingsFillUpThisForm11.isVisible())
+                    mainController.anchorPanePasswordIndicator.setVisible(false);
             } else if (willChangeAccount) {
                 if (account.isEmpty()) {
                     mainController.labelSettingsFillUpThisForm3.setText("*please fill up this form");
@@ -1139,6 +1219,9 @@ public class SettingsModel {
                     mainController.labelSettingsFillUpThisForm8.setVisible(!newPassword.equals(confirmNewPassword));
 
                 mainController.labelSettingsFillUpThisForm11.setVisible(!newPasswordNotTheSameAsOldOne());
+
+                if (mainController.labelSettingsFillUpThisForm11.isVisible())
+                    mainController.anchorPanePasswordIndicator.setVisible(false);
             }
 
             if (!willChangePass) {
@@ -1146,6 +1229,7 @@ public class SettingsModel {
                 mainController.labelSettingsFillUpThisForm7.setVisible(false);
                 mainController.labelSettingsFillUpThisForm8.setVisible(false);
                 mainController.labelSettingsFillUpThisForm11.setVisible(false);
+                mainController.anchorPanePasswordIndicator.setVisible(true);
             }
 
             if (!willChangeAccount) {
@@ -1155,6 +1239,7 @@ public class SettingsModel {
 
             if (!willChangeAccount && !willChangePass) {
                 mainController.detectChangesAccountDetails = false;
+                mainController.anchorPanePasswordIndicator.setVisible(true);
             }
 
             mainController.labelSettingsFillUpThisForm10.setVisible(!newAccountNotExists());
@@ -1238,6 +1323,9 @@ public class SettingsModel {
     private void getAccountDetailsChanges() {
         String contact = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText() : mainController.passwordFieldAccountNewPassword.getText();
+
+        if (newPassword.isEmpty())
+            newPassword = accountReference.getPassword();
 
         accountReference.setContact(contact);
         accountReference.setPassword(newPassword);
@@ -1470,6 +1558,7 @@ public class SettingsModel {
     }
 
     private boolean openAskForPasswordFXML() {
+        accountEditingProceed = false;
         mainController.mainModel.showRectangleModal();
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
         Parent root = null;

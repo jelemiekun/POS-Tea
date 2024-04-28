@@ -369,10 +369,7 @@ public class DashboardModel {
                 .limit(10)
                 .toList();
 
-        for (int i = 0; i < sortedEntries.size(); i++) {
-            ProductOrder product = sortedEntries.get(i);
-            topTenProducts.add(product);
-        }
+        topTenProducts.addAll(sortedEntries);
     }
 
 

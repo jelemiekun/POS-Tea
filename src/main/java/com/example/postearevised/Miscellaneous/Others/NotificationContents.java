@@ -118,6 +118,18 @@ public class NotificationContents {
         notificationContentReference = "There was an error while updating the account details.";
     }
 
+    public static void setAccountDetailsEditFailedMaxLimitReached() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Edit Failed";
+        notificationContentReference = "Maximum attempts limit reached.";
+    }
+
+    public static void setAccountDetailsEditFailedCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Edit Failed";
+        notificationContentReference = "Operation was cancelled by the user..";
+    }
+
     public static void setRecoveryQuestionEditFailed() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Recovery Question Edit Failed";

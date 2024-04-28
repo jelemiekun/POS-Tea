@@ -2,6 +2,7 @@ package com.example.postearevised.Miscellaneous.Database.CSV.Accounts;
 
 import com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations;
 import com.example.postearevised.Objects.Account.Account;
+import com.example.postearevised.Objects.Products.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -367,6 +368,189 @@ public class AccountCSV {
         } catch (IOException e) {
             errorMessage = e.getMessage();
             logError(true);
+            return false;
+        }
+    }
+
+    public static boolean updatePhotosCSV(Account oldAccount, Account newAccount) {
+        String stringToReplace = oldAccount.getContact();
+        String newString = newAccount.getContact();
+
+        return updatePhotosInProductsCSV(stringToReplace, newString) &&
+                updatePhotosInOrderQueueCSV(stringToReplace, newString) &&
+                updatePhotosInOrderHistoryCSV(stringToReplace, newString);
+    }
+
+    private static boolean updatePhotosInProductsCSV(String stringToReplace, String newStringToReplace) {
+        String tempFileName = "temp_modified_products.csv";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH_PRODUCTS));
+             FileWriter fw = new FileWriter(tempFileName)) {
+
+            String header = br.readLine();
+            fw.write(header + "\n");
+
+            String[] headers = header.split(",");
+            int columnIndex = -1;
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                    columnIndex = i;
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                return false; // Column not found
+            }
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
+                }
+                fw.write(String.join(",", parts) + "\n");
+            }
+
+            // Close the readers and writers
+            fw.close();
+            br.close();
+
+            // Delete the original file
+            File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
+            if (!originalFile.delete()) {
+                System.out.println("Error occurred while deleting the original file.");
+                return false;
+            }
+
+            // Rename the temporary file to the original file name
+            File tempFile = new File(tempFileName);
+            if (tempFile.renameTo(originalFile)) {
+                System.out.println("File has been modified successfully.");
+                return true;
+            } else {
+                System.out.println("Error occurred while renaming the temporary file.");
+                return false;
+            }
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            return false;
+        }
+    }
+
+    private static boolean updatePhotosInOrderQueueCSV(String stringToReplace, String newStringToReplace) {
+        String tempFileName = "temp_modified_queue.csv";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_QUEUE));
+             FileWriter fw = new FileWriter(tempFileName)) {
+
+            String header = br.readLine();
+            fw.write(header + "\n");
+
+            String[] headers = header.split(",");
+            int columnIndex = -1;
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                    columnIndex = i;
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                return false; // Column not found
+            }
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
+                }
+                fw.write(String.join(",", parts) + "\n");
+            }
+
+            // Close the readers and writers
+            fw.close();
+            br.close();
+
+            // Delete the original file
+            File originalFile = new File(CSV_FILE_PATH_ORDER_QUEUE);
+            if (!originalFile.delete()) {
+                System.out.println("Error occurred while deleting the original file.");
+                return false;
+            }
+
+            // Rename the temporary file to the original file name
+            File tempFile = new File(tempFileName);
+            if (tempFile.renameTo(originalFile)) {
+                System.out.println("File has been modified successfully.");
+                return true;
+            } else {
+                System.out.println("Error occurred while renaming the temporary file.");
+                return false;
+            }
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            return false;
+        }
+    }
+
+    private static boolean updatePhotosInOrderHistoryCSV(String stringToReplace, String newStringToReplace) {
+        String tempFileName = "temp_modified_history.csv";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE_PATH_ORDER_HISTORY));
+             FileWriter fw = new FileWriter(tempFileName)) {
+
+            String header = br.readLine();
+            fw.write(header + "\n");
+
+            String[] headers = header.split(",");
+            int columnIndex = -1;
+            for (int i = 0; i < headers.length; i++) {
+                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                    columnIndex = i;
+                    break;
+                }
+            }
+
+            if (columnIndex == -1) {
+                return false; // Column not found
+            }
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
+                }
+                fw.write(String.join(",", parts) + "\n");
+            }
+
+            // Close the readers and writers
+            fw.close();
+            br.close();
+
+            // Delete the original file
+            File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
+            if (!originalFile.delete()) {
+                System.out.println("Error occurred while deleting the original file.");
+                return false;
+            }
+
+            // Rename the temporary file to the original file name
+            File tempFile = new File(tempFileName);
+            if (tempFile.renameTo(originalFile)) {
+                System.out.println("File has been modified successfully.");
+                return true;
+            } else {
+                System.out.println("Error occurred while renaming the temporary file.");
+                return false;
+            }
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
             return false;
         }
     }
