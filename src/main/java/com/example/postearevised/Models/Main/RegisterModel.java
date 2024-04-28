@@ -517,6 +517,8 @@ public class RegisterModel {
      *
      */
     public void readTAC() {
+        isConfirmed = false;
+
         if (openTAC()) {
             if (loginRegisterForgotPassController.checkConnectivity()) {
                 if (isAccountCreationSuccess()) {

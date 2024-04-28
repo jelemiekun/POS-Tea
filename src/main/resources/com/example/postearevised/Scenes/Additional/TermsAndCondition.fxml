@@ -39,7 +39,7 @@
                      <content>
                         <AnchorPane prefHeight="2160.0" prefWidth="515.0">
                            <children>
-                              <ImageView fitHeight="2160.0" fitWidth="515.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="2921.0" fitWidth="515.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../Medias/Backgrounds/Terms%20And%20Condition.png" />
                                  </image>
