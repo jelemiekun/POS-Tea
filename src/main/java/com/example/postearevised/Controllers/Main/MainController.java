@@ -1252,13 +1252,17 @@ public class MainController implements Initializable {
     @FXML
     public AnchorPane anchorPaneSettingsSystemManualInner;
     @FXML
-    public TextFlow menuText1;
+    public TextFlow guideText1;
     @FXML
-    public TextFlow menuText2;
+    public TextFlow dashboardText1;
     @FXML
-    public TextFlow menuText3;
+    public TextFlow editProductsText1;
     @FXML
-    public TextFlow menuText4;
+    public TextFlow editProductsText2;
+    @FXML
+    public TextFlow editProductsText3;
+    @FXML
+    public TextFlow editProductsText4;
     @FXML
     public TextFlow menuText5;
     @FXML
@@ -1266,24 +1270,34 @@ public class MainController implements Initializable {
     @FXML
     public TextFlow menuText7;
     @FXML
-    public TextFlow menuText8;
+    public TextFlow editProductsText8;
     @FXML
-    public TextFlow menuText9;
+    public TextFlow editProductsText9;
     @FXML
-    public TextFlow menuText10;
+    public TextFlow editProductsText10;
     @FXML
-    public TextFlow menuText11;
+    public TextFlow editProductsText11;
     @FXML
-    public TextFlow menuText12;
+    public TextFlow editProductsText12;
     @FXML
     public TextFlow orderQueueText1;
     @FXML
     public TextFlow orderHistoryText1;
     @FXML
-    public TextFlow dashboardText1;
+    public TextFlow accountText1;
+    @FXML
+    public TextFlow accountText2;
+    @FXML
+    public TextFlow accountText3;
+    @FXML
+    public TextFlow accountText4;
+    @FXML
+    public TextFlow appearanceText1;
+    @FXML
+    public TextFlow appearanceText2;
 
     @FXML
-    public HBox menuHBox1;
+    public HBox menuHbox1;
     @FXML
     public MediaView mediaView;
     @FXML
@@ -1302,6 +1316,7 @@ public class MainController implements Initializable {
     public boolean isPlayed = false;
     public Timeline timeline;
     public boolean videoEnded = false;
+
 
     @FXML
     private void sliderPressed()  {

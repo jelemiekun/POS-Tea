@@ -1759,6 +1759,31 @@ public class SettingsModel {
 
     //TEXT MANUAL
 
+    public void updateInstallationGuide() {
+        Text guide1 = new Text("STEP 1: ");
+        guide1.setStyle("-fx-font-weight: bold;");
+        Text guide2 = new Text("Download the program from GDrive.\n");
+        Text guide3 = new Text("- Users will need to download the application from the developers’ GDrive\n\n");
+
+        Text guide4 = new Text("STEP 2: ");
+        guide4.setStyle("-fx-font-weight: bold;");
+        Text guide5 = new Text("Extract the files.\n");
+        Text guide6 = new Text("- To use the application, users must first download and extract the file. To proceed, open the extracted folder.\n\n");
+
+        Text guide7 = new Text("STEP 3: ");
+        guide7.setStyle("-fx-font-weight: bold;");
+        Text guide8 = new Text(":Run the JDK 21.\n");
+        Text guide9 = new Text("- Once the file has been extracted, a pop-up window will open. To proceed, click the yes button continuously.\n\n");
+
+        Text guide10 = new Text("STEP 4: ");
+        guide10.setStyle("-fx-font-weight: bold;");
+        Text guide11 = new Text(":Open the POS-tea Jar File. \n");
+        Text guide12 = new Text("- After successfully running the jdk, users can access the system by selecting the previously downloaded POS-Tea Jar file.");
+
+        mainController.guideText1.getChildren().addAll(guide1,guide2,guide3,guide4,guide5,guide6,guide7,guide8,guide9,guide10,guide11,guide12);
+        mainController.guideText1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-padding: 0 0 15 0;");
+    }
+
     //DASHBOARD
 
     public void updateManualDashboard() {
@@ -1783,166 +1808,6 @@ public class SettingsModel {
     }
 
     //MENU
-
-    public void howToAddProduct(){
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Click ");
-        Text menu12 = new Text("Add Products to Get Started");
-        menu12.setStyle("-fx-underline: true; -fx-fill: blue;");
-        Text menu13 = new Text(". It only appears on the menu page if you don't have any products added. \nOr go to ");
-        Text menu14 = new Text('"' + "Settings" + '"');
-        menu14.setStyle("-fx-font-weight: bold;");
-        Text menu15 = new Text(" and click ");
-        Text menu16 = new Text('"' + "Edit Products" + '"');
-        menu16.setStyle("-fx-font-weight: bold;");
-        Text menu17 = new Text(".");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Click the ");
-        Text menu22 = new Text('"' + "Add Product" + '"');
-        menu22.setStyle("-fx-font-weight: bold;");
-        Text menu23 = new Text(" button below.");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Choose which category the product belongs to.");
-
-        Text note = new Text("\nNote: ");
-        note.setStyle("-fx-font-weight: bold;");
-        Text note1 = new Text("You cannot proceed to add ");
-        Text note2 = new Text("Name, Description, Price, and Photo ");
-        note2.setStyle("-fx-font-weight: bold;");
-        Text note3 = new Text("of the product if you don’t choose which category the product belongs to.");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("Add the ");
-        Text menu42 = new Text("Name, Description, Price, and Photo ");
-        menu42.setStyle("-fx-font-weight: bold");
-        Text menu43 = new Text("of the product.");
-
-        Text num5 = new Text("\n\n5. ");
-        Text menu51 = new Text("Add Sizes ");
-        menu51.setStyle("-fx-font-weight: bold;");
-        Text menu52 = new Text("(Milk Tea/Coolers), ");
-        Text menu53 = new Text("Liquid Base ");
-        menu53.setStyle("-fx-font-weight: bold;");
-        Text menu54 = new Text("(Milk Tea/Coolers), ");
-        Text menu55 = new Text("Add-ons ");
-        menu55.setStyle("-fx-font-weight: bold;");
-        Text menu56 = new Text("(Milk Tea/Coolers), ");
-        Text menu57 = new Text("Temperature ");
-        menu57.setStyle("-fx-font-weight: bold;");
-        Text menu58 = new Text("(Coffee), ");
-        Text menu59 = new Text("and their ");
-        Text menu510 = new Text("Price ");
-        menu510.setStyle("-fx-font-weight: bold;");
-        Text menu511 = new Text("(All Categories), ");
-
-        Text num6 = new Text("\n\n6. ");
-        Text menu61 = new Text("Click ");
-        Text menu62 = new Text('"' + "ADD" + '"');
-        menu62.setStyle("-fx-font-weight: bold;");
-        Text menu63 = new Text(" button to add product.");
-
-        mainController.menuText1.getChildren().addAll(num1,menu11,menu12,menu13,menu14,menu15,menu16,menu17,
-                num2,menu21,menu22,menu23,
-                num3,menu31,
-                note, note1,note2,note3,
-                num4,menu41,menu42,menu43,
-                num5,menu51,menu52,menu53,menu54,menu55,menu56,menu57,menu58,menu59,menu510,menu511,
-                num6,menu61,menu62,menu63);
-        mainController.menuText1.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void howToEditTheExistingProduct() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Go to ");
-        Text menu12 = new Text("“Settings” ");
-        menu12.setStyle("-fx-font-weight: bold;");
-        Text menu13 = new Text("and click ");
-        Text menu14 = new Text("“Edit Products”.");
-        menu14.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("On the table, ");
-        Text menu22 = new Text("double-click ");
-        menu22.setStyle("-fx-font-weight: bold;");
-        Text menu23 = new Text("the product you want to edit.");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("When you are done editing the product, click the ");
-        Text menu32 = new Text("“EDIT” ");
-        menu32.setStyle("-fx-font-weight: bold;");
-        Text menu33 = new Text("button.");
-
-        mainController.menuText2.getChildren().addAll(num1, menu11, menu12, menu13,menu14,
-                num2,menu21,menu22,menu23,
-                num3,menu31, menu32,menu33);
-        mainController.menuText2.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void howToDisableAndEnableProducts() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Go to ");
-        Text menu12 = new Text("“Settings” ");
-        menu12.setStyle("-fx-font-weight: bold;");
-        Text menu13 = new Text("and click ");
-        Text menu14 = new Text("“Edit Products”.");
-        menu14.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("  On the table, there is a Box on the column ");
-        Text menu22 = new Text("“Available”.");
-        menu22.setStyle("-fx-font-weight: bold;");
-
-        Text menu31 = new Text("\n\n• Select the box of the product that you want to  ");
-        Text menu32 = new Text("DISABLE.");
-        menu32.setStyle("-fx-font-weight: bold;");
-        Text menu33 = new Text("\n• If you want to ");
-        Text menu34 = new Text("ENABLE ");
-        menu34.setStyle("-fx-font-weight: bold;");
-        Text menu35 = new Text("it, unselect the box of the product disabled.");
-
-        mainController.menuText3.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
-                num2,menu21,menu22,
-                menu31,menu32,menu33,menu34,menu35);
-        mainController.menuText3.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void howToDeleteProduct(){
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Go to ");
-        Text menu12 = new Text("“Settings” ");
-        menu12.setStyle("-fx-font-weight: bold;");
-        Text menu13 = new Text("and click ");
-        Text menu14 = new Text("“Edit Products”.");
-        menu14.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Select the product/s you want to delete.");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Click the ");
-        Text menu32 = new Text("“Delete” ");
-        menu32.setStyle("-fx-font-weight: bold;");
-        Text menu33 = new Text("button on the bottom left of the panel.");
-
-        mainController.menuText4.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
-                num2,menu21,
-                num3,menu31,menu32,menu33);
-        mainController.menuText4.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
 
     public void howToMakeOrder(){
         Text num1 = new Text("1. ");
@@ -2062,7 +1927,7 @@ public class SettingsModel {
         Text menu32 = new Text("Cash ");
         menu32.setStyle("-fx-font-weight: bold;");
         Text menu33 = new Text("or ");
-        Text menu34 = new Text("GCash ");
+        Text menu34 = new Text("Gcash ");
         menu34.setStyle("-fx-font-weight: bold;");
         Text menu35 = new Text("as a payment method.");
 
@@ -2072,291 +1937,10 @@ public class SettingsModel {
         mainController.menuText7.setStyle("-fx-font-size: 16; -fx-cursor: text;");
     }
 
-    private void windows() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        num1.setTextAlignment(TextAlignment.LEFT);
-        Text menu11 = new Text("Press ");
-        menu11.setTextAlignment(TextAlignment.LEFT);
-        Text menu12 = new Text("(   Windows Key");
-        menu12.setStyle("-fx-font-weight: bold;");
-        menu12.setTextAlignment(TextAlignment.LEFT);
-        ImageView windowsKey = new ImageView();
-        InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/windows-key-logo.png");
-        Image windowsLogo = new Image(Objects.requireNonNull(inputStream));
-        windowsKey.setImage(windowsLogo);
-        Text menu13 = new Text("+   R   ).");
-        menu13.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Run ");
-        menu21.setStyle("-fx-font-weight: bold;");
-        Text menu22 = new Text("dialog box will open, then type ");
-        Text menu23 = new Text("“%APPDATA%”.");
-        menu23.setStyle("-fx-font-weight: bold;");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Find the folder named ");
-        Text menu32 = new Text("“POS_Tea”.");
-        menu32.setStyle("-fx-font-weight: bold;");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("Copy the ");
-        Text menu42 = new Text("POS_Tea ");
-        menu42.setStyle("-fx-font-weight: bold;");
-        Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flash drive.");
-        menu44.setStyle("-fx-font-weight: bold;");
-
-        Text num5 = new Text("\n\n5. ");
-        num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("If you are going to transfer the ");
-        Text menu52 = new Text("POS_Tea ");
-        menu52.setStyle("-fx-font-weight: bold;");
-        Text menu53 = new Text("folder to different device, repeat the ");
-        Text menu54 = new Text("step 1.");
-        menu54.setStyle("-fx-font-weight: bold;");
-
-        Text num6 = new Text("\n\n6. ");
-        num6.setStyle("-fx-font-weight: bold;");
-        Text menu61 = new Text("Copy the ");
-        Text menu62 = new Text("POS_Tea ");
-        menu62.setStyle("-fx-font-weight: bold;");
-        Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flash drive ");
-        menu64.setStyle("-fx-font-weight: bold;");
-        Text menu65 = new Text("the then paste it.");
-
-        mainController.menuHBox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13);
-        mainController.menuHBox1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
-        mainController.menuHBox1.setAlignment(Pos.CENTER_LEFT);
-        mainController.menuText10.getChildren().addAll(num2,menu21,menu22,menu23,
-                num3,menu31,menu32,
-                num4,menu41,menu42,menu43,menu44,
-                num5,menu51,menu52,menu53,menu54,
-                num6,menu61,menu62,menu63,menu64,menu65);
-        mainController.menuText10.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void macOS() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Press ");
-        Text menu12 = new Text("(    Command + Space bar   ).");
-        menu12.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Spotlight Search ");
-        menu21.setStyle("-fx-font-weight: bold;");
-        Text menu22 = new Text("will open, then type ");
-        Text menu23 = new Text("“~/Library/Application Support/”.");
-        menu23.setStyle("-fx-font-weight: bold;");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Find the folder named ");
-        Text menu32 = new Text("“POS_Tea”.");
-        menu32.setStyle("-fx-font-weight: bold;");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("Copy the ");
-        Text menu42 = new Text("POS_Tea  ");
-        menu42.setStyle("-fx-font-weight: bold;");
-        Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flash drive.");
-        menu44.setStyle("-fx-font-weight: bold;");
-
-        Text num5 = new Text("\n\n5. ");
-        num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("If you are going to transfer the ");
-        Text menu52 = new Text("POS_Tea ");
-        menu52.setStyle("-fx-font-weight: bold;");
-        Text menu53 = new Text("folder to different device, repeat the ");
-        Text menu54 = new Text("step 1.");
-        menu54.setStyle("-fx-font-weight: bold;");
-
-        Text num6 = new Text("\n\n6. ");
-        num6.setStyle("-fx-font-weight: bold;");
-        Text menu61 = new Text("Copy the ");
-        Text menu62 = new Text("POS_Tea ");
-        menu62.setStyle("-fx-font-weight: bold;");
-        Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flash drive ");
-        menu64.setStyle("-fx-font-weight: bold;");
-        Text menu65 = new Text("the then paste it.");
-
-        mainController.menuText11.getChildren().addAll(num1,menu11,menu12,
-                num2,menu21,menu22,menu23,
-                num3,menu31,menu32,
-                num4,menu41,menu42,menu43,menu44,
-                num5,menu51,menu52,menu53,menu54,
-                num6,menu61,menu62,menu63,menu64,menu65);
-        mainController.menuText11.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
-    }
-
-    public void linux() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Press ");
-        Text menu12 = new Text("(    Alt + F2   ).");
-        menu12.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Run Application ");
-        menu21.setStyle("-fx-font-weight: bold;");
-        Text menu22 = new Text("will open, then type ");
-        Text menu23 = new Text("“~/.config/”.");
-        menu23.setStyle("-fx-font-weight: bold;");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Find the folder named ");
-        Text menu32 = new Text("“POS_Tea”.");
-        menu32.setStyle("-fx-font-weight: bold;");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("Copy the ");
-        Text menu42 = new Text("POS_Tea ");
-        menu42.setStyle("-fx-font-weight: bold;");
-        Text menu43 = new Text("folder to your ");
-        Text menu44 = new Text("flash drive.");
-        menu44.setStyle("-fx-font-weight: bold;");
-
-        Text num5 = new Text("\n\n5. ");
-        num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("If you are going to transfer the ");
-        Text menu52 = new Text("POS_Tea ");
-        menu52.setStyle("-fx-font-weight: bold;");
-        Text menu53 = new Text("folder to different device, repeat the ");
-        Text menu54 = new Text("step 1.");
-        menu54.setStyle("-fx-font-weight: bold;");
-
-        Text num6 = new Text("\n\n6. ");
-        num6.setStyle("-fx-font-weight: bold;");
-        Text menu61 = new Text("Copy the ");
-        Text menu62 = new Text("POS_Tea ");
-        menu62.setStyle("-fx-font-weight: bold;");
-        Text menu63 = new Text("folder to your ");
-        Text menu64 = new Text("flash drive ");
-        menu64.setStyle("-fx-font-weight: bold;");
-        Text menu65 = new Text("the then paste it.");
-
-        mainController.menuText12.getChildren().addAll(num1,menu11,menu12,
-                num2,menu21,menu22,menu23,
-                num3,menu31,menu32,
-                num4,menu41,menu42,menu43,menu44,
-                num5,menu51,menu52,menu53,menu54,
-                num6,menu61,menu62,menu63,menu64,menu65);
-        mainController.menuText12.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
-    }
-
-    public void howToManuallyTransferLocalDatabase() {
-        windows();
-        macOS();
-        linux();
-    }
-
-    public void howToExportMenu() {
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Go to ");
-        Text menu12 = new Text("“Settings” ");
-        menu12.setStyle("-fx-font-weight: bold;");
-        Text menu13 = new Text("and click ");
-        Text menu14 = new Text("“Edit Products”.");
-        menu14.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("On the left panel, there is a drop bar.");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Click the drop bar and select ");
-        Text menu32 = new Text("“Export Menu”.");
-        menu32.setStyle("-fx-font-weight: bold;");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("File Explorer ");
-        menu41.setStyle("-fx-font-weight: bold;");
-        Text menu42 = new Text("will pop-up.");
-
-        Text num5 = new Text("\n\n5. ");
-        num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("Save the file.");
-
-        mainController.menuText8.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
-                num2,menu21,
-                num3,menu31,menu32,
-                num4,menu41,menu42,
-                num5, menu51);
-        mainController.menuText8.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void howToImportMenu(){
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Go to ");
-        Text menu12 = new Text("“Settings” ");
-        menu12.setStyle("-fx-font-weight: bold;");
-        Text menu13 = new Text("and click ");
-        Text menu14 = new Text("“Edit Products”.");
-        menu14.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("On the left panel, there is a drop bar.");
-
-        Text num3 = new Text("\n\n3. ");
-        num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Click the drop bar and select ");
-        Text menu32 = new Text("“Import Menu”.");
-        menu32.setStyle("-fx-font-weight: bold;");
-
-        Text num4 = new Text("\n\n4. ");
-        num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("File Explorer ");
-        menu41.setStyle("-fx-font-weight: bold;");
-        Text menu42 = new Text("wil pop-up.");
-
-        Text num5 = new Text("\n\n5. ");
-        num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("Find the file and select the file to import.");
-
-        Text note = new Text("\nNote: ");
-        note.setStyle("-fx-font-weight: bold;");
-        Text note1 = new Text("The file must be an ");
-        Text note2 = new Text("Excel File.");
-        note2.setStyle("-fx-font-weight: bold;");
-
-        mainController.menuText9.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
-                num2,menu21,
-                num3,menu31,menu32,
-                num4,menu41,menu42,
-                num5, menu51,
-                note,note1,note2);
-        mainController.menuText9.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
     public void updateManualMenu() {
-        howToAddProduct();
-        howToEditTheExistingProduct();
-        howToDisableAndEnableProducts();
-        howToDeleteProduct();
         howToMakeOrder();
         howToAddCustomerName();
         howToUsePaymentMethod();
-        howToManuallyTransferLocalDatabase();
-        howToExportMenu();
-        howToImportMenu();
     }
 
     //ORDER QUEUE
@@ -2425,8 +2009,6 @@ public class SettingsModel {
                 """);
         order4.setStyle("-fx-font-weight: bold;");
 
-        Text order5 = new Text("Other features:");
-
         Text order6 = new Text("\n\nSORT DATE");
         order6.setStyle("-fx-font-weight: bold;");
         Text order7 = new Text("\nIf you want to sort the date of your customer's transactions, just click ");
@@ -2437,10 +2019,8 @@ public class SettingsModel {
                 NOW
                 TODAY
                 THIS WEEK
-                THIS MONTH
-                THIS YEAR\s
-                ALL TIME
-
+                THIS MONTH\s
+                THIS YEAR
                 """);
         order10.setStyle("-fx-font-weight: bold;");
 
@@ -2464,16 +2044,515 @@ public class SettingsModel {
         order20.setStyle("-fx-font-weight: bold;");
         Text order21 = new Text("button it will delete the records.");
 
-        mainController.orderHistoryText1.getChildren().addAll(order1,order2,order3,order4,order5,order6,order7,order8,order9,order10,order11,order12,order13,order14,order15,order16,order17,order18,order19,order20,order21);
+        mainController.orderHistoryText1.getChildren().addAll(order1,order2,order3,order4,order6,order7,order8,order9,order10,order11,order12,order13,order14,order15,order16,order17,order18,order19,order20,order21);
         mainController.orderHistoryText1.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void updateAccountSettings(){
+        Text account1 = new Text("NOTE: ");
+        Text account2 = new Text("This feature is only available for the admin.");
+
+        mainController.accountText1.getChildren().addAll(account1,account2);
+        mainController.accountText1.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 15 0 15 0;");
+        account1.setStyle("-fx-font-weight: bold; -fx-font-size: 25;");
+        account2.setStyle("-fx-font-size: 25;");
+
+        Text account21 = new Text("1. Click the edit account details button.\n\n");
+        Text account22 = new Text("2. Fill up your new contact info and then your new password and do the same in the confirm password.\n\n");
+        Text account23 = new Text("3. After filling up your new password click finish editing.\n\n");
+        Text account24 = new Text("4. For security reasons type in your old password and click done.");
+
+        mainController.accountText2.getChildren().addAll(account21,account22,account23,account24);
+        mainController.accountText2.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+
+        Text account31 = new Text("1. Click the edit security questions button.\n\n");
+        Text account32 = new Text("2. Fill up your new answer in one of the questions in the text field.\n\n");
+        Text account33 = new Text("3. After filling up your new password click the finish editing.\n\n");
+        Text account34 = new Text("4. For security reasons type in your current password and click done.");
+
+        mainController.accountText3.getChildren().addAll(account31,account32,account33,account34);
+        mainController.accountText3.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+
+        Text account41 = new Text("1. click the edit user’s button.\n\n");
+        Text account42 = new Text("2. click the dropdown button in the name and select Add user.\n\n");
+        Text account43 = new Text("3. fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
+        Text account44 = new Text("4. after filling up the information click finish editing.\n\n");
+        Text account45 = new Text("5. for security reasons type in your current password and click done.");
+
+        mainController.accountText4.getChildren().addAll(account41,account42,account43,account44,account45);
+        mainController.accountText4.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+    }
+
+    public void updateAppearanceSettings() {
+        Text app1 = new Text("1. Go to settings and click Appearance.\n\n");
+        Text app2 = new Text("2. Under Display Choose one of the background themes such as light, dark, beige, blue, cream, or green.");
+
+        mainController.appearanceText1.getChildren().addAll(app1,app2);
+        mainController.appearanceText1.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+
+        Text app21 = new Text("1. Go to settings and click Appearance.\n\n");
+        Text app22 = new Text("2. Under notification and guide message click the check box if you want to hide it.");
+
+        mainController.appearanceText2.getChildren().addAll(app21,app22);
+        mainController.appearanceText2.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
+    }
+
+
+    public void howToAddProduct(){
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Click ");
+        Text menu12 = new Text("Add Products to Get Started");
+        menu12.setStyle("-fx-underline: true; -fx-fill: blue;");
+        Text menu13 = new Text(". It only appears on the menu page if you don't have any products added. \nOr go to ");
+        Text menu14 = new Text('"' + "Settings" + '"');
+        menu14.setStyle("-fx-font-weight: bold;");
+        Text menu15 = new Text(" and click ");
+        Text menu16 = new Text('"' + "Edit Products" + '"');
+        menu16.setStyle("-fx-font-weight: bold;");
+        Text menu17 = new Text(".");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("Click the ");
+        Text menu22 = new Text('"' + "Add Product" + '"');
+        menu22.setStyle("-fx-font-weight: bold;");
+        Text menu23 = new Text(" button below.");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Choose which category the product belongs to.");
+
+        Text note = new Text("\nNote: ");
+        note.setStyle("-fx-font-weight: bold;");
+        Text note1 = new Text("You cannot proceed to add ");
+        Text note2 = new Text("Name, Description, Price, and Photo ");
+        note2.setStyle("-fx-font-weight: bold;");
+        Text note3 = new Text("of the product if you don’t choose which category the product belongs to.");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("Add the ");
+        Text menu42 = new Text("Name, Description, Price, and Photo ");
+        menu42.setStyle("-fx-font-weight: bold");
+        Text menu43 = new Text("of the product.");
+
+        Text num5 = new Text("\n\n5. ");
+        Text menu51 = new Text("Add Sizes ");
+        menu51.setStyle("-fx-font-weight: bold;");
+        Text menu52 = new Text("(Milk Tea/Coolers), ");
+        Text menu53 = new Text("Liquid Base ");
+        menu53.setStyle("-fx-font-weight: bold;");
+        Text menu54 = new Text("(Milk Tea/Coolers), ");
+        Text menu55 = new Text("Add-ons ");
+        menu55.setStyle("-fx-font-weight: bold;");
+        Text menu56 = new Text("(Milk Tea/Coolers), ");
+        Text menu57 = new Text("Temperature ");
+        menu57.setStyle("-fx-font-weight: bold;");
+        Text menu58 = new Text("(Coffee), ");
+        Text menu59 = new Text("and their ");
+        Text menu510 = new Text("Price ");
+        menu510.setStyle("-fx-font-weight: bold;");
+        Text menu511 = new Text("(All Categories), ");
+
+        Text num6 = new Text("\n\n6. ");
+        Text menu61 = new Text("Click ");
+        Text menu62 = new Text('"' + "ADD" + '"');
+        menu62.setStyle("-fx-font-weight: bold;");
+        Text menu63 = new Text(" button to add product.");
+
+        mainController.editProductsText1.getChildren().addAll(num1,menu11,menu12,menu13,menu14,menu15,menu16,menu17,
+                num2,menu21,menu22,menu23,
+                num3,menu31,
+                note, note1,note2,note3,
+                num4,menu41,menu42,menu43,
+                num5,menu51,menu52,menu53,menu54,menu55,menu56,menu57,menu58,menu59,menu510,menu511,
+                num6,menu61,menu62,menu63);
+        mainController.editProductsText1.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void howToEditTheExistingProduct() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Go to ");
+        Text menu12 = new Text("“Settings” ");
+        menu12.setStyle("-fx-font-weight: bold;");
+        Text menu13 = new Text("and click ");
+        Text menu14 = new Text("“Edit Products”.");
+        menu14.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("On the table, ");
+        Text menu22 = new Text("double-click ");
+        menu22.setStyle("-fx-font-weight: bold;");
+        Text menu23 = new Text("the product you want to edit.");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("When you are done editing the product, click the ");
+        Text menu32 = new Text("“EDIT” ");
+        menu32.setStyle("-fx-font-weight: bold;");
+        Text menu33 = new Text("button.");
+
+        mainController.editProductsText2.getChildren().addAll(num1, menu11, menu12, menu13,menu14,
+                num2,menu21,menu22,menu23,
+                num3,menu31, menu32,menu33);
+        mainController.editProductsText2.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void howToDisableAndEnableProducts() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Go to ");
+        Text menu12 = new Text("“Settings” ");
+        menu12.setStyle("-fx-font-weight: bold;");
+        Text menu13 = new Text("and click ");
+        Text menu14 = new Text("“Edit Products”.");
+        menu14.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("  On the table, there is a Box on the column ");
+        Text menu22 = new Text("“Available”.");
+        menu22.setStyle("-fx-font-weight: bold;");
+
+        Text menu31 = new Text("\n\n• Select the box of the product that you want to  ");
+        Text menu32 = new Text("DISABLE.");
+        menu32.setStyle("-fx-font-weight: bold;");
+        Text menu33 = new Text("\n• If you want to ");
+        Text menu34 = new Text("ENABLE ");
+        menu34.setStyle("-fx-font-weight: bold;");
+        Text menu35 = new Text("it, unselect the box of the product disabled.");
+
+        mainController.editProductsText3.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
+                num2,menu21,menu22,
+                menu31,menu32,menu33,menu34,menu35);
+        mainController.editProductsText3.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void howToDeleteProduct(){
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Go to ");
+        Text menu12 = new Text("“Settings” ");
+        menu12.setStyle("-fx-font-weight: bold;");
+        Text menu13 = new Text("and click ");
+        Text menu14 = new Text("“Edit Products”.");
+        menu14.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("Select the product/s you want to delete.");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Click the ");
+        Text menu32 = new Text("“Delete” ");
+        menu32.setStyle("-fx-font-weight: bold;");
+        Text menu33 = new Text("button on the bottom left of the panel.");
+
+        mainController.editProductsText4.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
+                num2,menu21,
+                num3,menu31,menu32,menu33);
+        mainController.editProductsText4.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+
+    private void windows() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        num1.setTextAlignment(TextAlignment.LEFT);
+        Text menu11 = new Text("Press ");
+        menu11.setTextAlignment(TextAlignment.LEFT);
+        Text menu12 = new Text("(   Windows Key");
+        menu12.setStyle("-fx-font-weight: bold;");
+        menu12.setTextAlignment(TextAlignment.LEFT);
+        ImageView windowsKey = new ImageView();
+        InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/windows-key-logo.png");
+        Image windowsLogo = new Image(Objects.requireNonNull(inputStream));
+        windowsKey.setImage(windowsLogo);
+        Text menu13 = new Text("+   R   ).");
+        menu13.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("Run ");
+        menu21.setStyle("-fx-font-weight: bold;");
+        Text menu22 = new Text("dialog box will open, then type ");
+        Text menu23 = new Text("“%APPDATA%”.");
+        menu23.setStyle("-fx-font-weight: bold;");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Find the folder named ");
+        Text menu32 = new Text("“POS_Tea”.");
+        menu32.setStyle("-fx-font-weight: bold;");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("Copy the ");
+        Text menu42 = new Text("POS_Tea ");
+        menu42.setStyle("-fx-font-weight: bold;");
+        Text menu43 = new Text("folder to your ");
+        Text menu44 = new Text("flashdrive.");
+        menu44.setStyle("-fx-font-weight: bold;");
+
+        Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
+        Text menu51 = new Text("If you are going to transfer the ");
+        Text menu52 = new Text("POS_Tea ");
+        menu52.setStyle("-fx-font-weight: bold;");
+        Text menu53 = new Text("folder to different device, repeat the ");
+        Text menu54 = new Text("step 1.");
+        menu54.setStyle("-fx-font-weight: bold;");
+
+        Text num6 = new Text("\n\n6. ");
+        num6.setStyle("-fx-font-weight: bold;");
+        Text menu61 = new Text("Copy the ");
+        Text menu62 = new Text("POS_Tea ");
+        menu62.setStyle("-fx-font-weight: bold;");
+        Text menu63 = new Text("folder to your ");
+        Text menu64 = new Text("flashdrive ");
+        menu64.setStyle("-fx-font-weight: bold;");
+        Text menu65 = new Text("the then paste it.");
+
+        mainController.menuHbox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13);
+        mainController.menuHbox1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
+        mainController.menuHbox1.setAlignment(Pos.CENTER_LEFT);
+        mainController.editProductsText10.getChildren().addAll(num2,menu21,menu22,menu23,
+                num3,menu31,menu32,
+                num4,menu41,menu42,menu43,menu44,
+                num5,menu51,menu52,menu53,menu54,
+                num6,menu61,menu62,menu63,menu64,menu65);
+        mainController.editProductsText10.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void macOS() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Press ");
+        Text menu12 = new Text("(    Command + Spacebar   ).");
+        menu12.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("Spotlight Search ");
+        menu21.setStyle("-fx-font-weight: bold;");
+        Text menu22 = new Text("will open, then type ");
+        Text menu23 = new Text("“~/Library/Application Support/”.");
+        menu23.setStyle("-fx-font-weight: bold;");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Find the folder named ");
+        Text menu32 = new Text("“POS_Tea”.");
+        menu32.setStyle("-fx-font-weight: bold;");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("Copy the ");
+        Text menu42 = new Text("POS_Tea  ");
+        menu42.setStyle("-fx-font-weight: bold;");
+        Text menu43 = new Text("folder to your ");
+        Text menu44 = new Text("flashdrive.");
+        menu44.setStyle("-fx-font-weight: bold;");
+
+        Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
+        Text menu51 = new Text("If you are going to transfer the ");
+        Text menu52 = new Text("POS_Tea ");
+        menu52.setStyle("-fx-font-weight: bold;");
+        Text menu53 = new Text("folder to different device, repeat the ");
+        Text menu54 = new Text("step 1.");
+        menu54.setStyle("-fx-font-weight: bold;");
+
+        Text num6 = new Text("\n\n6. ");
+        num6.setStyle("-fx-font-weight: bold;");
+        Text menu61 = new Text("Copy the ");
+        Text menu62 = new Text("POS_Tea ");
+        menu62.setStyle("-fx-font-weight: bold;");
+        Text menu63 = new Text("folder to your ");
+        Text menu64 = new Text("flashdrive ");
+        menu64.setStyle("-fx-font-weight: bold;");
+        Text menu65 = new Text("the then paste it.");
+
+        mainController.editProductsText11.getChildren().addAll(num1,menu11,menu12,
+                num2,menu21,menu22,menu23,
+                num3,menu31,menu32,
+                num4,menu41,menu42,menu43,menu44,
+                num5,menu51,menu52,menu53,menu54,
+                num6,menu61,menu62,menu63,menu64,menu65);
+        mainController.editProductsText11.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
+    }
+
+    public void linux() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Press ");
+        Text menu12 = new Text("(    Alt + F2   ).");
+        menu12.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("Run Application ");
+        menu21.setStyle("-fx-font-weight: bold;");
+        Text menu22 = new Text("will open, then type ");
+        Text menu23 = new Text("“~/.config/”.");
+        menu23.setStyle("-fx-font-weight: bold;");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Find the folder named ");
+        Text menu32 = new Text("“POS_Tea”.");
+        menu32.setStyle("-fx-font-weight: bold;");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("Copy the ");
+        Text menu42 = new Text("POS_Tea ");
+        menu42.setStyle("-fx-font-weight: bold;");
+        Text menu43 = new Text("folder to your ");
+        Text menu44 = new Text("flashdrive.");
+        menu44.setStyle("-fx-font-weight: bold;");
+
+        Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
+        Text menu51 = new Text("If you are going to transfer the ");
+        Text menu52 = new Text("POS_Tea ");
+        menu52.setStyle("-fx-font-weight: bold;");
+        Text menu53 = new Text("folder to different device, repeat the ");
+        Text menu54 = new Text("step 1.");
+        menu54.setStyle("-fx-font-weight: bold;");
+
+        Text num6 = new Text("\n\n6. ");
+        num6.setStyle("-fx-font-weight: bold;");
+        Text menu61 = new Text("Copy the ");
+        Text menu62 = new Text("POS_Tea ");
+        menu62.setStyle("-fx-font-weight: bold;");
+        Text menu63 = new Text("folder to your ");
+        Text menu64 = new Text("flashdrive ");
+        menu64.setStyle("-fx-font-weight: bold;");
+        Text menu65 = new Text("the then paste it.");
+
+        mainController.editProductsText12.getChildren().addAll(num1,menu11,menu12,
+                num2,menu21,menu22,menu23,
+                num3,menu31,menu32,
+                num4,menu41,menu42,menu43,menu44,
+                num5,menu51,menu52,menu53,menu54,
+                num6,menu61,menu62,menu63,menu64,menu65);
+        mainController.editProductsText12.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
+    }
+
+    public void howToManuallyTransferLocalDatabase() {
+        windows();
+        macOS();
+        linux();
+    }
+
+    public void howToExportMenu() {
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Go to ");
+        Text menu12 = new Text("“Settings” ");
+        menu12.setStyle("-fx-font-weight: bold;");
+        Text menu13 = new Text("and click ");
+        Text menu14 = new Text("“Edit Products”.");
+        menu14.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("On the left panel, there is a drop bar.");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Click the drop bar and select ");
+        Text menu32 = new Text("“Export Menu”.");
+        menu32.setStyle("-fx-font-weight: bold;");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("File Explorer ");
+        menu41.setStyle("-fx-font-weight: bold;");
+        Text menu42 = new Text("will pop-up.");
+
+        Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
+        Text menu51 = new Text("Save the file.");
+
+        mainController.editProductsText8.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
+                num2,menu21,
+                num3,menu31,menu32,
+                num4,menu41,menu42,
+                num5, menu51);
+        mainController.editProductsText8.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void howToImportMenu(){
+        Text num1 = new Text("1. ");
+        num1.setStyle("-fx-font-weight: bold;");
+        Text menu11 = new Text("Go to ");
+        Text menu12 = new Text("“Settings” ");
+        menu12.setStyle("-fx-font-weight: bold;");
+        Text menu13 = new Text("and click ");
+        Text menu14 = new Text("“Edit Products”.");
+        menu14.setStyle("-fx-font-weight: bold;");
+
+        Text num2 = new Text("\n\n2. ");
+        num2.setStyle("-fx-font-weight: bold;");
+        Text menu21 = new Text("On the left panel, there is a drop bar.");
+
+        Text num3 = new Text("\n\n3. ");
+        num3.setStyle("-fx-font-weight: bold;");
+        Text menu31 = new Text("Click the drop bar and select ");
+        Text menu32 = new Text("“Import Menu”.");
+        menu32.setStyle("-fx-font-weight: bold;");
+
+        Text num4 = new Text("\n\n4. ");
+        num4.setStyle("-fx-font-weight: bold;");
+        Text menu41 = new Text("File Explorer ");
+        menu41.setStyle("-fx-font-weight: bold;");
+        Text menu42 = new Text("wil pop-up.");
+
+        Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
+        Text menu51 = new Text("Find the file and select the file to import.");
+
+        Text note = new Text("\nNote: ");
+        note.setStyle("-fx-font-weight: bold;");
+        Text note1 = new Text("The file must be an ");
+        Text note2 = new Text("Excel File.");
+        note2.setStyle("-fx-font-weight: bold;");
+
+        mainController.editProductsText9.getChildren().addAll(num1,menu11,menu12,menu13,menu14,
+                num2,menu21,
+                num3,menu31,menu32,
+                num4,menu41,menu42,
+                num5, menu51,
+                note,note1,note2);
+        mainController.editProductsText9.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    public void updateSettings() {
+        updateAccountSettings();
+        updateAppearanceSettings();
+        howToAddProduct();
+        howToEditTheExistingProduct();
+        howToDisableAndEnableProducts();
+        howToDeleteProduct();
+        howToManuallyTransferLocalDatabase();
+        howToExportMenu();
+        howToImportMenu();
     }
 
     //UPDATE MANUAL
 
     public void updateManual(){
+        updateInstallationGuide();
         updateManualDashboard();
         updateManualMenu();
         updateManualOrderQueue();
         updateManualOrderHistory();
+        updateSettings();
     }
 }

@@ -22,6 +22,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
@@ -755,7 +756,7 @@
             <AnchorPane layoutX="84.0" layoutY="35.0" prefHeight="937.0" prefWidth="1676.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="937.0" stroke="BLACK" strokeType="INSIDE" width="1676.0" />
-                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" visible="false">
+                  <AnchorPane fx:id="anchorPaneSettingsAccount" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0">
                      <children>
                         <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1288,7 +1289,7 @@
                            </children>
                         </AnchorPane>
                      </children></AnchorPane>
-                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" style="-fx-border-color: black;">
+                  <AnchorPane id="settingbackground1" fx:id="anchorPaneSettingsDisplay" layoutX="354.0" prefHeight="937.0" prefWidth="1322.0" style="-fx-border-color: black;" visible="false">
                      <children>
                         <AnchorPane layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
@@ -1556,64 +1557,38 @@
                                                 </AnchorPane>
                                                 <Accordion prefHeight="288.0" prefWidth="1200.0">
                                                    <panes>
-                                                      <TitledPane fx:id="menu" text="MENU">
+                                                      <TitledPane text="INSTALLATION GUIDE">
                                                          <content>
-                                                            <FlowPane fx:id="flowPaneMenuManual" alignment="CENTER">
+                                                            <FlowPane alignment="TOP_CENTER">
                                                                <children>
-                                                                  <Accordion fx:id="contentAccordionMenu" prefHeight="268.0" prefWidth="1100.0">
+                                                                  <AnchorPane fx:id="guideContent1" prefHeight="10.0" prefWidth="1131.0">
+                                                                     <children>
+                                                                        <TextFlow fx:id="guideText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane layoutX="10.0" layoutY="10.0" text="DASHBOARD">
+                                                         <content>
+                                                            <FlowPane alignment="TOP_CENTER">
+                                                               <children>
+                                                                  <AnchorPane fx:id="dashboardContent1" prefHeight="10.0" prefWidth="1131.0">
+                                                                     <children>
+                                                                        <TextFlow fx:id="dashboardText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                     </children>
+                                                                  </AnchorPane>
+                                                               </children>
+                                                            </FlowPane>
+                                                         </content>
+                                                      </TitledPane>
+                                                      <TitledPane fx:id="menu" prefHeight="10.0" text="MENU">
+                                                         <content>
+                                                            <FlowPane fx:id="flowPaneMenuManual" alignment="CENTER" prefHeight="10.0">
+                                                               <children>
+                                                                  <Accordion fx:id="contentAccordionMenu" prefHeight="10.0" prefWidth="1100.0">
                                                                      <panes>
-                                                                        <TitledPane prefHeight="492.0" prefWidth="1015.0" text="How to Add Product?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent1" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane prefHeight="229.0" prefWidth="948.0" text="How to edit the existing product?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER" prefHeight="200.0">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent2" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane text="How to disable the product if it is not available? and how to enable the product if it is disabled?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent3" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText3" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane layoutX="15.0" layoutY="155.0" text="How to Delete Product?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent4" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText4" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
                                                                         <TitledPane layoutX="15.0" layoutY="225.0" text="How to make an Order?">
                                                                            <content>
                                                                               <FlowPane alignment="TOP_CENTER">
@@ -1647,88 +1622,6 @@
                                                                                     <AnchorPane fx:id="manualContent7" prefHeight="10.0" prefWidth="1003.0">
                                                                                        <children>
                                                                                           <TextFlow fx:id="menuText7" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane layoutX="10.0" layoutY="498.0" text="How to manually transfer Local Database?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <Accordion fx:id="winMacLin">
-                                                                                       <panes>
-                                                                                          <TitledPane text="Windows">
-                                                                                             <content>
-                                                                                                <FlowPane alignment="TOP_CENTER">
-                                                                                                   <children>
-                                                                                                      <AnchorPane fx:id="windowsContent" prefHeight="10.0" prefWidth="1003.0">
-                                                                                                         <children>
-                                                                                                            <TextFlow fx:id="menuText101" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0">
-                                                                                                               <children>
-                                                                                                                  <HBox fx:id="menuHBox1" prefHeight="1.0" prefWidth="200.0" />
-                                                                                                               </children>
-                                                                                                            </TextFlow>
-                                                                                                            <TextFlow fx:id="menuText10" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                                         </children>
-                                                                                                      </AnchorPane>
-                                                                                                   </children>
-                                                                                                </FlowPane>
-                                                                                             </content>
-                                                                                          </TitledPane>
-                                                                                          <TitledPane layoutX="10.0" layoutY="10.0" text="macOS">
-                                                                                             <content>
-                                                                                                <FlowPane alignment="TOP_CENTER">
-                                                                                                   <children>
-                                                                                                      <AnchorPane fx:id="macosContent" prefHeight="10.0" prefWidth="1003.0">
-                                                                                                         <children>
-                                                                                                            <TextFlow fx:id="menuText11" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                                         </children>
-                                                                                                      </AnchorPane>
-                                                                                                   </children>
-                                                                                                </FlowPane>
-                                                                                             </content>
-                                                                                          </TitledPane>
-                                                                                          <TitledPane layoutX="10.0" layoutY="71.0" text="Linux">
-                                                                                             <content>
-                                                                                                <FlowPane alignment="TOP_CENTER">
-                                                                                                   <children>
-                                                                                                      <AnchorPane fx:id="linuxContent" prefHeight="10.0" prefWidth="1003.0">
-                                                                                                         <children>
-                                                                                                            <TextFlow fx:id="menuText12" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                                         </children>
-                                                                                                      </AnchorPane>
-                                                                                                   </children>
-                                                                                                </FlowPane>
-                                                                                             </content>
-                                                                                          </TitledPane>
-                                                                                       </panes>
-                                                                                    </Accordion>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane layoutX="15.0" layoutY="381.0" text="How to Export Menu?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent8" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText8" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
-                                                                        <TitledPane layoutX="15.0" layoutY="673.0" text="How to Import Menu?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent9" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText9" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
                                                                                        </children>
                                                                                     </AnchorPane>
                                                                                  </children>
@@ -1783,15 +1676,258 @@
                                                             </FlowPane>
                                                          </content>
                                                       </TitledPane>
-                                                      <TitledPane layoutX="10.0" layoutY="10.0" text="DASHBOARD">
+                                                      <TitledPane text="SETTINGS">
                                                          <content>
                                                             <FlowPane alignment="TOP_CENTER">
                                                                <children>
-                                                                  <AnchorPane fx:id="dashboardContent1" prefHeight="10.0" prefWidth="1131.0">
-                                                                     <children>
-                                                                        <TextFlow fx:id="dashboardText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                     </children>
-                                                                  </AnchorPane>
+                                                                  <Accordion fx:id="contentAccordionSettings" prefHeight="10.0" prefWidth="1100.0">
+                                                                     <panes>
+                                                                        <TitledPane prefHeight="10.0" prefWidth="1015.0" text="ACCOUNT">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="accountContent1" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <VBox prefHeight="10.0" prefWidth="100.0">
+                                                                                             <children>
+                                                                                                <TextFlow fx:id="accountText1" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                <Accordion fx:id="contentAccordionAccount" prefHeight="10.0" prefWidth="1100.0">
+                                                                                                   <panes>
+                                                                                                      <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to change the details in your account?">
+                                                                                                         <content>
+                                                                                                            <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                               <children>
+                                                                                                                  <AnchorPane fx:id="accountContent2" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                     <children>
+                                                                                                                        <TextFlow fx:id="accountText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                     </children>
+                                                                                                                  </AnchorPane>
+                                                                                                               </children>
+                                                                                                            </FlowPane>
+                                                                                                         </content>
+                                                                                                      </TitledPane>
+                                                                                                      <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to change the security password?">
+                                                                                                         <content>
+                                                                                                            <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                               <children>
+                                                                                                                  <AnchorPane fx:id="accountContent3" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                     <children>
+                                                                                                                        <TextFlow fx:id="accountText3" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                     </children>
+                                                                                                                  </AnchorPane>
+                                                                                                               </children>
+                                                                                                            </FlowPane>
+                                                                                                         </content>
+                                                                                                      </TitledPane>
+                                                                                                      <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to add a new user?">
+                                                                                                         <content>
+                                                                                                            <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                               <children>
+                                                                                                                  <AnchorPane fx:id="accountContent4" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                     <children>
+                                                                                                                        <TextFlow fx:id="accountText4" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                     </children>
+                                                                                                                  </AnchorPane>
+                                                                                                               </children>
+                                                                                                            </FlowPane>
+                                                                                                         </content>
+                                                                                                      </TitledPane>
+                                                                                                   </panes>
+                                                                                                </Accordion>
+                                                                                             </children>
+                                                                                          </VBox>
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane prefHeight="229.0" prefWidth="948.0" text="APPEARANCE">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER" prefHeight="200.0">
+                                                                                 <children>
+                                                                                    <Accordion fx:id="contentAccordionAppearance" prefHeight="10.0" prefWidth="1100.0">
+                                                                                       <panes>
+                                                                                          <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to change the theme?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="appearanceContent1" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="appearanceText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to hide notifications and Guide messages?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="appearanceContent2" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="appearanceText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                       </panes>
+                                                                                    </Accordion>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane text="EDIT PRODUCTS">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <Accordion fx:id="contentAccordionEditProducts" prefHeight="10.0" prefWidth="1100.0">
+                                                                                       <panes>
+                                                                                          <TitledPane prefHeight="492.0" prefWidth="1015.0" text="How to Add Product?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent1" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane prefHeight="229.0" prefWidth="948.0" text="How to edit the existing product?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER" prefHeight="200.0">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent2" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane layoutX="10.0" layoutY="498.0" text="How to manually transfer Local Database?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <Accordion fx:id="winMacLin">
+                                                                                                         <panes>
+                                                                                                            <TitledPane text="Windows">
+                                                                                                               <content>
+                                                                                                                  <FlowPane alignment="TOP_CENTER">
+                                                                                                                     <children>
+                                                                                                                        <AnchorPane fx:id="windowsContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                           <children>
+                                                                                                                              <TextFlow fx:id="editProductsText101" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0">
+                                                                                                                                 <children>
+                                                                                                                                    <HBox fx:id="menuHbox1" prefHeight="1.0" prefWidth="200.0" />
+                                                                                                                                 </children>
+                                                                                                                              </TextFlow>
+                                                                                                                              <TextFlow fx:id="editProductsText10" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                           </children>
+                                                                                                                        </AnchorPane>
+                                                                                                                     </children>
+                                                                                                                  </FlowPane>
+                                                                                                               </content>
+                                                                                                            </TitledPane>
+                                                                                                            <TitledPane layoutX="10.0" layoutY="10.0" text="macOS">
+                                                                                                               <content>
+                                                                                                                  <FlowPane alignment="TOP_CENTER">
+                                                                                                                     <children>
+                                                                                                                        <AnchorPane fx:id="macosContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                           <children>
+                                                                                                                              <TextFlow fx:id="editProductsText11" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                           </children>
+                                                                                                                        </AnchorPane>
+                                                                                                                     </children>
+                                                                                                                  </FlowPane>
+                                                                                                               </content>
+                                                                                                            </TitledPane>
+                                                                                                            <TitledPane layoutX="10.0" layoutY="71.0" text="Linux">
+                                                                                                               <content>
+                                                                                                                  <FlowPane alignment="TOP_CENTER">
+                                                                                                                     <children>
+                                                                                                                        <AnchorPane fx:id="linuxContent" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                                           <children>
+                                                                                                                              <TextFlow fx:id="editProductsText12" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                                           </children>
+                                                                                                                        </AnchorPane>
+                                                                                                                     </children>
+                                                                                                                  </FlowPane>
+                                                                                                               </content>
+                                                                                                            </TitledPane>
+                                                                                                         </panes>
+                                                                                                      </Accordion>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane layoutX="15.0" layoutY="381.0" text="How to Export Menu?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent8" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText8" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane layoutX="15.0" layoutY="673.0" text="How to Import Menu?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent9" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText9" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane text="How to enable/disable the product if it is not available/unavailable?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent3" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText3" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                          <TitledPane text="How to Delete Product?">
+                                                                                             <content>
+                                                                                                <FlowPane alignment="TOP_CENTER">
+                                                                                                   <children>
+                                                                                                      <AnchorPane fx:id="editProductsContent4" prefHeight="10.0" prefWidth="1003.0">
+                                                                                                         <children>
+                                                                                                            <TextFlow fx:id="editProductsText4" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                                         </children>
+                                                                                                      </AnchorPane>
+                                                                                                   </children>
+                                                                                                </FlowPane>
+                                                                                             </content>
+                                                                                          </TitledPane>
+                                                                                       </panes>
+                                                                                    </Accordion>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                     </panes>
+                                                                  </Accordion>
                                                                </children>
                                                             </FlowPane>
                                                          </content>
