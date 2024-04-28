@@ -142,6 +142,7 @@ public class MainModel {
         mainController.anchorPaneSettingsEditProductsInner.setDisable(!userName.contains("Admin"));
         mainController.importExportComboBox.setDisable(!userName.contains("Admin"));
         mainController.btnOrderHistoryDelete.setVisible(userName.contains("Admin"));
+        Platform.runLater(() -> mainController.comboBoxLeftPanelUsers.getSelectionModel().clearSelection());
     }
 
     public void populateFullNamesObservableList() {

@@ -196,6 +196,7 @@ public class MainController implements Initializable {
      * Main
      */
 
+    public int leftPanelCounter = 1;
     public FXMLLoader loader;
     public Parent root;
     public Stage newStage;
@@ -333,7 +334,13 @@ public class MainController implements Initializable {
 
     @FXML
     void comboBoxLeftPanelUsersOnAction() {
-        mainModel.comboBoxLeftPanelUsersOnAction();
+        leftPanelCounter++;
+
+        if (leftPanelCounter % 2 == 0) {
+            mainModel.comboBoxLeftPanelUsersOnAction();
+        }
+
+        System.out.println(leftPanelCounter + " line 343");
     }
 
     /**

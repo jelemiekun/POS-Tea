@@ -193,15 +193,24 @@ public class AskForPasswordController implements Initializable {
                     labelIncorrect.setVisible(true);
                 }
             } else {
-                String thisUserPassword = accountReference.getUserPasswords().get(userIndex);
-                String inputPassword = passwordField.getText().trim();
 
-                if (inputPassword.equals(thisUserPassword)) {
+                if (passwordField.getText().equals(accountReference.getUserPasswords().get(userIndex))) {
+                    accountEditingProceed = true;
                     userSelectedSuccess = true;
                     closeThisStage();
                 } else {
                     labelIncorrect.setText("Incorrect password!");
                     labelIncorrect.setVisible(true);
+                }
+
+                attempts++;
+
+                if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                    userSelectedSuccess = false;
+                    maxAttemptLimitReached = true;
+                    setErrorChangingPasswordMaximumAttemptReached();
+                    openPrompt();
+                    closeThisStage();
                 }
             }
         }
