@@ -80,7 +80,6 @@ public class OrderListModel {
     private void addOrderToList(Order order) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefSize(350, 500);
-        System.out.println("line 88: " + order.getProductOrderObservableList().isEmpty());
 
         Rectangle rectangle = new Rectangle(350, 500);
         rectangle.setFill(Color.WHITE);

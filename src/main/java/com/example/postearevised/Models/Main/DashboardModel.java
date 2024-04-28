@@ -369,10 +369,8 @@ public class DashboardModel {
                 .limit(10)
                 .toList();
 
-        System.out.println("Top 10 best-selling products:");
         for (int i = 0; i < sortedEntries.size(); i++) {
             ProductOrder product = sortedEntries.get(i);
-            System.out.println((i + 1) + ": " + product.getProductName() + " - Total Quantity: " + product.getQuantity() + ": " + product.getImagePath());
             topTenProducts.add(product);
         }
     }

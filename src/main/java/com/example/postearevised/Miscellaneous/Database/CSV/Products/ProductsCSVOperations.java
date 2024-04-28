@@ -351,7 +351,6 @@ public class ProductsCSVOperations {
             reader.close();
             inputFile.delete();
             tempFile.renameTo(inputFile);
-            System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();
@@ -412,7 +411,6 @@ public class ProductsCSVOperations {
                 return false;
             }
 
-            System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();

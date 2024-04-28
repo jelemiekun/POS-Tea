@@ -16,7 +16,7 @@ public class Resolution {
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setWidth(screenResolution[0]);
         (isMain ? mainStage : (isLogout ? loginFromMainSceneStage : loginRegisterStage)).setHeight(screenResolution[1]);
         setStageStyle(isLogout);
-        System.out.println(screenResolution[0] + "x" + screenResolution[1]);
+        System.out.println("Screen resolution: " + screenResolution[0] + "x" + screenResolution[1]);
     }
 
     public static void setStageStyle(boolean isLogout) {

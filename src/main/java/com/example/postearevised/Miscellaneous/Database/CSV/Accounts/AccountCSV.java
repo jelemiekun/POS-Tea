@@ -319,7 +319,6 @@ public class AccountCSV {
             reader.close();
             inputFile.delete();
             tempFile.renameTo(inputFile);
-            System.out.println("Gumagana");
             return true;
         } catch (IOException e) {
             errorMessage = e.getMessage();

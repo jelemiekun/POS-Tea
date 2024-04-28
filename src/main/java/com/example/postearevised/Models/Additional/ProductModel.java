@@ -258,7 +258,6 @@ public class ProductModel {
                                 if (setObjectAttributesUpdateProduct()) { // edit product
                                     success = true;
                                     editingProductSuccess = true;
-                                    System.out.println("gumagana line 205");
                                 } else {
                                     // AYUSIN TO, DAPAT IF ERROR, MAG REREVERT SA OLD VALUES YUNG EDITORSHOWSELECTEDPRODUCT
                                     System.out.println("Error edit product");
@@ -398,8 +397,6 @@ public class ProductModel {
                 errorMessage = e.getMessage();
                 logError(false);
             }
-        } else {
-            System.out.println("No file selected");
         }
     }
 
