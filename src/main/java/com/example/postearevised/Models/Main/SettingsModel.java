@@ -36,8 +36,8 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -1499,7 +1499,7 @@ public class SettingsModel {
             if (saveChanges(4)) {
                 setDeleteAccount2();
                 if (mainController.mainModel.openPrompt()) {
-                    if (deleteAccountFromCSV(accountReference)) {
+                    if (deleteAccountFromCSV(accountReference) && deleteAccountFolder()) {
                         setDeleteAccount3AccountDeleted();
                         mainController.mainModel.openPrompt();
                         mainController.mainModel.logOutAccountDeleted(); // LOGOUT
@@ -1514,8 +1514,34 @@ public class SettingsModel {
 
         setAccountDeletionCancelled();
         mainController.mainModel.generateNotification();
-        
+
         disableOtherAccountEditButtons(5);
+    }
+
+    private boolean deleteAccountFolder() {
+        Path folderPathToDelete = Paths.get(DIRECTORY_PATH_ACCOUNTS);
+
+        try {
+            Files.walkFileTree(folderPathToDelete, new SimpleFileVisitor<>() {
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    Files.deleteIfExists(file);
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    Files.deleteIfExists(dir);
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+
+            return true;
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            return false;
+        }
     }
 
     /**
