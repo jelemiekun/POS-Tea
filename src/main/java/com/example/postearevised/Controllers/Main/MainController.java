@@ -1276,6 +1276,8 @@ public class MainController implements Initializable {
      * Settings - System Manual
      */
     @FXML
+    public AnchorPane anchorPaneSystemManualVideo;
+    @FXML
     public AnchorPane anchorPaneSettingsSystemManualInner;
     @FXML
     public TextFlow guideText1;
@@ -1357,24 +1359,26 @@ public class MainController implements Initializable {
 
     @FXML
     public void playMedia() {
-        if (!isPlayed) {
-            InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
-            Image pause = new Image(Objects.requireNonNull(inputStream));
-            playPauseBtn.setImage(pause);
-            playPauseVid.setImage(pause);
-            playPauseVid.setVisible(true);
-            settingsModel.playPauseDuration();
-            mediaPlayer.play();
-            isPlayed = true;
-        } else {
-            InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/play.png");
-            Image play = new Image(Objects.requireNonNull(inputStream));
-            playPauseBtn.setImage(play);
-            playPauseVid.setImage(play);
-            playPauseVid.setVisible(true);
-            settingsModel.playPauseDuration();
-            mediaPlayer.pause();
-            isPlayed = false;
+        if (mediaPlayer != null) {
+            if (!isPlayed) {
+                InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
+                Image pause = new Image(Objects.requireNonNull(inputStream));
+                playPauseBtn.setImage(pause);
+                playPauseVid.setImage(pause);
+                playPauseVid.setVisible(true);
+                settingsModel.playPauseDuration();
+                mediaPlayer.play();
+                isPlayed = true;
+            } else {
+                InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/play.png");
+                Image play = new Image(Objects.requireNonNull(inputStream));
+                playPauseBtn.setImage(play);
+                playPauseVid.setImage(play);
+                playPauseVid.setVisible(true);
+                settingsModel.playPauseDuration();
+                mediaPlayer.pause();
+                isPlayed = false;
+            }
         }
     }
 

@@ -1519,7 +1519,7 @@
                                        <content>
                                           <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="835.0" prefWidth="1319.0" vgap="20.0">
                                              <children>
-                                                <AnchorPane fx:id="mediaAnchorPane" minHeight="0.0" minWidth="0.0" onMousePressed="#sliderPressed" prefHeight="734.0" prefWidth="1190.0">
+                                                <AnchorPane fx:id="anchorPaneSystemManualVideo" minHeight="0.0" minWidth="0.0" onMousePressed="#sliderPressed" prefHeight="734.0" prefWidth="1190.0">
                                                    <children>
                                                       <MediaView fx:id="mediaView" fitHeight="620.0" fitWidth="1000.0" layoutX="95.0" layoutY="30.0" nodeOrientation="INHERIT" onMouseClicked="#playMedia" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt" preserveRatio="false" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0">
                                                          <cursor>

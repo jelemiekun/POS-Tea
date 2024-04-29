@@ -1882,124 +1882,129 @@ public class SettingsModel {
         if (resourceUrl != null) {
             mainController.media = new Media(resourceUrl.toString());
             mainController.mediaPlayer = new MediaPlayer(mainController.media);
+
+            mainController.mediaView.setMediaPlayer(mainController.mediaPlayer);
+
+            mainController.volumeSlider.setVisible(false);
+
+            mainController.volumeBtn.setOnMouseEntered(event -> mainController.volumeBtn.setStyle("-fx-opacity: 0.4;"));
+            mainController.volumeBtn.setOnMouseExited(event -> mainController.volumeBtn.setStyle("-fx-opacity: 1.0;"));
+
+            mainController.volumeBtn.setOnMouseClicked(event -> {
+                if (mainController.volumeSlider.isVisible()) {
+                    FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
+                    fadeOut.setFromValue(1);
+                    fadeOut.setToValue(0);
+                    fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
+                    fadeOut.play();
+                } else {
+                    mainController.volumeSlider.setVisible(true);
+                    mainController.volumeSlider.setOpacity(0);
+                    FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
+                    fadeIn.setFromValue(0);
+                    fadeIn.setToValue(1);
+                    fadeIn.play();
+                }
+            });
+
+            mainController.volumeBtn.setOnTouchPressed(event -> {
+                if (mainController.volumeSlider.isVisible()) {
+                    FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
+                    fadeOut.setFromValue(1);
+                    fadeOut.setToValue(0);
+                    fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
+                    fadeOut.play();
+                } else {
+                    mainController.volumeSlider.setVisible(true);
+                    mainController.volumeSlider.setOpacity(0);
+                    FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
+                    fadeIn.setFromValue(0);
+                    fadeIn.setToValue(1);
+                    fadeIn.play();
+                }
+            });
+
+            mainController.volumeSlider.setMin(0);
+            mainController.volumeSlider.setMax(100);
+            mainController.volumeSlider.setValue(75);
+
+            mainController.volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+                double volumeMedia = newValue.doubleValue() / 100.0;
+                mainController.mediaPlayer.setVolume(volumeMedia);
+            });
+
+            mainController.mediaPlayer.currentTimeProperty().addListener(((ObservableValue, oldValue, newValue) -> {
+                mainController.slider.setValue(newValue.toSeconds());
+
+                int currentTimeSeconds = (int) newValue.toSeconds();
+                int currentMinutes = currentTimeSeconds / 60;
+                int currentSecs = currentTimeSeconds % 60;
+
+                int totalDurationSeconds = (int) mainController.media.getDuration().toSeconds();
+                int totalMinutes = totalDurationSeconds / 60;
+                int totalSecs = totalDurationSeconds % 60;
+
+                String formattedCurrentTime = String.format("%02d:%02d", currentMinutes, currentSecs);
+                String formattedTotalDuration = String.format("%02d:%02d", totalMinutes, totalSecs);
+
+                mainController.timeDuration.setText( formattedCurrentTime + " / " + formattedTotalDuration);
+            }));
+
+            mainController.mediaPlayer.setOnReady(() -> {
+                Duration totalDuration = mainController.media.getDuration();
+                mainController.slider.setMax(totalDuration.toSeconds());
+
+                int totalSeconds = (int) Math.round(totalDuration.toSeconds());
+                int minutes = totalSeconds / 60;
+                int secs = totalSeconds % 60;
+
+                String formattedDuration = String.format("%02d:%02d", minutes, secs);
+                mainController.timeDuration.setText("00:00 / " + formattedDuration);
+            });
+
+            mainController.mediaPlayer.setOnEndOfMedia(() -> {
+                mainController.playPauseVid.setImage(reset);
+                mainController.videoEnded = true;
+                mainController.resetBtn.setFitWidth(28);
+                mainController.resetBtn.setFitHeight(28);
+            });
+
+            mainController.mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
+                if (!mainController.mediaPlayer.getMedia().getDuration().equals(Duration.UNKNOWN) && newValue.equals(Duration.ZERO)) {
+                    mainController.videoEnded = false;
+                    mainController.playMedia();
+                    mainController.resetBtn.setFitWidth(24);
+                    mainController.resetBtn.setFitHeight(24);
+                }
+            });
+
+            mainController.slider.setOnMousePressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+            mainController.slider.setOnMouseDragged(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+            mainController.slider.setOnTouchPressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+            mainController.slider.setOnTouchMoved(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+            mainController.slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (newValue.doubleValue() != mainController.slider.getMax()) {
+                    mainController.resetBtn.setFitWidth(24);
+                    mainController.resetBtn.setFitHeight(24);
+                    mainController.videoEnded = false;
+                    InputStream inputStream3 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
+                    Image pause = new Image(Objects.requireNonNull(inputStream3));
+                    mainController.playPauseVid.setImage(pause);
+                }
+            });
         } else {
-            System.err.println("Resource not found: " + resourcePath);
+            mainController.playPauseBtn.setOpacity(0.4);
+            mainController.volumeBtn.setOpacity(0.4);
+            mainController.resetBtn.setOpacity(0.4);
+            mainController.volumeSlider.setVisible(false);
+            setSystemManualVideoNotFound();
+            mainController.mainModel.openPrompt();
+            mainController.anchorPaneSystemManualVideo.setDisable(true);
         }
-
-
-        mainController.mediaView.setMediaPlayer(mainController.mediaPlayer);
-
-        mainController.volumeSlider.setVisible(false);
-
-        mainController.volumeBtn.setOnMouseEntered(event -> mainController.volumeBtn.setStyle("-fx-opacity: 0.4;"));
-        mainController.volumeBtn.setOnMouseExited(event -> mainController.volumeBtn.setStyle("-fx-opacity: 1.0;"));
-
-        mainController.volumeBtn.setOnMouseClicked(event -> {
-            if (mainController.volumeSlider.isVisible()) {
-                FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
-                fadeOut.setFromValue(1);
-                fadeOut.setToValue(0);
-                fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
-                fadeOut.play();
-            } else {
-                mainController.volumeSlider.setVisible(true);
-                mainController.volumeSlider.setOpacity(0);
-                FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
-                fadeIn.setFromValue(0);
-                fadeIn.setToValue(1);
-                fadeIn.play();
-            }
-        });
-
-        mainController.volumeBtn.setOnTouchPressed(event -> {
-            if (mainController.volumeSlider.isVisible()) {
-                FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
-                fadeOut.setFromValue(1);
-                fadeOut.setToValue(0);
-                fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
-                fadeOut.play();
-            } else {
-                mainController.volumeSlider.setVisible(true);
-                mainController.volumeSlider.setOpacity(0);
-                FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
-                fadeIn.setFromValue(0);
-                fadeIn.setToValue(1);
-                fadeIn.play();
-            }
-        });
-
-        mainController.volumeSlider.setMin(0);
-        mainController.volumeSlider.setMax(100);
-        mainController.volumeSlider.setValue(75);
-
-        mainController.volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            double volumeMedia = newValue.doubleValue() / 100.0;
-            mainController.mediaPlayer.setVolume(volumeMedia);
-        });
-
-        mainController.mediaPlayer.currentTimeProperty().addListener(((ObservableValue, oldValue, newValue) -> {
-            mainController.slider.setValue(newValue.toSeconds());
-
-            int currentTimeSeconds = (int) newValue.toSeconds();
-            int currentMinutes = currentTimeSeconds / 60;
-            int currentSecs = currentTimeSeconds % 60;
-
-            int totalDurationSeconds = (int) mainController.media.getDuration().toSeconds();
-            int totalMinutes = totalDurationSeconds / 60;
-            int totalSecs = totalDurationSeconds % 60;
-
-            String formattedCurrentTime = String.format("%02d:%02d", currentMinutes, currentSecs);
-            String formattedTotalDuration = String.format("%02d:%02d", totalMinutes, totalSecs);
-
-            mainController.timeDuration.setText( formattedCurrentTime + " / " + formattedTotalDuration);
-        }));
-
-        mainController.mediaPlayer.setOnReady(() -> {
-            Duration totalDuration = mainController.media.getDuration();
-            mainController.slider.setMax(totalDuration.toSeconds());
-
-            int totalSeconds = (int) Math.round(totalDuration.toSeconds());
-            int minutes = totalSeconds / 60;
-            int secs = totalSeconds % 60;
-
-            String formattedDuration = String.format("%02d:%02d", minutes, secs);
-            mainController.timeDuration.setText("00:00 / " + formattedDuration);
-        });
-
-        mainController.mediaPlayer.setOnEndOfMedia(() -> {
-            mainController.playPauseVid.setImage(reset);
-            mainController.videoEnded = true;
-            mainController.resetBtn.setFitWidth(28);
-            mainController.resetBtn.setFitHeight(28);
-        });
-
-        mainController.mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
-            if (!mainController.mediaPlayer.getMedia().getDuration().equals(Duration.UNKNOWN) && newValue.equals(Duration.ZERO)) {
-                mainController.videoEnded = false;
-                mainController.playMedia();
-                mainController.resetBtn.setFitWidth(24);
-                mainController.resetBtn.setFitHeight(24);
-            }
-        });
-
-        mainController.slider.setOnMousePressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
-
-        mainController.slider.setOnMouseDragged(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
-
-        mainController.slider.setOnTouchPressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
-
-        mainController.slider.setOnTouchMoved(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
-
-        mainController.slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.doubleValue() != mainController.slider.getMax()) {
-                mainController.resetBtn.setFitWidth(24);
-                mainController.resetBtn.setFitHeight(24);
-                mainController.videoEnded = false;
-                InputStream inputStream3 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
-                Image pause = new Image(Objects.requireNonNull(inputStream3));
-                mainController.playPauseVid.setImage(pause);
-            }
-        });
 
         mainController.anchorPaneSettingsSystemManualInner.getStylesheets().clear();
         mainController.anchorPaneSettingsSystemManualInner.getStylesheets().add(Objects.requireNonNull(getClass().getResource(

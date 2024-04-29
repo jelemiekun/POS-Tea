@@ -789,6 +789,23 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setSystemManualVideoNotFound() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = EX_RED_ICON;
+        promptHeaderText = "File not found!";
+        promptContentText = "Error loading the system manual video. It may have been deleted or moved. Video disabled to prevent errors";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = NO_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = DELETE_RED_BUTTON;
+        btnLeftBoolean = false;
+        btnCenterBoolean = true;
+        btnRightBoolean = false;
+    }
+
     public static void setSystemManualPDFErrorReading() {
         setIsConfirmedToFalse();
 
