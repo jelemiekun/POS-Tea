@@ -45,6 +45,7 @@ public class DeleteHistoryController implements Initializable {
         if (selectedAnchorPane != null) {
             setDeleteRecord();
             if (deleteHistoryModel.openPrompt()) {
+                //TODO hingin password bago mag proceed
                 String yearString = ((Label) selectedAnchorPane.getChildren().get(3)).getText();
                 int year = Integer.parseInt(yearString);
                 deleteHistoryModel.deleteOrdersByYear(year);

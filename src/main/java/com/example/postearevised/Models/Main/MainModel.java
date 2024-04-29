@@ -121,7 +121,7 @@ public class MainModel {
     }
 
     public void startTour() {
-        System.out.println("Tour");
+        //TODO system tour
     }
 
     private void selectUser() {

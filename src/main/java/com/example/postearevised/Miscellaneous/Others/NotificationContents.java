@@ -10,6 +10,7 @@ public class NotificationContents {
     public static String notificationHeaderReference;
     public static String notificationContentReference;
 
+    //TODO timer loading
     public static void setLoadingTooLong() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Loading Taking Too Long";

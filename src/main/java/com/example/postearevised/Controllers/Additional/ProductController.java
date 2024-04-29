@@ -42,6 +42,8 @@ public class ProductController implements Initializable {
     public Label labelGuideMessagePleaseFillUp;
     @FXML
     public Label labelGuideMessageDescription;
+    //TODO label guide message it requires 16:9 product ratio in order for the image not to be stretched.
+    //TODO label guide message as much as possible make the product name short
     @FXML
     public AnchorPane anchorPanePhoto;
     @FXML

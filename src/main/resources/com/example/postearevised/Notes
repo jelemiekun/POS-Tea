@@ -1,42 +1,14 @@
 ------------------TO DO------------------
 
-dapat hindi mag pproceed kapag may mali sa add user
-
-hingin password if mag delete year record or mag delete product
-
 AYUSIN NILALAMAN NG SYSTEM MANUAL
-
-password strength indicator sa change pass at ayusin indicators, ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
-
-it requires 16:9 product ratio in order for the image not to be strectched.
-
-can accept long string inputs but its not recommended, if its too long, it will show as "..."
-
-as much as possible make the product name short
-
-SYSTEM TOUR
-
-CODE NG PAG PRINT NG RESIBO
 
 // SA DULO NA TO
 
 lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
 
-from executable jar file, gawing .exe yung system ( optional )
-
-ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
-
 may mag ppop up if may changes na nadetect sa directory
 
 papacheck lahat lahat ng texts sa system sa non ict-teacher
-
-dapat di gumagana editProduct if naka open csv
-
-DAPAT EDITABLE YUNG PRODUCT SA RIGHT PANEL MENU
-
-lagyan timer yung loading page, if lumagpas sa ganitong segundo, lalabas si notification
-
-DOUBLE CHECK IF NATRIM  settings acount, sa register, at sa forgot password PATI SA ACCOUNT
 
 ------------------MGA ITATANONG------------------
 
@@ -635,3 +607,13 @@ account register successful
 i inform si seller na as much as possible paki iklian ng mga names dahil li
 
 ipakita kay maam maricar kung okay sa kanya yung design sa dashboard
+
+from executable jar file, gawing .exe yung system ( optional )
+
+ISASAMA SA PROCEDURE OF INSTALLATION TO https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html
+
+DOUBLE CHECK IF NATRIM  settings acount, sa register, at sa forgot password PATI SA ACCOUNT
+
+ayusin din pag accept AT LISTENERS SA LAHAT SA SETTINGS ACCOUNT
+
+can accept long string inputs but its not recommended, if its too long, it will show as "..."

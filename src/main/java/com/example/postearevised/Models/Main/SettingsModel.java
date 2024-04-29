@@ -464,6 +464,7 @@ public class SettingsModel {
      */
 
     public void deleteSelectedProductsProcess() {
+        //TODO hingin password bago mag proceed
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
         if (selectedItemsToDelete != null && !selectedItemsToDelete.isEmpty()) {
@@ -981,6 +982,7 @@ public class SettingsModel {
      */
 
     public void setSettingsAccountPane2(boolean isShow) {
+        //TODO dapat hindi mag pproceed kapag may mali sa add user
         if (mainController.textFieldAccountContact.isDisabled()) {
             if (isShow) {
                 mainController.anchorPanePasswordIndicator.setDisable(false);

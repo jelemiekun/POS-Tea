@@ -889,6 +889,7 @@ public class MainController implements Initializable {
     public boolean accountDetailsSubmittedOnce = false;
 
 
+    //TODO password strength indicator sa change pass
     @FXML
     public Rectangle passwordRectangle1;
     @FXML

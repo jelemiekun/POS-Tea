@@ -849,6 +849,7 @@ public class MenuModel {
         }
     }
 
+    //TODO dapat editable yung product sa right panel menu
     private void anchorPaneEditSelectedOrderProduct(ProductOrder productOrder, Product product, Label firstAttribute, Label secondAttribute, Label thirdAttribute, Label productPrice, Label quantity) {
         editOrShowSelectedProduct = product;
 

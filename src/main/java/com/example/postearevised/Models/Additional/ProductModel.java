@@ -259,7 +259,7 @@ public class ProductModel {
                                     success = true;
                                     editingProductSuccess = true;
                                 } else {
-                                    // AYUSIN TO, DAPAT IF ERROR, MAG REREVERT SA OLD VALUES YUNG EDITORSHOWSELECTEDPRODUCT
+                                    //TODO dapat di gumagana editProduct if naka open csv
                                     System.out.println("Error edit product");
                                     setErrorEditProduct();
                                     openPrompt();
