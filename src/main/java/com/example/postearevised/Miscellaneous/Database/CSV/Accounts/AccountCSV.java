@@ -393,37 +393,38 @@ public class AccountCSV {
             String[] headers = header.split(",");
             int columnIndex = -1;
             for (int i = 0; i < headers.length; i++) {
-                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                if (headers[i].equals("imagePath")) {
                     columnIndex = i;
                     break;
                 }
             }
 
             if (columnIndex == -1) {
-                return false; // Column not found
+                return false;
             }
 
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    String path = parts[columnIndex];
+                    String[] partsOfPath = path.split("\\\\");
+                    String lastPart = partsOfPath[partsOfPath.length - 1];
+                    parts[columnIndex] = DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart;
                     parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
                 }
                 fw.write(String.join(",", parts) + "\n");
             }
 
-            // Close the readers and writers
             fw.close();
             br.close();
 
-            // Delete the original file
             File originalFile = new File(CSV_FILE_PATH_PRODUCTS);
             if (!originalFile.delete()) {
                 System.out.println("Error occurred while deleting the original file.");
                 return false;
             }
 
-            // Rename the temporary file to the original file name
             File tempFile = new File(tempFileName);
             if (tempFile.renameTo(originalFile)) {
                 System.out.println("File has been modified successfully.");
@@ -451,37 +452,38 @@ public class AccountCSV {
             String[] headers = header.split(",");
             int columnIndex = -1;
             for (int i = 0; i < headers.length; i++) {
-                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                if (headers[i].equals("imagePath")) {
                     columnIndex = i;
                     break;
                 }
             }
 
             if (columnIndex == -1) {
-                return false; // Column not found
+                return false;
             }
 
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    String path = parts[columnIndex];
+                    String[] partsOfPath = path.split("\\\\");
+                    String lastPart = partsOfPath[partsOfPath.length - 1];
+                    parts[columnIndex] = DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart;
                     parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
                 }
                 fw.write(String.join(",", parts) + "\n");
             }
 
-            // Close the readers and writers
             fw.close();
             br.close();
 
-            // Delete the original file
             File originalFile = new File(CSV_FILE_PATH_ORDER_QUEUE);
             if (!originalFile.delete()) {
                 System.out.println("Error occurred while deleting the original file.");
                 return false;
             }
 
-            // Rename the temporary file to the original file name
             File tempFile = new File(tempFileName);
             if (tempFile.renameTo(originalFile)) {
                 System.out.println("File has been modified successfully.");
@@ -509,37 +511,38 @@ public class AccountCSV {
             String[] headers = header.split(",");
             int columnIndex = -1;
             for (int i = 0; i < headers.length; i++) {
-                if (headers[i].equals("imagePath")) { // Assuming "imagePath" is the column to modify
+                if (headers[i].equals("imagePath")) {
                     columnIndex = i;
                     break;
                 }
             }
 
             if (columnIndex == -1) {
-                return false; // Column not found
+                return false;
             }
 
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
+                    String path = parts[columnIndex];
+                    String[] partsOfPath = path.split("\\\\");
+                    String lastPart = partsOfPath[partsOfPath.length - 1];
+                    parts[columnIndex] = DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart;
                     parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
                 }
                 fw.write(String.join(",", parts) + "\n");
             }
 
-            // Close the readers and writers
             fw.close();
             br.close();
 
-            // Delete the original file
             File originalFile = new File(CSV_FILE_PATH_ORDER_HISTORY);
             if (!originalFile.delete()) {
                 System.out.println("Error occurred while deleting the original file.");
                 return false;
             }
 
-            // Rename the temporary file to the original file name
             File tempFile = new File(tempFileName);
             if (tempFile.renameTo(originalFile)) {
                 System.out.println("File has been modified successfully.");
