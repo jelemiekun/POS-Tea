@@ -1512,30 +1512,35 @@
                                  <children>
                                     <ScrollPane focusTraversable="false" hbarPolicy="NEVER" layoutY="2.0" prefHeight="850.0" prefWidth="1322.0">
                                        <content>
-                                          <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="835.0" prefWidth="1319.0" vgap="30.0">
+                                          <FlowPane alignment="TOP_CENTER" columnHalignment="CENTER" prefHeight="835.0" prefWidth="1319.0" vgap="20.0">
                                              <children>
-                                                <AnchorPane fx:id="mediaAnchorPane" minHeight="0.0" minWidth="0.0" onMousePressed="#sliderPressed" prefHeight="492.0" prefWidth="1190.0">
+                                                <AnchorPane fx:id="mediaAnchorPane" minHeight="0.0" minWidth="0.0" onMousePressed="#sliderPressed" prefHeight="734.0" prefWidth="1190.0">
                                                    <children>
-                                                      <MediaView fx:id="mediaView" fitHeight="420.0" fitWidth="750.0" layoutX="225.0" layoutY="10.0" nodeOrientation="INHERIT" onMouseClicked="#playMedia" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt">
+                                                      <MediaView fx:id="mediaView" fitHeight="620.0" fitWidth="1000.0" layoutX="95.0" layoutY="30.0" nodeOrientation="INHERIT" onMouseClicked="#playMedia" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt" preserveRatio="false" AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="95.0">
                                                          <cursor>
                                                             <Cursor fx:constant="HAND" />
                                                          </cursor>
                                                       </MediaView>
-                                                      <HBox alignment="CENTER_LEFT" layoutX="203.0" layoutY="446.0" prefHeight="49.0" prefWidth="602.0" spacing="20.0">
+                                                      <HBox alignment="CENTER_LEFT" layoutX="95.0" layoutY="685.0" spacing="25.0">
                                                          <children>
-                                                            <ImageView fx:id="playPauseBtn" fitHeight="15.0" fitWidth="15.0" onMouseClicked="#playMedia" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="playPauseBtn" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#playMedia" pickOnBounds="true">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </ImageView>
-                                                            <ImageView fx:id="resetBtn" fitHeight="18.0" fitWidth="18.0" onMouseClicked="#resetMedia" pickOnBounds="true" preserveRatio="true">
+                                                            <ImageView fx:id="volumeBtn" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true">
+                                                               <cursor>
+                                                                  <Cursor fx:constant="HAND" />
+                                                               </cursor>
+                                                            </ImageView>
+                                                            <ImageView fx:id="resetBtn" fitHeight="24.0" fitWidth="24.0" onMouseClicked="#resetMedia" pickOnBounds="true">
                                                                <cursor>
                                                                   <Cursor fx:constant="HAND" />
                                                                </cursor>
                                                             </ImageView>
                                                             <Label fx:id="timeDuration" text="00:00 / 00:00">
                                                                <font>
-                                                                  <Font size="14.0" />
+                                                                  <Font name="Arial" size="18.0" />
                                                                </font>
                                                             </Label>
                                                          </children>
@@ -1543,19 +1548,20 @@
                                                             <Insets left="20.0" />
                                                          </padding>
                                                       </HBox>
-                                                      <ImageView fx:id="playPauseVid" fitHeight="100.0" fitWidth="100.0" layoutX="552.0" layoutY="170.0" onMouseClicked="#vidControl" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt" pickOnBounds="true" preserveRatio="true">
-                                                         <cursor>
-                                                            <Cursor fx:constant="HAND" />
-                                                         </cursor>
-                                                      </ImageView>
-                                                      <HBox alignment="CENTER" layoutX="200.0" layoutY="434.0" prefHeight="25.0" prefWidth="800.0">
+                                                      <HBox alignment="CENTER" layoutX="95.0" layoutY="654.0" prefHeight="25.0" prefWidth="1000.0">
                                                          <children>
                                                             <Slider fx:id="slider" HBox.hgrow="ALWAYS" />
                                                          </children>
                                                       </HBox>
+                                                      <ImageView fx:id="playPauseVid" fitHeight="120.0" fitWidth="120.0" layoutX="535.0" layoutY="262.0" onMouseClicked="#vidControl" onMouseEntered="#vidHoverEnt" onMouseExited="#vidHoverExt" pickOnBounds="true" preserveRatio="true">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ImageView>
+                                                      <Slider fx:id="volumeSlider" layoutX="169.0" layoutY="536.0" orientation="VERTICAL" prefHeight="140.0" prefWidth="10.0" />
                                                    </children>
                                                 </AnchorPane>
-                                                <Accordion prefHeight="288.0" prefWidth="1200.0">
+                                                <Accordion prefHeight="263.0" prefWidth="1200.0">
                                                    <panes>
                                                       <TitledPane text="INSTALLATION GUIDE">
                                                          <content>

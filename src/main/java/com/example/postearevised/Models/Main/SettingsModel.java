@@ -6,6 +6,7 @@ import com.example.postearevised.Miscellaneous.Enums.ProductEnum;
 import com.example.postearevised.Miscellaneous.References.ProductOrderReference;
 import com.example.postearevised.Objects.Account.Account;
 import com.example.postearevised.Objects.Products.*;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
@@ -1864,6 +1865,12 @@ public class SettingsModel {
         mainController.playPauseVid.setEffect(colorAdjust1);
         mainController.playPauseVid.getStyleClass().add("control-vid");
 
+        InputStream inputStream2 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/volume.png");
+        Image volume = new Image(Objects.requireNonNull(inputStream2));
+        mainController.volumeBtn.setImage(volume);
+        mainController.volumeBtn.setVisible(true);
+        mainController.playPauseVid.getStyleClass().add("control-btn");
+
         InputStream inputStream1 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/reset.png");
         Image reset = new Image(Objects.requireNonNull(inputStream1));
         mainController.resetBtn.setImage(reset);
@@ -1875,6 +1882,54 @@ public class SettingsModel {
         mainController.mediaPlayer = new MediaPlayer(mainController.media);
 
         mainController.mediaView.setMediaPlayer(mainController.mediaPlayer);
+
+        mainController.volumeSlider.setVisible(false);
+
+        mainController.volumeBtn.setOnMouseEntered(event -> mainController.volumeBtn.setStyle("-fx-opacity: 0.4;"));
+        mainController.volumeBtn.setOnMouseExited(event -> mainController.volumeBtn.setStyle("-fx-opacity: 1.0;"));
+
+        mainController.volumeBtn.setOnMouseClicked(event -> {
+            if (mainController.volumeSlider.isVisible()) {
+                FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
+                fadeOut.setFromValue(1);
+                fadeOut.setToValue(0);
+                fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
+                fadeOut.play();
+            } else {
+                mainController.volumeSlider.setVisible(true);
+                mainController.volumeSlider.setOpacity(0);
+                FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+            }
+        });
+
+        mainController.volumeBtn.setOnTouchPressed(event -> {
+            if (mainController.volumeSlider.isVisible()) {
+                FadeTransition fadeOut = new FadeTransition(Duration.millis(800), mainController.volumeSlider);
+                fadeOut.setFromValue(1);
+                fadeOut.setToValue(0);
+                fadeOut.setOnFinished(e -> mainController.volumeSlider.setVisible(false));
+                fadeOut.play();
+            } else {
+                mainController.volumeSlider.setVisible(true);
+                mainController.volumeSlider.setOpacity(0);
+                FadeTransition fadeIn = new FadeTransition(Duration.millis(200), mainController.volumeSlider);
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+            }
+        });
+
+        mainController.volumeSlider.setMin(0);
+        mainController.volumeSlider.setMax(100);
+        mainController.volumeSlider.setValue(75);
+
+        mainController.volumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            double volumeMedia = newValue.doubleValue() / 100.0;
+            mainController.mediaPlayer.setVolume(volumeMedia);
+        });
 
         mainController.mediaPlayer.currentTimeProperty().addListener(((ObservableValue, oldValue, newValue) -> {
             mainController.slider.setValue(newValue.toSeconds());
@@ -1908,16 +1963,16 @@ public class SettingsModel {
         mainController.mediaPlayer.setOnEndOfMedia(() -> {
             mainController.playPauseVid.setImage(reset);
             mainController.videoEnded = true;
-            mainController.resetBtn.setFitWidth(22);
-            mainController.resetBtn.setFitHeight(22);
+            mainController.resetBtn.setFitWidth(28);
+            mainController.resetBtn.setFitHeight(28);
         });
 
         mainController.mediaPlayer.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
             if (!mainController.mediaPlayer.getMedia().getDuration().equals(Duration.UNKNOWN) && newValue.equals(Duration.ZERO)) {
                 mainController.videoEnded = false;
                 mainController.playMedia();
-                mainController.resetBtn.setFitWidth(18);
-                mainController.resetBtn.setFitHeight(18);
+                mainController.resetBtn.setFitWidth(24);
+                mainController.resetBtn.setFitHeight(24);
             }
         });
 
@@ -1925,13 +1980,17 @@ public class SettingsModel {
 
         mainController.slider.setOnMouseDragged(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
 
+        mainController.slider.setOnTouchPressed(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
+        mainController.slider.setOnTouchMoved(event -> mainController.mediaPlayer.seek(Duration.seconds(mainController.slider.getValue())));
+
         mainController.slider.valueProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.doubleValue() != mainController.slider.getMax()) {
-                mainController.resetBtn.setFitWidth(18);
-                mainController.resetBtn.setFitHeight(18);
+                mainController.resetBtn.setFitWidth(24);
+                mainController.resetBtn.setFitHeight(24);
                 mainController.videoEnded = false;
-                InputStream inputStream2 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
-                Image pause = new Image(Objects.requireNonNull(inputStream2));
+                InputStream inputStream3 = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/pause.png");
+                Image pause = new Image(Objects.requireNonNull(inputStream3));
                 mainController.playPauseVid.setImage(pause);
             }
         });

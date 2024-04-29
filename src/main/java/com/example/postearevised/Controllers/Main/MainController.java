@@ -1329,11 +1329,15 @@ public class MainController implements Initializable {
     @FXML
     public Slider slider;
     @FXML
+    public Slider volumeSlider;
+    @FXML
     public ImageView playPauseBtn;
     @FXML
     public ImageView playPauseVid;
     @FXML
     public ImageView resetBtn;
+    @FXML
+    public ImageView volumeBtn;
     @FXML
     public Label timeDuration;
 
