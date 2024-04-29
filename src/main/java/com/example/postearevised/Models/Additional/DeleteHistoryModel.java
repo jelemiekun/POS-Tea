@@ -30,6 +30,8 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.ImagesReference.*;
 import static com.example.postearevised.Miscellaneous.References.OrderHistoryReference.*;
+import static com.example.postearevised.Miscellaneous.References.SettingsReference.accountEditingProceed;
+import static com.example.postearevised.Miscellaneous.References.StageReference.askForPasswordStage;
 import static com.example.postearevised.Miscellaneous.References.StageReference.promptStage;
 import static com.example.postearevised.Miscellaneous.References.StylesReference.*;
 
@@ -160,6 +162,49 @@ public class DeleteHistoryModel {
             setDeleteVisible();
     }
 
+    private void setDeleteVisible() {
+        deleteHistoryController.btnDeleteRecord.setVisible(true);
+        deleteHistoryController.labelDeleteConfirmation.setText("WOULD YOU LIKE TO DELETE THIS YEAR RECORD?");
+        deleteHistoryController.labelDeleteConfirmation.setVisible(true);
+    }
+
+    private void setNotAvailableToDeleteVisible() {
+        deleteHistoryController.btnDeleteRecord.setVisible(false);
+        deleteHistoryController.labelDeleteConfirmation.setText("CURRENT YEAR RECORD CANNOT BE DELETED.");
+        deleteHistoryController.labelDeleteConfirmation.setVisible(true);
+    }
+
+    public void setDeleteHide() {
+        deleteHistoryController.btnDeleteRecord.setVisible(false);
+        deleteHistoryController.labelDeleteConfirmation.setVisible(false);
+    }
+
+    public void btnDeleteRecordOnAction() {
+        if (deleteHistoryController.selectedAnchorPane != null) {
+            boolean failed = true;
+
+            setDeleteRecord();
+            if (deleteHistoryController.deleteHistoryModel.openPrompt()) {
+                if (openAskForPasswordFXML()) {
+                    String yearString = ((Label) deleteHistoryController.selectedAnchorPane.getChildren().get(3)).getText();
+                    int year = Integer.parseInt(yearString);
+                    deleteHistoryController.deleteHistoryModel.deleteOrdersByYear(year);
+                    deleteHistoryController.flowPaneYearlyRecords.getChildren().remove(deleteHistoryController.selectedAnchorPane);
+                    deleteHistoryController.selectedAnchorPane = null;
+                    deleteHistoryController.deleteHistoryModel.setDeleteHide();
+                    deleteHistoryController.labelOrderHistoryEmpty.setVisible(deleteHistoryController.flowPaneYearlyRecords.getChildren().isEmpty());
+
+                    failed = false;
+                }
+            }
+
+            if (failed) {
+                setErrorDeleteRecordFailed();
+                openPrompt();
+            }
+        }
+    }
+
     public boolean openPrompt() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(EXIT_CONFIRMATION_ENUM.getURL()));
         Parent root = null;
@@ -181,20 +226,27 @@ public class DeleteHistoryModel {
         promptStage.showAndWait();
         return isConfirmed;
     }
-    private void setDeleteVisible() {
-        deleteHistoryController.btnDeleteRecord.setVisible(true);
-        deleteHistoryController.labelDeleteConfirmation.setText("WOULD YOU LIKE TO DELETE THIS YEAR RECORD?");
-        deleteHistoryController.labelDeleteConfirmation.setVisible(true);
-    }
 
-    private void setNotAvailableToDeleteVisible() {
-        deleteHistoryController.btnDeleteRecord.setVisible(false);
-        deleteHistoryController.labelDeleteConfirmation.setText("CURRENT YEAR RECORD CANNOT BE DELETED.");
-        deleteHistoryController.labelDeleteConfirmation.setVisible(true);
-    }
+    private boolean openAskForPasswordFXML() {
+        accountEditingProceed = false;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ASK_FOR_PASSWORD.getURL()));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+        }
+        askForPasswordStage = new Stage();
 
-    public void setDeleteHide() {
-        deleteHistoryController.btnDeleteRecord.setVisible(false);
-        deleteHistoryController.labelDeleteConfirmation.setVisible(false);
+        askForPasswordStage.initModality(Modality.WINDOW_MODAL);
+        askForPasswordStage.initOwner(deleteHistoryController.anchorPane.getScene().getWindow());
+
+        askForPasswordStage.setTitle(ASK_FOR_PASSWORD.getTITLE());
+        askForPasswordStage.setResizable(false);
+        askForPasswordStage.getIcons().add(SYSTEM_LOGO);
+        askForPasswordStage.setScene(new Scene(root));
+        askForPasswordStage.showAndWait();
+        return accountEditingProceed;
     }
 }

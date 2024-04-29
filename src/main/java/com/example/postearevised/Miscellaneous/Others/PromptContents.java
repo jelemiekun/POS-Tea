@@ -449,6 +449,23 @@ public class PromptContents {
         btnRightBoolean = true;
     }
 
+    public static void setErrorDeleteRecordFailed() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = RED_BIN_ICON;
+        promptHeaderText = "Record Deletion Failed";
+        promptContentText = "Operation was either cancelled or user reached maximum limit.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
     public static void setErrorDeleteProduct() {
         setIsConfirmedToFalse();
 

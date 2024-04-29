@@ -23,6 +23,9 @@ public class DeleteHistoryController implements Initializable {
     public AnchorPane btnDeleteRecord;
 
     @FXML
+    public AnchorPane anchorPane;
+
+    @FXML
     public FlowPane flowPaneYearlyRecords;
 
     @FXML
@@ -42,19 +45,6 @@ public class DeleteHistoryController implements Initializable {
 
     @FXML
     void btnDeleteRecordClickedTouched() {
-        if (selectedAnchorPane != null) {
-            setDeleteRecord();
-            if (deleteHistoryModel.openPrompt()) {
-                //TODO hingin password bago mag proceed
-                String yearString = ((Label) selectedAnchorPane.getChildren().get(3)).getText();
-                int year = Integer.parseInt(yearString);
-                deleteHistoryModel.deleteOrdersByYear(year);
-                flowPaneYearlyRecords.getChildren().remove(selectedAnchorPane);
-                selectedAnchorPane = null;
-                deleteHistoryModel.setDeleteHide();
-                labelOrderHistoryEmpty.setVisible(flowPaneYearlyRecords.getChildren().isEmpty());
-            }
-        }
+        deleteHistoryModel.btnDeleteRecordOnAction();
     }
-
 }
