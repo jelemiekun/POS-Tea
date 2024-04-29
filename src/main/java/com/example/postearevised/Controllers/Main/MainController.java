@@ -704,6 +704,8 @@ public class MainController implements Initializable {
         } else {
             orderHistoryModel.searchTheText(newValue.trim());
         }
+
+        orderHistoryModel.setTotalResult();
     };
 
     public ChangeListener<String> textFieldChangeListenerCharactersOnly = (observable, oldValue, newValue) -> {

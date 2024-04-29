@@ -312,18 +312,21 @@ public class OrderHistoryModel {
                         placeholderLabel.setTextAlignment(TextAlignment.CENTER);
                         placeholderLabel.setId("orderhistorylabels");
                         mainController.tableViewOrderHistory.setPlaceholder(placeholderLabel);
+                        setTotalResult();
                     } else {
                         mainController.tableViewOrderHistory.setItems(filteredOrders);
+                        setTotalResult();
                     }
                     setTotalResult();
                 });
             } else {
                 mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
+                setTotalResult();
             }
         }
     }
 
-    private void setTotalResult() {
+    public void setTotalResult() {
         Platform.runLater(() -> {
             int totalResult = mainController.tableViewOrderHistory.getItems().size();
             mainController.orderHistoryLabelTotalResultCounter.setText("Total Result: " + totalResult);
