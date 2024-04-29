@@ -466,10 +466,16 @@ public class AccountCSV {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
-                    String path = parts[columnIndex];
-                    String[] partsOfPath = path.split("\\\\");
-                    String lastPart = partsOfPath[partsOfPath.length - 1];
-                    parts[columnIndex] = DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart;
+                    String[] singleParts = parts[columnIndex].split("/");
+                    parts[columnIndex] = "";
+
+                    for (String singlePart : singleParts) {
+                        if (!singlePart.isEmpty()) {
+                            String[] partsOfPath = singlePart.split("\\\\");
+                            String lastPart = partsOfPath[partsOfPath.length - 1];
+                            parts[columnIndex] += DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart + "/";
+                        }
+                    }
                     parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
                 }
                 fw.write(String.join(",", parts) + "\n");
@@ -525,10 +531,16 @@ public class AccountCSV {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length > columnIndex && parts[columnIndex].contains(stringToReplace)) {
-                    String path = parts[columnIndex];
-                    String[] partsOfPath = path.split("\\\\");
-                    String lastPart = partsOfPath[partsOfPath.length - 1];
-                    parts[columnIndex] = DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart;
+                    String[] singleParts = parts[columnIndex].split("/");
+                    parts[columnIndex] = "";
+
+                    for (String singlePart : singleParts) {
+                        if (!singlePart.isEmpty()) {
+                            String[] partsOfPath = singlePart.split("\\\\");
+                            String lastPart = partsOfPath[partsOfPath.length - 1];
+                            parts[columnIndex] += DIRECTORY_PATH_PRODUCT_IMAGES + "\\" + lastPart + "/";
+                        }
+                    }
                     parts[columnIndex] = parts[columnIndex].replace(stringToReplace, newStringToReplace);
                 }
                 fw.write(String.join(",", parts) + "\n");

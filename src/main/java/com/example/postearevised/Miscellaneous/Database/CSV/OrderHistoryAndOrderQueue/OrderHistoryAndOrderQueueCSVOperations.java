@@ -86,7 +86,7 @@ public class OrderHistoryAndOrderQueueCSVOperations {
                 String line = scanner.nextLine();
                 String[] parts = line.split(",");
 
-                if (parts.length >= 18) {
+                if (parts.length >= 17) {
                     String customerName = parts[0];
                     int orderNumber = Integer.parseInt(parts[1]);
                     ObservableList<ProductOrder> productOrders = FXCollections.observableArrayList();
