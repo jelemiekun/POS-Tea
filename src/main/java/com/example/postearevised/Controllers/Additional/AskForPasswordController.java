@@ -89,6 +89,10 @@ public class AskForPasswordController implements Initializable {
                 case "User":
                     userPane();
                     break;
+                case "Delete Product(s)":
+                    labelHeaderTitle.setText(DELETE_ACCOUNT_ENUM.getHeaderTitle());
+                    normalPane();
+                    break;
             }
 
             passwordField.setVisible(true);

@@ -13,7 +13,7 @@ public class NotificationContents {
     //TODO timer loading
     public static void setLoadingTooLong() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Loading Taking Too Long";
+        notificationHeaderReference = "Loading taking too long";
         notificationContentReference = "Please wait or refer to the error log for details.";
     }
 
@@ -25,25 +25,25 @@ public class NotificationContents {
 
     public static void setDeleteHistorySuccess() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Record Deleted";
+        notificationHeaderReference = "Record deleted";
         notificationContentReference = "Record Deleted Successfully";
     }
 
     public static void setEditProductSuccess() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Product Edited";
+        notificationHeaderReference = "Product edited";
         notificationContentReference = "Edit Successful";
     }
 
     public static void setAddProductSuccess() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Product Added";
+        notificationHeaderReference = "Product added";
         notificationContentReference = "Addition Successful";
     }
 
     public static void setDeleteProductSuccess() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Product Deleted";
+        notificationHeaderReference = "Product deleted";
         notificationContentReference = "Deletion Successful";
     }
 
@@ -55,97 +55,109 @@ public class NotificationContents {
 
     public static void setOrderCompleted() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Order Completed";
+        notificationHeaderReference = "Order completed";
         notificationContentReference = "Your order has been successfully completed.";
     }
 
     public static void setOrderQueueImported() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Imported Order Detected";
+        notificationHeaderReference = "Imported order detected";
         notificationContentReference = "An imported order has been detected in the order queue.";
     }
 
     public static void setExportMenuSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Menu Export Successful";
+        notificationHeaderReference = "Menu export successful";
         notificationContentReference = "The menu has been successfully exported.";
     }
 
     public static void setImportMenuSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Menu Import Successful";
+        notificationHeaderReference = "Menu import successful";
         notificationContentReference = "The menu has been successfully imported.";
     }
 
     public static void setImportMenuUnsuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Menu Import Failed";
+        notificationHeaderReference = "Menu import failed";
         notificationContentReference = "There was an error while importing the menu.";
     }
 
     public static void setImportExportCancelled() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Operation Canceled";
+        notificationHeaderReference = "Operation cancelled";
         notificationContentReference = "The menu import/export operation was canceled by the user.";
     }
 
     public static void setAccountUsersSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Users Updated Successfully";
+        notificationHeaderReference = "Users updated successfully";
         notificationContentReference = "The account users have been successfully updated.";
     }
 
     public static void setAccountDetailsEditSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Edit Successful";
+        notificationHeaderReference = "Account edit successful";
         notificationContentReference = "The account details have been successfully updated.";
     }
 
     public static void setRecoveryQuestionEditSuccessful() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Edit Successful";
+        notificationHeaderReference = "Account edit successful";
         notificationContentReference = "The recovery questions have been successfully updated.";
     }
 
     public static void setAccountUsersUpdateFailedCSV() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Users Update Failed";
+        notificationHeaderReference = "Account users update failed";
         notificationContentReference = "There was an error while updating the account users.";
     }
 
     public static void setAccountUsersUpdateFailedCancelled() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Users Update Failed";
+        notificationHeaderReference = "Account users update failed";
         notificationContentReference = "Operation was cancelled by the user.";
     }
 
     public static void setAccountDetailsEditFailed() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Edit Failed";
+        notificationHeaderReference = "Account edit failed";
         notificationContentReference = "There was an error while updating the account details.";
     }
 
     public static void setAccountDetailsEditFailedMaxLimitReached() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Edit Failed";
+        notificationHeaderReference = "Account edit failed";
+        notificationContentReference = "Maximum attempts limit reached.";
+    }
+
+    public static void setProductDeletionFailedMaxLimitReached() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Product deletion failed";
         notificationContentReference = "Maximum attempts limit reached.";
     }
 
     public static void setAccountDetailsEditFailedCancelled() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Account Edit Failed";
+        notificationHeaderReference = "Account edit failed";
+        notificationContentReference = "Operation was cancelled by the user.";
+    }
+
+    public static void setProductDeletionCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Product deletion cancelled";
         notificationContentReference = "Operation was cancelled by the user.";
     }
 
     public static void setRecoveryQuestionEditFailed() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Recovery Question Edit Failed";
+        notificationHeaderReference = "Recovery question edit failed";
         notificationContentReference = "There was an error while updating the recovery questions.";
     }
 
     public static void setAccountDeletionCancelled() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
-        notificationHeaderReference = "Operation Cancelled";
+        notificationHeaderReference = "Operation cancelled";
         notificationContentReference = "Account deletion was unsuccessful.";
     }
 

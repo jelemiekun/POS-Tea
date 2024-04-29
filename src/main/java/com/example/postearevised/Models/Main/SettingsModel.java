@@ -460,71 +460,100 @@ public class SettingsModel {
     }
 
     /**
-     * Delete
+     * Delete product(s)
      */
 
     public void deleteSelectedProductsProcess() {
-        //TODO hingin password bago mag proceed
         ObservableList<Product> selectedItemsToDelete = mainController.tableProducts.getSelectionModel().getSelectedItems();
 
         if (selectedItemsToDelete != null && !selectedItemsToDelete.isEmpty()) {
             setDeleteProduct();
             if (mainController.mainModel.openPrompt()) {
-                if (deleteProductInCSV(selectedItemsToDelete)) {
-                    try {
-                        deletingProductSuccess = true;
-
-                        List<Product> productsToRemove = new ArrayList<>(selectedItemsToDelete);
-
-                        for (Product product : productsToRemove) {
-                            if (product instanceof MilkTea milkTea) {
-                                availableMilkTeaObservableList.remove(milkTea);
-                                unavailableMilkTeaObservableList.remove(milkTea);
-                            } else if (product instanceof Coolers coolers) {
-                                availableCoolersObservableList.remove(coolers);
-                                unavailableCoolersObservableList.remove(coolers);
-                            } else if (product instanceof Coffee coffee) {
-                                availableCoffeeObservableList.remove(coffee);
-                                unavailableCoffeeObservableList.remove(coffee);
-                            } else if (product instanceof IceCandyCups iceCandyCups) {
-                                availableIceCandyCupsObservableList.remove(iceCandyCups);
-                                unavailableIceCandyCupsObservableList.remove(iceCandyCups);
-                            } else if (product instanceof Appetizer appetizer) {
-                                availableAppetizerObservableList.remove(appetizer);
-                                unavailableAppetizerObservableList.remove(appetizer);
-                            }
-
-                            availableAllProductObservableList.remove(product);
-                            unavailableAllProductObservableList.remove(product);
-
-                            allProductObservableList.remove(product);
-                        }
-
-                        refreshProductTable();
-
-                        mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
-
-                        refreshProductTable();
-
-                        if (deletingProductSuccess) {
-                            setDeleteProductSuccess();
-                            mainController.mainModel.generateNotification();
-
-                            deletingProductSuccess = false;
-                        }
-
-                    } catch (NoSuchElementException | IndexOutOfBoundsException e) {
-                        errorMessage = e.getMessage();
-                        logError(false);
+                if (saveChanges(6)) {
+                    if (deleteProductInCSV(selectedItemsToDelete)) {
+                        trySelectedItemsToDelete(selectedItemsToDelete);
+                    } else {
                         setErrorDeleteProduct();
                         mainController.mainModel.openPrompt();
                     }
                 } else {
-                    setErrorDeleteProduct();
-                    mainController.mainModel.openPrompt();
+                    deleteProductPasswordFailed();
                 }
+
+            } else {
+                deletionCancelled();
             }
         }
+    }
+
+    private void trySelectedItemsToDelete(ObservableList<Product> selectedItemsToDelete) {
+        try {
+            deletingProductSuccess = true;
+
+            List<Product> productsToRemove = new ArrayList<>(selectedItemsToDelete);
+
+            for (Product product : productsToRemove) {
+                if (product instanceof MilkTea milkTea) {
+                    availableMilkTeaObservableList.remove(milkTea);
+                    unavailableMilkTeaObservableList.remove(milkTea);
+                } else if (product instanceof Coolers coolers) {
+                    availableCoolersObservableList.remove(coolers);
+                    unavailableCoolersObservableList.remove(coolers);
+                } else if (product instanceof Coffee coffee) {
+                    availableCoffeeObservableList.remove(coffee);
+                    unavailableCoffeeObservableList.remove(coffee);
+                } else if (product instanceof IceCandyCups iceCandyCups) {
+                    availableIceCandyCupsObservableList.remove(iceCandyCups);
+                    unavailableIceCandyCupsObservableList.remove(iceCandyCups);
+                } else if (product instanceof Appetizer appetizer) {
+                    availableAppetizerObservableList.remove(appetizer);
+                    unavailableAppetizerObservableList.remove(appetizer);
+                }
+
+                availableAllProductObservableList.remove(product);
+                unavailableAllProductObservableList.remove(product);
+
+                allProductObservableList.remove(product);
+            }
+
+            refreshProductTable();
+
+            mainController.tableProducts.getItems().removeAll(selectedItemsToDelete);
+
+            refreshProductTable();
+
+            if (deletingProductSuccess) {
+                setDeleteProductSuccess();
+                mainController.mainModel.generateNotification();
+
+                deletingProductSuccess = false;
+            }
+
+        } catch (NoSuchElementException | IndexOutOfBoundsException e) {
+            errorMessage = e.getMessage();
+            logError(false);
+            setErrorDeleteProduct();
+            mainController.mainModel.openPrompt();
+        }
+    }
+
+    private void deleteProductPasswordFailed() {
+        if (!maxAttemptLimitReached) {
+            deletionCancelled();
+        } else {
+            setErrorChangingPasswordMaximumAttemptReached();
+            setProductDeletionFailedMaxLimitReached();
+            mainController.mainModel.generateNotification();
+        }
+
+        Platform.runLater(() -> maxAttemptLimitReached = false);
+    }
+
+    private void deletionCancelled() {
+        setErrorFailedToDeleteProductsCancelled();
+        mainController.mainModel.openPrompt();
+        setProductDeletionCancelled();
+        mainController.mainModel.generateNotification();
     }
 
     public void refreshProductTable() {
@@ -1572,7 +1601,8 @@ public class SettingsModel {
         mainController.detectChangesRecoveryQuestion = firstAnswerNotBlank || secondAnswerNotBlank;
     }
 
-    private boolean saveChanges(int operationNumber) { // 1 - users, 2 - account, 3 - recovery questions, 4 account deletion
+    private boolean saveChanges(int operationNumber) {
+        // 1 - users, 2 - account, 3 - recovery questions, 4 account deletion, 5 - select user, 6 - delete product(s)
         switch (operationNumber) {
             case 1:
                 headerTitle = USERS_ENUM.getHeaderTitle();
@@ -1588,6 +1618,9 @@ public class SettingsModel {
                 break;
             case 5:
                 headerTitle = USERS_SELECTION_ENUM.getHeaderTitle();
+                break;
+            case 6:
+                headerTitle = DELETE_PRODUCT_ENUM.getHeaderTitle();
                 break;
         }
         return openAskForPasswordFXML();
