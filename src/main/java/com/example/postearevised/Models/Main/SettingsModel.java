@@ -1634,7 +1634,7 @@ public class SettingsModel {
         promptStage.setResizable(false);
         promptStage.getIcons().add(SYSTEM_LOGO);
         promptStage.setScene(new Scene(root));
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        PauseTransition delay = new PauseTransition(Duration.seconds(2.5));
         delay.setOnFinished(event -> {
             mainController.mainModel.logOutAccountDeleted();
             accountSet.remove(accountReference);
