@@ -40,6 +40,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
@@ -1876,10 +1877,15 @@ public class SettingsModel {
         mainController.resetBtn.setImage(reset);
         mainController.resetBtn.getStyleClass().add("control-btn");
 
-        File file = new File("src/main/resources/com/example/postearevised/Medias/Video/System Manual.mp4");
+        String resourcePath = "/com/example/postearevised/Medias/Video/System Manual.mp4";
+        URL resourceUrl = getClass().getResource(resourcePath);
+        if (resourceUrl != null) {
+            mainController.media = new Media(resourceUrl.toString());
+            mainController.mediaPlayer = new MediaPlayer(mainController.media);
+        } else {
+            System.err.println("Resource not found: " + resourcePath);
+        }
 
-        mainController.media = new Media(file.toURI().toString());
-        mainController.mediaPlayer = new MediaPlayer(mainController.media);
 
         mainController.mediaView.setMediaPlayer(mainController.mediaPlayer);
 
