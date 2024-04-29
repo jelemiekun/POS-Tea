@@ -188,10 +188,10 @@ public class DeleteHistoryModel {
                 if (openAskForPasswordFXML()) {
                     String yearString = ((Label) deleteHistoryController.selectedAnchorPane.getChildren().get(3)).getText();
                     int year = Integer.parseInt(yearString);
-                    deleteHistoryController.deleteHistoryModel.deleteOrdersByYear(year);
+                    deleteOrdersByYear(year);
                     deleteHistoryController.flowPaneYearlyRecords.getChildren().remove(deleteHistoryController.selectedAnchorPane);
                     deleteHistoryController.selectedAnchorPane = null;
-                    deleteHistoryController.deleteHistoryModel.setDeleteHide();
+                    setDeleteHide();
                     deleteHistoryController.labelOrderHistoryEmpty.setVisible(deleteHistoryController.flowPaneYearlyRecords.getChildren().isEmpty());
 
                     failed = false;
