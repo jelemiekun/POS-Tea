@@ -66,8 +66,10 @@ public class MainModel {
         }
 
         if (mainController.loggedIn) {
-            if (mainController.comboBoxAccountName.getValue() != null)
+            if (mainController.comboBoxAccountName.getValue() != null) {
                 mainController.settingsModel.setSettingsAccount();
+                addCurrentInAccountName();
+            }
         }
     }
 
@@ -205,7 +207,7 @@ public class MainModel {
             mainController.comboBoxAccountName.setItems(fullNames);
         }
 
-
+        addCurrentInAccountName();
 
         usersNames.clear();
 
@@ -217,6 +219,12 @@ public class MainModel {
 
             mainController.comboBoxLeftPanelUsers.setItems(usersNames);
         }
+    }
+
+    private void addCurrentInAccountName() {
+        String currentItem = fullNames.get(userIndex);
+        currentItem = currentItem + " (Current)";
+        //fullNames.set(userIndex, currentItem);
     }
 
     public String getFirstWord(String input) {
@@ -608,6 +616,7 @@ public class MainModel {
                 mainController.settingsModel.setLeftPanelProfileName(userIndex);
                 setSwitchUserSuccess();
                 mainController.mainModel.generateNotification();
+                addCurrentInAccountName();
             } else {
                 setSwitchUserFailed();
                 mainController.mainModel.generateNotification();

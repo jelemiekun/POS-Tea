@@ -67,6 +67,8 @@ public class AskForPasswordController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Platform.runLater(() -> {
+            attempts = 0;
+
             switch (headerTitle) {
                 case "Edit Users":
                     labelHeaderTitle.setText(USERS_ENUM.getHeaderTitle());
@@ -179,28 +181,21 @@ public class AskForPasswordController implements Initializable {
 
     private void check() {
         attempts++;
+        boolean success = false;
 
         if (!headerTitle.equals("Delete Account")) {
             boolean isSwitching = true;
 
             if (!labelIncorrect.getText().equals("Password for this user must not be blank!")) {
                 if (!labelIncorrect.getText().equals("Incorrect password!")) {
-                    if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                        userSelectedSuccess = false;
-                        maxAttemptLimitReached = true;
-                        setErrorChangingPasswordMaximumAttemptReached();
-                        openPrompt();
+                    if (passwordField.getText().equals(accountReference.getPassword())) {
+                        accountEditingProceed = true;
+                        success = true;
                         closeThisStage();
                     } else {
-                        if (passwordField.getText().equals(accountReference.getPassword())) {
-                            accountEditingProceed = true;
-                            closeThisStage();
-                        } else {
-                            passwordField.setText("");
-                            labelIncorrect.setVisible(true);
-                        }
+                        passwordField.setText("");
+                        labelIncorrect.setVisible(true);
                     }
-
                     isSwitching = false;
                 }
             }
@@ -215,6 +210,7 @@ public class AskForPasswordController implements Initializable {
                                 openPrompt();
                             } else {
                                 accountEditingProceed = true;
+                                success = true;
                                 closeThisStage();
                             }
                         }
@@ -223,44 +219,39 @@ public class AskForPasswordController implements Initializable {
                     }
                 } else {
                     userPane();
-                    if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                        userSelectedSuccess = false;
-                        maxAttemptLimitReached = true;
-                        setErrorChangingPasswordMaximumAttemptReached();
-                        openPrompt();
+                    if (passwordField.getText().equals(userPassword)) {
+                        accountEditingProceed = true;
+                        userSelectedSuccess = true;
+                        success = true;
                         closeThisStage();
                     } else {
-                        if (passwordField.getText().equals(userPassword)) {
-                            accountEditingProceed = true;
-                            userSelectedSuccess = true;
-                            closeThisStage();
-                        } else {
-                            labelIncorrect.setLayoutY(148);
-                            labelIncorrect.setText("Incorrect password!");
-                            labelIncorrect.setVisible(true);
-                        }
+                        labelIncorrect.setLayoutY(148);
+                        labelIncorrect.setText("Incorrect password!");
+                        labelIncorrect.setVisible(true);
                     }
                 }
             }
         } else {
+            if (passwordField.getText().equals(accountReference.getPassword())) {
+                accountEditingProceed = true;
+                success = true;
+                closeThisStage();
+            } else {
+                passwordField.setText("");
+                labelIncorrect.setVisible(true);
+            }
+        }
+
+        if (!success) {
             if (attempts == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
                 userSelectedSuccess = false;
                 maxAttemptLimitReached = true;
                 setErrorChangingPasswordMaximumAttemptReached();
                 openPrompt();
                 closeThisStage();
-            } else {
-                if (passwordField.getText().equals(accountReference.getPassword())) {
-                    accountEditingProceed = true;
-                    closeThisStage();
-                } else {
-                    passwordField.setText("");
-                    labelIncorrect.setVisible(true);
-                }
             }
+            passwordField.setText("");
         }
-
-        passwordField.setText("");
     }
 
     private boolean openPrompt() {

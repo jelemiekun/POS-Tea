@@ -106,10 +106,16 @@ public class NotificationContents {
         notificationContentReference = "The recovery questions have been successfully updated.";
     }
 
-    public static void setAccountUsersUpdateFailed() {
+    public static void setAccountUsersUpdateFailedCSV() {
         imageViewNotificationReference = NOTIFICATION_I_WHITE;
         notificationHeaderReference = "Account Users Update Failed";
         notificationContentReference = "There was an error while updating the account users.";
+    }
+
+    public static void setAccountUsersUpdateFailedCancelled() {
+        imageViewNotificationReference = NOTIFICATION_I_WHITE;
+        notificationHeaderReference = "Account Users Update Failed";
+        notificationContentReference = "Operation was cancelled by the user.";
     }
 
     public static void setAccountDetailsEditFailed() {

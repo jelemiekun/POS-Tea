@@ -205,7 +205,7 @@ public class Account {
         return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,
                 securityQuestionTwo, securityQuestionTwoAnswer, FXCollections.observableArrayList(firstNames),
                 FXCollections.observableArrayList(middleNames), FXCollections.observableArrayList(lastNames),
-                displayColor, isShowNotification, isShowGuideMessages, key, userPasswords);
+                displayColor, isShowNotification, isShowGuideMessages, key, FXCollections.observableArrayList(userPasswords));
     }
 
 }

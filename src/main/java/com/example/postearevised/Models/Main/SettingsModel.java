@@ -601,39 +601,44 @@ public class SettingsModel {
     private void disableOtherAccountEditButtons(int notToDisable) {
         setOthersSettingsAccountPane();
         switch (notToDisable) {
-            case 1:
+            case 1: // users
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(false);
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(true);
                 break;
-            case 2:
+            case 2: // account details
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(false);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(true);
                 break;
-            case 3:
+            case 3: // security questions
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(false);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(true);
                 break;
-            case 4:
+            case 4: // delete
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(true);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(true);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(false);
                 break;
-            case 5:
+            case 5: // disable all
                 mainController.anchorPaneSettingsBtnEditUsers.setDisable(false);
                 mainController.anchorPaneSettingsBtnEditAccountDetails.setDisable(false);
                 mainController.anchorPaneSettingsBtnEditSecurityQuestions.setDisable(false);
                 mainController.anchorPaneSettingsBtnDelete.setDisable(false);
+                setAccountNameToUserIndex();
                 removeAdditionalElements();
                 break;
         }
         mainController.anchorPaneSettingsAccount.requestFocus();
+    }
+
+    private void setAccountNameToUserIndex() {
+        mainController.comboBoxAccountName.setValue(fullNames.get(userIndex));
     }
 
     /**
@@ -643,7 +648,7 @@ public class SettingsModel {
         setOthersSettingsAccountPane();
         if (mainController.comboBoxAccountName.getValue() != null) {
             if (!mainController.textFieldAccountGivenName.isDisabled())
-                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Default)"));
+                mainController.anchorPaneSettingsBtnDeleteUser.setVisible(!mainController.comboBoxAccountName.getValue().endsWith("(Admin)"));
 
             if (!mainController.comboBoxAccountName.getValue().equals(addUser)) {
                 String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
@@ -683,7 +688,7 @@ public class SettingsModel {
             }
         }
 
-        boolean proceed = checkPane1Changes(mainController.comboBoxAccountName.getValue().equals(addUser));
+        boolean proceed = checkPane1Changes();
 
         if (proceed && !mainController.textFieldAccountGivenName.isDisabled()) {
             disableOtherAccountEditButtons(5);
@@ -725,6 +730,11 @@ public class SettingsModel {
     public void deleteSelectedName() {
         int index = getComboBoxNameIndex();
 
+        System.out.println("line 733" + index + ", " +
+                accountReference.getFirstNames().size() +":" +
+                accountReference.getMiddleNames().size() +":" +
+                accountReference.getLastNames().size() +":" +
+                accountReference.getUserPasswords().size() +":");
         accountReference.getFirstNames().remove(index);
         accountReference.getMiddleNames().remove(index);
         accountReference.getLastNames().remove(index);
@@ -767,6 +777,7 @@ public class SettingsModel {
         mainController.passwordFieldAccountNewUser.setLayoutX(580.0);
         mainController.passwordFieldAccountNewUser.setLayoutY(391.0);
         mainController.passwordFieldAccountNewUser.setPrefWidth(386.0);
+        mainController.passwordFieldAccountNewUser.setPromptText("Enter User Password");
         mainController.passwordFieldAccountNewUser.setOnKeyPressed(event -> mainController.settingsUsersTyping(event));
         mainController.passwordFieldAccountNewUser.setFont(new Font("Arial", 24.0));
 
@@ -814,42 +825,16 @@ public class SettingsModel {
         mainController.comboBoxSettingsQuestionTwo.setStyle(settingsAccountQuestionsComboBoxStyle);
     }
 
-    private boolean checkPane1Changes(boolean isAdd) {
+    private boolean checkPane1Changes() {
         if (mainController.detectChangesUsers) {
             if (saveChanges(1)) {
                 accountEditingProceed = false;
 
                 getUsersChanges();
 
-                if (updateAccountToAccountCSV(oldAccountReference, accountReference)) {
-                    setAccountUsersSuccessful();
-                    mainController.mainModel.generateNotification();
-
-                    mainController.mainModel.populateFullNamesObservableList();
-                    setNameToNewlyAddedName();
-
-                    disableOtherAccountEditButtons(5);
-                    mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
-                    return true;
-                } else {
-                    setErrorFailedToUpdateAccountToCSV();
-                    mainController.mainModel.openPrompt();
-
-                    setAccountUsersUpdateFailed();
-                    mainController.mainModel.generateNotification();
-
-                    revertBackUsers();
-                    return false;
-                }
+                return resultOfUpdateAccountToAccountCSV(updateAccountToAccountCSV(oldAccountReference, accountReference));
             } else {
-                if (!maxAttemptLimitReached) {
-                    setErrorFailedToUpdateAccountUserCancelled();
-                    mainController.mainModel.openPrompt();
-                    maxAttemptLimitReached = false;
-                }
-                setAccountUsersUpdateFailed();
-                mainController.mainModel.generateNotification();
-                revertBackUsers();
+                failedInputPasswordForAccountAccountUpdate();
                 return true;
             }
         } else {
@@ -857,16 +842,52 @@ public class SettingsModel {
         }
     }
 
+    private boolean resultOfUpdateAccountToAccountCSV(boolean isSuccess) {
+        if (isSuccess) {
+            setAccountUsersSuccessful();
+            mainController.mainModel.generateNotification();
+
+            mainController.mainModel.populateFullNamesObservableList();
+            setNameToNewlyAddedName();
+
+            disableOtherAccountEditButtons(5);
+            mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+        } else {
+            setErrorFailedToUpdateAccountToCSV();
+            mainController.mainModel.openPrompt();
+
+            setAccountUsersUpdateFailedCSV();
+            mainController.mainModel.generateNotification();
+
+            revertBackUsers();
+        }
+        return isSuccess;
+    }
+
+    private void failedInputPasswordForAccountAccountUpdate() {
+        if (!maxAttemptLimitReached) {
+            setErrorFailedToUpdateAccountUserCancelled();
+            mainController.mainModel.openPrompt();
+            setAccountUsersUpdateFailedCancelled();
+        } else {
+            setErrorChangingPasswordMaximumAttemptReached();
+            setAccountDetailsEditFailedMaxLimitReached();
+        }
+        mainController.mainModel.generateNotification();
+        revertBackUsers();
+        maxAttemptLimitReached = false;
+    }
+
     private void revertBackUsers() {
-        setComboBoxToDefault();
+        revertToOldValuesPane1();
         mainController.mainModel.populateFullNamesObservableList();
-        setComboBoxNameToOldValue(revertToOldValuesPane1());
+        setComboBoxToDefault();
         disableOtherAccountEditButtons(5);
     }
 
     private void setComboBoxToDefault() {
         mainController.comboBoxAccountName.setValue(fullNames.get(0));
-        mainController.labelProfileName.setText(usersNames.get(0));
+        //mainController.labelProfileName.setText(usersNames.get(0));
     }
 
     private boolean usersRequiredFieldsNotBlank() {
@@ -896,25 +917,11 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm9.setVisible(!nameNotExist());
     }
 
-    private int revertToOldValuesPane1() {
+    private void revertToOldValuesPane1() {
         accountReference.getFirstNames().setAll(oldAccountReference.getFirstNames());
         accountReference.getMiddleNames().setAll(oldAccountReference.getMiddleNames());
         accountReference.getLastNames().setAll(oldAccountReference.getLastNames());
-
-        String selectedName = getFirstWord(mainController.comboBoxAccountName.getValue());
-        int index = -1;
-
-        for (int i = 0; i < accountReference.getFirstNames().size(); i++) {
-            String firstName = getFirstWord(accountReference.getFirstNames().get(i));
-            if (selectedName.equals(firstName))
-                index = i;
-        }
-
-        mainController.textFieldAccountGivenName.setText(oldAccountReference.getFirstNames().get(index));
-        mainController.textFieldAccountMiddleName.setText(oldAccountReference.getMiddleNames().get(index));
-        mainController.textFieldAccountLastName.setText(oldAccountReference.getLastNames().get(index));
-
-        return index;
+        accountReference.getUserPasswords().setAll(oldAccountReference.getUserPasswords());
     }
 
     private void getUsersChanges() {
@@ -966,11 +973,6 @@ public class SettingsModel {
         }
 
         return index;
-    }
-
-    private void setComboBoxNameToOldValue(int index) {
-        mainController.comboBoxAccountName.setValue(fullNames.get(index));
-        mainController.labelProfileName.setText(usersNames.get(index));
     }
 
 
