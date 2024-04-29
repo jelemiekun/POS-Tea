@@ -52,6 +52,7 @@ import java.util.stream.Collectors;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.CSVUtility.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.OrderHistoryAndOrderQueue.OrderHistoryAndOrderQueueCSVOperations.*;
+import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ImportCSV.*;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Products.ProductsCSVOperations.*;
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
@@ -1143,10 +1144,35 @@ public class SettingsModel {
         accountContactReference = accountReference.getContact();
         setPaths();
 
+        reloadOrderHistoryAndOrderQueueObservableList();
+        reloadProductsObservableList();
+    }
+
+    private void reloadOrderHistoryAndOrderQueueObservableList() {
         orderHistoryObservableList.clear();
         orderQueueObservableList.clear();
         importOrdersFromCSV(true);
         importOrdersFromCSV(false);
+    }
+
+    private void reloadProductsObservableList() {
+        allProductObservableList.clear();
+        availableAllProductObservableList.clear();
+        availableMilkTeaObservableList.clear();
+        availableCoolersObservableList.clear();
+        availableCoffeeObservableList.clear();
+        availableIceCandyCupsObservableList.clear();
+        availableAppetizerObservableList.clear();
+        unavailableAllProductObservableList.clear();
+        unavailableMilkTeaObservableList.clear();
+        unavailableCoolersObservableList.clear();
+        unavailableCoffeeObservableList.clear();
+        unavailableIceCandyCupsObservableList.clear();
+        unavailableAppetizerObservableList.clear();
+
+        isAddingProductsFromImport = true;
+        importProductsFromCSV(CSV_FILE_PATH_PRODUCTS, false);
+        isAddingProductsFromImport = false;
     }
 
     private boolean accountDetailsRequiredFieldsNotBlank() {
