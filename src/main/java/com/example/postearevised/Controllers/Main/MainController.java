@@ -667,6 +667,8 @@ public class MainController implements Initializable {
     @FXML
     public ImageView btnOrderHistoryDelete;
     @FXML
+    public Label orderHistoryLabelTotalResultCounter;
+    @FXML
     public Label orderHistoryGuideMessageDoubleClickTable;
     @FXML
     public Label labelOrderHistoryDateAndTIme;

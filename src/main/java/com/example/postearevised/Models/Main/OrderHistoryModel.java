@@ -48,6 +48,7 @@ public class OrderHistoryModel {
         refreshOrderHistory();
         setTextFieldSearch();
         refreshOrderHistoryTable();
+        setTotalResult();
     }
 
 //    public void setOrderHistory() { // unused kasi if clicked yung order history left panel, maiiwanan lang yung nilalaman "AS IS"
@@ -314,11 +315,19 @@ public class OrderHistoryModel {
                     } else {
                         mainController.tableViewOrderHistory.setItems(filteredOrders);
                     }
+                    setTotalResult();
                 });
             } else {
                 mainController.tableViewOrderHistory.setItems(orderHistoryObservableList);
             }
         }
+    }
+
+    private void setTotalResult() {
+        Platform.runLater(() -> {
+            int totalResult = mainController.tableViewOrderHistory.getItems().size();
+            mainController.orderHistoryLabelTotalResultCounter.setText("Total Result: " + totalResult);
+        });
     }
 
 
