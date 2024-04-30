@@ -562,6 +562,8 @@ public class ProductModel {
     private void showGuideMessageIfReferenceTrue() {
         productController.labelGuideMessagePleaseFillUp.setVisible(showGuideMessagesReference);
         productController.labelGuideMessageDescription.setVisible(showGuideMessagesReference);
+        productController.labelGuideMessagePhoto.setVisible(showGuideMessagesReference);
+        productController.labelGuideMessageName.setVisible(showGuideMessagesReference);
     }
 
 

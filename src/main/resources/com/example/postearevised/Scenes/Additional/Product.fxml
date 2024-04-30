@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -627,10 +628,13 @@
                         <Font name="Arial" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelGuideMessageDescription" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="516.0" layoutY="85.0" text="You can leave this field blank" textAlignment="RIGHT" textFill="#616161" visible="false">
+                  <Label fx:id="labelGuideMessageDescription" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="495.0" layoutY="64.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 20px;" text="You can leave this field blank" textAlignment="RIGHT" textFill="#616161" visible="false">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </Label>
                </children>
             </AnchorPane>
@@ -673,6 +677,22 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Label fx:id="labelGuideMessagePhoto" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="759.0" layoutY="380.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 20px;" text="16:9 photo resolution&#10;is recommended" textAlignment="RIGHT" textFill="#616161" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelGuideMessageName" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="59.0" layoutY="87.0" style="-fx-background-color: white; -fx-border-color: white; -fx-border-radius: 20px;" text="Maximum of 16 characters.&#10;Make it as short as possible." textFill="#616161" visible="false">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchorPaneEditPhoto" layoutX="725.0" layoutY="520.0" onMouseClicked="#anchorPaneEditPhotoClicked" onTouchReleased="#anchorPaneEditPhotoTouched" prefHeight="96.0" prefWidth="237.0" visible="false">
