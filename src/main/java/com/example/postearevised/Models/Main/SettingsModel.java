@@ -878,7 +878,6 @@ public class SettingsModel {
     }
 
     private boolean checkPane1Changes() {
-        //TODO dapat hindi mag pproceed kapag may mali sa add user
         if (mainController.detectChangesUsers) {
             if (!isNewUserFieldsEmpty()) {
                 if (saveChanges(1)) {
