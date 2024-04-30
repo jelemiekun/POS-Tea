@@ -1190,6 +1190,7 @@ public class MainController implements Initializable {
     /**
      * Settings - Products
      */
+    //TODO lagyan search sa edit products, wala nang filter by, rekta search by product name na agad
     @FXML
     public AnchorPane anchorPaneEditProduct;
     @FXML

@@ -18,6 +18,7 @@ import static com.example.postearevised.Miscellaneous.References.StylesReference
 public class MainExtends extends Application {
     @Override
     public void start(Stage stage) {
+        //TODO bat kapag inexit ko na, may running pa rin na thread
         String URL = LOGIN_ENUM.getURL();
         String TITLE = LOGIN_ENUM.getTITLE();
 
