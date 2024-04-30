@@ -115,8 +115,6 @@ public class MainController implements Initializable {
 
 
             Platform.runLater(() -> {
-                settingsModel.setStyles(accountReference.getDisplayColor(), false);
-
                 anchorPaneLeftPanel.setVisible(true);
                 anchorPaneDashboard.setVisible(true);
 

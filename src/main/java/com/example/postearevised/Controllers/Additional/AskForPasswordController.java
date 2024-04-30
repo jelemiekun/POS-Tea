@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.updateAccountToAccountCSV;
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.LIGHT_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -98,7 +99,7 @@ public class AskForPasswordController implements Initializable {
             passwordField.setVisible(true);
             labelPasswordAsk.setVisible(true);
 
-            askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing)).toExternalForm());
+            askForPasswordStage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(cssUsing == null ? LIGHT_ENUM.getCssURL() : cssUsing)).toExternalForm());
         });
     }
 
