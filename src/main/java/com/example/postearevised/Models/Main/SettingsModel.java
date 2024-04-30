@@ -795,37 +795,59 @@ public class SettingsModel {
     }
 
     private void addAUserAdditionalElements() {
+        mainController.imagePencilSettingsAccount12 = new ImageView();
+        mainController.imagePencilSettingsAccount12.setFitHeight(35.0);
+        mainController.imagePencilSettingsAccount12.setFitWidth(35.0);
+        mainController.imagePencilSettingsAccount12.setLayoutX(252.0);
+        mainController.imagePencilSettingsAccount12.setLayoutY(400.0);
+        mainController.imagePencilSettingsAccount12.setPickOnBounds(true);
+        mainController.imagePencilSettingsAccount12.setPreserveRatio(true);
+        mainController.imagePencilSettingsAccount12.setImage(pencil);
+
         mainController.labelNewUserPassword = new Label();
         mainController.labelNewUserPassword.setText("User Password");
         mainController.labelNewUserPassword.setLayoutX(292.0);
-        mainController.labelNewUserPassword.setLayoutY(399.0);
+        mainController.labelNewUserPassword.setLayoutY(403.0);
         mainController.labelNewUserPassword.setPrefHeight(26.0);
         mainController.labelNewUserPassword.setPrefWidth(188.0);
         mainController.labelNewUserPassword.setFont(new Font("Arial", 22.0));
 
         mainController.passwordFieldAccountNewUser = new PasswordField();
         mainController.passwordFieldAccountNewUser.setLayoutX(580.0);
-        mainController.passwordFieldAccountNewUser.setLayoutY(391.0);
-        mainController.passwordFieldAccountNewUser.setPrefWidth(386.0);
+        mainController.passwordFieldAccountNewUser.setLayoutY(395.9);
+        mainController.passwordFieldAccountNewUser.setPrefWidth(436.0);
         mainController.passwordFieldAccountNewUser.setPromptText("Enter User Password");
         mainController.passwordFieldAccountNewUser.setOnKeyPressed(event -> mainController.settingsUsersTyping(event));
         mainController.passwordFieldAccountNewUser.setFont(new Font("Arial", 24.0));
 
-        mainController.imagePencilSettingsAccount12 = new ImageView();
-        mainController.imagePencilSettingsAccount12.setFitHeight(35.0);
-        mainController.imagePencilSettingsAccount12.setFitWidth(35.0);
-        mainController.imagePencilSettingsAccount12.setLayoutX(252.0);
-        mainController.imagePencilSettingsAccount12.setLayoutY(396.0);
-        mainController.imagePencilSettingsAccount12.setPickOnBounds(true);
-        mainController.imagePencilSettingsAccount12.setPreserveRatio(true);
+        mainController.labelSettingsFillUpThisForm12 = new Label("*please fill up this form");
+        mainController.labelSettingsFillUpThisForm12.setLayoutX(1031.0);
+        mainController.labelSettingsFillUpThisForm12.setLayoutY(407.0);
+        mainController.labelSettingsFillUpThisForm12.setTextFill(Color.web("#ff4e4e"));
+        mainController.labelSettingsFillUpThisForm12.setFont(new Font("Arial", 18.0));
+        mainController.labelSettingsFillUpThisForm12.setVisible(false);
 
-        mainController.imagePencilSettingsAccount12.setImage(pencil);
+        mainController.labelNewUserPasswordImportant = new Label();
+        mainController.labelNewUserPasswordImportant.setWrapText(true);
+        mainController.labelNewUserPasswordImportant.setText("Important:\nPlease remember this password. It cannot be changed.");
+        mainController.labelNewUserPasswordImportant.setLayoutX(580.0);
+        mainController.labelNewUserPasswordImportant.setLayoutY(446.0);
+        mainController.labelNewUserPasswordImportant.setTextFill(Color.web("#000000"));
+        mainController.labelNewUserPasswordImportant.setFont(Font.font("Arial", FontWeight.BOLD, 18.0));
 
-        mainController.anchorPaneSettingsAccountUsers.getChildren().addAll(mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.imagePencilSettingsAccount12);
+        mainController.anchorPaneSettingsAccountUsers.getChildren().addAll(mainController.imagePencilSettingsAccount12, mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.labelSettingsFillUpThisForm12, mainController.labelNewUserPasswordImportant);
+
+        mainController.anchorPaneSettingsBtnEditUsers.setLayoutX(1002.0);
+        mainController.anchorPaneSettingsBtnEditUsers.setLayoutY(515.0);
+        mainController.anchorPaneSettingsAccountUsers.setPrefHeight(600);
     }
 
     private void removeAdditionalElements() {
-        mainController.anchorPaneSettingsAccountUsers.getChildren().removeAll(mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.imagePencilSettingsAccount12);
+        mainController.anchorPaneSettingsAccountUsers.getChildren().removeAll(mainController.imagePencilSettingsAccount12, mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.labelSettingsFillUpThisForm12, mainController.labelNewUserPasswordImportant);
+
+        mainController.anchorPaneSettingsBtnEditUsers.setLayoutX(1002.0);
+        mainController.anchorPaneSettingsBtnEditUsers.setLayoutY(390.0);
+        mainController.anchorPaneSettingsAccountUsers.setPrefHeight(500);
     }
 
     public String getFirstWord(String value) {
@@ -856,15 +878,20 @@ public class SettingsModel {
     }
 
     private boolean checkPane1Changes() {
+        //TODO dapat hindi mag pproceed kapag may mali sa add user
         if (mainController.detectChangesUsers) {
-            if (saveChanges(1)) {
-                accountEditingProceed = false;
+            if (!isNewUserFieldsEmpty()) {
+                if (saveChanges(1)) {
+                    accountEditingProceed = false;
 
-                getUsersChanges();
+                    getUsersChanges();
 
-                return resultOfUpdateAccountToAccountCSV(updateAccountToAccountCSV(oldAccountReference, accountReference));
+                    return resultOfUpdateAccountToAccountCSV(updateAccountToAccountCSV(oldAccountReference, accountReference));
+                } else {
+                    failedInputPasswordForAccountAccountUpdate();
+                    return true;
+                }
             } else {
-                failedInputPasswordForAccountAccountUpdate();
                 return true;
             }
         } else {
@@ -935,6 +962,18 @@ public class SettingsModel {
                 return false;
         }
         return true;
+    }
+
+    private boolean isNewUserFieldsEmpty() {
+        boolean isEmpty = mainController.textFieldAccountGivenName.getText().trim().isEmpty() && mainController.textFieldAccountLastName.getText().trim().isEmpty();
+
+        if (mainController.passwordFieldAccountNewUser.getText().trim().isEmpty()) {
+            mainController.labelNewUserPasswordImportant.setVisible(true);
+            isEmpty = true;
+        }
+
+        System.out.println("line 975" + isEmpty);
+        return isEmpty;
     }
 
     public void accountUsersTyping() {
@@ -1011,7 +1050,6 @@ public class SettingsModel {
      */
 
     public void setSettingsAccountPane2(boolean isShow) {
-        //TODO dapat hindi mag pproceed kapag may mali sa add user
         if (mainController.textFieldAccountContact.isDisabled()) {
             if (isShow) {
                 mainController.anchorPanePasswordIndicator.setDisable(false);

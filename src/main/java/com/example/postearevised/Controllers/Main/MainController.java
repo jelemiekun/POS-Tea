@@ -1007,6 +1007,7 @@ public class MainController implements Initializable {
     public Label labelSettingsFillUpThisForm10;
     @FXML
     public Label labelSettingsFillUpThisForm11;
+    public Label labelSettingsFillUpThisForm12;
     @FXML
     public Label labelSettingsOnlyAdmin;
     @FXML
@@ -1014,6 +1015,7 @@ public class MainController implements Initializable {
     @FXML
     public Label labelMiddleNameOptional;
     public Label labelNewUserPassword;
+    public Label labelNewUserPasswordImportant;
 
 
     @FXML
