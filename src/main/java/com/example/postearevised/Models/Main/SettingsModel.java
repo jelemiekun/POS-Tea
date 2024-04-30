@@ -2135,25 +2135,25 @@ public class SettingsModel {
     //TODO AYUSIN NILALAMAN NG SYSTEM MANUAL
 
     public void updateInstallationGuide() {
-        Text guide1 = new Text("STEP 1: ");
+        Text guide1 = new Text("1. ");
         guide1.setStyle("-fx-font-weight: bold;");
-        Text guide2 = new Text("Download the program from GDrive.\n");
-        Text guide3 = new Text("- Users will need to download the application from the developers’ GDrive\n\n");
+        Text guide2 = new Text("Download the program from Google Drive.\n");
+        Text guide3 = new Text("-Users will need to download the application from the developers’ Google Drive\n\n");
 
-        Text guide4 = new Text("STEP 2: ");
+        Text guide4 = new Text("2. ");
         guide4.setStyle("-fx-font-weight: bold;");
         Text guide5 = new Text("Extract the files.\n");
-        Text guide6 = new Text("- To use the application, users must first download and extract the file. To proceed, open the extracted folder.\n\n");
+        Text guide6 = new Text("-To use the application, users must first download and extract the file. To proceed, open the extracted folder.\n\n");
 
-        Text guide7 = new Text("STEP 3: ");
+        Text guide7 = new Text("3. ");
         guide7.setStyle("-fx-font-weight: bold;");
         Text guide8 = new Text(":Run the JDK 21.\n");
-        Text guide9 = new Text("- Once the file has been extracted, a pop-up window will open. To proceed, click the yes button continuously.\n\n");
+        Text guide9 = new Text("- After the file has been extraced, a pop-up window will open. To proceed, click the 'Yes' button continuously until setup is finished.\n\n");
 
-        Text guide10 = new Text("STEP 4: ");
+        Text guide10 = new Text("4. ");
         guide10.setStyle("-fx-font-weight: bold;");
-        Text guide11 = new Text(":Open the POS-tea Jar File. \n");
-        Text guide12 = new Text("- After successfully running the jdk, users can access the system by selecting the previously downloaded POS-Tea Jar file.");
+        Text guide11 = new Text("Open the POS-tea Jar File. \n");
+        Text guide12 = new Text("-After successfully running the JDK, user(s) can now access the system by selecting the previously downloaded POS-Tea Jar file.");
 
         mainController.guideText1.getChildren().addAll(guide1,guide2,guide3,guide4,guide5,guide6,guide7,guide8,guide9,guide10,guide11,guide12);
         mainController.guideText1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-padding: 0 0 15 0;");
@@ -2166,9 +2166,9 @@ public class SettingsModel {
         Text dashboard2 = new Text("“Dashboard” ");
         dashboard2.setStyle("-fx-font-weight: bold;");
         Text dashboard3 = new Text("button if you want to view the ");
-        Text dashboard4 = new Text("“Best Seller” ");
+        Text dashboard4 = new Text("“All Time Favorites” ");
         dashboard4.setStyle("-fx-font-weight: bold;");
-        Text dashboard5 = new Text("of your shop and the statistics of the whole summary of:\n\n");
+        Text dashboard5 = new Text("of the shop and the statistics of the whole summary of:\n\n");
 
         Text dashboard6 = new Text("""
                 TOTAL REVENUE
@@ -2187,27 +2187,27 @@ public class SettingsModel {
     public void howToMakeOrder(){
         Text num1 = new Text("1. ");
         num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("Click the product.");
+        Text menu11 = new Text("Click a product.");
 
         Text num2 = new Text("\n\n2. ");
         num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Choose the ");
-        Text menu22 = new Text("Sizes ");
+        Text menu21 = new Text("Customize your order by selecting appropriate ");
+        Text menu22 = new Text("sizes ");
         menu22.setStyle("-fx-font-weight: bold;");
-        Text menu23 = new Text("(Milk Tea/ Coolers, ");
-        Text menu24 = new Text("Liquid Base ");
+        Text menu23 = new Text("(for Milk Tea/Coolers), ");
+        Text menu24 = new Text("liquid bases ");
         menu24.setStyle("-fx-font-weight: bold;");
-        Text menu25 = new Text("(Milk Tea/ Coolers, ");
-        Text menu26 = new Text("Add-ons ");
+        Text menu25 = new Text("(for Milk Tea/Coolers), ");
+        Text menu26 = new Text("add-ons ");
         menu26.setStyle("-fx-font-weight: bold;");
-        Text menu27 = new Text("(Milk Tea/Coolers, ");
-        Text menu28 = new Text("Temperature ");
+        Text menu27 = new Text("(for Milk Tea/Coolers), ");
+        Text menu28 = new Text("and temperatures ");
         menu28.setStyle("-fx-font-weight: bold;");
-        Text menu29 = new Text("(Coffee) of the product.");
+        Text menu29 = new Text("(Coffee).");
 
-        Text note = new Text("\n\nNote: ");
+        Text note = new Text("\n\nNOTE: ");
         note.setStyle("-fx-font-weight: bold;");
-        Text note1 = new Text(" The product/s in the ");
+        Text note1 = new Text(" The product(s) in the ");
         Text note2 = new Text("Ice Candy Cups ");
         note.setStyle("-fx-font-weight: bold;");
         Text note3 = new Text("and ");
@@ -2217,39 +2217,42 @@ public class SettingsModel {
 
         Text num3 = new Text("\n\n3. ");
         num3.setStyle("-fx-font-weight: bold;");
-        Text menu31 = new Text("Click the ");
+        Text menu31 = new Text("Proceed by clicking the ");
         Text menu32 = new Text("“Add Order” ");
         menu32.setStyle("-fx-font-weight: bold;");
         Text menu33 = new Text("button.");
 
         Text num4 = new Text("\n\n4. ");
         num4.setStyle("-fx-font-weight: bold;");
-        Text menu41 = new Text("On the right panel, there is a ");
+        Text menu41 = new Text("Navigate to the right panel, where you will find a ");
         Text menu42 = new Text("“Bills” ");
         menu42.setStyle("-fx-font-weight: bold;");
-        Text menu43 = new Text("section where you can see the order/s queue of your customer.");
+        Text menu43 = new Text("section displaying the list of orders placed by your customers.");
 
         Text num5 = new Text("\n\n5. ");
         num5.setStyle("-fx-font-weight: bold;");
-        Text menu51 = new Text("Increase the number of the quantity of the product by clicking the ");
-        Text menu52 = new Text("Plus sign (+) ");
+        Text menu51 = new Text("Adjust the quantity of the selected product by utilizing the ");
+        Text menu52 = new Text("plus sign (+) ");
         menu52.setStyle("-fx-font-weight: bold;");
-        Text menu53 = new Text("if the customer orders the same product twice or more.");
+        Text menu53 = new Text("or ");
+        Text menu54 = new Text("minus sign (-)");
+        menu54.setStyle("-fx-font-weight: bold;");
+        Text menu55 = new Text(".");
 
         Text num6 = new Text("\n\n6. ");
         num6.setStyle("-fx-font-weight: bold;");
-        Text menu61 = new Text("Enter the amount paid by the customer.");
+        Text menu61 = new Text("Enter customer's name and the amount paid.");
 
         Text num7 = new Text("\n\n7. ");
         num7.setStyle("-fx-font-weight: bold;");
-        Text menu71 = new Text("Choose which ");
+        Text menu71 = new Text("Select the preferred ");
         Text menu72 = new Text("Payment Method ");
         menu72.setStyle("-fx-font-weight: bold;");
-        Text menu73 = new Text("does the customer prefers to pay with.");
+        Text menu73 = new Text(".");
 
         Text num8 = new Text("\n\n8. ");
         num8.setStyle("-fx-font-weight: bold;");
-        Text menu81 = new Text("Click ");
+        Text menu81 = new Text("Complete the transaction by clicking the ");
         Text menu82 = new Text("“Pay” ");
         menu82.setStyle("-fx-font-weight: bold;");
         Text menu83 = new Text("button.");
@@ -2259,27 +2262,11 @@ public class SettingsModel {
                 note,note1,note2,note3,note4,note5,
                 num3,menu31,menu32,menu33,
                 num4,menu41,menu42,menu43,
-                num5,menu51,menu52,menu53,
+                num5,menu51,menu52,menu53, menu54, menu55,
                 num6,menu61,
                 num7,menu71,menu72,menu73,
                 num8,menu81,menu82,menu83);
         mainController.menuText5.setStyle("-fx-font-size: 16; -fx-cursor: text;");
-    }
-
-    public void howToAddCustomerName(){
-        Text num1 = new Text("1. ");
-        num1.setStyle("-fx-font-weight: bold;");
-        Text menu11 = new Text("On the right there is a panel, on the top of that panel there is a ");
-        Text menu12 = new Text("”Customer Name:“.");
-        menu12.setStyle("-fx-font-weight: bold;");
-
-        Text num2 = new Text("\n\n2. ");
-        num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("Click on the box and type the name of the customer.");
-
-        mainController.menuText6.getChildren().addAll(num1,menu11,menu12,
-                num2,menu21);
-        mainController.menuText6.setStyle("-fx-font-size: 16; -fx-cursor: text;");
     }
 
     public void howToUsePaymentMethod() {
@@ -2304,17 +2291,19 @@ public class SettingsModel {
         Text menu33 = new Text("or ");
         Text menu34 = new Text("Gcash ");
         menu34.setStyle("-fx-font-weight: bold;");
-        Text menu35 = new Text("as a payment method.");
+        Text menu35 = new Text("or ");
+        Text menu36 = new Text("Others ");
+        menu34.setStyle("-fx-font-weight: bold;");
+        Text menu37 = new Text("as a payment method.");
 
         mainController.menuText7.getChildren().addAll(num1,menu11,menu12,menu13,
                 num2,menu21,menu22,
-                num3,menu31,menu32,menu33,menu34,menu35);
+                num3,menu31,menu32,menu33,menu34,menu35, menu36, menu37);
         mainController.menuText7.setStyle("-fx-font-size: 16; -fx-cursor: text;");
     }
 
     public void updateManualMenu() {
         howToMakeOrder();
-        howToAddCustomerName();
         howToUsePaymentMethod();
     }
 
@@ -2333,25 +2322,25 @@ public class SettingsModel {
         Text queue21 = new Text(" Make an order.");
 
         Text num3 = new Text("\n\n3. ");
-        num1.setStyle("-fx-font-weight: bold;");
+        num3.setStyle("-fx-font-weight: bold;");
         Text queue31 = new Text("Go to ");
         Text queue32 = new Text("“Order Queue Page” ");
         queue32.setStyle("-fx-font-weight: bold;");
         Text queue33 = new Text("and you will see the order you made.");
 
         Text num4 = new Text("\n\n4. ");
-        num1.setStyle("-fx-font-weight: bold;");
+        num4.setStyle("-fx-font-weight: bold;");
         Text queue41 = new Text("Click ");
         Text queue42 = new Text("“Done” ");
         queue42.setStyle("-fx-font-weight: bold;");
-        Text queue43 = new Text("button if the order is done preparing/making.");
+        Text queue43 = new Text("button if the order is already served.");
 
-        Text note = new Text("\n\nNote: ");
+        Text note = new Text("\n\nNOTE: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("The ");
         Text note2 = new Text("Order Queue ");
         note2.setStyle("-fx-font-weight: bold;");
-        Text note3 = new Text("only serves as a guide for the user when preparing the order. It does not edit the customer's order, which means it cannot delete the order or add an order.");
+        Text note3 = new Text("is just a guide for preparing orders. It doesn't change or add orders for customers.");
 
         mainController.orderQueueText1.getChildren().addAll(num1,queue11,queue12,queue13,
                 num2,queue21,
@@ -2364,63 +2353,66 @@ public class SettingsModel {
     //ORDER HISTORY
 
     public void updateManualOrderHistory() {
-        Text order1 = new Text("Once the order is done, the customer's data/order will be transferred to the Order History.\nThe ");
-        Text order2 = new Text("Order History ");
-        order2.setStyle("-fx-font-weight: bold;");
-        Text order3 = new Text("show the following:\n\n");
+        updateManualOrderHistoryText();
+        updateManualOrderHistoryHowToViewFullOrderDetails();
+        updateManualOrderHistoryHowToDeleteOrderHistoryRecord();
+    }
 
-        Text order4 = new Text("""
-                CUSTOMER
+    private void updateManualOrderHistoryText() {
+        Text order1 = new Text("After the order is completed, the customer's information and order details wil be moved to the Order History. In the Order History, you can view the following information:\n\n");
+
+        Text order2 = new Text("""
+                TRANSACTION ID
+                CUSTOMER NAME
+                TOTAL PRICE
                 FOOD CATEGORIES
                 PRODUCT NAME
                 PRODUCT QUANTITY
                 PRODUCT PRICE
-                TOTAL PRICE
-                AMOUNT PAID
-                CHANGE
-                MODE OF PAYMENT
                 DATE AND TIME\s
-
                 """);
-        order4.setStyle("-fx-font-weight: bold;");
+        order2.setStyle("-fx-font-weight: bold;");
 
-        Text order6 = new Text("\n\nSORT DATE");
-        order6.setStyle("-fx-font-weight: bold;");
-        Text order7 = new Text("\nIf you want to sort the date of your customer's transactions, just click ");
-        Text order8 = new Text("“Sort Date”");
-        order8.setStyle("-fx-font-weight: bold;");
-        Text order9 = new Text(", and it will show the following categories:\n\n");
-        Text order10 = new Text("""
-                NOW
-                TODAY
-                THIS WEEK
-                THIS MONTH\s
-                THIS YEAR
-                """);
-        order10.setStyle("-fx-font-weight: bold;");
-
-        Text order11 = new Text("Choose one category, and it will show the results of the history of your customer's transactions.\n\n");
-
-        Text order12 = new Text("SEARCH");
-        order12.setStyle("-fx-font-weight: bold;");
-        Text order13 = new Text("\nIf you want to know or find the transaction of the customer or the specific product name, use the ");
-        Text order14 = new Text("Search Box.");
-        order14.setStyle("-fx-font-weight: bold;");
-
-        Text order15 = new Text("\n\nDELETE");
-        order15.setStyle("-fx-font-weight: bold;");
-        Text order16 = new Text("\nWhen you click the ");
-        Text order17 = new Text("“Delete” ");
-        order17.setStyle("-fx-font-weight: bold;");
-        Text order18 = new Text("button, it will show the records of customer’s transactions history by year.\n\n");
-
-        Text order19 = new Text("Select the year of the transaction you want to delete, and click the ");
-        Text order20 = new Text("“Delete Record” ");
-        order20.setStyle("-fx-font-weight: bold;");
-        Text order21 = new Text("button it will delete the records.");
-
-        mainController.orderHistoryText1.getChildren().addAll(order1,order2,order3,order4,order6,order7,order8,order9,order10,order11,order12,order13,order14,order15,order16,order17,order18,order19,order20,order21);
+        mainController.orderHistoryText1.getChildren().addAll(order1,order2);
         mainController.orderHistoryText1.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    private void updateManualOrderHistoryHowToViewFullOrderDetails() {
+        Text order1 = new Text("To view the full details of an order, double click a row that you want to select.");
+
+        mainController.orderHistoryText2.getChildren().addAll(order1);
+        mainController.orderHistoryText2.setStyle("-fx-font-size: 16; -fx-cursor: text;");
+    }
+
+    private void updateManualOrderHistoryHowToDeleteOrderHistoryRecord() {
+        Text order1 = new Text("1. ");
+        order1.setStyle("-fx-font-weight: bold;");
+        Text order2 = new Text("To delete a history record, click the ");
+        Text order3 = new Text("“Delete year” ");
+        order3.setStyle("-fx-font-weight: bold;");
+        Text order4 = new Text("button. This will display transaction records for each year.");
+
+        Text order5 = new Text("\n\n2. ");
+        order5.setStyle("-fx-font-weight: bold;");
+        Text order6 = new Text("Select the year you wish to delete.");
+
+        Text order7 = new Text("\n\n3. ");
+        order7.setStyle("-fx-font-weight: bold;");
+        Text order8 = new Text("Click the ");
+        Text order9 = new Text("“Delete Record” ");
+        order9.setStyle("-fx-font-weight: bold;");
+        Text order10 = new Text("butto.");
+
+        Text order11 = new Text("\n\n4. ");
+        order11.setStyle("-fx-font-weight: bold;");
+        Text order12 = new Text("Type in your account password and click done.");
+
+        Text order13 = new Text("\n\nNOTE: ");
+        order13.setStyle("-fx-font-weight: bold;");
+        Text order14 = new Text("You can only delete a record by year and you cannot delete current year records.");
+
+        mainController.orderHistoryText3.getChildren().addAll(order1,order2,order3,order4,order5,order6,order7,order8,order9,order10,order11,order12,order13,order14);
+        mainController.orderHistoryText3.setStyle("-fx-font-size: 16; -fx-cursor: text;");
     }
 
     public void updateAccountSettings(){
@@ -2505,7 +2497,7 @@ public class SettingsModel {
         num3.setStyle("-fx-font-weight: bold;");
         Text menu31 = new Text("Choose which category the product belongs to.");
 
-        Text note = new Text("\n\nNote: ");
+        Text note = new Text("\n\nNOTE: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("You cannot proceed to add ");
         Text note2 = new Text("Name, Description, Price, and Photo ");
@@ -2900,7 +2892,7 @@ public class SettingsModel {
         num5.setStyle("-fx-font-weight: bold;");
         Text menu51 = new Text("Find the file and select the file to import.");
 
-        Text note = new Text("\n\nNote: ");
+        Text note = new Text("\n\nNOTE: ");
         note.setStyle("-fx-font-weight: bold;");
         Text note1 = new Text("The file must be an ");
         Text note2 = new Text("Excel File.");

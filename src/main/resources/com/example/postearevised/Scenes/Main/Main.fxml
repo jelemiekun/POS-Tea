@@ -1613,19 +1613,6 @@
                                                                               </FlowPane>
                                                                            </content>
                                                                         </TitledPane>
-                                                                        <TitledPane layoutX="15.0" layoutY="526.0" text="How to add Customer Name?">
-                                                                           <content>
-                                                                              <FlowPane alignment="TOP_CENTER">
-                                                                                 <children>
-                                                                                    <AnchorPane fx:id="manualContent6" prefHeight="10.0" prefWidth="1003.0">
-                                                                                       <children>
-                                                                                          <TextFlow fx:id="menuText6" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
-                                                                                       </children>
-                                                                                    </AnchorPane>
-                                                                                 </children>
-                                                                              </FlowPane>
-                                                                           </content>
-                                                                        </TitledPane>
                                                                         <TitledPane layoutX="15.0" layoutY="596.0" text="How to use Payment Method?">
                                                                            <content>
                                                                               <FlowPane alignment="TOP_CENTER">
@@ -1683,6 +1670,36 @@
                                                                         <TextFlow fx:id="orderHistoryText1" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
                                                                      </children>
                                                                   </AnchorPane>
+                                                                  <Accordion fx:id="contentAccordionMenu1" prefHeight="10.0" prefWidth="1100.0">
+                                                                     <panes>
+                                                                        <TitledPane layoutX="15.0" layoutY="225.0" text="How to view full order details?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent51" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="orderHistoryText2" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                        <TitledPane layoutX="15.0" layoutY="596.0" text="How to delete order history record?">
+                                                                           <content>
+                                                                              <FlowPane alignment="TOP_CENTER">
+                                                                                 <children>
+                                                                                    <AnchorPane fx:id="manualContent71" prefHeight="10.0" prefWidth="1003.0">
+                                                                                       <children>
+                                                                                          <TextFlow fx:id="orderHistoryText3" layoutX="48.0" layoutY="29.0" prefHeight="10.0" prefWidth="905.0" />
+                                                                                       </children>
+                                                                                    </AnchorPane>
+                                                                                 </children>
+                                                                              </FlowPane>
+                                                                           </content>
+                                                                        </TitledPane>
+                                                                     </panes>
+                                                                  </Accordion>
                                                                </children>
                                                             </FlowPane>
                                                          </content>

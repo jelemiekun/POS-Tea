@@ -1298,8 +1298,6 @@ public class MainController implements Initializable {
     @FXML
     public TextFlow menuText5;
     @FXML
-    public TextFlow menuText6;
-    @FXML
     public TextFlow menuText7;
     @FXML
     public TextFlow editProductsText8;
@@ -1315,6 +1313,10 @@ public class MainController implements Initializable {
     public TextFlow orderQueueText1;
     @FXML
     public TextFlow orderHistoryText1;
+    @FXML
+    public TextFlow orderHistoryText2;
+    @FXML
+    public TextFlow orderHistoryText3;
     @FXML
     public TextFlow accountText1;
     @FXML
