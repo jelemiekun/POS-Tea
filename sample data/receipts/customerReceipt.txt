@@ -1,0 +1,33 @@
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:43:59 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱48.00
+CASH ENTERED                      ₱48.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 65                         
+CUSTOMER NAME: Queen                    
+Mode of payment: Cash                   
+Transaction ID: 20240428144359          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        

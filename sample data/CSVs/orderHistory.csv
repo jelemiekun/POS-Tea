@@ -1,0 +1,2827 @@
+customerName,orderNumber,foodCategories,productName,firstAttribute,secondAttribute,thirdAttribute,productQuantity,productPrice,totalPrice,amountPaid,change,modeOfPayment,dateAndTime,imagePath,transactionID,cashierName,invoice
+Gabriel,1,Milk Tea/,Hazel nut/,Water Base/,Cream cheese/,Large/,2/,104/,104,104,0,Cash,2022x-0x4-x20xT0x9:43:55.106136100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2022x04x20x09x43x55,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:43:55 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x2          ₱104.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱104.00
+CASH ENTERED                     ₱104.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 1                          
+CUSTOMER NAME: Gabriel                  
+Mode of payment: Cash                   
+Transaction ID: 20220420094355          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Grazzily,2,Coffee/Appetizers/Appetizers/,Vanila/French Fries/Siomai/,Hot/././,./././,./././,1/1/1/,50/20/25/,95,95,0,GCash,2022x-0x4-x20xT0x9:44:24.602003800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x04x20x09x44x24,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:44:24 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Hot                                  
+French Fries         x1           ₱20.00
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱95.00
+CASH ENTERED                      ₱95.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 2                          
+CUSTOMER NAME: Grazzily                 
+Mode of payment: GCash                  
+Transaction ID: 20220420094424          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Simon,3,Coffee/,Vanila/,Hot/,./,./,2/,100/,100,100,0,Maya,2022x-0x4-x20xT0x9:44:39.805997500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2022x04x20x09x44x39,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:44:39 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x2          ₱100.00
+  -Hot                                  
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱100.00
+CASH ENTERED                     ₱100.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 3                          
+CUSTOMER NAME: Simon                    
+Mode of payment: Maya                   
+Transaction ID: 20220420094439          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Lance,4,Coolers/Milk Tea/Ice Candy Cups/,Cucumber/Hazel nut/Black Forest/,Water Base/Tea Base/./,Pearls/Cream puff/./,Medium/Medium/./,1/1/1/,48/48/25/,121,121,0,GCash,2022x-0x4-x20xT0x9:45:13.262808200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2022x04x20x09x45x13,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:45:13 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Hazel nut            x1           ₱48.00
+  -Medium                               
+  -Tea Base                             
+  -Cream puff                           
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱121.00
+CASH ENTERED                     ₱121.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 4                          
+CUSTOMER NAME: Lance                    
+Mode of payment: GCash                  
+Transaction ID: 20220420094513          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Vivian,5,Ice Candy Cups/,Black Forest/,./,./,./,4/,100/,100,100,0,GCash,2022x-0x4-x20xT0x9:45:36.612703300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2022x04x20x09x45x36,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:45:36 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x4          ₱100.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱100.00
+CASH ENTERED                     ₱100.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 5                          
+CUSTOMER NAME: Vivian                   
+Mode of payment: GCash                  
+Transaction ID: 20220420094536          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kierby,6,Milk Tea/Appetizers/,Hazel nut/Siomai/,Tea Base/./,Cream puff/./,Small/./,1/5/,43/125/,168,168,0,Credit Card,2022x-0x4-x20xT0x9:49:01.228433600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x04x20x09x49x01,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:49:01 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Small                                
+  -Tea Base                             
+  -Cream puff                           
+Siomai               x5          ₱125.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱168.00
+CASH ENTERED                     ₱168.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 6                          
+CUSTOMER NAME: Kierby                   
+Mode of payment: Credit Card            
+Transaction ID: 20220420094901          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Junjie,7,Appetizers/Coolers/,French Fries/Blue lemonade/,./Water Base/,./Pearls/,./Medium/,1/1/,20/48/,68,68,0,Cash,2022x-0x4-x20xT0x9:49:29.489278600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2022x04x20x09x49x29,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:49:29 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+Blue lemonade        x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱68.00
+CASH ENTERED                      ₱68.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 7                          
+CUSTOMER NAME: Junjie                   
+Mode of payment: Cash                   
+Transaction ID: 20220420094929          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Jeremie,8,Milk Tea/Appetizers/,CookiesandCream/Siomai/,Water Base/./,Cream cheese/./,Medium/./,1/1/,43/25/,68,68,0,Maya,2022x-0x4-x20xT0x9:50:16.915076100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x04x20x09x50x16,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:50:16 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱68.00
+CASH ENTERED                      ₱68.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 8                          
+CUSTOMER NAME: Jeremie                  
+Mode of payment: Maya                   
+Transaction ID: 20220420095016          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Corpuz,9,Coolers/Appetizers/Ice Candy Cups/,Cucumber/French Fries/Black Forest/,Water Base/././,Pearls/././,Medium/././,1/1/1/,48/20/25/,93,93,0,GCash,2022x-0x4-x20xT0x9:50:43.136215300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2022x04x20x09x50x43,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:50:43 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+French Fries         x1           ₱20.00
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱93.00
+CASH ENTERED                      ₱93.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 9                          
+CUSTOMER NAME: Corpuz                   
+Mode of payment: GCash                  
+Transaction ID: 20220420095043          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Abella,10,Coffee/Coolers/,Vanila/Cucumber/,Hot/Tea Base/,./Jellies/,./Large/,1/1/,50/52/,102,102,0,Cash,2022x-0x4-x20xT0x9:51:07.362005900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x04x20x09x51x07,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/20/2022       TIME: 09:51:07 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Hot                                  
+Cucumber             x1           ₱52.00
+  -Large                                
+  -Tea Base                             
+  -Jellies                              
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱102.00
+CASH ENTERED                     ₱102.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 10                         
+CUSTOMER NAME: Abella                   
+Mode of payment: Cash                   
+Transaction ID: 20220420095107          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Gamus,11,Milk Tea/,CookiesandCream/,Water Base/,Cream cheese/,Large/,4/,208/,208,208,0,Maya,2022x-0x4-x21xT0x9:53:28.351099,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2022x04x21x09x53x28,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:53:28 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x4          ₱208.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱208.00
+CASH ENTERED                     ₱208.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 11                         
+CUSTOMER NAME: Gamus                    
+Mode of payment: Maya                   
+Transaction ID: 20220421095328          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kanno,12,Appetizers/,French Fries/,./,./,./,3/,60/,60,60,0,Cash,2022x-0x4-x21xT0x9:54:00.185817500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2022x04x21x09x54x00,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:54:00 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x3           ₱60.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱60.00
+CASH ENTERED                      ₱60.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 12                         
+CUSTOMER NAME: Kanno                    
+Mode of payment: Cash                   
+Transaction ID: 20220421095400          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Cortez,13,Coolers/Coolers/Coffee/,Cucumber/Blue lemonade/Vanila/,Water Base/Water Base/Hot/,Pearls/Pearls/./,Medium/Medium/./,1/1/1/,48/48/50/,146,146,0,Cash,2022x-0x4-x21xT0x9:55:10.316390600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2022x04x21x09x55x10,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:55:10 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Blue lemonade        x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Vanila               x1           ₱50.00
+  -Hot                                  
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱146.00
+CASH ENTERED                     ₱146.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 13                         
+CUSTOMER NAME: Cortez                   
+Mode of payment: Cash                   
+Transaction ID: 20220421095510          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Beldad,14,Ice Candy Cups/Milk Tea/,Black Forest/CookiesandCream/,./Water Base/,./Cream cheese/,./Large/,1/3/,25/156/,181,181,0,Cash,2022x-0x4-x21xT0x9:55:34.156885400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2022x04x21x09x55x34,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:55:34 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+CookiesandCream      x3          ₱156.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱181.00
+CASH ENTERED                     ₱181.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 14                         
+CUSTOMER NAME: Beldad                   
+Mode of payment: Cash                   
+Transaction ID: 20220421095534          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Attendido,15,Milk Tea/,Hazel nut/,Tea Base/,Cream cheese/,Medium/,4/,172/,172,172,0,Debit Card,2022x-0x4-x21xT0x9:56:04.361770200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2022x04x21x09x56x04,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:56:04 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x4          ₱172.00
+  -Medium                               
+  -Tea Base                             
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱172.00
+CASH ENTERED                     ₱172.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 15                         
+CUSTOMER NAME: Attendido                
+Mode of payment: Debit Card             
+Transaction ID: 20220421095604          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Bagas,16,Coolers/,Blue lemonade/,Water Base/,Pearls/,Large/,3/,171/,171,171,0,Cash,2022x-0x4-x21xT0x9:58:51.275876200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2022x04x21x09x58x51,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:58:51 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Blue lemonade        x3          ₱171.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱171.00
+CASH ENTERED                     ₱171.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 16                         
+CUSTOMER NAME: Bagas                    
+Mode of payment: Cash                   
+Transaction ID: 20220421095851          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Bano,17,Coffee/Coolers/,Vanila/Cucumber/,Cold/Tea Base/,./Jellies/,./Large/,1/1/,50/52/,102,150,48,Cash,2022x-0x4-x21xT0x9:59:24.892786,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x04x21x09x59x24,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 09:59:24 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Cucumber             x1           ₱52.00
+  -Large                                
+  -Tea Base                             
+  -Jellies                              
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱102.00
+CASH ENTERED                     ₱150.00
+CHANGE                            ₱48.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 17                         
+CUSTOMER NAME: Bano                     
+Mode of payment: Cash                   
+Transaction ID: 20220421095924          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Zabat,18,Coolers/,Blue lemonade/,Water Base/,Pearls/,Large/,3/,171/,171,171,0,Maya,2022x-0x4-x21xT1x0:00:01.430462800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2022x04x21x10x00x01,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 10:00:01 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Blue lemonade        x3          ₱171.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱171.00
+CASH ENTERED                     ₱171.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 18                         
+CUSTOMER NAME: Zabat                    
+Mode of payment: Maya                   
+Transaction ID: 20220421100001          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Rita,19,Coolers/,Cucumber/,Tea Base/,Jellies/,Small/,1/,38/,38,38,0,Cash,2022x-0x4-x21xT1x0:00:17.219464800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x04x21x10x00x17,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 10:00:17 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱38.00
+  -Small                                
+  -Tea Base                             
+  -Jellies                              
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱38.00
+CASH ENTERED                      ₱38.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 19                         
+CUSTOMER NAME: Rita                     
+Mode of payment: Cash                   
+Transaction ID: 20220421100017          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Torres,20,Appetizers/,Siomai/,./,./,./,3/,75/,75,75,0,Maya,2022x-0x4-x21xT1x0:00:43.610633800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x04x21x10x00x43,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/21/2022       TIME: 10:00:43 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x3           ₱75.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱75.00
+CASH ENTERED                      ₱75.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 20                         
+CUSTOMER NAME: Torres                   
+Mode of payment: Maya                   
+Transaction ID: 20220421100043          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Armenta,21,Milk Tea/,Hazel nut/,Tea Base/,Cream cheese/,Medium/,4/,172/,172,172,0,GCash,2022x-0x5-x20xT1x0:31:35.908533200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2022x05x20x10x31x35,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:31:35 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x4          ₱172.00
+  -Medium                               
+  -Tea Base                             
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱172.00
+CASH ENTERED                     ₱172.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 21                         
+CUSTOMER NAME: Armenta                  
+Mode of payment: GCash                  
+Transaction ID: 20220520103135          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Gallardo,22,Milk Tea/Ice Candy Cups/Coffee/,Hazel nut/Black Forest/Vanila/,Water Base/./Cold/,Cream puff/././,Large/././,1/1/1/,57/25/50/,132,132,0,GCash,2022x-0x5-x20xT1x0:32:06.484227600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2022x05x20x10x32x06,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:32:06 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱57.00
+  -Large                                
+  -Water Base                           
+  -Cream puff                           
+Black Forest         x1           ₱25.00
+Vanila               x1           ₱50.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱132.00
+CASH ENTERED                     ₱132.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 22                         
+CUSTOMER NAME: Gallardo                 
+Mode of payment: GCash                  
+Transaction ID: 20220520103206          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Eden,23,Coffee/Appetizers/Ice Candy Cups/Milk Tea/,Vanila/Siomai/Black Forest/CookiesandCream/,Cold/././Water Base/,./././Cream cheese/,./././Medium/,1/1/1/1/,50/25/25/43/,143,143,0,Cash,2022x-0x5-x20xT1x0:33:25.100809800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2022x05x20x10x33x25,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:33:25 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Siomai               x1           ₱25.00
+Black Forest         x1           ₱25.00
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱143.00
+CASH ENTERED                     ₱143.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 23                         
+CUSTOMER NAME: Eden                     
+Mode of payment: Cash                   
+Transaction ID: 20220520103325          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Cabaron,24,Milk Tea/Coolers/,Hazel nut/Cucumber/,Water Base/Water Base/,Cream cheese/Pearls/,Medium/Medium/,1/1/,43/48/,91,91,0,Cash,2022x-0x5-x20xT1x0:34:25.659368400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x05x20x10x34x25,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:34:25 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱91.00
+CASH ENTERED                      ₱91.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 24                         
+CUSTOMER NAME: Cabaron                  
+Mode of payment: Cash                   
+Transaction ID: 20220520103425          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Tuazon,25,Coolers/Appetizers/Ice Candy Cups/Coffee/,Blue lemonade/Siomai/Black Forest/Vanila/,Water Base/././Cold/,Pearls/./././,Medium/./././,1/1/1/1/,48/25/25/50/,148,148,0,Cash,2022x-0x5-x20xT1x0:37:19.627406900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2022x05x20x10x37x19,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:37:19 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Blue lemonade        x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Siomai               x1           ₱25.00
+Black Forest         x1           ₱25.00
+Vanila               x1           ₱50.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱148.00
+CASH ENTERED                     ₱148.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 25                         
+CUSTOMER NAME: Tuazon                   
+Mode of payment: Cash                   
+Transaction ID: 20220520103719          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Aaron,26,Coffee/Coolers/Milk Tea/Appetizers/,Vanila/Cucumber/Hazel nut/French Fries/,Cold/Water Base/Water Base/./,./Pearls/Cream cheese/./,./Medium/Medium/./,1/1/1/1/,50/48/43/20/,161,161,0,GCash,2022x-0x5-x20xT1x0:38:16.088911300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2022x05x20x10x38x16,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:38:16 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱161.00
+CASH ENTERED                     ₱161.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 26                         
+CUSTOMER NAME: Aaron                    
+Mode of payment: GCash                  
+Transaction ID: 20220520103816          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Ian,27,Appetizers/,French Fries/,./,./,./,3/,60/,60,60,0,Cash,2022x-0x5-x20xT1x0:38:51.257775600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2022x05x20x10x38x51,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:38:51 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x3           ₱60.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱60.00
+CASH ENTERED                      ₱60.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 27                         
+CUSTOMER NAME: Ian                      
+Mode of payment: Cash                   
+Transaction ID: 20220520103851          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kevin,28,Ice Candy Cups/Coolers/Milk Tea/,Black Forest/Blue lemonade/Hazel nut/,./Water Base/Tea Base/,./Pearls/./,./Medium/Small/,1/1/1/,25/48/23/,96,96,0,Debit Card,2022x-0x5-x20xT1x0:39:23.501088700,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2022x05x20x10x39x23,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:39:23 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+Blue lemonade        x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Hazel nut            x1           ₱23.00
+  -Small                                
+  -Tea Base                             
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱96.00
+CASH ENTERED                      ₱96.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 28                         
+CUSTOMER NAME: Kevin                    
+Mode of payment: Debit Card             
+Transaction ID: 20220520103923          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Wilson,29,Milk Tea/,CookiesandCream/,Water Base/,Cream cheese/,Medium/,1/,43/,43,43,0,Cash,2022x-0x5-x20xT1x0:39:42.679196900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2022x05x20x10x39x42,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:39:42 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱43.00
+CASH ENTERED                      ₱43.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 29                         
+CUSTOMER NAME: Wilson                   
+Mode of payment: Cash                   
+Transaction ID: 20220520103942          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kermil,30,Coffee/Appetizers/,Vanila/Siomai/,Cold/./,././,././,1/1/,50/25/,75,75,0,Cash,2022x-0x5-x20xT1x0:40:05.961226300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x05x20x10x40x05,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/20/2022       TIME: 10:40:05 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱75.00
+CASH ENTERED                      ₱75.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 30                         
+CUSTOMER NAME: Kermil                   
+Mode of payment: Cash                   
+Transaction ID: 20220520104005          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Coronel,31,Milk Tea/Milk Tea/Ice Candy Cups/Appetizers/,Hazel nut/CookiesandCream/Black Forest/Siomai/,Water Base/Water Base/././,Cream cheese/Cream cheese/././,Medium/Medium/././,1/1/1/1/,43/43/25/25/,136,136,0,Cash,2022x-0x5-x21xT1x0:47:13.230209900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x05x21x10x47x13,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:47:13 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Black Forest         x1           ₱25.00
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱136.00
+CASH ENTERED                     ₱136.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 31                         
+CUSTOMER NAME: Coronel                  
+Mode of payment: Cash                   
+Transaction ID: 20220521104713          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Eragol,32,Appetizers/Ice Candy Cups/Coolers/,French Fries/Black Forest/Cucumber/,././Water Base/,././Pearls/,././Medium/,1/1/1/,20/25/48/,93,93,0,Cash,2022x-0x5-x21xT1x0:47:45.906615400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x05x21x10x47x45,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:47:45 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+Black Forest         x1           ₱25.00
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱93.00
+CASH ENTERED                      ₱93.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 32                         
+CUSTOMER NAME: Eragol                   
+Mode of payment: Cash                   
+Transaction ID: 20220521104745          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Johan,33,Milk Tea/Milk Tea/Coolers/Coffee/Ice Candy Cups/Appetizers/,Hazel nut/CookiesandCream/Blue lemonade/Vanila/Black Forest/Siomai/,Water Base/Water Base/Water Base/Cold/././,Cream cheese/Cream cheese/Pearls/./././,Medium/Medium/Medium/./././,1/1/1/1/1/1/,43/43/48/50/25/25/,234,234,0,GCash,2022x-0x5-x21xT1x0:48:34.563229400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x05x21x10x48x34,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:48:34 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Blue lemonade        x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Vanila               x1           ₱50.00
+  -Cold                                 
+Black Forest         x1           ₱25.00
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱234.00
+CASH ENTERED                     ₱234.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 33                         
+CUSTOMER NAME: Johan                    
+Mode of payment: GCash                  
+Transaction ID: 20220521104834          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+James,34,Appetizers/,Siomai/,./,./,./,2/,50/,50,50,0,Cash,2022x-0x5-x21xT1x0:48:55.017474300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2022x05x21x10x48x55,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:48:55 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x2           ₱50.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱50.00
+CASH ENTERED                      ₱50.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 34                         
+CUSTOMER NAME: James                    
+Mode of payment: Cash                   
+Transaction ID: 20220521104855          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Yoshinori,35,Milk Tea/Coffee/,CookiesandCream/Vanila/,Water Base/Cold/,Cream cheese/./,Small/./,1/1/,38/50/,88,88,0,GCash,2022x-0x5-x21xT1x0:49:35.109389600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2022x05x21x10x49x35,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:49:35 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x1           ₱38.00
+  -Small                                
+  -Water Base                           
+  -Cream cheese                         
+Vanila               x1           ₱50.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱88.00
+CASH ENTERED                      ₱88.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 35                         
+CUSTOMER NAME: Yoshinori                
+Mode of payment: GCash                  
+Transaction ID: 20220521104935          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Simon,36,Coffee/Appetizers/,Espresso/Matcha/,Cold/./,././,././,1/1/,60/25/,85,85,0,GCash,2022x-0x5-x21xT1x0:57:49.112823100,/com/example/postearevised/Product Media/no image/no image.png/com/,2022x05x21x10x57x49,User J.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:57:49 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Espresso             x1           ₱60.00
+  -Cold                                 
+Matcha               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱85.00
+CASH ENTERED                      ₱85.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 36                         
+CUSTOMER NAME: Simon                    
+Mode of payment: GCash                  
+Transaction ID: 20220521105749          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Michael Simon,37,Ice Candy Cups/,Matcha/,./,./,./,5/,125/,125,125,0,Cash,2022x-0x5-x21xT1x0:59:34.836477600,/com/example/postearevised/Product Media/no image/no image.png/,2022x05x21x10x59x34,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 10:59:34 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Matcha               x5          ₱125.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱125.00
+CASH ENTERED                     ₱125.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 37                         
+CUSTOMER NAME: Michael Simon            
+Mode of payment: Cash                   
+Transaction ID: 20220521105934          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Hazel,38,Milk Tea/Coolers/,Hazel nut/Cucumber/,Water Base/Tea Base/,Cream cheese/Jellies/,Medium/Small/,1/1/,43/38/,81,81,0,Cash,2022x-0x5-x21xT1x1:00:10.858844200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2022x05x21x11x00x10,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 11:00:10 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Cucumber             x1           ₱38.00
+  -Small                                
+  -Tea Base                             
+  -Jellies                              
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱81.00
+CASH ENTERED                      ₱81.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 38                         
+CUSTOMER NAME: Hazel                    
+Mode of payment: Cash                   
+Transaction ID: 20220521110010          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Coronel,39,Coffee/,Espresso/,Hot/,./,./,1/,60/,60,60,0,Cash,2022x-0x5-x21xT1x1:00:44.392897300,/com/example/postearevised/Product Media/no image/no image.png/,2022x05x21x11x00x44,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 11:00:44 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Espresso             x1           ₱60.00
+  -Hot                                  
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱60.00
+CASH ENTERED                      ₱60.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 39                         
+CUSTOMER NAME: Coronel                  
+Mode of payment: Cash                   
+Transaction ID: 20220521110044          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Emmanuel,40,Appetizers/Milk Tea/Milk Tea/,Siomai/Hazel nut/CookiesandCream/,./Water Base/Water Base/,./Cream cheese/Cream cheese/,./Medium/Large/,1/1/1/,25/43/52/,120,120,0,Cash,2022x-0x5-x21xT1x1:01:21.454107800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2022x05x21x11x01x21,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 05/21/2022       TIME: 11:01:21 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+CookiesandCream      x1           ₱52.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱120.00
+CASH ENTERED                     ₱120.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 40                         
+CUSTOMER NAME: Emmanuel                 
+Mode of payment: Cash                   
+Transaction ID: 20220521110121          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Anna,41,Coolers/,Cucumber/,Water Base/,Pearls/,Medium/,5/,240/,240,240,0,Cash,2023x-1x1-x01xT1x1:05:52.633120900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x01x11x05x52,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 11:05:52 AM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x5          ₱240.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱240.00
+CASH ENTERED                     ₱240.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 41                         
+CUSTOMER NAME: Anna                     
+Mode of payment: Cash                   
+Transaction ID: 20231101110552          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Miya,37,Coolers/Milk Tea/,Blue lemonade/CookiesandCream/,Water Base/Water Base/,./Cream cheese/,Large/Large/,1/1/,37/52/,89,89,0,Cash,2023x-1x1-x01xT1x3:02:41.213301200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2023x11x01x13x02x41,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:02:41 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Blue lemonade        x1           ₱37.00
+  -Large                                
+  -Water Base                           
+CookiesandCream      x1           ₱52.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱89.00
+CASH ENTERED                      ₱89.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 37                         
+CUSTOMER NAME: Miya                     
+Mode of payment: Cash                   
+Transaction ID: 20231101130241          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Xavier,38,Milk Tea/Ice Candy Cups/,CookiesandCream/Matcha/,Water Base/./,Cream cheese/./,Medium/./,1/1/,43/25/,68,68,0,Cash,2023x-1x1-x01xT1x3:03:19.957372600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg//com/example/postearevised/Product Media/no image/no image.png/,2023x11x01x13x03x19,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:03:19 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Matcha               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱68.00
+CASH ENTERED                      ₱68.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 38                         
+CUSTOMER NAME: Xavier                   
+Mode of payment: Cash                   
+Transaction ID: 20231101130319          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Milo,39,Appetizers/,French Fries/,./,./,./,4/,80/,80,80,0,GCash,2023x-1x1-x01xT1x3:03:50.042424200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2023x11x01x13x03x50,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:03:50 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x4           ₱80.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱80.00
+CASH ENTERED                      ₱80.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 39                         
+CUSTOMER NAME: Milo                     
+Mode of payment: GCash                  
+Transaction ID: 20231101130350          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Lancelot,40,Coolers/,Cucumber/,Water Base/,./,Medium/,1/,28/,28,28,0,GCash,2023x-1x1-x01xT1x3:04:14.247492500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x01x13x04x14,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:04:14 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱28.00
+  -Medium                               
+  -Water Base                           
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱28.00
+CASH ENTERED                      ₱28.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 40                         
+CUSTOMER NAME: Lancelot                 
+Mode of payment: GCash                  
+Transaction ID: 20231101130414          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Princess,41,Appetizers/Appetizers/,French Fries/Siomai/,././,././,././,1/1/,20/25/,45,45,0,Cash,2023x-1x1-x01xT1x3:04:51.856783200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2023x11x01x13x04x51,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:04:51 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱45.00
+CASH ENTERED                      ₱45.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 41                         
+CUSTOMER NAME: Princess                 
+Mode of payment: Cash                   
+Transaction ID: 20231101130451          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Kadita,42,Coffee/,Espresso/,Cold/,./,./,4/,240/,240,240,0,Cash,2023x-1x1-x01xT1x3:05:20.132640,/com/example/postearevised/Product Media/no image/no image.png/,2023x11x01x13x05x20,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:05:20 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Espresso             x4          ₱240.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱240.00
+CASH ENTERED                     ₱240.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 42                         
+CUSTOMER NAME: Kadita                   
+Mode of payment: Cash                   
+Transaction ID: 20231101130520          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Jean,43,Coffee/Coolers/Appetizers/,Vanila/Cucumber/French Fries/,Cold/Water Base/./,./Pearls/./,./Medium/./,1/1/1/,50/48/20/,118,180,62,Cash,2023x-1x1-x01xT1x3:05:52.880668900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2023x11x01x13x05x52,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:05:52 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱118.00
+CASH ENTERED                     ₱180.00
+CHANGE                            ₱62.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 43                         
+CUSTOMER NAME: Jean                     
+Mode of payment: Cash                   
+Transaction ID: 20231101130552          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Klee,44,Appetizers/Ice Candy Cups/,Siomai/Black Forest/,././,././,././,1/1/,25/25/,50,50,0,Cash,2023x-1x1-x01xT1x3:06:17.390511,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2023x11x01x13x06x17,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:06:17 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱50.00
+CASH ENTERED                      ₱50.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 44                         
+CUSTOMER NAME: Klee                     
+Mode of payment: Cash                   
+Transaction ID: 20231101130617          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Kaeya,45,Coolers/,Cucumber/,Tea Base/,Jellies/,Small/,1/,38/,38,38,0,Cash,2023x-1x1-x01xT1x3:06:48.046810900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x01x13x06x48,Admin A.,*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:06:48 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱38.00
+  -Small                                
+  -Tea Base                             
+  -Jellies                              
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱38.00
+CASH ENTERED                      ₱38.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 45                         
+CUSTOMER NAME: Kaeya                    
+Mode of payment: Cash                   
+Transaction ID: 20231101130648          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING
+Jean,38,Coolers/,Cucumber/,Water Base/,Pearls/,Large/,1/,57/,57,57,0,GCash,2023x-1x1-x01xT1x3:12:33.266141600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x01x13x12x33,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:12:33 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱57.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱57.00
+CASH ENTERED                      ₱57.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 38                         
+CUSTOMER NAME: Jean                     
+Mode of payment: GCash                  
+Transaction ID: 20231101131233          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kaeya,39,Coolers/Ice Candy Cups/Appetizers/,Cucumber/Matcha/French Fries/,Water Base/././,Pearls/././,Medium/././,1/1/1/,48/25/20/,93,100,7,Cash,2023x-1x1-x01xT1x3:14:12.204596200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg//com/example/postearevised/Product Media/no image/no image.png/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2023x11x01x13x14x12,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:14:12 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+Matcha               x1           ₱25.00
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱93.00
+CASH ENTERED                     ₱100.00
+CHANGE                             ₱7.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 39                         
+CUSTOMER NAME: Kaeya                    
+Mode of payment: Cash                   
+Transaction ID: 20231101131412          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Diluc,40,Appetizers/Ice Candy Cups/Coolers/,French Fries/Black Forest/Blue lemonade/,././Water Base/,././Pearls/,././Large/,1/1/1/,20/25/57/,102,102,0,GCash,2023x-1x1-x01xT1x3:14:31.392061100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2023x11x01x13x14x31,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:14:31 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+Black Forest         x1           ₱25.00
+Blue lemonade        x1           ₱57.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱102.00
+CASH ENTERED                     ₱102.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 40                         
+CUSTOMER NAME: Diluc                    
+Mode of payment: GCash                  
+Transaction ID: 20231101131431          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Eula,41,Coolers/Coffee/Ice Candy Cups/,Cucumber/Vanila/Black Forest/,Tea Base/Cold/./,Jellies/././,Small/././,1/1/1/,38/50/25/,113,120,7,Cash,2023x-1x1-x01xT1x3:15:02.754215,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2023x11x01x13x15x02,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:15:02 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱38.00
+  -Small                                
+  -Tea Base                             
+  -Jellies                              
+Vanila               x1           ₱50.00
+  -Cold                                 
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱113.00
+CASH ENTERED                     ₱120.00
+CHANGE                             ₱7.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 41                         
+CUSTOMER NAME: Eula                     
+Mode of payment: Cash                   
+Transaction ID: 20231101131502          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Lisa,42,Coffee/,Espresso/,Cold/,./,./,3/,180/,180,180,0,Maya,2023x-1x1-x01xT1x3:15:21.659140100,/com/example/postearevised/Product Media/no image/no image.png/,2023x11x01x13x15x21,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:15:21 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Espresso             x3          ₱180.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱180.00
+CASH ENTERED                     ₱180.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 42                         
+CUSTOMER NAME: Lisa                     
+Mode of payment: Maya                   
+Transaction ID: 20231101131521          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Isabella,43,Appetizers/,French Fries/,./,./,./,1/,20/,20,20,0,Cash,2023x-1x1-x01xT1x3:15:38.688038300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2023x11x01x13x15x38,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:15:38 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱20.00
+CASH ENTERED                      ₱20.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 43                         
+CUSTOMER NAME: Isabella                 
+Mode of payment: Cash                   
+Transaction ID: 20231101131538          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Miko,44,Ice Candy Cups/Coolers/,Black Forest/Blue lemonade/,./Water Base/,./Pearls/,./Large/,1/1/,25/57/,82,82,0,GCash,2023x-1x1-x01xT1x3:15:56.459841,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2023x11x01x13x15x56,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:15:56 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+Blue lemonade        x1           ₱57.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱82.00
+CASH ENTERED                      ₱82.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 44                         
+CUSTOMER NAME: Miko                     
+Mode of payment: GCash                  
+Transaction ID: 20231101131556          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Shogun,45,Milk Tea/,CookiesandCream/,Water Base/,Cream cheese/,Large/,1/,52/,52,52,0,Cash,2023x-1x1-x01xT1x3:16:16.513182100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/,2023x11x01x13x16x16,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:16:16 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x1           ₱52.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱52.00
+CASH ENTERED                      ₱52.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 45                         
+CUSTOMER NAME: Shogun                   
+Mode of payment: Cash                   
+Transaction ID: 20231101131616          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Abella,46,Ice Candy Cups/,Matcha/,./,./,./,4/,100/,100,100,0,Cash,2023x-1x1-x01xT1x3:17:15.403810100,/com/example/postearevised/Product Media/no image/no image.png/,2023x11x01x13x17x15,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/01/2023       TIME: 01:17:15 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Matcha               x4          ₱100.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱100.00
+CASH ENTERED                     ₱100.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 46                         
+CUSTOMER NAME: Abella                   
+Mode of payment: Cash                   
+Transaction ID: 20231101131715          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Ocampo,46,Appetizers/,Siomai/,./,./,./,1/,25/,25,25,0,Cash,2023x-1x1-x02xT1x3:39:28.764157500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2023x11x02x13x39x28,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:39:28 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱25.00
+CASH ENTERED                      ₱25.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 46                         
+CUSTOMER NAME: Ocampo                   
+Mode of payment: Cash                   
+Transaction ID: 20231102133928          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Loid,47,Coffee/Coffee/,Vanila/Espresso/,Cold/Cold/,././,././,1/1/,50/60/,110,110,0,Cash,2023x-1x1-x02xT1x3:39:49.095192300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg//com/example/postearevised/Product Media/no image/no image.png/,2023x11x02x13x39x49,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:39:49 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Espresso             x1           ₱60.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱110.00
+CASH ENTERED                     ₱110.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 47                         
+CUSTOMER NAME: Loid                     
+Mode of payment: Cash                   
+Transaction ID: 20231102133949          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Gabrielle,48,Milk Tea/Appetizers/,CookiesandCream/French Fries/,Water Base/./,Cream cheese/./,Medium/./,2/1/,86/20/,106,106,0,GCash,2023x-1x1-x02xT1x3:40:45.204848400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2023x11x02x13x40x45,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:40:45 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+CookiesandCream      x2           ₱86.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱106.00
+CASH ENTERED                     ₱106.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 48                         
+CUSTOMER NAME: Gabrielle                
+Mode of payment: GCash                  
+Transaction ID: 20231102134045          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Evelyn,49,Coolers/,Cucumber/,Water Base/,Pearls/,Medium/,1/,48/,48,48,0,Cash,2023x-1x1-x02xT1x3:41:26.514646900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x02x13x41x26,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:41:26 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱48.00
+CASH ENTERED                      ₱48.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 49                         
+CUSTOMER NAME: Evelyn                   
+Mode of payment: Cash                   
+Transaction ID: 20231102134126          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kermil,50,Milk Tea/,Hazel nut/,Water Base/,Cream cheese/,Medium/,1/,43/,43,43,0,GCash,2023x-1x1-x02xT1x3:41:42.408958800,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2023x11x02x13x41x42,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:41:42 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱43.00
+CASH ENTERED                      ₱43.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 50                         
+CUSTOMER NAME: Kermil                   
+Mode of payment: GCash                  
+Transaction ID: 20231102134142          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Kanno,51,Coolers/,Cucumber/,Water Base/,Pearls/,Medium/,1/,48/,48,48,0,Cash,2023x-1x1-x02xT1x3:41:56.135381100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2023x11x02x13x41x56,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:41:56 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱48.00
+CASH ENTERED                      ₱48.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 51                         
+CUSTOMER NAME: Kanno                    
+Mode of payment: Cash                   
+Transaction ID: 20231102134156          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Bagas,52,Ice Candy Cups/,Black Forest/,./,./,./,1/,25/,25,25,0,Cash,2023x-1x1-x02xT1x3:42:07.045899700,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2023x11x02x13x42x07,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:42:07 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱25.00
+CASH ENTERED                      ₱25.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 52                         
+CUSTOMER NAME: Bagas                    
+Mode of payment: Cash                   
+Transaction ID: 20231102134207          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Eden,53,Appetizers/,Siomai/,./,./,./,1/,25/,25,25,0,Cash,2023x-1x1-x02xT1x3:42:22.357158,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2023x11x02x13x42x22,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:42:22 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱25.00
+CASH ENTERED                      ₱25.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 53                         
+CUSTOMER NAME: Eden                     
+Mode of payment: Cash                   
+Transaction ID: 20231102134222          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Miika,54,Ice Candy Cups/Ice Candy Cups/,Black Forest/Matcha/,././,././,././,1/1/,25/25/,50,50,0,Cash,2023x-1x1-x02xT1x3:42:38.760927500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg//com/example/postearevised/Product Media/no image/no image.png/,2023x11x02x13x42x38,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:42:38 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+Matcha               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱50.00
+CASH ENTERED                      ₱50.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 54                         
+CUSTOMER NAME: Miika                    
+Mode of payment: Cash                   
+Transaction ID: 20231102134238          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Geraldine,55,Coffee/Coolers/,Vanila/Blue lemonade/,Cold/Tea Base/,./Pearls/,./Large/,1/1/,50/57/,107,107,0,Cash,2023x-1x1-x02xT1x3:42:59.791875300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2023x11x02x13x42x59,User J.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 11/02/2023       TIME: 01:42:59 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+Blue lemonade        x1           ₱57.00
+  -Large                                
+  -Tea Base                             
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱107.00
+CASH ENTERED                     ₱107.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: User J.                        
+CUSTOMER NO. 55                         
+CUSTOMER NAME: Geraldine                
+Mode of payment: Cash                   
+Transaction ID: 20231102134259          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Vivian,56,Coolers/,Cucumber/,Water Base/,Pearls/,Medium/,3/,144/,144,144,0,Cash,2024x-0x4-x28xT1x4:41:03.362473300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2024x04x28x14x41x03,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:41:03 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x3          ₱144.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱144.00
+CASH ENTERED                     ₱144.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 56                         
+CUSTOMER NAME: Vivian                   
+Mode of payment: Cash                   
+Transaction ID: 20240428144103          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Grazzily,57,Appetizers/Appetizers/Ice Candy Cups/Coolers/,Siomai/French Fries/Black Forest/Blue lemonade/,./././Tea Base/,./././Pearls/,./././Large/,1/1/1/1/,25/20/25/57/,127,127,0,Cash,2024x-0x4-x28xT1x4:41:30.319518700,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg/,2024x04x28x14x41x30,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:41:30 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+French Fries         x1           ₱20.00
+Black Forest         x1           ₱25.00
+Blue lemonade        x1           ₱57.00
+  -Large                                
+  -Tea Base                             
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱127.00
+CASH ENTERED                     ₱127.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 57                         
+CUSTOMER NAME: Grazzily                 
+Mode of payment: Cash                   
+Transaction ID: 20240428144130          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Eden,58,Coolers/Milk Tea/,Cucumber/Hazel nut/,Water Base/Water Base/,Pearls/Cream cheese/,Large/Large/,1/1/,57/52/,109,109,0,Cash,2024x-0x4-x28xT1x4:41:48.806370100,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/,2024x04x28x14x41x48,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:41:48 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱57.00
+  -Large                                
+  -Water Base                           
+  -Pearls                               
+Hazel nut            x1           ₱52.00
+  -Large                                
+  -Water Base                           
+  -Cream cheese                         
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱109.00
+CASH ENTERED                     ₱109.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 58                         
+CUSTOMER NAME: Eden                     
+Mode of payment: Cash                   
+Transaction ID: 20240428144148          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Jhon,59,Appetizers/,Siomai/,./,./,./,1/,25/,25,25,0,Cash,2024x-0x4-x28xT1x4:42:03.356088200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2024x04x28x14x42x03,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:42:03 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱25.00
+CASH ENTERED                      ₱25.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 59                         
+CUSTOMER NAME: Jhon                     
+Mode of payment: Cash                   
+Transaction ID: 20240428144203          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Junjie,60,Ice Candy Cups/,Black Forest/,./,./,./,1/,25/,25,25,0,Cash,2024x-0x4-x28xT1x4:42:16.004737400,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg/,2024x04x28x14x42x16,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:42:16 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Black Forest         x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱25.00
+CASH ENTERED                      ₱25.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 60                         
+CUSTOMER NAME: Junjie                   
+Mode of payment: Cash                   
+Transaction ID: 20240428144216          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Lomboy,61,Coffee/,Vanila/,Cold/,./,./,1/,50/,50,50,0,Cash,2024x-0x4-x28xT1x4:42:27.789224300,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg/,2024x04x28x14x42x27,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:42:27 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Vanila               x1           ₱50.00
+  -Cold                                 
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱50.00
+CASH ENTERED                      ₱50.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 61                         
+CUSTOMER NAME: Lomboy                   
+Mode of payment: Cash                   
+Transaction ID: 20240428144227          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Molas,62,Milk Tea/Ice Candy Cups/Ice Candy Cups/,Hazel nut/Black Forest/Matcha/,Water Base/././,Cream cheese/././,Medium/././,1/1/1/,43/25/25/,93,93,0,GCash,2024x-0x4-x28xT1x4:43:06.969306200,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg/C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg//com/example/postearevised/Product Media/no image/no image.png/,2024x04x28x14x43x06,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:43:06 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Hazel nut            x1           ₱43.00
+  -Medium                               
+  -Water Base                           
+  -Cream cheese                         
+Black Forest         x1           ₱25.00
+Matcha               x1           ₱25.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱93.00
+CASH ENTERED                      ₱93.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 62                         
+CUSTOMER NAME: Molas                    
+Mode of payment: GCash                  
+Transaction ID: 20240428144306          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Lance Gabriel,63,Appetizers/,Siomai/,./,./,./,4/,100/,100,100,0,Cash,2024x-0x4-x28xT1x4:43:24.554207600,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg/,2024x04x28x14x43x24,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:43:24 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Siomai               x4          ₱100.00
+----------------------------------------
+TOTAL AMOUNT DUE                 ₱100.00
+CASH ENTERED                     ₱100.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 63                         
+CUSTOMER NAME: Lance Gabriel            
+Mode of payment: Cash                   
+Transaction ID: 20240428144324          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Cordero,64,Appetizers/,French Fries/,./,./,./,1/,20/,20,20,0,Cash,2024x-0x4-x28xT1x4:43:41.091356900,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg/,2024x04x28x14x43x41,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:43:41 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+French Fries         x1           ₱20.00
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱20.00
+CASH ENTERED                      ₱20.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 64                         
+CUSTOMER NAME: Cordero                  
+Mode of payment: Cash                   
+Transaction ID: 20240428144341          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*
+Queen,65,Coolers/,Cucumber/,Water Base/,Pearls/,Medium/,1/,48/,48,48,0,Cash,2024x-0x4-x28xT1x4:43:59.070430500,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg/,2024x04x28x14x43x59,Admin A.,                                        
+*Store copy*                            
+                                        
+                                        
+              EATS BRUDAYS              
+                                        
+ 31 E Santos Ave., Sumilang 1600 Pasig, 
+              Philippines               
+                                        
+DATE: 04/28/2024       TIME: 02:43:59 PM
+========================================
+Product              QTY           Price
+----------------------------------------
+Cucumber             x1           ₱48.00
+  -Medium                               
+  -Water Base                           
+  -Pearls                               
+----------------------------------------
+TOTAL AMOUNT DUE                  ₱48.00
+CASH ENTERED                      ₱48.00
+CHANGE                             ₱0.00
+----------------------------------------
+CASHIER: Admin A.                       
+CUSTOMER NO. 65                         
+CUSTOMER NAME: Queen                    
+Mode of payment: Cash                   
+Transaction ID: 20240428144359          
+========================================
+                                        
+           This serves as your          
+         ACKNOWLEDGEMENT Receipt        
+                                        
+        THANK YOU FOR PURCHASING        
+                                        
+                                        
+*EndOfInvoice*

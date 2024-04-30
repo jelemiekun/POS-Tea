@@ -1,0 +1,11 @@
+productName,productDescription,productCategory,imagePath,isAvailable,milkTeaSmallPrice,milkTeaMediumPrice,milkTeaLargePrice,milkTeaAddOnsOne,milkTeaAddOnsOnePrice,milkTeaAddOnsTwo,milkTeaAddOnsTwoPrice,coolersSmallPrice,coolersMediumPrice,coolersLargePrice,coolersAddOnsOne,coolersAddOnsOnePrice,coolersAddOnsTwo,coolersAddOnsTwoPrice,coffeePrice,iceCandyCupsPrice,appetizerPrice
+Hazel nut,,Milk Tea,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429466820_385184377603370_1224487534784496028_n.jpg,true,23.0,28.0,37.0,Cream puff,20.0,Cream cheese,15.0,,,,,,,,,,
+CookiesandCream,,Milk Tea,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\429750140_1070493460905933_5539485724232895117_n.jpg,true,23.0,28.0,37.0,Cream puff,20.0,Cream cheese,15.0,,,,,,,,,,
+Cucumber,,Coolers,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\430737707_1076457690131872_4711497244300958271_n.jpg,true,,,,,,,,23.0,28.0,37.0,Jellies,15.0,Pearls,20.0,,,,
+Blue lemonade,,Coolers,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\423766171_853717266561738_3335420136044550112_n.jpg,true,,,,,,,,23.0,28.0,37.0,Jellies,15.0,Pearls,20.0,,,,
+Black Forest,,Ice Candy Cups,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\432122231_384230511052205_2750718746817781264_n (1).jpg,true,,,,,,,,,,,,,,,,25.0,,
+Siomai,,Appetizers,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131730.jpg,true,,,,,,,,,,,,,,,,,25.0
+French Fries,,Appetizers,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\IMG_20240319_131424.jpg,true,,,,,,,,,,,,,,,,,20.0
+Vanila,,Coffee,C:\Users\RHS_ICT1\AppData\Roaming\POS_Tea\accounts\admin@gmail.com\product images\440543738_1623256551809337_847385788916871454_n.jpg,true,,,,,,,,,,,,,,,50.0,,,
+Espresso,,Coffee,/com/example/postearevised/Product Media/no image/no image.png,true,,,,,,,,,,,,,,,60.0
+Matcha,,Ice Candy Cups,/com/example/postearevised/Product Media/no image/no image.png,true,,,,,,,,,,,,,,,,25.0
