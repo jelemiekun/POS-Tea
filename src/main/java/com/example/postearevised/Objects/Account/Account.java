@@ -202,13 +202,14 @@ public class Account {
     }
 
     public Account copy() {
+        //TODO if pagkaregister then finorgot pass, nagkakaerror
         ObservableList<String> emptyObservableList = FXCollections.observableArrayList();
 
         return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,
                 securityQuestionTwo, securityQuestionTwoAnswer, FXCollections.observableArrayList(firstNames),
                 FXCollections.observableArrayList(middleNames), FXCollections.observableArrayList(lastNames),
                 displayColor, isShowNotification, isShowGuideMessages, key,
-                FXCollections.observableArrayList(userPasswords == null ? emptyObservableList : userPasswords
+                FXCollections.observableArrayList(userPasswords == null  || userPasswords.isEmpty() ? emptyObservableList : userPasswords
                 ));
     }
 
