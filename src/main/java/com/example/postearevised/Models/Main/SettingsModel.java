@@ -748,7 +748,10 @@ public class SettingsModel {
             if (!isShow)
                 mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
             else
-                mainController.labelSettingsAccountEditFinishUsers.setText("FINISH EDITING");
+                mainController.labelSettingsAccountEditFinishUsers.setText("SAVE CHANGES");
+
+            if (!isShow)
+                revertBackUsers();
 
             mainController.detectChangesUsers = false;
 
@@ -893,15 +896,19 @@ public class SettingsModel {
     private boolean checkPane1Changes() {
         if (mainController.detectChangesUsers) {
             if (!isNewUserFieldsEmpty()) {
-                if (saveChanges(1)) {
-                    accountEditingProceed = false;
+                if (!isNameAlreadyExist()) {
+                    if (saveChanges(1)) {
+                        accountEditingProceed = false;
 
-                    getUsersChanges();
+                        getUsersChanges();
 
-                    return resultOfUpdateAccountToAccountCSV(updateAccountToAccountCSV(oldAccountReference, accountReference));
+                        return resultOfUpdateAccountToAccountCSV(updateAccountToAccountCSV(oldAccountReference, accountReference));
+                    } else {
+                        failedInputPasswordForAccountAccountUpdate();
+                        return true;
+                    }
                 } else {
-                    failedInputPasswordForAccountAccountUpdate();
-                    return true;
+                    return false;
                 }
             } else {
                 return isNewUserFieldsAllEmpty();
@@ -948,10 +955,12 @@ public class SettingsModel {
     }
 
     private void revertBackUsers() {
-        revertToOldValuesPane1();
-        mainController.mainModel.populateFullNamesObservableList();
-        setComboBoxToDefault();
-        disableUsersFields();
+        Platform.runLater(() -> {
+            revertToOldValuesPane1();
+            mainController.mainModel.populateFullNamesObservableList();
+            setComboBoxToDefault();
+            disableUsersFields();
+        });
     }
 
     private void setComboBoxToDefault() {
@@ -998,7 +1007,7 @@ public class SettingsModel {
     }
 
     private boolean isNewUserFieldsEmpty() {
-        boolean isEmpty = mainController.textFieldAccountGivenName.getText().trim().isEmpty() && mainController.textFieldAccountLastName.getText().trim().isEmpty();
+        boolean isEmpty = mainController.textFieldAccountGivenName.getText().trim().isEmpty() || mainController.textFieldAccountLastName.getText().trim().isEmpty();
 
         if (mainController.passwordFieldAccountNewUser != null) {
             if (mainController.passwordFieldAccountNewUser.getText().trim().isEmpty()) {
@@ -1010,6 +1019,10 @@ public class SettingsModel {
         return isEmpty;
     }
 
+    private boolean isNameAlreadyExist() {
+        return mainController.labelSettingsFillUpThisForm9.isVisible();
+    }
+
     public void accountUsersTyping() {
         String givenName = mainController.textFieldAccountGivenName.getText().trim();
         String lastName = mainController.textFieldAccountLastName.getText().trim();
@@ -1018,13 +1031,20 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm2.setVisible(lastName.isEmpty());
 
         mainController.labelSettingsFillUpThisForm9.setVisible(!nameNotExist());
+
+        if (mainController.labelSettingsFillUpThisForm12 != null) {
+            String userPassword = mainController.passwordFieldAccountNewUser.getText().trim();
+            mainController.labelSettingsFillUpThisForm12.setVisible(userPassword.isEmpty());
+        }
     }
 
     private void revertToOldValuesPane1() {
-        accountReference.getFirstNames().setAll(oldAccountReference.getFirstNames());
-        accountReference.getMiddleNames().setAll(oldAccountReference.getMiddleNames());
-        accountReference.getLastNames().setAll(oldAccountReference.getLastNames());
-        accountReference.getUserPasswords().setAll(oldAccountReference.getUserPasswords());
+        if (oldAccountReference != null) {
+            accountReference.getFirstNames().setAll(oldAccountReference.getFirstNames());
+            accountReference.getMiddleNames().setAll(oldAccountReference.getMiddleNames());
+            accountReference.getLastNames().setAll(oldAccountReference.getLastNames());
+            accountReference.getUserPasswords().setAll(oldAccountReference.getUserPasswords());
+        }
     }
 
     private void getUsersChanges() {
@@ -1095,7 +1115,7 @@ public class SettingsModel {
             }
         }
 
-        if (mainController.labelSettingsAccountEditFinishAccountDetails.getText().equals("FINISH EDITING"))
+        if (mainController.labelSettingsAccountEditFinishAccountDetails.getText().equals("SAVE CHANGES"))
             mainController.accountDetailsSubmittedOnce = true;
 
         boolean proceed = checkPane2Changes();
@@ -1123,7 +1143,7 @@ public class SettingsModel {
             if (!isShow)
                 mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
             else
-                mainController.labelSettingsAccountEditFinishAccountDetails.setText("FINISH EDITING");
+                mainController.labelSettingsAccountEditFinishAccountDetails.setText("SAVE CHANGES");
 
             mainController.detectChangesAccountDetails = false;
             mainController.accountDetailsSubmittedOnce = false;
@@ -1243,6 +1263,11 @@ public class SettingsModel {
             });
             maxAttemptLimitReached = false;
         }
+        Platform.runLater(() -> {
+            mainController.detectChangesAccountDetails = false;
+            mainController.accountDetailsSubmittedOnce = false;
+            mainController.anchorPanePasswordIndicator.setDisable(true);
+        });
     }
 
     private void updateDirectoryFilePaths() {
@@ -1534,7 +1559,7 @@ public class SettingsModel {
             if (!isShow)
                 mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
             else
-                mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("FINISH EDITING");
+                mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("SAVE CHANGES");
 
             mainController.detectChangesRecoveryQuestion = false;
         }
@@ -2468,7 +2493,7 @@ public class SettingsModel {
         Text account22a = new Text("Fill up your new contact information or your new password to new password and confirm new password\n\n");
         Text account23 = new Text("3. ");
         account23.setStyle("-fx-font-weight: bold;");
-        Text account23a = new Text("After filling up your new account details, click finish editing.\n\n");
+        Text account23a = new Text("After filling up your new account details, click save changes.\n\n");
         Text account24 = new Text("4. ");
         account24.setStyle("-fx-font-weight: bold;");
         Text account24a = new Text("Type in your account password and click done.");
@@ -2487,7 +2512,7 @@ public class SettingsModel {
         Text account32a = new Text("Select a new recovery question or fill up your new answer in one of the question in the text field.\n\n");
         Text account33 = new Text("3. ");
         account33.setStyle("-fx-font-weight: bold;");
-        Text account33a = new Text("After filling up your new account details, click the finish editing.\n\n");
+        Text account33a = new Text("After filling up your new account details, click the save changes.\n\n");
         Text account34 = new Text("4. ");
         account34.setStyle("-fx-font-weight: bold;");
         Text account34a = new Text("Type in your account password and click done.");
@@ -2506,7 +2531,7 @@ public class SettingsModel {
         Text account42a = new Text("Fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
         Text account43 = new Text("3. ");
         account43.setStyle("-fx-font-weight: bold;");
-        Text account43a = new Text("After filling up your new account details, click the finish editing.\n\n");
+        Text account43a = new Text("After filling up your new account details, click the save changes.\n\n");
         Text account44 = new Text("4. ");
         account44.setStyle("-fx-font-weight: bold;");
         Text account44a = new Text("Type in your account password and click done.");
