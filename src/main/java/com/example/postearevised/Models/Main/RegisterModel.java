@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.Internet.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
@@ -520,12 +521,15 @@ public class RegisterModel {
         isConfirmed = false;
 
         if (openTAC()) {
-            if (loginRegisterForgotPassController.checkConnectivity()) {
-                if (isAccountCreationSuccess()) {
-                    loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
-                    openPromptRegisteredSuccess();
-                    goToLogin();
-                }
+//            if (checkConnectivity()) {
+//                ipasok nasa baba if gagawing online
+//            } else {
+//                loginRegisterForgotPassController.noInternet();
+//            }
+            if (isAccountCreationSuccess()) {
+                loginRegisterForgotPassController.checkBoxRememberPassword.setSelected(true);
+                openPromptRegisteredSuccess();
+                goToLogin();
             }
         }
     }

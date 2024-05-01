@@ -14,6 +14,7 @@ import java.io.IOException;
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
+import static com.example.postearevised.Miscellaneous.Others.Internet.*;
 import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.Others.PromptContents.*;
@@ -204,45 +205,48 @@ public class LoginModel {
         try {
             loginRegisterForgotPassController.loginAttemptCounter++;
 
-            if (loginRegisterForgotPassController.checkConnectivity()) {
-                disableLimitInput();
+//            if (checkConnectivity()) {
+//                ipasok nasa baba if gagawing online
+//            } else {
+//                loginRegisterForgotPassController.noInternet();
+//            }
+            disableLimitInput();
 
-                boolean proceed = checkCredentials();
+            boolean proceed = checkCredentials();
 
-                if (proceed) {
-                    isStayLoggedIn();
+            if (proceed) {
+                isStayLoggedIn();
 
-                    //TODO tingnan ko mangyari if ma catch yung error na yun
+                //TODO tingnan ko mangyari if ma catch yung error na yun
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
+                    Parent root = null;
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
-                        Parent root = null;
-                        try {
-                            root = loader.load();
-                        } catch (IOException e) {
-                            errorMessage = e.getMessage();
-                            logError(false);
-                        }
-                        mainStage = new Stage();
-                        mainStage.setTitle(MAIN_ENUM.getTITLE());
-                        mainStage.setResizable(false);
-                        mainStage.setScene(new Scene(root));
-                        setScreenResolution(true, false);
-                        mainStage.getIcons().add(SYSTEM_LOGO);
-                        mainStage.show();
-                        closeThisStage();
-                        System.gc();
-                    } catch (NullPointerException e) {
+                        root = loader.load();
+                    } catch (IOException e) {
                         errorMessage = e.getMessage();
-                        logError(true);
+                        logError(false);
                     }
+                    mainStage = new Stage();
+                    mainStage.setTitle(MAIN_ENUM.getTITLE());
+                    mainStage.setResizable(false);
+                    mainStage.setScene(new Scene(root));
+                    setScreenResolution(true, false);
+                    mainStage.getIcons().add(SYSTEM_LOGO);
+                    mainStage.show();
+                    closeThisStage();
+                    System.gc();
+                } catch (NullPointerException e) {
+                    errorMessage = e.getMessage();
+                    logError(true);
                 }
+            }
 
-                if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
-                    loginRegisterForgotPassController.loginAttemptCounter = 0;
-                    setForgotPassword();
-                    if (openPrompt()) {
-                        loginRegisterForgotPassController.switchPane(ForgotPassword.getPaneNumber());
-                    }
+            if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
+                loginRegisterForgotPassController.loginAttemptCounter = 0;
+                setForgotPassword();
+                if (openPrompt()) {
+                    loginRegisterForgotPassController.switchPane(ForgotPassword.getPaneNumber());
                 }
             }
         } catch (OutOfMemoryError e) {

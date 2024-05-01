@@ -36,14 +36,14 @@ public class FileReference {
             DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "\\data";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "\\accounts.csv";
             CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "\\stayLoggedInData.csv";
-            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "\\System Manual.pdf";
+            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "\\POS-Tea System Manual.pdf";
         } else {
             // other os
             DIRECTORY_PATH = System.getProperty("user.home") + "/POS_Tea";
             DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "/data";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "/accounts.csv";
             CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "/stayLoggedInData.csv";
-            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "/System Manual.pdf";
+            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "/POS-Tea System Manual.pdf";
         }
 
         showPasswordToolTip.setStyle(toolTipStyle);
@@ -82,7 +82,7 @@ public class FileReference {
 
         if (!pdfFile.exists()) {
             try {
-                Path sourcePath = Paths.get("src/main/resources/com/example/postearevised/System Manual.pdf");
+                Path sourcePath = Paths.get("src/main/resources/com/example/postearevised/POS-Tea System Manual.pdf");
                 Path destinationDirectory = Paths.get(DIRECTORY_PATH);
                 Files.copy(sourcePath, destinationDirectory.resolve(sourcePath.getFileName()));
             } catch (IOException e) {

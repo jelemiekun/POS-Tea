@@ -7,7 +7,7 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 
 
 public class Internet {
-    public static boolean isInternetRequired = false;
+    public static boolean isInternetRequired = true;
     public static boolean isInternetAvailable() {
         try {
             InetAddress address = InetAddress.getByName("www.google.com");
@@ -17,5 +17,17 @@ public class Internet {
             logError(false);
             return false;
         }
+    }
+
+    public static boolean checkConnectivity() {
+        boolean proceed;
+
+        if (isInternetRequired) {
+            proceed = isInternetAvailable();
+        } else {
+            return true;
+        }
+
+        return proceed;
     }
 }

@@ -1344,6 +1344,10 @@ public class MainController implements Initializable {
     @FXML
     public TextFlow accountText5;
     @FXML
+    public TextFlow accountText6;
+    @FXML
+    public TextFlow accountText7;
+    @FXML
     public TextFlow appearanceText1;
     @FXML
     public TextFlow appearanceText2;
