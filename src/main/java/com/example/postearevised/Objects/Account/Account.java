@@ -202,7 +202,6 @@ public class Account {
     }
 
     public Account copy() {
-        //TODO if pagkaregister then finorgot pass, nagkakaerror
         ObservableList<String> emptyObservableList = FXCollections.observableArrayList();
 
         return new Account(contact, password, securityQuestionOne, securityQuestionOneAnswer,

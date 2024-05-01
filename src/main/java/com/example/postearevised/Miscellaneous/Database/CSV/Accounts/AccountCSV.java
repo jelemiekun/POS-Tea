@@ -271,12 +271,17 @@ public class AccountCSV {
     }
 
     private static String concatenatePasswords(ObservableList<String> passwords, String key) {
-        StringBuilder sb = new StringBuilder();
-        for (String password: passwords) {
-            sb.append(encryptString(password, key)).append("///");
-        }
+        if (passwords != null) {
+            StringBuilder sb = new StringBuilder();
 
-        return sb.toString();
+            for (String password: passwords) {
+                sb.append(encryptString(password, key)).append("///");
+            }
+
+            return sb.toString();
+        } else {
+            return "";
+        }
     }
 
     public static boolean updateAccountToAccountCSV(Account oldAccount, Account newAccount) {
