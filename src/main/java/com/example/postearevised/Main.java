@@ -17,6 +17,7 @@ public class Main {
             logError(true);
         }
 
+        System.out.println("Thank you for using our system!");
         System.exit(0);
     }
 }
