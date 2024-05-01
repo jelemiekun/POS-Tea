@@ -212,23 +212,29 @@ public class LoginModel {
                 if (proceed) {
                     isStayLoggedIn();
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
-                    Parent root = null;
+                    //TODO tingnan ko mangyari if ma catch yung error na yun
                     try {
-                        root = loader.load();
-                    } catch (IOException e) {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource(MAIN_ENUM.getURL()));
+                        Parent root = null;
+                        try {
+                            root = loader.load();
+                        } catch (IOException e) {
+                            errorMessage = e.getMessage();
+                            logError(false);
+                        }
+                        mainStage = new Stage();
+                        mainStage.setTitle(MAIN_ENUM.getTITLE());
+                        mainStage.setResizable(false);
+                        mainStage.setScene(new Scene(root));
+                        setScreenResolution(true, false);
+                        mainStage.getIcons().add(SYSTEM_LOGO);
+                        mainStage.show();
+                        closeThisStage();
+                        System.gc();
+                    } catch (NullPointerException e) {
                         errorMessage = e.getMessage();
-                        logError(false);
+                        logError(true);
                     }
-                    mainStage = new Stage();
-                    mainStage.setTitle(MAIN_ENUM.getTITLE());
-                    mainStage.setResizable(false);
-                    mainStage.setScene(new Scene(root));
-                    setScreenResolution(true, false);
-                    mainStage.getIcons().add(SYSTEM_LOGO);
-                    mainStage.show();
-                    closeThisStage();
-                    System.gc();
                 }
 
                 if (!proceed && loginRegisterForgotPassController.loginAttemptCounter == MAXIMUM_ATTEMPTS_FOR_CRITICAL_INPUTS) {
