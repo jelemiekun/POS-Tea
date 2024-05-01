@@ -1,11 +1,13 @@
 package com.example.postearevised.Miscellaneous.Others;
 
 import javax.print.*;
+import javax.print.attribute.AttributeSet;
 import javax.print.attribute.HashPrintRequestAttributeSet;
 import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
 import javax.print.attribute.standard.MediaPrintableArea;
 import javax.print.attribute.standard.OrientationRequested;
+import javax.print.attribute.standard.PrinterState;
 import java.awt.*;
 import java.awt.print.*;
 
@@ -22,15 +24,22 @@ public class InvoicePrinter {
         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
 
         if (printService != null) {
-            DocPrintJob printJob = printService.createPrintJob();
-
-            try {
-                Doc doc = getDoc(content);
-                printJob.print(doc, attributes);
-            } catch (PrintException e) {
-                errorMessage = "Printer error: " + e.getMessage();
+            AttributeSet printServiceAttributes = printService.getAttributes();
+            PrinterState printerState = (PrinterState) printServiceAttributes.get(PrinterState.class);
+            if (printerState != null && printerState.equals(PrinterState.IDLE)) {
+                DocPrintJob printJob = printService.createPrintJob();
+                try {
+                    Doc doc = getDoc(content);
+                    printJob.print(doc, attributes);
+                } catch (PrintException e) {
+                    errorMessage = "Printer error: " + e.getMessage();
+                    logError(true);
+                    System.err.println("Printing error: " + e.getMessage());
+                }
+            } else {
+                errorMessage = "Printer is not ready to receive print jobs!";
                 logError(true);
-                System.err.println("Printing error: " + e.getMessage());
+                System.err.println("Printer is not ready to receive print jobs!");
             }
         } else {
             errorMessage = "No printer found!";
