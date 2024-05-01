@@ -40,14 +40,14 @@ public class FileReference {
             DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "\\data";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "\\accounts.csv";
             CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "\\stayLoggedInData.csv";
-            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "\\POS-Tea System Manual.pdf";
+            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "\\SystemManual.pdf";
         } else {
             // other os
             DIRECTORY_PATH = System.getProperty("user.home") + "/POS_Tea";
             DIRECTORY_PATH_SENSITIVE_DATA = DIRECTORY_PATH + "/data";
             CSV_FILE_PATH_ACCOUNTS = DIRECTORY_PATH_SENSITIVE_DATA + "/accounts.csv";
             CSV_FILE_PATH_STAY_LOGGED_IN = DIRECTORY_PATH_SENSITIVE_DATA + "/stayLoggedInData.csv";
-            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "/POS-Tea System Manual.pdf";
+            DIRECTORY_SYSTEM_MANUAL_PDF = DIRECTORY_PATH + "/SystemManual.pdf";
         }
 
         showPasswordToolTip.setStyle(toolTipStyle);
@@ -86,19 +86,25 @@ public class FileReference {
 
         if (!pdfFile.exists()) {
             try {
-                Path sourcePath = Paths.get(Objects.requireNonNull(FileReference.class.getResource("/com/example/postearevised/POS-Tea System Manual.pdf")).toURI());
+                System.out.println("Creating a copy of System Manual PDF: " + DIRECTORY_SYSTEM_MANUAL_PDF);
                 Path destinationDirectory = Paths.get(DIRECTORY_PATH);
-
-                try (InputStream inputStream = FileReference.class.getResourceAsStream("/com/example/postearevised/POS-Tea System Manual.pdf")) {
-                    Files.copy(Objects.requireNonNull(inputStream), destinationDirectory.resolve(sourcePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                try (InputStream inputStream = FileReference.class.getResourceAsStream("/com/example/postearevised/SystemManual.pdf")) {
+                    if (inputStream != null) {
+                        Files.copy(inputStream, destinationDirectory.resolve("SystemManual.pdf"), StandardCopyOption.REPLACE_EXISTING);
+                    } else {
+                        errorMessage = "Main PDF not found. Cannot create a copy of system manual.";
+                        logError(true);
+                    }
                 }
-
-            } catch (IOException | URISyntaxException e) {
+            } catch (IOException e) {
                 errorMessage = e.getMessage() + ". Cannot create a copy of system manual.";
                 logError(true);
             }
+        } else {
+            System.out.println("PDF already exists: " + DIRECTORY_SYSTEM_MANUAL_PDF);
         }
     }
+
 
 
 }
