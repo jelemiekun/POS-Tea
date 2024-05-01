@@ -812,12 +812,12 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <PasswordField fx:id="passwordFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyPressed="#settingsAccountDetailsTyping" prefHeight="43.0" prefWidth="436.0">
+                                                <PasswordField fx:id="passwordFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyTyped="#settingsAccountNewPasswordTyping" onKeyPressed="#settingsAccountDetailsTyping" prefHeight="43.0" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </PasswordField>
-                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0" visible="false">
+                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyTyped="#settingsAccountNewPasswordTyping" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0" visible="false">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>

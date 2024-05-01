@@ -57,6 +57,8 @@ import static com.example.postearevised.Miscellaneous.Database.CSV.Products.Prod
 import static com.example.postearevised.Miscellaneous.Enums.AskForPasswordHeaderTitlesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.DisplayColorsEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.ImportExportEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.*;
+import static com.example.postearevised.Miscellaneous.Enums.PasswordColorsEnum.STRONG_ENUM;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
 import static com.example.postearevised.Miscellaneous.Enums.SettingsPaneEnum.*;
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
@@ -948,6 +950,7 @@ public class SettingsModel {
         } else {
             setErrorChangingPasswordMaximumAttemptReached();
             setAccountDetailsEditFailedMaxLimitReached();
+            Platform.runLater(this::disableUsersFields);
         }
         mainController.mainModel.generateNotification();
         revertBackUsers();
@@ -1273,6 +1276,8 @@ public class SettingsModel {
         }
         editingAccountDetails();
         Platform.runLater(this::editingAccountDetails);
+        passwordIndicator();
+        Platform.runLater(this::passwordIndicator);
     }
 
     private void setAccountDetailsValue() {
@@ -1289,6 +1294,7 @@ public class SettingsModel {
         mainController.showConfirmNewPassword = false;
         mainController.textFieldAccountConfirmNewPassword.setText("");
         mainController.passwordFieldAccountConfirmNewPassword.setText("");
+        Platform.runLater(this::passwordIndicator);
     }
 
     private void editingAccountDetails() {
@@ -1560,6 +1566,129 @@ public class SettingsModel {
             Tooltip.uninstall(mainController.imageHideShowConfirmNewPasswordAccountSettings, hidePasswordToolTip);
             Tooltip.install(mainController.imageHideShowConfirmNewPasswordAccountSettings, showPasswordToolTip);
         }
+    }
+
+
+    /**
+     * Password Indicator
+     */
+    public String textPasswordIndicator = "";
+
+    public void passwordIndicator() {
+        if (!mainController.labelSettingsFillUpThisForm11.isVisible())
+            mainController.anchorPanePasswordIndicator.setVisible(true);
+
+        textPasswordIndicator = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        
+        if (textPasswordIndicator.isBlank()) {
+            emptyPassword();
+
+        } else {
+            int result = checkWeak();
+            if (result == 1) {
+                weakPassword();
+            } else {
+
+                result = checkFair();
+                if (result == 2) {
+                    fairPassword();
+                } else if (result == -1) {
+                    weakPassword();
+                } else {
+
+                    result = checkGood();
+                    if (result == 1) {
+                        weakPassword();
+                    } else if (result == 2) {
+                        fairPassword();
+                    } else if (result == 3) {
+                        goodPassword();
+                    } else {
+                        strongPassword();
+                    }
+                }
+            }
+
+        }
+    }
+
+    private int checkWeak() {
+        return (textPasswordIndicator.length() < 8) ? 1 : -1;
+    }
+
+    private int checkFair() {
+        if (textPasswordIndicator.length() < 8) return -1;
+
+        int criteriaMet = 0;
+        if (textPasswordIndicator.matches(".*[A-Z].*")) criteriaMet++;
+        if (textPasswordIndicator.matches(".*\\d.*")) criteriaMet++;
+        if (textPasswordIndicator.matches(".*[^A-Za-z0-9].*")) criteriaMet++;
+
+        return (criteriaMet == 1) ? 2 : 3;
+    }
+
+    private int checkGood() {
+        int criteriaMet = 0;
+        if (textPasswordIndicator.length() >= 8) {
+            criteriaMet++;
+        }
+        if (textPasswordIndicator.matches(".*[A-Z].*")) criteriaMet++;
+        if (textPasswordIndicator.matches(".*\\d.*")) criteriaMet++;
+        if (textPasswordIndicator.matches(".*[^A-Za-z0-9].*")) criteriaMet++;
+        return criteriaMet;
+    }
+
+    public void emptyPassword() {
+        mainController.isWeakPassword = true;
+        mainController.passwordRectangle1.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle2.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle3.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle4.setFill(WHITE_ENUM.getColor());
+        mainController.passwordIndicator.setVisible(false);
+    }
+
+    private void weakPassword() {
+        mainController.isWeakPassword = true;
+        mainController.passwordRectangle1.setFill(WEAK_ENUM.getColor());
+        mainController.passwordRectangle2.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle3.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle4.setFill(WHITE_ENUM.getColor());
+        mainController.passwordIndicator.setText(WEAK_ENUM.getText());
+        mainController.passwordIndicator.setTextFill(WEAK_ENUM.getColor());
+        mainController.passwordIndicator.setVisible(true);
+    }
+
+    private void fairPassword() {
+        mainController.isWeakPassword = false;
+        mainController.passwordRectangle1.setFill(FAIR_ENUM.getColor());
+        mainController.passwordRectangle2.setFill(FAIR_ENUM.getColor());
+        mainController.passwordRectangle3.setFill(WHITE_ENUM.getColor());
+        mainController.passwordRectangle4.setFill(WHITE_ENUM.getColor());
+        mainController.passwordIndicator.setText(FAIR_ENUM.getText());
+        mainController.passwordIndicator.setTextFill(FAIR_ENUM.getColor());
+        mainController.passwordIndicator.setVisible(true);
+    }
+
+    private void goodPassword() {
+        mainController.isWeakPassword = false;
+        mainController.passwordRectangle1.setFill(GOOD_ENUM.getColor());
+        mainController.passwordRectangle2.setFill(GOOD_ENUM.getColor());
+        mainController.passwordRectangle3.setFill(GOOD_ENUM.getColor());
+        mainController.passwordRectangle4.setFill(WHITE_ENUM.getColor());
+        mainController.passwordIndicator.setText(GOOD_ENUM.getText());
+        mainController.passwordIndicator.setTextFill(GOOD_ENUM.getColor());
+        mainController.passwordIndicator.setVisible(true);
+    }
+
+    private void strongPassword() {
+        mainController.isWeakPassword = false;
+        mainController.passwordRectangle1.setFill(STRONG_ENUM.getColor());
+        mainController.passwordRectangle2.setFill(STRONG_ENUM.getColor());
+        mainController.passwordRectangle3.setFill(STRONG_ENUM.getColor());
+        mainController.passwordRectangle4.setFill(STRONG_ENUM.getColor());
+        mainController.passwordIndicator.setText(STRONG_ENUM.getText());
+        mainController.passwordIndicator.setTextFill(STRONG_ENUM.getColor());
+        mainController.passwordIndicator.setVisible(true);
     }
 
 
