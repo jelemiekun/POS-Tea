@@ -140,6 +140,14 @@
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <Label focusTraversable="false" layoutX="360.0" layoutY="879.0" onMouseClicked="#labelContactADeveloperClickedTouched" onTouchReleased="#labelContactADeveloperClickedTouched" text="Contact a developer" textFill="#9e9e9e" underline="true">
+                     <font>
+                        <Font name="Arial Italic" size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
                     </children>
                 </AnchorPane>
             </children>
@@ -977,13 +985,5 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label focusTraversable="false" layoutX="1650.0" layoutY="15.0" onMouseClicked="#labelContactADeveloperClickedTouched" onTouchReleased="#labelContactADeveloperClickedTouched" text="Contact a developer" underline="true">
-         <font>
-            <Font name="Arial Italic" size="22.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
     </children>
 </AnchorPane>

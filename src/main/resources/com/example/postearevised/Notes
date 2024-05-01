@@ -4,6 +4,7 @@
     //kapag dinelete product, bast HINDI MADDELETE PHOTO SA DIRECTORY
     //lagyan somewhere na clean unused resources (photos/logs) button
     //ayusin logics ng fields/buttons sa settings - account
+    //ayusin system manual word (wala yung how to manually transfer local database)
 
 ------------------MGA ITATANONG------------------
 

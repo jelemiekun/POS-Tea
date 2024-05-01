@@ -721,8 +721,7 @@ public class SettingsModel {
         boolean proceed = checkPane1Changes();
 
         if (proceed && !mainController.textFieldAccountGivenName.isDisabled()) {
-            disableOtherAccountEditButtons(5);
-            mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+            disableUsersFields();
         }
 
         if (proceed) {
@@ -842,6 +841,20 @@ public class SettingsModel {
         mainController.anchorPaneSettingsAccountUsers.setPrefHeight(600);
     }
 
+    private void disableUsersFields() {
+        mainController.comboBoxAccountName.setDisable(true);
+        mainController.textFieldAccountGivenName.setDisable(true);
+        mainController.textFieldAccountMiddleName.setDisable(true);
+        mainController.textFieldAccountLastName.setDisable(true);
+        mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
+        mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
+        disableOtherAccountEditButtons(5);
+
+        mainController.detectChangesUsers = false;
+
+        mainController.anchorPaneSettingsAccount.requestFocus();
+    }
+
     private void removeAdditionalElements() {
         mainController.anchorPaneSettingsAccountUsers.getChildren().removeAll(mainController.imagePencilSettingsAccount12, mainController.labelNewUserPassword, mainController.passwordFieldAccountNewUser, mainController.labelSettingsFillUpThisForm12, mainController.labelNewUserPasswordImportant);
 
@@ -891,7 +904,7 @@ public class SettingsModel {
                     return true;
                 }
             } else {
-                return true;
+                return isNewUserFieldsAllEmpty();
             }
         } else {
             return true;
@@ -938,7 +951,7 @@ public class SettingsModel {
         revertToOldValuesPane1();
         mainController.mainModel.populateFullNamesObservableList();
         setComboBoxToDefault();
-        disableOtherAccountEditButtons(5);
+        disableUsersFields();
     }
 
     private void setComboBoxToDefault() {
@@ -963,15 +976,37 @@ public class SettingsModel {
         return true;
     }
 
+    private boolean isNewUserFieldsAllEmpty() {
+        boolean isAllEmpty = mainController.textFieldAccountGivenName.getText().trim().isEmpty() && mainController.textFieldAccountLastName.getText().trim().isEmpty();
+
+        if (mainController.passwordFieldAccountNewUser != null) {
+            isAllEmpty = isAllEmpty && mainController.passwordFieldAccountNewUser.getText().trim().isEmpty();
+        }
+
+        if (isAllEmpty) {
+            putUsersInformation();
+            mainController.labelSettingsAccountEditFinishUsers.setText("EDIT USERS");
+        }
+
+        return isAllEmpty;
+    }
+
+    private void putUsersInformation() {
+        mainController.textFieldAccountGivenName.setText(accountReference.getFirstNames().get(0));
+        mainController.textFieldAccountMiddleName.setText(accountReference.getMiddleNames().get(0));
+        mainController.textFieldAccountLastName.setText(accountReference.getLastNames().get(0));
+    }
+
     private boolean isNewUserFieldsEmpty() {
         boolean isEmpty = mainController.textFieldAccountGivenName.getText().trim().isEmpty() && mainController.textFieldAccountLastName.getText().trim().isEmpty();
 
-        if (mainController.passwordFieldAccountNewUser.getText().trim().isEmpty()) {
-            mainController.labelNewUserPasswordImportant.setVisible(true);
-            isEmpty = true;
+        if (mainController.passwordFieldAccountNewUser != null) {
+            if (mainController.passwordFieldAccountNewUser.getText().trim().isEmpty()) {
+                mainController.labelSettingsFillUpThisForm12.setVisible(true);
+                isEmpty = true;
+            }
         }
 
-        System.out.println("line 975" + isEmpty);
         return isEmpty;
     }
 

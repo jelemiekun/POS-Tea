@@ -233,7 +233,7 @@ public class PromptContents {
 
         iconImageReference = QUESTION_MARK_ICON;
         promptHeaderText = "Forgot password?";
-        promptContentText = "Press 'Log out' to contact developer to reset your password, or press 'Stay' to keep trying.";
+        promptContentText = "Press 'Log out' and contact a developer to reset your password, or press 'Stay' to keep trying.";
         promptBtnLeftVisible = true;
         promptBtnCenterVisible = false;
         promptBtnRightVisible = true;
