@@ -24,22 +24,14 @@ public class InvoicePrinter {
         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
 
         if (printService != null) {
-            AttributeSet printServiceAttributes = printService.getAttributes();
-            PrinterState printerState = (PrinterState) printServiceAttributes.get(PrinterState.class);
-            if (printerState != null && printerState.equals(PrinterState.IDLE)) {
-                DocPrintJob printJob = printService.createPrintJob();
-                try {
-                    Doc doc = getDoc(content);
-                    printJob.print(doc, attributes);
-                } catch (PrintException e) {
-                    errorMessage = "Printer error: " + e.getMessage();
-                    logError(true);
-                    System.err.println("Printing error: " + e.getMessage());
-                }
-            } else {
-                errorMessage = "Printer is not ready to receive print jobs!";
+            DocPrintJob printJob = printService.createPrintJob();
+            try {
+                Doc doc = getDoc(content);
+                printJob.print(doc, attributes);
+            } catch (PrintException e) {
+                errorMessage = "Printer error: " + e.getMessage();
                 logError(true);
-                System.err.println("Printer is not ready to receive print jobs!");
+                System.err.println("Printing error: " + e.getMessage());
             }
         } else {
             errorMessage = "No printer found!";
