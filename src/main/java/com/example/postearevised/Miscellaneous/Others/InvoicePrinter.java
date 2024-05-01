@@ -16,37 +16,31 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.T
 public class InvoicePrinter {
 
     public static void printPOSReceipt(String content) {
-
-
-        content = Double.valueOf(content.size());
-
-        PrinterJob pj = PrinterJob.getPrinterJob();
-        pj.setPrintable(new BillPrintable(),getPageFormat(pj));
         try {
-            pj.print();
+            OutputStream outputStream = new FileOutputStream(TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY);
 
-        }
-        catch (PrinterException ex) {
-            ex.printStackTrace();
+            PrinterJob printerJob = PrinterJob.getPrinterJob();
+            printerJob.setPrintable((graphics, pageFormat, pageIndex) -> {
+                if (pageIndex > 0) {
+                    return Printable.NO_SUCH_PAGE;
+                }
+
+                String[] lines = content.split("\n");
+                int y = (int) pageFormat.getImageableY();
+                Graphics2D g2d = (Graphics2D) graphics;
+                for (String line : lines) {
+                    System.out.println(line);
+                    g2d.drawString(line, (float) pageFormat.getImageableX(), y);
+                    y += g2d.getFontMetrics().getHeight();
+                }
+
+                return Printable.PAGE_EXISTS;
+            });
+
+            printerJob.print();
+
+            outputStream.close();
+        } catch (PrinterException | IOException ignored) {
         }
     }
-}
-
-public PageFormat getPageFormat(PrinterJob pj) {
-
-    PageFormat pf = pj.defaultPage();
-    Paper paper = pf.getPaper();
-
-    double bodyHeight = bHeight;
-    double headerHeight = 5.0;
-    double footerHeight = 5.0;
-    double width = cm_to_pp(8);
-    double height = cm_to_pp(headerHeight+bodyHeight+footerHeight);
-    paper.setSize(width, height);
-    paper.setImageableArea(0,10,width,height - cm_to_pp(1));
-
-    pf.setOrientation(PageFormat.PORTRAIT);
-    pf.setPaper(paper);
-
-    return pf;
 }
