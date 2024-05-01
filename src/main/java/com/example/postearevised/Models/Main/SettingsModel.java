@@ -1145,33 +1145,39 @@ public class SettingsModel {
             else
                 mainController.labelSettingsAccountEditFinishAccountDetails.setText("SAVE CHANGES");
 
-            mainController.detectChangesAccountDetails = false;
-            mainController.accountDetailsSubmittedOnce = false;
-            mainController.anchorPanePasswordIndicator.setDisable(true);
+            if (isShow)
+                resetPasswordFields();
+
+            editingAccountDetails();
         }
     }
 
     private boolean checkPane2Changes() {
         if (mainController.detectChangesAccountDetails) {
-            if (!accountDetailsRequiredFieldsNotBlank()) {
-                return false;
-            } else {
-                if (saveChanges(2)) {
-                    accountEditingProceed = false;
-
-                    getAccountDetailsChanges();
-
-                    if (updateAccountToAccountCSV(oldAccountReference, accountReference) && updatePhotosCSV(oldAccountReference, accountReference)) {
-                        editAccountDetailsSuccess();
-                        return true;
-                    } else {
-                        editAccountDetailsFailedCSV();
-                        return false;
-                    }
+            if (!isAccountDetailsFieldsEmpty()) {
+                if (!isAccountDetailsRequiredFieldsNotValid()) {
+                    return false;
                 } else {
-                    editAccountDetailsFailedIncorrectPassword();
-                    return true;
+                    if (saveChanges(2)) {
+                        accountEditingProceed = false;
+
+                        getAccountDetailsChanges();
+
+                        if (updateAccountToAccountCSV(oldAccountReference, accountReference) && updatePhotosCSV(oldAccountReference, accountReference)) {
+                            editAccountDetailsSuccess();
+                            return true;
+                        } else {
+                            editAccountDetailsFailedCSV();
+                            return false;
+                        }
+                    } else {
+                        editAccountDetailsFailedIncorrectPassword();
+                        return true;
+                    }
                 }
+            } else {
+                setAccountDetailsValue();
+                return true;
             }
         } else {
             return true;
@@ -1249,6 +1255,7 @@ public class SettingsModel {
                 disableEditAccountDetails();
                 mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
                 maxAttemptLimitReached = false;
+                editingAccountDetails();
             });
             maxAttemptLimitReached = false;
         } else {
@@ -1260,9 +1267,31 @@ public class SettingsModel {
                 disableEditAccountDetails();
                 mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
                 maxAttemptLimitReached = false;
+                editingAccountDetails();
             });
             maxAttemptLimitReached = false;
         }
+        editingAccountDetails();
+        Platform.runLater(this::editingAccountDetails);
+    }
+
+    private void setAccountDetailsValue() {
+        mainController.textFieldAccountContact.setText(accountReference.getContact());
+        resetPasswordFields();
+        editingAccountDetails();
+    }
+
+    private void resetPasswordFields() {
+        mainController.showNewPassword = false;
+        mainController.textFieldAccountNewPassword.setText("");
+        mainController.passwordFieldAccountNewPassword.setText("");
+
+        mainController.showConfirmNewPassword = false;
+        mainController.textFieldAccountConfirmNewPassword.setText("");
+        mainController.passwordFieldAccountConfirmNewPassword.setText("");
+    }
+
+    private void editingAccountDetails() {
         Platform.runLater(() -> {
             mainController.detectChangesAccountDetails = false;
             mainController.accountDetailsSubmittedOnce = false;
@@ -1305,7 +1334,15 @@ public class SettingsModel {
         isAddingProductsFromImport = false;
     }
 
-    private boolean accountDetailsRequiredFieldsNotBlank() {
+    private boolean isAccountDetailsFieldsEmpty() {
+        String account = mainController.textFieldAccountContact.getText().trim();
+        String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
+        String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
+
+        return account.isEmpty() && newPassword.isEmpty() && confirmNewPassword.isEmpty();
+    }
+
+    private boolean isAccountDetailsRequiredFieldsNotValid() {
         String account = mainController.textFieldAccountContact.getText().trim();
         String newPassword = mainController.showNewPassword ? mainController.textFieldAccountNewPassword.getText().trim() : mainController.passwordFieldAccountNewPassword.getText().trim();
         String confirmNewPassword = mainController.showConfirmNewPassword ? mainController.textFieldAccountConfirmNewPassword.getText().trim() : mainController.passwordFieldAccountConfirmNewPassword.getText().trim();
@@ -1560,6 +1597,9 @@ public class SettingsModel {
                 mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("EDIT SECURITY QUESTIONS");
             else
                 mainController.labelSettingsAccountEditFinishSecurityQuestions.setText("SAVE CHANGES");
+
+            mainController.textFieldAccountQuestionOne.setText(accountReference.getSecurityQuestionOneAnswer());
+            mainController.textFieldAccountQuestionTwo.setText(accountReference.getSecurityQuestionTwoAnswer());
 
             mainController.detectChangesRecoveryQuestion = false;
         }
