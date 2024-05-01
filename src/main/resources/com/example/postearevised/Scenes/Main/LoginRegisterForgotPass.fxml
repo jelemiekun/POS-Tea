@@ -971,9 +971,6 @@
                         </Label>
                     </children></AnchorPane>
             </children>
-         <cursor>
-            <Cursor fx:constant="WAIT" />
-         </cursor>
         </AnchorPane>
       <AnchorPane fx:id="anchorPaneResolutionTooLow" layoutY="440.0" prefHeight="200.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>

@@ -2327,34 +2327,19 @@
          <children>
             <AnchorPane layoutX="550.0" layoutY="275.0" prefHeight="500.0" prefWidth="820.0">
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="3.0" style="-fx-arc-width: 50px; -fx-arc-height: 50px;" width="820.0">
-                     <cursor>
-                        <Cursor fx:constant="WAIT" />
-                     </cursor></Rectangle>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="#5b5b5b" strokeType="INSIDE" strokeWidth="3.0" style="-fx-arc-width: 50px; -fx-arc-height: 50px;" width="820.0" />
                   <ImageView fitHeight="258.0" fitWidth="221.0" layoutX="301.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Medias/Icons/logo.png" />
                      </image>
-                     <cursor>
-                        <Cursor fx:constant="WAIT" />
-                     </cursor>
                   </ImageView>
                   <Label fx:id="labelLoading" alignment="CENTER" contentDisplay="CENTER" layoutX="24.0" layoutY="349.0" prefHeight="80.0" prefWidth="776.0" text="Loading." textAlignment="CENTER">
                      <font>
                         <Font name="Arial" size="45.0" />
                      </font>
-                     <cursor>
-                        <Cursor fx:constant="WAIT" />
-                     </cursor>
                   </Label>
-               </children>
-               <cursor>
-                  <Cursor fx:constant="WAIT" />
-               </cursor></AnchorPane>
+               </children></AnchorPane>
          </children>
-         <cursor>
-            <Cursor fx:constant="WAIT" />
-         </cursor>
       </AnchorPane>
       <FlowPane fx:id="flowPaneNotification" layoutX="728.0" layoutY="16.0" prefHeight="1.0" prefWidth="550.0" vgap="20.0" />
     </children>
