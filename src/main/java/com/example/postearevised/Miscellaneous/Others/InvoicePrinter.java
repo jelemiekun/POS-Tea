@@ -17,53 +17,22 @@ public class InvoicePrinter {
     public static void printPOSReceipt(String content) {
         Dialog dialog = getDialog();
         dialog.setAlwaysOnTop(true);
-
-        // Hide the dialog
         dialog.setVisible(false);
 
-        // Set print attributes
         PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
         attributes.add(new MediaPrintableArea(0, 0, 210, 297, MediaPrintableArea.MM));
         attributes.add(OrientationRequested.PORTRAIT);
         attributes.add(new Copies(1));
 
-        // Get the default print service
         PrintService printService = PrintServiceLookup.lookupDefaultPrintService();
 
         if (printService != null) {
-            // Create a new print job
             DocPrintJob printJob = printService.createPrintJob();
 
             try {
-                // Create a printable object
-                Printable printable = (graphics, pageFormat, pageIndex) -> {
-                    if (pageIndex > 0) {
-                        return Printable.NO_SUCH_PAGE;
-                    }
+                Doc doc = getDoc(content);
 
-                    Paper paper = new Paper();
-                    double width = 3.125 * 72;
-                    double height = pageFormat.getImageableHeight();
-                    paper.setSize(width, height);
-                    pageFormat.setPaper(paper);
-
-                    String[] lines = content.split("\n");
-                    int y = (int) pageFormat.getImageableY();
-                    Graphics2D g2d = (Graphics2D) graphics;
-                    for (String line : lines) {
-                        g2d.drawString(line, (float) pageFormat.getImageableX(), y);
-                        y += g2d.getFontMetrics().getHeight();
-                    }
-
-                    return Printable.PAGE_EXISTS;
-                };
-
-                // Create a Doc object
-                Doc doc = new SimpleDoc(printable, DocFlavor.SERVICE_FORMATTED.PRINTABLE, null);
-
-                // Print the document with specified attributes
                 printJob.print(doc, attributes);
-
             } catch (PrintException e) {
                 errorMessage = "Printer error: " + e.getMessage();
                 logError(true);
@@ -76,6 +45,36 @@ public class InvoicePrinter {
         }
 
         dialog.dispose();
+    }
+
+    private static Doc getDoc(String content) {
+        Printable printable = (graphics, pageFormat, pageIndex) -> {
+            if (pageIndex > 0) {
+                return Printable.NO_SUCH_PAGE;
+            }
+
+            Paper paper = new Paper();
+            double width = 3.125 * 72;
+            double height = pageFormat.getImageableHeight();
+            paper.setSize(width, height);
+            pageFormat.setPaper(paper);
+
+            String[] lines = content.split("\n");
+            int y = (int) pageFormat.getImageableY();
+            Graphics2D g2d = (Graphics2D) graphics;
+
+            Font font = new Font("Consolas", Font.PLAIN, 16);
+            g2d.setFont(font);
+
+            for (String line : lines) {
+                g2d.drawString(line, (float) pageFormat.getImageableX(), y);
+                y += g2d.getFontMetrics().getHeight();
+            }
+
+            return Printable.PAGE_EXISTS;
+        };
+
+        return new SimpleDoc(printable, DocFlavor.SERVICE_FORMATTED.PRINTABLE, null);
     }
 
     private static Dialog getDialog() {
