@@ -6,7 +6,6 @@ import javax.print.attribute.PrintRequestAttributeSet;
 import javax.print.attribute.standard.Copies;
 import javax.print.attribute.standard.MediaPrintableArea;
 import javax.print.attribute.standard.OrientationRequested;
-import javax.print.attribute.standard.PrinterName;
 import java.awt.*;
 import java.awt.print.*;
 
@@ -15,10 +14,6 @@ import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 public class InvoicePrinter {
 
     public static void printPOSReceipt(String content) {
-        Dialog dialog = getDialog();
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(false);
-
         PrintRequestAttributeSet attributes = new HashPrintRequestAttributeSet();
         attributes.add(new MediaPrintableArea(0, 0, 210, 297, MediaPrintableArea.MM));
         attributes.add(OrientationRequested.PORTRAIT);
@@ -31,7 +26,6 @@ public class InvoicePrinter {
 
             try {
                 Doc doc = getDoc(content);
-
                 printJob.print(doc, attributes);
             } catch (PrintException e) {
                 errorMessage = "Printer error: " + e.getMessage();
@@ -43,8 +37,6 @@ public class InvoicePrinter {
             logError(true);
             System.err.println("No printer found!");
         }
-
-        dialog.dispose();
     }
 
     private static Doc getDoc(String content) {
@@ -75,17 +67,5 @@ public class InvoicePrinter {
         };
 
         return new SimpleDoc(printable, DocFlavor.SERVICE_FORMATTED.PRINTABLE, null);
-    }
-
-    private static Dialog getDialog() {
-        Dialog dialog = new Dialog((Frame) null, "Print", false);
-        dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-            @Override
-            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                dialog.dispose();
-            }
-        });
-
-        return dialog;
     }
 }
