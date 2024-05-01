@@ -16,7 +16,7 @@ import static com.example.postearevised.Miscellaneous.References.FileReference.T
 public class InvoicePrinter {
 
     public static void printPOSReceipt(String content) {
-        
+
 
         content = Double.valueOf(content.size());
 
