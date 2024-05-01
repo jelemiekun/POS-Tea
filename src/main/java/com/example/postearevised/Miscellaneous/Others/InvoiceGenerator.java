@@ -92,7 +92,6 @@ public class InvoiceGenerator {
             try (FileWriter writer = new FileWriter(invocationCount == 1 ? TEXT_PATH_ORDER_RECEIPT_STORE_COPY : TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY/*, true*/)) {
                 writer.write(receiptContent);
 
-                //TODO invoice print
                 if (invocationCount == 2)
                     printPOSReceipt(receiptContent);
 
