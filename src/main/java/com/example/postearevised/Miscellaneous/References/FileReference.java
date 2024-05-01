@@ -2,6 +2,7 @@ package com.example.postearevised.Miscellaneous.References;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -87,12 +88,17 @@ public class FileReference {
             try {
                 Path sourcePath = Paths.get(Objects.requireNonNull(FileReference.class.getResource("/com/example/postearevised/POS-Tea System Manual.pdf")).toURI());
                 Path destinationDirectory = Paths.get(DIRECTORY_PATH);
-                Files.copy(sourcePath, destinationDirectory.resolve(sourcePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+
+                try (InputStream inputStream = FileReference.class.getResourceAsStream("/com/example/postearevised/POS-Tea System Manual.pdf")) {
+                    Files.copy(Objects.requireNonNull(inputStream), destinationDirectory.resolve(sourcePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                }
+
             } catch (IOException | URISyntaxException e) {
                 errorMessage = e.getMessage() + ". Cannot create a copy of system manual.";
                 logError(true);
             }
         }
     }
+
 
 }
