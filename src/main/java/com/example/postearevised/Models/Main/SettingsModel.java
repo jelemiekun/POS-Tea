@@ -2132,8 +2132,6 @@ public class SettingsModel {
 
     //TEXT MANUAL
 
-    //TODO AYUSIN NILALAMAN NG SYSTEM MANUAL
-
     public void updateInstallationGuide() {
         Text guide1 = new Text("1. ");
         guide1.setStyle("-fx-font-weight: bold;");

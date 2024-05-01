@@ -1948,7 +1948,7 @@
                                                                                                 </FlowPane>
                                                                                              </content>
                                                                                           </TitledPane>
-                                                                                          <TitledPane text="How to Delete Product?">
+                                                                                          <TitledPane text="How to Delete a Product?">
                                                                                              <content>
                                                                                                 <FlowPane alignment="TOP_CENTER">
                                                                                                    <children>
