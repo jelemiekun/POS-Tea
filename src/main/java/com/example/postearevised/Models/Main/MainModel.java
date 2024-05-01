@@ -63,7 +63,6 @@ public class MainModel {
             inputPasswordForThisUser();
         } else {
             selectUser();
-            mainController.settingsModel.setStyles(accountReference.getDisplayColor(), false);
         }
 
         if (mainController.loggedIn) {

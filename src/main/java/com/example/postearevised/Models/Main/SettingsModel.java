@@ -116,7 +116,6 @@ public class SettingsModel {
     }
 
     public void openSelectedPane(int paneNumber) {
-
         switch (paneNumber) {
             case 1: // Account
                 mainController.anchorPaneSettingsAccount.setVisible(true);
@@ -230,9 +229,15 @@ public class SettingsModel {
                 break;
         }
 
-        if (paneNumber != 5) {
+        if (paneNumber != 5)
             pauseVideo();
-        }
+
+        hidePasswordToolTipImage();
+    }
+
+    public void hidePasswordToolTipImage() {
+        mainController.passwordToolTipClicked = false;
+        mainController.passwordToolTipImage.setVisible(false);
     }
 
     private void setOrderIsOnGoing() {
@@ -603,6 +608,7 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm10.setVisible(false);
         mainController.labelSettingsFillUpThisForm11.setVisible(false);
         mainController.labelMiddleNameOptional.setVisible(false);
+        mainController.passwordToolTipImage.setVisible(false);
     }
 
     private void setSettingsAccountPane1TextFieldListeners() {
@@ -892,6 +898,7 @@ public class SettingsModel {
         mainController.comboBoxAccountName.setStyle(settingsAccountNameComboBoxStyle);
         mainController.comboBoxSettingsQuestionOne.setStyle(settingsAccountQuestionsComboBoxStyle);
         mainController.comboBoxSettingsQuestionTwo.setStyle(settingsAccountQuestionsComboBoxStyle);
+        mainController.settingsModel.setStyles(accountReference.getDisplayColor(), false);
     }
 
     private boolean checkPane1Changes() {

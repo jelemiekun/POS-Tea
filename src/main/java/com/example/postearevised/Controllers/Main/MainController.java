@@ -887,6 +887,7 @@ public class MainController implements Initializable {
     public boolean showNewPassword = false;
     public boolean showConfirmNewPassword = false;
     public boolean accountDetailsSubmittedOnce = false;
+    public boolean passwordToolTipClicked = false;
 
 
     public boolean isWeakPassword;
@@ -960,6 +961,8 @@ public class MainController implements Initializable {
 
     // ImageViews
     @FXML
+    public ImageView passwordToolTipImage;
+    @FXML
     public ImageView imagePencilSettingsAccount1;
     @FXML
     public ImageView imagePencilSettingsAccount2;
@@ -1025,17 +1028,25 @@ public class MainController implements Initializable {
 
     @FXML
     void passwordToolTipClickedTouched() {
-
+        passwordToolTipClicked = !passwordToolTipClicked;
+        passwordToolTipImage.setVisible(passwordToolTipClicked);
     }
 
     @FXML
     void passwordToolTipEntered() {
-
+        if (!passwordToolTipClicked)
+            passwordToolTipImage.setVisible(true);
     }
 
     @FXML
     void passwordToolTipExited() {
+        if (!passwordToolTipClicked)
+            passwordToolTipImage.setVisible(false);
+    }
 
+    @FXML
+    void onScrollTouchMoved() {
+        settingsModel.hidePasswordToolTipImage();
     }
 
     @FXML

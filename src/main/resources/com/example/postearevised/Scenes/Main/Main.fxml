@@ -766,7 +766,7 @@
                      <children>
                         <AnchorPane id="settingbackground1" layoutX="-1.0" layoutY="85.0" prefHeight="850.0" prefWidth="1322.0">
                            <children>
-                              <ScrollPane prefHeight="850.0" prefWidth="1322.0" style="-fx-background-color: white;">
+                              <ScrollPane onScroll="#onScrollTouchMoved" onTouchMoved="#onScrollTouchMoved" prefHeight="850.0" prefWidth="1322.0" style="-fx-background-color: white;">
                                 <content>
                                     <FlowPane fx:id="anchorPaneSettingsAccountInner" prefHeight="848.0" prefWidth="1307.0" style="-fx-background-color: white;">
                                        <children>
@@ -812,12 +812,12 @@
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </TextField>
-                                                <PasswordField fx:id="passwordFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyTyped="#settingsAccountNewPasswordTyping" onKeyPressed="#settingsAccountDetailsTyping" prefHeight="43.0" prefWidth="436.0">
+                                                <PasswordField fx:id="passwordFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyPressed="#settingsAccountDetailsTyping" onKeyTyped="#settingsAccountNewPasswordTyping" prefHeight="43.0" prefWidth="436.0">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
                                                 </PasswordField>
-                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyTyped="#settingsAccountNewPasswordTyping" onKeyPressed="#settingsAccountDetailsTyping" prefWidth="436.0" visible="false">
+                                                <TextField fx:id="textFieldAccountNewPassword" layoutX="580.0" layoutY="188.0" onKeyPressed="#settingsAccountDetailsTyping" onKeyTyped="#settingsAccountNewPasswordTyping" prefWidth="436.0" visible="false">
                                                    <font>
                                                       <Font name="Arial" size="24.0" />
                                                    </font>
@@ -1190,6 +1190,11 @@
                                     </FlowPane>
                                 </content>
                               </ScrollPane>
+                              <ImageView fx:id="passwordToolTipImage" fitHeight="220.0" fitWidth="330.0" pickOnBounds="true" preserveRatio="true" x="990.0" y="270.0">
+                              <image>
+                                 <Image url="@../../Medias/ToolTip/password%20tooltip.png" />
+                              </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                         <AnchorPane fx:id="anchorPaneAccountTopPanel" layoutX="-1.0" prefHeight="85.0" prefWidth="1322.0">
