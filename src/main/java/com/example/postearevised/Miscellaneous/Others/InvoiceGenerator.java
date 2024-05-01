@@ -97,8 +97,6 @@ public class InvoiceGenerator {
                     printPOSReceipt(receiptContent);
 
                 generateInvoice(order, ++invocationCount);
-                System.out.println("Invoice generated successfully.");
-
                 return receiptContent;
             } catch (IOException e) {
                 errorMessage = e.getMessage();
