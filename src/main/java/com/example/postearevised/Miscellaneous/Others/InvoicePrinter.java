@@ -56,7 +56,7 @@ public class InvoicePrinter {
             int y = (int) pageFormat.getImageableY();
             Graphics2D g2d = (Graphics2D) graphics;
 
-            Font font = new Font("Consolas", Font.PLAIN, 16);
+            Font font = new Font("Consolas", Font.PLAIN, 9);
             g2d.setFont(font);
 
             for (String line : lines) {
