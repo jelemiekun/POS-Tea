@@ -1391,7 +1391,11 @@ public class MainController implements Initializable {
     @FXML
     public void resetMedia() {
         mediaPlayer.seek(Duration.seconds(0.0));
-        mediaPlayer.play();
+        Platform.runLater(() -> {
+            isPlayed = false;
+            playMedia();
+            isPlayed = false;
+        });
     }
 
     @FXML

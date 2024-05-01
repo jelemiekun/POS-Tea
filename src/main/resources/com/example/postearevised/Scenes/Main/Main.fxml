@@ -1600,7 +1600,7 @@
                                                                <children>
                                                                   <Accordion fx:id="contentAccordionMenu" prefHeight="10.0" prefWidth="1100.0">
                                                                      <panes>
-                                                                        <TitledPane layoutX="15.0" layoutY="225.0" text="How to make an Order?">
+                                                                        <TitledPane layoutX="15.0" layoutY="225.0" text="How to make an order?">
                                                                            <content>
                                                                               <FlowPane alignment="TOP_CENTER">
                                                                                  <children>
@@ -1802,7 +1802,7 @@
                                                                                                 </FlowPane>
                                                                                              </content>
                                                                                           </TitledPane>
-                                                                                          <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to hide notifications and Guide messages?">
+                                                                                          <TitledPane expanded="false" prefHeight="10.0" prefWidth="1015.0" text="How to hide notifications and guide messages?">
                                                                                              <content>
                                                                                                 <FlowPane alignment="TOP_CENTER" prefHeight="10.0">
                                                                                                    <children>
@@ -1827,7 +1827,7 @@
                                                                                  <children>
                                                                                     <Accordion fx:id="contentAccordionEditProducts" prefHeight="10.0" prefWidth="1100.0">
                                                                                        <panes>
-                                                                                          <TitledPane prefHeight="492.0" prefWidth="1015.0" text="How to Add Product?">
+                                                                                          <TitledPane prefHeight="492.0" prefWidth="1015.0" text="How to add product?">
                                                                                              <content>
                                                                                                 <FlowPane alignment="TOP_CENTER">
                                                                                                    <children>
@@ -1840,7 +1840,7 @@
                                                                                                 </FlowPane>
                                                                                              </content>
                                                                                           </TitledPane>
-                                                                                          <TitledPane prefHeight="229.0" prefWidth="948.0" text="How to edit the existing product?">
+                                                                                          <TitledPane prefHeight="229.0" prefWidth="948.0" text="How to edit an existing product?">
                                                                                              <content>
                                                                                                 <FlowPane alignment="TOP_CENTER" prefHeight="200.0">
                                                                                                    <children>
@@ -1935,7 +1935,7 @@
                                                                                                 </FlowPane>
                                                                                              </content>
                                                                                           </TitledPane>
-                                                                                          <TitledPane text="How to enable/disable the product if it is not available/unavailable?">
+                                                                                          <TitledPane text="How to toggle availability of a product?">
                                                                                              <content>
                                                                                                 <FlowPane alignment="TOP_CENTER">
                                                                                                    <children>

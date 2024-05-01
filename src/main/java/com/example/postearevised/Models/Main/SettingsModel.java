@@ -2138,7 +2138,7 @@ public class SettingsModel {
         Text guide1 = new Text("1. ");
         guide1.setStyle("-fx-font-weight: bold;");
         Text guide2 = new Text("Download the program from Google Drive.\n");
-        Text guide3 = new Text("-Users will need to download the application from the developers’ Google Drive\n\n");
+        Text guide3 = new Text("-Users will need to download the application from the developers’ Google Drive.\n\n");
 
         Text guide4 = new Text("2. ");
         guide4.setStyle("-fx-font-weight: bold;");
@@ -2147,8 +2147,8 @@ public class SettingsModel {
 
         Text guide7 = new Text("3. ");
         guide7.setStyle("-fx-font-weight: bold;");
-        Text guide8 = new Text(":Run the JDK 21.\n");
-        Text guide9 = new Text("- After the file has been extraced, a pop-up window will open. To proceed, click the 'Yes' button continuously until setup is finished.\n\n");
+        Text guide8 = new Text("Run the JDK 21.\n");
+        Text guide9 = new Text("- After the file has been extracted, a pop-up window will open. To proceed, click the 'Yes' button continuously until setup is finished.\n\n");
 
         Text guide10 = new Text("4. ");
         guide10.setStyle("-fx-font-weight: bold;");
@@ -2246,7 +2246,7 @@ public class SettingsModel {
         Text num7 = new Text("\n\n7. ");
         num7.setStyle("-fx-font-weight: bold;");
         Text menu71 = new Text("Select the preferred ");
-        Text menu72 = new Text("Payment Method ");
+        Text menu72 = new Text("Payment Method");
         menu72.setStyle("-fx-font-weight: bold;");
         Text menu73 = new Text(".");
 
@@ -2289,11 +2289,11 @@ public class SettingsModel {
         Text menu32 = new Text("Cash ");
         menu32.setStyle("-fx-font-weight: bold;");
         Text menu33 = new Text("or ");
-        Text menu34 = new Text("Gcash ");
+        Text menu34 = new Text("GCash ");
         menu34.setStyle("-fx-font-weight: bold;");
         Text menu35 = new Text("or ");
         Text menu36 = new Text("Others ");
-        menu34.setStyle("-fx-font-weight: bold;");
+        menu36.setStyle("-fx-font-weight: bold;");
         Text menu37 = new Text("as a payment method.");
 
         mainController.menuText7.getChildren().addAll(num1,menu11,menu12,menu13,
@@ -2319,18 +2319,18 @@ public class SettingsModel {
 
         Text num2 = new Text("\n\n2. ");
         num2.setStyle("-fx-font-weight: bold;");
-        Text queue21 = new Text(" Make an order.");
+        Text queue21 = new Text("Make an order.");
 
         Text num3 = new Text("\n\n3. ");
         num3.setStyle("-fx-font-weight: bold;");
         Text queue31 = new Text("Go to ");
-        Text queue32 = new Text("“Order Queue Page” ");
+        Text queue32 = new Text("“Order Queue” ");
         queue32.setStyle("-fx-font-weight: bold;");
-        Text queue33 = new Text("and you will see the order you made.");
+        Text queue33 = new Text("page and you will see the order you made.");
 
         Text num4 = new Text("\n\n4. ");
         num4.setStyle("-fx-font-weight: bold;");
-        Text queue41 = new Text("Click ");
+        Text queue41 = new Text("Click the ");
         Text queue42 = new Text("“Done” ");
         queue42.setStyle("-fx-font-weight: bold;");
         Text queue43 = new Text("button if the order is already served.");
@@ -2378,7 +2378,7 @@ public class SettingsModel {
     }
 
     private void updateManualOrderHistoryHowToViewFullOrderDetails() {
-        Text order1 = new Text("To view the full details of an order, double click a row that you want to select.");
+        Text order1 = new Text("To view the full details of an order, double click a row that you want to select.\n");
 
         mainController.orderHistoryText2.getChildren().addAll(order1);
         mainController.orderHistoryText2.setStyle("-fx-font-size: 16; -fx-cursor: text;");
@@ -2401,7 +2401,7 @@ public class SettingsModel {
         Text order8 = new Text("Click the ");
         Text order9 = new Text("“Delete Record” ");
         order9.setStyle("-fx-font-weight: bold;");
-        Text order10 = new Text("butto.");
+        Text order10 = new Text("button.");
 
         Text order11 = new Text("\n\n4. ");
         order11.setStyle("-fx-font-weight: bold;");
@@ -2424,50 +2424,96 @@ public class SettingsModel {
         account1.setStyle("-fx-font-weight: bold; -fx-font-size: 25;");
         account2.setStyle("-fx-font-size: 25;");
 
-        Text account21 = new Text("1. Click the edit account details button.\n\n");
-        Text account22 = new Text("2. Fill up your new contact info and then your new password and do the same in the confirm password.\n\n");
-        Text account23 = new Text("3. After filling up your new password click finish editing.\n\n");
-        Text account24 = new Text("4. For security reasons type in your old password and click done.");
+        Text account21 = new Text("1. ");
+        account21.setStyle("-fx-font-weight: bold;");
+        Text account21a = new Text("Click the ");
+        Text account21b = new Text("“Edit Account Details” ");
+        account21b.setStyle("-fx-font-weight: bold;");
+        Text account21c = new Text("button.\n\n");
+        Text account22 = new Text("2. ");
+        account22.setStyle("-fx-font-weight: bold;");
+        Text account22a = new Text("Fill up your new contact information or your new password to new password and confirm new password\n\n");
+        Text account23 = new Text("3. ");
+        account23.setStyle("-fx-font-weight: bold;");
+        Text account23a = new Text("After filling up your new account details, click finish editing.\n\n");
+        Text account24 = new Text("4. ");
+        account24.setStyle("-fx-font-weight: bold;");
+        Text account24a = new Text("Type in your account password and click done.");
 
-        mainController.accountText2.getChildren().addAll(account21,account22,account23,account24);
+        mainController.accountText2.getChildren().addAll(account21,account21a,account21b,account21c,account22,account22a,account23,account23a,account24,account24a);
         mainController.accountText2.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
 
-        Text account31 = new Text("1. Click the edit security questions button.\n\n");
-        Text account32 = new Text("2. Fill up your new answer in one of the questions in the text field.\n\n");
-        Text account33 = new Text("3. After filling up your new password click the finish editing.\n\n");
-        Text account34 = new Text("4. For security reasons type in your current password and click done.");
+        Text account31 = new Text("1. ");
+        account31.setStyle("-fx-font-weight: bold;");
+        Text account31a = new Text("Click the ");
+        Text account31b = new Text("“Edit Security Question” ");
+        account31b.setStyle("-fx-font-weight: bold;");
+        Text account31c = new Text("button.\n\n");
+        Text account32 = new Text("2. ");
+        account32.setStyle("-fx-font-weight: bold;");
+        Text account32a = new Text("Select a new recovery question or fill up your new answer in one of the question in the text field.\n\n");
+        Text account33 = new Text("3. ");
+        account33.setStyle("-fx-font-weight: bold;");
+        Text account33a = new Text("After filling up your new account details, click the finish editing.\n\n");
+        Text account34 = new Text("4. ");
+        account34.setStyle("-fx-font-weight: bold;");
+        Text account34a = new Text("Type in your account password and click done.");
 
-        mainController.accountText3.getChildren().addAll(account31,account32,account33,account34);
+        mainController.accountText3.getChildren().addAll(account31,account31a,account31b,account31c,account32,account32a,account33,account33a,account34,account34a);
         mainController.accountText3.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
 
-        Text account41 = new Text("1. Click the edit user’s button.\n\n");
-        Text account42 = new Text("2. Click the dropdown button in the name and select Add user.\n\n");
-        Text account43 = new Text("3. Fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
-        Text account44 = new Text("4. After filling up the information click finish editing.\n\n");
-        Text account45 = new Text("5. For security reasons type in your current password and click done.");
+        Text account41 = new Text("1. ");
+        account41.setStyle("-fx-font-weight: bold;");
+        Text account41a = new Text("Click the ");
+        Text account41b = new Text("“Edit Users” ");
+        account41b.setStyle("-fx-font-weight: bold;");
+        Text account41c = new Text("button.\n\n");
+        Text account42 = new Text("2. ");
+        account42.setStyle("-fx-font-weight: bold;");
+        Text account42a = new Text("Fill up the necessary details such as given name, middle name (optional), surname, and password.\n\n");
+        Text account43 = new Text("3. ");
+        account43.setStyle("-fx-font-weight: bold;");
+        Text account43a = new Text("After filling up your new account details, click the finish editing.\n\n");
+        Text account44 = new Text("4. ");
+        account44.setStyle("-fx-font-weight: bold;");
+        Text account44a = new Text("Type in your account password and click done.");
 
-        mainController.accountText4.getChildren().addAll(account41,account42,account43,account44,account45);
+        mainController.accountText4.getChildren().addAll(account41,account41a,account41b,account41c,account42,account42a,account43,account43a,account44,account44a);
         mainController.accountText4.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
 
-        Text account51 = new Text("1. Click the store's photo or the user name on the upper left.\n\n");
-        Text account52 = new Text("2. Select the user you want to switch to.\n\n");
-        Text account53 = new Text("3. Type this user's password.");
+        Text account51 = new Text("1. ");
+        account51.setStyle("-fx-font-weight: bold;");
+        Text account51a = new Text("Click the store's photo or the username on the upper left.\n\n");
+        Text account52 = new Text("2. ");
+        account52.setStyle("-fx-font-weight: bold;");
+        Text account52a = new Text("Select a user you want to switch to.\n\n");
+        Text account53 = new Text("3. ");
+        account53.setStyle("-fx-font-weight: bold;");
+        Text account53a = new Text("Input user's password.\n\n");
 
-        mainController.accountText5.getChildren().addAll(account51,account52,account53);
+        mainController.accountText5.getChildren().addAll(account51,account51a,account52,account52a,account53,account53a);
         mainController.accountText5.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
     }
 
     public void updateAppearanceSettings() {
-        Text app1 = new Text("1. Go to settings and click Appearance.\n\n");
-        Text app2 = new Text("2. Under Display Choose one of the background themes such as light, dark, beige, blue, cream, or green.");
+        Text app1 = new Text("1. ");
+        app1.setStyle("-fx-font-weight: bold;");
+        Text app1a = new Text("Go to settings and click Appearance.\n\n");
+        Text app2 = new Text("2. ");
+        app2.setStyle("-fx-font-weight: bold;");
+        Text app2a = new Text("Under Display Choose one of the background themes such as light, dark, beige, blue, cream, or green.");
 
-        mainController.appearanceText1.getChildren().addAll(app1,app2);
+        mainController.appearanceText1.getChildren().addAll(app1,app1a,app2,app2a);
         mainController.appearanceText1.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
 
-        Text app21 = new Text("1. Go to settings and click Appearance.\n\n");
-        Text app22 = new Text("2. Under notification and guide message click the check box if you want to hide it.");
+        Text app3 = new Text("1. ");
+        app3.setStyle("-fx-font-weight: bold;");
+        Text app3a = new Text("Go to settings and click Appearance.\n\n");
+        Text app4 = new Text("2. ");
+        app4.setStyle("-fx-font-weight: bold;");
+        Text app4a = new Text("Under notification and guide message click the check box if you want to hide it.");
 
-        mainController.appearanceText2.getChildren().addAll(app21,app22);
+        mainController.appearanceText2.getChildren().addAll(app3,app3a,app4,app4a);
         mainController.appearanceText2.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
     }
 
@@ -2512,6 +2558,7 @@ public class SettingsModel {
         Text menu43 = new Text("of the product.");
 
         Text num5 = new Text("\n\n5. ");
+        num5.setStyle("-fx-font-weight: bold;");
         Text menu51 = new Text("Add Sizes ");
         menu51.setStyle("-fx-font-weight: bold;");
         Text menu52 = new Text("(Milk Tea/Coolers), ");
@@ -2530,6 +2577,7 @@ public class SettingsModel {
         Text menu511 = new Text("(All Categories), ");
 
         Text num6 = new Text("\n\n6. ");
+        num6.setStyle("-fx-font-weight: bold;");
         Text menu61 = new Text("Click ");
         Text menu62 = new Text('"' + "ADD" + '"');
         menu62.setStyle("-fx-font-weight: bold;");
@@ -2587,7 +2635,7 @@ public class SettingsModel {
 
         Text num2 = new Text("\n\n2. ");
         num2.setStyle("-fx-font-weight: bold;");
-        Text menu21 = new Text("  On the table, there is a Box on the column ");
+        Text menu21 = new Text("On the table, there is a Box on the column ");
         Text menu22 = new Text("“Available”.");
         menu22.setStyle("-fx-font-weight: bold;");
 
