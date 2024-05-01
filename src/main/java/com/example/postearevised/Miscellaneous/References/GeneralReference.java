@@ -19,4 +19,5 @@ public class GeneralReference {
     public static Tooltip showPasswordToolTip = new Tooltip("Show password");
     public static Tooltip hidePasswordToolTip = new Tooltip("Hide password");
     public static final String TERMS_AND_CONDITIONS_LAST_UPDATE = "April 28, 2024";
+    public static final String WEBSITE = "https://08abellagabriel.wixsite.com/pos-tea";
 }

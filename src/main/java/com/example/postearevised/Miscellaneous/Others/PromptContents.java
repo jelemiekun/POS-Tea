@@ -534,6 +534,40 @@ public class PromptContents {
         btnRightBoolean = false;
     }
 
+    public static void setOpenWebsiteNotSupported() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Unable to open website";
+        promptContentText = "Desktop browsing is not supported on this platform.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
+    public static void setUnableToOpenWebsite() {
+        setIsConfirmedToFalse();
+
+        iconImageReference = QUESTION_MARK_ICON;
+        promptHeaderText = "Unable to open website";
+        promptContentText = "An unexpected error occurred. Please try again or contact a developer.";
+        promptBtnLeftVisible = false;
+        promptBtnCenterVisible = true;
+        promptBtnRightVisible = false;
+        btnLeftImageReference = OKAY_BLACK_BUTTON;
+        btnCenterImageReference = OKAY_BLACK_BUTTON;
+        btnRightImageReference = OKAY_BLACK_BUTTON;
+        btnLeftBoolean = true;
+        btnCenterBoolean = true;
+        btnRightBoolean = true;
+    }
+
     public static void setExportSuccessful(String filePath) {
         setIsConfirmedToFalse();
 
@@ -573,7 +607,7 @@ public class PromptContents {
 
         iconImageReference = TRIANGLE_RED_ICON;
         promptHeaderText = "Error Encountered";
-        promptContentText = "Error during execution. Check error details for more info.";
+        promptContentText = "An unexpected error occurred. Please try again or contact a developer.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -862,7 +896,7 @@ public class PromptContents {
 
         iconImageReference = EX_RED_ICON;
         promptHeaderText = "Failed to create account.";
-        promptContentText = "Failed to create an account. Please try again later.";
+        promptContentText = "\"An unexpected error occurred. Please try again or contact a developer.\"";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;
@@ -879,7 +913,7 @@ public class PromptContents {
 
         iconImageReference = EX_RED_ICON;
         promptHeaderText = "Failed to delete account.";
-        promptContentText = "Failed to delete the account. Please try again later.";
+        promptContentText = "An unexpected error occurred. Please try again or contact a developer.";
         promptBtnLeftVisible = false;
         promptBtnCenterVisible = true;
         promptBtnRightVisible = false;

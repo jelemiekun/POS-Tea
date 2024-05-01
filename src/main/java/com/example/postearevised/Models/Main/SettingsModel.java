@@ -15,6 +15,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -40,6 +41,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.net.URL;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -2376,8 +2378,13 @@ public class SettingsModel {
     public void updateInstallationGuide() {
         Text guide1 = new Text("1. ");
         guide1.setStyle("-fx-font-weight: bold;");
-        Text guide2 = new Text("Download the program from Google Drive.\n");
-        Text guide3 = new Text("-Users will need to download the application from the developers’ Google Drive.\n\n");
+        Text guide2 = new Text("Download the program from the website.\n");
+        Text guide3 = new Text("-Users will need to download the application from ");
+        Text guide3a = new Text(WEBSITE);
+        guide3a.setCursor(Cursor.HAND);
+        guide3a.setOnMouseClicked(event -> openWebsite());
+        guide3a.setOnTouchPressed(event -> openWebsite());
+        Text guide3b = new Text(".\n\n");
 
         Text guide4 = new Text("2. ");
         guide4.setStyle("-fx-font-weight: bold;");
@@ -2394,8 +2401,26 @@ public class SettingsModel {
         Text guide11 = new Text("Open the POS-tea Jar File. \n");
         Text guide12 = new Text("-After successfully running the JDK, user(s) can now access the system by selecting the previously downloaded POS-Tea Jar file.");
 
-        mainController.guideText1.getChildren().addAll(guide1,guide2,guide3,guide4,guide5,guide6,guide7,guide8,guide9,guide10,guide11,guide12);
+        mainController.guideText1.getChildren().addAll(guide1,guide2,guide3,guide3a,guide3b,guide4,guide5,guide6,guide7,guide8,guide9,guide10,guide11,guide12);
         mainController.guideText1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-padding: 0 0 15 0;");
+    }
+
+    private void openWebsite() {
+        try {
+            Desktop desktop = Desktop.getDesktop();
+            if (desktop.isSupported(Desktop.Action.BROWSE)) {
+                URI uri = new URI(WEBSITE);
+                desktop.browse(uri);
+            } else {
+                setOpenWebsiteNotSupported();
+                mainController.mainModel.openPrompt();
+            }
+        } catch (Exception e) {
+            setUnableToOpenWebsite();
+            mainController.mainModel.openPrompt();
+            errorMessage = e.getMessage();
+            logError(false);
+        }
     }
 
     //DASHBOARD
@@ -2413,7 +2438,7 @@ public class SettingsModel {
                 TOTAL REVENUE
                 TOTAL CUSTOMER
                 TOTAL ORDER
-                TOP SELLING MENU FOOD CATEGORIES
+                ALL TIME FAVORITES
                 """);
         dashboard6.setStyle("-fx-font-weight: bold;");
 
@@ -2617,9 +2642,12 @@ public class SettingsModel {
     }
 
     private void updateManualOrderHistoryHowToViewFullOrderDetails() {
-        Text order1 = new Text("To view the full details of an order, double click a row that you want to select.\n");
+        Text order1 = new Text("To view the full details of an order, \n");
+        Text order2 = new Text("double click");
+        order2.setStyle("-fx-font-weight: bold;");
+        Text order3 = new Text(" a row that you want to select.");
 
-        mainController.orderHistoryText2.getChildren().addAll(order1);
+        mainController.orderHistoryText2.getChildren().addAll(order1,order2,order3);
         mainController.orderHistoryText2.setStyle("-fx-font-size: 16; -fx-cursor: text;");
     }
 
@@ -2728,7 +2756,7 @@ public class SettingsModel {
         Text account52a = new Text("Select a user you want to switch to.\n\n");
         Text account53 = new Text("3. ");
         account53.setStyle("-fx-font-weight: bold;");
-        Text account53a = new Text("Input user's password.\n\n");
+        Text account53a = new Text("Input user's password.");
 
         mainController.accountText5.getChildren().addAll(account51,account51a,account52,account52a,account53,account53a);
         mainController.accountText5.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
@@ -2740,7 +2768,7 @@ public class SettingsModel {
         Text app1a = new Text("Go to settings and click Appearance.\n\n");
         Text app2 = new Text("2. ");
         app2.setStyle("-fx-font-weight: bold;");
-        Text app2a = new Text("Under Display Choose one of the background themes such as light, dark, beige, blue, cream, or green.");
+        Text app2a = new Text("Under display choose one of the background themes such as light, dark, beige, blue, cream, or green.");
 
         mainController.appearanceText1.getChildren().addAll(app1,app1a,app2,app2a);
         mainController.appearanceText1.setStyle("-fx-font-size: 16; -fx-cursor: text;-fx-padding: 0 0 15 0;");
@@ -2933,16 +2961,18 @@ public class SettingsModel {
         InputStream inputStream = getClass().getResourceAsStream("/com/example/postearevised/Medias/System Manual/windows-key-logo.png");
         Image windowsLogo = new Image(Objects.requireNonNull(inputStream));
         windowsKey.setImage(windowsLogo);
-        Text menu13 = new Text("+   R   ).");
+        Text menu13 = new Text("+   R   )");
         menu13.setStyle("-fx-font-weight: bold;");
+        Text menu13a = new Text(" on your keyboard.");
 
         Text num2 = new Text("\n\n\n2. ");
         num2.setStyle("-fx-font-weight: bold;");
         Text menu21 = new Text("Run ");
         menu21.setStyle("-fx-font-weight: bold;");
         Text menu22 = new Text("dialog box will open, then type ");
-        Text menu23 = new Text("“%APPDATA%”.");
+        Text menu23 = new Text("“%APPDATA%.");
         menu23.setStyle("-fx-font-weight: bold;");
+        Text menu23a = new Text(" (without quotation marks).");
 
         Text num3 = new Text("\n\n3. ");
         num3.setStyle("-fx-font-weight: bold;");
@@ -2976,12 +3006,12 @@ public class SettingsModel {
         Text menu63 = new Text("folder to your ");
         Text menu64 = new Text("flash drive ");
         menu64.setStyle("-fx-font-weight: bold;");
-        Text menu65 = new Text("the then paste it.");
+        Text menu65 = new Text("then paste it.");
 
-        mainController.menuHBox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13);
+        mainController.menuHBox1.getChildren().addAll(num1,menu11,menu12,windowsKey,menu13,menu13a);
         mainController.menuHBox1.setStyle("-fx-font-size: 16; -fx-cursor: text; -fx-pref-height: 10;");
         mainController.menuHBox1.setAlignment(Pos.CENTER_LEFT);
-        mainController.editProductsText10.getChildren().addAll(num2,menu21,menu22,menu23,
+        mainController.editProductsText10.getChildren().addAll(num2,menu21,menu22,menu23,menu23a,
                 num3,menu31,menu32,
                 num4,menu41,menu42,menu43,menu44,
                 num5,menu51,menu52,menu53,menu54,
@@ -3001,8 +3031,9 @@ public class SettingsModel {
         Text menu21 = new Text("Spotlight Search ");
         menu21.setStyle("-fx-font-weight: bold;");
         Text menu22 = new Text("will open, then type ");
-        Text menu23 = new Text("“~/Library/Application Support/”.");
+        Text menu23 = new Text("“~/Library/Application Support/”");
         menu23.setStyle("-fx-font-weight: bold;");
+        Text menu23a = new Text(" (without quotation marks).");
 
         Text num3 = new Text("\n\n3. ");
         num3.setStyle("-fx-font-weight: bold;");
@@ -3039,7 +3070,7 @@ public class SettingsModel {
         Text menu65 = new Text("the then paste it.");
 
         mainController.editProductsText11.getChildren().addAll(num1,menu11,menu12,
-                num2,menu21,menu22,menu23,
+                num2,menu21,menu22,menu23,menu23a,
                 num3,menu31,menu32,
                 num4,menu41,menu42,menu43,menu44,
                 num5,menu51,menu52,menu53,menu54,
@@ -3059,8 +3090,9 @@ public class SettingsModel {
         Text menu21 = new Text("Run Application ");
         menu21.setStyle("-fx-font-weight: bold;");
         Text menu22 = new Text("will open, then type ");
-        Text menu23 = new Text("“~/.config/”.");
+        Text menu23 = new Text("“~/.config/”");
         menu23.setStyle("-fx-font-weight: bold;");
+        Text menu23a = new Text(" (without quotation marks).");
 
         Text num3 = new Text("\n\n3. ");
         num3.setStyle("-fx-font-weight: bold;");
@@ -3097,7 +3129,7 @@ public class SettingsModel {
         Text menu65 = new Text("the then paste it.");
 
         mainController.editProductsText12.getChildren().addAll(num1,menu11,menu12,
-                num2,menu21,menu22,menu23,
+                num2,menu21,menu22,menu23,menu23a,
                 num3,menu31,menu32,
                 num4,menu41,menu42,menu43,menu44,
                 num5,menu51,menu52,menu53,menu54,
