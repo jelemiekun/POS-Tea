@@ -93,8 +93,8 @@ public class InvoiceGenerator {
                 writer.write(receiptContent);
 
                 //TODO invoice print
-                //if (invocationCount == 1)
-                    //printPOSReceipt(receiptContent);
+                if (invocationCount == 1)
+                    printPOSReceipt(receiptContent, TEXT_PATH_ORDER_RECEIPT_CUSTOMER_COPY);
 
                 generateInvoice(order, ++invocationCount);
                 System.out.println("Invoice generated successfully.");
