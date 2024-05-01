@@ -602,7 +602,6 @@ public class SettingsModel {
         mainController.labelSettingsFillUpThisForm9.setVisible(false);
         mainController.labelSettingsFillUpThisForm10.setVisible(false);
         mainController.labelSettingsFillUpThisForm11.setVisible(false);
-        mainController.anchorPanePasswordIndicator.setDisable(true);
         mainController.labelMiddleNameOptional.setVisible(false);
     }
 
@@ -1109,11 +1108,9 @@ public class SettingsModel {
     public void setSettingsAccountPane2(boolean isShow) {
         if (mainController.textFieldAccountContact.isDisabled()) {
             if (isShow) {
-                mainController.anchorPanePasswordIndicator.setDisable(false);
                 disableOtherAccountEditButtons(2);
                 oldAccountReference = accountReference.copy();
             } else {
-                mainController.anchorPanePasswordIndicator.setDisable(true);
                 disableOtherAccountEditButtons(5);
             }
         }
@@ -1124,7 +1121,6 @@ public class SettingsModel {
         boolean proceed = checkPane2Changes();
 
         if (proceed && !mainController.textFieldAccountContact.isDisabled()) {
-            mainController.anchorPanePasswordIndicator.setDisable(true);
             disableOtherAccountEditButtons(5);
         }
 
@@ -1208,12 +1204,13 @@ public class SettingsModel {
             mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(false);
             mainController.imageHideShowNewPasswordAccountSettings.setVisible(false);
             mainController.anchorPanePasswordIndicator.setVisible(true);
-            mainController.anchorPanePasswordIndicator.setDisable(true);
             mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
         });
         updateDirectoryFilePaths();
         clearFieldsPasswordTexts();
         disableEditAccountDetails();
+        Platform.runLater(this::passwordIndicator);
+        Platform.runLater(this::editingAccountDetails);
     }
 
     private void disableEditAccountDetails() {
@@ -1229,8 +1226,9 @@ public class SettingsModel {
         mainController.imageHideShowConfirmNewPasswordAccountSettings.setVisible(false);
         mainController.imageHideShowNewPasswordAccountSettings.setVisible(false);
         mainController.anchorPanePasswordIndicator.setVisible(true);
-        mainController.anchorPanePasswordIndicator.setDisable(true);
         mainController.labelSettingsAccountEditFinishAccountDetails.setText("EDIT ACCOUNT DETAILS");
+
+        Platform.runLater(this::resetPasswordFields);
     }
 
     private void editAccountDetailsFailedCSV() {
@@ -1289,11 +1287,15 @@ public class SettingsModel {
     private void resetPasswordFields() {
         mainController.showNewPassword = false;
         mainController.textFieldAccountNewPassword.setText("");
+        mainController.textFieldAccountNewPassword.setVisible(false);
         mainController.passwordFieldAccountNewPassword.setText("");
+        mainController.passwordFieldAccountNewPassword.setVisible(true);
 
         mainController.showConfirmNewPassword = false;
         mainController.textFieldAccountConfirmNewPassword.setText("");
+        mainController.textFieldAccountConfirmNewPassword.setVisible(false);
         mainController.passwordFieldAccountConfirmNewPassword.setText("");
+        mainController.passwordFieldAccountConfirmNewPassword.setVisible(true);
         Platform.runLater(this::passwordIndicator);
     }
 
@@ -1301,16 +1303,19 @@ public class SettingsModel {
         Platform.runLater(() -> {
             mainController.detectChangesAccountDetails = false;
             mainController.accountDetailsSubmittedOnce = false;
-            mainController.anchorPanePasswordIndicator.setDisable(true);
+
+            Platform.runLater(this::resetPasswordFields);
         });
     }
 
     private void updateDirectoryFilePaths() {
-        accountContactReference = accountReference.getContact();
-        setPaths();
+        if (!oldAccountReference.getContact().equals(accountReference.getContact())) {
+            accountContactReference = accountReference.getContact();
+            setPaths();
 
-        reloadOrderHistoryAndOrderQueueObservableList();
-        reloadProductsObservableList();
+            reloadOrderHistoryAndOrderQueueObservableList();
+            reloadProductsObservableList();
+        }
     }
 
     private void reloadOrderHistoryAndOrderQueueObservableList() {
