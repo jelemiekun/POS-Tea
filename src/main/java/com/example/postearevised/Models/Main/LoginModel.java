@@ -50,8 +50,15 @@ public class LoginModel {
     }
 
     public void checkIfResolutionIsTooLow() {
-        if (showResolutionTooLowMessage)
+        if (showResolutionTooLowMessage) {
+            double layoutY = ((double) screenResolution[1] / 2) - (loginRegisterForgotPassController.anchorPaneResolutionTooLow.getHeight() / 2);
+
+            loginRegisterForgotPassController.anchorPaneResolutionTooLow.setLayoutY(layoutY);
+
             loginRegisterForgotPassController.anchorPaneResolutionTooLow.setVisible(true);
+
+            loginRegisterForgotPassController.rectangleResolutionTooLow.setVisible(true);
+        }
     }
 
     private boolean confirmDeselectCheckbox() {

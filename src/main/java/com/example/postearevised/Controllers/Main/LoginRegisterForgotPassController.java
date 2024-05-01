@@ -359,6 +359,9 @@ public class LoginRegisterForgotPassController implements Initializable {
      * Resolution too low and Contact Developer
      */
     @FXML
+    public Rectangle rectangleResolutionTooLow;
+
+    @FXML
     public AnchorPane anchorPaneResolutionTooLow;
 
     @FXML

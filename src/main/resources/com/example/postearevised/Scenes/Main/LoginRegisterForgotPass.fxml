@@ -972,15 +972,16 @@
                     </children></AnchorPane>
             </children>
         </AnchorPane>
-      <AnchorPane fx:id="anchorPaneResolutionTooLow">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000cc" height="200.0" layoutY="311.0" stroke="#000000cc" strokeType="INSIDE" width="1920.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutY="311.0" prefHeight="200.0" prefWidth="1920.0" text="Screen resolution too low. For best experience, use 1920x1080 or higher." textAlignment="CENTER" textFill="WHITE" wrapText="true">
-               <font>
-                  <Font name="Arial Bold" size="52.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+      <Rectangle fx:id="rectangleResolutionTooLow" arcHeight="5.0" arcWidth="5.0" fill="#00000066" height="1050.0" stroke="#00000066" strokeType="INSIDE" visible="false" width="1920.0" />
+        <AnchorPane fx:id="anchorPaneResolutionTooLow" layoutY="440.0" prefHeight="200.0" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000cc" height="200.0" stroke="#000000cc" strokeType="INSIDE" width="1920.0" />
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="200.0" prefWidth="1920.0" text="Screen resolution too low. For best experience, use 1920x1080 or similar." textAlignment="CENTER" textFill="WHITE" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font name="Arial Bold" size="52.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>
