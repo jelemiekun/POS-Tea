@@ -31,6 +31,7 @@ import java.util.ResourceBundle;
 
 import static com.example.postearevised.Miscellaneous.Database.CSV.Accounts.AccountCSV.*;
 import static com.example.postearevised.Miscellaneous.Enums.ScenesEnum.*;
+import static com.example.postearevised.Miscellaneous.Others.Resolution.*;
 import static com.example.postearevised.Miscellaneous.References.StageReference.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.*;
 import static com.example.postearevised.Miscellaneous.Enums.StartPane.Register;
@@ -82,10 +83,12 @@ public class LoginRegisterForgotPassController implements Initializable {
 
         Platform.runLater(() -> {
             if (directLogin) {
-                textFieldAccount.setText(loginAccount);
-                textFieldPassword.setText(loginPassword);
-                loginModel.checkInputsBeforeLogin();
-                fadeOutLoading();
+                if (!showResolutionTooLowMessage) {
+                    textFieldAccount.setText(loginAccount);
+                    textFieldPassword.setText(loginPassword);
+                    loginModel.checkInputsBeforeLogin();
+                    fadeOutLoading();
+                }
             }
         });
 

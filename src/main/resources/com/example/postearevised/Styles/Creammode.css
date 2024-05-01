@@ -82,6 +82,7 @@
 -fx-padding:10px;
 -fx-background-color:#fff3cf;
 -fx-text-fill:black;
+-fx-border-color:black;
 }
 #comboboxesdb .list-cell{
 -fx-background-color:#fff3cf;
