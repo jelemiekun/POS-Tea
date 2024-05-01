@@ -2,9 +2,12 @@ package com.example.postearevised.Miscellaneous.References;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.Objects;
 
 import static com.example.postearevised.Miscellaneous.Others.LogFile.*;
 import static com.example.postearevised.Miscellaneous.References.AccountReference.*;
@@ -82,13 +85,14 @@ public class FileReference {
 
         if (!pdfFile.exists()) {
             try {
-                Path sourcePath = Paths.get("src/main/resources/com/example/postearevised/POS-Tea System Manual.pdf");
+                Path sourcePath = Paths.get(Objects.requireNonNull(FileReference.class.getResource("/com/example/postearevised/POS-Tea System Manual.pdf")).toURI());
                 Path destinationDirectory = Paths.get(DIRECTORY_PATH);
-                Files.copy(sourcePath, destinationDirectory.resolve(sourcePath.getFileName()));
-            } catch (IOException e) {
+                Files.copy(sourcePath, destinationDirectory.resolve(sourcePath.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException | URISyntaxException e) {
                 errorMessage = e.getMessage() + ". Cannot create a copy of system manual.";
                 logError(true);
             }
         }
     }
+
 }
