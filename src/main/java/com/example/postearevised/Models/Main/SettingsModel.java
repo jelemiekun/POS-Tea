@@ -384,7 +384,7 @@ public class SettingsModel {
 
     private void isAddingProductSuccess() {
         if (!addedProductSuccess) {
-            removePhotoFromResources();
+            //removePhotoFromResources(); //commented so that all time favorites photos wil not be affected
             clearProductReferenceValues();
         }
         mainController.mainModel.hideRectangleModal();
