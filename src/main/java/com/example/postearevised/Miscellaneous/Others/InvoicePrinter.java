@@ -60,7 +60,7 @@ public class InvoicePrinter {
             paper.setSize(width, height);
             pageFormat.setPaper(paper);
 
-            String[] lines = content.split("\n");
+            String[] lines = content.split("(?<=\\n)");
             int y = (int) pageFormat.getImageableY();
             Graphics2D g2d = (Graphics2D) graphics;
 
