@@ -705,7 +705,7 @@ public class SettingsModel {
                     setFirstMiddleLastNameTextFields(index);
                 }
 
-                if (mainController.comboBoxAccountName.getValue().contains("Admin")) {
+                if (mainController.comboBoxAccountName.getValue().contains("(Admin)")) {
                     mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
                 }
 
@@ -734,6 +734,10 @@ public class SettingsModel {
             disableUsersFields();
         }
 
+        setSettingsAccountPane1Proceed(isShow, proceed);
+    }
+
+    private void setSettingsAccountPane1Proceed(boolean isShow, boolean proceed) {
         if (proceed) {
             mainController.imagePencilSettingsAccount1.setVisible(isShow);
             mainController.imagePencilSettingsAccount2.setVisible(isShow);
@@ -760,8 +764,8 @@ public class SettingsModel {
             else
                 mainController.labelSettingsAccountEditFinishUsers.setText("SAVE CHANGES");
 
-            if (!isShow)
-                revertBackUsers();
+//            if (!isShow)
+//                revertBackUsers();
 
             mainController.detectChangesUsers = false;
 
@@ -772,11 +776,6 @@ public class SettingsModel {
     public void deleteSelectedName() {
         int index = getComboBoxNameIndex();
 
-        System.out.println("line 733" + index + ", " +
-                accountReference.getFirstNames().size() +":" +
-                accountReference.getMiddleNames().size() +":" +
-                accountReference.getLastNames().size() +":" +
-                accountReference.getUserPasswords().size() +":");
         accountReference.getFirstNames().remove(index);
         accountReference.getMiddleNames().remove(index);
         accountReference.getLastNames().remove(index);
@@ -934,10 +933,22 @@ public class SettingsModel {
             setAccountUsersSuccessful();
             mainController.mainModel.generateNotification();
 
-            mainController.mainModel.populateFullNamesObservableList();
-            setNameToNewlyAddedName();
+            if (mainController.comboBoxAccountName.getValue().equals(addUser)) { // if add
+                mainController.mainModel.populateFullNamesObservableList();
+                setNameToNewlyAddedName();
+                setSettingsPane1SuccessDone();
+            } else {
+                int index = getComboBoxNameIndex();
+                mainController.mainModel.populateFullNamesObservableList();
+                setNameToEditedName(index);
 
-            disableOtherAccountEditButtons(5);
+                if (index == 0)
+                    updateProfileName();
+
+                setSettingsPane1SuccessDone();
+            }
+
+            setSettingsPane1SuccessDone();
             mainController.anchorPaneSettingsBtnDeleteUser.setVisible(false);
         } else {
             setErrorFailedToUpdateAccountToCSV();
@@ -949,6 +960,15 @@ public class SettingsModel {
             revertBackUsers();
         }
         return isSuccess;
+    }
+
+    private void setSettingsPane1SuccessDone() {
+        disableUsersFields();
+        Platform.runLater(this::disableUsersFields);
+    }
+
+    private void updateProfileName() {
+        mainController.labelProfileName.setText(usersNames.get(0));
     }
 
     private void failedInputPasswordForAccountAccountUpdate() {
@@ -1108,6 +1128,10 @@ public class SettingsModel {
         }
 
         return index;
+    }
+
+    private void setNameToEditedName(int index) {
+        Platform.runLater(() -> mainController.comboBoxAccountName.setValue(fullNames.get(index)));
     }
 
 
@@ -2348,6 +2372,7 @@ public class SettingsModel {
                 mainController.volumeSlider.setVisible(false);
                 setSystemManualVideoNotFound();
                 mainController.mainModel.openPrompt();
+                mainController.mainModel.showRectangleModal();
                 mainController.anchorPaneSystemManualVideo.setDisable(true);
             }
         });
